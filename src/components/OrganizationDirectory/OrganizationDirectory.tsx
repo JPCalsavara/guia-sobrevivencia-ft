@@ -10,12 +10,12 @@ export function OrganizationDirectory() {
 
   const categories = [
     { key: 'all', label: 'Todas as Entidades' },
-    { key: 'empresa_junior', label: 'Empresa Junior' },
-    { key: 'ti', label: 'Computacao e TI' },
-    { key: 'atletica', label: 'Atletica e Esportes' },
-    { key: 'carreira', label: 'Carreira e Negocios' },
-    { key: 'extensao', label: 'Extensao e Social' },
-    { key: 'comunidade_fe', label: 'Comunidades de Fe' },
+    { key: 'empresa_junior', label: 'Empresa Júnior' },
+    { key: 'ti', label: 'Computação e TI' },
+    { key: 'atletica', label: 'Atlética e Esportes' },
+    { key: 'carreira', label: 'Carreira e Negócios' },
+    { key: 'extensao', label: 'Extensão e Social' },
+    { key: 'comunidade_fe', label: 'Comunidades de Fé' },
     { key: 'regional', label: 'Ecossistema Regional' },
   ];
 

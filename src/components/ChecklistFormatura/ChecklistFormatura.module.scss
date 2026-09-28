@@ -6,7 +6,7 @@
   border: 1px solid var(--border-color);
   border-radius: $radius-lg;
   padding: $spacing-xl;
-  box-shadow: $shadow-md;
+  box-shadow: $shadow-sm;
 }
 
 .header {
@@ -29,7 +29,7 @@
 }
 
 .awardIcon {
-  color: var(--unicamp-red);
+  color: var(--ft-blue);
   flex-shrink: 0;
   margin-top: 0.25rem;
 }
@@ -69,14 +69,14 @@
 
 .gradeButton {
   @include button-base;
-  background-color: rgba(185, 28, 28, 0.1);
-  color: var(--unicamp-red);
-  border: 1px solid rgba(185, 28, 28, 0.3);
+  background-color: var(--ft-blue-soft);
+  color: var(--ft-blue);
+  border: 1px solid rgba(0, 93, 164, 0.3);
   font-size: 0.8125rem;
   white-space: nowrap;
 
   &:hover {
-    background-color: var(--unicamp-red);
+    background-color: var(--ft-blue);
     color: #ffffff;
   }
 }
@@ -101,7 +101,7 @@
 }
 
 .progressCount {
-  color: var(--primary-light);
+  color: var(--ft-blue);
   font-weight: 700;
 }
 
@@ -115,7 +115,7 @@
 
 .progressFill {
   height: 100%;
-  background: linear-gradient(90deg, var(--primary-light), var(--success));
+  background-color: var(--ft-green);
   border-radius: $radius-full;
   transition: width $transition-slow;
 }
@@ -139,15 +139,15 @@
 
   &:hover {
     background-color: var(--surface-elevated);
-    border-color: var(--primary-light);
+    border-color: var(--ft-blue);
   }
 
   &.itemDone {
-    border-color: rgba(5, 150, 105, 0.4);
-    background-color: rgba(5, 150, 105, 0.05);
+    border-color: rgba(0, 138, 71, 0.4);
+    background-color: var(--ft-green-soft);
 
     .itemTitle {
-      color: var(--success);
+      color: var(--ft-green);
     }
   }
 }
@@ -163,7 +163,7 @@
 }
 
 .checkedIcon {
-  color: var(--success);
+  color: var(--ft-green);
 }
 
 .uncheckedIcon {

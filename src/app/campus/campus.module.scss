@@ -10,7 +10,7 @@
 .pageHeader {
   text-align: center;
   max-width: 840px;
-  margin: 0 auto $spacing-3xl auto;
+  margin: 0 auto $spacing-2xl auto;
 }
 
 .headerBadge {
@@ -19,9 +19,9 @@
   gap: 0.5rem;
   padding: 0.375rem 0.875rem;
   border-radius: $radius-full;
-  background-color: rgba(185, 28, 28, 0.1);
-  color: var(--unicamp-red);
-  border: 1px solid rgba(185, 28, 28, 0.2);
+  background-color: var(--ft-green-soft);
+  color: var(--ft-green);
+  border: 1px solid rgba(0, 138, 71, 0.2);
   font-size: 0.8125rem;
   font-weight: 600;
   margin-bottom: $spacing-md;
@@ -45,6 +45,80 @@
   line-height: 1.7;
 }
 
+// Galeria de Fotos Institucionais
+.campusGallerySection {
+  margin-bottom: $spacing-3xl;
+}
+
+.galleryGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-xl;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.galleryCard {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-lg;
+  overflow: hidden;
+  box-shadow: $shadow-sm;
+  transition: transform $transition-fast, box-shadow $transition-fast;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+    border-color: var(--ft-blue);
+  }
+}
+
+.galleryImageWrapper {
+  width: 100%;
+  height: 220px;
+  position: relative;
+  background-color: var(--surface-elevated);
+}
+
+.galleryImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.galleryMeta {
+  padding: $spacing-lg;
+}
+
+.galleryTag {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.5rem;
+  border-radius: $radius-full;
+  background-color: var(--ft-blue-soft);
+  color: var(--ft-blue);
+  margin-bottom: $spacing-xs;
+}
+
+.galleryTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.375rem;
+}
+
+.galleryDesc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
 .sectionBlock {
   margin-bottom: $spacing-3xl;
 }
@@ -54,19 +128,18 @@
   border: 1px solid var(--border-color);
   border-radius: $radius-lg;
   padding: $spacing-xl;
-  box-shadow: $shadow-md;
+  box-shadow: $shadow-sm;
 }
 
 .cardHeader {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: $spacing-md;
   margin-bottom: $spacing-xl;
 }
 
 .headerIcon {
-  color: var(--unicamp-red);
-  margin-top: 0.25rem;
+  color: var(--ft-blue);
   flex-shrink: 0;
 }
 
@@ -74,7 +147,6 @@
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 0.25rem;
 }
 
 .cardSubtitle {
@@ -82,12 +154,10 @@
   color: var(--text-secondary);
 }
 
-// Salas Grid
 .roomsGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: $spacing-md;
-  margin-bottom: $spacing-2xl;
+  gap: $spacing-lg;
 
   @include respond-to('md') {
     grid-template-columns: repeat(3, 1fr);
@@ -95,10 +165,10 @@
 }
 
 .roomCard {
-  padding: $spacing-lg;
   background-color: var(--surface-elevated);
-  border-radius: $radius-md;
   border: 1px solid var(--border-color);
+  border-radius: $radius-md;
+  padding: $spacing-lg;
   display: flex;
   flex-direction: column;
 }
@@ -107,7 +177,7 @@
   font-size: 1rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: $spacing-xs;
+  margin-bottom: $spacing-sm;
 }
 
 .roomCardText {
@@ -124,24 +194,24 @@
   gap: 0.375rem;
   font-size: 0.8125rem;
   font-weight: 600;
-  color: var(--primary-light);
+  color: var(--ft-blue);
 
   &:hover {
     text-decoration: underline;
   }
 }
 
-// Justificativas
 .justificationArea {
-  padding-top: $spacing-2xl;
+  margin-top: $spacing-2xl;
   border-top: 1px solid var(--border-color);
+  padding-top: $spacing-xl;
 }
 
 .justTitle {
   font-size: 1.125rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: $spacing-xs;
+  margin-bottom: 0.375rem;
 }
 
 .justSubtitle {
@@ -154,7 +224,7 @@
 .justGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: $spacing-md;
+  gap: $spacing-lg;
 
   @include respond-to('md') {
     grid-template-columns: repeat(2, 1fr);
@@ -165,20 +235,20 @@
   display: flex;
   align-items: flex-start;
   gap: $spacing-md;
-  padding: $spacing-md;
   background-color: var(--surface-elevated);
+  padding: $spacing-lg;
   border-radius: $radius-md;
   border: 1px solid var(--border-color);
 }
 
 .justNumber {
-  width: 1.75rem;
-  height: 1.75rem;
+  width: 2rem;
+  height: 2rem;
   border-radius: $radius-full;
-  background-color: var(--primary-light);
-  color: #ffffff;
+  background-color: var(--ft-blue-soft);
+  color: var(--ft-blue);
   font-weight: 700;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   @include flex-center;
   flex-shrink: 0;
 }
@@ -193,14 +263,13 @@
 .justItemText {
   font-size: 0.8125rem;
   color: var(--text-secondary);
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
-// Transporte Grid
 .transportGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: $spacing-md;
+  gap: $spacing-lg;
 
   @include respond-to('md') {
     grid-template-columns: repeat(3, 1fr);
@@ -208,10 +277,10 @@
 }
 
 .transportCard {
-  padding: $spacing-lg;
   background-color: var(--surface-elevated);
-  border-radius: $radius-md;
   border: 1px solid var(--border-color);
+  border-radius: $radius-md;
+  padding: $spacing-lg;
   display: flex;
   flex-direction: column;
 }
@@ -220,7 +289,7 @@
   display: flex;
   align-items: center;
   gap: $spacing-sm;
-  color: var(--unicamp-red);
+  color: var(--ft-green);
   margin-bottom: $spacing-sm;
 }
 
@@ -244,29 +313,27 @@
   gap: 0.375rem;
   font-size: 0.8125rem;
   font-weight: 600;
-  color: var(--primary-light);
+  color: var(--ft-green);
 
   &:hover {
     text-decoration: underline;
   }
 }
 
-// Seção Entidades Intro
 .sectionIntro {
-  margin-bottom: $spacing-lg;
+  margin-bottom: $spacing-xl;
 }
 
 .introHeader {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: $spacing-md;
 }
 
-// Convivencia Grid
 .lifeGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: $spacing-md;
+  gap: $spacing-lg;
   margin-top: $spacing-lg;
 
   @include respond-to('md') {
@@ -275,17 +342,17 @@
 }
 
 .lifeCard {
-  padding: $spacing-lg;
   background-color: var(--surface-elevated);
-  border-radius: $radius-md;
   border: 1px solid var(--border-color);
+  border-radius: $radius-md;
+  padding: $spacing-lg;
 }
 
 .lifeTitle {
-  font-size: 0.9375rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: $spacing-xs;
+  margin-bottom: $spacing-sm;
 }
 
 .lifeText {

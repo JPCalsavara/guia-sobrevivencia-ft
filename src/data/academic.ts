@@ -6,44 +6,44 @@ export interface CourseComparison {
 
 export const courseComparisonData: CourseComparison[] = [
   {
-    criterion: 'Titulacao Oficial',
-    bsi: 'Bacharelado com diploma pleno de graduacao',
-    tads: 'Tecnologo com diploma pleno de graduacao',
+    criterion: 'Titulação Oficial',
+    bsi: 'Bacharelado com diploma pleno de graduação',
+    tads: 'Tecnólogo com diploma pleno de graduação',
   },
   {
-    criterion: 'Duracao Sugerida',
+    criterion: 'Duração Sugerida',
     bsi: 'Quatro anos letivos equivalentes a oito semestres',
-    tads: 'Tres anos letivos equivalentes a seis semestres',
+    tads: 'Três anos letivos equivalentes a seis semestres',
   },
   {
-    criterion: 'Prazo Maximo de Integralizacao DAC',
-    bsi: 'Ate quatorze semestres antes do risco de jubilamento',
-    tads: 'Ate dez semestres antes do risco de jubilamento',
+    criterion: 'Prazo Máximo de Integralização DAC',
+    bsi: 'Até quatorze semestres antes do risco de jubilamento',
+    tads: 'Até dez semestres antes do risco de jubilamento',
   },
   {
     criterion: 'Turno Principal de Aulas',
-    bsi: 'Integral e diurno com aulas pela manha e a tarde',
+    bsi: 'Integral e diurno com aulas pela manhã e à tarde',
     tads: 'Noturno com aulas a partir das dezenove horas',
   },
   {
     criterion: 'Perfil Curricular',
-    bsi: 'Maior fundamentacao teorica, calculo formal, administracao e governanca',
-    tads: 'Foco intensivo em desenvolvimento web, bancos de dados e engenharia pratica',
+    bsi: 'Maior fundamentação teórica, cálculo formal, administração e governança',
+    tads: 'Foco intensivo em desenvolvimento web, bancos de dados e engenharia prática',
   },
   {
     criterion: 'Requisito Final Obrigatório',
-    bsi: 'Trabalho de Conclusao de Curso com monografia e banca examinadora',
-    tads: 'Estagio supervisionado formal ou projeto pratico de conclusao',
+    bsi: 'Trabalho de Conclusão de Curso com monografia e banca examinadora',
+    tads: 'Estágio supervisionado formal ou projeto prático de conclusão',
   },
   {
     criterion: 'Mercado de Trabalho de Software',
-    bsi: 'Concorre em igualdade de condicoes para vagas de tecnologia',
-    tads: 'Concorre em igualdade de condicoes para vagas de tecnologia',
+    bsi: 'Concorre em igualdade de condições para vagas de tecnologia',
+    tads: 'Concorre em igualdade de condições para vagas de tecnologia',
   },
   {
-    criterion: 'Pos-Graduacao Estrita e Vistos no Exterior',
-    bsi: 'Vantagem formal para mestrados academicos e vistos de quatro anos de curso',
-    tads: 'Aceito em pos-graduacoes especializadas, mestrados profissionais e mercado global',
+    criterion: 'Pós-Graduação Estrita e Vistos no Exterior',
+    bsi: 'Vantagem formal para mestrados acadêmicos e vistos de quatro anos de curso',
+    tads: 'Aceito em pós-graduações especializadas, mestrados profissionais e mercado global',
   },
 ];
 
@@ -57,32 +57,32 @@ export interface GraduationCheckItem {
 export const graduationChecklistData: GraduationCheckItem[] = [
   {
     id: 'obrigatorias',
-    title: 'Aprovacao em Todas as Disciplinas Obrigatorias',
-    description: 'Concluir todas as materias fixadas no catalogo do seu ano de ingresso',
-    detail: 'Verifique no historico do e-DAC se nao ha disciplinas obrigatorias pendentes do ciclo basico ou avancado.',
+    title: 'Aprovação em Todas as Disciplinas Obrigatórias',
+    description: 'Concluir todas as matérias fixadas no catálogo do seu ano de ingresso',
+    detail: 'Verifique no histórico do e-DAC se não há disciplinas obrigatórias pendentes do ciclo básico ou avançado.',
   },
   {
     id: 'eletivas',
-    title: 'Cota Minima de Creditos em Disciplinas Eletivas',
-    description: 'Cumprir os creditos exigidos entre eletivas do catalogo e eletivas livres',
-    detail: 'Eletivas livres podem ser cursadas na FCA em Limeira ou nos institutos de Barao Geraldo, alem do Centro de Ensino de Linguas.',
+    title: 'Cota Mínima de Créditos em Disciplinas Eletivas',
+    description: 'Cumprir os créditos exigidos entre eletivas do catálogo e eletivas livres',
+    detail: 'Eletivas livres podem ser cursadas na FCA em Limeira ou nos institutos de Barão Geraldo, além do Centro de Ensino de Línguas.',
   },
   {
     id: 'extensao',
-    title: 'Atividades Complementares e Curricularizacao da Extensao',
-    description: 'Comprovar o minimo regulamentar de sessenta horas complementares',
+    title: 'Atividades Complementares e Curricularização da Extensão',
+    description: 'Comprovar o mínimo regulamentar de sessenta horas complementares',
     detail: 'Certificados emitidos pela Atria, Liestag, Semeia Code, Enactus ou Coursera institucional contam para essa meta.',
   },
   {
     id: 'tcc-estagio',
-    title: 'Conclusao Aprovada de TCC ou Estagio Supervisionado',
-    description: 'Apresentar monografia ou relatorio formal de estagio conforme o curso',
-    detail: 'Em BSI e necessaria a aprovacao formal em banca examinadora. Em TADS e exigido o relatorio de estagio na empresa conveniada.',
+    title: 'Conclusão Aprovada de TCC ou Estágio Supervisionado',
+    description: 'Apresentar monografia ou relatório formal de estágio conforme o curso',
+    detail: 'Em BSI é necessária a aprovação formal em banca examinadora. Em TADS é exigido o relatório de estágio na empresa conveniada.',
   },
   {
     id: 'quitacao-biblioteca',
     title: 'Regularidade Cadastral e Nada Consta na Biblioteca',
-    description: 'Garantir quitacao de emprestimos e pendencias no sistema SBU e na DAC',
-    detail: 'A emissao da declaracao de nada consta e requisito previo para a liberacao da colacao de grau.',
+    description: 'Garantir quitação de empréstimos e pendências no sistema SBU e na DAC',
+    detail: 'A emissão da declaração de nada consta é requisito prévio para a liberação da colação de grau.',
   },
 ];

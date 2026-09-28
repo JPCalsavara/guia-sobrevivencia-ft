@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { linksData, ResourceLink } from '@/data/links';
-import { Link2, Search, ExternalLink, Filter } from 'lucide-react';
+import { Link2, Search, ExternalLink } from 'lucide-react';
 import styles from './links.module.scss';
 
 export default function LinksPage() {
@@ -38,15 +38,15 @@ export default function LinksPage() {
         >
           <div className={styles.headerBadge}>
             <Link2 size={16} />
-            <span>Diretorio de Links Oficiais</span>
+            <span>Diretório de Links Oficiais</span>
           </div>
 
           <h1 className={styles.pageTitle}>
-            Indice Central de Sistemas, Portais e Servicos da Unicamp
+            Índice Central de Sistemas, Portais e Serviços da Unicamp
           </h1>
 
           <p className={styles.pageDescription}>
-            Acesse rapidamente todos os sistemas academicos da DAC, servicos da FT, horarios de transporte e plataformas essenciais em um catalogo unificado.
+            Acesse rapidamente todos os sistemas acadêmicos da DAC, serviços da FT, horários de transporte e plataformas essenciais em um catálogo unificado.
           </p>
         </motion.div>
       </section>
@@ -59,7 +59,7 @@ export default function LinksPage() {
             type="text"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="Buscar por nome de sistema, servico ou assunto..."
+            placeholder="Buscar por nome de sistema, serviço ou assunto..."
             className={styles.searchInput}
           />
         </div>

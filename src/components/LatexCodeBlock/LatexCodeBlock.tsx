@@ -25,10 +25,10 @@ export function LatexCodeBlock() {
           <button
             onClick={handleCopy}
             className={`${styles.copyButton} ${copied ? styles.copied : ''}`}
-            aria-label="Copiar codigo LaTeX completo"
+            aria-label="Copiar código LaTeX completo"
           >
             {copied ? <Check size={16} /> : <Copy size={16} />}
-            <span>{copied ? 'Copiado para a Area de Transferencia' : 'Copiar Codigo LaTeX'}</span>
+            <span>{copied ? 'Copiado para a Área de Transferência' : 'Copiar Código LaTeX'}</span>
           </button>
           <a
             href="https://www.overleaf.com"

@@ -55,7 +55,7 @@ export function ChecklistFormatura() {
         <div className={styles.titleArea}>
           <Award size={22} className={styles.awardIcon} />
           <div>
-            <h3 className={styles.title}>Checklist Interativo de Integralizacao Curricular</h3>
+            <h3 className={styles.title}>Checklist Interativo de Integralização Curricular</h3>
             <p className={styles.subtitle}>
               Acompanhe os cinco requisitos fundamentais da DAC com progresso salvo no seu navegador
             </p>
@@ -67,7 +67,7 @@ export function ChecklistFormatura() {
             <button
               onClick={resetChecklist}
               className={styles.resetButton}
-              title="Limpar selecoes salvas"
+              title="Limpar seleções salvas"
             >
               <RotateCcw size={14} />
               <span>Reiniciar</span>

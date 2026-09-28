@@ -15,7 +15,7 @@
 
 .container {
   @include container;
-  height: 4rem;
+  height: 4.25rem;
   @include flex-between;
 }
 
@@ -26,31 +26,45 @@
   text-decoration: none;
 }
 
-.logoIcon {
-  width: 2.25rem;
-  height: 2.25rem;
-  border-radius: $radius-md;
-  background: linear-gradient(135deg, var(--unicamp-red), var(--primary-light));
-  color: #ffffff;
-  @include flex-center;
-  box-shadow: $shadow-sm;
+.logoLogos {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
 }
 
-.logoText {
-  @include flex-column;
-  line-height: 1.1;
+.unicampLogo {
+  height: 26px;
+  width: auto;
+  object-fit: contain;
 }
 
-.brandTitle {
+.divider {
+  width: 1px;
+  height: 22px;
+  background-color: var(--border-color);
+}
+
+.ftLogo {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+}
+
+.brandBadge {
+  display: none;
+  font-size: 0.6875rem;
   font-weight: 700;
-  font-size: 1.05rem;
-  color: var(--text-primary);
-  letter-spacing: -0.02em;
-}
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.5rem;
+  border-radius: $radius-full;
+  background-color: var(--ft-green-soft);
+  color: var(--ft-green);
+  border: 1px solid rgba(0, 138, 71, 0.2);
 
-.brandSubtitle {
-  font-size: 0.75rem;
-  color: var(--text-muted);
+  @include respond-to('sm') {
+    display: inline-block;
+  }
 }
 
 .desktopNav {
@@ -75,13 +89,13 @@
   transition: all $transition-fast;
 
   &:hover {
-    color: var(--text-primary);
+    color: var(--ft-blue);
     background-color: var(--surface-elevated);
   }
 
   &.active {
-    color: var(--primary-light);
-    background-color: rgba(37, 99, 235, 0.1);
+    color: var(--ft-blue);
+    background-color: var(--ft-blue-soft);
     font-weight: 600;
   }
 }
@@ -105,14 +119,15 @@
 
   &:hover {
     background-color: var(--surface-elevated);
-    border-color: var(--primary-light);
+    border-color: var(--ft-blue);
+    color: var(--ft-blue);
   }
 }
 
 .gradeLink {
   @include button-base;
   display: none;
-  background-color: var(--unicamp-red);
+  background-color: var(--ft-blue);
   color: #ffffff;
   padding: 0.4375rem 0.875rem;
   font-size: 0.8125rem;
@@ -122,7 +137,7 @@
   }
 
   &:hover {
-    background-color: var(--primary-light);
+    background-color: var(--ft-blue-dark);
     transform: translateY(-1px);
   }
 }
@@ -167,12 +182,12 @@
 
   &:hover {
     background-color: var(--surface-elevated);
-    color: var(--text-primary);
+    color: var(--ft-blue);
   }
 
   &.mobileActive {
-    background-color: rgba(37, 99, 235, 0.1);
-    color: var(--primary-light);
+    background-color: var(--ft-blue-soft);
+    color: var(--ft-blue);
     font-weight: 600;
   }
 }
@@ -184,7 +199,7 @@
   justify-content: center;
   gap: $spacing-sm;
   padding: 0.75rem;
-  background-color: var(--unicamp-red);
+  background-color: var(--ft-blue);
   color: #ffffff;
   border-radius: $radius-md;
   font-weight: 600;

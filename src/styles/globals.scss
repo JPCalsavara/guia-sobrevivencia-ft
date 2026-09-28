@@ -2,44 +2,59 @@
 @use 'mixins' as *;
 
 // Variaveis CSS dinamicas para suporte a temas
+// O padrao e o modo institucional claro, leve e arejado da Faculdade de Tecnologia
 :root {
-  --bg-color: #{$color-dark-bg};
-  --surface-color: #{$color-dark-surface};
-  --surface-elevated: #{$color-dark-surface-elevated};
-  --surface-glass: rgba(17, 24, 39, 0.75);
-  --border-color: #{$color-dark-border};
-  --text-primary: #{$color-dark-text-primary};
-  --text-secondary: #{$color-dark-text-secondary};
-  --text-muted: #{$color-dark-text-muted};
+  --bg-color: #{$color-light-bg};
+  --surface-color: #{$color-light-surface};
+  --surface-elevated: #{$color-light-surface-elevated};
+  --surface-glass: rgba(255, 255, 255, 0.9);
+  --border-color: #{$color-light-border};
+  --text-primary: #{$color-light-text-primary};
+  --text-secondary: #{$color-light-text-secondary};
+  --text-muted: #{$color-light-text-muted};
 
-  --primary: #{$color-primary};
-  --primary-light: #{$color-primary-light};
-  --accent: #{$color-accent};
-  --accent-light: #{$color-accent-light};
+  --ft-blue: #{$color-ft-blue};
+  --ft-blue-light: #{$color-ft-blue-light};
+  --ft-blue-soft: #{$color-ft-blue-soft};
+  --ft-green: #{$color-ft-green};
+  --ft-green-light: #{$color-ft-green-light};
+  --ft-green-soft: #{$color-ft-green-soft};
+
+  --primary: #{$color-ft-blue};
+  --primary-light: #{$color-ft-blue-light};
+  --accent: #{$color-ft-green};
+  --accent-light: #{$color-ft-green-light};
   --unicamp-red: #{$color-unicamp-red};
   --success: #{$color-success};
   --warning: #{$color-warning};
   --danger: #{$color-danger};
 }
 
-[data-theme='light'] {
-  --bg-color: #{$color-light-bg};
-  --surface-color: #{$color-light-surface};
-  --surface-elevated: #{$color-light-surface-elevated};
-  --surface-glass: rgba(255, 255, 255, 0.85);
-  --border-color: #{$color-light-border};
-  --text-primary: #{$color-light-text-primary};
-  --text-secondary: #{$color-light-text-secondary};
-  --text-muted: #{$color-light-text-muted};
+[data-theme='dark'] {
+  --bg-color: #{$color-dark-bg};
+  --surface-color: #{$color-dark-surface};
+  --surface-elevated: #{$color-dark-surface-elevated};
+  --surface-glass: rgba(30, 41, 59, 0.85);
+  --border-color: #{$color-dark-border};
+  --text-primary: #{$color-dark-text-primary};
+  --text-secondary: #{$color-dark-text-secondary};
+  --text-muted: #{$color-dark-text-muted};
 
-  --primary: #{$color-primary};
-  --primary-light: #{$color-primary-light};
-  --accent: #{$color-accent};
-  --accent-light: #{$color-accent-light};
-  --unicamp-red: #{$color-unicamp-red};
-  --success: #{$color-success};
-  --warning: #{$color-warning};
-  --danger: #{$color-danger};
+  --ft-blue: #{$color-ft-blue-light};
+  --ft-blue-light: #{$color-ft-blue-soft};
+  --ft-blue-soft: rgba(0, 93, 164, 0.2);
+  --ft-green: #{$color-ft-green-light};
+  --ft-green-light: #{$color-ft-green-soft};
+  --ft-green-soft: rgba(0, 138, 71, 0.2);
+
+  --primary: #{$color-ft-blue-light};
+  --primary-light: #52a5e8;
+  --accent: #{$color-ft-green-light};
+  --accent-light: #34d399;
+  --unicamp-red: #ef4444;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
 }
 
 *,
@@ -55,11 +70,11 @@ html {
   font-size: 16px;
   line-height: 1.6;
   scroll-behavior: smooth;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
-[data-theme='light'] {
-  color-scheme: light;
+[data-theme='dark'] {
+  color-scheme: dark;
 }
 
 body {
@@ -93,13 +108,13 @@ code, pre {
   font-family: $font-mono;
 }
 
-// Estilos de selecao de texto
+// Estilos de selecao de texto nas cores da FT
 ::selection {
-  background-color: var(--primary-light);
+  background-color: var(--primary);
   color: #ffffff;
 }
 
-// Barra de rolagem personalizada
+// Barra de rolagem suave
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;

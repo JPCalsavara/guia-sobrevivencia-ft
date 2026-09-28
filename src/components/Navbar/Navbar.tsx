@@ -2,13 +2,14 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { GraduationCap, Sun, Moon, Menu, X, BookOpen, Briefcase, Cpu, MapPin, ExternalLink, Link2 } from 'lucide-react';
+import { Sun, Moon, Menu, X, BookOpen, Briefcase, Cpu, MapPin, ExternalLink, Link2, Home } from 'lucide-react';
 import styles from './Navbar.module.scss';
 
 export function Navbar() {
   const pathname = usePathname();
-  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -16,36 +17,51 @@ export function Navbar() {
     if (savedTheme) {
       setTheme(savedTheme);
       document.documentElement.setAttribute('data-theme', savedTheme);
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
     }
   }, []);
 
   const toggleTheme = () => {
-    const nextTheme = theme === 'dark' ? 'light' : 'dark';
+    const nextTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(nextTheme);
     localStorage.setItem('ft_theme', nextTheme);
     document.documentElement.setAttribute('data-theme', nextTheme);
   };
 
   const navLinks = [
-    { href: '/', label: 'Inicio', icon: GraduationCap },
-    { href: '/academico', label: 'Academico', icon: BookOpen },
+    { href: '/', label: 'Início', icon: Home },
+    { href: '/academico', label: 'Acadêmico', icon: BookOpen },
     { href: '/carreira', label: 'Carreira', icon: Briefcase },
     { href: '/estudos-ia', label: 'Estudos e IA', icon: Cpu },
     { href: '/campus', label: 'Campus e Vida', icon: MapPin },
-    { href: '/links', label: 'Links Uteis', icon: Link2 },
+    { href: '/links', label: 'Links Úteis', icon: Link2 },
   ];
 
   return (
     <header className={styles.header}>
       <div className={styles.container}>
         <Link href="/" className={styles.logo}>
-          <div className={styles.logoIcon}>
-            <GraduationCap size={22} />
+          <div className={styles.logoLogos}>
+            <Image
+              src="/images/logo-unicamp.png"
+              alt="Logotipo Unicamp"
+              width={26}
+              height={26}
+              className={styles.unicampLogo}
+              priority
+            />
+            <div className={styles.divider} />
+            <Image
+              src={theme === 'dark' ? '/images/logo-ft-horizontal-branco.png' : '/images/logo-ft-horizontal.png'}
+              alt="Logotipo Faculdade de Tecnologia Unicamp"
+              width={140}
+              height={38}
+              className={styles.ftLogo}
+              priority
+            />
           </div>
-          <div className={styles.logoText}>
-            <span className={styles.brandTitle}>Guia FT</span>
-            <span className={styles.brandSubtitle}>Unicamp Limeira</span>
-          </div>
+          <div className={styles.brandBadge}>Guia</div>
         </Link>
 
         <nav className={styles.desktopNav}>
@@ -88,7 +104,7 @@ export function Navbar() {
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className={styles.menuToggle}
-            aria-label="Abrir menu de navegacao"
+            aria-label="Abrir menu de navegação"
           >
             {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>

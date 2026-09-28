@@ -1,6 +1,6 @@
 import React from 'react';
 import { courseComparisonData } from '@/data/academic';
-import { Scale, Check } from 'lucide-react';
+import { Scale } from 'lucide-react';
 import styles from './TableBsiTads.module.scss';
 
 export function TableBsiTads() {
@@ -9,11 +9,11 @@ export function TableBsiTads() {
       <div className={styles.tableHeader}>
         <div className={styles.badge}>
           <Scale size={16} />
-          <span>Analise Curricular Comparativa</span>
+          <span>Análise Curricular Comparativa</span>
         </div>
         <h3 className={styles.title}>Quadro Comparativo Direto entre BSI e TADS</h3>
         <p className={styles.subtitle}>
-          Entenda as diferencas praticas entre o Bacharelado e o Tecnologo na rotina da Faculdade de Tecnologia
+          Entenda as diferenças práticas entre o Bacharelado e o Tecnólogo na rotina da Faculdade de Tecnologia
         </p>
       </div>
 
@@ -21,9 +21,9 @@ export function TableBsiTads() {
         <table className={styles.table}>
           <thead>
             <tr>
-              <th className={styles.thCrit}>Criterio de Avaliacao</th>
-              <th className={styles.thBsi}>BSI, Bacharelado em Sistemas de Informacao</th>
-              <th className={styles.thTads}>TADS, Tecnologia em Analise e Desenvolvimento</th>
+              <th className={styles.thCrit}>Critério de Avaliação</th>
+              <th className={styles.thBsi}>BSI, Bacharelado em Sistemas de Informação</th>
+              <th className={styles.thTads}>TADS, Tecnologia em Análise e Desenvolvimento</th>
             </tr>
           </thead>
           <tbody>
@@ -39,9 +39,9 @@ export function TableBsiTads() {
       </div>
 
       <div className={styles.callout}>
-        <h4 className={styles.calloutTitle}>O Fenomeno da Batalha por Vagas Noturnas</h4>
+        <h4 className={styles.calloutTitle}>O Fenômeno da Batalha por Vagas Noturnas</h4>
         <p className={styles.calloutText}>
-          A partir do quinto semestre letivo, a maioria dos estudantes de BSI ingressa em vagas de estagio diurno em empresas de Campinas, Limeira e regiao metropolitana de Sao Paulo. Como as aulas de BSI ocorrem de dia, esses estudantes passam a disputar as vagas das disciplinas equivalentes oferecidas no periodo noturno para TADS. Por esse motivo, manter um Coeficiente de Rendimento alto desde o primeiro semestre e decisivo para conseguir prioridade de matricula no sistema e-DAC.
+          A partir do quinto semestre letivo, a maioria dos estudantes de BSI ingressa em vagas de estágio diurno em empresas de Campinas, Limeira e região metropolitana de São Paulo. Como as aulas de BSI ocorrem de dia, esses estudantes passam a disputar as vagas das disciplinas equivalentes oferecidas no período noturno para TADS. Por esse motivo, manter um Coeficiente de Rendimento alto desde o primeiro semestre é decisivo para conseguir prioridade de matrícula no sistema e-DAC.
         </p>
       </div>
     </div>

@@ -26,14 +26,14 @@
   transition: all $transition-fast;
 
   &:hover {
-    color: var(--text-primary);
-    border-color: var(--primary-light);
+    color: var(--ft-blue);
+    border-color: var(--ft-blue);
   }
 
   &.filterActive {
-    background-color: var(--primary-light);
+    background-color: var(--ft-blue);
     color: #ffffff;
-    border-color: var(--primary-light);
+    border-color: var(--ft-blue);
     font-weight: 600;
   }
 }
@@ -76,7 +76,7 @@
 }
 
 .orgIcon {
-  color: var(--text-muted);
+  color: var(--ft-blue);
 }
 
 .orgName {
@@ -126,7 +126,7 @@
   color: var(--text-primary);
 
   &:hover {
-    border-color: var(--primary-light);
-    color: var(--primary-light);
+    border-color: var(--ft-blue);
+    color: var(--ft-blue);
   }
 }

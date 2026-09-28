@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { OrganizationDirectory } from '@/components/OrganizationDirectory/OrganizationDirectory';
 import {
@@ -10,9 +11,6 @@ import {
   Bus,
   Users2,
   ExternalLink,
-  ShieldCheck,
-  Sparkles,
-  AlertCircle,
   Monitor
 } from 'lucide-react';
 import styles from './campus.module.scss';
@@ -33,13 +31,56 @@ export default function CampusPage() {
           </div>
 
           <h1 className={styles.pageTitle}>
-            Vida no Campus de Limeira, Gestao de Salas e Organizacoes Estudantis
+            Vida no Campus de Limeira, Gestão de Salas e Organizações Estudantis
           </h1>
 
           <p className={styles.pageDescription}>
-            Descubra como reservar espacos na FT, acesse as ferramentas de TI da faculdade, consulte os horarios do circular e do fretado intercampi e conheca todas as entidades ativas da comunidade universitaria.
+            Descubra como reservar espaços na FT, acesse as ferramentas de TI da faculdade, consulte os horários do circular e do fretado intercampi e conheça todas as entidades ativas da comunidade universitária.
           </p>
         </motion.div>
+      </section>
+
+      {/* Galeria de Fotos Institucionais do Campus */}
+      <section className={styles.campusGallerySection}>
+        <div className={styles.galleryGrid}>
+          <div className={styles.galleryCard}>
+            <div className={styles.galleryImageWrapper}>
+              <Image
+                src="/images/biblioteca.png"
+                alt="Biblioteca Setorial da Faculdade de Tecnologia da Unicamp"
+                width={500}
+                height={260}
+                className={styles.galleryImage}
+              />
+            </div>
+            <div className={styles.galleryMeta}>
+              <span className={styles.galleryTag}>Estudo e Pesquisa</span>
+              <h3 className={styles.galleryTitle}>Biblioteca Setorial da FT</h3>
+              <p className={styles.galleryDesc}>
+                Acervo especializado de tecnologia, cabines individuais silenciosas para estudo e salas de reunião para trabalhos acadêmicos em grupo.
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.galleryCard}>
+            <div className={styles.galleryImageWrapper}>
+              <Image
+                src="/images/campus-auditorio.jpg"
+                alt="Auditório e eventos acadêmicos na FT Unicamp"
+                width={500}
+                height={260}
+                className={styles.galleryImage}
+              />
+            </div>
+            <div className={styles.galleryMeta}>
+              <span className={styles.galleryTag}>Eventos e Comunidade</span>
+              <h3 className={styles.galleryTitle}>Auditório e Espaços Coletivos</h3>
+              <p className={styles.galleryDesc}>
+                Ambiente de grandes conferências, recepção de calouros pela comissão discente, palestras técnicas com profissionais de mercado e defesas de graduação.
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Ferramentas de TI e Acessos */}
@@ -48,18 +89,18 @@ export default function CampusPage() {
           <div className={styles.cardHeader}>
             <Monitor size={22} className={styles.headerIcon} />
             <div>
-              <h2 className={styles.cardTitle}>Ferramentas de Tecnologia da Informacao da FT</h2>
+              <h2 className={styles.cardTitle}>Ferramentas de Tecnologia da Informação da FT</h2>
               <p className={styles.cardSubtitle}>
-                Credenciais de acesso para computadores, laboratorios da TIC e servicos digitais da Unicamp
+                Credenciais de acesso para computadores, laboratórios da TIC e serviços digitais da Unicamp
               </p>
             </div>
           </div>
 
           <div className={styles.roomsGrid}>
             <div className={styles.roomCard}>
-              <h3 className={styles.roomCardTitle}>Acesso aos Laboratorios da TIC</h3>
+              <h3 className={styles.roomCardTitle}>Acesso aos Laboratórios da TIC</h3>
               <p className={styles.roomCardText}>
-                Para fazer login nos computadores fisicos dos laboratorios de informatica da FT, utilize o usuario do seu RA e a senha cadastrada especificamente na coordenadoria de informatica da faculdade, distinta da senha central da DAC.
+                Para fazer login nos computadores físicos dos laboratórios de informática da FT, utilize o usuário do seu RA e a senha cadastrada especificamente na coordenadoria de informática da faculdade, distinta da senha central da DAC.
               </p>
               <a
                 href="https://www.ft.unicamp.br/tic"
@@ -75,7 +116,7 @@ export default function CampusPage() {
             <div className={styles.roomCard}>
               <h3 className={styles.roomCardTitle}>Rede Sem Fio Eduroam</h3>
               <p className={styles.roomCardText}>
-                A rede sem fio academica mundial Eduroam esta presente em todos os blocos da FT. O acesso e configurado com seu email institucional completo e a senha de sistemas centrais da Unicamp atraves do instalador do CCUEC.
+                A rede sem fio acadêmica mundial Eduroam está presente em todos os blocos da FT. O acesso é configurado com seu email institucional completo e a senha de sistemas centrais da Unicamp através do instalador oficial do CCUEC.
               </p>
               <a
                 href="https://www.ccuec.unicamp.br/ccuec/servicos/eduroam"
@@ -91,7 +132,7 @@ export default function CampusPage() {
             <div className={styles.roomCard}>
               <h3 className={styles.roomCardTitle}>Moodle e Intranet</h3>
               <p className={styles.roomCardText}>
-                O ambiente virtual de aprendizagem Moodle e a Intranet FT utilizam autenticacao centralizada Unicamp. Por meio deles, voce envia tarefas de laboratorio, acessa notas parciais e consulta comunicados dos docentes.
+                O ambiente virtual de aprendizagem Moodle e a Intranet FT utilizam autenticação centralizada Unicamp. Por meio deles, você envia tarefas de laboratório, acessa notas parciais e consulta comunicados dos docentes.
               </p>
               <a
                 href="https://moodle.unicamp.br"
@@ -113,9 +154,9 @@ export default function CampusPage() {
           <div className={styles.cardHeader}>
             <Building2 size={22} className={styles.headerIcon} />
             <div>
-              <h2 className={styles.cardTitle}>Infraestrutura Fisica e Alocacao de Salas na FT</h2>
+              <h2 className={styles.cardTitle}>Infraestrutura Física e Alocação de Salas na FT</h2>
               <p className={styles.cardSubtitle}>
-                Como consultar horarios vagos, regras de ocupacao e procedimentos para solicitar espacos
+                Como consultar horários vagos, regras de ocupação e procedimentos para solicitar espaços
               </p>
             </div>
           </div>
@@ -124,7 +165,7 @@ export default function CampusPage() {
             <div className={styles.roomCard}>
               <h3 className={styles.roomCardTitle}>Consulta em Tempo Real</h3>
               <p className={styles.roomCardText}>
-                O quadro de ocupacao dos blocos de salas e anfiteatros pode ser verificado no portal sistemas ft unicamp br salas. Caso uma sala esteja livre na grade, ela pode ser ocupada espontaneamente por grupos de estudantes para estudo silencioso.
+                O quadro de ocupação dos blocos de salas e anfiteatros pode ser verificado no portal sistemas ft unicamp br salas. Caso uma sala esteja livre na grade, ela pode ser ocupada espontaneamente por grupos de estudantes para estudo silencioso.
               </p>
               <a
                 href="https://sistemas.ft.unicamp.br/salas"
@@ -138,16 +179,16 @@ export default function CampusPage() {
             </div>
 
             <div className={styles.roomCard}>
-              <h3 className={styles.roomCardTitle}>Reserva Formal de Espaco</h3>
+              <h3 className={styles.roomCardTitle}>Reserva Formal de Espaço</h3>
               <p className={styles.roomCardText}>
-                Para eventos, palestras ou reunioes recorrentes de projetos, a solicitacao deve ser encaminhada via entidade estudantil reconhecida ou com apoio formal de um docente responsavel da faculdade.
+                Para eventos, palestras ou reuniões recorrentes de projetos, a solicitação deve ser encaminhada via entidade estudantil reconhecida ou com apoio formal de um docente responsável da faculdade.
               </p>
             </div>
 
             <div className={styles.roomCard}>
-              <h3 className={styles.roomCardTitle}>Regras de Convivencia</h3>
+              <h3 className={styles.roomCardTitle}>Regras de Convivência</h3>
               <p className={styles.roomCardText}>
-                Ao desocupar qualquer sala de aula, lembre-se de apagar a lousa, organizar as carteiras na posicao original e desligar a iluminacao e os aparelhos de ar-condicionado.
+                Ao desocupar qualquer sala de aula, lembre-se de apagar a lousa, organizar as carteiras na posição original e desligar a iluminação e os aparelhos de ar-condicionado.
               </p>
             </div>
           </div>
@@ -155,10 +196,10 @@ export default function CampusPage() {
           {/* Justificativas para Salas Maiores */}
           <div className={styles.justificationArea}>
             <h3 className={styles.justTitle}>
-              Como Justificar uma Sala Maior para Poucas Pessoas perante a Administracao
+              Como Justificar uma Sala Maior para Poucas Pessoas perante a Administração
             </h3>
             <p className={styles.justSubtitle}>
-              Pedidos baseados apenas no numero de presentes costumam ser alocados em salas pequenas. Utilize justificativas tecnicas aceitas pela Seção de Apoio Didatico e Logistico da FT:
+              Pedidos baseados apenas no número de presentes costumam ser alocados em salas pequenas. Utilize justificativas técnicas aceitas pela Seção de Apoio Didático e Logístico da FT:
             </p>
 
             <div className={styles.justGrid}>
@@ -167,7 +208,7 @@ export default function CampusPage() {
                 <div>
                   <h4 className={styles.justItemTitle}>Necessidade de Tomadas e Bancadas Individuais</h4>
                   <p className={styles.justItemText}>
-                    Informe que a atividade exige conexao eletrica simultanea para os computadores portateis de todos os participantes, recurso disponivel apenas em salas com bancadas de extensao e laboratorios de informatica da TIC.
+                    Informe que a atividade exige conexão elétrica simultânea para os computadores portáteis de todos os participantes, recurso disponível apenas em salas com bancadas de extensão e laboratórios de informática da TIC.
                   </p>
                 </div>
               </div>
@@ -175,9 +216,9 @@ export default function CampusPage() {
               <div className={styles.justItem}>
                 <span className={styles.justNumber}>2</span>
                 <div>
-                  <h4 className={styles.justItemTitle}>Gravacao ou Transmissao Hibrida</h4>
+                  <h4 className={styles.justItemTitle}>Gravação ou Transmissão Híbrida</h4>
                   <p className={styles.justItemText}>
-                    Justifique a necessidade de isolamento acustico e espaco fisico para posicionar cameras, tripés e iluminacao sem bloquear a circulacao, permitindo a transmissao ao vivo da atividade.
+                    Justifique a necessidade de isolamento acústico e espaço físico para posicionar câmeras, tripés e iluminação sem bloquear a circulação, permitindo a transmissão ao vivo da atividade.
                   </p>
                 </div>
               </div>
@@ -185,9 +226,9 @@ export default function CampusPage() {
               <div className={styles.justItem}>
                 <span className={styles.justNumber}>3</span>
                 <div>
-                  <h4 className={styles.justItemTitle}>Dinamica em Subgrupos e Layout Modular</h4>
+                  <h4 className={styles.justItemTitle}>Dinâmica em Subgrupos e Layout Modular</h4>
                   <p className={styles.justItemText}>
-                    Explique que a sessao e uma oficina pratica ou dinâmica de projeto que requer a separacao dos participantes em estacoes fisicamente distantes para evitar interferencia sonora mútua.
+                    Explique que a sessão é uma oficina prática ou dinâmica de projeto que requer a separação dos participantes em estações fisicamente distantes para evitar interferência sonora mútua.
                   </p>
                 </div>
               </div>
@@ -195,9 +236,9 @@ export default function CampusPage() {
               <div className={styles.justItem}>
                 <span className={styles.justNumber}>4</span>
                 <div>
-                  <h4 className={styles.justItemTitle}>Fluxo Rotativo e Quorum Flutuante</h4>
+                  <h4 className={styles.justItemTitle}>Fluxo Rotativo e Quórum Flutuante</h4>
                   <p className={styles.justItemText}>
-                    Caracterize a atividade como um plantao aberto de atendimento ou oficina livre. Embora poucas pessoas estejam presentes em um dado instante, o publico acumulado ao longo das horas e muito maior.
+                    Caracterize a atividade como um plantão aberto de atendimento ou oficina livre. Embora poucas pessoas estejam presentes em um dado instante, o público acumulado ao longo das horas é muito maior.
                   </p>
                 </div>
               </div>
@@ -206,15 +247,15 @@ export default function CampusPage() {
         </div>
       </section>
 
-      {/* Bandejao e Transporte */}
+      {/* Bandejão e Transporte */}
       <section className={styles.sectionBlock}>
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <Utensils size={22} className={styles.headerIcon} />
             <div>
-              <h2 className={styles.cardTitle}>Alimentacao e Transporte Universitario em Limeira</h2>
+              <h2 className={styles.cardTitle}>Alimentação e Transporte Universitário em Limeira</h2>
               <p className={styles.cardSubtitle}>
-                Horarios do restaurante universitario, circular gratuito e fretado intercampi
+                Horários do restaurante universitário, circular gratuito e fretado intercampi
               </p>
             </div>
           </div>
@@ -223,10 +264,10 @@ export default function CampusPage() {
             <div className={styles.transportCard}>
               <div className={styles.transportHeader}>
                 <Utensils size={18} />
-                <h3 className={styles.transportTitle}>Restaurante Universitario na FT</h3>
+                <h3 className={styles.transportTitle}>Restaurante Universitário na FT</h3>
               </div>
               <p className={styles.transportDesc}>
-                Almoco servido das onze as catorze horas e jantar das dezessete e trinta as dezenove e quarenta e cinco, de segunda a sexta-feira. Aos fins de semana, o atendimento e centralizado no restaurante da FCA no Campus 2.
+                Almoço servido das onze às catorze horas e jantar das dezessete e trinta às dezenove e quarenta e cinco, de segunda a sexta-feira. Aos fins de semana, o atendimento é centralizado no restaurante da FCA no Campus 2.
               </p>
               <a
                 href="https://sistemas.prefeituralimeira.unicamp.br/RU/view/site/cardapio.php"
@@ -234,7 +275,7 @@ export default function CampusPage() {
                 rel="noopener noreferrer"
                 className={styles.transportLink}
               >
-                <span>Consultar Cardapio Online</span>
+                <span>Consultar Cardápio Online</span>
                 <ExternalLink size={14} />
               </a>
             </div>
@@ -245,7 +286,7 @@ export default function CampusPage() {
                 <h3 className={styles.transportTitle}>Circular Gratuito FT e FCA</h3>
               </div>
               <p className={styles.transportDesc}>
-                Transporte circular gratuito mantido pela Prefeitura de Limeira e Unicamp, conectando o Campus 1 na FT e o Campus 2 na FCA de forma continua, operando das seis e quarenta ate as vinte e duas e quarenta e cinco.
+                Transporte circular gratuito mantido pela Prefeitura de Limeira e Unicamp, conectando o Campus 1 na FT e o Campus 2 na FCA de forma contínua, operando das seis e quarenta até as vinte e duas e quarenta e cinco.
               </p>
               <a
                 href="https://prefeituralimeira.unicamp.br/produto/horarios-circular/"
@@ -253,7 +294,7 @@ export default function CampusPage() {
                 rel="noopener noreferrer"
                 className={styles.transportLink}
               >
-                <span>Tabela de Horarios do Circular</span>
+                <span>Tabela de Horários do Circular</span>
                 <ExternalLink size={14} />
               </a>
             </div>
@@ -264,7 +305,7 @@ export default function CampusPage() {
                 <h3 className={styles.transportTitle}>Fretado Intercampi Linha 84</h3>
               </div>
               <p className={styles.transportDesc}>
-                Conexao gratuita de fretado entre os campi de Limeira e o campus de Barao Geraldo em Campinas. Exige agendamento previo de assento no sistema de transporte da prefeitura universitaria.
+                Conexão gratuita de fretado entre os campi de Limeira e o campus de Barão Geraldo em Campinas. Exige agendamento prévio de assento no sistema de transporte da prefeitura universitária.
               </p>
               <a
                 href="https://sistemas.prefeituralimeira.unicamp.br/intercamp/"
@@ -280,15 +321,15 @@ export default function CampusPage() {
         </div>
       </section>
 
-      {/* Diretorio de Organizacoes */}
+      {/* Diretório de Organizações */}
       <section className={styles.sectionBlock}>
         <div className={styles.sectionIntro}>
           <div className={styles.introHeader}>
             <Users2 size={24} className={styles.headerIcon} />
             <div>
-              <h2 className={styles.cardTitle}>Diretorio de Entidades e Organizacoes Estudantis</h2>
+              <h2 className={styles.cardTitle}>Diretório de Entidades e Organizações Estudantis</h2>
               <p className={styles.cardSubtitle}>
-                Conheca as empresas juniores, centro academico, atletica, ligas e projetos de extensao
+                Conheça as empresas juniores, centro acadêmico, atlética, ligas e projetos de extensão
               </p>
             </div>
           </div>
@@ -299,30 +340,30 @@ export default function CampusPage() {
       {/* Vida Social, Moradia e Economia Estudantil */}
       <section className={styles.sectionBlock}>
         <div className={styles.blockCard}>
-          <h2 className={styles.cardTitle}>Convivencia, Moradia e Economia Estudantil</h2>
+          <h2 className={styles.cardTitle}>Convivência, Moradia e Economia Estudantil</h2>
           <p className={styles.cardSubtitle}>
-            Dicas para morar com tranquilidade, feiras de escambo e seguranca em Limeira
+            Dicas para morar com tranquilidade, feiras de escambo e segurança em Limeira
           </p>
 
           <div className={styles.lifeGrid}>
             <div className={styles.lifeCard}>
-              <h3 className={styles.lifeTitle}>Moradia e Republicas</h3>
+              <h3 className={styles.lifeTitle}>Moradia e Repúblicas</h3>
               <p className={styles.lifeText}>
-                Os bairros mais proximos da FT sao o Jardim Nova Italia, a Vila Cristovam e a Vila Anita. A comunidade conta com republicas tradicionais de integracao e tambem republicas unigênero com foco em silencio e estudos, alem de pensionatos e kitnets individuais.
+                Os bairros mais próximos da FT são o Jardim Nova Itália, a Vila Cristovam e a Vila Anita. A comunidade conta com repúblicas tradicionais de integração e também repúblicas com foco em silêncio e estudos, além de pensionatos e kitnets individuais.
               </p>
             </div>
 
             <div className={styles.lifeCard}>
               <h3 className={styles.lifeTitle}>Grupos de Escambo e Desapego</h3>
               <p className={styles.lifeText}>
-                No encerramento de cada semestre letivo, formandos negociam moveis, colchões, eletrodomesticos e livros com grandes descontos nos grupos de desapego estudantis. Sempre confira o email academico do anunciante e faca testes presenciais antes de realizar pagamentos.
+                No encerramento de cada semestre letivo, formandos negociam móveis, colchões, eletrodomésticos e livros com grandes descontos nos grupos de desapego estudantis. Sempre confira o email acadêmico do anunciante e faça testes presenciais antes de realizar pagamentos.
               </p>
             </div>
 
             <div className={styles.lifeCard}>
-              <h3 className={styles.lifeTitle}>Caronas Solidarias</h3>
+              <h3 className={styles.lifeTitle}>Caronas Solidárias</h3>
               <p className={styles.lifeText}>
-                Estudantes organizam grupos de carona para viagens de fim de semana entre Limeira, Campinas e Sao Paulo, com rateio proporcional de combustivel e pedagio, proporcionando economia e seguranca no deslocamento.
+                Estudantes organizam grupos de carona para viagens de fim de semana entre Limeira, Campinas e São Paulo, com rateio proporcional de combustível e pedágio, proporcionando economia e segurança no deslocamento.
               </p>
             </div>
           </div>

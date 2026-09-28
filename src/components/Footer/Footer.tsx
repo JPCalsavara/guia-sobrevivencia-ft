@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import { GraduationCap, ExternalLink, Heart } from 'lucide-react';
+import Image from 'next/image';
+import { ExternalLink } from 'lucide-react';
 import styles from './Footer.module.scss';
 
 export function Footer() {
@@ -9,29 +10,40 @@ export function Footer() {
       <div className={styles.container}>
         <div className={styles.grid}>
           <div className={styles.brandCol}>
-            <div className={styles.brandLogo}>
-              <div className={styles.brandIcon}>
-                <GraduationCap size={20} />
-              </div>
-              <span className={styles.brandName}>Guia FT Unicamp</span>
+            <div className={styles.brandLogos}>
+              <Image
+                src="/images/logo-unicamp.png"
+                alt="Logotipo da Unicamp"
+                width={30}
+                height={30}
+                className={styles.unicampLogo}
+              />
+              <div className={styles.divider} />
+              <Image
+                src="/images/logo-ft-horizontal.png"
+                alt="Logotipo da Faculdade de Tecnologia da Unicamp"
+                width={150}
+                height={40}
+                className={styles.ftLogo}
+              />
             </div>
             <p className={styles.brandDesc}>
-              Plataforma independente de orientacao academica e carreira organizada por estudantes da Faculdade de Tecnologia da Universidade Estadual de Campinas, Campus 1 Limeira.
+              Plataforma de orientação acadêmica e carreira organizada para a comunidade discente da Faculdade de Tecnologia da Universidade Estadual de Campinas, Campus 1 Limeira.
             </p>
             <div className={styles.madeWith}>
-              <span>Construido para a comunidade academica da FT</span>
+              <span>Construído para a comunidade acadêmica da FT</span>
             </div>
           </div>
 
           <div className={styles.linksCol}>
-            <h4 className={styles.colTitle}>Navegacao</h4>
+            <h4 className={styles.colTitle}>Navegação</h4>
             <ul className={styles.linksList}>
-              <li><Link href="/">Inicio e Apresentacao</Link></li>
-              <li><Link href="/academico">Regras Academicas e BSI vs TADS</Link></li>
-              <li><Link href="/carreira">Estagios e Modelo de Curriculo</Link></li>
+              <li><Link href="/">Início e Apresentação</Link></li>
+              <li><Link href="/academico">Regras Acadêmicas e BSI vs TADS</Link></li>
+              <li><Link href="/carreira">Estágios e Modelo de Currículo</Link></li>
               <li><Link href="/estudos-ia">Estudos com Gemini e NotebookLM</Link></li>
-              <li><Link href="/campus">Salas, Bandejao e Organizacoes</Link></li>
-              <li><Link href="/links">Diretorio de Links Oficiais</Link></li>
+              <li><Link href="/campus">Salas, Bandejão e Organizações</Link></li>
+              <li><Link href="/links">Diretório de Links Oficiais</Link></li>
             </ul>
           </div>
 
@@ -40,7 +52,7 @@ export function Footer() {
             <ul className={styles.linksList}>
               <li>
                 <a href="https://sistemas.ft.unicamp.br/salas" target="_blank" rel="noopener noreferrer">
-                  <span>Alocacao de Salas</span>
+                  <span>Alocação de Salas</span>
                   <ExternalLink size={12} />
                 </a>
               </li>
@@ -88,7 +100,7 @@ export function Footer() {
               </li>
               <li>
                 <a href="https://sistemas.prefeituralimeira.unicamp.br/RU/view/site/cardapio.php" target="_blank" rel="noopener noreferrer">
-                  <span>Cardapio do Bandejao</span>
+                  <span>Cardápio do Bandejão</span>
                   <ExternalLink size={12} />
                 </a>
               </li>
@@ -104,7 +116,7 @@ export function Footer() {
 
         <div className={styles.bottomBar}>
           <p className={styles.copy}>
-            Guia do Calouro da Faculdade de Tecnologia da Unicamp. Este material e mantido de forma colaborativa e nao substitui as normas oficiais publicadas pela Diretoria Academica.
+            Guia do Calouro da Faculdade de Tecnologia da Unicamp. Este material é mantido de forma colaborativa e não substitui as normas oficiais publicadas pela Diretoria Acadêmica da Unicamp.
           </p>
         </div>
       </div>
