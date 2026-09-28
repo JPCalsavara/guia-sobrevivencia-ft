@@ -76,6 +76,8 @@ export const organizationsData: Organization[] = [
     category: 'extensao',
     categoryLabel: 'Extensão Universitária',
     description: 'Iniciativa de extensão universitária da FT que conecta alunos voluntários ao ensino gratuito de lógica e programação para escolas públicas.',
+    instagramHandle: '@semeiacode',
+    instagramUrl: 'https://www.instagram.com/semeiacode/',
     websiteUrl: 'https://semeiacode.vercel.app/',
   },
   {

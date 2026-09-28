@@ -15,6 +15,7 @@ export default function LinksPage() {
     { key: 'ft', label: 'Faculdade de Tecnologia FT' },
     { key: 'unicamp', label: 'Sistemas Centrais Unicamp' },
     { key: 'prefeitura', label: 'Prefeitura e Limeira' },
+    { key: 'organizacoes', label: 'Organizações Estudantis' },
     { key: 'ferramentas', label: 'Ferramentas de Estudo' },
   ];
 

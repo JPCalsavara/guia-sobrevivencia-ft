@@ -68,7 +68,7 @@ Compilação completa e categorizada de todos os links institucionais da Unicamp
 | **Fábrica de Inovação** | Hub e Polo de Inovação e Empreendedorismo de Limeira | [@fabricadeinovacao](https://www.instagram.com/fabricadeinovacao/) | [fabricadeinovacao.org.br](https://fabricadeinovacao.org.br) |
 | **LiUP Liga de Startups** | Liga de Startups da Unicamp, atuando em inovacao e empreendedorismo | [@liup.unicamp](https://www.instagram.com/liup.unicamp/) | [ligadestartups-unicamp.web.app](https://ligadestartups-unicamp.web.app/) |
 | **LICS Cibersegurança** | Liga de Cibersegurança da Unicamp, estudos e competições CTF | [@lics.unicamp](https://www.instagram.com/lics.unicamp/) | [lics.tec.br](https://www.lics.tec.br) |
-| **Semeia Code** | Projeto de Extensão Universitária da FT com ensino gratuito de programação | N/A | [semeiacode.vercel.app](https://semeiacode.vercel.app/) |
+| **Semeia Code** | Projeto de Extensão Universitária da FT com ensino gratuito de programação | [@semeiacode](https://www.instagram.com/semeiacode/) | [semeiacode.vercel.app](https://semeiacode.vercel.app/) |
 
 ---
 
