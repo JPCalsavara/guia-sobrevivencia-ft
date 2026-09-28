@@ -46,8 +46,8 @@ export function Navbar() {
             <Image
               src="/images/logo-unicamp.png"
               alt="Logotipo Unicamp"
-              width={26}
-              height={26}
+              width={34}
+              height={34}
               className={styles.unicampLogo}
               priority
             />
@@ -55,8 +55,8 @@ export function Navbar() {
             <Image
               src={theme === 'dark' ? '/images/logo-ft-horizontal-branco.png' : '/images/logo-ft-horizontal.png'}
               alt="Logotipo Faculdade de Tecnologia Unicamp"
-              width={140}
-              height={38}
+              width={160}
+              height={44}
               className={styles.ftLogo}
               priority
             />
@@ -88,7 +88,7 @@ export function Navbar() {
             aria-label="Alternar tema claro e escuro"
             title="Alternar tema"
           >
-            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
           </button>
 
           <Link
@@ -106,7 +106,7 @@ export function Navbar() {
             className={styles.menuToggle}
             aria-label="Abrir menu de navegação"
           >
-            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>

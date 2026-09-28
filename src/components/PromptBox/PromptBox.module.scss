@@ -6,7 +6,7 @@
   border: 1px solid var(--border-color);
   border-radius: $radius-lg;
   overflow: hidden;
-  box-shadow: $shadow-md;
+  box-shadow: $shadow-sm;
 }
 
 .header {
@@ -34,8 +34,9 @@
   width: 2.25rem;
   height: 2.25rem;
   border-radius: $radius-md;
-  background: linear-gradient(135deg, var(--accent), var(--primary-light));
-  color: #ffffff;
+  background-color: var(--ft-blue-soft);
+  color: var(--ft-blue);
+  border: 1px solid var(--ft-blue-border);
   @include flex-center;
   flex-shrink: 0;
 }
@@ -65,29 +66,32 @@
   border: 1px solid var(--border-color);
   color: var(--text-primary);
   font-size: 0.8125rem;
+  font-weight: 600;
   padding: 0.4375rem 0.875rem;
 
   &:hover {
-    border-color: var(--primary-light);
-    background-color: var(--surface-elevated);
+    border-color: var(--ft-blue);
+    background-color: var(--ft-blue-soft);
+    color: var(--ft-blue);
   }
 
   &.copied {
-    border-color: var(--success);
-    color: var(--success);
-    background-color: rgba(5, 150, 105, 0.1);
+    border-color: var(--ft-green-border);
+    color: var(--ft-green);
+    background-color: var(--ft-green-soft);
   }
 }
 
 .studioLink {
   @include button-base;
-  background-color: var(--primary-light);
+  background-color: var(--ft-blue);
   color: #ffffff;
   font-size: 0.8125rem;
+  font-weight: 700;
   padding: 0.4375rem 0.875rem;
 
   &:hover {
-    background-color: var(--primary);
+    background-color: var(--ft-blue-hover);
   }
 }
 
@@ -95,6 +99,8 @@
   padding: $spacing-lg;
   background-color: #0b0f19;
   border-bottom: 1px solid var(--border-color);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .pre {
@@ -104,6 +110,7 @@
   line-height: 1.6;
   color: #e2e8f0;
   white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .steps {
