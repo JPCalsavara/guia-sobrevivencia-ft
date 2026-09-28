@@ -19,4 +19,4 @@
 
 ## Decisões Arquiteturais Registradas
 - **ADR-0001:** Estilo textual sem marcas artificiais de escrita, com proibição de travessões, parênteses circulares e emojis decorativos.
-- **ADR-0002:** Responsividade universal e abordagem mobile first em todas as páginas, tabelas e componentes.
+- **ADR-0002:** Todos os itens têm responsividade mobile obrigatória em qualquer tela ou dispositivo.

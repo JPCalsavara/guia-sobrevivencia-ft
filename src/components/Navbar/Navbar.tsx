@@ -42,26 +42,15 @@ export function Navbar() {
     <header className={styles.header}>
       <div className={styles.container}>
         <Link href="/" className={styles.logo}>
-          <div className={styles.logoLogos}>
-            <Image
-              src="/images/logo-unicamp.png"
-              alt="Logotipo Unicamp"
-              width={34}
-              height={34}
-              className={styles.unicampLogo}
-              priority
-            />
-            <div className={styles.divider} />
-            <Image
-              src={theme === 'dark' ? '/images/logo-ft-horizontal-branco.png' : '/images/logo-ft-horizontal.png'}
-              alt="Logotipo Faculdade de Tecnologia Unicamp"
-              width={160}
-              height={44}
-              className={styles.ftLogo}
-              priority
-            />
-          </div>
-          <div className={styles.brandBadge}>Guia</div>
+          <Image
+            src={theme === 'dark' ? '/images/logo-ft-horizontal-branco.png' : '/images/logo-ft-horizontal.png'}
+            alt="Faculdade de Tecnologia"
+            width={160}
+            height={40}
+            className={styles.ftLogo}
+            priority
+          />
+          <span className={styles.brandBadge}>Guia</span>
         </Link>
 
         <nav className={styles.desktopNav}>
@@ -75,7 +64,7 @@ export function Navbar() {
                 className={`${styles.navItem} ${isActive ? styles.active : ''}`}
               >
                 <Icon size={16} />
-                <span>{item.label}</span>
+                <span className={styles.navLabel}>{item.label}</span>
               </Link>
             );
           })}

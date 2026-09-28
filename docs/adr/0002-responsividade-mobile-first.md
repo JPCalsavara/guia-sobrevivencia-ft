@@ -1,21 +1,22 @@
-# Responsividade Universal e Abordagem Mobile First
+# Todos os itens têm responsividade mobile
 
 ## Contexto
 
 A comunidade discente e ingressante da Faculdade de Tecnologia da Unicamp acessa orientações acadêmicas majoritariamente por meio de dispositivos móveis durante deslocamentos pelo campus, consultas rápidas em salas de aula ou trajetos no circular e no fretado intercampi.
 
-Interfaces concebidas exclusivamente para telas largas provocam cortes de texto, transbordamentos horizontais indesejados e quebras na usabilidade em telas compactas. Isso prejudica a experiência e compromete a consulta a prazos, rotas e tabelas curriculares.
+Interfaces concebidas exclusivamente para telas largas provocam quebra de texto inadequada, transbordamento horizontal de página e prejuízo à leitura e à navegação em celulares.
 
 ## Decisão
 
-Todas as páginas, componentes, formulários, tabelas, quadros comparativos e blocos de código devem ser desenvolvidos com responsividade completa para dispositivos móveis:
+Todos os itens da interface e do sistema têm responsividade mobile obrigatória:
 
-1. As grades de exibição e cartões de conteúdo devem se reorganizar de forma fluida a partir de uma única coluna em telas menores, expandindo progressivamente conforme a largura disponível.
-2. A primeira dobra visual da página inicial, formada pelo cabeçalho e pela seção principal, deve ocupar a altura completa da janela do navegador de modo equilibrado em todas as resoluções.
-3. Tabelas acadêmicas e blocos de código técnico devem dispor de rolagem horizontal independente quando o conteúdo ultrapassar a largura útil da tela, impedindo que o corpo do documento transborde.
-4. Elementos de interação como botões de navegação, seletores de filtro e atalhos externos devem possuir áreas de toque adequadas para uso em telas sensíveis ao toque.
-5. O menu de navegação deve recolher opções em um painel móvel acessível e de fácil acionamento em telas estreitas.
+1. O cabeçalho e a barra de navegação devem manter rótulos em linha única contínua, sem quebras verticais artificiais de texto, recolhendo os links em menu gaveta em telas compactas.
+2. A seção principal de apresentação e o cabeçalho preenchem a primeira dobra da tela de forma harmoniosa em qualquer altura ou resolução de smartphone ou computador.
+3. Todas as grades, cartões temáticos, formulários e listas reorganizam-se fluidamente em coluna única quando exibidos em telas menores.
+4. Tabelas curriculares e quadros comparativos entre cursos dispõem de rolagem horizontal própria e protegida, impedindo que a largura da tela seja forçada além dos limites visíveis.
+5. Blocos de código em LaTeX e comandos de inteligência artificial contam com área de rolagem independente e botões de cópia acessíveis por toque.
+6. Todos os botões, links e controles interativos respeitam dimensões ergonômicas para toque em telas móveis.
 
 ## Consequências
 
-O portal garante leitura confortável, navegação ergonômica e acesso integral a todas as funcionalidades independentemente do dispositivo utilizado, mantendo uniformidade visual e técnica tanto em smartphones quanto em monitores de alta resolução.
+Nenhum elemento da aplicação quebra o layout, transborda lateralmente ou divide indevidamente textos de navegação em telas pequenas. Toda a experiência de uso torna-se coesa, elegante e intuitiva em dispositivos móveis e em desktops.

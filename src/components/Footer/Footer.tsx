@@ -12,17 +12,9 @@ export function Footer() {
           <div className={styles.brandCol}>
             <div className={styles.brandLogos}>
               <Image
-                src="/images/logo-unicamp.png"
-                alt="Logotipo da Unicamp"
-                width={30}
-                height={30}
-                className={styles.unicampLogo}
-              />
-              <div className={styles.divider} />
-              <Image
                 src="/images/logo-ft-horizontal.png"
-                alt="Logotipo da Faculdade de Tecnologia da Unicamp"
-                width={150}
+                alt="Faculdade de Tecnologia"
+                width={160}
                 height={40}
                 className={styles.ftLogo}
               />
