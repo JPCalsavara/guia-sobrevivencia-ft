@@ -15,7 +15,11 @@ import {
   Video,
   Youtube,
   Compass,
-  ExternalLink
+  ExternalLink,
+  ShieldCheck,
+  Instagram,
+  Database,
+  Server
 } from 'lucide-react';
 import styles from './carreira.module.scss';
 
@@ -322,20 +326,20 @@ export default function CarreiraPage() {
           <div className={styles.roadmapCardsGrid}>
             <div className={styles.roadmapCard}>
               <div className={styles.roadmapCardHeader}>
-                <span className={styles.roadmapBadge}>Trilha Técnica</span>
-                <h3 className={styles.roadmapCardTitle}>Roteiros de Engenharia e Papéis</h3>
+                <span className={styles.roadmapBadge}>Desenvolvimento Web</span>
+                <h3 className={styles.roadmapCardTitle}>Roadmap Full Stack</h3>
                 <p className={styles.roadmapCardDesc}>
-                  Mapas visuais organizados com caminhos para Frontend, Backend, DevOps, Inteligência Artificial e Ciência da Computação.
+                  Trilha unificada com fundamentos de frontend, desenvolvimento de backend, bancos de dados e APIs.
                 </p>
               </div>
               <div className={styles.roadmapCardFooter}>
                 <a
-                  href="https://roadmap.sh"
+                  href="https://roadmap.sh/full-stack"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.cardInlineLink}
                 >
-                  <span>Explorar Roteiros</span>
+                  <span>Acessar Trilha Full Stack</span>
                   <ExternalLink size={12} />
                 </a>
               </div>
@@ -343,7 +347,70 @@ export default function CarreiraPage() {
 
             <div className={styles.roadmapCard}>
               <div className={styles.roadmapCardHeader}>
-                <span className={styles.roadmapBadge}>Portfólio</span>
+                <span className={styles.roadmapBadge}>Ciência de Dados e IA</span>
+                <h3 className={styles.roadmapCardTitle}>Roadmap AI e Data Scientist</h3>
+                <p className={styles.roadmapCardDesc}>
+                  Modelos preditivos, estatística prática, aprendizado de máquina, redes neurais e inteligência artificial aplicada.
+                </p>
+              </div>
+              <div className={styles.roadmapCardFooter}>
+                <a
+                  href="https://roadmap.sh/ai-data-scientist"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.cardInlineLink}
+                >
+                  <span>Acessar AI e Data Scientist</span>
+                  <ExternalLink size={12} />
+                </a>
+              </div>
+            </div>
+
+            <div className={styles.roadmapCard}>
+              <div className={styles.roadmapCardHeader}>
+                <span className={styles.roadmapBadge}>Engenharia de Dados</span>
+                <h3 className={styles.roadmapCardTitle}>Roadmap Data Engineer</h3>
+                <p className={styles.roadmapCardDesc}>
+                  Arquitetura de pipelines de ingestão, bancos relacionais e colunares, lagos de dados e processamento em lote.
+                </p>
+              </div>
+              <div className={styles.roadmapCardFooter}>
+                <a
+                  href="https://roadmap.sh/data-engineer"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.cardInlineLink}
+                >
+                  <span>Acessar Data Engineer</span>
+                  <ExternalLink size={12} />
+                </a>
+              </div>
+            </div>
+
+            <div className={styles.roadmapCard}>
+              <div className={styles.roadmapCardHeader}>
+                <span className={styles.roadmapBadge}>Infraestrutura e Nuvem</span>
+                <h3 className={styles.roadmapCardTitle}>Roadmap DevOps</h3>
+                <p className={styles.roadmapCardDesc}>
+                  Esteiras de integração contínua, conteinerização com Docker, orquestração Kubernetes e automação na nuvem.
+                </p>
+              </div>
+              <div className={styles.roadmapCardFooter}>
+                <a
+                  href="https://roadmap.sh/devops"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.cardInlineLink}
+                >
+                  <span>Acessar Trilha DevOps</span>
+                  <ExternalLink size={12} />
+                </a>
+              </div>
+            </div>
+
+            <div className={styles.roadmapCard}>
+              <div className={styles.roadmapCardHeader}>
+                <span className={styles.roadmapBadge}>Portfólio Real</span>
                 <h3 className={styles.roadmapCardTitle}>Projetos com Requisitos Reais</h3>
                 <p className={styles.roadmapCardDesc}>
                   Catálogo com especificações técnicas graduais para construir aplicações completas em vez de copiar tutoriais prontos.
@@ -365,7 +432,7 @@ export default function CarreiraPage() {
             <div className={styles.roadmapCard}>
               <div className={styles.roadmapCardHeader}>
                 <span className={styles.roadmapBadge}>Fundamentos</span>
-                <h3 className={styles.roadmapCardTitle}>Ciência da Computação e Boas Práticas</h3>
+                <h3 className={styles.roadmapCardTitle}>Ciência da Computação</h3>
                 <p className={styles.roadmapCardDesc}>
                   Roteiros de arquitetura de software, design patterns, protocolos de rede, segurança e estruturas de dados essenciais.
                 </p>
@@ -386,7 +453,7 @@ export default function CarreiraPage() {
         </div>
       </section>
 
-      {/* Trilhas Tecnológicas */}
+      {/* Trilhas Tecnológicas com Links Práticos */}
       <section className={styles.sectionBlock}>
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
@@ -401,17 +468,58 @@ export default function CarreiraPage() {
 
           <div className={styles.skillsGrid}>
             <div className={styles.skillItem}>
-              <h3 className={styles.skillTitle}>Trilha Dev: TypeScript First</h3>
+              <h3 className={styles.skillTitle}>Trilha Dev: TypeScript First e Full Stack</h3>
               <p className={styles.skillDesc}>
-                Unifique o ecossistema frontend e backend com a mesma sintaxe tipada. Backend em Node com Fastify, NestJS ou Express, e frontend com React e Next para produtos digitais ou Angular para sistemas corporativos tradicionais e bancos.
+                Unifique o ecossistema frontend e backend com a mesma sintaxe tipada. Backend em Node com Fastify, NestJS ou Express, e frontend com React e Next para produtos digitais ou Java com Spring Boot para corporativo tradicional.
               </p>
+              <div className={styles.trackActions}>
+                <a
+                  href="https://roadmap.sh/full-stack"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.trackActionBtn}
+                >
+                  <span>Roadmap Full Stack</span>
+                  <ExternalLink size={12} />
+                </a>
+              </div>
             </div>
 
             <div className={styles.skillItem}>
-              <h3 className={styles.skillTitle}>Trilha Dados e IA: Python First</h3>
+              <h3 className={styles.skillTitle}>Trilha Dados e IA: Ciência versus Engenharia</h3>
               <p className={styles.skillDesc}>
-                Manipulação de dados estruturados com Pandas e NumPy, modelos preditivos com Scikit-Learn e redes neurais com PyTorch, disponibilizando modelos através de APIs assíncronas com FastAPI e validação de dados com Pydantic.
+                Ciência foca em modelagem estatística, hipóteses e algoritmos preditivos. Engenharia foca em pipelines confiáveis, arquitetura de dados e alta performance na ingestão.
               </p>
+              <div className={styles.trackActions}>
+                <a
+                  href="https://www.youtube.com/watch?v=UmMBIsW7cMg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${styles.trackActionBtn} ${styles.youtube}`}
+                >
+                  <Youtube size={14} />
+                  <span>Vídeo: Ciência vs Engenharia</span>
+                  <ExternalLink size={12} />
+                </a>
+                <a
+                  href="https://roadmap.sh/ai-data-scientist"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.trackActionBtn}
+                >
+                  <span>AI e Data Science</span>
+                  <ExternalLink size={12} />
+                </a>
+                <a
+                  href="https://roadmap.sh/data-engineer"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.trackActionBtn}
+                >
+                  <span>Data Engineer</span>
+                  <ExternalLink size={12} />
+                </a>
+              </div>
             </div>
 
             <div className={styles.skillItem}>
@@ -419,6 +527,108 @@ export default function CarreiraPage() {
               <p className={styles.skillDesc}>
                 Em vez de colecionar certificados teóricos, implemente projetos propostos no catálogo do roadmap.sh, publique a documentação e disponibilize o deploy funcional para recrutadores testarem.
               </p>
+              <div className={styles.trackActions}>
+                <a
+                  href="https://roadmap.sh/projects"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.trackActionBtn}
+                >
+                  <span>Catálogo de Projetos</span>
+                  <ExternalLink size={12} />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* DevOps, Cloud e Cibersegurança com Recomendação da LICS */}
+      <section className={styles.sectionBlock}>
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <ShieldCheck size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>DevOps, Nuvem e Cibersegurança na Universidade</h2>
+              <p className={styles.cardSubtitle}>
+                Práticas de infraestrutura ágil, esteiras de entrega contínua e a Liga de Cibersegurança da Unicamp
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.skillsGrid}>
+            <div className={styles.skillItem}>
+              <h3 className={styles.skillTitle}>Práticas de DevOps e Containers</h3>
+              <p className={styles.skillDesc}>
+                Aprenda a padronizar ambientes locais com Docker e Docker Compose, automatizar testes em esteiras de integração contínua e provisionar recursos na nuvem de forma reprodutível.
+              </p>
+              <div className={styles.trackActions}>
+                <a
+                  href="https://roadmap.sh/devops"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.trackActionBtn}
+                >
+                  <span>Roadmap DevOps</span>
+                  <ExternalLink size={12} />
+                </a>
+              </div>
+            </div>
+
+            <div className={styles.skillItem}>
+              <h3 className={styles.skillTitle}>Cibersegurança e Recomendação da LICS</h3>
+              <p className={styles.skillDesc}>
+                Participe da LICS, Liga de Cibersegurança da Unicamp. A iniciativa promove grupos de estudo, treinamentos práticos de segurança defensiva e ofensiva, além de competições de CTF no cenário nacional.
+              </p>
+              <div className={styles.trackActions}>
+                <a
+                  href="https://www.lics.tec.br"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${styles.trackActionBtn} ${styles.green}`}
+                >
+                  <ShieldCheck size={14} />
+                  <span>Portal Oficial LICS</span>
+                  <ExternalLink size={12} />
+                </a>
+                <a
+                  href="https://www.instagram.com/lics.unicamp/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.trackActionBtn}
+                >
+                  <Instagram size={14} />
+                  <span>@lics.unicamp</span>
+                  <ExternalLink size={12} />
+                </a>
+              </div>
+            </div>
+
+            <div className={styles.skillItem}>
+              <h3 className={styles.skillTitle}>Nuvem com Benefício Estudantil</h3>
+              <p className={styles.skillDesc}>
+                Utilize o email institucional para acessar os programas AWS Educate e Google Cloud Innovators, obtendo créditos gratuitos para executar máquinas virtuais e laboratórios sem custos pessoais.
+              </p>
+              <div className={styles.trackActions}>
+                <a
+                  href="https://aws.amazon.com/education/awseducate/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.trackActionBtn}
+                >
+                  <span>AWS Educate</span>
+                  <ExternalLink size={12} />
+                </a>
+                <a
+                  href="https://cloud.google.com/innovators"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.trackActionBtn}
+                >
+                  <span>Google Innovators</span>
+                  <ExternalLink size={12} />
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -427,24 +637,130 @@ export default function CarreiraPage() {
       {/* Canais Recomendados */}
       <section className={styles.sectionBlock}>
         <div className={styles.blockCard}>
-          <h2 className={styles.cardTitle}>Canais de Tecnologia Recomendados</h2>
-          <p className={styles.cardSubtitle}>
-            Criadores de conteúdo que abordam fundamentos reais de computação, cultura de engenharia e preparação
-          </p>
-
-          <div className={styles.skillsGrid}>
-            <div className={styles.skillItem}>
-              <h3 className={styles.skillTitle}>Canais Nacionais</h3>
-              <p className={styles.skillDesc}>
-                Fabio Akita para fundamentos sólidos e história da computação, Augusto Galego para arquitetura de sistemas e entrevistas técnicas, Mano Deyvin para cultura corporativa e rotina profissional, e Fernanda Kipper para desenvolvimento prático.
+          <div className={styles.cardHeader}>
+            <Youtube size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>Canais de Tecnologia e Criadores Recomendados</h2>
+              <p className={styles.cardSubtitle}>
+                Conteúdos selecionados com foco em fundamentos sólidos, preparação de carreira e realidade da indústria
               </p>
             </div>
+          </div>
 
-            <div className={styles.skillItem}>
-              <h3 className={styles.skillTitle}>Canais Internacionais</h3>
-              <p className={styles.skillDesc}>
-                ByteByteGo para diagramas e casos reais de sistemas distribuídos, Hussein Nasser para redes e engenharia de bancos de dados, ThePrimeagen para ferramentas e cultura de terminal, e NeetCode para estruturas de dados.
+          <div className={styles.channelsGrid}>
+            <div className={styles.channelCard}>
+              <div className={styles.channelCardHeader}>
+                <div>
+                  <span className={styles.channelBadge}>Fundamentos e Carreira</span>
+                  <h3 className={styles.channelTitle}>Fabio Akita</h3>
+                </div>
+                <Youtube size={20} color="#dc2626" />
+              </div>
+              <p className={styles.channelDesc}>
+                História da computação, arquitetura de sistemas operacionais, compiladores e lições diretas sobre maturidade e evolução técnica.
               </p>
+              <a
+                href="https://www.youtube.com/watch?v=sx4hAHhO9CY&list=PLdsnXVqbHDUc7htGFobbZoNen3r_wm3ki"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.channelActionBtn}
+              >
+                <Youtube size={16} />
+                <span>Assistir Playlist de Carreira</span>
+                <ExternalLink size={12} />
+              </a>
+            </div>
+
+            <div className={styles.channelCard}>
+              <div className={styles.channelCardHeader}>
+                <div>
+                  <span className={styles.channelBadge}>Iniciantes e Entrevistas</span>
+                  <h3 className={styles.channelTitle}>Augusto Galego</h3>
+                </div>
+                <Youtube size={20} color="#dc2626" />
+              </div>
+              <p className={styles.channelDesc}>
+                Conselhos práticos para quem está dando os primeiros passos em TI, preparação para entrevistas técnicas e cultura de engenharia.
+              </p>
+              <a
+                href="https://www.youtube.com/watch?v=QqKqqrMlVNM"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.channelActionBtn}
+              >
+                <Youtube size={16} />
+                <span>Assistir Vídeo para Iniciantes</span>
+                <ExternalLink size={12} />
+              </a>
+            </div>
+
+            <div className={styles.channelCard}>
+              <div className={styles.channelCardHeader}>
+                <div>
+                  <span className={styles.channelBadge}>Desenvolvimento Prático</span>
+                  <h3 className={styles.channelTitle}>Fernanda Kipper Dev</h3>
+                </div>
+                <Youtube size={20} color="#dc2626" />
+              </div>
+              <p className={styles.channelDesc}>
+                Projetos práticos de desenvolvimento web moderno, construções de APIs seguras com Java e Spring Boot, além de interfaces React.
+              </p>
+              <a
+                href="https://www.youtube.com/@kipperdev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.channelActionBtn}
+              >
+                <Youtube size={16} />
+                <span>Acessar Canal Kipper Dev</span>
+                <ExternalLink size={12} />
+              </a>
+            </div>
+
+            <div className={styles.channelCard}>
+              <div className={styles.channelCardHeader}>
+                <div>
+                  <span className={styles.channelBadge}>Mercado e Rotina</span>
+                  <h3 className={styles.channelTitle}>Mano Deyvin</h3>
+                </div>
+                <Youtube size={20} color="#dc2626" />
+              </div>
+              <p className={styles.channelDesc}>
+                Visão bem-humorada e sem filtro da realidade dos times de desenvolvimento, reuniões ágeis e mercado de trabalho em tecnologia.
+              </p>
+              <a
+                href="https://www.youtube.com/@manodeyvin"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.channelActionBtn}
+              >
+                <Youtube size={16} />
+                <span>Acessar Canal Mano Deyvin</span>
+                <ExternalLink size={12} />
+              </a>
+            </div>
+
+            <div className={styles.channelCard}>
+              <div className={styles.channelCardHeader}>
+                <div>
+                  <span className={styles.channelBadge}>Sistemas Distribuídos</span>
+                  <h3 className={styles.channelTitle}>ByteByteGo e Internacionais</h3>
+                </div>
+                <Youtube size={20} color="#dc2626" />
+              </div>
+              <p className={styles.channelDesc}>
+                Diagramas visuais de arquitetura distribuída, redes com Hussein Nasser, estruturas de dados com NeetCode e produtividade com ThePrimeagen.
+              </p>
+              <a
+                href="https://www.youtube.com/@ByteByteGo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.channelActionBtn}
+              >
+                <Youtube size={16} />
+                <span>Acessar ByteByteGo</span>
+                <ExternalLink size={12} />
+              </a>
             </div>
           </div>
         </div>

@@ -2,9 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Sun, Moon, Menu, X, BookOpen, Briefcase, Cpu, MapPin, ExternalLink, Link2, Home } from 'lucide-react';
+import { Sun, Moon, Menu, X, BookOpen, Briefcase, Cpu, MapPin, ExternalLink, Link2, Home, Compass } from 'lucide-react';
 import styles from './Navbar.module.scss';
 
 export function Navbar() {
@@ -41,16 +40,14 @@ export function Navbar() {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        <Link href="/" className={styles.logo}>
-          <Image
-            src={theme === 'dark' ? '/images/logo-ft-horizontal-branco.png' : '/images/logo-ft-horizontal.png'}
-            alt="Faculdade de Tecnologia"
-            width={160}
-            height={40}
-            className={styles.ftLogo}
-            priority
-          />
-          <span className={styles.brandBadge}>Guia</span>
+        <Link href="/" className={styles.brand} aria-label="Página inicial do Guia FT Unicamp">
+          <div className={styles.brandIconWrapper}>
+            <Compass size={22} className={styles.brandIcon} />
+          </div>
+          <div className={styles.brandTextGroup}>
+            <span className={styles.brandTitle}>Guia FT</span>
+            <span className={styles.brandSubtitle}>Unicamp</span>
+          </div>
         </Link>
 
         <nav className={styles.desktopNav}>

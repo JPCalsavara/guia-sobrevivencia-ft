@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Compass } from 'lucide-react';
 import styles from './Footer.module.scss';
 
 export function Footer() {
@@ -11,13 +10,13 @@ export function Footer() {
         <div className={styles.grid}>
           <div className={styles.brandCol}>
             <div className={styles.brandLogos}>
-              <Image
-                src="/images/logo-ft-horizontal.png"
-                alt="Faculdade de Tecnologia"
-                width={160}
-                height={40}
-                className={styles.ftLogo}
-              />
+              <div className={styles.brandIconWrapper}>
+                <Compass size={20} className={styles.brandIcon} />
+              </div>
+              <div className={styles.brandTextGroup}>
+                <span className={styles.brandTitle}>Guia FT</span>
+                <span className={styles.brandSubtitle}>Unicamp</span>
+              </div>
             </div>
             <p className={styles.brandDesc}>
               Plataforma de orientação acadêmica e carreira organizada para a comunidade discente da Faculdade de Tecnologia da Universidade Estadual de Campinas, Campus 1 Limeira.

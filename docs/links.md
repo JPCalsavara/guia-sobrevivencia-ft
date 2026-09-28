@@ -66,8 +66,9 @@ Compilação completa e categorizada de todos os links institucionais da Unicamp
 | **A.R.U.Li. (Repúblicas)** | Associação das Repúblicas da Unicamp de Limeira (Moradias) | [@aruli.unicamp](https://www.instagram.com/aruli.unicamp/) | [linktr.ee/arulimeiraoficial](https://linktr.ee/arulimeiraoficial) |
 | **DevLimeira** | Comunidade Tech Regional (Meetups, DevDay, Networking) | [@fabricadeinovacao](https://www.instagram.com/fabricadeinovacao/) | [sympla.com.br/devlimeira](https://www.sympla.com.br/produtor/devlimeira) |
 | **Fábrica de Inovação** | Hub e Polo de Inovação e Empreendedorismo de Limeira | [@fabricadeinovacao](https://www.instagram.com/fabricadeinovacao/) | [fabricadeinovacao.org.br](https://fabricadeinovacao.org.br) |
-| **Semeia Code** | Projeto de Extensão Universitária da FT Unicamp (Ensino gratuito de programação para escolas públicas) | — | [semeiacode.vercel.app](https://semeiacode.vercel.app/) |
-| **LiUP (Liga de Startups)** | Liga de Startups da Unicamp (Empreendedorismo, inovação e aceleração - FT/FCA) | [@liup.unicamp](https://www.instagram.com/liup.unicamp/) | [ligadestartups-unicamp.web.app](https://ligadestartups-unicamp.web.app/) |
+| **LiUP Liga de Startups** | Liga de Startups da Unicamp, atuando em inovacao e empreendedorismo | [@liup.unicamp](https://www.instagram.com/liup.unicamp/) | [ligadestartups-unicamp.web.app](https://ligadestartups-unicamp.web.app/) |
+| **LICS Cibersegurança** | Liga de Cibersegurança da Unicamp, estudos e competições CTF | [@lics.unicamp](https://www.instagram.com/lics.unicamp/) | [lics.tec.br](https://www.lics.tec.br) |
+| **Semeia Code** | Projeto de Extensão Universitária da FT com ensino gratuito de programação | N/A | [semeiacode.vercel.app](https://semeiacode.vercel.app/) |
 
 ---
 
@@ -80,8 +81,17 @@ Compilação completa e categorizada de todos os links institucionais da Unicamp
 | **Overleaf** | Editor online em LaTeX para o currículo acadêmico de página única | [overleaf.com](https://www.overleaf.com) |
 | **devcelio resume template** | Modelo de currículo LaTeX otimizado para triagem ATS | [github.com/devcelio/resume-template](https://github.com/devcelio/resume-template) |
 | **Vídeo Pitch e Entrevistas** | Sete principais perguntas de entrevista de estágio e estrutura de apresentação | [youtube.com/watch?v=9-Lb-OMqXzI](https://www.youtube.com/watch?v=9-Lb-OMqXzI) |
-| **roadmap.sh** | Guias visuais e trilhas de aprendizado para Dev e Dados | [roadmap.sh](https://roadmap.sh) |
+| **Vídeo Ciência vs Eng de Dados** | Diferença entre ciência de dados e engenharia de dados | [youtube.com/watch?v=UmMBIsW7cMg](https://www.youtube.com/watch?v=UmMBIsW7cMg) |
+| **Roadmap Full Stack** | Trilha visual completa para desenvolvimento web full stack | [roadmap.sh/full-stack](https://roadmap.sh/full-stack) |
+| **Roadmap AI e Data Scientist** | Roteiro estruturado para ciência de dados e inteligência artificial | [roadmap.sh/ai-data-scientist](https://roadmap.sh/ai-data-scientist) |
+| **Roadmap Data Engineer** | Trilha prática de pipelines de dados e infraestrutura | [roadmap.sh/data-engineer](https://roadmap.sh/data-engineer) |
+| **Roadmap DevOps** | Roteiro de infraestrutura em nuvem, esteiras e conteinerização | [roadmap.sh/devops](https://roadmap.sh/devops) |
+| **roadmap.sh Geral** | Guias visuais e trilhas de aprendizado para Dev e Dados | [roadmap.sh](https://roadmap.sh) |
 | **roadmap.sh Projetos** | Catálogo de projetos com especificações práticas para portfólio | [roadmap.sh/projects](https://roadmap.sh/projects) |
+| **Fabio Akita Carreira** | Playlist sobre carreira em tecnologia e fundamentos de computação | [youtube.com/playlist](https://www.youtube.com/watch?v=sx4hAHhO9CY&list=PLdsnXVqbHDUc7htGFobbZoNen3r_wm3ki) |
+| **Augusto Galego Iniciante** | Vídeo prático sobre início de carreira e preparação técnica | [youtube.com/watch?v=QqKqqrMlVNM](https://www.youtube.com/watch?v=QqKqqrMlVNM) |
+| **Fernanda Kipper Dev** | Canal de desenvolvimento prático e projetos modernos | [youtube.com/@kipperdev](https://www.youtube.com/@kipperdev) |
+| **Mano Deyvin** | Canal com perspectiva realista sobre o mercado tech | [youtube.com/@manodeyvin](https://www.youtube.com/@manodeyvin) |
 | **GitHub Education Pack** | Domínios grátis, Copilot e ferramentas para estudantes Unicamp | [education.github.com/pack](https://education.github.com/pack) |
 | **AWS Educate** | Acesso a laboratórios e créditos em nuvem sem cartão de crédito | [aws.amazon.com/education/awseducate](https://aws.amazon.com/education/awseducate/) |
 | **Google Cloud Innovators** | Programa acadêmico com laboratórios práticos no Cloud Skills Boost | [cloud.google.com/innovators](https://cloud.google.com/innovators) |

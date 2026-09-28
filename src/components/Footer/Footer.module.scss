@@ -32,12 +32,45 @@
 .brandLogos {
   display: flex;
   align-items: center;
+  gap: 0.625rem;
 }
 
-.ftLogo {
-  height: 36px;
-  width: auto;
-  object-fit: contain;
+.brandIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: $radius-md;
+  background-color: var(--ft-green-soft);
+  color: var(--ft-green);
+  border: 1px solid var(--ft-green-border);
+  flex-shrink: 0;
+}
+
+.brandIcon {
+  color: var(--ft-green);
+}
+
+.brandTextGroup {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+}
+
+.brandTitle {
+  font-size: 1.125rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.brandSubtitle {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ft-green);
 }
 
 .brandDesc {

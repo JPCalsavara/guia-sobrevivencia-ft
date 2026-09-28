@@ -21,39 +21,55 @@
   gap: $spacing-md;
 }
 
-.logo {
+.brand {
   display: flex;
   align-items: center;
   gap: 0.625rem;
   text-decoration: none;
   flex-shrink: 0;
-}
+  transition: opacity $transition-fast;
 
-.ftLogo {
-  height: 40px;
-  width: auto;
-  object-fit: contain;
-
-  @media (max-width: 768px) {
-    height: 32px;
+  &:hover {
+    opacity: 0.9;
   }
 }
 
-.brandBadge {
-  display: inline-block;
-  font-size: 0.6875rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 0.2rem 0.5rem;
-  border-radius: $radius-full;
+.brandIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: $radius-md;
   background-color: var(--ft-green-soft);
   color: var(--ft-green);
   border: 1px solid var(--ft-green-border);
+  flex-shrink: 0;
+}
 
-  @media (max-width: 480px) {
-    display: none;
-  }
+.brandIcon {
+  color: var(--ft-green);
+}
+
+.brandTextGroup {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+}
+
+.brandTitle {
+  font-size: 1.125rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.brandSubtitle {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ft-green);
 }
 
 .desktopNav {

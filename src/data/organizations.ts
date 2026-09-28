@@ -31,6 +31,16 @@ export const organizationsData: Organization[] = [
     websiteUrl: 'https://site-cdi-five.vercel.app/',
   },
   {
+    id: 'lics-unicamp',
+    name: 'LICS Liga de Cibersegurança',
+    category: 'ti',
+    categoryLabel: 'Segurança da Informação',
+    description: 'Liga de Cibersegurança da Unicamp dedicada ao aprendizado prático, pesquisas, competições de captura de bandeira CTF e preparação profissional em segurança.',
+    instagramHandle: '@lics.unicamp',
+    instagramUrl: 'https://www.instagram.com/lics.unicamp/',
+    websiteUrl: 'https://www.lics.tec.br',
+  },
+  {
     id: 'aaatu',
     name: 'AAATU Atlética FT',
     category: 'atletica',
