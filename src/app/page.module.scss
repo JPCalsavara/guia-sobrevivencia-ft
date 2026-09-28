@@ -1,0 +1,334 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.container {
+  @include container;
+  padding-top: $spacing-2xl;
+  padding-bottom: $spacing-3xl;
+}
+
+// Hero
+.heroSection {
+  padding: $spacing-2xl 0 $spacing-3xl 0;
+  text-align: center;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.875rem;
+  border-radius: $radius-full;
+  background-color: rgba(37, 99, 235, 0.1);
+  color: var(--primary-light);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  margin-bottom: $spacing-lg;
+}
+
+.heroTitle {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  margin-bottom: $spacing-md;
+
+  @include respond-to('md') {
+    font-size: 2.75rem;
+  }
+}
+
+.heroDescription {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 760px;
+  margin-bottom: $spacing-2xl;
+}
+
+.heroActions {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.primaryButton {
+  @include button-base;
+  background: linear-gradient(135deg, var(--unicamp-red), var(--primary-light));
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9375rem;
+  box-shadow: $shadow-md;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+.secondaryButton {
+  @include button-base;
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9375rem;
+
+  &:hover {
+    background-color: var(--surface-elevated);
+    border-color: var(--primary-light);
+  }
+}
+
+// Manifesto
+.manifestoSection {
+  margin-bottom: $spacing-3xl;
+}
+
+.manifestoCard {
+  @include glass-panel;
+  padding: $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+
+  @include respond-to('md') {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: $spacing-2xl;
+  }
+}
+
+.manifestoIcon {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: $radius-lg;
+  background-color: rgba(37, 99, 235, 0.1);
+  color: var(--primary-light);
+  @include flex-center;
+  flex-shrink: 0;
+}
+
+.manifestoText {
+  flex: 1;
+}
+
+.manifestoTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: $spacing-sm;
+}
+
+.manifestoParagraph {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+// Pilares
+.pillarsSection {
+  margin-bottom: $spacing-3xl;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: $spacing-2xl;
+}
+
+.sectionTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.375rem;
+}
+
+.sectionSubtitle {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+}
+
+.pillarsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.pillarCard {
+  @include interactive-card;
+  padding: $spacing-xl;
+  display: flex;
+  flex-direction: column;
+}
+
+.pillarHeader {
+  @include flex-between;
+  margin-bottom: $spacing-md;
+}
+
+.pillarBadge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.625rem;
+  border-radius: $radius-full;
+
+  &.blue {
+    background-color: rgba(37, 99, 235, 0.1);
+    color: var(--primary-light);
+  }
+
+  &.emerald {
+    background-color: rgba(5, 150, 105, 0.1);
+    color: var(--success);
+  }
+
+  &.purple {
+    background-color: rgba(147, 51, 234, 0.1);
+    color: #a855f7;
+  }
+
+  &.red {
+    background-color: rgba(185, 28, 28, 0.1);
+    color: var(--unicamp-red);
+  }
+}
+
+.pillarIconBox {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: $radius-md;
+  background-color: var(--surface-elevated);
+  color: var(--text-primary);
+  @include flex-center;
+}
+
+.pillarTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.pillarSub {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--primary-light);
+  margin-bottom: $spacing-md;
+}
+
+.pillarDesc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: $spacing-xl;
+  flex: 1;
+}
+
+.pillarLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--primary-light);
+  transition: gap $transition-fast;
+
+  &:hover {
+    gap: 0.625rem;
+  }
+}
+
+// Acesso Rapido
+.quickAccessSection {
+  margin-top: $spacing-2xl;
+}
+
+.quickCard {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-lg;
+  padding: $spacing-xl;
+}
+
+.quickHeader {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  margin-bottom: $spacing-xl;
+}
+
+.quickIcon {
+  color: var(--primary-light);
+}
+
+.quickTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.quickSub {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+.quickGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.quickItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-md;
+  background-color: var(--surface-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-md;
+  transition: all $transition-fast;
+  color: var(--text-primary);
+
+  &:hover {
+    border-color: var(--primary-light);
+    transform: translateY(-1px);
+  }
+}
+
+.quickItemContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.quickItemName {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.quickItemDesc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
