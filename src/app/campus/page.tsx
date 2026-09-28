@@ -12,7 +12,8 @@ import {
   ExternalLink,
   ShieldCheck,
   Sparkles,
-  AlertCircle
+  AlertCircle,
+  Monitor
 } from 'lucide-react';
 import styles from './campus.module.scss';
 
@@ -36,9 +37,74 @@ export default function CampusPage() {
           </h1>
 
           <p className={styles.pageDescription}>
-            Descubra como reservar espacos na FT, consulte os horarios do circular e do fretado intercampi e conheca todas as entidades ativas da comunidade universitaria.
+            Descubra como reservar espacos na FT, acesse as ferramentas de TI da faculdade, consulte os horarios do circular e do fretado intercampi e conheca todas as entidades ativas da comunidade universitaria.
           </p>
         </motion.div>
+      </section>
+
+      {/* Ferramentas de TI e Acessos */}
+      <section className={styles.sectionBlock}>
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <Monitor size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>Ferramentas de Tecnologia da Informacao da FT</h2>
+              <p className={styles.cardSubtitle}>
+                Credenciais de acesso para computadores, laboratorios da TIC e servicos digitais da Unicamp
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.roomsGrid}>
+            <div className={styles.roomCard}>
+              <h3 className={styles.roomCardTitle}>Acesso aos Laboratorios da TIC</h3>
+              <p className={styles.roomCardText}>
+                Para fazer login nos computadores fisicos dos laboratorios de informatica da FT, utilize o usuario do seu RA e a senha cadastrada especificamente na coordenadoria de informatica da faculdade, distinta da senha central da DAC.
+              </p>
+              <a
+                href="https://www.ft.unicamp.br/tic"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.roomLink}
+              >
+                <span>Portal da Coordenadoria de TIC</span>
+                <ExternalLink size={14} />
+              </a>
+            </div>
+
+            <div className={styles.roomCard}>
+              <h3 className={styles.roomCardTitle}>Rede Sem Fio Eduroam</h3>
+              <p className={styles.roomCardText}>
+                A rede sem fio academica mundial Eduroam esta presente em todos os blocos da FT. O acesso e configurado com seu email institucional completo e a senha de sistemas centrais da Unicamp atraves do instalador do CCUEC.
+              </p>
+              <a
+                href="https://www.ccuec.unicamp.br/ccuec/servicos/eduroam"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.roomLink}
+              >
+                <span>Instalador Eduroam CCUEC</span>
+                <ExternalLink size={14} />
+              </a>
+            </div>
+
+            <div className={styles.roomCard}>
+              <h3 className={styles.roomCardTitle}>Moodle e Intranet</h3>
+              <p className={styles.roomCardText}>
+                O ambiente virtual de aprendizagem Moodle e a Intranet FT utilizam autenticacao centralizada Unicamp. Por meio deles, voce envia tarefas de laboratorio, acessa notas parciais e consulta comunicados dos docentes.
+              </p>
+              <a
+                href="https://moodle.unicamp.br"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.roomLink}
+              >
+                <span>Acessar Moodle Unicamp</span>
+                <ExternalLink size={14} />
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Infraestrutura e Salas na FT */}

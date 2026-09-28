@@ -213,6 +213,70 @@ export default function CarreiraPage() {
           </div>
         </div>
       </section>
+
+      {/* Trilhas Tecnologicas */}
+      <section className={styles.sectionBlock}>
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <Code2 size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>Trilhas de Aprendizado: Engenharia de Software versus Dados</h2>
+              <p className={styles.cardSubtitle}>
+                Escolha uma direcao tecnica clara para aprofundar seus estudos extracurriculares
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.skillsGrid}>
+            <div className={styles.skillItem}>
+              <h3 className={styles.skillTitle}>Trilha Dev: TypeScript First</h3>
+              <p className={styles.skillDesc}>
+                Unifique o ecossistema frontend e backend com a mesma sintaxe tipada. Backend em Node com Fastify, NestJS ou Express, e frontend com React e Next para produtos digitais ou Angular para sistemas corporativos tradicionais e bancos.
+              </p>
+            </div>
+
+            <div className={styles.skillItem}>
+              <h3 className={styles.skillTitle}>Trilha Dados e IA: Python First</h3>
+              <p className={styles.skillDesc}>
+                Manipulacao de dados estruturados com Pandas e NumPy, modelos preditivos com Scikit-Learn e redes neurais com PyTorch, disponibilizando modelos atraves de APIs assincronas com FastAPI e validacao de dados com Pydantic.
+              </p>
+            </div>
+
+            <div className={styles.skillItem}>
+              <h3 className={styles.skillTitle}>Roteiros Visuais no roadmap.sh</h3>
+              <p className={styles.skillDesc}>
+                Utilize o portal comunitario roadmap.sh para consultar guias visuais completos passo a passo para cada papel tecnico, compreendendo quais conceitos estudar em sequencia lógica.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Canais Recomendados */}
+      <section className={styles.sectionBlock}>
+        <div className={styles.blockCard}>
+          <h2 className={styles.cardTitle}>Canais de Tecnologia Recomendados</h2>
+          <p className={styles.cardSubtitle}>
+            Criadores de conteudo que abordam fundamentos reais de computacao, cultura de engenharia e preparacao
+          </p>
+
+          <div className={styles.skillsGrid}>
+            <div className={styles.skillItem}>
+              <h3 className={styles.skillTitle}>Canais Nacionais</h3>
+              <p className={styles.skillDesc}>
+                Fabio Akita para fundamentos solidos e historia da computacao, Augusto Galego para arquitetura de sistemas e entrevistas tecnicas, Mano Deyvin para cultura corporativa e rotina profissional, e Fernanda Kipper para desenvolvimento pratico.
+              </p>
+            </div>
+
+            <div className={styles.skillItem}>
+              <h3 className={styles.skillTitle}>Canais Internacionais</h3>
+              <p className={styles.skillDesc}>
+                ByteByteGo para diagramas e casos reais de sistemas distribuidos, Hussein Nasser para redes e engenharia de bancos de dados, ThePrimeagen para ferramentas e cultura de terminal, e NeetCode para estruturas de dados.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

@@ -1,22 +1,16 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Copy, Check, ExternalLink, FileText } from 'lucide-react';
 import { latexResumeTemplate } from '@/data/prompts';
+import { useClipboardCopy } from '@/hooks/useClipboardCopy';
 import styles from './LatexCodeBlock.module.scss';
 
 export function LatexCodeBlock() {
-  const [copied, setCopied] = useState(false);
+  const { copied, copy } = useClipboardCopy();
 
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(latexResumeTemplate);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch {
-      // Fallback
-      setCopied(false);
-    }
+  const handleCopy = () => {
+    copy(latexResumeTemplate);
   };
 
   return (

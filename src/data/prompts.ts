@@ -1,17 +1,18 @@
 export const geminiSyllabusPrompt = `Voce e um assistente especializado em organizacao academica universitaria.
-Analise o arquivo PDF deste plano de aula da disciplina e extraia todos os eventos avaliativos relevantes.
+Analise o arquivo PDF deste plano de aula da disciplina e extraia todos os eventos avaliativos relevantes, como provas, entregas de trabalhos, seminarios e exames.
 
-Estruture sua resposta estritamente em formato JSON contendo uma lista de objetos com os seguintes campos:
-1. title: Titulo claro do evento, como Prova 1, Entrega de Laboratorio, Projeto Semestral ou Exame Final.
-2. date: Data do evento no formato AAAA-MM-DD.
-3. time: Horario de inicio no formato HH:MM caso esteja informado, ou deixe vazio.
-4. description: Resumo curto sobre o conteudo abordado ou instrucoes de entrega.
-5. location: Sala ou laboratorio indicado pelo docente, caso exista.
+Retorne dois blocos estruturados:
+
+Bloco 1, Codigo iCalendar padrao RFC 5545:
+Gere um arquivo de texto com extensao ics completo iniciando com BEGIN:VCALENDAR e finalizando com END:VCALENDAR contendo cada avaliacao em um bloco VEVENT com SUMMARY, DESCRIPTION, DTSTART, DTEND e alarmes programados para vinte e quatro horas antes.
+
+Bloco 2, Resumo em Tabela:
+Apresente uma tabela simples com Data, Horario, Titulo da Avaliacao, Peso ou Criterio e Local caso informado.
 
 Regras importantes:
-- Considere o fuso horario oficial de Brasilia.
-- Caso o plano cite semanas em vez de datas exatas, tente estimar a data a partir da data de inicio das aulas do semestre vigente.
-- Retorne apenas o bloco JSON sem introducoes ou comentarios adicionais.`;
+- Considere o fuso horario oficial de America Sao Paulo.
+- Caso o plano cite semanas em vez de datas exatas, estime a data a partir da data de inicio das aulas do semestre vigente.
+- Mantenha a saida limpa e direta para que o arquivo ics possa ser salvo e importado no Google Agenda ou Apple Calendar.`;
 
 export const latexResumeTemplate = `\\documentclass[letterpaper,10pt]{article}
 \\usepackage[utf8]{inputenc}

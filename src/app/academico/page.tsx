@@ -166,6 +166,51 @@ export default function AcademicoPage() {
           </div>
         </div>
       </section>
+
+      {/* Iniciacao Cientifica */}
+      <section className={styles.sectionBlock}>
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <TrendingUp size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>Iniciacao Cientifica na FT: PIBIC versus FAPESP</h2>
+              <p className={styles.cardSubtitle}>
+                Como iniciar na pesquisa academica, prazos de submissao e linhas de pesquisa dos docentes
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.rulesGrid}>
+            <div className={styles.ruleCard}>
+              <h3 className={styles.ruleTitle}>PIBIC CNPq Unicamp</h3>
+              <p className={styles.ruleText}>
+                Edital institucional anual gerenciado pela Pro-Reitoria de Pesquisa com inscricoes entre marco e maio. A vigencia e de doze meses, de agosto a julho. Permite iniciar na pesquisa academica sob orientacao direta de um professor da faculdade.
+              </p>
+            </div>
+
+            <div className={styles.ruleCard}>
+              <h3 className={styles.ruleTitle}>Bolsa FAPESP de Fluxo Continuo</h3>
+              <p className={styles.ruleText}>
+                Submetida a qualquer epoca do ano pelo sistema SAGe. Exige historico escolar sem reprovacoes recentes, Coeficiente de Rendimento elevado e estabelece regime estrito de dedicacao exclusiva, sem possibilidade de estagio concorrente.
+              </p>
+            </div>
+
+            <div className={styles.ruleCard}>
+              <h3 className={styles.ruleTitle}>Como Iniciar o Contato</h3>
+              <p className={styles.ruleText}>
+                A iniciacao cientifica depende do interesse ativo do estudante. Aproxime-se dos docentes ao final das aulas ou envie mensagem apresentando seu interesse em temas de pesquisa e disponibilidade de dedicacao semanal.
+              </p>
+            </div>
+
+            <div className={styles.ruleCard}>
+              <h3 className={styles.ruleTitle}>Linhas de Pesquisa na Computacao da FT</h3>
+              <p className={styles.ruleText}>
+                A faculdade conta com docentes atuando em redes de computadores e sistemas operacionais com o professor Plinio Vilela, otimizacao com o professor Luis Meira, sistemas distribuidos com o professor Andre Gradvohl, visao computacional com o professor Marco Carvalho e interface humano computador com o professor Celmar Silva.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

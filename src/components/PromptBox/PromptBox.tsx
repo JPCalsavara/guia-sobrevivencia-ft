@@ -1,21 +1,16 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Copy, Check, Sparkles, ExternalLink } from 'lucide-react';
+import React from 'react';
+import { Copy, Check, Sparkles, ExternalLink, Calendar } from 'lucide-react';
 import { geminiSyllabusPrompt } from '@/data/prompts';
+import { useClipboardCopy } from '@/hooks/useClipboardCopy';
 import styles from './PromptBox.module.scss';
 
 export function PromptBox() {
-  const [copied, setCopied] = useState(false);
+  const { copied, copy } = useClipboardCopy();
 
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(geminiSyllabusPrompt);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch {
-      setCopied(false);
-    }
+  const handleCopy = () => {
+    copy(geminiSyllabusPrompt);
   };
 
   return (
@@ -26,9 +21,9 @@ export function PromptBox() {
             <Sparkles size={18} />
           </div>
           <div>
-            <h4 className={styles.title}>Prompt Estruturado para o Google Gemini ou NotebookLM</h4>
+            <h4 className={styles.title}>Prompt para Geracao de Calendario iCalendar e Tabela</h4>
             <p className={styles.subtitle}>
-              Suba o PDF do plano de aula no Google AI Studio ou no Gemini e cole o prompt abaixo
+              Suba o PDF do plano de aula no Google Gemini ou AI Studio para extrair o arquivo de compromissos
             </p>
           </div>
         </div>
@@ -61,11 +56,11 @@ export function PromptBox() {
       </div>
 
       <div className={styles.steps}>
-        <h5 className={styles.stepsTitle}>Como Usar em Tres Passos Rapidos</h5>
+        <h5 className={styles.stepsTitle}>Como Importar no Google Agenda em Tres Passos</h5>
         <ol className={styles.stepsList}>
-          <li>Baixe o PDF do plano de ensino ou cronograma disponibilizado pelo docente no Moodle.</li>
-          <li>Acesse o Google Gemini ou o Google AI Studio e anexe o arquivo PDF junto com o prompt copiado.</li>
-          <li>Copie a resposta estruturada para importar seus compromissos no Google Agenda ou Apple Calendar.</li>
+          <li>Acesse o Google Gemini ou o AI Studio, anexe o PDF do plano de ensino do Moodle e execute o prompt acima.</li>
+          <li>Copie o bloco de codigo que comeca com BEGIN:VCALENDAR e salve em um arquivo de texto com o nome aula.ics no seu computador.</li>
+          <li>No Google Agenda, va em Configuracoes, selecione Importar e Exportar e envie o arquivo aula.ics para adicionar todas as provas de uma vez.</li>
         </ol>
       </div>
     </div>

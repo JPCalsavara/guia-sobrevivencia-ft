@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { GraduationCap, Sun, Moon, Menu, X, BookOpen, Briefcase, Cpu, MapPin, ExternalLink } from 'lucide-react';
+import { GraduationCap, Sun, Moon, Menu, X, BookOpen, Briefcase, Cpu, MapPin, ExternalLink, Link2 } from 'lucide-react';
 import styles from './Navbar.module.scss';
 
 export function Navbar() {
@@ -32,6 +32,7 @@ export function Navbar() {
     { href: '/carreira', label: 'Carreira', icon: Briefcase },
     { href: '/estudos-ia', label: 'Estudos e IA', icon: Cpu },
     { href: '/campus', label: 'Campus e Vida', icon: MapPin },
+    { href: '/links', label: 'Links Uteis', icon: Link2 },
   ];
 
   return (

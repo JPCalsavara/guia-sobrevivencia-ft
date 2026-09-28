@@ -1,17 +1,48 @@
 'use client';
 
-import React, { useState } from 'react';
-import { CheckCircle2, Circle, ExternalLink, Award } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { CheckCircle2, Circle, ExternalLink, Award, RotateCcw } from 'lucide-react';
 import { graduationChecklistData } from '@/data/academic';
 import styles from './ChecklistFormatura.module.scss';
 
+const STORAGE_KEY = 'ft_checklist_graduation';
+
 export function ChecklistFormatura() {
   const [completedItems, setCompletedItems] = useState<string[]>([]);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        setCompletedItems(JSON.parse(saved));
+      }
+    } catch {
+      // Ignora erro de leitura
+    } finally {
+      setIsLoaded(true);
+    }
+  }, []);
 
   const toggleItem = (id: string) => {
-    setCompletedItems((prev) =>
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
-    );
+    setCompletedItems((prev) => {
+      const next = prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id];
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+      } catch {
+        // Ignora erro de gravacao
+      }
+      return next;
+    });
+  };
+
+  const resetChecklist = () => {
+    setCompletedItems([]);
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+    } catch {
+      // Ignora erro
+    }
   };
 
   const total = graduationChecklistData.length;
@@ -26,20 +57,33 @@ export function ChecklistFormatura() {
           <div>
             <h3 className={styles.title}>Checklist Interativo de Integralizacao Curricular</h3>
             <p className={styles.subtitle}>
-              Acompanhe os cinco requisitos fundamentais exigidos pela DAC para a concessao do diploma
+              Acompanhe os cinco requisitos fundamentais da DAC com progresso salvo no seu navegador
             </p>
           </div>
         </div>
 
-        <a
-          href="https://grade.daconline.unicamp.br/login/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.gradeButton}
-        >
-          <span>Conferir na Grade DAC Online</span>
-          <ExternalLink size={14} />
-        </a>
+        <div className={styles.headerActions}>
+          {count > 0 && (
+            <button
+              onClick={resetChecklist}
+              className={styles.resetButton}
+              title="Limpar selecoes salvas"
+            >
+              <RotateCcw size={14} />
+              <span>Reiniciar</span>
+            </button>
+          )}
+
+          <a
+            href="https://grade.daconline.unicamp.br/login/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.gradeButton}
+          >
+            <span>Conferir na Grade DAC Online</span>
+            <ExternalLink size={14} />
+          </a>
+        </div>
       </div>
 
       <div className={styles.progressArea}>

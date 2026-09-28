@@ -1,39 +1,36 @@
-# RFC — Arquitetura da Aplicação e Plataforma Kit Calouro FT Unicamp
+# RFC 01: Arquitetura da Aplicacao e Plataforma Kit Calouro FT Unicamp
 
 | | |
 |---|---|
 | **Status** | **Proposta** |
 | **Time** | Engenharia de Software / Comunidade FT Unicamp |
 | **Data** | 28/09/2026 |
-| **Versão** | 1.0.0 |
+| **Versao** | 1.0.0 |
 
 ---
 
-## Contextualização
+## Contextualizacao
 
 ### Entendendo o problema
-O ingresso dos calouros na Faculdade de Tecnologia da Unicamp (Campus I - Limeira), especialmente nos cursos de computação (BSI - Bacharelado em Sistemas de Informação e TADS - Tecnologia em Análise e Desenvolvimento de Sistemas), é marcado por uma dispersão crítica de informações vitais. Regras burocráticas complexas da Diretoria Acadêmica (DAC) — tais como Coeficiente de Rendimento (CR), Coeficiente de Progressão (CP), limites de integralização, curricularização da extensão e choque de turnos entre estágio e aulas diurnas — não são explicadas de forma pragmática e estratégica aos ingressantes.
+O ingresso dos calouros na Faculdade de Tecnologia da Unicamp, Campus 1 em Limeira, especialmente nos cursos de computacao BSI e TADS, e marcado por uma dispersao critica de informacoes vitais. Regras burocraticas complexas da Diretoria Academica DAC, tais como Coeficiente de Rendimento CR, Coeficiente de Progressao CP, limites de integralizacao, curricularizacao da extensao e choque de turnos entre estagio e aulas diurnas, nao sao explicadas de forma pragmatica e estrategica aos ingressantes.
 
-Essa assimetria informacional resulta em calouros tomando decisões precoces que prejudicam sua trajetória acadêmica e empregabilidade:
-1. Alunos de BSI ignoram a concorrência feroz por vagas noturnas de TADS no 3º/4º ano, negligenciando o CR no ciclo básico e ficando impossibilitados de conciliar estágios em horário comercial.
-2. Estudantes aceleram a formatura sem cumprir estágios prévios, caindo na armadilha da extinção do contrato pela Lei do Estágio (Lei nº 11.788/2008) e enfrentando a barreira de contratação para vagas de Júnior sem experiência.
-3. Desconhecimento da infraestrutura física da FT (consulta de alocação de salas, protocolos para justificar espaços maiores à administração) e desorientação quanto ao uso de ferramentas de IA (dependência ingênua de chatbots em vez de agentes autônomos e técnicas de estudo ativo ancoradas).
+Essa assimetria informacional resulta em calouros tomando decisoes precoces que prejudicam sua trajetoria academica e empregabilidade:
+1. Alunos de BSI ignoram a concorrencia feroz por vagas noturnas de TADS no terceiro e quarto ano, negligenciando o CR no ciclo basico e ficando impossibilitados de conciliar estagios em horario comercial.
+2. Estudantes aceleram a formatura sem cumprir estagios previos, caindo na armadilha da extincao do contrato pela Lei do Estagio, Lei 11.788 de 2008, e enfrentando a barreira de contratacao para vagas de Junior sem experiencia.
+3. Desconhecimento da infraestrutura fisica da FT e desorientacao quanto ao uso de ferramentas de inteligencia artificial.
 
-### Explicando a solução de forma macro
-A solução proposta é o **Kit Calouro FT Unicamp**: uma plataforma web moderna, rápida e responsiva construída em **Next.js 15 (App Router)** e hospedada na **Vercel**, que unifica a curadoria definitiva de conteúdo estratégico da vida acadêmica e profissional na FT com **automações serverless integradas**.
+### Explicando a solucao de forma macro
+A solucao proposta e o Kit Calouro FT Unicamp: uma plataforma web moderna, rapida e responsiva construida em Next.js 15 App Router e hospedada na Vercel, que unifica a curadoria definitiva de conteudo estrategico da vida academica e profissional na FT com componentes e rotinas serverless.
 
 A plataforma organiza-se em dois pilares:
-1. **Frontend Informativo e Interativo**: Landing page modular com componentes `shadcn/ui` e `Tailwind CSS`, dividida em seções temáticas verticais (BSI vs TADS, Estratégia de Curso e Carreira, IA para Estudos e Devs, Infraestrutura e Alocação de Salas, Trilhas Tech, Estágio e Portfólio LaTeX, Vida no Campus e Comunidade).
-2. **Serviços e Automações Serverless**:
-   - `Syllabus to Calendar` (`/api/parse-syllabus`): Extração automatizada de planos de ensino em PDF via modelo multimodal Gemini (`@google/genai`), convertendo cronogramas de aulas, datas de provas e entregas de trabalhos em arquivos `.ics` padronizados ou sincronização direta com Google Calendar API via OAuth2.
-   - `Cardápio Automatizado` (`/api/menu-notifier`): Rotina cron/serverless que extrai diariamente o cardápio do bandejão do Campus I e dispara webhooks/notificações para grupos de estudantes.
-   - `Consulta de Salas e Entidades`: Endpoints estruturados para consulta de diretório de organizações estudantis e mapa de ocupação/reserva de salas.
+1. Frontend Informativo e Interativo: Landing page e rotas tematicas em Sass e Framer Motion, dividida em secoes verticais de academico, carreira, estudos e campus.
+2. Servicos e Automacoes: Prompts estruturados e gerador de calendario iCalendar padrao RFC 5545, alem de catalogo integrado de links oficiais.
 
 ### Alternativas Descartadas e Trade-offs
 
-- *Alternativa A: Wiki Estática tradicional ou páginas institucionais no Portal da FT/Moodle* — descartada porque possui baixa adesão dos estudantes, interface desatualizada, ausência de busca rápida e total impossibilidade de executar rotinas interativas como upload de PDFs com parsing de IA e exportação de calendários. Ganharia apenas em custo de manutenção zero de infraestrutura e dependência nula de APIs externas.
-- *Alternativa B: Aplicativo Mobile Nativo (React Native / Flutter)* — descartada devido ao elevado atrito de instalação para calouros (exigência de download em lojas Google Play/App Store, aprovação de contas de desenvolvedor e custos recorrentes), além do esforço dobrado para sincronização de cache offline. Ganharia em notificações push nativas no dispositivo e acesso a sensores de geolocalização no campus.
-- *Alternativa C: Processamento de PDF via OCR tradicional local (Tesseract.js / pdf-parse em contêiner dedicado)* — descartada porque planos de aula dos docentes da FT possuem diagramações tabulares e textuais heterogêneas e não padronizadas, nas quais bibliotecas de extração puramente textual falham ao correlacionar datas, tópicos e critérios avaliativos. O modelo multimodal do Gemini resolve a extração estruturada em uma única chamada semântica. Ganharia apenas em custo por requisição zero caso houvesse infraestrutura de servidores locais pré-existente sem necessidade de chave de API.
+- *Alternativa A: Wiki Estatica tradicional ou paginas institucionais no Portal da FT ou Moodle*: descartada porque possui baixa adesao dos estudantes, interface desatualizada, ausencia de busca rapida e total impossibilidade de executar rotinas interativas como visualizacao e exportacao de calendarios. Ganharia apenas em custo de manutencao zero de infraestrutura e dependencia nula de APIs externas.
+- *Alternativa B: Aplicativo Mobile Nativo em React Native ou Flutter*: descartada devido ao elevado atrito de instalacao para calouros, alem do esforco dobrado para sincronizacao e publicacao em lojas de aplicativos. Ganharia em notificacoes push nativas no dispositivo e acesso a sensores de geolocalizacao no campus.
+- *Alternativa C: Processamento de PDF via OCR tradicional local em contêiner dedicado*: descartada porque planos de aula dos docentes da FT possuem diagramacoes tabulares e textuais heterogeneas e nao padronizadas, nas quais bibliotecas de extracao puramente textual falham ao correlacionar datas, topicos e criterios avaliativos. Ganharia apenas em custo por requisicao zero caso houvesse infraestrutura de servidores locais pre-existente.
 
 ---
 

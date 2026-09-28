@@ -31,6 +31,7 @@ export function Footer() {
               <li><Link href="/carreira">Estagios e Modelo de Curriculo</Link></li>
               <li><Link href="/estudos-ia">Estudos com Gemini e NotebookLM</Link></li>
               <li><Link href="/campus">Salas, Bandejao e Organizacoes</Link></li>
+              <li><Link href="/links">Diretorio de Links Oficiais</Link></li>
             </ul>
           </div>
 

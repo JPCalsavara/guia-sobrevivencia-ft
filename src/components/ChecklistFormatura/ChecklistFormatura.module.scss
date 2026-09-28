@@ -46,6 +46,27 @@
   color: var(--text-secondary);
 }
 
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  flex-wrap: wrap;
+}
+
+.resetButton {
+  @include button-base;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  background-color: var(--surface-elevated);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+
+  &:hover {
+    color: var(--danger);
+    border-color: var(--danger);
+  }
+}
+
 .gradeButton {
   @include button-base;
   background-color: rgba(185, 28, 28, 0.1);
