@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Copy, Check, ExternalLink, FileText } from 'lucide-react';
+import { Copy, Check, ExternalLink, FileText, Github } from 'lucide-react';
 import { latexResumeTemplate } from '@/data/prompts';
 import { useClipboardCopy } from '@/hooks/useClipboardCopy';
 import styles from './LatexCodeBlock.module.scss';
@@ -18,10 +18,20 @@ export function LatexCodeBlock() {
       <div className={styles.header}>
         <div className={styles.titleInfo}>
           <FileText size={18} />
-          <span className={styles.fileName}>main.tex</span>
-          <span className={styles.badge}>Modelo Oficial em LaTeX para Overleaf</span>
+          <span className={styles.fileName}>curriculo.tex</span>
+          <span className={styles.badge}>Formato devcelio resume template</span>
         </div>
         <div className={styles.actions}>
+          <a
+            href="https://github.com/devcelio/resume-template"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.githubButton}
+          >
+            <Github size={14} />
+            <span>Ver no GitHub</span>
+            <ExternalLink size={12} />
+          </a>
           <button
             onClick={handleCopy}
             className={`${styles.copyButton} ${copied ? styles.copied : ''}`}

@@ -14,63 +14,112 @@ Regras importantes:
 - Caso o plano cite semanas em vez de datas exatas, estime a data a partir da data de início das aulas do semestre vigente.
 - Mantenha a saída limpa e direta para que o arquivo ics possa ser salvo e importado no Google Agenda ou Apple Calendar.`;
 
-export const latexResumeTemplate = `\\documentclass[letterpaper,10pt]{article}
+export const latexResumeTemplate = `% Modelo baseado no devcelio/resume-template
+% Adaptado para estudantes da Faculdade de Tecnologia da Unicamp
+\\documentclass[a4paper,10pt]{article}
+
 \\usepackage[utf8]{inputenc}
-\\usepackage[empty]{fullpage}
-\\usepackage{titlesec}
-\\usepackage{hyperref}
+\\usepackage[T1]{fontenc}
+\\usepackage[portuguese]{babel}
+
+\\usepackage{geometry}
+\\usepackage{parskip}
+\\usepackage{microtype}
 \\usepackage{enumitem}
+\\usepackage{titlesec}
+\\usepackage{array}
+\\usepackage{tabularx}
+
+\\usepackage{hyperref}
+\\usepackage{bookmark}
+\\usepackage{xurl}
+
+\\geometry{top=1.5cm, bottom=1.5cm, left=1.5cm, right=1.5cm}
+\\setcounter{secnumdepth}{0}
+\\setlist[itemize]{
+    leftmargin=0.75em,
+    itemsep=0.2em,
+    topsep=0.25em,
+    parsep=0em,
+    partopsep=0em
+}
 
 \\pagestyle{empty}
-\\raggedright
-\\setlength{\\tabcolsep}{0in}
 
-\\addtolength{\\oddsidemargin}{-0.5in}
-\\addtolength{\\evensidemargin}{-0.5in}
-\\addtolength{\\textwidth}{1.0in}
-\\addtolength{\\topmargin}{-0.5in}
-\\addtolength{\\textheight}{1.0in}
+\\hypersetup{
+    pdftitle={Curriculo de Tecnologia},
+    pdfauthor={Seu Nome},
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=black,
+    citecolor=black,
+    bookmarksdepth=2
+}
 
-\\titleformat{\\section}{\\large\\bfseries\\scshape}{}{0em}{}[\\titlerule]
+\\titleformat{\\section}
+{\\Large\\bfseries}
+{}
+{0em}
+{}
+[\\titlerule\\vspace{0.5ex}]
+
+\\titleformat{\\subsection}
+{\\normalsize\\bfseries}
+{}
+{0em}
+{}
+\\titlespacing*{\\subsection}{0pt}{0.35em}{0.15em}
+
+\\newcounter{cventry}
+\\newcommand{\\cventry}[4]{%
+    \\refstepcounter{cventry}%
+    \\phantomsection%
+    \\pdfbookmark[2]{#1}{cventry-\\thecventry}%
+    \\noindent\\begin{tabularx}{\\textwidth}{@{}>{\\raggedright\\arraybackslash}X >{\\raggedleft\\arraybackslash}X@{}}
+    \\textbf{#1} & #2 \\\\
+    \\textit{#3} & \\textit{#4} \\\\
+    \\end{tabularx}
+}
 
 \\begin{document}
 
 \\begin{center}
-    {\\LARGE \\textbf{Seu Nome Completo}} \\\\ \\vspace{2pt}
-    Limeira, SP $\\cdot$ 19 99999 9999 $\\cdot$ \\href{mailto:seu.email@dac.unicamp.br}{seu.email@dac.unicamp.br} \\\\
-    \\href{https://linkedin.com/in/seuperfil}{linkedin.com/in/seuperfil} $\\cdot$ \\href{https://github.com/seuperfil}{github.com/seuperfil}
+    {\\LARGE \\textbf{Seu Nome Completo}} \\\\ [0.1cm]
+    Limeira, SP $\\cdot$ \\href{mailto:seu.email@dac.unicamp.br}{seu.email@dac.unicamp.br} $\\cdot$ \\href{https://linkedin.com/in/seuperfil}{linkedin.com/in/seuperfil} $\\cdot$ \\href{https://github.com/seuperfil}{github.com/seuperfil}
 \\end{center}
 
-\\section{Formacao Academica}
-\\textbf{Universidade Estadual de Campinas, UNICAMP} \\hfill Limeira, SP \\\\
-\\textit{Bacharelado em Sistemas de Informacao ou Tecnologia em ADS} \\hfill Conclusao Prevista: Dez 2028 \\\\
-$\\cdot$ Disciplinas Relevantes: Estruturas de Dados, Engenharia de Software, Bancos de Dados, Redes.
+\\section{Educacao}
+\\cventry{Universidade Estadual de Campinas, UNICAMP}{Limeira, SP}{Bacharelado em Sistemas de Informacao ou Tecnologia em ADS}{Conclusao Prevista: Dezembro de 2028}
+\\begin{itemize}
+    \\item Disciplinas Relevantes: Algoritmos e Estruturas de Dados, Engenharia de Software, Bancos de Dados, Redes de Computadores.
+    \\item Projetos Praticos: Desenvolvimento de solucoes de software colaborativas com controle de versao via Git.
+\\end{itemize}
 
 \\section{Habilidades Tecnicas}
-\\textbf{Linguagens:} Java, TypeScript, Python, C++, SQL. \\\\
-\\textbf{Frameworks e Ferramentas:} React, Next.js, Node.js, Spring Boot, AWS, Docker, Git. \\\\
-\\textbf{Idiomas:} Ingles Intermediario ou Avancado para leitura e conversacao tecnica.
+\\begin{itemize}
+    \\item \\textbf{Linguagens e Frameworks:} TypeScript, Java, Python, React, Next.js, Spring Boot, Node.js.
+    \\item \\textbf{Banco de Dados e Infraestrutura:} PostgreSQL, MySQL, Docker, Git, Linux, Nuvem AWS e Google Cloud.
+    \\item \\textbf{Idiomas:} Portugues Nativo, Ingles Tecnico para Leitura e Comunicacao Profissional.
+\\end{itemize}
 
 \\section{Projetos em Destaque}
-\\textbf{Guia do Calouro FT Unicamp} $|$ \\textit{Next.js, TypeScript, Sass, Framer Motion} \\hfill 2026 \\\\
-\\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
-    \\item Desenvolvimento de plataforma web voltada para orientacao academica e carreira na universidade.
-    \\item Implementacao de componentes interativos e organizacao de recursos institucionais para calouros.
+\\cventry{Guia do Calouro FT Unicamp}{Limeira, SP}{Plataforma Web com Next.js, Sass e Framer Motion}{2026}
+\\begin{itemize}
+    \\item Desenvolvimento de portal de orientacao estudantil com arquitetura modular e navegacao responsiva.
+    \\item Implementacao de componentes interativos e organizacao de recursos institucionais para alunos.
 \\end{itemize}
 
-\\vspace{4pt}
-\\textbf{API de Gerenciamento Bancario} $|$ \\textit{Java, Spring Boot, PostgreSQL, Docker} \\hfill 2026 \\\\
-\\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
-    \\item Construcao de API RESTful com autenticacao segura e regras de negocio para transacoes.
-    \\item Modelagem de banco de dados relacional com integridade referencial e testes automatizados.
+\\cventry{API de Gestao e Servicos}{Limeira, SP}{Servico RESTful em Java e Spring Boot com PostgreSQL}{2026}
+\\begin{itemize}
+    \\item Construcao de endpoints com autenticacao e validacao estrita de tipos de dados.
+    \\item Criacao de ambiente conteinerizado via Docker para replicacao local de banco de dados e testes.
 \\end{itemize}
 
-\\section{Extracurricular e Lideranca}
-\\textbf{Atria Jr. ou Centro Academico CDI} \\hfill Limeira, SP \\\\
-\\textit{Membro ou Desenvolvedor Trainee} \\hfill Mar 2026 ate o Momento \\\\
-\\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
-    \\item Colaboracao no desenvolvimento de interfaces com Next.js em equipe estruturada.
-    \\item Participacao em dinâmicas de revisao de codigo e levantamento de requisitos tecnicos.
+\\section{Atividades Extracurriculares e Lideranca}
+\\cventry{Atria Jr. ou Centro Academico CDI}{Limeira, SP}{Membro ou Desenvolvedor Trainee}{Marco de 2026 ate o Momento}
+\\begin{itemize}
+    \\item Participacao em rotinas de desenvolvimento em equipe, revisao de codigo e alinhamento de requisitos.
+    \\item Apoio a iniciativas de integracao tecnica e organizacao de eventos na Faculdade de Tecnologia.
 \\end{itemize}
 
 \\end{document}`;

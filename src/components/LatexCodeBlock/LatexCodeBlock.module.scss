@@ -90,6 +90,21 @@
   }
 }
 
+.githubButton {
+  @include button-base;
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.4375rem 0.875rem;
+
+  &:hover {
+    border-color: var(--text-primary);
+    background-color: var(--surface-elevated);
+  }
+}
+
 .codeContainer {
   max-height: 480px;
   overflow: auto;

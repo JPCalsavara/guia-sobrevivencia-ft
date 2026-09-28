@@ -78,7 +78,10 @@ Compilação completa e categorizada de todos os links institucionais da Unicamp
 | **Google NotebookLM** | Ancoragem de slides e provas da FT para estudo socrático | [notebooklm.google.com](https://notebooklm.google.com) |
 | **Google AI Studio / Gemini** | Testes de prompts e geração de cronogramas acadêmicos | [aistudio.google.com](https://aistudio.google.com) |
 | **Overleaf** | Editor online em LaTeX para o currículo acadêmico de página única | [overleaf.com](https://www.overleaf.com) |
+| **devcelio resume template** | Modelo de currículo LaTeX otimizado para triagem ATS | [github.com/devcelio/resume-template](https://github.com/devcelio/resume-template) |
+| **Vídeo Pitch e Entrevistas** | Sete principais perguntas de entrevista de estágio e estrutura de apresentação | [youtube.com/watch?v=9-Lb-OMqXzI](https://www.youtube.com/watch?v=9-Lb-OMqXzI) |
 | **roadmap.sh** | Guias visuais e trilhas de aprendizado para Dev e Dados | [roadmap.sh](https://roadmap.sh) |
+| **roadmap.sh Projetos** | Catálogo de projetos com especificações práticas para portfólio | [roadmap.sh/projects](https://roadmap.sh/projects) |
 | **GitHub Education Pack** | Domínios grátis, Copilot e ferramentas para estudantes Unicamp | [education.github.com/pack](https://education.github.com/pack) |
 | **AWS Educate** | Acesso a laboratórios e créditos em nuvem sem cartão de crédito | [aws.amazon.com/education/awseducate](https://aws.amazon.com/education/awseducate/) |
 | **Google Cloud Innovators** | Programa acadêmico com laboratórios práticos no Cloud Skills Boost | [cloud.google.com/innovators](https://cloud.google.com/innovators) |

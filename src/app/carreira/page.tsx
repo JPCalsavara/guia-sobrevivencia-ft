@@ -11,7 +11,11 @@ import {
   FileText,
   Linkedin,
   Github,
-  Layers
+  Layers,
+  Video,
+  Youtube,
+  Compass,
+  ExternalLink
 } from 'lucide-react';
 import styles from './carreira.module.scss';
 
@@ -124,13 +128,91 @@ export default function CarreiraPage() {
         <div className={styles.latexHeader}>
           <FileText size={22} className={styles.headerIcon} />
           <div>
-            <h2 className={styles.latexTitle}>Modelo Oficial de Currículo Acadêmico em LaTeX</h2>
+            <h2 className={styles.latexTitle}>Modelo de Currículo em LaTeX: Formato devcelio resume template</h2>
             <p className={styles.latexSubtitle}>
-              Currículo de página única em formato texto estruturado, compatível com leitores automáticos de triagem e adotado por estudantes de computação
+              Currículo de página única compatível com leitores automáticos de triagem ATS, estruturado com macros modulares e educação no topo para estudantes
             </p>
           </div>
         </div>
         <LatexCodeBlock />
+      </section>
+
+      {/* Vídeo de Pitch e Entrevistas de Estágio */}
+      <section className={styles.sectionBlock}>
+        <div className={styles.blockCard}>
+          <div className={styles.resourceHeader}>
+            <div className={styles.resourceHeaderLeft}>
+              <Video size={22} className={styles.headerIcon} />
+              <div>
+                <h2 className={styles.cardTitle}>Vídeo de Apresentação e Entrevistas de Estágio</h2>
+                <p className={styles.cardSubtitle}>
+                  Como estruturar seu pitch pessoal e dominar as sete perguntas fundamentais de processos seletivos
+                </p>
+              </div>
+            </div>
+            <a
+              href="https://www.youtube.com/watch?v=9-Lb-OMqXzI"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.videoActionButton}
+            >
+              <Youtube size={18} />
+              <span>Assistir Vídeo no YouTube</span>
+              <ExternalLink size={14} />
+            </a>
+          </div>
+
+          <div className={styles.pitchColumns}>
+            <div className={styles.pitchBox}>
+              <h3 className={styles.pitchBoxTitle}>
+                <Briefcase size={18} color="var(--ft-green)" />
+                Estrutura do Pitch Pessoal de Entrada
+              </h3>
+              <div className={styles.pitchStepsList}>
+                <div className={styles.pitchStepItem}>
+                  <strong>1. Quem sou</strong>
+                  <p>
+                    Apresentação direta com nome, curso de graduação na Faculdade de Tecnologia da Unicamp em Limeira e previsão de formatura.
+                  </p>
+                </div>
+                <div className={styles.pitchStepItem}>
+                  <strong>2. O que construí</strong>
+                  <p>
+                    Destaque de projetos práticos hospedados no GitHub, vivência em empresa júnior ou atividades extracurriculares comprovadas.
+                  </p>
+                </div>
+                <div className={styles.pitchStepItem}>
+                  <strong>3. Onde quero chegar</strong>
+                  <p>
+                    Objetivo claro na área de tecnologia, como engenharia de software ou análise de dados, com foco em aprendizado rápido.
+                  </p>
+                </div>
+                <div className={styles.pitchStepItem}>
+                  <strong>4. Por que esta oportunidade</strong>
+                  <p>
+                    Conexão explícita entre os desafios técnicos da vaga ofertada e sua motivação em gerar valor para o time.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.pitchBox}>
+              <h3 className={styles.pitchBoxTitle}>
+                <Layers size={18} color="var(--ft-blue)" />
+                As 7 Principais Perguntas em Entrevistas
+              </h3>
+              <ul className={styles.interviewQuestionsList}>
+                <li><strong>Fale sobre você:</strong> Conte sua história em ordem cronológica resumida, ligando suas escolhas até a Unicamp.</li>
+                <li><strong>Qual foi seu maior desafio técnico:</strong> Descreva um projeto em que algo falhou e como você investigou a causa raiz.</li>
+                <li><strong>Por que escolheu a área de tecnologia:</strong> Explique o interesse genuíno por resolver problemas práticos via código.</li>
+                <li><strong>Como lida com prazos sob pressão:</strong> Demonstre priorização consciente de tarefas e comunicação preventiva com o time.</li>
+                <li><strong>Quais são seus pontos de melhoria:</strong> Aponte um ponto real e a estratégia concreta que você adotou para evoluir.</li>
+                <li><strong>Experiência de trabalho em grupo:</strong> Ilustre como lidou com opiniões divergentes em projetos acadêmicos ou voluntários.</li>
+                <li><strong>Onde você se vê nos próximos anos:</strong> Mostre vontade de consolidação técnica e absorção contínua de boas práticas.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* GitHub e LinkedIn */}
@@ -212,6 +294,98 @@ export default function CarreiraPage() {
         </div>
       </section>
 
+      {/* Roteiros Visuais e Ideias de Projetos no Roadmap.sh */}
+      <section className={styles.sectionBlock}>
+        <div className={styles.blockCard}>
+          <div className={styles.resourceHeader}>
+            <div className={styles.resourceHeaderLeft}>
+              <Compass size={22} className={styles.headerIcon} />
+              <div>
+                <h2 className={styles.cardTitle}>Roadmap.sh: O Que Estudar e Ideias de Projetos Práticos</h2>
+                <p className={styles.cardSubtitle}>
+                  Guias comunitários completos por carreira e repositório de ideias de projetos para construir portfólio real
+                </p>
+              </div>
+            </div>
+            <a
+              href="https://roadmap.sh"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.roadmapActionButton}
+            >
+              <Compass size={18} />
+              <span>Acessar roadmap.sh</span>
+              <ExternalLink size={14} />
+            </a>
+          </div>
+
+          <div className={styles.roadmapCardsGrid}>
+            <div className={styles.roadmapCard}>
+              <div className={styles.roadmapCardHeader}>
+                <span className={styles.roadmapBadge}>Trilha Técnica</span>
+                <h3 className={styles.roadmapCardTitle}>Roteiros de Engenharia e Papéis</h3>
+                <p className={styles.roadmapCardDesc}>
+                  Mapas visuais organizados com caminhos para Frontend, Backend, DevOps, Inteligência Artificial e Ciência da Computação.
+                </p>
+              </div>
+              <div className={styles.roadmapCardFooter}>
+                <a
+                  href="https://roadmap.sh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.cardInlineLink}
+                >
+                  <span>Explorar Roteiros</span>
+                  <ExternalLink size={12} />
+                </a>
+              </div>
+            </div>
+
+            <div className={styles.roadmapCard}>
+              <div className={styles.roadmapCardHeader}>
+                <span className={styles.roadmapBadge}>Portfólio</span>
+                <h3 className={styles.roadmapCardTitle}>Projetos com Requisitos Reais</h3>
+                <p className={styles.roadmapCardDesc}>
+                  Catálogo com especificações técnicas graduais para construir aplicações completas em vez de copiar tutoriais prontos.
+                </p>
+              </div>
+              <div className={styles.roadmapCardFooter}>
+                <a
+                  href="https://roadmap.sh/projects"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.cardInlineLink}
+                >
+                  <span>Ver Ideias de Projetos</span>
+                  <ExternalLink size={12} />
+                </a>
+              </div>
+            </div>
+
+            <div className={styles.roadmapCard}>
+              <div className={styles.roadmapCardHeader}>
+                <span className={styles.roadmapBadge}>Fundamentos</span>
+                <h3 className={styles.roadmapCardTitle}>Ciência da Computação e Boas Práticas</h3>
+                <p className={styles.roadmapCardDesc}>
+                  Roteiros de arquitetura de software, design patterns, protocolos de rede, segurança e estruturas de dados essenciais.
+                </p>
+              </div>
+              <div className={styles.roadmapCardFooter}>
+                <a
+                  href="https://roadmap.sh/computer-science"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.cardInlineLink}
+                >
+                  <span>Trilha de Fundamentos</span>
+                  <ExternalLink size={12} />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Trilhas Tecnológicas */}
       <section className={styles.sectionBlock}>
         <div className={styles.blockCard}>
@@ -241,9 +415,9 @@ export default function CarreiraPage() {
             </div>
 
             <div className={styles.skillItem}>
-              <h3 className={styles.skillTitle}>Roteiros Visuais no roadmap.sh</h3>
+              <h3 className={styles.skillTitle}>Construção de Prova de Trabalho</h3>
               <p className={styles.skillDesc}>
-                Utilize o portal comunitário roadmap.sh para consultar guias visuais completos passo a passo para cada papel técnico, compreendendo quais conceitos estudar em sequência lógica.
+                Em vez de colecionar certificados teóricos, implemente projetos propostos no catálogo do roadmap.sh, publique a documentação e disponibilize o deploy funcional para recrutadores testarem.
               </p>
             </div>
           </div>

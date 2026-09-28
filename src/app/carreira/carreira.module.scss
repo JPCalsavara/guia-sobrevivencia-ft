@@ -248,3 +248,190 @@
   color: var(--text-secondary);
   line-height: 1.6;
 }
+
+.resourceHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $spacing-md;
+  flex-direction: column;
+  margin-bottom: $spacing-xl;
+
+  @include respond-to('md') {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.resourceHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+}
+
+.videoActionButton {
+  @include button-base;
+  background-color: #dc2626;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: $radius-md;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &:hover {
+    background-color: #b91c1c;
+  }
+}
+
+.roadmapActionButton {
+  @include button-base;
+  background-color: var(--ft-blue);
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: $radius-md;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &:hover {
+    background-color: var(--ft-blue-hover);
+  }
+}
+
+.pitchColumns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-xl;
+
+  @include respond-to('lg') {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.pitchBox {
+  background-color: var(--surface-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-md;
+  padding: $spacing-lg;
+}
+
+.pitchBoxTitle {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: $spacing-md;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.pitchStepsList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.pitchStepItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  strong {
+    font-size: 0.875rem;
+    color: var(--ft-green);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+}
+
+.interviewQuestionsList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  padding-left: $spacing-md;
+
+  li {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+}
+
+.roadmapCardsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.roadmapCard {
+  background-color: var(--surface-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-md;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.roadmapCardHeader {
+  margin-bottom: $spacing-md;
+}
+
+.roadmapBadge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ft-blue);
+  background-color: var(--ft-blue-soft);
+  border: 1px solid var(--ft-blue-border);
+  padding: 0.2rem 0.5rem;
+  border-radius: $radius-sm;
+  margin-bottom: $spacing-sm;
+}
+
+.roadmapCardTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: $spacing-xs;
+}
+
+.roadmapCardDesc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.roadmapCardFooter {
+  margin-top: $spacing-md;
+  padding-top: $spacing-sm;
+  border-top: 1px solid var(--border-color);
+}
+
+.cardInlineLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--ft-blue);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
