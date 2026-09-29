@@ -124,7 +124,7 @@ export default function HomePage() {
                 Tradição, Tecnologia e Sustentabilidade
               </h2>
               <p className={styles.campusHighlightText}>
-                A Faculdade de Tecnologia une excelência acadêmica ao desenvolvimento tecnológico regional. Nossos estudantes têm acesso a laboratórios de informática especializados da TIC, biblioteca setorial com cabines de estudo individuais e conexões sólidas com empresas líderes do ecossistema de software.
+                A Faculdade de Tecnologia conecta formação acadêmica ao polo tecnológico regional, com laboratórios especializados da TIC, biblioteca setorial com cabines de estudo e integração com empresas de software.
               </p>
               <div className={styles.campusLinks}>
                 <Link href="/campus" className={styles.campusTextLink}>
@@ -145,7 +145,7 @@ export default function HomePage() {
             <div className={styles.manifestoText}>
               <h2 className={styles.manifestoTitle}>O Propósito Deste Portal</h2>
               <p className={styles.manifestoParagraph}>
-                O ingresso na universidade pública envolve desafios que vão muito além da sala de aula. Regras burocráticas dispersas, falta de clareza sobre turnos e estágios e a dificuldade de organizar o tempo costumam gerar ansiedade nos primeiros semestres. Este portal foi criado para reunir as informações essenciais em um único local, permitindo que cada estudante tome decisões conscientes sobre sua formação e sua carreira desde o primeiro dia.
+                O ingresso na universidade pública exige navegar por normas burocráticas, planejamento de turnos e busca de estágio. Este portal reúne as informações essenciais em um único ponto, permitindo escolhas estratégicas para sua trajetória acadêmica e profissional.
               </p>
             </div>
           </div>

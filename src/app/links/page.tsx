@@ -118,7 +118,7 @@ export default function LinksPage() {
           </h1>
 
           <p className={styles.pageDescription}>
-            Acesse rapidamente todos os sistemas acadêmicos da DAC, serviços da FT, canais de transporte e plataformas essenciais em um catálogo unificado.
+            Catálogo unificado de sistemas acadêmicos da DAC, serviços da FT, transporte intercampi e plataformas de estudo.
           </p>
         </motion.div>
       </section>

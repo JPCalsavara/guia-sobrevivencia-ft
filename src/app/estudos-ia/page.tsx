@@ -101,7 +101,7 @@ export default function EstudosIaPage() {
           </h1>
 
           <p className={styles.pageDescription}>
-            Aprenda a transformar o NotebookLM e o Google Gemini em mentores de aprendizado ativo, extraia cronogramas de planos de aula em segundos e domine a transição para agentes de código.
+            Aprenda a usar NotebookLM e Google Gemini como mentores de estudo ativo, extraia planos de aula e domine a transição para agentes de código.
           </p>
         </motion.div>
       </section>
@@ -130,21 +130,21 @@ export default function EstudosIaPage() {
             <div className={styles.notebookCard}>
               <h3 className={styles.notebookTitle}>Ancoragem Estrita em Documentos</h3>
               <p className={styles.notebookText}>
-                Diferente de chatbots tradicionais que geram respostas genéricas da internet, o NotebookLM responde fundamentado apenas nos arquivos enviados pelo estudante, minimizando alucinações e citando as páginas exatas de referência.
+                O NotebookLM responde fundamentado apenas nos arquivos enviados pelo estudante, minimizando alucinações e citando as páginas exatas de referência.
               </p>
             </div>
 
             <div className={styles.notebookCard}>
               <h3 className={styles.notebookTitle}>Organização por Disciplina</h3>
               <p className={styles.notebookText}>
-                Crie um caderno digital dedicado para cada matéria do semestre. Carregue os slides do Moodle, as notas de aula, as listas de exercícios e as provas de semestres anteriores disponibilizadas pelos veteranos.
+                Crie um caderno digital dedicado para cada matéria. Carregue slides do Moodle, notas de aula, listas de exercícios e provas antigas de veteranos.
               </p>
             </div>
 
             <div className={styles.notebookCard}>
               <h3 className={styles.notebookTitle}>Simulados no Padrão do Docente</h3>
               <p className={styles.notebookText}>
-                Solicite a elaboração de questões dissertativas baseadas nas provas antigas. Isso permite treinar a linguagem e a profundidade de raciocínio exigidas especificamente pelo professor da disciplina.
+                Gere questões dissertativas no estilo de provas anteriores para treinar a profundidade e a linguagem cobradas pelo docente.
               </p>
             </div>
           </div>
@@ -165,14 +165,14 @@ export default function EstudosIaPage() {
               <h3 className={styles.methodTitle}>Método: Construa na Mão Primeiro, Refatore com IA Depois</h3>
             </div>
             <p className={styles.methodText}>
-              Evite gerar código do zero com ferramentas automatizadas no início do aprendizado. O processo que consolida os fundamentos divide-se em duas etapas:
+              Evite gerar código do zero com ferramentas automatizadas no aprendizado inicial:
             </p>
             <ol className={styles.methodSteps}>
               <li>
-                <strong>Etapa 1, Construção Manual:</strong> Implemente a lógica inicial de algoritmos, conexões com bancos de dados e estruturas de dados linha por linha. Isso garante que você entenda o fluxo de execução e a sintaxe da linguagem.
+                <strong>Etapa 1, Construção Manual:</strong> Implemente a lógica inicial de algoritmos, conexões com bancos e estruturas linha por linha para fixar fluxo e sintaxe.
               </li>
               <li>
-                <strong>Etapa 2, Refatoração Assistida:</strong> Submeta seu código funcionando à IA para avaliar boas práticas de arquitetura, tratamento de exceções, vulnerabilidades de segurança e otimização de complexidade assintótica.
+                <strong>Etapa 2, Refatoração Assistida:</strong> Submeta o código pronto à IA para avaliar arquitetura, tratamento de exceções, segurança e complexidade assintótica.
               </li>
             </ol>
           </div>
@@ -183,14 +183,14 @@ export default function EstudosIaPage() {
               <h3 className={styles.methodTitle}>Método Socrático e Técnica Feynman</h3>
             </div>
             <p className={styles.methodText}>
-              Utilize a inteligência artificial como um interlocutor crítico para testar a profundidade da sua compreensão teórica:
+              Utilize a IA como interlocutor crítico para testar a profundidade da compreensão:
             </p>
             <ul className={styles.methodSteps}>
               <li>
-                <strong>Técnica Feynman:</strong> Explique um conceito teórico complexo, como balanceamento de árvores ou protocolos de transporte de rede, e peça para o modelo identificar falhas ou imprecisões no seu raciocínio.
+                <strong>Técnica Feynman:</strong> Explique um conceito teórico complexo e peça para o modelo identificar falhas ou imprecisões no raciocínio.
               </li>
               <li>
-                <strong>Rubber Duck Socrático:</strong> Diante de erros de compilação ou bugs difíceis, envie o log de erro e solicite que a IA faça perguntas guiadas sobre a arquitetura do programa em vez de fornecer a correção direta.
+                <strong>Rubber Duck Socrático:</strong> Ao debugar erros, envie o log e peça perguntas guiadas sobre a arquitetura em vez da correção direta.
               </li>
             </ul>
           </div>
@@ -252,21 +252,21 @@ export default function EstudosIaPage() {
             <div className={styles.agentCard}>
               <h3 className={styles.agentTitle}>Chatbots no Navegador</h3>
               <p className={styles.agentDesc}>
-                Ambiente reativo e isolado do disco local. O desenvolvedor precisa copiar manualmente trechos de código entre o navegador e seu editor, sem acesso do modelo aos arquivos do projeto ou aos comandos do terminal.
+                Ambiente reativo no navegador com cópia manual de trechos, sem acesso aos arquivos locais ou comandos do terminal.
               </p>
             </div>
 
             <div className={styles.agentCard}>
               <h3 className={styles.agentTitle}>Agentes Autônomos e Ciclo ReAct</h3>
               <p className={styles.agentDesc}>
-                Sistemas que inspecionam a árvore de diretórios, editam arquivos diretamente no disco e executam testes automatizados e linters para validar as modificações antes da entrega final.
+                Sistemas que inspecionam o repositório, editam arquivos diretamente no disco e executam testes e linters para validar modificações.
               </p>
             </div>
 
             <div className={styles.agentCard}>
               <h3 className={styles.agentTitle}>Ferramentas e Protocolo MCP</h3>
               <p className={styles.agentDesc}>
-                O Model Context Protocol estabelece um padrão aberto para conectar modelos a bancos de dados, servidores de documentação e terminais de comando, transformando a IA em assistente integrado.
+                Padrão aberto que conecta modelos a bancos de dados, servidores de documentação e terminais de linha de comando.
               </p>
             </div>
           </div>
@@ -281,7 +281,7 @@ export default function EstudosIaPage() {
             <div>
               <h2 className={styles.cardTitle}>Fundamentos de Redes Neurais e Inteligência Artificial</h2>
               <p className={styles.cardSubtitle}>
-                Canais e cursos internacionais de referência para compreender a teoria matemática e a engenharia de modelos de linguagem
+                Canais internacionais de referência para compreender a teoria matemática e a engenharia de modelos de linguagem
               </p>
             </div>
           </div>
@@ -296,7 +296,7 @@ export default function EstudosIaPage() {
                 <Youtube size={20} color="#dc2626" />
               </div>
               <p className={styles.channelDesc}>
-                Série Neural Networks Zero to Hero, ministrada por um dos cofundadores da OpenAI, construindo redes neurais, retropropagação e modelos GPT do zero em código Python puro.
+                Série Neural Networks Zero to Hero, construindo redes neurais, retropropagação e modelos GPT do zero em código Python puro.
               </p>
               <a
                 href="https://www.youtube.com/watch?v=VMj-3S1tku0&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ"
@@ -319,7 +319,7 @@ export default function EstudosIaPage() {
                 <Youtube size={20} color="#dc2626" />
               </div>
               <p className={styles.channelDesc}>
-                Animações visuais intuitivas criadas por Grant Sanderson sobre a essência da álgebra linear, cálculo e a mecânica vetorial de transformações e redes neurais profundas.
+                Animações visuais intuitivas sobre a essência de álgebra linear, cálculo e a geometria de redes neurais profundas.
               </p>
               <a
                 href="https://www.youtube.com/c/3blue1brown"
@@ -342,7 +342,7 @@ export default function EstudosIaPage() {
                 <Youtube size={20} color="#dc2626" />
               </div>
               <p className={styles.channelDesc}>
-                Conceitos fundamentais de estatística, algoritmos de aprendizado de máquina, árvores de decisão e redes neurais explicados passo a passo de forma acessível.
+                Fundamentos de estatística, algoritmos de machine learning e redes neurais explicados passo a passo de forma acessível.
               </p>
               <a
                 href="https://www.youtube.com/@statquest"
