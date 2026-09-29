@@ -28,6 +28,8 @@ import {
   GitMerge,
   Layers,
   AlertTriangle,
+  Youtube,
+  Lightbulb,
 } from 'lucide-react';
 import { useClipboardCopy } from '@/hooks/useClipboardCopy';
 import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
@@ -90,7 +92,8 @@ const academicTopics: TopicItem[] = [
     title: 'Cálculo I e Geometria Analítica',
     subtopics: [
       { id: 'calculo-plantoes', title: 'Plantões PAD e Provas Antigas' },
-      { id: 'calculo-metodologia', title: 'Regra 48h e Simulados com IA' },
+      { id: 'calculo-metodologia', title: 'Padrões de Resolução e Regra 48h' },
+      { id: 'calculo-canais', title: 'Canais do Professor Ferretto' },
     ],
   },
   {
@@ -115,6 +118,7 @@ const academicTopics: TopicItem[] = [
     title: 'Horas e Extensão',
     subtopics: [
       { id: 'horas-conceitos', title: 'Complementares versus Extensão' },
+      { id: 'horas-tabela', title: 'Tabela Comparativa de Extensão' },
       { id: 'horas-regulamentos', title: 'Regulamentos Oficiais em PDF' },
     ],
   },
@@ -235,35 +239,35 @@ export default function AcademicoPage() {
             <div className={styles.ruleCard}>
               <h3 className={styles.ruleTitle}>CR, Coeficiente de Rendimento</h3>
               <p className={styles.ruleText}>
-                Média ponderada de todas as notas obtidas pelo estudante ao longo da graduação, ponderada pelos créditos de cada disciplina. O CR é o critério decisivo na classificação de vagas disputadas no e-DAC, seleção de bolsas de pesquisa e editais de intercâmbio.
+                Média ponderada das notas pelos créditos cursados. É o critério principal para disputar vagas de turmas no e-DAC, bolsas de pesquisa e editais de intercâmbio.
               </p>
             </div>
 
             <div className={styles.ruleCard}>
               <h3 className={styles.ruleTitle}>CP, Coeficiente de Progressão</h3>
               <p className={styles.ruleText}>
-                Percentual acumulado do curso já concluído em relação ao total de créditos exigidos no catálogo. O CP é utilizado em processos seletivos de estágio e transferências internas entre unidades.
+                Percentual de créditos concluídos em relação ao total exigido para formar. Utilizado na triagem de vagas de estágio corporativo e transferências internas.
               </p>
             </div>
 
             <div className={styles.ruleCard}>
               <h3 className={styles.ruleTitle}>Vetores de Carga Horária</h3>
               <p className={styles.ruleText}>
-                Cada disciplina possui quatro vetores de horas semanais: Teoria, Prática, Laboratório e Orientação. Um vetor dois zero zero dois representa duas horas de aulas teóricas em sala e duas horas de atividades práticas ou de orientação autônoma.
+                Indica a distribuição semanal em Teoria, Prática, Laboratório e Orientação. Um vetor dois zero zero dois representa duas horas de teoria e duas de prática ou orientação.
               </p>
             </div>
 
             <div className={styles.ruleCard}>
-              <h3 className={styles.ruleTitle}>Créditos e Horas Semestrais</h3>
+              <h3 className={styles.ruleTitle}>Créditos e Carga Semestral</h3>
               <p className={styles.ruleText}>
-                Cada crédito na Unicamp corresponde a quinze horas de atividades ao longo do semestre letivo. Uma matéria com quatro créditos representa sessenta horas de dedicação semestral, distribuídas em quatro horas semanais de aula.
+                Cada crédito equivale a quinze horas de atividades semestrais. Uma disciplina de quatro créditos exige sessenta horas no semestre, ou quatro horas semanais.
               </p>
             </div>
 
             <div className={styles.ruleCard}>
-              <h3 className={styles.ruleTitle}>Matrícula Semestral e Turmas</h3>
+              <h3 className={styles.ruleTitle}>Matrícula e Caderno de Horários</h3>
               <p className={styles.ruleText}>
-                Durante o período de inscrição em disciplinas, a escolha da turma correta depende da consulta ao Caderno de Horários da DAC. É nesse portal que você pesquisa cada disciplina ofertada para verificar as opções disponíveis e identificar qual turma corresponde ao seu curso e período.
+                A consulta de turmas ofertadas, horários e vagas do seu curso é feita diretamente pelo portal do Caderno de Horários da DAC nos períodos de matrícula.
               </p>
             </div>
           </div>
@@ -336,29 +340,90 @@ export default function AcademicoPage() {
             <div id="calculo-plantoes" className={styles.ruleCard}>
               <h3 className={styles.ruleTitle}>1. Plantões Semanais de PAD e PED na FT</h3>
               <p className={styles.ruleText}>
-                A faculdade disponibiliza monitores do Programa de Apoio Didático, alunos veteranos com excelente rendimento, e do Programa de Estágio Docente, alunos de pós-graduação. Comparecer semanalmente aos plantões tira dúvidas acumuladas e treina a resolução detalhada de exercícios antes das semanas de prova.
+                A faculdade disponibiliza monitores do Programa de Apoio Didático e pós-graduandos do PED. Comparecer semanalmente aos plantões tira dúvidas acumuladas e treina a resolução detalhada de exercícios antes das semanas de prova.
               </p>
             </div>
 
             <div className={styles.ruleCard}>
               <h3 className={styles.ruleTitle}>2. O Banco de Provas Antigas do CDI</h3>
               <p className={styles.ruleText}>
-                O estilo de cobrança dos professores da FT costuma seguir padrões consolidados ao longo dos anos. Obtenha as provas dos últimos três a cinco semestres com o Centro Acadêmico CDI ou com veteranos para simular o tempo de resolução e o formato exato das questões cobradas.
+                O estilo de cobrança dos professores da FT costuma seguir padrões consolidados ao longo dos anos. Obtenha as provas dos últimos semestres com o Centro Acadêmico CDI para simular o tempo de resolução e o formato exato das questões.
               </p>
             </div>
 
             <div id="calculo-metodologia" className={styles.ruleCard}>
               <h3 className={styles.ruleTitle}>3. A Regra das Quarenta e Oito Horas</h3>
               <p className={styles.ruleText}>
-                Cálculo diferencial e álgebra linear exigem memória muscular e intuição algébrica. A melhor estratégia é resolver a lista de exercícios indicada pelo professor em até quarenta e oito horas após a aula teórica, evitando o acúmulo de matérias na véspera da avaliação.
+                Cálculo diferencial e álgebra linear exigem memória muscular. Resolva a lista de exercícios indicada pelo professor em até quarenta e oito horas após a aula teórica, evitando o acúmulo de conteúdo na véspera da avaliação.
               </p>
             </div>
 
             <div className={styles.ruleCard}>
-              <h3 className={styles.ruleTitle}>4. Videoaulas Didáticas e Simulados no NotebookLM</h3>
+              <h3 className={styles.ruleTitle}>4. Mapeamento de Padrões: Começo, Meio e Fim</h3>
               <p className={styles.ruleText}>
-                Utilize canais didáticos focados no passo a passo das equações, como Professor Aquino e Grings, para destravar dúvidas pontuais. Além disso, submeta o texto das listas de exercícios e suas anotações ao Google NotebookLM para gerar simulados e questionários interativos de autoavaliação.
+                Cálculo avalia o reconhecimento de padrões estruturados. Crie resumos agrupando os exercícios por tipo e resolva sempre em três fases claras: Começo identificando a família da função e simplificando algebricamente, Meio aplicando o teorema ou regra passo a passo com rigor na notação, e Fim reduzindo ao formato mais limpo e checando a coerência da resposta obtida.
               </p>
+            </div>
+          </div>
+
+          <h3 id="calculo-canais" className={styles.categoryTitle} style={{ marginTop: '2rem', marginBottom: '1rem' }}>
+            <Youtube size={18} />
+            Canais Recomendados do Professor Ferretto e Apoio Didático
+          </h3>
+
+          <div className={styles.studyChannelsGrid}>
+            <a
+              href="https://www.youtube.com/watch?v=DkCHV5Kbx4o&list=PLTPg64KdGgYhACfQUtMf3CuhWOfLoTf_a"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.studyChannelCard}
+            >
+              <div className={styles.channelHeader}>
+                <Youtube size={20} className={styles.youtubeRedIcon} />
+                <span className={styles.channelBadge}>Cálculo 1</span>
+              </div>
+              <h4 className={styles.channelTitle}>Professor Ferretto: Curso Completo de Cálculo 1</h4>
+              <p className={styles.channelDesc}>
+                Playlist passo a passo com aulas graduais cobrindo limites, derivadas, regras da cadeia e técnicas de integração para superar o primeiro ano na FT.
+              </p>
+              <span className={styles.channelLinkText}>
+                <span>Acessar Playlist Oficial</span>
+                <ExternalLink size={12} />
+              </span>
+            </a>
+
+            <a
+              href="https://www.youtube.com/playlist?list=PLTPg64KdGgYhYpS5nXdFgdqEZMAC5lARB"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.studyChannelCard}
+            >
+              <div className={styles.channelHeader}>
+                <Youtube size={20} className={styles.youtubeRedIcon} />
+                <span className={`${styles.channelBadge} ${styles.green}`}>Nivelamento</span>
+              </div>
+              <h4 className={styles.channelTitle}>Professor Ferretto: Matemática Básica Essencial</h4>
+              <p className={styles.channelDesc}>
+                Mais de setenta por cento dos erros em Cálculo decorrem de lacunas em fatoração, produtos notáveis e frações. Esta playlist constrói a base necessária.
+              </p>
+              <span className={styles.channelLinkText}>
+                <span>Acessar Nivelamento</span>
+                <ExternalLink size={12} />
+              </span>
+            </a>
+
+            <div className={styles.studyChannelCard}>
+              <div className={styles.channelHeader}>
+                <Lightbulb size={20} className={styles.toolIcon} />
+                <span className={`${styles.channelBadge} ${styles.purple}`}>Revisão com IA</span>
+              </div>
+              <h4 className={styles.channelTitle}>Simulados Ativos no Google NotebookLM</h4>
+              <p className={styles.channelDesc}>
+                Submeta o texto das suas anotações de aula e listas de exercícios ao NotebookLM para gerar questionários interativos e testar seu domínio antes das provas.
+              </p>
+              <span className={styles.channelNoteText}>
+                Ferramenta gratuita para autoavaliação
+              </span>
             </div>
           </div>
         </div>
@@ -383,35 +448,35 @@ export default function AcademicoPage() {
           </div>
 
           <p className={styles.ruleText} style={{ marginBottom: '1.25rem' }}>
-            O Programa de Apoio Didático, PAD, gerido pela Pró-Reitoria de Graduação PRG da Unicamp, viabiliza a atuação de estudantes de graduação como monitores acadêmicos em disciplinas curriculares da FT. A monitoria fortalece o aprendizado dos colegas em disciplinas com maior nível de exigência, como Cálculo, Geometria Analítica e Programação, ao mesmo tempo em que desenvolve a didática e o domínio conceitual do próprio monitor.
+            O Programa de Apoio Didático viabiliza a atuação de graduandos como monitores em matérias exigentes como Cálculo e Programação. A atividade reforça o aprendizado dos colegas e desenvolve a didática e o domínio do próprio monitor.
           </p>
 
           <div id="pad-requisitos" className={styles.rulesGrid} style={{ marginTop: '1.5rem', marginBottom: '2rem' }}>
             <div className={styles.ruleCard}>
-              <h3 className={styles.ruleTitle}>Requisitos e Quem Pode Ser Monitor</h3>
+              <h3 className={styles.ruleTitle}>Requisitos de Ingresso</h3>
               <p className={styles.ruleText}>
-                Para se candidatar a uma vaga de monitoria PAD, o estudante precisa estar regularmente matriculado em curso de graduação da Unicamp, ter concluído a disciplina de interesse com aprovação e rendimento acadêmico satisfatório, além de contar com a anuência do docente responsável.
+                Estar matriculado regularmente na Unicamp, ter sido aprovado na matéria com bom rendimento e obter o aval do professor responsável pela turma.
               </p>
             </div>
 
             <div className={styles.ruleCard}>
-              <h3 className={styles.ruleTitle}>Atribuições Semanais e Limites Regulamentares</h3>
+              <h3 className={styles.ruleTitle}>Atribuições e Limites</h3>
               <p className={styles.ruleText}>
-                O monitor conduz plantões de atendimento presenciais ou virtuais para esclarecer dúvidas dos alunos, auxilia na interpretação de listas de exercícios e apoia atividades práticas em laboratório. A PRG veda que o monitor ministre aulas teóricas oficiais ou aplique notas nas provas.
+                Conduzir plantões semanais de dúvidas, auxiliar em listas e apoiar aulas práticas. É proibido ministrar aulas teóricas ou corrigir notas de provas.
               </p>
             </div>
 
             <div className={styles.ruleCard}>
-              <h3 className={styles.ruleTitle}>Carga Horária Semanal e Flexibilidade</h3>
+              <h3 className={styles.ruleTitle}>Carga Horária Semanal</h3>
               <p className={styles.ruleText}>
-                A dedicação média estabelecida pela Pró-Reitoria de Graduação é de oito a doze horas semanais. Essa carga engloba os horários de plantão com os estudantes, o alinhamento pedagógico semanal com o professor e o preparo de materiais de reforço, respeitando os horários das suas próprias aulas.
+                Dedicação de oito a doze horas semanais divididas entre plantões, reuniões com o docente e elaboração de materiais, conciliadas com sua própria grade.
               </p>
             </div>
 
             <div className={styles.ruleCard}>
-              <h3 className={styles.ruleTitle}>Validação de Horas e Certificado Oficial</h3>
+              <h3 className={styles.ruleTitle}>Certificação e Benefício</h3>
               <p className={styles.ruleText}>
-                Ao concluir o semestre letivo e ter o relatório final aprovado pelo professor orientador, o monitor recebe certificado emitido pela PRG e DAC. A atividade pontua para o cumprimento de Atividades Complementares no histórico escolar e agrega valor técnico e didático ao currículo.
+                Relatório final aprovado concede certificado oficial da PRG e DAC, pontuando como Atividades Complementares no histórico escolar.
               </p>
             </div>
           </div>
@@ -564,6 +629,50 @@ export default function AcademicoPage() {
             </div>
           </div>
 
+          <h3 id="horas-tabela" className={styles.categoryTitle} style={{ marginTop: '2.5rem', marginBottom: '1rem' }}>
+            <Award size={18} />
+            Quadro Comparativo: Atividades Complementares versus Curricularização da Extensão
+          </h3>
+
+          <div className={styles.gdeTableContainer}>
+            <table className={styles.gdeTable} aria-label="Quadro comparativo entre Atividades Complementares e Curricularização da Extensão">
+              <thead>
+                <tr>
+                  <th scope="col">Critério de Avaliação</th>
+                  <th scope="col" className={styles.tagBlue}>Atividades Complementares</th>
+                  <th scope="col" className={styles.tagGreen}>Curricularização da Extensão</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Objetivo Central</th>
+                  <td>Enriquecimento formativo e multidisciplinar do próprio estudante durante o curso</td>
+                  <td>Aplicação prática do conhecimento universitário com impacto direto na sociedade externa</td>
+                </tr>
+                <tr>
+                  <th scope="row">Público-Alvo e Foco</th>
+                  <td>Desenvolvimento individual do aluno no ambiente acadêmico ou corporativo</td>
+                  <td>Comunidade externa, escolas públicas, ONGs e cidadãos fora dos campi</td>
+                </tr>
+                <tr>
+                  <th scope="row">Exigência Curricular</th>
+                  <td>Mínimo de sessenta horas com limites de teto por modalidade no catálogo</td>
+                  <td>Obrigatoriedade de dez por cento da carga horária total do curso a partir do catálogo 2020</td>
+                </tr>
+                <tr>
+                  <th scope="row">Exemplos Válidos</th>
+                  <td>Cursos online, participação em congressos, monitoria PAD, iniciação científica e ligas</td>
+                  <td>Oficinas em escolas, projetos sociais da FT, consultorias comunitárias e eventos abertos</td>
+                </tr>
+                <tr>
+                  <th scope="row">Forma de Comprovação</th>
+                  <td>Certificados com CNPJ, carga horária e assinatura para convalidação na coordenação</td>
+                  <td>Matrícula formal em disciplinas e projetos de extensão cadastrados na PROEC</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
           <h3 id="horas-regulamentos" className={styles.categoryTitle} style={{ marginTop: '2.5rem' }}>
             <FileText size={18} />
             Regulamentos Oficiais de Sistemas de Informação em PDF
@@ -662,23 +771,23 @@ export default function AcademicoPage() {
 
           <div className={styles.strategyBody}>
             <div className={styles.strategyPoint}>
-              <h3 className={styles.pointTitle}>A Barreira das Vagas de Desenvolvedor Júnior</h3>
+              <h3 className={styles.pointTitle}>A Barreira das Vagas Júnior</h3>
               <p className={styles.pointDesc}>
-                A maioria das vagas de desenvolvedor júnior no mercado nacional exige experiência comprovada prévia de um a dois anos em projetos corporativos. Programas de estágio aceitam estudantes em formação, pagam bolsas competitivas e possuem índices elevados de efetivação.
+                Vagas júnior costumam exigir um a dois anos de vivência corporativa prévia. Estágios aceitam estudantes em formação, pagam bolsas competitivas e são a principal porta de efetivação na área de tecnologia.
               </p>
             </div>
 
             <div className={styles.strategyPoint}>
-              <h3 className={styles.pointTitle}>A Lei do Estágio, Lei 11.788 de 2008</h3>
+              <h3 className={styles.pointTitle}>A Lei do Estágio: Lei 11.788 de 2008</h3>
               <p className={styles.pointDesc}>
-                O vínculo de estágio exige matrícula regular ativa na universidade. No momento em que o aluno cola grau, o contrato de estágio é compulsoriamente rescindido por determinação legal. Se a empresa não efetivar imediatamente, o recém-formado perde o direito de concorrer a novas vagas de estágio.
+                O contrato de estágio exige vínculo estudantil ativo. Ao colar grau, o contrato é cancelado por lei. Se a empresa não efetivar, você perde o direito de concorrer a vagas de estágio e precisa disputar vagas júnior sem bagagem.
               </p>
             </div>
 
             <div className={styles.strategyPoint}>
-              <h3 className={styles.pointTitle}>Como Estender a Graduação com Segurança</h3>
+              <h3 className={styles.pointTitle}>Prazos Regimentais DAC e Extensão Segura</h3>
               <p className={styles.pointDesc}>
-                O catálogo de Sistemas de Informação estabelece prazo padrão de oito semestres e teto máximo de quatorze semestres. Para TADS, o prazo padrão é de seis semestres e o teto é de dez semestres. Há ampla margem antes de risco de jubilamento. Desacelerar a matrícula para duas ou três matérias por semestre viabiliza um estágio diurno de alto rendimento sem esgotamento mental.
+                O catálogo de BSI fixa teto de quatorze semestres para oito ideais; TADS fixa dez semestres para seis ideais. Cursar duas ou três disciplinas por semestre permite estagiar durante o dia sem risco de jubilamento nem exaustão.
               </p>
             </div>
           </div>
@@ -787,10 +896,10 @@ export default function AcademicoPage() {
                 <div className={styles.ruleIconWrapper}>
                   <AlertTriangle size={18} aria-hidden="true" />
                 </div>
-                <h3 className={styles.ruleTitle}>O Alerta Realista: Sobrecarga e Rotina</h3>
+                <h3 className={styles.ruleTitle}>O Alerta Realista: Viagens Regionais e Rotina</h3>
               </div>
               <p className={styles.ruleText}>
-                Cursar todas as matérias restantes exclusivamente à noite e concluir em quatro anos significa encarar cinco a seis disciplinas por semestre das dezenove às vinte e duas horas e trinta minutos, logo após seis a oito horas diárias de estágio corporativo. É uma rotina pesada que exige planejamento de saúde e foco aos fins de semana.
+                Muitos estudantes de TADS e veteranos de BSI no noturno viajam diariamente de municípios vizinhos como Americana, Santa Bárbara d&apos;Oeste e Piracicaba em vans ou ônibus intermunicipais. Encarar aulas das dezenove às vinte e duas horas e trinta minutos após oito horas diárias de trabalho ou estágio e deslocamento constante exige planejamento de sono, saúde e foco nas prioridades.
               </p>
             </div>
           </div>
@@ -1126,7 +1235,7 @@ export default function AcademicoPage() {
           </div>
 
           <p className={styles.ruleText} style={{ marginBottom: '1.5rem' }}>
-            A Diretoria Executiva de Relações Internacionais, DERI, coordena todos os acordos de cooperação acadêmica e mobilidade discente da Unicamp com instituições de ensino superior nos cinco continentes. Participar de um intercâmbio durante a graduação permite cursar disciplinas avançadas de computação em universidades de prestígio global, vivenciar imersão cultural, praticar línguas estrangeiras e convalidar créditos no histórico escolar da FT com isenção total de mensalidades acadêmicas no exterior.
+            A Diretoria Executiva de Relações Internacionais coordena convênios com instituições globais. O intercâmbio permite cursar disciplinas avançadas no exterior, praticar outros idiomas e convalidar créditos na FT com isenção de mensalidades estrangeiras.
           </p>
 
           {/* Subtópico 1: O Fluxo em Seis Fases */}
@@ -1136,7 +1245,7 @@ export default function AcademicoPage() {
               Fluxo Passo a Passo para Realizar Intercâmbio na Unicamp
             </h3>
             <p className={styles.ruleText} style={{ marginBottom: '1rem' }}>
-              O planejamento de mobilidade internacional exige preparação prévia com antecedência mínima de um a dois anos antes do embarque. Siga este roteiro em seis fases sequenciais:
+              O planejamento exige antecedência mínima de um a dois anos antes do embarque. Siga este roteiro em seis fases:
             </p>
 
             <div className={styles.exchangeGrid}>
@@ -1144,7 +1253,7 @@ export default function AcademicoPage() {
                 <span className={styles.exchangePhaseBadge}>Fase 1: Idioma</span>
                 <h4 className={styles.exchangePhaseTitle}>1. Preparação e Certificação no CEL</h4>
                 <p className={styles.exchangePhaseDesc}>
-                  O principal filtro de eliminação dos editais é a proficiência linguística. A maioria das instituições exige nível B2 ou C1 em inglês ou no idioma do país anfitrião. A DERI aceita declarações formais de proficiência emitidas pelo Centro de Ensino de Línguas da Unicamp, CEL, que podem ser obtidas cursando disciplinas de línguas ou realizando testes de nivelamento no campus de Barão Geraldo. Não deixe para realizar o teste de proficiência após a abertura do edital.
+                  A maioria dos editais exige nível B2 ou C1. A DERI aceita declarações oficiais de proficiência emitidas pelo Centro de Ensino de Línguas da Unicamp obtidas por disciplinas ou testes em Barão Geraldo.
                 </p>
               </div>
 
@@ -1152,7 +1261,7 @@ export default function AcademicoPage() {
                 <span className={styles.exchangePhaseBadge}>Fase 2: Editais</span>
                 <h4 className={styles.exchangePhaseTitle}>2. Mapeamento de Editais e Factsheets</h4>
                 <p className={styles.exchangePhaseDesc}>
-                  Acompanhe a página de editais da DERI ao longo de todo o ano. Para cada universidade conveniada, consulte atentamente o edital publicado e o Factsheet institucional da universidade parceira. No Factsheet constam informações determinantes: calendário semestral, restrições para cursos de computação, oferta de matérias ministradas em inglês, prazos de inscrição e exigências de seguro saúde.
+                  Acompanhe os editais da DERI e consulte o Factsheet da universidade parceira para checar matérias em inglês, restrições para computação, calendário e exigências de seguro saúde.
                 </p>
               </div>
 
@@ -1160,7 +1269,7 @@ export default function AcademicoPage() {
                 <span className={styles.exchangePhaseBadge}>Fase 3: SIGA</span>
                 <h4 className={styles.exchangePhaseTitle}>3. Inscrição no SIGA e Learning Agreement</h4>
                 <p className={styles.exchangePhaseDesc}>
-                  A candidatura oficial é feita pelo portal eletrônico SIGA Mobilidade da DERI. O candidato envia histórico escolar atualizado, comprovante de proficiência, carta de motivação e a proposta de Plano de Estudos, o Learning Agreement. As disciplinas selecionadas na instituição estrangeira devem guardar afinidade com a grade curricular de BSI ou TADS para posterior validação na FT.
+                  Submeta histórico escolar, carta de motivação e proposta de Plano de Estudos no SIGA Mobilidade. As disciplinas escolhidas no exterior devem ter afinidade com BSI ou TADS para validação na volta.
                 </p>
               </div>
 
@@ -1168,7 +1277,7 @@ export default function AcademicoPage() {
                 <span className={styles.exchangePhaseBadge}>Fase 4: Seleção</span>
                 <h4 className={styles.exchangePhaseTitle}>4. Avaliação e Classificação por Mérito</h4>
                 <p className={styles.exchangePhaseDesc}>
-                  A comissão de relações internacionais avalia os candidatos aplicando fórmulas objetivas de classificação. O Coeficiente de Rendimento, CR, é o critério preponderante de pontuação e desempate. O Coeficiente de Progressão, CP, deve situar-se preferencialmente entre quarenta e oitenta por cento. Reprovações não justificadas acarretam perda de pontos na concorrência.
+                  O CR é o critério principal de pontuação e desempate no ranking. O CP ideal situa-se entre quarenta e oitenta por cento. Reprovações não justificadas reduzem a pontuação competitiva.
                 </p>
               </div>
 
@@ -1176,7 +1285,7 @@ export default function AcademicoPage() {
                 <span className={styles.exchangePhaseBadge}>Fase 5: Aceite</span>
                 <h4 className={styles.exchangePhaseTitle}>5. Nomination Oficial e Carta de Aceite</h4>
                 <p className={styles.exchangePhaseDesc}>
-                  Com a aprovação no ranking interno da Unicamp, a DERI formaliza a indicação do estudante, procedimento chamado de Nomination, junto à instituição internacional parceira. O estudante conclui a matrícula na universidade de destino, envia eventuais documentos complementares e recebe a Carta Oficial de Aceite, documento essencial para o visto consular.
+                  Classificado na Unicamp, a DERI faz sua indicação formal para a universidade parceira. Você conclui a inscrição estrangeira e recebe a Carta de Aceite para solicitar o visto consular.
                 </p>
               </div>
 
@@ -1184,7 +1293,7 @@ export default function AcademicoPage() {
                 <span className={styles.exchangePhaseBadge}>Fase 6: Embarque</span>
                 <h4 className={styles.exchangePhaseTitle}>6. Matrícula de Mobilidade na DAC e Viagem</h4>
                 <p className={styles.exchangePhaseDesc}>
-                  Com a carta de aceite em mãos, o estudante abre processo de trancamento especial por intercâmbio junto à DAC. Essa modalidade preserva a vaga na Unicamp e congela a contagem de tempo de integralização para evitar jubilamento. Em seguida, contrata seguro saúde internacional com cobertura exigida pelo país, emite o visto de estudante no consulado e organiza o embarque.
+                  Abra processo de trancamento especial por intercâmbio na DAC para preservar sua vaga e congelar a contagem de tempo de curso. Contrate o seguro internacional, emita o visto e organize o embarque.
                 </p>
               </div>
             </div>
@@ -1197,35 +1306,35 @@ export default function AcademicoPage() {
               Diferenciais Competitivos para Conquistar a Vaga e Bolsas
             </h3>
             <p className={styles.ruleText} style={{ marginBottom: '1.25rem' }}>
-              Em editais com grande procura ou que ofertam auxílio financeiro direto, pequenos detalhes no histórico e na trajetória acadêmica separam os estudantes classificados dos suplentes:
+              Pequenos detalhes no histórico e na trajetória acadêmica separam os classificados dos suplentes nos editais concorridos:
             </p>
 
             <div className={styles.rulesGrid}>
               <div className={styles.ruleCard}>
                 <h4 className={styles.ruleTitle}>CR Elevado desde o Primeiro Ano</h4>
                 <p className={styles.ruleText}>
-                  Como o Coeficiente de Rendimento é a principal métrica do ranking da DERI, candidatos com CR acima de sete vírgula cinco ou oito vírgula zero largam com ampla vantagem competitiva. Manter média alta no ciclo básico garante prioridade tanto em editais de intercâmbio quanto em solicitações de bolsas de estudo Santander e Erasmus.
+                  Como o CR lidera a fórmula de classificação da DERI, médias acima de sete vírgula cinco garantem grande vantagem para vagas em universidades disputadas e bolsas de auxílio financeiro.
                 </p>
               </div>
 
               <div className={styles.ruleCard}>
                 <h4 className={styles.ruleTitle}>Proficiência Antecipada e Nível C1</h4>
                 <p className={styles.ruleText}>
-                  Candidatos que já possuem o certificado de proficiência emitido pelo CEL ou por exames internacionais antes da publicação do edital conseguem escolher livremente as universidades mais concorridas. Demonstrar domínio avançado, como nível C1, amplia o leque de disciplinas aceitas no exterior, inclusive no nível de pós-graduação.
+                  Possuir certificado do CEL ou exames válidos antes da publicação do edital permite concorrer às vagas mais procuradas e cursar disciplinas avançadas no exterior.
                 </p>
               </div>
 
               <div className={styles.ruleCard}>
                 <h4 className={styles.ruleTitle}>Iniciação Científica e Publicações</h4>
                 <p className={styles.ruleText}>
-                  Estudantes que desenvolveram pesquisa com bolsa PIBIC, PIBITI ou FAPESP na FT possuem diferencial substancial na avaliação do currículo acadêmico e na carta de recomendação de professores. Essa bagagem investigativa é altamente valorizada pelas universidades europeias e norte-americanas parceiras.
+                  Pesquisas com bolsa PIBIC ou FAPESP na FT enriquecem a carta de recomendação docente e são altamente valorizadas pelas comissões de seleção estrangeiras.
                 </p>
               </div>
 
               <div className={styles.ruleCard}>
-                <h4 className={styles.ruleTitle}>Plano de Estudos Coerente e Alinhado com a FT</h4>
+                <h4 className={styles.ruleTitle}>Plano de Estudos Coerente</h4>
                 <p className={styles.ruleText}>
-                  Elaborar uma proposta de estudos sólida, demonstrando quais matérias do curso estrangeiro correspondem às disciplinas obrigatórias ou eletivas de BSI e TADS, facilita o aval prévio da coordenação de graduação e convence a banca examinadora do real aproveitamento do intercâmbio.
+                  Demonstrar quais matérias internacionais equivalem às obrigatórias ou eletivas de BSI e TADS facilita a aprovação da coordenação e validação dos créditos no retorno.
                 </p>
               </div>
             </div>

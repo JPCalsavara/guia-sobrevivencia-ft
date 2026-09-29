@@ -1154,6 +1154,110 @@
   }
 }
 
+// Canais e Recursos de Apoio a Calculo
+.studyChannelsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+  margin-top: $spacing-lg;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.studyChannelCard {
+  background-color: var(--surface-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-md;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  text-decoration: none;
+  transition: all $transition-fast;
+  position: relative;
+
+  &:hover {
+    border-color: var(--ft-blue);
+    transform: translateY(-2px);
+    box-shadow: $shadow-sm;
+  }
+}
+
+.channelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-xs;
+}
+
+.youtubeRedIcon {
+  color: #ff0000;
+  flex-shrink: 0;
+}
+
+.toolIcon {
+  color: #9333ea;
+  flex-shrink: 0;
+}
+
+.channelBadge {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.5rem;
+  border-radius: $radius-sm;
+  background-color: var(--ft-blue-soft);
+  color: var(--ft-blue);
+  border: 1px solid var(--ft-blue-border);
+
+  &.green {
+    background-color: var(--ft-green-soft);
+    color: var(--ft-green);
+    border-color: var(--ft-green-border);
+  }
+
+  &.purple {
+    background-color: rgba(168, 85, 247, 0.14);
+    color: #9333ea;
+    border-color: rgba(168, 85, 247, 0.4);
+  }
+}
+
+.channelTitle {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.35;
+}
+
+.channelDesc {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  flex: 1;
+}
+
+.channelLinkText {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ft-blue);
+  margin-top: $spacing-sm;
+}
+
+.channelNoteText {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-top: $spacing-sm;
+}
+
 
 
 

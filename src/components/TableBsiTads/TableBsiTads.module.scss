@@ -136,12 +136,31 @@
   line-height: 1.5;
 }
 
-.callout {
+.calloutGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
   margin-top: $spacing-xl;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.callout {
   padding: $spacing-lg;
   background-color: rgba(185, 28, 28, 0.05);
   border-left: 4px solid var(--unicamp-red);
   border-radius: 0 $radius-md $radius-md 0;
+
+  &.blue {
+    background-color: var(--ft-blue-soft);
+    border-left-color: var(--ft-blue);
+
+    .calloutTitle {
+      color: var(--ft-blue);
+    }
+  }
 }
 
 .calloutTitle {

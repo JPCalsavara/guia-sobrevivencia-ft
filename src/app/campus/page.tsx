@@ -26,6 +26,7 @@ import {
   DollarSign,
   Check,
   Sparkles,
+  PartyPopper,
 } from 'lucide-react';
 import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
 import styles from './campus.module.scss';
@@ -75,6 +76,13 @@ const campusTopics: TopicItem[] = [
     ],
   },
   {
+    id: 'vida-festas',
+    title: 'Vida Noturna e Festas',
+    subtopics: [
+      { id: 'vida-festas', title: 'Rolê Limeira e Locais' },
+    ],
+  },
+  {
     id: 'moradia-convivencia',
     title: 'Moradia e Habitação',
     subtopics: [
@@ -107,7 +115,7 @@ export default function CampusPage() {
           </h1>
 
           <p className={styles.pageDescription}>
-            Descubra como reservar espaços na FT, acesse as ferramentas de TI da faculdade, consulte as orientações do circular e do fretado intercampi e conheça todas as entidades ativas da comunidade universitária.
+            Guia prático de reservas de salas, serviços de TI, alimentação, transporte intercampi, entidades estudantis e moradia universitária em Limeira.
           </p>
         </motion.div>
       </section>
@@ -179,7 +187,7 @@ export default function CampusPage() {
             <div className={styles.roomCard}>
               <h3 className={styles.roomCardTitle}>Acesso aos Laboratórios da TIC</h3>
               <p className={styles.roomCardText}>
-                Para fazer login nos computadores físicos dos laboratórios de informática da FT, utilize o usuário do seu RA e a senha cadastrada especificamente na coordenadoria de informática da faculdade, distinta da senha central da DAC.
+                Login nos computadores físicos com usuário do RA e senha cadastrada na coordenadoria de TIC, distinta da senha central da DAC.
               </p>
               <a
                 href="https://www.ft.unicamp.br/tic"
@@ -195,7 +203,7 @@ export default function CampusPage() {
             <div className={styles.roomCard}>
               <h3 className={styles.roomCardTitle}>Rede Sem Fio Eduroam</h3>
               <p className={styles.roomCardText}>
-                A rede sem fio acadêmica mundial Eduroam está presente em todos os blocos da FT. O acesso é configurado com seu email institucional completo e a senha de sistemas centrais da Unicamp através do instalador oficial do CCUEC.
+                Rede sem fio acadêmica presente em todos os blocos. Conexão com email institucional completo e senha central Unicamp via instalador oficial do CCUEC.
               </p>
               <a
                 href="https://www.ccuec.unicamp.br/ccuec/servicos/eduroam"
@@ -211,7 +219,7 @@ export default function CampusPage() {
             <div className={styles.roomCard}>
               <h3 className={styles.roomCardTitle}>Moodle e Intranet</h3>
               <p className={styles.roomCardText}>
-                O ambiente virtual de aprendizagem Moodle e a Intranet FT utilizam autenticação centralizada Unicamp. Por meio deles, você envia tarefas de laboratório, acessa notas parciais e consulta comunicados dos docentes.
+                Ambientes virtuais para envio de tarefas práticas, consulta de notas parciais e comunicados docentes com autenticação central Unicamp.
               </p>
               <a
                 href="https://moodle.unicamp.br"
@@ -245,13 +253,13 @@ export default function CampusPage() {
               <span className={styles.badgeNetwork}>Requer Rede Wi-Fi da FT</span>
               <h3 className={styles.roomCardTitle}>Como Funciona o WifiPrint</h3>
               <p className={styles.roomCardText}>
-                O serviço WifiPrint permite enviar arquivos para impressão diretamente do seu aparelho conectado à rede sem fio local.
+                Serviço de envio de arquivos para impressão diretamente do seu aparelho conectado à rede local.
               </p>
               <ol className={styles.stepList}>
-                <li><strong>Conexão:</strong> Conecte-se à rede sem fio Wifi_FT ou à rede Eduroam no campus da FT. Fora da rede o serviço não responde.</li>
-                <li><strong>Acesso:</strong> Leia o QR Code afixado no totem ao lado das impressoras ou acesse o endereço oficial wifiprint.</li>
-                <li><strong>Envio:</strong> Faça upload do arquivo em PDF ou texto e defina a quantidade de cópias.</li>
-                <li><strong>Padrão:</strong> Todas as impressões são feitas exclusivamente em preto e branco.</li>
+                <li><strong>Conexão:</strong> Conecte-se à rede Wifi_FT ou Eduroam no campus da FT.</li>
+                <li><strong>Acesso:</strong> Leia o QR Code no totem das impressoras ou abra a URL oficial do WifiPrint.</li>
+                <li><strong>Envio:</strong> Faça upload do arquivo em PDF ou texto e defina o número de cópias.</li>
+                <li><strong>Padrão:</strong> Impressões realizadas exclusivamente em preto e branco.</li>
               </ol>
               <div className={styles.buttonRow}>
                 <a
@@ -271,13 +279,13 @@ export default function CampusPage() {
               <span className={styles.badgeQuota}>Renovação Mensal</span>
               <h3 className={styles.roomCardTitle}>Cota Mensal de Impressão</h3>
               <p className={styles.roomCardText}>
-                Todo estudante regularmente matriculado na Faculdade de Tecnologia possui direito a uma cota de páginas mensais para trabalhos acadêmicos.
+                Cota de páginas mensais para trabalhos acadêmicos de estudantes matriculados na Faculdade de Tecnologia.
               </p>
               <ol className={styles.stepList}>
-                <li><strong>Créditos Automáticos:</strong> Todo primeiro dia do mês a cota é creditada automaticamente.</li>
-                <li><strong>Início do Ano Letivo:</strong> A cota é reiniciada para o quantitativo regulamentar estabelecido pela coordenação de informática.</li>
-                <li><strong>Consulta de Saldo:</strong> O saldo de páginas restantes pode ser verificado em tempo real na Intranet FT.</li>
-                <li><strong>Conta de Acesso:</strong> O login utiliza as credenciais cadastradas na informática da faculdade.</li>
+                <li><strong>Créditos Automáticos:</strong> Cota creditada no primeiro dia do mês.</li>
+                <li><strong>Início do Ano Letivo:</strong> Reinício da cota para o quantitativo anual regulamentar.</li>
+                <li><strong>Consulta de Saldo:</strong> Saldo de páginas disponível em tempo real na Intranet FT.</li>
+                <li><strong>Conta de Acesso:</strong> Login com as credenciais da informática da FT.</li>
               </ol>
               <div className={styles.buttonRow}>
                 <a
@@ -307,12 +315,12 @@ export default function CampusPage() {
               <span className={styles.galleryTag}>DTIC e Espaços</span>
               <h3 className={styles.roomCardTitle}>Locais e Portal da Informática</h3>
               <p className={styles.roomCardText}>
-                As impressoras estão alocadas nos laboratórios de ensino da FT, identificados como LP01, LP02, LP03, LP09 e LP10.
+                Impressoras alocadas nos laboratórios LP01, LP02, LP03, LP09 e LP10 para aulas práticas e estudo livre.
               </p>
               <ol className={styles.stepList}>
-                <li><strong>Laboratórios:</strong> Ambientes de informática equipados para aulas práticas e estudo livre nos intervalos.</li>
-                <li><strong>Agendamento de Salas:</strong> O portal da DTIC disponibiliza informações sobre ocupação de salas de aula e anfiteatros.</li>
-                <li><strong>Fretado e Suporte:</strong> Orientações sobre o fretado intercampi, troca de senhas e instalação de programas.</li>
+                <li><strong>Laboratórios:</strong> Ambientes equipados com computadores para aulas e estudo.</li>
+                <li><strong>Alocação de Salas:</strong> Portal com consulta de horários e ocupação de anfiteatros.</li>
+                <li><strong>Suporte:</strong> Orientações sobre o fretado intercampi, senhas e softwares.</li>
               </ol>
               <div className={styles.buttonRow}>
                 <a
@@ -356,7 +364,7 @@ export default function CampusPage() {
             <div className={styles.roomCard}>
               <h3 className={styles.roomCardTitle}>Consulta em Tempo Real</h3>
               <p className={styles.roomCardText}>
-                O quadro de ocupação dos blocos de salas e anfiteatros pode ser verificado no portal sistemas ft unicamp br salas. Caso uma sala esteja livre na grade, ela pode ser ocupada espontaneamente por grupos de estudantes para estudo silencioso.
+                Quadro de ocupação de salas e anfiteatros disponível em tempo real. Salas livres na grade podem ser ocupadas por grupos de estudantes para estudo silencioso.
               </p>
               <a
                 href="https://sistemas.ft.unicamp.br/salas"
@@ -372,14 +380,14 @@ export default function CampusPage() {
             <div className={styles.roomCard}>
               <h3 className={styles.roomCardTitle}>Reserva Formal de Espaço</h3>
               <p className={styles.roomCardText}>
-                Para eventos, palestras ou reuniões recorrentes de projetos, a solicitação deve ser encaminhada via entidade estudantil reconhecida ou com apoio formal de um docente responsável da faculdade.
+                Eventos e reuniões recorrentes exigem solicitação formal via entidade estudantil reconhecida ou apoio de docente responsável.
               </p>
             </div>
 
             <div className={styles.roomCard}>
               <h3 className={styles.roomCardTitle}>Regras de Convivência</h3>
               <p className={styles.roomCardText}>
-                Ao desocupar qualquer sala de aula, lembre-se de apagar a lousa, organizar as carteiras na posição original e desligar a iluminação e os aparelhos de ar-condicionado.
+                Ao desocupar a sala, apague a lousa, reorganize as carteiras e desligue iluminação e ar-condicionado.
               </p>
             </div>
           </div>
@@ -390,7 +398,7 @@ export default function CampusPage() {
               Como Justificar uma Sala Maior para Poucas Pessoas perante a Administração
             </h3>
             <p className={styles.justSubtitle}>
-              Pedidos baseados apenas no número de presentes costumam ser alocados em salas pequenas. Utilize justificativas técnicas aceitas pela Seção de Apoio Didático e Logístico da FT:
+              Pedidos com foco apenas em número de presentes costumam ser alocados em salas menores. Utilize justificativas técnicas aceitas pela Seção de Apoio Didático e Logístico da FT:
             </p>
 
             <div className={styles.justGrid}>
@@ -399,7 +407,7 @@ export default function CampusPage() {
                 <div>
                   <h4 className={styles.justItemTitle}>Necessidade de Tomadas e Bancadas Individuais</h4>
                   <p className={styles.justItemText}>
-                    Informe que a atividade exige conexão elétrica simultânea para os computadores portáteis de todos os participantes, recurso disponível apenas em salas com bancadas de extensão e laboratórios de informática da TIC.
+                    Conexão elétrica simultânea para múltiplos computadores portáteis, disponível apenas em salas com bancadas de extensão e laboratórios da TIC.
                   </p>
                 </div>
               </div>
@@ -409,7 +417,7 @@ export default function CampusPage() {
                 <div>
                   <h4 className={styles.justItemTitle}>Gravação ou Transmissão Híbrida</h4>
                   <p className={styles.justItemText}>
-                    Justifique a necessidade de isolamento acústico e espaço físico para posicionar câmeras, tripés e iluminação sem bloquear a circulação, permitindo a transmissão ao vivo da atividade.
+                    Isolamento acústico e espaço físico para tripés, câmeras e iluminação técnica sem obstruir rotas de circulação.
                   </p>
                 </div>
               </div>
@@ -419,7 +427,7 @@ export default function CampusPage() {
                 <div>
                   <h4 className={styles.justItemTitle}>Dinâmica em Subgrupos e Layout Modular</h4>
                   <p className={styles.justItemText}>
-                    Explique que a sessão é uma oficina prática ou dinâmica de projeto que requer a separação dos participantes em estações fisicamente distantes para evitar interferência sonora mútua.
+                    Oficina prática com separação dos participantes em estações fisicamente distantes para evitar interferência sonora mútua.
                   </p>
                 </div>
               </div>
@@ -429,7 +437,7 @@ export default function CampusPage() {
                 <div>
                   <h4 className={styles.justItemTitle}>Fluxo Rotativo e Quórum Flutuante</h4>
                   <p className={styles.justItemText}>
-                    Caracterize a atividade como um plantão aberto de atendimento ou oficina livre. Embora poucas pessoas estejam presentes em um dado instante, o público acumulado ao longo das horas é muito maior.
+                    Atividade aberta com quórum flutuante, onde o público acumulado ao longo das horas supera a lotação pontual simultânea.
                   </p>
                 </div>
               </div>
@@ -458,7 +466,7 @@ export default function CampusPage() {
                 <h3 className={styles.transportTitle}>Restaurante Universitário na FT</h3>
               </div>
               <p className={styles.transportDesc}>
-                Fornece refeições balanceadas de almoço e jantar nos dias letivos para a comunidade acadêmica da FT, com atendimento centralizado no restaurante da FCA nos fins de semana e feriados. Os horários vigentes de cada turno e os valores atualizados devem ser consultados diretamente no portal da prefeitura universitária.
+                Almoço e jantar nos dias úteis na FT. Aos fins de semana e feriados, atendimento centralizado no RU da FCA. Consulte horários e cardápio na prefeitura universitária.
               </p>
               <a
                 href="https://sistemas.prefeituralimeira.unicamp.br/RU/view/site/cardapio.php"
@@ -478,7 +486,7 @@ export default function CampusPage() {
                 <h3 className={styles.transportTitle}>Circular Gratuito FT e FCA</h3>
               </div>
               <p className={styles.transportDesc}>
-                Transporte circular gratuito mantido pela Prefeitura Universitária e pela Unicamp, realizando a ligação contínua entre os campi de Limeira. A grade horária e as paradas oficiais sofrem adequações periódicas e devem ser acompanhadas na página oficial de transportes.
+                Transporte gratuito contínuo entre os campi de Limeira mantido pela Prefeitura Universitária. Grade horária e paradas sofrem ajustes periódicos informados na página oficial.
               </p>
               <a
                 href="https://prefeituralimeira.unicamp.br/produto/horarios-circular/"
@@ -498,7 +506,7 @@ export default function CampusPage() {
                 <h3 className={styles.transportTitle}>Fretado Intercampi Linha 84</h3>
               </div>
               <p className={styles.transportDesc}>
-                Conexão gratuita de fretado entre os campi de Limeira e o campus de Barão Geraldo em Campinas. Exige agendamento prévio de assento no sistema de transporte da prefeitura universitária.
+                Conexão gratuita entre os campi de Limeira e Barão Geraldo em Campinas. Exige agendamento prévio de assento no sistema de transporte da prefeitura universitária.
               </p>
               <a
                 href="https://sistemas.prefeituralimeira.unicamp.br/intercamp/"
@@ -529,6 +537,68 @@ export default function CampusPage() {
           </div>
         </div>
         <OrganizationDirectory />
+      </section>
+
+      {/* Vida Noturna, Integração e Festas Universitárias */}
+      <section id="vida-festas" className={styles.sectionBlock}>
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <PartyPopper size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>Vida Noturna, Integração e Festas Universitárias</h2>
+              <p className={styles.cardSubtitle}>
+                Calendário tradicional, principais casas de eventos e orientações para curtir com segurança em Limeira
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.roomsGrid}>
+            <div className={styles.roomCard}>
+              <span className={styles.badgeNetwork}>Canal Oficial</span>
+              <h3 className={styles.roomCardTitle}>Perfil Rolimeira</h3>
+              <p className={styles.roomCardText}>
+                Principal canal de cobertura, avisos de lotes e divulgação das festas e calouradas dos campi de Limeira.
+              </p>
+              <div className={styles.buttonRow}>
+                <a
+                  href="https://www.instagram.com/rolimeira_/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.actionBtn}
+                  aria-label="Acessar perfil Rolimeira no Instagram em nova janela"
+                >
+                  <ExternalLink size={14} />
+                  <span>Instagram @rolimeira_</span>
+                </a>
+              </div>
+            </div>
+
+            <div className={styles.roomCard}>
+              <span className={styles.badgeQuota}>Terças e Quintas</span>
+              <h3 className={styles.roomCardTitle}>Dias e Espaços Frequentes</h3>
+              <p className={styles.roomCardText}>
+                As festas acontecem tradicionalmente às terças e quintas-feiras nos principais espaços da cidade.
+              </p>
+              <ol className={styles.stepList}>
+                <li><strong>Nova República:</strong> Espaço tradicional de eventos com acesso facilitado para os estudantes.</li>
+                <li><strong>Mirage Eventos:</strong> Casa ampla muito utilizada para grandes integrações e festas temáticas.</li>
+              </ol>
+            </div>
+
+            <div className={styles.roomCard}>
+              <span className={styles.galleryTag}>Segurança e Rotina</span>
+              <h3 className={styles.roomCardTitle}>Logística e Volta Segura</h3>
+              <p className={styles.roomCardText}>
+                Recomendações para aproveitar a integração universitária com tranquilidade:
+              </p>
+              <ol className={styles.stepList}>
+                <li><strong>Transporte e Carona:</strong> Combine corridas por aplicativo em grupo ou caronas de confiança com motorista da rodada.</li>
+                <li><strong>Hidratação e Pertences:</strong> Alterne bebidas com água e mantenha documentos e celular em bolsos seguros.</li>
+                <li><strong>Rotina de Aulas:</strong> Planeje o retorno para não comprometer aulas, provas ou estágios no dia seguinte.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* 0. Mapa Territorial da Região Universitária de Limeira */}
@@ -574,14 +644,14 @@ export default function CampusPage() {
                     <CheckCircle2 size={14} className={styles.pointIcon} aria-hidden="true" />
                     <strong>Vantagens</strong>
                   </div>
-                  <p>Menor custo mensal, forte integração social, rede de apoio acadêmico com veteranos e divisão de despesas domésticas.</p>
+                  <p>Menor custo mensal, forte integração social, rede de apoio acadêmico com veteranos e rateio de despesas. Possibilidade de se tornar agregado da casa para participar das atividades e confraternizações sem morar nela.</p>
                 </div>
                 <div className={`${styles.pointItem} ${styles.consPoint}`}>
                   <div className={styles.pointHeader}>
                     <AlertCircle size={14} className={styles.pointIcon} aria-hidden="true" />
                     <strong>Pontos de Atenção</strong>
                   </div>
-                  <p>Rotinas e horários variados entre os moradores, menor privacidade e necessidade de assembleias para regras da casa.</p>
+                  <p>Rotinas e horários variados entre os moradores, menor privacidade e necessidade de assembleias para gestão da casa.</p>
                 </div>
               </div>
             </div>
@@ -603,21 +673,21 @@ export default function CampusPage() {
                     <MapPin size={14} className={styles.pointIcon} aria-hidden="true" />
                     <strong>Localização Típica</strong>
                   </div>
-                  <p>Forte concentração no Jardim Morro Azul, nas ruas atrás da Escola Municipal Aldo José Kuhl, com opções no Jardim Paulista e Jardim Nossa Senhora de Fátima.</p>
+                  <p>Concentração no Jardim Morro Azul, próximo à Escola Municipal Aldo José Kuhl, com opções no Jardim Paulista e Fátima.</p>
                 </div>
                 <div className={`${styles.pointItem} ${styles.prosPoint}`}>
                   <div className={styles.pointHeader}>
                     <CheckCircle2 size={14} className={styles.pointIcon} aria-hidden="true" />
                     <strong>Vantagens</strong>
                   </div>
-                  <p>Baixo custo mensal, mobília básica pronta para uso, ideal para quem quer economizar sem participar da rotina de eventos de república.</p>
+                  <p>Porta de entrada mais econômica para a maior parte dos estudantes, com mobília inclusa. Muitos moradores viram agregados de repúblicas para aliar economia com vida social.</p>
                 </div>
                 <div className={`${styles.pointItem} ${styles.consPoint}`}>
                   <div className={styles.pointHeader}>
                     <AlertCircle size={14} className={styles.pointIcon} aria-hidden="true" />
                     <strong>Pontos de Atenção</strong>
                   </div>
-                  <p>Você não escolhe com quem divide o quarto ou as áreas comuns, com regras mais rígidas de visitas e horários de silêncio.</p>
+                  <p>Falta de escolha dos colegas de quarto ou áreas comuns, com regras estritas de visitas e horários de silêncio.</p>
                 </div>
               </div>
             </div>
@@ -639,21 +709,21 @@ export default function CampusPage() {
                     <MapPin size={14} className={styles.pointIcon} aria-hidden="true" />
                     <strong>Localização Típica</strong>
                   </div>
-                  <p>Quase todas concentradas no lado da FCA, nos bairros Jardim Cidade Universitária I e II e Chácara Antonieta.</p>
+                  <p>Concentradas no lado da FCA, nos bairros Jardim Cidade Universitária I e II e Chácara Antonieta.</p>
                 </div>
                 <div className={`${styles.pointItem} ${styles.prosPoint}`}>
                   <div className={styles.pointHeader}>
                     <CheckCircle2 size={14} className={styles.pointIcon} aria-hidden="true" />
                     <strong>Vantagens</strong>
                   </div>
-                  <p>Privacidade total, silêncio absoluto para dedicação aos estudos e liberdade completa de horários e rotina pessoal.</p>
+                  <p>Privacidade total, silêncio para dedicação aos estudos e liberdade completa de rotina pessoal. Opção mais comum para quem tem maior orçamento financeiro.</p>
                 </div>
                 <div className={`${styles.pointItem} ${styles.consPoint}`}>
                   <div className={styles.pointHeader}>
                     <AlertCircle size={14} className={styles.pointIcon} aria-hidden="true" />
                     <strong>Pontos de Atenção</strong>
                   </div>
-                  <p>Custo total mais elevado, contas de consumo pagas integralmente à parte e necessidade de circular ou bicicleta para se deslocar até a FT.</p>
+                  <p>Custo mais elevado, contas pagas integralmente à parte e necessidade de circular ou bicicleta para ir até a FT.</p>
                 </div>
               </div>
             </div>
@@ -682,17 +752,28 @@ export default function CampusPage() {
                     <CheckCircle2 size={14} className={styles.pointIcon} aria-hidden="true" />
                     <strong>Vantagens</strong>
                   </div>
-                  <p>Você escolhe quem mora junto, ambiente de estudos alinhado, infraestrutura de condomínio fechado com portaria e segurança.</p>
+                  <p>Escolha direta dos colegas de quarto, ambiente de estudos alinhado e infraestrutura com portaria e segurança.</p>
                 </div>
                 <div className={`${styles.pointItem} ${styles.consPoint}`}>
                   <div className={styles.pointHeader}>
                     <AlertCircle size={14} className={styles.pointIcon} aria-hidden="true" />
                     <strong>Pontos de Atenção</strong>
                   </div>
-                  <p>Valor total do contrato de 1.500 a 2.500 reais mensais, exigência de fiador ou seguro fiança e responsabilidade contratual solidária.</p>
+                  <p>Custo elevado e responsabilidade solidária. Vale mais a pena morar sozinho no início em vez de dividir direto com desconhecidos, esperando conhecer melhor os colegas de curso.</p>
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Estratégia Prática de Moradia para Calouros */}
+          <div className={styles.strategyCallout}>
+            <h4>Estratégia Real de Moradia: Pensionatos, Agregados de República e Morar Sozinho</h4>
+            <ul>
+              <li><strong>Pensionato como Porta de Entrada:</strong> A maior parte dos calouros começa em pensionatos pelo preço mais baixo da cidade e facilidade de entrada sem fiador tradicional.</li>
+              <li><strong>Ser Agregado de República:</strong> Você não precisa residir na casa física para vivenciar a comunidade universitária. Virar agregado permite frequentar eventos e ter apoio de veteranos mantendo a privacidade do seu próprio quarto.</li>
+              <li><strong>Kitnets para Maior Orçamento:</strong> Estudantes com maior poder aquisitivo costumam ir direto para kitnets e studios no lado FCA em busca de autonomia total.</li>
+              <li><strong>Morar Sozinho Primeiro:</strong> Vale a pena morar sozinho ou em acomodação individual nos primeiros meses em vez de assinar contrato com pessoas desconhecidas. O ideal é esperar conviver com a turma durante o primeiro ano para formar grupos com afinidade real de estudo e convivência.</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -719,7 +800,7 @@ export default function CampusPage() {
               </div>
 
               <p className={styles.buildingText}>
-                Grande condomínio fechado de prédios com apartamentos de dois e três dormitórios, muito procurado por grupos de amigos que dividem o aluguel entre duas a quatro pessoas.
+                Condomínio fechado com apartamentos de dois e três dormitórios, buscado por grupos que dividem aluguel entre duas a quatro pessoas.
               </p>
 
               <div className={styles.buildingMeta}>
@@ -735,14 +816,14 @@ export default function CampusPage() {
                     <Check size={14} className={styles.metaIcon} aria-hidden="true" />
                     <strong>Prós:</strong>
                   </div>
-                  <span>Infraestrutura excelente com lazer completo, piscina, academia e portaria com segurança 24 horas.</span>
+                  <span>Infraestrutura com piscina, academia, quadras e portaria com segurança 24 horas.</span>
                 </div>
                 <div className={styles.metaRow}>
                   <div className={styles.metaLabelGroup}>
                     <Bus size={14} className={styles.metaIcon} aria-hidden="true" />
                     <strong>Logística:</strong>
                   </div>
-                  <span>Fica mais afastado do centro urbano; exige carro próprio, Uber compartilhado ou circular para ir às aulas na FT e para bandecar.</span>
+                  <span>Afastado do centro. Requer condução própria, carro por aplicativo compartilhado ou circular para aulas e bandeco.</span>
                 </div>
               </div>
             </div>
@@ -755,7 +836,7 @@ export default function CampusPage() {
               </div>
 
               <p className={styles.buildingText}>
-                Diversos prédios residenciais de uma e duas torres com valores variados, situados no corredor de acesso direto ao campus da FCA.
+                Prédios residenciais de uma e duas torres no corredor de acesso direto ao campus da FCA.
               </p>
 
               <div className={styles.buildingMeta}>
@@ -771,14 +852,14 @@ export default function CampusPage() {
                     <Check size={14} className={styles.metaIcon} aria-hidden="true" />
                     <strong>Prós:</strong>
                   </div>
-                  <span>Permite ir a pé para as refeições diárias no Restaurante Universitário da FCA, além de ponto de ônibus e circular bem próximo.</span>
+                  <span>Acesso a pé ao RU da FCA e ponto de ônibus com circular gratuito para a FT.</span>
                 </div>
                 <div className={styles.metaRow}>
                   <div className={styles.metaLabelGroup}>
                     <Bus size={14} className={styles.metaIcon} aria-hidden="true" />
                     <strong>Logística:</strong>
                   </div>
-                  <span>Excelente para quem prioriza alimentação econômica no bandeco e usa o circular gratuito para subir até o campus da FT.</span>
+                  <span>Ideal para economizar com refeições no RU da FCA e subir para a FT via circular gratuito.</span>
                 </div>
               </div>
             </div>
@@ -791,7 +872,7 @@ export default function CampusPage() {
               </div>
 
               <p className={styles.buildingText}>
-                Prédio residencial localizado a poucos passos da portaria principal da Faculdade de Tecnologia, muito procurado para aluguel de quarto ou apartamento completo em conjunto.
+                Prédio residencial a poucos passos da portaria principal da FT, ideal para quartos individuais ou apartamentos em grupo.
               </p>
 
               <div className={styles.buildingMeta}>
@@ -807,14 +888,14 @@ export default function CampusPage() {
                     <Check size={14} className={styles.metaIcon} aria-hidden="true" />
                     <strong>Prós:</strong>
                   </div>
-                  <span>Elimina custos com transporte e tempo de trânsito, permitindo ir a pé para salas de aula, laboratórios e biblioteca a qualquer momento.</span>
+                  <span>Elimina gastos com transporte e tempo de trânsito, permitindo ir a pé para aulas, laboratórios e biblioteca.</span>
                 </div>
                 <div className={styles.metaRow}>
                   <div className={styles.metaLabelGroup}>
                     <Bus size={14} className={styles.metaIcon} aria-hidden="true" />
                     <strong>Logística:</strong>
                   </div>
-                  <span>Proximidade total com o campus da FT e com o bandeco local nos horários de funcionamento dos dias úteis.</span>
+                  <span>Proximidade total com as instalações da FT e com o bandeco local nos dias úteis.</span>
                 </div>
               </div>
             </div>
@@ -839,24 +920,24 @@ export default function CampusPage() {
             <div className={styles.avenueCard}>
               <h3 className={styles.avenueTitle}>Avenida Cônego Manuel Alves</h3>
               <p className={styles.avenueDesc}>
-                O principal eixo comercial e gastronômico que atende o dia a dia dos estudantes da FT, ligando os bairros residenciais à região central.
+                Principal eixo comercial e gastronômico que atende os estudantes da FT no trajeto até o centro.
               </p>
               <ul className={styles.avenueList}>
                 <li>Padarias, mercearias, lanchonetes e restaurantes por quilo acessíveis.</li>
-                <li>Farmácias e serviços bancários rápidos para conveniência dos moradores.</li>
-                <li>Rota segura e muito utilizada para caminhadas e deslocamento de bicicleta até a FT.</li>
+                <li>Farmácias e caixas bancários para conveniência dos moradores.</li>
+                <li>Rota segura e rápida para caminhadas e deslocamento de bicicleta até a FT.</li>
               </ul>
             </div>
 
             <div className={styles.avenueCard}>
               <h3 className={styles.avenueTitle}>Avenida Fabrício Vampré</h3>
               <p className={styles.avenueDesc}>
-                Grande artéria urbana de Limeira que concentra os maiores estabelecimentos comerciais, hipermercados e saídas rodoviárias.
+                Artéria comercial ampla com grandes estabelecimentos, hipermercados e conexão com rodovias.
               </p>
               <ul className={styles.avenueList}>
-                <li>Grandes redes de supermercados, atacarejos, academias e agências bancárias.</li>
-                <li>Conexão ágil para quem viaja nos fins de semana em direção a Campinas e São Paulo.</li>
-                <li>Corredor com linhas de transporte coletivo e acesso fácil para o anel viário da cidade.</li>
+                <li>Redes de supermercados, atacarejos, academias e agências bancárias.</li>
+                <li>Saída rápida para viagens intermunicipais rumo a Campinas e São Paulo.</li>
+                <li>Linhas de ônibus e ligação direta com o anel viário de Limeira.</li>
               </ul>
             </div>
           </div>
@@ -865,14 +946,14 @@ export default function CampusPage() {
             <div className={styles.neighborhoodCard}>
               <h4>Bairros Lado FT: Jardim Nova Itália, Vila Cristovam, Vila Anita e Morro Azul</h4>
               <p>
-                Bairros tranquilos, seguros e arborizados no entorno imediato da Faculdade de Tecnologia. Permitem caminhar até as aulas sem depender de ônibus. O Jardim Morro Azul se destaca pela concentração de pensionatos econômicos perto da Escola Municipal Aldo José Kuhl.
+                Bairros seguros e arborizados no entorno imediato da FT. Deslocamento a pé sem depender de transporte coletivo. O Morro Azul concentra pensionatos econômicos perto da Escola Municipal Aldo José Kuhl.
               </p>
             </div>
 
             <div className={styles.neighborhoodCard}>
               <h4>Bairros Lado FCA: Jardim Cidade Universitária I e II e Chácara Antonieta</h4>
               <p>
-                Região moderna onde se concentram quase todas as kitnets novas e prédios estilo studio. Muito procurada por quem quer morar sozinho e valoriza a proximidade com o Restaurante Universitário da FCA, utilizando o circular gratuito para se deslocar até a FT.
+                Bairros modernos com forte oferta de kitnets e studios. Próximos ao RU da FCA, com integração à FT via circular gratuito.
               </p>
             </div>
           </div>
@@ -1047,10 +1128,12 @@ export default function CampusPage() {
           </div>
 
           <div className={styles.contractCallout}>
-            <h4>Recomendações Práticas para Contratos de Locação e Mobília</h4>
-            <p>
-              Ao negociar com imobiliárias locais, pergunte se aceitam cartão de crédito ou seguro fiança caso sua família não possua fiador com imóvel quitado no estado de São Paulo. No dia da entrega das chaves, tire fotos nítidas e vídeos de todos os cômodos, tomadas, pintura e torneiras para anexar formalmente ao laudo de vistoria inicial. Para mobiliar o espaço sem gastar muito, participe dos grupos de desapego dos formandos da Unicamp no fim de cada semestre, onde eletrodomésticos, camas e mesas são repassados por valores simbólicos.
-            </p>
+            <h4>Orientações para Contratos e Mobília</h4>
+            <ul>
+              <li><strong>Garantia Locatícia:</strong> Consulte se a imobiliária aceita cartão de crédito ou seguro fiança caso não possua fiador com imóvel quitado no estado de São Paulo.</li>
+              <li><strong>Vistoria Inicial:</strong> Fotografe e filme todos os cômodos, pintura, tomadas e torneiras na entrega das chaves para anexar formalmente ao laudo.</li>
+              <li><strong>Desapego de Formandos:</strong> Participe dos grupos de repasse e desapego no fim de cada semestre para adquirir móveis e eletrodomésticos com valores simbólicos.</li>
+            </ul>
           </div>
         </div>
       </section>
