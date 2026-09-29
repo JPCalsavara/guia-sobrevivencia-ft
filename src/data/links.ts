@@ -131,6 +131,46 @@ export const linksData: ResourceLink[] = [
     category: 'ft',
     badge: 'Currículo',
   },
+  {
+    id: 'ft-curso-bsi',
+    title: 'Curso de Sistemas de Informação na FT',
+    description: 'Página oficial do Bacharelado em Sistemas de Informação no portal da FT Unicamp',
+    url: 'https://www3.ft.unicamp.br/pt-br/graduacao/cursos/bsi',
+    category: 'ft',
+    badge: 'Graduação',
+  },
+  {
+    id: 'ft-curso-tads',
+    title: 'Curso de Tecnologia em ADS na FT',
+    description: 'Página oficial de Tecnologia em Análise e Desenvolvimento de Sistemas na FT Unicamp',
+    url: 'https://www3.ft.unicamp.br/pt-br/graduacao/cursos/tads',
+    category: 'ft',
+    badge: 'Graduação',
+  },
+  {
+    id: 'ft-regulamento-si918',
+    title: 'Regulamento de Horas Complementares SI918',
+    description: 'PDF oficial do regulamento de atividades complementares para o catálogo 2018 de Sistemas de Informação',
+    url: 'https://www3.ft.unicamp.br/sites/default/files/graduacao/RegulamentoSI918_1.pdf',
+    category: 'ft',
+    badge: 'Regulamento PDF',
+  },
+  {
+    id: 'ft-regulamento-si919',
+    title: 'Regulamento de Horas Complementares SI919',
+    description: 'PDF oficial da tabela de conversão e requisitos de atividades complementares para o catálogo 2019',
+    url: 'https://www3.ft.unicamp.br/sites/default/files/graduacao/RegulamentoSI919.pdf',
+    category: 'ft',
+    badge: 'Regulamento PDF',
+  },
+  {
+    id: 'ft-regulamento-si920',
+    title: 'Regulamento de Extensão e Complementares SI920',
+    description: 'PDF oficial com as regras de curricularização da extensão e atividades complementares para o catálogo 2020 em diante',
+    url: 'https://www3.ft.unicamp.br/sites/default/files/graduacao/RegulamentoSI920_0.pdf',
+    category: 'ft',
+    badge: 'Regulamento PDF',
+  },
 
   // Sistemas Centrais Unicamp
   {

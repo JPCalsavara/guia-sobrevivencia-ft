@@ -1,6 +1,6 @@
 import React from 'react';
 import { courseComparisonData } from '@/data/academic';
-import { Scale } from 'lucide-react';
+import { Scale, ExternalLink } from 'lucide-react';
 import styles from './TableBsiTads.module.scss';
 
 export function TableBsiTads() {
@@ -8,10 +8,10 @@ export function TableBsiTads() {
     <div className={styles.wrapper}>
       <div className={styles.tableHeader}>
         <div className={styles.badge}>
-          <Scale size={16} />
+          <Scale size={16} aria-hidden="true" />
           <span>Análise Curricular Comparativa</span>
         </div>
-        <h3 className={styles.title}>Quadro Comparativo Direto entre BSI e TADS</h3>
+        <h2 className={styles.title}>Quadro Comparativo Direto entre BSI e TADS</h2>
         <p className={styles.subtitle}>
           Entenda as diferenças práticas entre o Bacharelado e o Tecnólogo na rotina da Faculdade de Tecnologia
         </p>
@@ -19,17 +19,48 @@ export function TableBsiTads() {
 
       <div className={styles.tableContainer}>
         <table className={styles.table}>
+          <caption style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0,0,0,0)', border: 0 }}>
+            Quadro comparativo entre os cursos de Bacharelado em Sistemas de Informação e Tecnologia em Análise e Desenvolvimento de Sistemas
+          </caption>
           <thead>
             <tr>
-              <th className={styles.thCrit}>Critério de Avaliação</th>
-              <th className={styles.thBsi}>BSI, Bacharelado em Sistemas de Informação</th>
-              <th className={styles.thTads}>TADS, Tecnologia em Análise e Desenvolvimento</th>
+              <th scope="col" className={styles.thCrit}>Critério de Avaliação</th>
+              <th scope="col" className={styles.thBsi}>
+                <div className={styles.courseHeader}>
+                  <span className={styles.courseTitle}>BSI, Bacharelado em Sistemas de Informação</span>
+                  <a
+                    href="https://www3.ft.unicamp.br/pt-br/graduacao/cursos/bsi"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.courseLink}
+                    title="Página oficial do curso de BSI no site da FT"
+                  >
+                    <span>Página Oficial na FT</span>
+                    <ExternalLink size={12} aria-hidden="true" />
+                  </a>
+                </div>
+              </th>
+              <th scope="col" className={styles.thTads}>
+                <div className={styles.courseHeader}>
+                  <span className={styles.courseTitle}>TADS, Tecnologia em Análise e Desenvolvimento</span>
+                  <a
+                    href="https://www3.ft.unicamp.br/pt-br/graduacao/cursos/tads"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.courseLink}
+                    title="Página oficial do curso de TADS no site da FT"
+                  >
+                    <span>Página Oficial na FT</span>
+                    <ExternalLink size={12} aria-hidden="true" />
+                  </a>
+                </div>
+              </th>
             </tr>
           </thead>
           <tbody>
             {courseComparisonData.map((row, idx) => (
               <tr key={idx} className={styles.tr}>
-                <td className={styles.tdCrit}>{row.criterion}</td>
+                <th scope="row" className={styles.tdCrit}>{row.criterion}</th>
                 <td className={styles.tdBsi}>{row.bsi}</td>
                 <td className={styles.tdTads}>{row.tads}</td>
               </tr>

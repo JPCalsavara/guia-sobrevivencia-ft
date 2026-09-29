@@ -157,6 +157,130 @@ export default function AcademicoPage() {
         <ChecklistFormatura />
       </section>
 
+      {/* Horas Complementares versus Curricularização da Extensão */}
+      <section className={styles.sectionBlock}>
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <GraduationCap size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>Horas Complementares versus Horas de Extensão</h2>
+              <p className={styles.cardSubtitle}>
+                Diferenças conceituais, formas de comprovação e regulamentos oficiais em PDF dos catálogos de Sistemas de Informação
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.rulesGrid}>
+            <div className={styles.ruleCard}>
+              <h3 className={styles.ruleTitle}>O Que São Atividades Complementares</h3>
+              <p className={styles.ruleText}>
+                São atividades extracurriculares que enriquecem o repertório formativo individual do estudante ao longo do curso. Incluem cursos livres online com certificado, participação como ouvinte em congressos acadêmicos e palestras, atuação em entidades estudantis como a Atria Empresa Júnior, LiUP, Semeia Code e Centro Acadêmico, além de monitorias acadêmicas e iniciação científica.
+              </p>
+            </div>
+
+            <div className={styles.ruleCard}>
+              <h3 className={styles.ruleTitle}>O Que É a Curricularização da Extensão</h3>
+              <p className={styles.ruleText}>
+                Exigência legal regulamentada pela Unicamp que determina a dedicação de dez por cento da carga horária da graduação a ações com impacto direto na sociedade externa. Ao contrário das complementares, na extensão o estudante deve levar o conhecimento universitário para fora do campus, atuando em projetos comunitários, oficinas escolares ou iniciativas vinculadas à Pró-Reitoria de Extensão e Cultura.
+              </p>
+            </div>
+
+            <div className={styles.ruleCard}>
+              <h3 className={styles.ruleTitle}>Como Guardar e Comprovar os Certificados</h3>
+              <p className={styles.ruleText}>
+                Solicite sempre comprovantes com CNPJ da instituição emissora, assinatura digital ou física, data e discriminação da carga horária. Cada catálogo define limites máximos de horas por modalidade para evitar concentração em uma única atividade. A validação deve ser solicitada à coordenação do curso ou secretaria antes do semestre de colação de grau.
+              </p>
+            </div>
+
+            <div className={styles.ruleCard}>
+              <h3 className={styles.ruleTitle}>Como Identificar o Regulamento do Seu Catálogo</h3>
+              <p className={styles.ruleText}>
+                As regras exatas dependem do seu ano de ingresso na universidade. O catálogo 2018 segue a norma SI918, o catálogo 2019 adota a norma SI919 e os ingressantes a partir do catálogo 2020 cumprem as diretrizes integradas de extensão e atividades complementares estabelecidas na norma SI920.
+              </p>
+            </div>
+          </div>
+
+          <h3 className={styles.categoryTitle} style={{ marginTop: '2.5rem' }}>
+            <FileText size={18} />
+            Regulamentos Oficiais de Sistemas de Informação em PDF
+          </h3>
+
+          <div className={styles.pdfGrid}>
+            <a
+              href="https://www3.ft.unicamp.br/sites/default/files/graduacao/RegulamentoSI918_1.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.pdfCard}
+            >
+              <div>
+                <span className={styles.pdfBadge}>
+                  <FileText size={14} />
+                  <span>PDF Oficial</span>
+                </span>
+                <h4 className={styles.pdfCardTitle} style={{ marginTop: '0.75rem' }}>
+                  Regulamento SI918, Catálogo 2018
+                </h4>
+                <p className={styles.pdfCardDesc}>
+                  Tabela de pontuação e critérios de convalidação de horas complementares para estudantes ingressantes no catálogo 2018.
+                </p>
+              </div>
+              <span className={styles.pdfCardAction}>
+                <span>Visualizar Documento</span>
+                <ExternalLink size={14} />
+              </span>
+            </a>
+
+            <a
+              href="https://www3.ft.unicamp.br/sites/default/files/graduacao/RegulamentoSI919.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.pdfCard}
+            >
+              <div>
+                <span className={styles.pdfBadge}>
+                  <FileText size={14} />
+                  <span>PDF Oficial</span>
+                </span>
+                <h4 className={styles.pdfCardTitle} style={{ marginTop: '0.75rem' }}>
+                  Regulamento SI919, Catálogo 2019
+                </h4>
+                <p className={styles.pdfCardDesc}>
+                  Normativa detalhada com os limites de horas por categoria e documentação exigida para os alunos do catálogo 2019.
+                </p>
+              </div>
+              <span className={styles.pdfCardAction}>
+                <span>Visualizar Documento</span>
+                <ExternalLink size={14} />
+              </span>
+            </a>
+
+            <a
+              href="https://www3.ft.unicamp.br/sites/default/files/graduacao/RegulamentoSI920_0.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.pdfCard}
+            >
+              <div>
+                <span className={styles.pdfBadge}>
+                  <FileText size={14} />
+                  <span>PDF Oficial</span>
+                </span>
+                <h4 className={styles.pdfCardTitle} style={{ marginTop: '0.75rem' }}>
+                  Regulamento SI920, Catálogo 2020 em Diante
+                </h4>
+                <p className={styles.pdfCardDesc}>
+                  Diretrizes completas incorporando a curricularização da extensão universitária e o quadro de horas complementares atualizado.
+                </p>
+              </div>
+              <span className={styles.pdfCardAction}>
+                <span>Visualizar Documento</span>
+                <ExternalLink size={14} />
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Estratégia de Desacelerar o Curso */}
       <section className={styles.sectionBlock}>
         <div className={styles.strategyCard}>

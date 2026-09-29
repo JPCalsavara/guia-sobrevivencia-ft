@@ -76,6 +76,39 @@
   border-left: 1px solid var(--border-color);
 }
 
+.courseHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.courseTitle {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.courseLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ft-blue);
+  text-decoration: none;
+  width: fit-content;
+  padding: 0.2rem 0.5rem;
+  background-color: var(--ft-blue-soft);
+  border: 1px solid var(--ft-blue-border);
+  border-radius: $radius-sm;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: var(--ft-blue);
+    color: #ffffff;
+  }
+}
+
+
 .tr {
   border-bottom: 1px solid var(--border-color);
   transition: background-color $transition-fast;
