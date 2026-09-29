@@ -63,6 +63,16 @@ export const organizationsData: Organization[] = [
     instagramUrl: 'https://www.instagram.com/lmfunicamp/',
     websiteUrl: 'https://lmfunicamp.com',
   },
+  {
+    id: 'ligads-unicamp',
+    name: 'Liga de Ciência de Dados Unicamp Liga DS',
+    category: 'ligas',
+    categoryLabel: 'Liga Acadêmica',
+    description: 'Liga Acadêmica de Ciência de Dados e Inteligência Artificial da Unicamp, focada em aprendizado prático de machine learning, análise estatística e projetos com dados reais.',
+    instagramHandle: '@ligadsunicamp',
+    instagramUrl: 'https://www.instagram.com/ligadsunicamp/',
+    websiteUrl: 'https://www.instagram.com/ligadsunicamp/',
+  },
 
   // 3. Projetos de Extensão e Ação Social
   {
@@ -224,6 +234,16 @@ export const organizationsData: Organization[] = [
     instagramHandle: '@camaleaoft',
     instagramUrl: 'https://www.instagram.com/camaleaoft/',
     websiteUrl: 'https://linktr.ee/camaleaoft',
+  },
+  {
+    id: 'cat-limeira',
+    name: 'Centro Acadêmico de Tecnologia CAT FT',
+    category: 'centro_academico',
+    categoryLabel: 'Centro Acadêmico',
+    description: 'Centro Acadêmico de Tecnologia da Faculdade de Tecnologia da Unicamp em Limeira, atuando na representação estudantil, acolhida de calouros e interlocução com os colegiados.',
+    instagramHandle: '@cat.limeira',
+    instagramUrl: 'https://www.instagram.com/cat.limeira/',
+    websiteUrl: 'https://www.instagram.com/cat.limeira/',
   },
 
   // 5. Atlética e Esportes

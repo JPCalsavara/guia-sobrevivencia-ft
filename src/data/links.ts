@@ -57,6 +57,22 @@ export const linksData: ResourceLink[] = [
     category: 'prefeitura',
     badge: 'Cardápio',
   },
+  {
+    id: 'portinari-imoveis',
+    title: 'Portinari Imóveis Limeira',
+    description: 'Catálogo de casas e apartamentos para locação residencial na região dos campi',
+    url: 'https://www.portinarimoveis.com.br/',
+    category: 'prefeitura',
+    badge: 'Moradia',
+  },
+  {
+    id: 'sassi-imoveis',
+    title: 'Sassi Imóveis Limeira',
+    description: 'Locação imobiliária com atendimento para estudantes universitários em Limeira',
+    url: 'https://www.sassiimoveis.com.br/',
+    category: 'prefeitura',
+    badge: 'Moradia',
+  },
 
   // Faculdade de Tecnologia FT
   {
@@ -170,6 +186,14 @@ export const linksData: ResourceLink[] = [
     url: 'https://www3.ft.unicamp.br/sites/default/files/graduacao/RegulamentoSI920_0.pdf',
     category: 'ft',
     badge: 'Regulamento PDF',
+  },
+  {
+    id: 'ft-procedimentos-estagio',
+    title: 'Procedimentos de Estágio na FT',
+    description: 'Manual com fluxo oficial de documentação, prazos e relatórios via SAE para alunos da FT Unicamp',
+    url: 'https://www3.ft.unicamp.br/graduacao/estagio/procedimentos/alunos',
+    category: 'ft',
+    badge: 'Estágio',
   },
 
   // Sistemas Centrais Unicamp
@@ -392,6 +416,22 @@ export const linksData: ResourceLink[] = [
     badge: 'Segurança',
   },
   {
+    id: 'ligads-instagram',
+    title: 'Liga de Ciência de Dados Unicamp Liga DS',
+    description: 'Instagram oficial da Liga de Data Science e Inteligência Artificial da Unicamp',
+    url: 'https://www.instagram.com/ligadsunicamp/',
+    category: 'organizacoes',
+    badge: 'Data Science',
+  },
+  {
+    id: 'cat-limeira-instagram',
+    title: 'Centro Acadêmico de Tecnologia CAT FT',
+    description: 'Instagram oficial do Centro Acadêmico dos cursos de Tecnologia da Faculdade de Tecnologia',
+    url: 'https://www.instagram.com/cat.limeira/',
+    category: 'organizacoes',
+    badge: 'Centro Acadêmico',
+  },
+  {
     id: 'video-akita-carreira',
     title: 'Fabio Akita: Guia de Carreira e Fundamentos',
     description: 'Playlist essencial sobre fundamentos de computação e maturidade profissional',
@@ -406,6 +446,22 @@ export const linksData: ResourceLink[] = [
     url: 'https://www.youtube.com/watch?v=QqKqqrMlVNM',
     category: 'ferramentas',
     badge: 'Canais',
+  },
+  {
+    id: 'video-galego-linkedin',
+    title: 'Augusto Galego: Como Fazer um LinkedIn que Contrata',
+    description: 'Estratégia para atrair recrutadores técnicos, posicionamento de perfil e busca de vagas',
+    url: 'https://www.youtube.com/watch?v=1VArcBQGTZw',
+    category: 'ferramentas',
+    badge: 'Carreira',
+  },
+  {
+    id: 'video-cv-estruturacao',
+    title: 'Vídeo: Estrutura e Formatação de Currículo para TI',
+    description: 'Orientações práticas para organizar experiências, projetos acadêmicos e passar na triagem',
+    url: 'https://www.youtube.com/watch?v=8bzgIll_PT0',
+    category: 'ferramentas',
+    badge: 'Currículo',
   },
   {
     id: 'canal-kipper-dev',

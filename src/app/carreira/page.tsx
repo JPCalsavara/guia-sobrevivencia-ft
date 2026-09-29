@@ -19,7 +19,12 @@ import {
   ShieldCheck,
   Instagram,
   Database,
-  Server
+  Server,
+  Building2,
+  Laptop,
+  Landmark,
+  Factory,
+  PlaySquare
 } from 'lucide-react';
 import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
 import styles from './carreira.module.scss';
@@ -60,6 +65,16 @@ const careerTopics: TopicItem[] = [
     title: 'Presença Profissional',
     subtopics: [
       { id: 'portfolio-github', title: 'LinkedIn e Portfólio GitHub' },
+      { id: 'videos-cv-linkedin', title: 'Vídeos de LinkedIn e CV' },
+    ],
+  },
+  {
+    id: 'empresas-mercado',
+    title: 'Empresas e Modelos de Trabalho',
+    subtopics: [
+      { id: 'empresas-remotas-tech', title: 'Empresas Tech e Trabalho Remoto' },
+      { id: 'empresas-financeiras', title: 'Bancos e Fintechs' },
+      { id: 'empresas-industrias', title: 'Polo Industrial e Consultorias' },
     ],
   },
   {
@@ -341,6 +356,236 @@ export default function CarreiraPage() {
                 <li>Evite subir projetos compostos apenas por cópias literais de exercícios de aula sem documentação ou testes.</li>
               </ul>
             </div>
+          </div>
+
+          {/* Aulas em Vídeo Recomendadas: LinkedIn e CV */}
+          <div id="videos-cv-linkedin" className={styles.cvVideosGrid}>
+            <div className={styles.cvVideoCard}>
+              <div>
+                <div className={styles.cvVideoHeader}>
+                  <span className={styles.cvVideoBadge}>LinkedIn que Contrata</span>
+                  <Youtube size={18} color="#dc2626" aria-hidden="true" />
+                </div>
+                <h3 className={styles.cvVideoTitle}>Augusto Galego: Como Fazer um LinkedIn que Contrata</h3>
+                <p className={styles.cvVideoDesc}>
+                  Orientações objetivas sobre posicionamento de perfil, palavras-chave para recrutadores de tecnologia e como expor projetos acadêmicos com relevância.
+                </p>
+              </div>
+              <a
+                href="https://www.youtube.com/watch?v=1VArcBQGTZw"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.cvVideoBtn}
+                aria-label="Assistir aula de LinkedIn no YouTube em nova janela"
+              >
+                <Youtube size={15} aria-hidden="true" />
+                <span>Assistir Aula de LinkedIn</span>
+                <ExternalLink size={12} aria-hidden="true" />
+              </a>
+            </div>
+
+            <div className={styles.cvVideoCard}>
+              <div>
+                <div className={styles.cvVideoHeader}>
+                  <span className={styles.cvVideoBadge}>Estrutura de Currículo</span>
+                  <Youtube size={18} color="#dc2626" aria-hidden="true" />
+                </div>
+                <h3 className={styles.cvVideoTitle}>Vídeo: Estrutura e Formatação de Currículo para TI</h3>
+                <p className={styles.cvVideoDesc}>
+                  Análise detalhada de erros comuns em currículos de tecnologia, estrutura de tópicos de impacto e formatação limpa que passa nas triagens.
+                </p>
+              </div>
+              <a
+                href="https://www.youtube.com/watch?v=8bzgIll_PT0"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.cvVideoBtn}
+                aria-label="Assistir vídeo de formatação de currículo no YouTube em nova janela"
+              >
+                <Youtube size={15} aria-hidden="true" />
+                <span>Assistir Vídeo sobre Currículo</span>
+                <ExternalLink size={12} aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* O Ecossistema de Empresas e Modelos de Trabalho */}
+      <section id="empresas-mercado" className={styles.sectionBlock}>
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <Building2 size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>O Ecossistema de Empresas e Modelos de Trabalho</h2>
+              <p className={styles.cardSubtitle}>
+                Onde os estudantes da FT costumam estagiar, particularidades de cada processo seletivo e formatos de atuação
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.companySectorsContainer}>
+            {/* Bloco 1: Tech e Trabalho Remoto */}
+            <div id="empresas-remotas-tech" className={styles.companySectorBlock}>
+              <div className={styles.companySectorHeader}>
+                <Laptop size={20} className={styles.companySectorIcon} aria-hidden="true" />
+                <div className={styles.companySectorTitleGroup}>
+                  <h3 className={styles.companySectorTitle}>Empresas de Tecnologia e Trabalho Remoto</h3>
+                  <p className={styles.companySectorSubtitle}>
+                    Companhias com cultura de trabalho distribuído, processos estruturados e forte tradição de absorção de talentos da Unicamp
+                  </p>
+                </div>
+              </div>
+
+              <div className={styles.companyCardsGrid}>
+                <div className={styles.companyEntityCard}>
+                  <div className={styles.companyEntityHeader}>
+                    <h4 className={styles.companyName}>CI&T</h4>
+                    <span className={`${styles.companyWorkBadge} ${styles.remoto}`}>Remoto</span>
+                  </div>
+                  <p className={styles.companyDesc}>
+                    Grande parceira da comunidade acadêmica da Unicamp com seu programa de estágio Next Gen totalmente remoto. Ambiente centrado em métodos ágeis, engenharia de software aplicada e projetos para clientes internacionais de grande porte.
+                  </p>
+                </div>
+
+                <div className={styles.companyEntityCard}>
+                  <div className={styles.companyEntityHeader}>
+                    <h4 className={styles.companyName}>iFood</h4>
+                    <span className={`${styles.companyWorkBadge} ${styles.remoto}`}>Remoto</span>
+                  </div>
+                  <p className={styles.companyDesc}>
+                    Ecossistema líder de delivery com atuação predominantemente remota. O processo de seleção é altamente competitivo, com filtros rigorosos de fundamentos de programação, lógica analítica e adequação à cultura de velocidade.
+                  </p>
+                </div>
+
+                <div className={styles.companyEntityCard}>
+                  <div className={styles.companyEntityHeader}>
+                    <h4 className={styles.companyName}>Stone</h4>
+                    <span className={`${styles.companyWorkBadge} ${styles.remoto}`}>Remoto</span>
+                  </div>
+                  <p className={styles.companyDesc}>
+                    Fintech com forte área de tecnologia remota. Possui um processo seletivo claro, transparente e dividido em etapas bem delineadas, valorizando raciocínio lógico estruturado e autonomia de entrega.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Bloco 2: Bancos e Fintechs */}
+            <div id="empresas-financeiras" className={styles.companySectorBlock}>
+              <div className={styles.companySectorHeader}>
+                <Landmark size={20} className={styles.companySectorIcon} aria-hidden="true" />
+                <div className={styles.companySectorTitleGroup}>
+                  <h3 className={styles.companySectorTitle}>Instituições Financeiras e Fintechs</h3>
+                  <p className={styles.companySectorSubtitle}>
+                    Bancos e operadoras financeiras com alta remuneração, desafios de escala crítica e diferentes regimes de presença
+                  </p>
+                </div>
+              </div>
+
+              <div className={styles.companyCardsGrid}>
+                <div className={styles.companyEntityCard}>
+                  <div className={styles.companyEntityHeader}>
+                    <h4 className={styles.companyName}>Itaú Unibanco</h4>
+                    <span className={`${styles.companyWorkBadge} ${styles.hibrido}`}>Híbrido</span>
+                  </div>
+                  <p className={styles.companyDesc}>
+                    Atuação em formato híbrido com polos em São Paulo e cidades próximas. O fluxo de contratação funciona por inscrição prévia contínua no portal de carreiras do banco, seguida por períodos de triagem, testes e dinâmicas coletivas.
+                  </p>
+                </div>
+
+                <div className={styles.companyEntityCard}>
+                  <div className={styles.companyEntityHeader}>
+                    <h4 className={styles.companyName}>Banco Agibank</h4>
+                    <span className={`${styles.companyWorkBadge} ${styles.presencial}`}>Presencial</span>
+                  </div>
+                  <p className={styles.companyDesc}>
+                    Instituição financeira com campus administrativo presencial localizado próximo ao Aeroporto de Viracopos em Campinas. Conta com estrutura própria de apoio a transporte e proximidade logística para alunos residentes em Limeira e região.
+                  </p>
+                </div>
+
+                <div className={styles.companyEntityCard}>
+                  <div className={styles.companyEntityHeader}>
+                    <h4 className={styles.companyName}>EloGroup</h4>
+                    <span className={`${styles.companyWorkBadge} ${styles.hibrido}`}>Híbrido e Remoto</span>
+                  </div>
+                  <p className={styles.companyDesc}>
+                    Consultoria de gestão orientada a tecnologia e dados, com projetos de automação de processos, integração de software e estratégia corporativa. Excelente opção para estudantes que buscam visão ampla de negócio.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Bloco 3: Polo Industrial, Consultorias e Startups */}
+            <div id="empresas-industrias" className={styles.companySectorBlock}>
+              <div className={styles.companySectorHeader}>
+                <Factory size={20} className={styles.companySectorIcon} aria-hidden="true" />
+                <div className={styles.companySectorTitleGroup}>
+                  <h3 className={styles.companySectorTitle}>Polo Industrial Regional, Consultorias e Startups</h3>
+                  <p className={styles.companySectorSubtitle}>
+                    Oportunidades em multinacionais automotivas de Limeira e cidades vizinhas, fábricas de software e ecossistemas empreendedores
+                  </p>
+                </div>
+              </div>
+
+              <div className={styles.companyCardsGrid}>
+                <div className={styles.companyEntityCard}>
+                  <div className={styles.companyEntityHeader}>
+                    <h4 className={styles.companyName}>Hyundai Motor Brasil</h4>
+                    <span className={`${styles.companyWorkBadge} ${styles.presencial}`}>Piracicaba</span>
+                  </div>
+                  <p className={styles.companyDesc}>
+                    Grande planta fabril automobilística situada em Piracicaba, próxima de Limeira. Oferece programas de estágio presenciais em tecnologia da informação industrial, automação de processos produtivos e engenharia de sistemas.
+                  </p>
+                </div>
+
+                <div className={styles.companyEntityCard}>
+                  <div className={styles.companyEntityHeader}>
+                    <h4 className={styles.companyName}>ZF do Brasil</h4>
+                    <span className={`${styles.companyWorkBadge} ${styles.presencial}`}>Limeira</span>
+                  </div>
+                  <p className={styles.companyDesc}>
+                    Multinacional líder em tecnologia de mobilidade com grande parque fabril estabelecido em Limeira. Proporciona estágios técnicos de longa tradição voltados a redes industriais, sistemas e eletrônica embarcada.
+                  </p>
+                </div>
+
+                <div className={styles.companyEntityCard}>
+                  <div className={styles.companyEntityHeader}>
+                    <h4 className={styles.companyName}>Mahle Metal Leve</h4>
+                    <span className={`${styles.companyWorkBadge} ${styles.presencial}`}>Limeira</span>
+                  </div>
+                  <p className={styles.companyDesc}>
+                    Gigante do setor de autopeças e pesquisa automotiva com centros em Limeira e Mogi Mirim. Tradição em formação prática de estagiários em engenharia integrada, suporte corporativo de TI e gestão da manufatura.
+                  </p>
+                </div>
+
+                <div className={styles.companyEntityCard}>
+                  <div className={styles.companyEntityHeader}>
+                    <h4 className={styles.companyName}>Consultorias e Fábricas Tech</h4>
+                    <span className={`${styles.companyWorkBadge} ${styles.flexivel}`}>Flexível</span>
+                  </div>
+                  <p className={styles.companyDesc}>
+                    Empresas com produtos base de tecnologia ou atuação sob demanda para setores adjacentes. Representam uma porta de entrada comum e frequente para o primeiro estágio de programação de alunos da graduação.
+                  </p>
+                </div>
+
+                <div className={styles.companyEntityCard}>
+                  <div className={styles.companyEntityHeader}>
+                    <h4 className={styles.companyName}>Startups Regionais</h4>
+                    <span className={`${styles.companyWorkBadge} ${styles.flexivel}`}>Híbrido e Remoto</span>
+                  </div>
+                  <p className={styles.companyDesc}>
+                    Modalidade menos frequente na região em comparação às indústrias tradicionais, porém presente em hubs de inovação e polos tecnológicos. Oferecem vivência direta com o ciclo do produto e grande autonomia.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.companyTipsCallout}>
+            <h4>Dicas Estratégicas para Inscrições no Mercado</h4>
+            <p>
+              Para oportunidades remotas como CI&T, iFood e Stone, mantenha seu currículo em formato ATS de página única e seu GitHub com dois projetos reais documentados. Para vagas em bancos como Itaú, inscreva-se no banco de talentos oficial mesmo sem edital ativo, pois a triagem é puxada continuamente das bases de dados. Para indústrias locais como ZF, Mahle e Hyundai, o comparecimento às feiras de carreiras dos campi de Limeira e a conexão com veteranos da FT são os caminhos mais eficazes para receber indicações internas.
+            </p>
           </div>
         </div>
       </section>

@@ -657,4 +657,245 @@
   width: 100%;
 }
 
+// Cards de Vídeos de LinkedIn e CV
+.cvVideosGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+  margin-top: $spacing-xl;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.cvVideoCard {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-md;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: $spacing-md;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: var(--ft-green);
+    box-shadow: $shadow-sm;
+  }
+}
+
+.cvVideoHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-sm;
+}
+
+.cvVideoBadge {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.5rem;
+  border-radius: $radius-sm;
+  background-color: var(--ft-green-soft);
+  color: var(--ft-green);
+  border: 1px solid var(--ft-green-border);
+}
+
+.cvVideoTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: $spacing-xs;
+}
+
+.cvVideoDesc {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.cvVideoBtn {
+  @include button-base;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.85rem;
+  background-color: #dc2626;
+  color: #ffffff;
+  border-radius: $radius-sm;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #b91c1c;
+  }
+}
+
+// Seção de Ecossistema de Empresas e Modelos de Trabalho
+.companySectorsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2xl;
+  margin-top: $spacing-lg;
+}
+
+.companySectorBlock {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  padding-bottom: $spacing-xl;
+  border-bottom: 1px solid var(--border-color);
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+
+.companySectorHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-md;
+}
+
+.companySectorIcon {
+  color: var(--ft-green);
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.companySectorTitleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.companySectorTitle {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.companySectorSubtitle {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.companyCardsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to('xl') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.companyEntityCard {
+  background-color: var(--surface-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-md;
+  padding: $spacing-md;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: var(--ft-green);
+    transform: translateY(-2px);
+    box-shadow: $shadow-sm;
+  }
+}
+
+.companyEntityHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $spacing-xs;
+}
+
+.companyName {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.companyWorkBadge {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.15rem 0.45rem;
+  border-radius: $radius-sm;
+  white-space: nowrap;
+
+  &.remoto {
+    background-color: #e0f2fe;
+    color: #0369a1;
+    border: 1px solid #bae6fd;
+  }
+
+  &.hibrido {
+    background-color: #ecfdf5;
+    color: #047857;
+    border: 1px solid #a7f3d0;
+  }
+
+  &.presencial {
+    background-color: #fef3c7;
+    color: #b45309;
+    border: 1px solid #fde68a;
+  }
+
+  &.flexivel {
+    background-color: #f3e8ff;
+    color: #6b21a8;
+    border: 1px solid #e9d5ff;
+  }
+}
+
+.companyDesc {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.companyTipsCallout {
+  margin-top: $spacing-xl;
+  padding: $spacing-lg;
+  border-radius: $radius-md;
+  background-color: var(--surface-color);
+  border-left: 4px solid var(--ft-green);
+  border-top: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+
+  h4 {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: $spacing-xs;
+  }
+
+  p {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
 
