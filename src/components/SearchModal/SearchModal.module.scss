@@ -1,0 +1,568 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: $spacing-md;
+
+  @include respond-to('sm') {
+    padding-top: 8vh;
+  }
+}
+
+.modal {
+  width: 100%;
+  max-width: 720px;
+  max-height: 85vh;
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-xl;
+  box-shadow: $shadow-xl;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  animation: modalEnter 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+// Cabecalho de busca limpo e de largura total
+.searchHeader {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md $spacing-xl;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--surface-color);
+}
+
+.searchIcon {
+  color: var(--ft-blue);
+  flex-shrink: 0;
+}
+
+.searchInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  outline: none;
+  font-family: inherit;
+  width: 100%;
+
+  &::placeholder {
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+}
+
+.clearButton {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.35rem;
+  border-radius: $radius-sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all $transition-fast;
+
+  &:hover {
+    color: var(--text-primary);
+    background-color: rgba(0, 0, 0, 0.06);
+  }
+}
+
+.closeButton {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.4rem;
+  border-radius: $radius-sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all $transition-fast;
+
+  &:hover {
+    color: var(--text-primary);
+    background-color: rgba(0, 0, 0, 0.08);
+  }
+}
+
+// Barra de acao superior
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-xs $spacing-xl;
+  background-color: var(--surface-elevated);
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  gap: $spacing-sm;
+}
+
+.toolbarHint {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.aiButton {
+  @include button-base;
+  background-color: var(--ft-blue);
+  color: #ffffff;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  padding: 0.35rem 0.85rem;
+  border-radius: $radius-md;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: $shadow-sm;
+
+  &:hover:not(:disabled) {
+    background-color: var(--ft-blue-hover);
+    transform: translateY(-1px);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.aiKbd {
+  font-size: 0.6875rem;
+  padding: 0.1rem 0.35rem;
+  border-radius: $radius-sm;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-left: 0.25rem;
+  font-family: inherit;
+}
+
+// Corpo principal com rolagem
+.modalBody {
+  flex: 1;
+  overflow-y: auto;
+  padding: $spacing-lg $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+// Painel de configuracao de chave quando solicitado
+.keyConfigBox {
+  background-color: var(--surface-elevated);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--ft-blue);
+  border-radius: $radius-md;
+  padding: $spacing-md;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  animation: modalEnter 0.15s ease-out;
+}
+
+.keyConfigHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-sm;
+}
+
+.keyConfigTitle {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.keyConfigDesc {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+
+  a {
+    color: var(--ft-blue);
+    text-decoration: underline;
+    font-weight: 600;
+  }
+}
+
+.keyInputRow {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  margin-top: $spacing-xs;
+}
+
+.keyInputField {
+  flex: 1;
+  padding: 0.45rem 0.75rem;
+  border-radius: $radius-sm;
+  border: 1px solid var(--border-color);
+  background-color: var(--surface-color);
+  color: var(--text-primary);
+  font-size: 0.8125rem;
+  font-family: monospace;
+  outline: none;
+
+  &:focus {
+    border-color: var(--ft-blue);
+  }
+}
+
+.saveKeyBtn {
+  @include button-base;
+  background-color: var(--ft-green);
+  color: #ffffff;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: $radius-sm;
+
+  &:hover {
+    background-color: var(--ft-green-hover);
+  }
+}
+
+.clearKeyBtn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--danger);
+  padding: 0.45rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: $radius-sm;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(220, 38, 38, 0.08);
+  }
+}
+
+// Resposta da IA destacada
+.aiResponseBlock {
+  background-color: var(--surface-elevated);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  border-left: 4px solid #a855f7;
+  border-radius: $radius-md;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.aiResponseHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #a855f7;
+}
+
+.aiResponseText {
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.aiLinksSection {
+  margin-top: $spacing-xs;
+  padding-top: $spacing-sm;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.aiLinksTitle {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+}
+
+.aiLinksGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-xs;
+}
+
+.aiLinkChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: $radius-sm;
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--ft-blue);
+  text-decoration: none;
+
+  &:hover {
+    border-color: var(--ft-blue);
+    background-color: var(--ft-blue-soft);
+  }
+}
+
+// Cabecalho de resultados
+.resultsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-xs;
+}
+
+.sectionTitle {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.resultsCount {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+// Lista e itens de resultados
+.resultsList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.resultItem {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  border-radius: $radius-md;
+  background-color: var(--surface-elevated);
+  border: 1px solid var(--border-color);
+  text-decoration: none;
+  transition: all $transition-fast;
+
+  &:hover {
+    border-color: var(--ft-blue);
+    background-color: var(--ft-blue-soft);
+    transform: translateX(2px);
+
+    .resultArrow {
+      color: var(--ft-blue);
+      transform: translateX(3px);
+    }
+  }
+}
+
+.resultContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.resultBadgesRow {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.pageBadge {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--ft-blue);
+  background-color: var(--ft-blue-soft);
+  border: 1px solid var(--ft-blue-border);
+  padding: 0.15rem 0.45rem;
+  border-radius: $radius-sm;
+}
+
+.subtopicBadge {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--ft-green);
+  background-color: var(--ft-green-soft);
+  border: 1px solid var(--ft-green-border);
+  padding: 0.15rem 0.45rem;
+  border-radius: $radius-sm;
+}
+
+.resultTitle {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 0.15rem;
+}
+
+.resultSummary {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.resultArrow {
+  color: var(--text-muted);
+  flex-shrink: 0;
+  margin-top: 0.35rem;
+  transition: all $transition-fast;
+}
+
+// Estado inicial: Sugestoes de busca
+.initialStateWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.suggestionsTitle {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.suggestionsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-xs;
+}
+
+.suggestionChip {
+  background-color: var(--surface-elevated);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.45rem 0.85rem;
+  border-radius: $radius-full;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all $transition-fast;
+
+  &:hover {
+    border-color: var(--ft-blue);
+    background-color: var(--ft-blue-soft);
+    color: var(--ft-blue);
+  }
+}
+
+.helpTip {
+  padding: $spacing-md;
+  border-radius: $radius-md;
+  background-color: var(--surface-elevated);
+  border: 1px dashed var(--border-color);
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+// Estado vazio
+.emptyState {
+  padding: $spacing-2xl $spacing-md;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+// Rodape limpo e acessivel
+.footerHint {
+  padding: $spacing-sm $spacing-xl;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--surface-elevated);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+}
+
+.keyConfigFooterBtn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+
+  &:hover {
+    color: var(--ft-blue);
+  }
+}
+
+.footerShortcuts {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.kbd {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  padding: 0.15rem 0.4rem;
+  font-family: inherit;
+  font-size: 0.6875rem;
+  color: var(--text-secondary);
+}

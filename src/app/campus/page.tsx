@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { OrganizationDirectory } from '@/components/OrganizationDirectory/OrganizationDirectory';
+import { MapMoradia } from '@/components/MapMoradia/MapMoradia';
 import {
   MapPin,
   Building2,
@@ -21,6 +22,10 @@ import {
   Car,
   ShieldCheck,
   CheckCircle2,
+  AlertCircle,
+  DollarSign,
+  Check,
+  Sparkles,
 } from 'lucide-react';
 import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
 import styles from './campus.module.scss';
@@ -73,6 +78,7 @@ const campusTopics: TopicItem[] = [
     id: 'moradia-convivencia',
     title: 'Moradia e Habitação',
     subtopics: [
+      { id: 'moradia-mapa', title: 'Mapa da Região Universitária' },
       { id: 'moradia-modalidades', title: 'Modalidades e Preços' },
       { id: 'moradia-predios', title: 'Prédios e Condomínios' },
       { id: 'moradia-bairros', title: 'Bairros e Avenidas' },
@@ -525,6 +531,11 @@ export default function CampusPage() {
         <OrganizationDirectory />
       </section>
 
+      {/* 0. Mapa Territorial da Região Universitária de Limeira */}
+      <section id="moradia-mapa" className={styles.sectionBlock}>
+        <MapMoradia />
+      </section>
+
       {/* 1. Modalidades de Moradia e Comparativo de Preços */}
       <section id="moradia-modalidades" className={styles.sectionBlock}>
         <div className={styles.blockCard}>
@@ -551,17 +562,26 @@ export default function CampusPage() {
               </div>
 
               <div className={styles.housingPoints}>
-                <div className={styles.pointItem}>
-                  <strong>Localização Típica</strong>
-                  Jardim Nova Itália, Vila Cristovam, Jardim Morro Azul e proximidades do Morar Mais.
+                <div className={`${styles.pointItem} ${styles.locationPoint}`}>
+                  <div className={styles.pointHeader}>
+                    <MapPin size={14} className={styles.pointIcon} aria-hidden="true" />
+                    <strong>Localização Típica</strong>
+                  </div>
+                  <p>Jardim Nova Itália, Vila Cristovam, Jardim Morro Azul e proximidades do Morar Mais.</p>
                 </div>
-                <div className={styles.pointItem}>
-                  <strong>Vantagens</strong>
-                  Menor custo mensal, forte integração social, rede de apoio acadêmico com veteranos e divisão de despesas domésticas.
+                <div className={`${styles.pointItem} ${styles.prosPoint}`}>
+                  <div className={styles.pointHeader}>
+                    <CheckCircle2 size={14} className={styles.pointIcon} aria-hidden="true" />
+                    <strong>Vantagens</strong>
+                  </div>
+                  <p>Menor custo mensal, forte integração social, rede de apoio acadêmico com veteranos e divisão de despesas domésticas.</p>
                 </div>
-                <div className={styles.pointItem}>
-                  <strong>Pontos de Atenção</strong>
-                  Rotinas e horários variados entre os moradores, menor privacidade e necessidade de assembleias para regras da casa.
+                <div className={`${styles.pointItem} ${styles.consPoint}`}>
+                  <div className={styles.pointHeader}>
+                    <AlertCircle size={14} className={styles.pointIcon} aria-hidden="true" />
+                    <strong>Pontos de Atenção</strong>
+                  </div>
+                  <p>Rotinas e horários variados entre os moradores, menor privacidade e necessidade de assembleias para regras da casa.</p>
                 </div>
               </div>
             </div>
@@ -578,17 +598,26 @@ export default function CampusPage() {
               </div>
 
               <div className={styles.housingPoints}>
-                <div className={styles.pointItem}>
-                  <strong>Localização Típica</strong>
-                  Forte concentração no Jardim Morro Azul, nas ruas atrás da Escola Municipal Aldo José Kuhl, com opções no Jardim Paulista e Jardim Nossa Senhora de Fátima.
+                <div className={`${styles.pointItem} ${styles.locationPoint}`}>
+                  <div className={styles.pointHeader}>
+                    <MapPin size={14} className={styles.pointIcon} aria-hidden="true" />
+                    <strong>Localização Típica</strong>
+                  </div>
+                  <p>Forte concentração no Jardim Morro Azul, nas ruas atrás da Escola Municipal Aldo José Kuhl, com opções no Jardim Paulista e Jardim Nossa Senhora de Fátima.</p>
                 </div>
-                <div className={styles.pointItem}>
-                  <strong>Vantagens</strong>
-                  Baixo custo mensal, mobília básica pronta para uso, ideal para quem quer economizar sem participar da rotina de eventos de república.
+                <div className={`${styles.pointItem} ${styles.prosPoint}`}>
+                  <div className={styles.pointHeader}>
+                    <CheckCircle2 size={14} className={styles.pointIcon} aria-hidden="true" />
+                    <strong>Vantagens</strong>
+                  </div>
+                  <p>Baixo custo mensal, mobília básica pronta para uso, ideal para quem quer economizar sem participar da rotina de eventos de república.</p>
                 </div>
-                <div className={styles.pointItem}>
-                  <strong>Pontos de Atenção</strong>
-                  Você não escolhe com quem divide o quarto ou as áreas comuns, com regras mais rígidas de visitas e horários de silêncio.
+                <div className={`${styles.pointItem} ${styles.consPoint}`}>
+                  <div className={styles.pointHeader}>
+                    <AlertCircle size={14} className={styles.pointIcon} aria-hidden="true" />
+                    <strong>Pontos de Atenção</strong>
+                  </div>
+                  <p>Você não escolhe com quem divide o quarto ou as áreas comuns, com regras mais rígidas de visitas e horários de silêncio.</p>
                 </div>
               </div>
             </div>
@@ -605,17 +634,26 @@ export default function CampusPage() {
               </div>
 
               <div className={styles.housingPoints}>
-                <div className={styles.pointItem}>
-                  <strong>Localização Típica</strong>
-                  Quase todas concentradas no lado da FCA, nos bairros Jardim Cidade Universitária I e II e Chácara Antonieta.
+                <div className={`${styles.pointItem} ${styles.locationPoint}`}>
+                  <div className={styles.pointHeader}>
+                    <MapPin size={14} className={styles.pointIcon} aria-hidden="true" />
+                    <strong>Localização Típica</strong>
+                  </div>
+                  <p>Quase todas concentradas no lado da FCA, nos bairros Jardim Cidade Universitária I e II e Chácara Antonieta.</p>
                 </div>
-                <div className={styles.pointItem}>
-                  <strong>Vantagens</strong>
-                  Privacidade total, silêncio absoluto para dedicação aos estudos e liberdade completa de horários e rotina pessoal.
+                <div className={`${styles.pointItem} ${styles.prosPoint}`}>
+                  <div className={styles.pointHeader}>
+                    <CheckCircle2 size={14} className={styles.pointIcon} aria-hidden="true" />
+                    <strong>Vantagens</strong>
+                  </div>
+                  <p>Privacidade total, silêncio absoluto para dedicação aos estudos e liberdade completa de horários e rotina pessoal.</p>
                 </div>
-                <div className={styles.pointItem}>
-                  <strong>Pontos de Atenção</strong>
-                  Custo total mais elevado, contas de consumo pagas integralmente à parte e necessidade de circular ou bicicleta para se deslocar até a FT.
+                <div className={`${styles.pointItem} ${styles.consPoint}`}>
+                  <div className={styles.pointHeader}>
+                    <AlertCircle size={14} className={styles.pointIcon} aria-hidden="true" />
+                    <strong>Pontos de Atenção</strong>
+                  </div>
+                  <p>Custo total mais elevado, contas de consumo pagas integralmente à parte e necessidade de circular ou bicicleta para se deslocar até a FT.</p>
                 </div>
               </div>
             </div>
@@ -632,17 +670,26 @@ export default function CampusPage() {
               </div>
 
               <div className={styles.housingPoints}>
-                <div className={styles.pointItem}>
-                  <strong>Localização Típica</strong>
-                  Condomínios como Morar Mais, Edifício Bahamas na José Paolillo e Residencial Azaleias na Ciro Scartezini.
+                <div className={`${styles.pointItem} ${styles.locationPoint}`}>
+                  <div className={styles.pointHeader}>
+                    <MapPin size={14} className={styles.pointIcon} aria-hidden="true" />
+                    <strong>Localização Típica</strong>
+                  </div>
+                  <p>Condomínios como Morar Mais, Edifício Bahamas na José Paolillo e Residencial Azaleias na Ciro Scartezini.</p>
                 </div>
-                <div className={styles.pointItem}>
-                  <strong>Vantagens</strong>
-                  Você escolhe quem mora junto, ambiente de estudos alinhado, infraestrutura de condomínio fechado com portaria e segurança.
+                <div className={`${styles.pointItem} ${styles.prosPoint}`}>
+                  <div className={styles.pointHeader}>
+                    <CheckCircle2 size={14} className={styles.pointIcon} aria-hidden="true" />
+                    <strong>Vantagens</strong>
+                  </div>
+                  <p>Você escolhe quem mora junto, ambiente de estudos alinhado, infraestrutura de condomínio fechado com portaria e segurança.</p>
                 </div>
-                <div className={styles.pointItem}>
-                  <strong>Pontos de Atenção</strong>
-                  Valor total do contrato de 1.500 a 2.500 reais mensais, exigência de fiador ou seguro fiança e responsabilidade contratual solidária.
+                <div className={`${styles.pointItem} ${styles.consPoint}`}>
+                  <div className={styles.pointHeader}>
+                    <AlertCircle size={14} className={styles.pointIcon} aria-hidden="true" />
+                    <strong>Pontos de Atenção</strong>
+                  </div>
+                  <p>Valor total do contrato de 1.500 a 2.500 reais mensais, exigência de fiador ou seguro fiança e responsabilidade contratual solidária.</p>
                 </div>
               </div>
             </div>
@@ -677,13 +724,25 @@ export default function CampusPage() {
 
               <div className={styles.buildingMeta}>
                 <div className={styles.metaRow}>
-                  <strong>Valores:</strong> 1.500 a 2.500 reais de custo total mensal
+                  <div className={styles.metaLabelGroup}>
+                    <DollarSign size={14} className={styles.metaIcon} aria-hidden="true" />
+                    <strong>Valores:</strong>
+                  </div>
+                  <span>1.500 a 2.500 reais de custo total mensal</span>
                 </div>
                 <div className={styles.metaRow}>
-                  <strong>Prós:</strong> Infraestrutura excelente com lazer completo, piscina, academia e portaria com segurança 24 horas.
+                  <div className={styles.metaLabelGroup}>
+                    <Check size={14} className={styles.metaIcon} aria-hidden="true" />
+                    <strong>Prós:</strong>
+                  </div>
+                  <span>Infraestrutura excelente com lazer completo, piscina, academia e portaria com segurança 24 horas.</span>
                 </div>
                 <div className={styles.metaRow}>
-                  <strong>Logística:</strong> Fica mais afastado do centro urbano; exige carro próprio, Uber compartilhado ou circular para ir às aulas na FT e para bandecar.
+                  <div className={styles.metaLabelGroup}>
+                    <Bus size={14} className={styles.metaIcon} aria-hidden="true" />
+                    <strong>Logística:</strong>
+                  </div>
+                  <span>Fica mais afastado do centro urbano; exige carro próprio, Uber compartilhado ou circular para ir às aulas na FT e para bandecar.</span>
                 </div>
               </div>
             </div>
@@ -701,13 +760,25 @@ export default function CampusPage() {
 
               <div className={styles.buildingMeta}>
                 <div className={styles.metaRow}>
-                  <strong>Valores:</strong> Médios e compatíveis com locação estudantil
+                  <div className={styles.metaLabelGroup}>
+                    <DollarSign size={14} className={styles.metaIcon} aria-hidden="true" />
+                    <strong>Valores:</strong>
+                  </div>
+                  <span>Médios e compatíveis com locação estudantil</span>
                 </div>
                 <div className={styles.metaRow}>
-                  <strong>Prós:</strong> Permite ir a pé para as refeições diárias no Restaurante Universitário da FCA, além de ponto de ônibus e circular bem próximo.
+                  <div className={styles.metaLabelGroup}>
+                    <Check size={14} className={styles.metaIcon} aria-hidden="true" />
+                    <strong>Prós:</strong>
+                  </div>
+                  <span>Permite ir a pé para as refeições diárias no Restaurante Universitário da FCA, além de ponto de ônibus e circular bem próximo.</span>
                 </div>
                 <div className={styles.metaRow}>
-                  <strong>Logística:</strong> Excelente para quem prioriza alimentação econômica no bandeco e usa o circular gratuito para subir até o campus da FT.
+                  <div className={styles.metaLabelGroup}>
+                    <Bus size={14} className={styles.metaIcon} aria-hidden="true" />
+                    <strong>Logística:</strong>
+                  </div>
+                  <span>Excelente para quem prioriza alimentação econômica no bandeco e usa o circular gratuito para subir até o campus da FT.</span>
                 </div>
               </div>
             </div>
@@ -725,13 +796,25 @@ export default function CampusPage() {
 
               <div className={styles.buildingMeta}>
                 <div className={styles.metaRow}>
-                  <strong>Valores:</strong> Quarto individual ou apartamento em grupo
+                  <div className={styles.metaLabelGroup}>
+                    <DollarSign size={14} className={styles.metaIcon} aria-hidden="true" />
+                    <strong>Valores:</strong>
+                  </div>
+                  <span>Quarto individual ou apartamento em grupo</span>
                 </div>
                 <div className={styles.metaRow}>
-                  <strong>Prós:</strong> Elimina custos com transporte e tempo de trânsito, permitindo ir a pé para salas de aula, laboratórios e biblioteca a qualquer momento.
+                  <div className={styles.metaLabelGroup}>
+                    <Check size={14} className={styles.metaIcon} aria-hidden="true" />
+                    <strong>Prós:</strong>
+                  </div>
+                  <span>Elimina custos com transporte e tempo de trânsito, permitindo ir a pé para salas de aula, laboratórios e biblioteca a qualquer momento.</span>
                 </div>
                 <div className={styles.metaRow}>
-                  <strong>Logística:</strong> Proximidade total com o campus da FT e com o bandeco local nos horários de funcionamento dos dias úteis.
+                  <div className={styles.metaLabelGroup}>
+                    <Bus size={14} className={styles.metaIcon} aria-hidden="true" />
+                    <strong>Logística:</strong>
+                  </div>
+                  <span>Proximidade total com o campus da FT e com o bandeco local nos horários de funcionamento dos dias úteis.</span>
                 </div>
               </div>
             </div>
@@ -882,6 +965,44 @@ export default function CampusPage() {
                 aria-label="Acessar portal da Imobiliária Boa Vista em nova janela"
               >
                 <span>Portal Imobiliária Boa Vista</span>
+                <ExternalLink size={12} aria-hidden="true" />
+              </a>
+            </div>
+
+            <div className={styles.realtorCard}>
+              <div>
+                <h3 className={styles.realtorName}>Portinari Imóveis</h3>
+                <p className={styles.realtorDesc}>
+                  Imobiliária atuante em Limeira com opções residenciais para locação, atendimento ágil e carteira diversificada de apartamentos e casas.
+                </p>
+              </div>
+              <a
+                href="https://www.portinarimoveis.com.br/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.realtorActionBtn}
+                aria-label="Acessar portal da Portinari Imóveis em nova janela"
+              >
+                <span>Portal Portinari Imóveis</span>
+                <ExternalLink size={12} aria-hidden="true" />
+              </a>
+            </div>
+
+            <div className={styles.realtorCard}>
+              <div>
+                <h3 className={styles.realtorName}>Sassi Imóveis</h3>
+                <p className={styles.realtorDesc}>
+                  Imobiliária tradicional da cidade com atendimento para locação de imóveis próximos a vias de acesso rápido aos campi universitários.
+                </p>
+              </div>
+              <a
+                href="https://www.sassiimoveis.com.br/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.realtorActionBtn}
+                aria-label="Acessar portal da Sassi Imóveis em nova janela"
+              >
+                <span>Portal Sassi Imóveis</span>
                 <ExternalLink size={12} aria-hidden="true" />
               </a>
             </div>

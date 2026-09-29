@@ -1,0 +1,646 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.mapCardContainer {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-xl;
+  padding: $spacing-xl;
+  box-shadow: $shadow-md;
+  margin-bottom: $spacing-2xl;
+  position: relative;
+  overflow: hidden;
+  transition: border-color $transition-normal;
+
+  &:hover {
+    border-color: rgba(112, 181, 255, 0.4);
+  }
+
+  @include respond-to('lg') {
+    padding: $spacing-2xl;
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  margin-bottom: $spacing-xl;
+
+  @include respond-to('md') {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+
+.headerTitleGroup {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-md;
+}
+
+.iconCircle {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: $radius-lg;
+  background-color: var(--ft-blue-soft);
+  color: var(--ft-blue);
+  border: 1px solid var(--ft-blue-border);
+  @include flex-center;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.sectionBadge {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.6rem;
+  border-radius: $radius-full;
+  background-color: var(--ft-green-soft);
+  color: var(--ft-green);
+  border: 1px solid var(--ft-green-border);
+  margin-bottom: 0.35rem;
+}
+
+.title {
+  font-size: 1.375rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin-bottom: 0.25rem;
+
+  @include respond-to('md') {
+    font-size: 1.5rem;
+  }
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 840px;
+}
+
+.fullscreenBtn {
+  @include button-base;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: $radius-md;
+  background-color: var(--surface-elevated);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  box-shadow: $shadow-sm;
+  transition: all $transition-fast;
+  white-space: nowrap;
+
+  &:hover {
+    border-color: var(--ft-blue);
+    color: var(--ft-blue);
+    background-color: var(--ft-blue-soft);
+    transform: translateY(-1px);
+  }
+}
+
+// Linha Superior: Mapa à esquerda e Seletor à direita
+.topRow {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+
+  @include respond-to('lg') {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: $spacing-xl;
+    align-items: stretch;
+  }
+}
+
+// Coluna do Mapa
+.mapCol {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  background-color: #0b0f19;
+  cursor: pointer;
+  box-shadow: $shadow-sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all $transition-normal;
+
+  &:hover {
+    border-color: var(--ft-blue);
+    box-shadow: $shadow-md;
+
+    .mapImg {
+      transform: scale(1.02);
+    }
+
+    .imageOverlayBadge {
+      opacity: 1;
+      background-color: rgba(9, 13, 22, 0.95);
+    }
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--ft-blue);
+    outline-offset: 2px;
+  }
+}
+
+.mapImg {
+  width: 100%;
+  height: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  display: block;
+  transition: transform $transition-normal;
+}
+
+.imageOverlayBadge {
+  position: absolute;
+  bottom: $spacing-md;
+  right: $spacing-md;
+  background-color: rgba(9, 13, 22, 0.85);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  padding: 0.35rem 0.75rem;
+  border-radius: $radius-full;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+  opacity: 0.88;
+  transition: all $transition-fast;
+}
+
+.imageCaption {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  padding-left: 0.25rem;
+  margin-top: 0.25rem;
+}
+
+// Coluna do Seletor à direita da imagem
+.selectorCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.selectorCard {
+  background-color: var(--surface-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  height: 100%;
+}
+
+.selectorLabel {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pillsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.regionPill {
+  @include button-base;
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: 0.75rem 1rem;
+  border-radius: $radius-md;
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  transition: all $transition-fast;
+  text-align: left;
+  width: 100%;
+
+  &:hover {
+    border-color: var(--ft-blue);
+    color: var(--text-primary);
+    transform: translateX(3px);
+  }
+
+  &.active {
+    font-weight: 700;
+    box-shadow: $shadow-sm;
+    transform: translateX(3px);
+
+    &.blue {
+      background-color: var(--ft-blue-soft);
+      border-color: var(--ft-blue);
+      color: var(--ft-blue);
+
+      .pillIconWrap {
+        background-color: var(--ft-blue);
+        color: #ffffff;
+      }
+    }
+
+    &.green {
+      background-color: var(--ft-green-soft);
+      border-color: var(--ft-green);
+      color: var(--ft-green);
+
+      .pillIconWrap {
+        background-color: var(--ft-green);
+        color: #ffffff;
+      }
+    }
+
+    &.purple {
+      background-color: rgba(168, 85, 247, 0.14);
+      border-color: rgba(168, 85, 247, 0.55);
+      color: #9333ea;
+
+      .pillIconWrap {
+        background-color: #9333ea;
+        color: #ffffff;
+      }
+    }
+
+    &.amber {
+      background-color: rgba(245, 158, 11, 0.14);
+      border-color: rgba(245, 158, 11, 0.55);
+      color: #d97706;
+
+      .pillIconWrap {
+        background-color: #d97706;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+.pillIconWrap {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: $radius-sm;
+  background-color: var(--surface-elevated);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  @include flex-center;
+  flex-shrink: 0;
+  transition: all $transition-fast;
+}
+
+.pillTextGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.pillName {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.pillBadge {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Linha Inferior: Descrição e Ficha Logística em Largura Total
+.bottomRow {
+  width: 100%;
+  margin-top: $spacing-xl;
+}
+
+.regionDetailCard {
+  background-color: var(--surface-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-lg;
+  padding: $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+  box-shadow: $shadow-sm;
+  transition: all $transition-normal;
+  border-left-width: 4px;
+
+  &.blue {
+    border-left-color: var(--ft-blue);
+  }
+
+  &.green {
+    border-left-color: var(--ft-green);
+  }
+
+  &.purple {
+    border-left-color: #9333ea;
+  }
+
+  &.amber {
+    border-left-color: #d97706;
+  }
+
+  @include respond-to('lg') {
+    padding: $spacing-2xl;
+  }
+}
+
+.detailHeader {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+
+  @include respond-to('sm') {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+
+.detailTitleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.detailBadge {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.55rem;
+  border-radius: $radius-sm;
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  width: fit-content;
+}
+
+.detailTitle {
+  font-size: 1.375rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.priceTag {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0.9rem;
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-md;
+  align-self: flex-start;
+  flex-shrink: 0;
+
+  .priceLabel {
+    font-size: 0.6875rem;
+    color: var(--text-muted);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .priceValue {
+    font-size: 0.9375rem;
+    font-weight: 800;
+    color: var(--ft-green);
+  }
+}
+
+.detailDesc {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  padding-bottom: $spacing-md;
+  border-bottom: 1px solid var(--border-color);
+}
+
+// Grade de Métricas da Região
+.metricsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to('xl') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.metricItem {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-md;
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-md;
+  padding: $spacing-md;
+  transition: border-color $transition-fast;
+
+  &:hover {
+    border-color: rgba(112, 181, 255, 0.35);
+  }
+
+  &.metricFullWidth {
+    @include respond-to('md') {
+      grid-column: 1 / -1;
+    }
+
+    @include respond-to('xl') {
+      grid-column: span 2;
+    }
+  }
+}
+
+.metricIconWrap {
+  width: 2rem;
+  height: 2rem;
+  border-radius: $radius-sm;
+  background-color: var(--ft-blue-soft);
+  border: 1px solid var(--ft-blue-border);
+  color: var(--ft-blue);
+  @include flex-center;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.metricContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.metricTitle {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.metricText {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+// Modal em Tela Cheia
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(10px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-md;
+  animation: fadeIn 0.2s ease;
+}
+
+.modalContainer {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-xl;
+  max-width: 1200px;
+  width: 100%;
+  max-height: 94vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: $shadow-xl;
+  overflow: hidden;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-md $spacing-xl;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--surface-elevated);
+}
+
+.modalTitleGroup {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  color: var(--ft-blue);
+}
+
+.modalTitle {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.closeModalBtn {
+  @include button-base;
+  padding: 0.4rem;
+  border-radius: $radius-full;
+  color: var(--text-secondary);
+
+  &:hover {
+    background-color: var(--surface-color);
+    color: var(--text-primary);
+  }
+}
+
+.modalImageWrapper {
+  padding: $spacing-md;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-color);
+  max-height: calc(94vh - 120px);
+}
+
+.modalMapImg {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: $radius-md;
+}
+
+.modalFooter {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  padding: $spacing-md $spacing-xl;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--surface-elevated);
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+
+  @include respond-to('md') {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.closeFooterBtn {
+  @include button-base;
+  padding: 0.45rem 1rem;
+  border-radius: $radius-md;
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-size: 0.8125rem;
+  font-weight: 600;
+
+  &:hover {
+    border-color: var(--ft-blue);
+    color: var(--ft-blue);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { TableBsiTads } from '@/components/TableBsiTads/TableBsiTads';
+import { CurriculumGrids } from '@/components/CurriculumGrids/CurriculumGrids';
 import { ChecklistFormatura } from '@/components/ChecklistFormatura/ChecklistFormatura';
 import {
   BookOpen,
@@ -22,11 +23,15 @@ import {
   Moon,
   Calculator,
   Globe,
-  Users
+  Users,
+  ClipboardCheck,
+  GitMerge,
+  Layers,
+  AlertTriangle,
 } from 'lucide-react';
 import { useClipboardCopy } from '@/hooks/useClipboardCopy';
 import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
-import { padComparisonData } from '@/data/academic';
+import { padComparisonData, ftInternshipProceduresData } from '@/data/academic';
 import styles from './academico.module.scss';
 
 const emailTemplateText = `Prezado Professor [Nome do Docente],
@@ -69,6 +74,7 @@ const academicTopics: TopicItem[] = [
     title: 'BSI versus TADS',
     subtopics: [
       { id: 'bsi-vs-tads', title: 'Matriz Comparativa' },
+      { id: 'grade-curricular', title: 'Grades Curriculares BSI e TADS' },
     ],
   },
   {
@@ -117,6 +123,7 @@ const academicTopics: TopicItem[] = [
     title: 'Estratégia e Estágio',
     subtopics: [
       { id: 'estrategia-carreira', title: 'Lei do Estágio e Formatura' },
+      { id: 'procedimentos-estagio-ft', title: 'Procedimentos de Estágio na FT' },
     ],
   },
   {
@@ -206,6 +213,9 @@ export default function AcademicoPage() {
           {/* BSI vs TADS */}
           <section id="bsi-vs-tads" className={styles.sectionBlock}>
             <TableBsiTads />
+            <div id="grade-curricular" style={{ marginTop: '2.5rem' }}>
+              <CurriculumGrids />
+            </div>
           </section>
 
       {/* Regras da DAC e Coeficientes */}
@@ -416,8 +426,8 @@ export default function AcademicoPage() {
               <thead>
                 <tr>
                   <th scope="col">Aspecto Avaliado</th>
-                  <th scope="col">PAD com Bolsa</th>
-                  <th scope="col">PAD sem Bolsa, Voluntário</th>
+                  <th scope="col" className={`${styles.tagBlue}`}>PAD com Bolsa</th>
+                  <th scope="col" className={`${styles.tagGreen}`}>PAD sem Bolsa, Voluntário</th>
                 </tr>
               </thead>
               <tbody>
@@ -425,11 +435,11 @@ export default function AcademicoPage() {
                   <tr key={item.criterion}>
                     <th scope="row">{item.criterion}</th>
                     <td>
-                      <span className={`${styles.pillTag} ${styles.tagBlue}`}>Remunerado</span>{' '}
+                      <span >Remunerado</span>
                       {item.withScholarship}
                     </td>
                     <td>
-                      <span className={`${styles.pillTag} ${styles.tagGreen}`}>Voluntário</span>{' '}
+                      <span >Voluntário</span>
                       {item.withoutScholarship}
                     </td>
                   </tr>
@@ -673,6 +683,53 @@ export default function AcademicoPage() {
             </div>
           </div>
         </div>
+
+        {/* Procedimentos Oficiais de Estágio na FT */}
+        <div id="procedimentos-estagio-ft" className={styles.blockCard} style={{ marginTop: '2rem' }}>
+          <div className={styles.cardHeader}>
+            <ClipboardCheck size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>Procedimentos Oficiais de Estágio na FT Unicamp</h2>
+              <p className={styles.cardSubtitle}>
+                Passo a passo burocrático e prazos regulamentares via sistema SAE para validação legal do termo de compromisso e relatórios semestrais
+              </p>
+            </div>
+          </div>
+
+          <p className={styles.ruleText}>
+            Todo estágio realizado por estudantes da Faculdade de Tecnologia precisa obrigatoriamente ser formalizado antes do início efetivo das atividades laborais. A tramitação é realizada através do sistema de estágio do SAE. Atividades com vínculo empregatício CLT não podem ser cadastradas diretamente como estágio pela mesma empresa sem abertura prévia de processo de Casos Especiais junto à Secretaria de Graduação da FT.
+          </p>
+
+          <div className={styles.internshipStepsGrid}>
+            {ftInternshipProceduresData.map((step) => (
+              <div key={step.stepNumber} className={styles.internshipStepCard}>
+                <span className={styles.stepNumberBadge}>Etapa {step.stepNumber}</span>
+                <h3 className={styles.stepTitle}>{step.title}</h3>
+                <p className={styles.stepDesc}>{step.description}</p>
+                <p className={styles.stepDetail}>{step.detail}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className={styles.gradeLinkBox} style={{ marginTop: '1.25rem' }}>
+            <div>
+              <span className={styles.gradeLinkTitle}>Portal Oficial de Estágios da FT Unicamp</span>
+              <span className={styles.gradeLinkDesc}>
+                Acesse o manual completo de procedimentos, orientações para envio de relatórios e canais de contato da Comissão Setorial de Estágios
+              </span>
+            </div>
+            <a
+              href="https://www3.ft.unicamp.br/graduacao/estagio/procedimentos/alunos"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.gradeButton}
+              aria-label="Acessar portal de procedimentos de estágio da FT Unicamp em nova janela"
+            >
+              <span>Manual de Estágio da FT</span>
+              <ExternalLink size={14} aria-hidden="true" />
+            </a>
+          </div>
+        </div>
       </section>
 
       {/* Transição para o Noturno no BSI */}
@@ -689,29 +746,49 @@ export default function AcademicoPage() {
           </div>
 
           <div className={styles.rulesGrid}>
-            <div className={styles.ruleCard}>
-              <h3 className={styles.ruleTitle}>Equivalências Oficiais com TADS no Noturno</h3>
+            <div className={`${styles.ruleCard} ${styles.ruleCardBlue}`}>
+              <div className={styles.ruleCardHeader}>
+                <div className={styles.ruleIconWrapper}>
+                  <GitMerge size={18} aria-hidden="true" />
+                </div>
+                <h3 className={styles.ruleTitle}>Equivalências Oficiais com TADS no Noturno</h3>
+              </div>
               <p className={styles.ruleText}>
                 Disciplinas estruturantes como Bancos de Dados, Engenharia de Software, Redes de Computadores e Programação Web possuem turmas equivalentes noturnas em TADS. No período de alteração de matrícula do e-DAC, o estudante de BSI pode solicitar matrícula nessas turmas noturnas para liberar o período diurno para o estágio.
               </p>
             </div>
 
-            <div className={styles.ruleCard}>
-              <h3 className={styles.ruleTitle}>Adiantamento de Créditos no Ciclo Básico</h3>
+            <div className={`${styles.ruleCard} ${styles.ruleCardGreen}`}>
+              <div className={styles.ruleCardHeader}>
+                <div className={styles.ruleIconWrapper}>
+                  <TrendingUp size={18} aria-hidden="true" />
+                </div>
+                <h3 className={styles.ruleTitle}>Adiantamento de Créditos no Ciclo Básico</h3>
+              </div>
               <p className={styles.ruleText}>
                 Para esvaziar a grade diurna a partir do quinto semestre sem prorrogar a graduação, é fundamental adiantar matérias nos primeiros quatro semestres e cursar eletivas noturnas na FT ou na FCA. Manter o CR alto garante prioridade no e-DAC para conquistar vagas concorridas nas turmas noturnas.
               </p>
             </div>
 
-            <div className={styles.ruleCard}>
-              <h3 className={styles.ruleTitle}>O Gargalo das Matérias Exclusivas de BSI</h3>
+            <div className={`${styles.ruleCard} ${styles.ruleCardPurple}`}>
+              <div className={styles.ruleCardHeader}>
+                <div className={styles.ruleIconWrapper}>
+                  <Layers size={18} aria-hidden="true" />
+                </div>
+                <h3 className={styles.ruleTitle}>O Gargalo das Matérias Exclusivas de BSI</h3>
+              </div>
               <p className={styles.ruleText}>
                 Determinadas disciplinas obrigatórias do catálogo de BSI não possuem correspondente noturna em TADS e só são ofertadas durante o dia, como matérias de governança de TI, cálculo numérico ou modelagem avançada. O aluno precisará planejar com antecedência para cursá-las em horários com janela livre ou alinhar acordos de presença e horários flexíveis com a empresa de estágio.
               </p>
             </div>
 
-            <div className={styles.ruleCard}>
-              <h3 className={styles.ruleTitle}>O Alerta Realista: Sobrecarga e Rotina</h3>
+            <div className={`${styles.ruleCard} ${styles.ruleCardAmber}`}>
+              <div className={styles.ruleCardHeader}>
+                <div className={styles.ruleIconWrapper}>
+                  <AlertTriangle size={18} aria-hidden="true" />
+                </div>
+                <h3 className={styles.ruleTitle}>O Alerta Realista: Sobrecarga e Rotina</h3>
+              </div>
               <p className={styles.ruleText}>
                 Cursar todas as matérias restantes exclusivamente à noite e concluir em quatro anos significa encarar cinco a seis disciplinas por semestre das dezenove às vinte e duas horas e trinta minutos, logo após seis a oito horas diárias de estágio corporativo. É uma rotina pesada que exige planejamento de saúde e foco aos fins de semana.
               </p>

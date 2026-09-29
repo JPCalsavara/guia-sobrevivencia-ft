@@ -3,8 +3,9 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Sun, Moon, Menu, X, BookOpen, Briefcase, Cpu, MapPin, ExternalLink, Link2, Home, Compass, Layers, ChevronDown } from 'lucide-react';
+import { Sun, Moon, Menu, X, BookOpen, Briefcase, Cpu, MapPin, ExternalLink, Link2, Home, Compass, Layers, ChevronDown, Search } from 'lucide-react';
 import { MegaMenu } from './MegaMenu';
+import { SearchModal } from '../SearchModal/SearchModal';
 import styles from './Navbar.module.scss';
 
 export function Navbar() {
@@ -12,6 +13,18 @@ export function Navbar() {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
+  const [searchModalOpen, setSearchModalOpen] = useState(false);
+
+  useEffect(() => {
+    const handleGlobalKeyDown = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        setSearchModalOpen((prev) => !prev);
+      }
+    };
+    window.addEventListener('keydown', handleGlobalKeyDown);
+    return () => window.removeEventListener('keydown', handleGlobalKeyDown);
+  }, []);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('ft_theme') as 'dark' | 'light' | null;
@@ -92,6 +105,17 @@ export function Navbar() {
         <div className={styles.actions}>
           <button
             type="button"
+            onClick={() => setSearchModalOpen(true)}
+            className={styles.searchTrigger}
+            aria-label="Abrir busca no guia e assistente de inteligência artificial"
+            title="Buscar no guia ou consultar com IA, atalho Ctrl K"
+          >
+            <Search size={18} aria-hidden="true" />
+            <span className={styles.searchShortcutBadge}>Ctrl K</span>
+          </button>
+
+          <button
+            type="button"
             onClick={toggleTheme}
             className={styles.themeToggle}
             aria-label={theme === 'dark' ? 'Alternar para tema claro' : 'Alternar para tema escuro'}
@@ -130,6 +154,18 @@ export function Navbar() {
           className={styles.mobileNav}
           aria-label="Navegação móvel"
         >
+          <button
+            type="button"
+            onClick={() => {
+              setMobileMenuOpen(false);
+              setSearchModalOpen(true);
+            }}
+            className={styles.mobileSearchTrigger}
+          >
+            <Search size={18} aria-hidden="true" />
+            <span>Buscar ou Consultar com IA</span>
+          </button>
+
           {navLinks.map((item) => {
             const Icon = item.icon;
             const isActive = pathname === item.href;
@@ -161,6 +197,7 @@ export function Navbar() {
       )}
 
       <MegaMenu isOpen={megaMenuOpen} onClose={() => setMegaMenuOpen(false)} />
+      <SearchModal isOpen={searchModalOpen} onClose={() => setSearchModalOpen(false)} />
     </header>
   );
 }
