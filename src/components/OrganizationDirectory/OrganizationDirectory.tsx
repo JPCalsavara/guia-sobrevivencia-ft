@@ -5,91 +5,150 @@ import { organizationsData, Organization } from '@/data/organizations';
 import { ExternalLink, Instagram, Globe, Users } from 'lucide-react';
 import styles from './OrganizationDirectory.module.scss';
 
+interface CategoryConfig {
+  key: Organization['category'];
+  id: string;
+  label: string;
+  subtitle: string;
+}
+
+const CATEGORY_CONFIGS: CategoryConfig[] = [
+  {
+    key: 'empresa_junior',
+    id: 'org-empresa-junior',
+    label: 'Empresa Júnior',
+    subtitle: 'Consultoria empresarial, desenvolvimento de software e soluções para o mercado',
+  },
+  {
+    key: 'ligas',
+    id: 'org-ligas',
+    label: 'Ligas Acadêmicas',
+    subtitle: 'Grupos de estudo aprofundado em cibersegurança, mercado financeiro, startups e carreira',
+  },
+  {
+    key: 'extensao',
+    id: 'org-extensao',
+    label: 'Extensão e Ação Social',
+    subtitle: 'Projetos comunitários, inclusão tecnológica, educação popular e voluntariado',
+  },
+  {
+    key: 'centro_academico',
+    id: 'org-centro-academico',
+    label: 'Centro Acadêmico',
+    subtitle: 'Representação discente, recepção de calouros e interlocução com a coordenação',
+  },
+  {
+    key: 'atletica',
+    id: 'org-atletica',
+    label: 'Atlética e Esportes',
+    subtitle: 'Treinos esportivos, modalidades de quadra e integração universitária',
+  },
+  {
+    key: 'republica',
+    id: 'org-republica',
+    label: 'Repúblicas e Moradia',
+    subtitle: 'Associação de repúblicas, acolhimento de novos moradores e integração estudantil',
+  },
+];
+
 export function OrganizationDirectory() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
-  const categories = [
-    { key: 'all', label: 'Todas as Entidades' },
-    { key: 'empresa_junior', label: 'Empresa Júnior' },
-    { key: 'ti', label: 'Computação e TI' },
-    { key: 'atletica', label: 'Atlética e Esportes' },
-    { key: 'carreira', label: 'Carreira e Negócios' },
-    { key: 'extensao', label: 'Extensão e Social' },
-    { key: 'comunidade_fe', label: 'Comunidades de Fé' },
-    { key: 'regional', label: 'Ecossistema Regional' },
-  ];
-
-  const filtered = selectedCategory === 'all'
-    ? organizationsData
-    : organizationsData.filter((org) => {
-        if (selectedCategory === 'extensao') {
-          return org.category === 'extensao' || org.category === 'social';
-        }
-        return org.category === selectedCategory;
-      });
+  const visibleConfigs = selectedCategory === 'all'
+    ? CATEGORY_CONFIGS
+    : CATEGORY_CONFIGS.filter((cfg) => cfg.key === selectedCategory);
 
   return (
     <div className={styles.wrapper}>
+      {/* Botões de Filtro */}
       <div className={styles.filtersArea} role="group" aria-label="Filtrar entidades por categoria">
-        {categories.map((cat) => (
+        <button
+          type="button"
+          onClick={() => setSelectedCategory('all')}
+          className={`${styles.filterButton} ${selectedCategory === 'all' ? styles.filterActive : ''}`}
+          aria-pressed={selectedCategory === 'all'}
+        >
+          Todas as Entidades
+        </button>
+        {CATEGORY_CONFIGS.map((cfg) => (
           <button
-            key={cat.key}
+            key={cfg.key}
             type="button"
-            onClick={() => setSelectedCategory(cat.key)}
-            className={`${styles.filterButton} ${selectedCategory === cat.key ? styles.filterActive : ''}`}
-            aria-pressed={selectedCategory === cat.key}
+            onClick={() => setSelectedCategory(cfg.key)}
+            className={`${styles.filterButton} ${selectedCategory === cfg.key ? styles.filterActive : ''}`}
+            aria-pressed={selectedCategory === cfg.key}
           >
-            {cat.label}
+            {cfg.label}
           </button>
         ))}
       </div>
 
-      <div className={styles.grid}>
-        {filtered.map((org: Organization) => (
-          <div key={org.id} className={`${styles.card} ${styles[`card_${org.category}`] || ''}`}>
-            <div className={styles.cardHeader}>
-              <span className={`${styles.categoryBadge} ${styles[`cat_${org.category}`] || ''}`}>
-                {org.categoryLabel}
+      {/* Seções por Categoria */}
+      {visibleConfigs.map((cfg) => {
+        const orgs = organizationsData.filter((org) => org.category === cfg.key);
+        if (orgs.length === 0) return null;
+
+        return (
+          <section key={cfg.key} id={cfg.id} className={styles.categorySection}>
+            <div className={styles.categoryHeader}>
+              <div className={styles.categoryTitleArea}>
+                <h3 className={styles.categoryTitle}>{cfg.label}</h3>
+                <p className={styles.categorySubtitle}>{cfg.subtitle}</p>
+              </div>
+              <span className={styles.categoryCount}>
+                {orgs.length} {orgs.length === 1 ? 'organização' : 'organizações'}
               </span>
-              <Users size={18} className={styles.orgIcon} aria-hidden="true" />
             </div>
 
-            <h3 className={styles.orgName}>{org.name}</h3>
-            <p className={styles.orgDesc}>{org.description}</p>
+            <div className={styles.grid}>
+              {orgs.map((org: Organization) => (
+                <div key={org.id} className={`${styles.card} ${styles[`card_${org.category}`] || ''}`}>
+                  <div className={styles.cardHeader}>
+                    <span className={`${styles.categoryBadge} ${styles[`cat_${org.category}`] || ''}`}>
+                      {org.categoryLabel}
+                    </span>
+                    <Users size={18} className={styles.orgIcon} aria-hidden="true" />
+                  </div>
 
-            <div className={styles.cardFooter}>
-              {org.instagramUrl && (
-                <a
-                  href={org.instagramUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.linkButton}
-                  title={`Acessar Instagram de ${org.name}`}
-                  aria-label={`Acessar Instagram de ${org.name} em nova janela`}
-                >
-                  <Instagram size={14} aria-hidden="true" />
-                  <span>{org.instagramHandle || 'Instagram'}</span>
-                </a>
-              )}
+                  <h4 className={styles.orgName}>{org.name}</h4>
+                  <p className={styles.orgDesc}>{org.description}</p>
 
-              {org.websiteUrl && (
-                <a
-                  href={org.websiteUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.linkButtonWebsite}
-                  title={`Acessar site de ${org.name}`}
-                  aria-label={`Acessar site oficial de ${org.name} em nova janela`}
-                >
-                  <Globe size={14} aria-hidden="true" />
-                  <span>Site Oficial</span>
-                  <ExternalLink size={12} aria-hidden="true" />
-                </a>
-              )}
+                  <div className={styles.cardFooter}>
+                    {org.instagramUrl && (
+                      <a
+                        href={org.instagramUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.linkButton}
+                        title={`Acessar Instagram de ${org.name}`}
+                        aria-label={`Acessar Instagram de ${org.name} em nova janela`}
+                      >
+                        <Instagram size={14} aria-hidden="true" />
+                        <span>Instagram</span>
+                        <ExternalLink size={12} aria-hidden="true" />
+                      </a>
+                    )}
+                    {org.websiteUrl && (
+                      <a
+                        href={org.websiteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.linkButtonWebsite}
+                        title={`Acessar site de ${org.name}`}
+                        aria-label={`Acessar site de ${org.name} em nova janela`}
+                      >
+                        <Globe size={14} aria-hidden="true" />
+                        <span>Website</span>
+                        <ExternalLink size={12} aria-hidden="true" />
+                      </a>
+                    )}
+                  </div>
+                </div>
+              ))}
             </div>
-          </div>
-        ))}
-      </div>
+          </section>
+        );
+      })}
     </div>
   );
 }

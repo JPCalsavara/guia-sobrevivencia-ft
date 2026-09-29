@@ -125,7 +125,7 @@ export default function LinksPage() {
 
       {/* Conteúdo com Barra Lateral Esquerda */}
       <div className={styles.contentWithSidebar}>
-        <aside>
+        <aside className={styles.sidebarAside}>
           <DocSidebar topics={linksTopics} title="Diretório de Links" />
         </aside>
 

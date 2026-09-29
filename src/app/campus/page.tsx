@@ -54,7 +54,12 @@ const campusTopics: TopicItem[] = [
     id: 'entidades-estudantis',
     title: 'Organizações Estudantis',
     subtopics: [
-      { id: 'entidades-estudantis', title: 'Diretório de Entidades' },
+      { id: 'org-empresa-junior', title: 'Empresa Júnior' },
+      { id: 'org-ligas', title: 'Ligas Acadêmicas' },
+      { id: 'org-extensao', title: 'Extensão e Ação Social' },
+      { id: 'org-centro-academico', title: 'Centro Acadêmico' },
+      { id: 'org-atletica', title: 'Atlética e Esportes' },
+      { id: 'org-republica', title: 'Repúblicas e Moradia' },
     ],
   },
   {
@@ -93,7 +98,7 @@ export default function CampusPage() {
 
       {/* Conteúdo com Barra Lateral Esquerda */}
       <div className={styles.contentWithSidebar}>
-        <aside>
+        <aside className={styles.sidebarAside}>
           <DocSidebar topics={campusTopics} title="Campus e Vida" />
         </aside>
 
