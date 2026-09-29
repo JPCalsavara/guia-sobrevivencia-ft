@@ -96,7 +96,7 @@ const careerTopics: TopicItem[] = [
     id: 'trilhas-aprendizado',
     title: 'Trilhas Tecnológicas',
     subtopics: [
-      { id: 'trilhas-aprendizado', title: 'Dev Full Stack versus Dados e IA' },
+      { id: 'trilhas-aprendizado', title: 'Dev, Cloud AWS, Dados e Portfólio' },
     ],
   },
   {
@@ -583,9 +583,11 @@ export default function CarreiraPage() {
 
           <div className={styles.companyTipsCallout}>
             <h4>Dicas Estratégicas para Inscrições no Mercado</h4>
-            <p>
-              Para oportunidades remotas como CI&T, iFood e Stone, mantenha seu currículo em formato ATS de página única e seu GitHub com dois projetos reais documentados. Para vagas em bancos como Itaú, inscreva-se no banco de talentos oficial mesmo sem edital ativo, pois a triagem é puxada continuamente das bases de dados. Para indústrias locais como ZF, Mahle e Hyundai, o comparecimento às feiras de carreiras dos campi de Limeira e a conexão com veteranos da FT são os caminhos mais eficazes para receber indicações internas.
-            </p>
+            <ul style={{ paddingLeft: '1.25rem', marginTop: '0.5rem', display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
+              <li><strong>Vagas Remotas:</strong> Mantenha currículo ATS de página única e GitHub com projetos reais documentados e deploy ativo.</li>
+              <li><strong>Bancos e Fintechs:</strong> Inscreva-se nos bancos de talentos oficiais continuamente, pois as triagens não esperam editais abertos.</li>
+              <li><strong>Indústrias da Região:</strong> Participe das feiras de carreiras na FT e conecte-se com veteranos para obter indicações diretas.</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -605,23 +607,23 @@ export default function CarreiraPage() {
 
           <div className={styles.cloudGrid}>
             <div className={styles.cloudCard}>
-              <h3 className={styles.cloudTitle}>Programas Acadêmicos Disponíveis</h3>
+              <h3 className={styles.cloudTitle}>Créditos Gratuitos com E-mail DAC</h3>
               <p className={styles.cloudText}>
-                Com seu email institucional terminado em dac unicamp br, você tem acesso a programas como AWS Educate e Google Cloud Innovators, que disponibilizam créditos para laboratórios práticos na nuvem sem necessidade de cadastrar cartão de crédito.
+                Seu e-mail institucional dá acesso gratuito a AWS Educate e Google Cloud Innovators para executar laboratórios em nuvem sem exigir cartão de crédito.
               </p>
             </div>
 
             <div className={styles.cloudCard}>
-              <h3 className={styles.cloudTitle}>O Valor Real de Certificações Iniciais</h3>
+              <h3 className={styles.cloudTitle}>Projetos Valem Mais que Provas Iniciais</h3>
               <p className={styles.cloudText}>
-                Provas conceituais de entrada como AWS Cloud Practitioner ajudam na passagem por filtros iniciais de triagem em consultorias. Entretanto, o que consolida contratações técnicas é a criação de aplicações reais conteinerizadas com Docker e publicadas na nuvem.
+                Certificações de entrada ajudam na triagem, mas o que consolida a contratação técnica é publicar aplicações reais conteinerizadas com Docker na nuvem.
               </p>
             </div>
 
             <div className={styles.cloudCard}>
-              <h3 className={styles.cloudTitle}>Nunca Pague em Dólar por Provas Iniciais</h3>
+              <h3 className={styles.cloudTitle}>Não Pague por Vouchers Básicos</h3>
               <p className={styles.cloudText}>
-                Estudantes não devem gastar recursos próprios com taxas de certificações básicas. Campanhas universitárias, maratonas acadêmicas e cursos preparatórios no Coursera for Campus com frequência distribuem vouchers integrais de gratuidade.
+                Maratonas universitárias, eventos acadêmicos e cursos no Coursera for Campus da Unicamp frequentemente distribuem vouchers com gratuidade integral.
               </p>
             </div>
           </div>
@@ -789,19 +791,33 @@ export default function CarreiraPage() {
           <div className={styles.cardHeader}>
             <Code2 size={22} className={styles.headerIcon} />
             <div>
-              <h2 className={styles.cardTitle}>Trilhas de Aprendizado: Engenharia de Software versus Dados</h2>
+              <h2 className={styles.cardTitle}>Trilhas Tecnológicas: Dev, Cloud AWS, Dados e Portfólio</h2>
               <p className={styles.cardSubtitle}>
-                Escolha uma direção técnica clara para aprofundar seus estudos extracurriculares
+                Direções técnicas estruturadas para acelerar sua formação prática e inserção no mercado
               </p>
             </div>
           </div>
 
           <div className={styles.skillsGrid}>
+            {/* Trilha 1: Dev Full Stack */}
             <div className={styles.skillItem}>
+              <div className={styles.skillItemHeader}>
+                <div className={`${styles.skillIconWrap} ${styles.blue}`}>
+                  <Code2 size={20} aria-hidden="true" />
+                </div>
+                <span className={styles.skillBadge}>Web e Software</span>
+              </div>
               <h3 className={styles.skillTitle}>Trilha Dev: TypeScript First e Full Stack</h3>
               <p className={styles.skillDesc}>
-                Unifique o ecossistema frontend e backend com a mesma sintaxe tipada. Backend em Node com Fastify, NestJS ou Express, e frontend com React e Next para produtos digitais ou Java com Spring Boot para corporativo tradicional.
+                Unifique o ecossistema frontend e backend com a mesma sintaxe tipada. Backend em Node com Fastify ou NestJS, frontend com React e Next para produtos digitais ou Java com Spring Boot para corporativo tradicional.
               </p>
+              <div className={styles.skillTagsRow}>
+                <span className={styles.skillTag}>TypeScript</span>
+                <span className={styles.skillTag}>React</span>
+                <span className={styles.skillTag}>Next.js</span>
+                <span className={styles.skillTag}>NestJS</span>
+                <span className={styles.skillTag}>Spring Boot</span>
+              </div>
               <div className={styles.trackActions}>
                 <a
                   href="https://roadmap.sh/full-stack"
@@ -812,57 +828,95 @@ export default function CarreiraPage() {
                   <span>Roadmap Full Stack</span>
                   <ExternalLink size={12} />
                 </a>
+                <a
+                  href="https://roadmap.sh/backend"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.trackActionBtn}
+                >
+                  <span>Roadmap Backend</span>
+                  <ExternalLink size={12} />
+                </a>
               </div>
             </div>
 
-            <div className={styles.skillItem}>
-              <h3 className={styles.skillTitle}>Trilha Dados e IA: Ciência versus Engenharia</h3>
-              <p className={styles.skillDesc}>
-                Ciência foca em modelagem estatística, hipóteses e algoritmos preditivos. Engenharia foca em pipelines confiáveis, arquitetura de dados e alta performance na ingestão.
-              </p>
-
-              <div className={styles.courseraHighlightCard}>
-                <div className={styles.courseraHeader}>
-                  <h4 className={styles.courseraTitle}>Especialização em Ciência de Dados com Python Michigan</h4>
-                  <span className={styles.roadmapBadge}>Coursera</span>
+            {/* Trilha 2: Cloud AWS */}
+            <div className={`${styles.skillItem} ${styles.highlightAws}`}>
+              <div className={styles.skillItemHeader}>
+                <div className={`${styles.skillIconWrap} ${styles.amber}`}>
+                  <Cloud size={20} aria-hidden="true" />
                 </div>
-                <p className={styles.courseraDesc}>
-                  Trilha com cinco cursos cobrindo manipulação com pandas, visualização de dados, aprendizado de máquina com scikit-learn, processamento de texto e análise de redes.
-                </p>
-                <p className={styles.courseraBenefit}>
-                  Gratuidade integral para discentes da Unicamp com email dac por meio da iniciativa Coursera for Campus.
-                </p>
-                <div className={styles.courseraActions}>
-                  <a
-                    href="https://www.coursera.org/specializations/data-science-python"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.trackActionBtn}
-                  >
-                    <span>Acessar Especialização</span>
-                    <ExternalLink size={12} />
-                  </a>
-                  <a
-                    href="https://www.coursera.org/programs/unicamp-on-coursera"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`${styles.trackActionBtn} ${styles.green}`}
-                  >
-                    <span>Ativar Coursera Unicamp</span>
-                    <ExternalLink size={12} />
-                  </a>
-                </div>
+                <span className={`${styles.skillBadge} ${styles.amber}`}>Cloud e DevOps</span>
               </div>
-
+              <h3 className={styles.skillTitle}>Trilha Cloud: Fundamentos com AWS Builder</h3>
+              <p className={styles.skillDesc}>
+                Aprenda computação em nuvem na prática com o portal oficial de introdução da Amazon Web Services. Explore conceitos de armazenamento com S3, computação serverless com Lambda, containers e deploy ágil.
+              </p>
+              <div className={styles.skillTagsRow}>
+                <span className={styles.skillTag}>AWS</span>
+                <span className={styles.skillTag}>Serverless</span>
+                <span className={styles.skillTag}>S3 e Lambda</span>
+                <span className={styles.skillTag}>Docker</span>
+                <span className={styles.skillTag}>CI e CD</span>
+              </div>
               <div className={styles.trackActions}>
                 <a
-                  href="https://www.youtube.com/watch?v=UmMBIsW7cMg"
+                  href="https://builder.aws.com/start?trk=b65dcd77-0177-4af3-ab7c-01d949c355a3&sc_channel=sm"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${styles.trackActionBtn} ${styles.youtube}`}
+                  className={`${styles.trackActionBtn} ${styles.awsBtn}`}
                 >
-                  <Youtube size={14} />
-                  <span>Vídeo: Ciência vs Engenharia</span>
+                  <span>AWS Builder Start</span>
+                  <ExternalLink size={12} />
+                </a>
+                <a
+                  href="https://roadmap.sh/devops"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.trackActionBtn}
+                >
+                  <span>Roadmap DevOps</span>
+                  <ExternalLink size={12} />
+                </a>
+              </div>
+            </div>
+
+            {/* Trilha 3: Dados e IA */}
+            <div className={styles.skillItem}>
+              <div className={styles.skillItemHeader}>
+                <div className={`${styles.skillIconWrap} ${styles.purple}`}>
+                  <Database size={20} aria-hidden="true" />
+                </div>
+                <span className={`${styles.skillBadge} ${styles.purple}`}>Dados e IA</span>
+              </div>
+              <h3 className={styles.skillTitle}>Trilha Dados e IA: Ciência versus Engenharia</h3>
+              <p className={styles.skillDesc}>
+                Ciência foca em modelagem estatística, hipóteses e algoritmos preditivos. Engenharia foca em pipelines confiáveis e ingestão escalável. Inclui especialização Michigan gratuita via Coursera Unicamp.
+              </p>
+              <div className={styles.skillTagsRow}>
+                <span className={styles.skillTag}>Python</span>
+                <span className={styles.skillTag}>Pandas</span>
+                <span className={styles.skillTag}>Scikit-Learn</span>
+                <span className={styles.skillTag}>SQL</span>
+                <span className={styles.skillTag}>Pipelines</span>
+              </div>
+              <div className={styles.trackActions}>
+                <a
+                  href="https://www.coursera.org/specializations/data-science-python"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.trackActionBtn}
+                >
+                  <span>Coursera Michigan</span>
+                  <ExternalLink size={12} />
+                </a>
+                <a
+                  href="https://www.coursera.org/programs/unicamp-on-coursera"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${styles.trackActionBtn} ${styles.green}`}
+                >
+                  <span>Ativar Coursera</span>
                   <ExternalLink size={12} />
                 </a>
                 <a
@@ -871,26 +925,30 @@ export default function CarreiraPage() {
                   rel="noopener noreferrer"
                   className={styles.trackActionBtn}
                 >
-                  <span>AI e Data Science</span>
-                  <ExternalLink size={12} />
-                </a>
-                <a
-                  href="https://roadmap.sh/data-engineer"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.trackActionBtn}
-                >
-                  <span>Data Engineer</span>
+                  <span>Roadmap AI</span>
                   <ExternalLink size={12} />
                 </a>
               </div>
             </div>
 
+            {/* Trilha 4: Prova de Trabalho e Portfólio */}
             <div className={styles.skillItem}>
-              <h3 className={styles.skillTitle}>Construção de Prova de Trabalho</h3>
+              <div className={styles.skillItemHeader}>
+                <div className={`${styles.skillIconWrap} ${styles.green}`}>
+                  <Layers size={20} aria-hidden="true" />
+                </div>
+                <span className={`${styles.skillBadge} ${styles.green}`}>Empregabilidade</span>
+              </div>
+              <h3 className={styles.skillTitle}>Trilha Portfólio: Construção de Prova de Trabalho</h3>
               <p className={styles.skillDesc}>
-                Em vez de colecionar certificados teóricos, implemente projetos propostos no catálogo do roadmap.sh, publique a documentação e disponibilize o deploy funcional para recrutadores testarem.
+                Em vez de colecionar certificados teóricos, implemente projetos com código público no GitHub, documentação de arquitetura clara e deploy funcional para recrutadores técnicos testarem na prática.
               </p>
+              <div className={styles.skillTagsRow}>
+                <span className={styles.skillTag}>GitHub</span>
+                <span className={styles.skillTag}>Deploy Ativo</span>
+                <span className={styles.skillTag}>README Técnico</span>
+                <span className={styles.skillTag}>Projetos Reais</span>
+              </div>
               <div className={styles.trackActions}>
                 <a
                   href="https://roadmap.sh/projects"
@@ -899,6 +957,15 @@ export default function CarreiraPage() {
                   className={styles.trackActionBtn}
                 >
                   <span>Catálogo de Projetos</span>
+                  <ExternalLink size={12} />
+                </a>
+                <a
+                  href="https://education.github.com/pack"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.trackActionBtn}
+                >
+                  <span>GitHub Student Pack</span>
                   <ExternalLink size={12} />
                 </a>
               </div>
