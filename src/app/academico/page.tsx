@@ -8,11 +8,44 @@ import {
   BookOpen,
   TrendingUp,
   ExternalLink,
-  ShieldAlert
+  ShieldAlert,
+  GraduationCap,
+  FlaskConical,
+  Calendar,
+  Mail,
+  Copy,
+  Check,
+  CheckCircle2,
+  Clock,
+  FileText
 } from 'lucide-react';
+import { useClipboardCopy } from '@/hooks/useClipboardCopy';
 import styles from './academico.module.scss';
 
+const emailTemplateText = `Prezado Professor [Nome do Docente],
+
+Meu nome é [Seu Nome Completo], sou estudante do [Xº] semestre do curso de [Sistemas de Informação ou Análise e Desenvolvimento de Sistemas] na Faculdade de Tecnologia da Unicamp, RA [Seu RA].
+
+Acompanho suas publicações acadêmicas e possuo grande interesse de pesquisa nas áreas de [citar a linha de pesquisa ou laboratório do professor, por exemplo: Inteligência Artificial, Sistemas Distribuídos, Otimização ou Engenharia de Software].
+
+Gostaria de verificar a oportunidade de desenvolver um projeto de Iniciação Científica sob sua orientação, seja vinculado a editais institucionais como o PIBIC ou como pesquisador voluntário em seu grupo de estudos. Possuo disponibilidade de [15 a 20] horas semanais para dedicação às atividades.
+
+Anexo a este e-mail meu histórico escolar atualizado emitido pelo e-DAC e meu currículo para apreciação. Caso seja oportuno, coloco-me à disposição para uma conversa presencial na FT ou por videochamada.
+
+Agradeço pela atenção e pelo tempo dispensado.
+
+Atenciosamente,
+[Seu Nome Completo]
+RA: [Seu RA]
+E-mail: [seu.email]@dac.unicamp.br`;
+
 export default function AcademicoPage() {
+  const { copied, copy } = useClipboardCopy();
+
+  const handleCopyEmail = () => {
+    copy(emailTemplateText);
+  };
+
   return (
     <div className={styles.container}>
       {/* Header */}
@@ -163,47 +196,184 @@ export default function AcademicoPage() {
         </div>
       </section>
 
-      {/* Iniciação Científica */}
+      {/* Iniciação Científica e Pesquisa na FT */}
       <section className={styles.sectionBlock}>
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
-            <TrendingUp size={22} className={styles.headerIcon} />
+            <FlaskConical size={22} className={styles.headerIcon} />
             <div>
-              <h2 className={styles.cardTitle}>Iniciação Científica na FT: PIBIC versus FAPESP</h2>
+              <h2 className={styles.cardTitle}>Iniciação Científica e Pesquisa na FT</h2>
               <p className={styles.cardSubtitle}>
-                Como iniciar na pesquisa acadêmica, prazos de submissão e linhas de pesquisa dos docentes
+                Linha do tempo oficial, compatibilidade com estágio, preparação de projetos e abordagem de orientadores
               </p>
             </div>
           </div>
 
+          <h3 className={styles.categoryTitle}>
+            <Calendar size={18} />
+            Linha do Tempo Anual da Iniciação Científica
+          </h3>
+
+          <div className={styles.timelineGrid}>
+            <div className={styles.timelineItem}>
+              <span className={styles.timelineBadge}>Janeiro a Março</span>
+              <h4 className={styles.timelineTitle}>1. Mapeamento e Primeiro Contato</h4>
+              <p className={styles.timelineDesc}>
+                Buscar linhas de pesquisa dos docentes da FT, consultar o Lattes e enviar e-mail formal manifestando interesse acadêmico.
+              </p>
+            </div>
+
+            <div className={styles.timelineItem}>
+              <span className={styles.timelineBadge}>Março a Maio</span>
+              <h4 className={styles.timelineTitle}>2. Inscrição e Submissão</h4>
+              <p className={styles.timelineDesc}>
+                Período oficial de submissão do plano de pesquisa no edital PIBIC e PIBITI via PRP Unicamp ou submissão FAPESP contínua.
+              </p>
+            </div>
+
+            <div className={styles.timelineItem}>
+              <span className={styles.timelineBadge}>Agosto</span>
+              <h4 className={styles.timelineTitle}>3. Início da Vigência</h4>
+              <p className={styles.timelineDesc}>
+                Divulgação dos resultados, assinatura do termo de outorga e início oficial da bolsa com reuniões de alinhamento com o orientador.
+              </p>
+            </div>
+
+            <div className={styles.timelineItem}>
+              <span className={styles.timelineBadge}>Fevereiro</span>
+              <h4 className={styles.timelineTitle}>4. Relatório Parcial</h4>
+              <p className={styles.timelineDesc}>
+                Entrega obrigatória do relatório semestral para avaliação do progresso dos experimentos e adequação do cronograma inicial.
+              </p>
+            </div>
+
+            <div className={styles.timelineItem}>
+              <span className={styles.timelineBadge}>Julho a Outubro</span>
+              <h4 className={styles.timelineTitle}>5. Relatório Final e Congresso</h4>
+              <p className={styles.timelineDesc}>
+                Conclusão dos doze meses, entrega do relatório final e apresentação obrigatória de pôster no Congresso de Iniciação Científica da Unicamp.
+              </p>
+            </div>
+          </div>
+
+          <h3 className={styles.categoryTitle}>
+            <Clock size={18} />
+            Matriz de Modalidades e Compatibilidade com Estágio
+          </h3>
+
+          <div className={styles.matrixWrapper}>
+            <table className={styles.matrixTable}>
+              <thead>
+                <tr>
+                  <th>Modalidade</th>
+                  <th>Duração e Carga</th>
+                  <th>Compatibilidade com Estágio</th>
+                  <th>Requisitos e Benefícios</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong>PIBIC e PIBITI CNPq Unicamp</strong>
+                  </td>
+                  <td>12 meses, de agosto a julho. 20 horas semanais.</td>
+                  <td>
+                    <span className={styles.tagAllowed}>Permitido com anuência</span>
+                    <p style={{ marginTop: '0.5rem', fontSize: '0.8125rem' }}>
+                      As normas do CNPq e da PRP Unicamp autorizam estágio simultâneo, desde que haja compatibilidade comprovada de horários, bom rendimento nas disciplinas e concordância formal por escrito do professor orientador.
+                    </p>
+                  </td>
+                  <td>
+                    Edital anual, histórico escolar com bom rendimento. Confere bolsa mensal, pontuação em seleções de mestrado e créditos de atividades complementares.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>FAPESP Fluxo Contínuo</strong>
+                  </td>
+                  <td>6 a 12 meses renováveis. Dedicação exclusiva.</td>
+                  <td>
+                    <span className={styles.tagForbidden}>Proibido</span>
+                    <p style={{ marginTop: '0.5rem', fontSize: '0.8125rem' }}>
+                      A FAPESP exige dedicação estrita à pesquisa. É expressamente vedado receber remuneração por estágio profissional, emprego formal ou outra bolsa simultânea.
+                    </p>
+                  </td>
+                  <td>
+                    Submissão contínua no sistema SAGe. Exige excelente histórico escolar, ausência de reprovações recentes e plano detalhado. Oferece bolsa com valor superior e reserva técnica.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Iniciação Científica Voluntária PIC</strong>
+                  </td>
+                  <td>6 a 12 meses flexíveis. 10 a 20 horas semanais.</td>
+                  <td>
+                    <span className={styles.tagFlexible}>Totalmente liberado</span>
+                    <p style={{ marginTop: '0.5rem', fontSize: '0.8125rem' }}>
+                      Sem vínculo financeiro com agências de fomento, não há impedimento legal para estagiar ou trabalhar em regime CLT simultaneamente.
+                    </p>
+                  </td>
+                  <td>
+                    Inscrição simplificada junto à Comissão de Pesquisa da FT. Garante certificado oficial de pesquisador emitido pela Unicamp e pontuação curricular.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 className={styles.categoryTitle}>
+            <FileText size={18} />
+            Preparação, Escolha do Tema e Linhas de Pesquisa
+          </h3>
+
           <div className={styles.rulesGrid}>
             <div className={styles.ruleCard}>
-              <h3 className={styles.ruleTitle}>PIBIC CNPq Unicamp</h3>
+              <h4 className={styles.ruleTitle}>Você Não Precisa Ter Uma Ideia Pronta</h4>
               <p className={styles.ruleText}>
-                Edital institucional anual gerenciado pela Pró-Reitoria de Pesquisa com inscrições entre março e maio. A vigência é de doze meses, de agosto a julho. Permite iniciar na pesquisa acadêmica sob orientação direta de um professor da faculdade.
+                O maior receio dos calouros é achar que precisam propor um projeto inovador do zero. Na prática acadêmica, os professores já possuem linhas de pesquisa estabelecidas, projetos temáticos com financiamento e demandas abertas. Sua função é demonstrar interesse genuíno, pontualidade e disposição para aprender as ferramentas e metodologias indicadas.
               </p>
             </div>
 
             <div className={styles.ruleCard}>
-              <h3 className={styles.ruleTitle}>Bolsa FAPESP de Fluxo Contínuo</h3>
+              <h4 className={styles.ruleTitle}>Mapeando Docentes no Currículo Lattes</h4>
               <p className={styles.ruleText}>
-                Submetida a qualquer época do ano pelo sistema SAGe. Exige histórico escolar sem reprovações recentes, Coeficiente de Rendimento elevado e estabelece regime estrito de dedicação exclusiva, sem possibilidade de estágio concorrente.
+                Acesse a Plataforma Lattes do CNPq ou o site da FT para consultar o histórico dos professores. Analise os artigos mais recentes publicados, as orientações de mestrado concluídas e os projetos em andamento para entender o foco de atuação de cada docente antes de iniciar contato.
               </p>
             </div>
 
             <div className={styles.ruleCard}>
-              <h3 className={styles.ruleTitle}>Como Iniciar o Contato</h3>
+              <h4 className={styles.ruleTitle}>Docentes e Áreas na Computação da FT</h4>
               <p className={styles.ruleText}>
-                A iniciação científica depende do interesse ativo do estudante. Aproxime-se dos docentes ao final das aulas ou envie mensagem apresentando seu interesse em temas de pesquisa e disponibilidade de dedicação semanal.
+                A FT reúne especialistas em diversas frentes: redes e sistemas operacionais com o professor Plinio Vilela, otimização e algoritmos com o professor Luis Meira, computação de alto desempenho e sistemas distribuídos com o professor Andre Gradvohl, visão computacional com o professor Marco Carvalho, e interface humano-computador e acessibilidade com o professor Celmar Silva.
               </p>
             </div>
 
             <div className={styles.ruleCard}>
-              <h3 className={styles.ruleTitle}>Linhas de Pesquisa na Computação da FT</h3>
+              <h4 className={styles.ruleTitle}>Iniciação Científica e TCC</h4>
               <p className={styles.ruleText}>
-                A faculdade conta com docentes atuando em redes de computadores e sistemas operacionais com o professor Plinio Vilela, otimização com o professor Luis Meira, sistemas distribuídos com o professor Andre Gradvohl, visão computacional com o professor Marco Carvalho e interface humano-computador com o professor Celmar Silva.
+                Desenvolver iniciação científica durante o terceiro ou quarto semestre acelera expressivamente a elaboração do Trabalho de Conclusão de Curso. A metodologia de pesquisa, os experimentos e a revisão bibliográfica construídos durante o projeto podem servir como alicerce direto para a monografia do TCC.
               </p>
             </div>
+          </div>
+
+          {/* Modelo de E-mail de Abordagem */}
+          <div className={styles.emailBox}>
+            <div className={styles.emailHeader}>
+              <div className={styles.emailHeaderTitle}>
+                <Mail size={18} />
+                <span>Modelo de E-mail para Primeiro Contato com Orientador</span>
+              </div>
+              <button
+                type="button"
+                onClick={handleCopyEmail}
+                className={`${styles.copyEmailBtn} ${copied ? styles.copied : ''}`}
+                title="Copiar modelo de e-mail"
+              >
+                {copied ? <Check size={16} /> : <Copy size={16} />}
+                <span>{copied ? 'Copiado para a área de transferência' : 'Copiar Modelo'}</span>
+              </button>
+            </div>
+            <pre className={styles.emailPre}>{emailTemplateText}</pre>
           </div>
         </div>
       </section>
