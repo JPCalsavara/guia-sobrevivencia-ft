@@ -922,5 +922,56 @@
     color: var(--text-secondary);
     line-height: 1.6;
   }
+
+  ul {
+    margin-top: $spacing-xs;
+    padding-left: $spacing-md;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+
+    li {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+
+      strong {
+        color: var(--text-primary);
+      }
+    }
+  }
+}
+
+.strategyCallout {
+  background-color: var(--surface-elevated);
+  border-left: 4px solid var(--ft-green);
+  border-radius: 0 $radius-md $radius-md 0;
+  padding: $spacing-lg;
+  margin-top: $spacing-xl;
+
+  h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: $spacing-xs;
+  }
+
+  ul {
+    margin-top: $spacing-xs;
+    padding-left: $spacing-md;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+
+    li {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+
+      strong {
+        color: var(--text-primary);
+      }
+    }
+  }
 }
 
