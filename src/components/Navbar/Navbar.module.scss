@@ -109,6 +109,24 @@
   }
 }
 
+button.navItem {
+  background: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-family: inherit;
+
+  &:hover {
+    color: var(--ft-blue);
+    background-color: var(--ft-blue-soft);
+  }
+
+  &.active {
+    color: var(--ft-blue);
+    background-color: var(--ft-blue-soft);
+    border: 1px solid var(--ft-blue-border);
+  }
+}
+
 .navLabel {
   white-space: nowrap;
   display: inline-block;

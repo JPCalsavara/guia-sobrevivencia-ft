@@ -12,7 +12,46 @@ import {
   Lightbulb,
   Workflow
 } from 'lucide-react';
+import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
 import styles from './estudos-ia.module.scss';
+
+const aiTopics: TopicItem[] = [
+  {
+    id: 'notebooklm-cerebro',
+    title: 'Google NotebookLM',
+    subtopics: [
+      { id: 'notebooklm-cerebro', title: 'Segundo Cérebro Acadêmico' },
+    ],
+  },
+  {
+    id: 'prompts-estruturados',
+    title: 'Prompts Estruturados',
+    subtopics: [
+      { id: 'prompts-estruturados', title: 'Extrator de Planos de Aula' },
+    ],
+  },
+  {
+    id: 'metodologias-estudo',
+    title: 'Metodologias de Estudo',
+    subtopics: [
+      { id: 'metodologias-estudo', title: 'Construção Manual e Feynman' },
+    ],
+  },
+  {
+    id: 'boas-praticas-ia',
+    title: 'Boas Práticas de IA',
+    subtopics: [
+      { id: 'boas-praticas-ia', title: 'Tabela de Práticas Acadêmicas' },
+    ],
+  },
+  {
+    id: 'transicao-agentes',
+    title: 'Agentes de Código',
+    subtopics: [
+      { id: 'transicao-agentes', title: 'Chatbots versus Agentes e MCP' },
+    ],
+  },
+];
 
 export default function EstudosIaPage() {
   const practiceComparisons = [
@@ -58,8 +97,15 @@ export default function EstudosIaPage() {
         </motion.div>
       </section>
 
-      {/* NotebookLM */}
-      <section className={styles.sectionBlock}>
+      {/* Conteúdo com Barra Lateral Esquerda */}
+      <div className={styles.contentWithSidebar}>
+        <aside>
+          <DocSidebar topics={aiTopics} title="Estudos e IA" />
+        </aside>
+
+        <div className={styles.mainContentArea}>
+          {/* NotebookLM */}
+          <section id="notebooklm-cerebro" className={styles.sectionBlock}>
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <Brain size={22} className={styles.headerIcon} />
@@ -97,12 +143,12 @@ export default function EstudosIaPage() {
       </section>
 
       {/* PromptBox para Extração de Planos de Aula */}
-      <section className={styles.sectionBlock}>
+      <section id="prompts-estruturados" className={styles.sectionBlock}>
         <PromptBox />
       </section>
 
       {/* Método Construa na Mão e Feynman */}
-      <section className={styles.sectionBlock}>
+      <section id="metodologias-estudo" className={styles.sectionBlock}>
         <div className={styles.methodsGrid}>
           <div className={styles.methodCard}>
             <div className={styles.methodHeader}>
@@ -143,7 +189,7 @@ export default function EstudosIaPage() {
       </section>
 
       {/* Tabela de Boas Práticas */}
-      <section className={styles.sectionBlock}>
+      <section id="boas-praticas-ia" className={styles.sectionBlock}>
         <div className={styles.blockCard}>
           <h2 className={styles.cardTitle}>Boas Práticas no Uso Acadêmico de IA</h2>
           <p className={styles.cardSubtitle}>
@@ -181,7 +227,7 @@ export default function EstudosIaPage() {
       </section>
 
       {/* Chatbots vs Agentes Autônomos */}
-      <section className={styles.sectionBlock}>
+      <section id="transicao-agentes" className={styles.sectionBlock}>
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <Terminal size={22} className={styles.headerIcon} />
@@ -217,6 +263,8 @@ export default function EstudosIaPage() {
           </div>
         </div>
       </section>
+        </div>
+      </div>
     </div>
   );
 }

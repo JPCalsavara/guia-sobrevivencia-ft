@@ -21,7 +21,84 @@ import {
   Database,
   Server
 } from 'lucide-react';
+import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
 import styles from './carreira.module.scss';
+
+const careerTopics: TopicItem[] = [
+  {
+    id: 'sazonalidade-estagio',
+    title: 'Sazonalidade e Feiras',
+    subtopics: [
+      { id: 'sazonalidade-estagio', title: 'Janela de Contratação' },
+      { id: 'requisito-legal', title: 'Elegibilidade Institucional' },
+    ],
+  },
+  {
+    id: 'testes-tecnicos',
+    title: 'Testes Técnicos de Entrada',
+    subtopics: [
+      { id: 'testes-tecnicos', title: 'Estruturas de Dados e Lógica' },
+    ],
+  },
+  {
+    id: 'curriculo-latex',
+    title: 'Currículo em LaTeX',
+    subtopics: [
+      { id: 'curriculo-latex', title: 'Template ATS de Página Única' },
+    ],
+  },
+  {
+    id: 'entrevistas-pitch',
+    title: 'Entrevistas e Pitch',
+    subtopics: [
+      { id: 'entrevistas-pitch', title: 'Vídeo e Estrutura de Pitch' },
+      { id: 'perguntas-entrevistas', title: 'As Sete Perguntas Centrais' },
+    ],
+  },
+  {
+    id: 'portfolio-github',
+    title: 'Presença Profissional',
+    subtopics: [
+      { id: 'portfolio-github', title: 'LinkedIn e Portfólio GitHub' },
+    ],
+  },
+  {
+    id: 'computacao-nuvem',
+    title: 'Computação em Nuvem',
+    subtopics: [
+      { id: 'computacao-nuvem', title: 'Vouchers e Créditos Estudantis' },
+    ],
+  },
+  {
+    id: 'roadmap-sh',
+    title: 'Roadmaps e Projetos',
+    subtopics: [
+      { id: 'roadmap-sh', title: 'Trilhas do Roadmap.sh' },
+      { id: 'projetos-reais', title: 'Projetos com Requisitos Reais' },
+    ],
+  },
+  {
+    id: 'trilhas-aprendizado',
+    title: 'Trilhas Tecnológicas',
+    subtopics: [
+      { id: 'trilhas-aprendizado', title: 'Dev Full Stack versus Dados e IA' },
+    ],
+  },
+  {
+    id: 'devops-ciberseguranca',
+    title: 'DevOps e Cibersegurança',
+    subtopics: [
+      { id: 'devops-ciberseguranca', title: 'Docker e Liga LICS Unicamp' },
+    ],
+  },
+  {
+    id: 'canais-recomendados',
+    title: 'Canais Recomendados',
+    subtopics: [
+      { id: 'canais-recomendados', title: 'Criadores de Conteúdo Técnico' },
+    ],
+  },
+];
 
 export default function CarreiraPage() {
   return (
@@ -48,8 +125,15 @@ export default function CarreiraPage() {
         </motion.div>
       </section>
 
-      {/* Sazonalidade e Feiras de Estágio */}
-      <section className={styles.sectionBlock}>
+      {/* Conteúdo com Barra Lateral Esquerda */}
+      <div className={styles.contentWithSidebar}>
+        <aside>
+          <DocSidebar topics={careerTopics} title="Carreira e Mercado" />
+        </aside>
+
+        <div className={styles.mainContentArea}>
+          {/* Sazonalidade e Feiras de Estágio */}
+          <section id="sazonalidade-estagio" className={styles.sectionBlock}>
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <Calendar size={22} className={styles.headerIcon} />
@@ -78,7 +162,7 @@ export default function CarreiraPage() {
               </p>
             </div>
 
-            <div className={styles.timelineItem}>
+            <div id="requisito-legal" className={styles.timelineItem}>
               <span className={styles.periodBadge}>Requisito Legal</span>
               <h3 className={styles.timelineTitle}>Elegibilidade Institucional</h3>
               <p className={styles.timelineDesc}>
@@ -90,7 +174,7 @@ export default function CarreiraPage() {
       </section>
 
       {/* Testes Técnicos */}
-      <section className={styles.sectionBlock}>
+      <section id="testes-tecnicos" className={styles.sectionBlock}>
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <Code2 size={22} className={styles.headerIcon} />
@@ -128,7 +212,7 @@ export default function CarreiraPage() {
       </section>
 
       {/* Currículo em LaTeX */}
-      <section className={styles.sectionBlock}>
+      <section id="curriculo-latex" className={styles.sectionBlock}>
         <div className={styles.latexHeader}>
           <FileText size={22} className={styles.headerIcon} />
           <div>
@@ -142,7 +226,7 @@ export default function CarreiraPage() {
       </section>
 
       {/* Vídeo de Pitch e Entrevistas de Estágio */}
-      <section className={styles.sectionBlock}>
+      <section id="entrevistas-pitch" className={styles.sectionBlock}>
         <div className={styles.blockCard}>
           <div className={styles.resourceHeader}>
             <div className={styles.resourceHeaderLeft}>
@@ -200,7 +284,7 @@ export default function CarreiraPage() {
               </div>
             </div>
 
-            <div className={styles.pitchBox}>
+            <div id="perguntas-entrevistas" className={styles.pitchBox}>
               <h3 className={styles.pitchBoxTitle}>
                 <Layers size={18} color="var(--ft-blue)" />
                 As 7 Principais Perguntas em Entrevistas
@@ -220,7 +304,7 @@ export default function CarreiraPage() {
       </section>
 
       {/* GitHub e LinkedIn */}
-      <section className={styles.sectionBlock}>
+      <section id="portfolio-github" className={styles.sectionBlock}>
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <Layers size={22} className={styles.headerIcon} />
@@ -261,7 +345,7 @@ export default function CarreiraPage() {
       </section>
 
       {/* Trilhas e Computação em Nuvem */}
-      <section className={styles.sectionBlock}>
+      <section id="computacao-nuvem" className={styles.sectionBlock}>
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <Cloud size={22} className={styles.headerIcon} />
@@ -299,7 +383,7 @@ export default function CarreiraPage() {
       </section>
 
       {/* Roteiros Visuais e Ideias de Projetos no Roadmap.sh */}
-      <section className={styles.sectionBlock}>
+      <section id="roadmap-sh" className={styles.sectionBlock}>
         <div className={styles.blockCard}>
           <div className={styles.resourceHeader}>
             <div className={styles.resourceHeaderLeft}>
@@ -408,7 +492,7 @@ export default function CarreiraPage() {
               </div>
             </div>
 
-            <div className={styles.roadmapCard}>
+            <div id="projetos-reais" className={styles.roadmapCard}>
               <div className={styles.roadmapCardHeader}>
                 <span className={styles.roadmapBadge}>Portfólio Real</span>
                 <h3 className={styles.roadmapCardTitle}>Projetos com Requisitos Reais</h3>
@@ -454,7 +538,7 @@ export default function CarreiraPage() {
       </section>
 
       {/* Trilhas Tecnológicas com Links Práticos */}
-      <section className={styles.sectionBlock}>
+      <section id="trilhas-aprendizado" className={styles.sectionBlock}>
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <Code2 size={22} className={styles.headerIcon} />
@@ -544,7 +628,7 @@ export default function CarreiraPage() {
       </section>
 
       {/* DevOps, Cloud e Cibersegurança com Recomendação da LICS */}
-      <section className={styles.sectionBlock}>
+      <section id="devops-ciberseguranca" className={styles.sectionBlock}>
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <ShieldCheck size={22} className={styles.headerIcon} />
@@ -635,7 +719,7 @@ export default function CarreiraPage() {
       </section>
 
       {/* Canais Recomendados */}
-      <section className={styles.sectionBlock}>
+      <section id="canais-recomendados" className={styles.sectionBlock}>
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <Youtube size={22} className={styles.headerIcon} />
@@ -765,6 +849,8 @@ export default function CarreiraPage() {
           </div>
         </div>
       </section>
+        </div>
+      </div>
     </div>
   );
 }

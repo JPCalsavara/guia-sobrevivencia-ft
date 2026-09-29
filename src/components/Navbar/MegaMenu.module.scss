@@ -1,0 +1,178 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.backdrop {
+  position: fixed;
+  top: var(--header-height, 4rem);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 48;
+  animation: fadeInBackdrop 0.2s ease-out;
+}
+
+@keyframes fadeInBackdrop {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.megaMenuContainer {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--surface-color);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.16);
+  z-index: 49;
+  max-height: calc(100vh - var(--header-height, 4rem) - 1rem);
+  overflow-y: auto;
+  animation: slideDownMegaMenu 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideDownMegaMenu {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.innerWrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: $spacing-xl $spacing-lg;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-xl;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to('xl') {
+    grid-template-columns: repeat(4, 1fr);
+    gap: $spacing-2xl;
+    padding: $spacing-2xl $spacing-xl;
+  }
+}
+
+.menuColumn {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+
+  &.columnHighlighted {
+    background-color: var(--surface-elevated);
+    border: 1px solid var(--border-color);
+    border-radius: $radius-md;
+    padding: $spacing-md;
+
+    @include respond-to('xl') {
+      padding: $spacing-lg;
+    }
+  }
+}
+
+.columnHeader {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding-bottom: $spacing-xs;
+  border-bottom: 2px solid var(--ft-blue);
+}
+
+.colIcon {
+  color: var(--ft-blue);
+  flex-shrink: 0;
+}
+
+.columnTitle {
+  font-size: 0.9375rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+}
+
+.subgroup {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.subgroupTitle {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 0.2rem;
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.menuLink {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 0.25rem 0.4rem;
+  border-radius: $radius-sm;
+  transition: all 0.15s ease;
+
+  &:hover {
+    color: var(--ft-blue);
+    background-color: var(--surface-elevated);
+    padding-left: 0.6rem;
+  }
+}
+
+.quickLinksList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.quickLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-xs;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: none;
+  padding: 0.4rem 0.6rem;
+  border-radius: $radius-sm;
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: var(--ft-blue);
+    border-color: var(--ft-blue);
+    background-color: var(--ft-blue-soft);
+    transform: translateX(2px);
+  }
+}

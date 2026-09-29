@@ -15,7 +15,56 @@ import {
   Printer,
   Wifi
 } from 'lucide-react';
+import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
 import styles from './campus.module.scss';
+
+const campusTopics: TopicItem[] = [
+  {
+    id: 'campus-galeria',
+    title: 'Galeria do Campus',
+    subtopics: [
+      { id: 'campus-galeria', title: 'Biblioteca e Auditório' },
+    ],
+  },
+  {
+    id: 'ferramentas-ti',
+    title: 'Ferramentas de TI e Acessos',
+    subtopics: [
+      { id: 'ferramentas-ti', title: 'Laboratórios da TIC' },
+      { id: 'cota-impressao', title: 'Cota de Impressão e WifiPrint' },
+    ],
+  },
+  {
+    id: 'infraestrutura-salas',
+    title: 'Infraestrutura e Salas',
+    subtopics: [
+      { id: 'infraestrutura-salas', title: 'Consulta de Ocupação' },
+      { id: 'justificativas-salas', title: 'Justificativas de Espaço' },
+    ],
+  },
+  {
+    id: 'transporte-alimentacao',
+    title: 'Alimentação e Transporte',
+    subtopics: [
+      { id: 'transporte-alimentacao', title: 'Restaurante Universitário' },
+      { id: 'circular-fretado', title: 'Circular FT e FCA e Intercampi' },
+    ],
+  },
+  {
+    id: 'entidades-estudantis',
+    title: 'Organizações Estudantis',
+    subtopics: [
+      { id: 'entidades-estudantis', title: 'Diretório de Entidades' },
+    ],
+  },
+  {
+    id: 'moradia-convivencia',
+    title: 'Moradia e Vida Social',
+    subtopics: [
+      { id: 'moradia-convivencia', title: 'Repúblicas e Desapego' },
+    ],
+  },
+];
 
 export default function CampusPage() {
   return (
@@ -42,8 +91,15 @@ export default function CampusPage() {
         </motion.div>
       </section>
 
-      {/* Galeria de Fotos Institucionais do Campus */}
-      <section className={styles.campusGallerySection}>
+      {/* Conteúdo com Barra Lateral Esquerda */}
+      <div className={styles.contentWithSidebar}>
+        <aside>
+          <DocSidebar topics={campusTopics} title="Campus e Vida" />
+        </aside>
+
+        <div className={styles.mainContentArea}>
+          {/* Galeria de Fotos Institucionais do Campus */}
+          <section id="campus-galeria" className={styles.campusGallerySection}>
         <div className={styles.galleryGrid}>
           <div className={styles.galleryCard}>
             <div className={styles.galleryImageWrapper}>
@@ -86,7 +142,7 @@ export default function CampusPage() {
       </section>
 
       {/* Ferramentas de TI e Acessos */}
-      <section className={styles.sectionBlock}>
+      <section id="ferramentas-ti" className={styles.sectionBlock}>
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <Monitor size={22} className={styles.headerIcon} />
@@ -151,7 +207,7 @@ export default function CampusPage() {
       </section>
 
       {/* Cota de Impressão, WifiPrint e Laboratórios da DTIC */}
-      <section className={styles.sectionBlock}>
+      <section id="cota-impressao" className={styles.sectionBlock}>
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <Printer size={22} className={styles.headerIcon} />
@@ -263,7 +319,7 @@ export default function CampusPage() {
       </section>
 
       {/* Infraestrutura e Salas na FT */}
-      <section className={styles.sectionBlock}>
+      <section id="infraestrutura-salas" className={styles.sectionBlock}>
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <Building2 size={22} className={styles.headerIcon} />
@@ -308,7 +364,7 @@ export default function CampusPage() {
           </div>
 
           {/* Justificativas para Salas Maiores */}
-          <div className={styles.justificationArea}>
+          <div id="justificativas-salas" className={styles.justificationArea}>
             <h3 className={styles.justTitle}>
               Como Justificar uma Sala Maior para Poucas Pessoas perante a Administração
             </h3>
@@ -362,7 +418,7 @@ export default function CampusPage() {
       </section>
 
       {/* Bandejão e Transporte */}
-      <section className={styles.sectionBlock}>
+      <section id="transporte-alimentacao" className={styles.sectionBlock}>
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <Utensils size={22} className={styles.headerIcon} aria-hidden="true" />
@@ -395,7 +451,7 @@ export default function CampusPage() {
               </a>
             </div>
 
-            <div className={styles.transportCard}>
+            <div id="circular-fretado" className={styles.transportCard}>
               <div className={styles.transportHeader}>
                 <Bus size={18} aria-hidden="true" />
                 <h3 className={styles.transportTitle}>Circular Gratuito FT e FCA</h3>
@@ -439,7 +495,7 @@ export default function CampusPage() {
       </section>
 
       {/* Diretório de Organizações */}
-      <section className={styles.sectionBlock}>
+      <section id="entidades-estudantis" className={styles.sectionBlock}>
         <div className={styles.sectionIntro}>
           <div className={styles.introHeader}>
             <Users2 size={24} className={styles.headerIcon} />
@@ -455,7 +511,7 @@ export default function CampusPage() {
       </section>
 
       {/* Vida Social, Moradia e Economia Estudantil */}
-      <section className={styles.sectionBlock}>
+      <section id="moradia-convivencia" className={styles.sectionBlock}>
         <div className={styles.blockCard}>
           <h2 className={styles.cardTitle}>Convivência, Moradia e Economia Estudantil</h2>
           <p className={styles.cardSubtitle}>
@@ -486,6 +542,8 @@ export default function CampusPage() {
           </div>
         </div>
       </section>
+        </div>
+      </div>
     </div>
   );
 }

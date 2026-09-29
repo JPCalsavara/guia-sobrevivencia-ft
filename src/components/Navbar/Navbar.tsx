@@ -3,13 +3,15 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Sun, Moon, Menu, X, BookOpen, Briefcase, Cpu, MapPin, ExternalLink, Link2, Home, Compass } from 'lucide-react';
+import { Sun, Moon, Menu, X, BookOpen, Briefcase, Cpu, MapPin, ExternalLink, Link2, Home, Compass, Layers, ChevronDown } from 'lucide-react';
+import { MegaMenu } from './MegaMenu';
 import styles from './Navbar.module.scss';
 
 export function Navbar() {
   const pathname = usePathname();
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [megaMenuOpen, setMegaMenuOpen] = useState(false);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('ft_theme') as 'dark' | 'light' | null;
@@ -66,6 +68,25 @@ export function Navbar() {
               </Link>
             );
           })}
+
+          <button
+            type="button"
+            onClick={() => setMegaMenuOpen(!megaMenuOpen)}
+            className={`${styles.navItem} ${styles.megaMenuTrigger} ${megaMenuOpen ? styles.active : ''}`}
+            aria-expanded={megaMenuOpen}
+            aria-label="Abrir menu estruturado de tópicos do guia"
+          >
+            <Layers size={16} aria-hidden="true" />
+            <span className={styles.navLabel}>Tópicos</span>
+            <ChevronDown
+              size={13}
+              aria-hidden="true"
+              style={{
+                transform: megaMenuOpen ? 'rotate(180deg)' : 'none',
+                transition: 'transform 0.2s ease',
+              }}
+            />
+          </button>
         </nav>
 
         <div className={styles.actions}>
@@ -138,6 +159,8 @@ export function Navbar() {
           </Link>
         </nav>
       )}
+
+      <MegaMenu isOpen={megaMenuOpen} onClose={() => setMegaMenuOpen(false)} />
     </header>
   );
 }
