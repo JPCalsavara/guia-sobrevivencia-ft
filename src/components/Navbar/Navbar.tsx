@@ -31,9 +31,9 @@ export function Navbar() {
   const navLinks = [
     { href: '/', label: 'Início', icon: Home },
     { href: '/academico', label: 'Acadêmico', icon: BookOpen },
+    { href: '/campus', label: 'Campus e Vida', icon: MapPin },
     { href: '/carreira', label: 'Carreira', icon: Briefcase },
     { href: '/estudos-ia', label: 'Estudos e IA', icon: Cpu },
-    { href: '/campus', label: 'Campus e Vida', icon: MapPin },
     { href: '/links', label: 'Links Úteis', icon: Link2 },
   ];
 

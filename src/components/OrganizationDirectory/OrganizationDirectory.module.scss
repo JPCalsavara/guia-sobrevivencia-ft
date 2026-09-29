@@ -69,10 +69,132 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  padding: 0.2rem 0.5rem;
+  padding: 0.25rem 0.6rem;
   border-radius: $radius-sm;
   background-color: var(--surface-elevated);
-  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+
+  &.cat_empresa_junior {
+    background-color: #e0e7ff;
+    border-color: #c7d2fe;
+    color: #312e81;
+  }
+
+  &.cat_ti {
+    background-color: #e0f2fe;
+    border-color: #bae6fd;
+    color: #075985;
+  }
+
+  &.cat_atletica {
+    background-color: #fee2e2;
+    border-color: #fecaca;
+    color: #991b1b;
+  }
+
+  &.cat_carreira {
+    background-color: #fef3c7;
+    border-color: #fde68a;
+    color: #854d0e;
+  }
+
+  &.cat_extensao,
+  &.cat_social {
+    background-color: #dcfce7;
+    border-color: #bbf7d0;
+    color: #166534;
+  }
+
+  &.cat_comunidade_fe {
+    background-color: #f3e8ff;
+    border-color: #e9d5ff;
+    color: #6b21a8;
+  }
+
+  &.cat_regional {
+    background-color: #ccfbf1;
+    border-color: #99f6e4;
+    color: #115e59;
+  }
+}
+
+// Borda superior colorida sutil no card para identificação imediata
+.card_empresa_junior {
+  border-top: 3px solid #6366f1;
+}
+
+.card_ti {
+  border-top: 3px solid #0284c7;
+}
+
+.card_atletica {
+  border-top: 3px solid #dc2626;
+}
+
+.card_carreira {
+  border-top: 3px solid #d97706;
+}
+
+.card_extensao,
+.card_social {
+  border-top: 3px solid #16a34a;
+}
+
+.card_comunidade_fe {
+  border-top: 3px solid #9333ea;
+}
+
+.card_regional {
+  border-top: 3px solid #0d9488;
+}
+
+[data-theme='dark'] {
+  .categoryBadge {
+    &.cat_empresa_junior {
+      background-color: rgba(99, 102, 241, 0.18);
+      border-color: rgba(99, 102, 241, 0.35);
+      color: #c7d2fe;
+    }
+
+    &.cat_ti {
+      background-color: rgba(14, 165, 233, 0.18);
+      border-color: rgba(14, 165, 233, 0.35);
+      color: #bae6fd;
+    }
+
+    &.cat_atletica {
+      background-color: rgba(239, 68, 68, 0.18);
+      border-color: rgba(239, 68, 68, 0.35);
+      color: #fecaca;
+    }
+
+    &.cat_carreira {
+      background-color: rgba(245, 158, 11, 0.18);
+      border-color: rgba(245, 158, 11, 0.35);
+      color: #fde68a;
+    }
+
+    &.cat_extensao,
+    &.cat_social {
+      background-color: rgba(34, 197, 94, 0.18);
+      border-color: rgba(34, 197, 94, 0.35);
+      color: #bbf7d0;
+    }
+
+    &.cat_comunidade_fe {
+      background-color: rgba(168, 85, 247, 0.18);
+      border-color: rgba(168, 85, 247, 0.35);
+      color: #e9d5ff;
+    }
+
+    &.cat_regional {
+      background-color: rgba(20, 184, 166, 0.18);
+      border-color: rgba(20, 184, 166, 0.35);
+      color: #99f6e4;
+    }
+  }
 }
 
 .orgIcon {

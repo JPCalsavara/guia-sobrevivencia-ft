@@ -46,9 +46,11 @@ export function OrganizationDirectory() {
 
       <div className={styles.grid}>
         {filtered.map((org: Organization) => (
-          <div key={org.id} className={styles.card}>
+          <div key={org.id} className={`${styles.card} ${styles[`card_${org.category}`] || ''}`}>
             <div className={styles.cardHeader}>
-              <span className={styles.categoryBadge}>{org.categoryLabel}</span>
+              <span className={`${styles.categoryBadge} ${styles[`cat_${org.category}`] || ''}`}>
+                {org.categoryLabel}
+              </span>
               <Users size={18} className={styles.orgIcon} aria-hidden="true" />
             </div>
 

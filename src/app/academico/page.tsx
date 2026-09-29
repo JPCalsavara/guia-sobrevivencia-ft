@@ -26,6 +26,7 @@ import {
 } from 'lucide-react';
 import { useClipboardCopy } from '@/hooks/useClipboardCopy';
 import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
+import { TopicSubnav } from '@/components/TopicSubnav/TopicSubnav';
 import { padComparisonData } from '@/data/academic';
 import styles from './academico.module.scss';
 
@@ -161,7 +162,9 @@ export default function AcademicoPage() {
   };
 
   return (
-    <div className={styles.container}>
+    <>
+      <TopicSubnav topics={academicTopics} />
+      <div className={styles.container}>
       {/* Header */}
       <section className={styles.pageHeader}>
         <motion.div
@@ -1312,5 +1315,6 @@ export default function AcademicoPage() {
         </div>
       </div>
     </div>
-  );
+  </>
+);
 }

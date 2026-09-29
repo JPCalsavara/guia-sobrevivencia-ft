@@ -98,11 +98,15 @@ export default function LinksPage() {
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            className={styles.linkCard}
+            className={`${styles.linkCard} ${styles[`card_${link.category}`] || ''}`}
             aria-label={`${link.title} em nova janela`}
           >
             <div className={styles.cardHeader}>
-              {link.badge && <span className={styles.badge}>{link.badge}</span>}
+              {link.badge && (
+                <span className={`${styles.badge} ${styles[`badge_${link.category}`] || ''}`}>
+                  {link.badge}
+                </span>
+              )}
               <ExternalLink size={16} className={styles.extIcon} aria-hidden="true" />
             </div>
 
