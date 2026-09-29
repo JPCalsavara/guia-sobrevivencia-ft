@@ -18,10 +18,10 @@ export function PromptBox() {
       <div className={styles.header}>
         <div className={styles.titleInfo}>
           <div className={styles.iconBox}>
-            <Sparkles size={18} />
+            <Sparkles size={18} aria-hidden="true" />
           </div>
           <div>
-            <h4 className={styles.title}>Prompt para Geração de Calendário iCalendar e Tabela</h4>
+            <h2 className={styles.title}>Prompt para Geração de Calendário iCalendar e Tabela</h2>
             <p className={styles.subtitle}>
               Suba o PDF do plano de aula no Google Gemini ou AI Studio para extrair o arquivo de compromissos
             </p>
@@ -30,11 +30,13 @@ export function PromptBox() {
 
         <div className={styles.actions}>
           <button
+            type="button"
             onClick={handleCopy}
             className={`${styles.copyButton} ${copied ? styles.copied : ''}`}
             aria-label="Copiar prompt completo"
+            aria-live="polite"
           >
-            {copied ? <Check size={16} /> : <Copy size={16} />}
+            {copied ? <Check size={16} aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}
             <span>{copied ? 'Prompt Copiado' : 'Copiar Prompt'}</span>
           </button>
           <a
@@ -42,9 +44,10 @@ export function PromptBox() {
             target="_blank"
             rel="noopener noreferrer"
             className={styles.studioLink}
+            aria-label="Acessar Google AI Studio em nova janela"
           >
             <span>Google AI Studio</span>
-            <ExternalLink size={14} />
+            <ExternalLink size={14} aria-hidden="true" />
           </a>
         </div>
       </div>
@@ -56,7 +59,7 @@ export function PromptBox() {
       </div>
 
       <div className={styles.steps}>
-        <h5 className={styles.stepsTitle}>Como Importar no Google Agenda em Três Passos</h5>
+        <h3 className={styles.stepsTitle}>Como Importar no Google Agenda em Três Passos</h3>
         <ol className={styles.stepsList}>
           <li>Acesse o Google Gemini ou o AI Studio, anexe o PDF do plano de ensino do Moodle e execute o prompt acima.</li>
           <li>Copie o bloco de código que começa com BEGIN:VCALENDAR e salve em um arquivo de texto com o nome aula.ics no seu computador.</li>

@@ -28,4 +28,10 @@ describe('Catalogo de Links e Recursos', () => {
     expect(circular).toBeDefined();
     expect(ru).toBeDefined();
   });
+
+  it('deve conter o link para o Caderno de Horários da DAC', () => {
+    const cadernoLink = linksData.find((l) => l.id === 'dac-caderno-horarios');
+    expect(cadernoLink).toBeDefined();
+    expect(cadernoLink?.url).toBe('https://www.dac.unicamp.br/portal/caderno-de-horarios/');
+  });
 });

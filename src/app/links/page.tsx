@@ -47,39 +47,51 @@ export default function LinksPage() {
           </h1>
 
           <p className={styles.pageDescription}>
-            Acesse rapidamente todos os sistemas acadêmicos da DAC, serviços da FT, horários de transporte e plataformas essenciais em um catálogo unificado.
+            Acesse rapidamente todos os sistemas acadêmicos da DAC, serviços da FT, canais de transporte e plataformas essenciais em um catálogo unificado.
           </p>
         </motion.div>
       </section>
 
       {/* Barra de Busca e Filtros */}
-      <section className={styles.filterSection}>
+      <section className={styles.filterSection} aria-label="Filtros de busca">
         <div className={styles.searchBar}>
-          <Search size={18} className={styles.searchIcon} />
+          <Search size={18} className={styles.searchIcon} aria-hidden="true" />
           <input
+            id="search-resources-input"
             type="text"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Buscar por nome de sistema, serviço ou assunto..."
             className={styles.searchInput}
+            aria-label="Buscar por nome de sistema ou serviço"
           />
         </div>
 
-        <div className={styles.categoryFilters}>
+        <div className={styles.categoryFilters} role="group" aria-label="Filtrar recursos por categoria">
           {categories.map((cat) => (
             <button
               key={cat.key}
+              type="button"
               onClick={() => setSelectedCategory(cat.key)}
               className={`${styles.filterBtn} ${selectedCategory === cat.key ? styles.filterActive : ''}`}
+              aria-pressed={selectedCategory === cat.key}
             >
               {cat.label}
             </button>
           ))}
         </div>
+
+        <div
+          role="status"
+          aria-live="polite"
+          style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0,0,0,0)', border: 0 }}
+        >
+          {filtered.length} recursos disponíveis
+        </div>
       </section>
 
       {/* Grid de Links */}
-      <section className={styles.linksGrid}>
+      <section className={styles.linksGrid} aria-label="Catálogo de links">
         {filtered.map((link) => (
           <a
             key={link.id}
@@ -87,10 +99,11 @@ export default function LinksPage() {
             target="_blank"
             rel="noopener noreferrer"
             className={styles.linkCard}
+            aria-label={`${link.title} em nova janela`}
           >
             <div className={styles.cardHeader}>
               {link.badge && <span className={styles.badge}>{link.badge}</span>}
-              <ExternalLink size={16} className={styles.extIcon} />
+              <ExternalLink size={16} className={styles.extIcon} aria-hidden="true" />
             </div>
 
             <h3 className={styles.cardTitle}>{link.title}</h3>

@@ -5,13 +5,13 @@ import styles from './Footer.module.scss';
 
 export function Footer() {
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} aria-label="Rodapé institucional">
       <div className={styles.container}>
         <div className={styles.grid}>
           <div className={styles.brandCol}>
             <div className={styles.brandLogos}>
               <div className={styles.brandIconWrapper}>
-                <Compass size={20} className={styles.brandIcon} />
+                <Compass size={20} className={styles.brandIcon} aria-hidden="true" />
               </div>
               <div className={styles.brandTextGroup}>
                 <span className={styles.brandTitle}>Guia FT</span>
@@ -28,80 +28,131 @@ export function Footer() {
 
           <div className={styles.linksCol}>
             <h4 className={styles.colTitle}>Navegação</h4>
-            <ul className={styles.linksList}>
-              <li><Link href="/">Início e Apresentação</Link></li>
-              <li><Link href="/academico">Regras Acadêmicas e BSI vs TADS</Link></li>
-              <li><Link href="/carreira">Estágios e Modelo de Currículo</Link></li>
-              <li><Link href="/estudos-ia">Estudos com Gemini e NotebookLM</Link></li>
-              <li><Link href="/campus">Salas, Bandejão e Organizações</Link></li>
-              <li><Link href="/links">Diretório de Links Oficiais</Link></li>
-            </ul>
+            <nav aria-label="Links rápidos do guia">
+              <ul className={styles.linksList}>
+                <li><Link href="/">Início e Apresentação</Link></li>
+                <li><Link href="/academico">Regras Acadêmicas e BSI vs TADS</Link></li>
+                <li><Link href="/carreira">Estágios e Modelo de Currículo</Link></li>
+                <li><Link href="/estudos-ia">Estudos com Gemini e NotebookLM</Link></li>
+                <li><Link href="/campus">Salas, Bandejão e Organizações</Link></li>
+                <li><Link href="/links">Diretório de Links Oficiais</Link></li>
+              </ul>
+            </nav>
           </div>
 
           <div className={styles.linksCol}>
             <h4 className={styles.colTitle}>Sistemas da FT</h4>
-            <ul className={styles.linksList}>
-              <li>
-                <a href="https://sistemas.ft.unicamp.br/salas" target="_blank" rel="noopener noreferrer">
-                  <span>Alocação de Salas</span>
-                  <ExternalLink size={12} />
-                </a>
-              </li>
-              <li>
-                <a href="https://sistemas.ft.unicamp.br/intranet" target="_blank" rel="noopener noreferrer">
-                  <span>Intranet FT</span>
-                  <ExternalLink size={12} />
-                </a>
-              </li>
-              <li>
-                <a href="https://www.ft.unicamp.br/tic" target="_blank" rel="noopener noreferrer">
-                  <span>Coordenadoria de TIC</span>
-                  <ExternalLink size={12} />
-                </a>
-              </li>
-              <li>
-                <a href="https://www.ft.unicamp.br" target="_blank" rel="noopener noreferrer">
-                  <span>Portal Oficial da FT</span>
-                  <ExternalLink size={12} />
-                </a>
-              </li>
-            </ul>
+            <nav aria-label="Sistemas oficiais da FT">
+              <ul className={styles.linksList}>
+                <li>
+                  <a
+                    href="https://sistemas.ft.unicamp.br/salas"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Alocação de Salas em nova janela"
+                  >
+                    <span>Alocação de Salas</span>
+                    <ExternalLink size={12} aria-hidden="true" />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://sistemas.ft.unicamp.br/intranet"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Intranet FT em nova janela"
+                  >
+                    <span>Intranet FT</span>
+                    <ExternalLink size={12} aria-hidden="true" />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.ft.unicamp.br/tic"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Coordenadoria de TIC em nova janela"
+                  >
+                    <span>Coordenadoria de TIC</span>
+                    <ExternalLink size={12} aria-hidden="true" />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.ft.unicamp.br"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Portal Oficial da FT em nova janela"
+                  >
+                    <span>Portal Oficial da FT</span>
+                    <ExternalLink size={12} aria-hidden="true" />
+                  </a>
+                </li>
+              </ul>
+            </nav>
           </div>
 
           <div className={styles.linksCol}>
             <h4 className={styles.colTitle}>Sistemas Centrais</h4>
-            <ul className={styles.linksList}>
-              <li>
-                <a href="https://grade.daconline.unicamp.br/login/" target="_blank" rel="noopener noreferrer">
-                  <span>Grade DAC Online</span>
-                  <ExternalLink size={12} />
-                </a>
-              </li>
-              <li>
-                <a href="https://sistemas.dac.unicamp.br/siga/" target="_blank" rel="noopener noreferrer">
-                  <span>Portal e-DAC e SIGA</span>
-                  <ExternalLink size={12} />
-                </a>
-              </li>
-              <li>
-                <a href="https://moodle.unicamp.br" target="_blank" rel="noopener noreferrer">
-                  <span>Moodle Unicamp</span>
-                  <ExternalLink size={12} />
-                </a>
-              </li>
-              <li>
-                <a href="https://sistemas.prefeituralimeira.unicamp.br/RU/view/site/cardapio.php" target="_blank" rel="noopener noreferrer">
-                  <span>Cardápio do Bandejão</span>
-                  <ExternalLink size={12} />
-                </a>
-              </li>
-              <li>
-                <a href="https://sistemas.prefeituralimeira.unicamp.br/intercamp/" target="_blank" rel="noopener noreferrer">
-                  <span>Reserva Fretado Linha 84</span>
-                  <ExternalLink size={12} />
-                </a>
-              </li>
-            </ul>
+            <nav aria-label="Sistemas acadêmicos centrais">
+              <ul className={styles.linksList}>
+                <li>
+                  <a
+                    href="https://grade.daconline.unicamp.br/login/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Grade DAC Online em nova janela"
+                  >
+                    <span>Grade DAC Online</span>
+                    <ExternalLink size={12} aria-hidden="true" />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://sistemas.dac.unicamp.br/siga/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Portal e-DAC e SIGA em nova janela"
+                  >
+                    <span>Portal e-DAC e SIGA</span>
+                    <ExternalLink size={12} aria-hidden="true" />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://moodle.unicamp.br"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Moodle Unicamp em nova janela"
+                  >
+                    <span>Moodle Unicamp</span>
+                    <ExternalLink size={12} aria-hidden="true" />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://sistemas.prefeituralimeira.unicamp.br/RU/view/site/cardapio.php"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Cardápio do Bandejão em nova janela"
+                  >
+                    <span>Cardápio do Bandejão</span>
+                    <ExternalLink size={12} aria-hidden="true" />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://sistemas.prefeituralimeira.unicamp.br/intercamp/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Reserva Fretado Linha 84 em nova janela"
+                  >
+                    <span>Reserva Fretado Linha 84</span>
+                    <ExternalLink size={12} aria-hidden="true" />
+                  </a>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
 

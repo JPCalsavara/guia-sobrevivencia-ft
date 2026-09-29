@@ -37,7 +37,7 @@ export default function CampusPage() {
           </h1>
 
           <p className={styles.pageDescription}>
-            Descubra como reservar espaços na FT, acesse as ferramentas de TI da faculdade, consulte os horários do circular e do fretado intercampi e conheça todas as entidades ativas da comunidade universitária.
+            Descubra como reservar espaços na FT, acesse as ferramentas de TI da faculdade, consulte as orientações do circular e do fretado intercampi e conheça todas as entidades ativas da comunidade universitária.
           </p>
         </motion.div>
       </section>
@@ -198,7 +198,7 @@ export default function CampusPage() {
               </p>
               <ol className={styles.stepList}>
                 <li><strong>Créditos Automáticos:</strong> Todo primeiro dia do mês a cota é creditada automaticamente.</li>
-                <li><strong>Início do Ano Letivo:</strong> A cota é reiniciada para o valor inicial de 15 páginas.</li>
+                <li><strong>Início do Ano Letivo:</strong> A cota é reiniciada para o quantitativo regulamentar estabelecido pela coordenação de informática.</li>
                 <li><strong>Consulta de Saldo:</strong> O saldo de páginas restantes pode ser verificado em tempo real na Intranet FT.</li>
                 <li><strong>Conta de Acesso:</strong> O login utiliza as credenciais cadastradas na informática da faculdade.</li>
               </ol>
@@ -208,18 +208,20 @@ export default function CampusPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`${styles.actionBtn} ${styles.green}`}
+                  aria-label="Consultar cota de impressão na Intranet em nova janela"
                 >
                   <span>Consultar Cota na Intranet</span>
-                  <ExternalLink size={12} />
+                  <ExternalLink size={12} aria-hidden="true" />
                 </a>
                 <a
                   href="https://wordpress.ft.unicamp.br/informatica/cota-de-impressao/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.actionBtn}
+                  aria-label="Acessar normas oficiais da cota de impressão em nova janela"
                 >
                   <span>Normas da Cota</span>
-                  <ExternalLink size={12} />
+                  <ExternalLink size={12} aria-hidden="true" />
                 </a>
               </div>
             </div>
@@ -363,11 +365,11 @@ export default function CampusPage() {
       <section className={styles.sectionBlock}>
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
-            <Utensils size={22} className={styles.headerIcon} />
+            <Utensils size={22} className={styles.headerIcon} aria-hidden="true" />
             <div>
               <h2 className={styles.cardTitle}>Alimentação e Transporte Universitário em Limeira</h2>
               <p className={styles.cardSubtitle}>
-                Horários do restaurante universitário, circular gratuito e fretado intercampi
+                Diretrizes sobre alimentação universitária, transporte circular gratuito e fretado intercampi
               </p>
             </div>
           </div>
@@ -375,45 +377,47 @@ export default function CampusPage() {
           <div className={styles.transportGrid}>
             <div className={styles.transportCard}>
               <div className={styles.transportHeader}>
-                <Utensils size={18} />
+                <Utensils size={18} aria-hidden="true" />
                 <h3 className={styles.transportTitle}>Restaurante Universitário na FT</h3>
               </div>
               <p className={styles.transportDesc}>
-                Almoço servido das onze às catorze horas e jantar das dezessete e trinta às dezenove e quarenta e cinco, de segunda a sexta-feira. Aos fins de semana, o atendimento é centralizado no restaurante da FCA no Campus 2.
+                Fornece refeições balanceadas de almoço e jantar nos dias letivos para a comunidade acadêmica da FT, com atendimento centralizado no restaurante da FCA nos fins de semana e feriados. Os horários vigentes de cada turno e os valores atualizados devem ser consultados diretamente no portal da prefeitura universitária.
               </p>
               <a
                 href="https://sistemas.prefeituralimeira.unicamp.br/RU/view/site/cardapio.php"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.transportLink}
+                aria-label="Consultar cardápio online do restaurante universitário em nova janela"
               >
                 <span>Consultar Cardápio Online</span>
-                <ExternalLink size={14} />
+                <ExternalLink size={14} aria-hidden="true" />
               </a>
             </div>
 
             <div className={styles.transportCard}>
               <div className={styles.transportHeader}>
-                <Bus size={18} />
+                <Bus size={18} aria-hidden="true" />
                 <h3 className={styles.transportTitle}>Circular Gratuito FT e FCA</h3>
               </div>
               <p className={styles.transportDesc}>
-                Transporte circular gratuito mantido pela Prefeitura de Limeira e Unicamp, conectando o Campus 1 na FT e o Campus 2 na FCA de forma contínua, operando das seis e quarenta até as vinte e duas e quarenta e cinco.
+                Transporte circular gratuito mantido pela Prefeitura Universitária e pela Unicamp, realizando a ligação contínua entre os campi de Limeira. A grade horária e as paradas oficiais sofrem adequações periódicas e devem ser acompanhadas na página oficial de transportes.
               </p>
               <a
                 href="https://prefeituralimeira.unicamp.br/produto/horarios-circular/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.transportLink}
+                aria-label="Acessar página oficial de horários e itinerários do circular em nova janela"
               >
-                <span>Tabela de Horários do Circular</span>
-                <ExternalLink size={14} />
+                <span>Página Oficial do Circular</span>
+                <ExternalLink size={14} aria-hidden="true" />
               </a>
             </div>
 
             <div className={styles.transportCard}>
               <div className={styles.transportHeader}>
-                <Bus size={18} />
+                <Bus size={18} aria-hidden="true" />
                 <h3 className={styles.transportTitle}>Fretado Intercampi Linha 84</h3>
               </div>
               <p className={styles.transportDesc}>
@@ -424,9 +428,10 @@ export default function CampusPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.transportLink}
+                aria-label="Reservar assento no Intercamp Linha 84 em nova janela"
               >
                 <span>Reservar Assento no Intercamp</span>
-                <ExternalLink size={14} />
+                <ExternalLink size={14} aria-hidden="true" />
               </a>
             </div>
           </div>

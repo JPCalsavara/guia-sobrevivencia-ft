@@ -30,12 +30,14 @@ export function OrganizationDirectory() {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.filtersArea}>
+      <div className={styles.filtersArea} role="group" aria-label="Filtrar entidades por categoria">
         {categories.map((cat) => (
           <button
             key={cat.key}
+            type="button"
             onClick={() => setSelectedCategory(cat.key)}
             className={`${styles.filterButton} ${selectedCategory === cat.key ? styles.filterActive : ''}`}
+            aria-pressed={selectedCategory === cat.key}
           >
             {cat.label}
           </button>
@@ -47,10 +49,10 @@ export function OrganizationDirectory() {
           <div key={org.id} className={styles.card}>
             <div className={styles.cardHeader}>
               <span className={styles.categoryBadge}>{org.categoryLabel}</span>
-              <Users size={18} className={styles.orgIcon} />
+              <Users size={18} className={styles.orgIcon} aria-hidden="true" />
             </div>
 
-            <h4 className={styles.orgName}>{org.name}</h4>
+            <h3 className={styles.orgName}>{org.name}</h3>
             <p className={styles.orgDesc}>{org.description}</p>
 
             <div className={styles.cardFooter}>
@@ -61,8 +63,9 @@ export function OrganizationDirectory() {
                   rel="noopener noreferrer"
                   className={styles.linkButton}
                   title={`Acessar Instagram de ${org.name}`}
+                  aria-label={`Acessar Instagram de ${org.name} em nova janela`}
                 >
-                  <Instagram size={14} />
+                  <Instagram size={14} aria-hidden="true" />
                   <span>{org.instagramHandle || 'Instagram'}</span>
                 </a>
               )}
@@ -74,10 +77,11 @@ export function OrganizationDirectory() {
                   rel="noopener noreferrer"
                   className={styles.linkButtonWebsite}
                   title={`Acessar site de ${org.name}`}
+                  aria-label={`Acessar site oficial de ${org.name} em nova janela`}
                 >
-                  <Globe size={14} />
+                  <Globe size={14} aria-hidden="true" />
                   <span>Site Oficial</span>
-                  <ExternalLink size={12} />
+                  <ExternalLink size={12} aria-hidden="true" />
                 </a>
               )}
             </div>

@@ -131,6 +131,10 @@
   align-items: flex-start;
   gap: $spacing-md;
   padding: $spacing-md;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+  font-size: inherit;
   border-radius: $radius-md;
   border: 1px solid var(--border-color);
   background-color: var(--surface-color);

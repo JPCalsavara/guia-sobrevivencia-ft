@@ -50,7 +50,7 @@ export function Navbar() {
           </div>
         </Link>
 
-        <nav className={styles.desktopNav}>
+        <nav className={styles.desktopNav} aria-label="Navegação principal">
           {navLinks.map((item) => {
             const Icon = item.icon;
             const isActive = pathname === item.href;
@@ -59,8 +59,9 @@ export function Navbar() {
                 key={item.href}
                 href={item.href}
                 className={`${styles.navItem} ${isActive ? styles.active : ''}`}
+                aria-current={isActive ? 'page' : undefined}
               >
-                <Icon size={16} />
+                <Icon size={16} aria-hidden="true" />
                 <span className={styles.navLabel}>{item.label}</span>
               </Link>
             );
@@ -69,12 +70,13 @@ export function Navbar() {
 
         <div className={styles.actions}>
           <button
+            type="button"
             onClick={toggleTheme}
             className={styles.themeToggle}
-            aria-label="Alternar tema claro e escuro"
+            aria-label={theme === 'dark' ? 'Alternar para tema claro' : 'Alternar para tema escuro'}
             title="Alternar tema"
           >
-            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+            {theme === 'dark' ? <Sun size={20} aria-hidden="true" /> : <Moon size={20} aria-hidden="true" />}
           </button>
 
           <Link
@@ -82,23 +84,31 @@ export function Navbar() {
             target="_blank"
             rel="noopener noreferrer"
             className={styles.gradeLink}
+            aria-label="Acessar Grade DAC Online em nova janela"
           >
             <span>Grade DAC</span>
-            <ExternalLink size={14} />
+            <ExternalLink size={14} aria-hidden="true" />
           </Link>
 
           <button
+            type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className={styles.menuToggle}
-            aria-label="Abrir menu de navegação"
+            aria-label={mobileMenuOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação'}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-nav-panel"
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
           </button>
         </div>
       </div>
 
       {mobileMenuOpen && (
-        <div className={styles.mobileNav}>
+        <nav
+          id="mobile-nav-panel"
+          className={styles.mobileNav}
+          aria-label="Navegação móvel"
+        >
           {navLinks.map((item) => {
             const Icon = item.icon;
             const isActive = pathname === item.href;
@@ -108,8 +118,9 @@ export function Navbar() {
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className={`${styles.mobileNavItem} ${isActive ? styles.mobileActive : ''}`}
+                aria-current={isActive ? 'page' : undefined}
               >
-                <Icon size={18} />
+                <Icon size={18} aria-hidden="true" />
                 <span>{item.label}</span>
               </Link>
             );
@@ -120,11 +131,12 @@ export function Navbar() {
             rel="noopener noreferrer"
             onClick={() => setMobileMenuOpen(false)}
             className={styles.mobileGradeLink}
+            aria-label="Acessar Grade DAC Online em nova janela"
           >
             <span>Grade DAC Online</span>
-            <ExternalLink size={16} />
+            <ExternalLink size={16} aria-hidden="true" />
           </Link>
-        </div>
+        </nav>
       )}
     </header>
   );

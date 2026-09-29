@@ -16,6 +16,13 @@ describe('Diretorio de Organizacoes Estudantis', () => {
     expect(ids).toContain('semeia-code');
   });
 
+  it('deve incluir IdEA Unicamp, ExpL0Ra FT e Embaixadoras da Ciência e Tecnologia', () => {
+    const ids = organizationsData.map((o) => o.id);
+    expect(ids).toContain('idea-unicamp');
+    expect(ids).toContain('explora-ft');
+    expect(ids).toContain('embaixadoras-stem');
+  });
+
   it('cada organizacao deve possuir nome, categoria e descricao valida', () => {
     organizationsData.forEach((org) => {
       expect(org.name).toBeTruthy();

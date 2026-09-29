@@ -86,3 +86,43 @@ export const graduationChecklistData: GraduationCheckItem[] = [
     detail: 'A emissão da declaração de nada consta é requisito prévio para a liberação da colação de grau.',
   },
 ];
+
+export interface PadComparison {
+  criterion: string;
+  withScholarship: string;
+  withoutScholarship: string;
+}
+
+export const padComparisonData: PadComparison[] = [
+  {
+    criterion: 'Remuneração Financeira',
+    withScholarship: 'Bolsa mensal concedida pela PRG com pagamento direto em conta corrente',
+    withoutScholarship: 'Atividade voluntária sem remuneração em dinheiro',
+  },
+  {
+    criterion: 'Certificado Oficial da PRG',
+    withScholarship: 'Emitido formalmente pela Pró-Reitoria de Graduação ao término do período letivo',
+    withoutScholarship: 'Emitido com idêntico valor institucional e mesmos direitos acadêmicos',
+  },
+  {
+    criterion: 'Aproveitamento como Atividades Complementares',
+    withScholarship: 'Validação de créditos na DAC conforme os limites do regulamento do catálogo',
+    withoutScholarship: 'Validação de créditos na DAC com a mesma pontuação horária',
+  },
+  {
+    criterion: 'Carga Horária Semanal',
+    withScholarship: 'De oito a doze horas semanais de apoio a plantões e auxílio didático',
+    withoutScholarship: 'De oito a doze horas semanais com flexibilidade acordada com o docente',
+  },
+  {
+    criterion: 'Acúmulo com Outras Bolsas',
+    withScholarship: 'Vedado acumular com outras bolsas institucionais de graduação da universidade',
+    withoutScholarship: 'Permitido conciliar com bolsas de auxílio social ou bolsas de pesquisa científica',
+  },
+  {
+    criterion: 'Critério Básico de Seleção',
+    withScholarship: 'Aprovação prévia na disciplina com nota destacada e avaliação do docente',
+    withoutScholarship: 'Aprovação prévia na disciplina com nota destacada e interesse espontâneo',
+  },
+];
+

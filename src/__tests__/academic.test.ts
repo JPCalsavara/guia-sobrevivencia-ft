@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { courseComparisonData, graduationChecklistData } from '../data/academic';
+import { courseComparisonData, graduationChecklistData, padComparisonData } from '../data/academic';
 
 describe('Dados Acadêmicos e Integralização', () => {
   it('deve conter tabela comparativa válida entre BSI e TADS', () => {
@@ -8,6 +8,15 @@ describe('Dados Acadêmicos e Integralização', () => {
       expect(row.criterion).toBeTruthy();
       expect(row.bsi).toBeTruthy();
       expect(row.tads).toBeTruthy();
+    });
+  });
+
+  it('deve conter comparativo válido entre PAD com bolsa e sem bolsa', () => {
+    expect(padComparisonData.length).toBeGreaterThanOrEqual(5);
+    padComparisonData.forEach((row) => {
+      expect(row.criterion).toBeTruthy();
+      expect(row.withScholarship).toBeTruthy();
+      expect(row.withoutScholarship).toBeTruthy();
     });
   });
 

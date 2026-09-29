@@ -21,9 +21,11 @@ import {
   Award,
   Moon,
   Calculator,
-  Globe
+  Globe,
+  Users
 } from 'lucide-react';
 import { useClipboardCopy } from '@/hooks/useClipboardCopy';
+import { padComparisonData } from '@/data/academic';
 import styles from './academico.module.scss';
 
 const emailTemplateText = `Prezado Professor [Nome do Docente],
@@ -43,11 +45,33 @@ Atenciosamente,
 RA: [Seu RA]
 E-mail: [seu.email]@dac.unicamp.br`;
 
+const padEmailTemplateText = `Prezado Professor ou Professora [Nome do Docente],
+
+Meu nome é [Seu Nome Completo], sou estudante do curso de [Sistemas de Informação ou Análise e Desenvolvimento de Sistemas] na Faculdade de Tecnologia da Unicamp, RA [Seu RA].
+
+Concluí a disciplina [Código e Nome da Disciplina] no semestre [Xº semestre de 20XX] com bom aproveitamento e grande identificação com a ementa lecionada.
+
+Escrevo para manifestar meu interesse em atuar como monitor do Programa de Apoio Didático, PAD, na sua turma no próximo período letivo. Tenho interesse tanto na modalidade com bolsa quanto na modalidade voluntária sem bolsa, com disponibilidade para realizar plantões de dúvidas presenciais ou remotos e apoiar a resolução de exercícios dos estudantes.
+
+Anexo meu histórico escolar atualizado emitido pelo e-DAC para verificação do rendimento acadêmico na matéria.
+
+Agradeço desde já pela atenção e coloco-me à disposição para conversar a respeito.
+
+Atenciosamente,
+[Seu Nome Completo]
+RA: [Seu RA]
+E-mail: [seu.email]@dac.unicamp.br`;
+
 export default function AcademicoPage() {
-  const { copied, copy } = useClipboardCopy();
+  const { copied: icCopied, copy: copyIcEmail } = useClipboardCopy();
+  const { copied: padCopied, copy: copyPadEmail } = useClipboardCopy();
 
   const handleCopyEmail = () => {
-    copy(emailTemplateText);
+    copyIcEmail(emailTemplateText);
+  };
+
+  const handleCopyPadEmail = () => {
+    copyPadEmail(padEmailTemplateText);
   };
 
   return (
@@ -71,16 +95,28 @@ export default function AcademicoPage() {
           <p className={styles.pageDescription}>
             Compreenda os coeficientes CR e CP, as diferenças entre os cursos de computação, os prazos regulamentares da DAC e como planejar sua grade para conciliar estudos e estágio com segurança.
           </p>
+
+          <nav className={styles.jumpNav} aria-label="Navegação rápida pelos tópicos acadêmicos">
+            <a href="#bsi-vs-tads" className={styles.jumpPill}>BSI vs TADS</a>
+            <a href="#coeficientes-dac" className={styles.jumpPill}>Coeficientes e CR</a>
+            <a href="#checklist-formatura" className={styles.jumpPill}>Checklist Formatura</a>
+            <a href="#monitoria-pad" className={styles.jumpPill}>Monitoria PAD</a>
+            <a href="#horas-extensao" className={styles.jumpPill}>Horas e Extensão</a>
+            <a href="#estrategia-carreira" className={styles.jumpPill}>Estratégia e Estágio</a>
+            <a href="#noturno-bsi" className={styles.jumpPill}>Transição Noturno</a>
+            <a href="#iniciacao-cientifica" className={styles.jumpPill}>Iniciação Científica</a>
+            <a href="#intercambio-deri" className={styles.jumpPill}>Intercâmbio DERI</a>
+          </nav>
         </motion.div>
       </section>
 
       {/* BSI vs TADS */}
-      <section className={styles.sectionBlock}>
+      <section id="bsi-vs-tads" className={styles.sectionBlock}>
         <TableBsiTads />
       </section>
 
       {/* Regras da DAC e Coeficientes */}
-      <section className={styles.sectionBlock}>
+      <section id="coeficientes-dac" className={styles.sectionBlock}>
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <TrendingUp size={22} className={styles.headerIcon} />
@@ -226,12 +262,164 @@ export default function AcademicoPage() {
       </section>
 
       {/* Checklist de Formatura */}
-      <section className={styles.sectionBlock}>
+      <section id="checklist-formatura" className={styles.sectionBlock}>
         <ChecklistFormatura />
       </section>
 
+      {/* Monitoria PAD - Com Bolsa versus Sem Bolsa e Cronograma Oficial */}
+      <section id="monitoria-pad" className={styles.sectionBlock}>
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <Users size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>Como Funciona a Monitoria: Programa de Apoio Didático PAD</h2>
+              <p className={styles.cardSubtitle}>
+                Requisitos de ingresso, atribuições pedagógicas, cronograma semestral da PRG e comparativo entre vagas remuneradas e voluntárias
+              </p>
+            </div>
+          </div>
+
+          <p className={styles.ruleText} style={{ marginBottom: '1.25rem' }}>
+            O Programa de Apoio Didático, PAD, gerido pela Pró-Reitoria de Graduação PRG da Unicamp, viabiliza a atuação de estudantes de graduação como monitores acadêmicos em disciplinas curriculares da FT. A monitoria fortalece o aprendizado dos colegas em disciplinas com maior nível de exigência, como Cálculo, Geometria Analítica e Programação, ao mesmo tempo em que desenvolve a didática e o domínio conceitual do próprio monitor.
+          </p>
+
+          <div className={styles.rulesGrid} style={{ marginTop: '1.5rem', marginBottom: '2rem' }}>
+            <div className={styles.ruleCard}>
+              <h3 className={styles.ruleTitle}>Requisitos e Quem Pode Ser Monitor</h3>
+              <p className={styles.ruleText}>
+                Para se candidatar a uma vaga de monitoria PAD, o estudante precisa estar regularmente matriculado em curso de graduação da Unicamp, ter concluído a disciplina de interesse com aprovação e rendimento acadêmico satisfatório, além de contar com a anuência do docente responsável.
+              </p>
+            </div>
+
+            <div className={styles.ruleCard}>
+              <h3 className={styles.ruleTitle}>Atribuições Semanais e Limites Regulamentares</h3>
+              <p className={styles.ruleText}>
+                O monitor conduz plantões de atendimento presenciais ou virtuais para esclarecer dúvidas dos alunos, auxilia na interpretação de listas de exercícios e apoia atividades práticas em laboratório. A PRG veda que o monitor ministre aulas teóricas oficiais ou aplique notas nas provas.
+              </p>
+            </div>
+
+            <div className={styles.ruleCard}>
+              <h3 className={styles.ruleTitle}>Carga Horária Semanal e Flexibilidade</h3>
+              <p className={styles.ruleText}>
+                A dedicação média estabelecida pela Pró-Reitoria de Graduação é de oito a doze horas semanais. Essa carga engloba os horários de plantão com os estudantes, o alinhamento pedagógico semanal com o professor e o preparo de materiais de reforço, respeitando os horários das suas próprias aulas.
+              </p>
+            </div>
+
+            <div className={styles.ruleCard}>
+              <h3 className={styles.ruleTitle}>Validação de Horas e Certificado Oficial</h3>
+              <p className={styles.ruleText}>
+                Ao concluir o semestre letivo e ter o relatório final aprovado pelo professor orientador, o monitor recebe certificado emitido pela PRG e DAC. A atividade pontua para o cumprimento de Atividades Complementares no histórico escolar e agrega valor técnico e didático ao currículo.
+              </p>
+            </div>
+          </div>
+
+          <h3 className={styles.categoryTitle} style={{ marginTop: '1.5rem', marginBottom: '1rem' }}>
+            <Award size={18} />
+            Comparativo: Modalidade com Bolsa versus Modalidade Voluntária
+          </h3>
+
+          <div className={styles.gdeTableContainer}>
+            <table className={styles.gdeTable} aria-label="Comparativo entre monitoria PAD com bolsa e sem bolsa">
+              <thead>
+                <tr>
+                  <th scope="col">Aspecto Avaliado</th>
+                  <th scope="col">PAD com Bolsa</th>
+                  <th scope="col">PAD sem Bolsa, Voluntário</th>
+                </tr>
+              </thead>
+              <tbody>
+                {padComparisonData.map((item) => (
+                  <tr key={item.criterion}>
+                    <th scope="row">{item.criterion}</th>
+                    <td>
+                      <span className={`${styles.pillTag} ${styles.tagBlue}`}>Remunerado</span>{' '}
+                      {item.withScholarship}
+                    </td>
+                    <td>
+                      <span className={`${styles.pillTag} ${styles.tagGreen}`}>Voluntário</span>{' '}
+                      {item.withoutScholarship}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Etapas do Ciclo PAD com link para Cronograma PRG */}
+          <h3 className={styles.categoryTitle} style={{ marginTop: '2rem' }}>
+            <Calendar size={18} />
+            Etapas do Ciclo Semestral e Cronograma da PRG
+          </h3>
+
+          <div className={styles.timelineSteps}>
+            <div className={styles.stepCard}>
+              <div className={styles.stepNumber}>1</div>
+              <h4 className={styles.stepTitle}>Manifestação de Interesse e Alinhamento</h4>
+              <p className={styles.stepDesc}>
+                Procure o professor da disciplina que você concluiu com nota destacada para manifestar interesse em atuar como monitor e confirmar a oferta de vagas com bolsa ou voluntárias no próximo semestre.
+              </p>
+            </div>
+
+            <div className={styles.stepCard}>
+              <div className={styles.stepNumber}>2</div>
+              <h4 className={styles.stepTitle}>Inscrição no Sistema PAD da PRG</h4>
+              <p className={styles.stepDesc}>
+                No período fixado no cronograma semestral da PRG, acesse o portal de monitorias da Unicamp e registre sua inscrição formal na disciplina acordada com o docente.
+              </p>
+            </div>
+
+            <div className={styles.stepCard}>
+              <div className={styles.stepNumber}>3</div>
+              <h4 className={styles.stepTitle}>Homologação e Início dos Plantões</h4>
+              <p className={styles.stepDesc}>
+                Após a seleção pelo docente e a homologação formal pela coordenação de graduação da FT e PRG, o estudante assina o termo de compromisso e inicia os plantões de atendimento aos colegas.
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.gradeLinkBox} style={{ marginTop: '1.25rem' }}>
+            <div>
+              <span className={styles.gradeLinkTitle}>Cronograma Oficial do Programa PAD na PRG</span>
+              <span className={styles.gradeLinkDesc}>
+                Consulte as datas vigentes de submissão de projetos, inscrição de alunos monitores e homologação da DAC
+              </span>
+            </div>
+            <a
+              href="https://www.prg.unicamp.br/cronograma-pad-2026/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.gradeButton}
+              aria-label="Consultar cronograma oficial do PAD na PRG em nova janela"
+            >
+              <span>Ver Cronograma na PRG</span>
+              <ExternalLink size={14} aria-hidden="true" />
+            </a>
+          </div>
+
+          {/* Modelo de E-mail de Contato para Monitoria */}
+          <div className={styles.emailBox} style={{ marginTop: '2rem' }}>
+            <div className={styles.emailHeader}>
+              <div className={styles.emailHeaderTitle}>
+                <Mail size={18} />
+                <span>Modelo de E-mail para Manifestar Interesse ao Docente</span>
+              </div>
+              <button
+                type="button"
+                onClick={handleCopyPadEmail}
+                className={`${styles.copyEmailBtn} ${padCopied ? styles.copied : ''}`}
+                title="Copiar modelo de e-mail de monitoria PAD"
+              >
+                {padCopied ? <Check size={16} /> : <Copy size={16} />}
+                <span>{padCopied ? 'Copiado para a área de transferência' : 'Copiar Modelo'}</span>
+              </button>
+            </div>
+            <pre className={styles.emailPre}>{padEmailTemplateText}</pre>
+          </div>
+        </div>
+      </section>
+
       {/* Horas Complementares versus Curricularização da Extensão */}
-      <section className={styles.sectionBlock}>
+      <section id="horas-extensao" className={styles.sectionBlock}>
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <GraduationCap size={22} className={styles.headerIcon} />
@@ -355,7 +543,7 @@ export default function AcademicoPage() {
       </section>
 
       {/* Estratégia de Desacelerar o Curso */}
-      <section className={styles.sectionBlock}>
+      <section id="estrategia-carreira" className={styles.sectionBlock}>
         <div className={styles.strategyCard}>
           <div className={styles.strategyHeader}>
             <ShieldAlert size={24} className={styles.strategyIcon} />
@@ -395,7 +583,7 @@ export default function AcademicoPage() {
       </section>
 
       {/* Transição para o Noturno no BSI */}
-      <section className={styles.sectionBlock}>
+      <section id="noturno-bsi" className={styles.sectionBlock}>
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <Moon size={22} className={styles.headerIcon} />
@@ -440,7 +628,7 @@ export default function AcademicoPage() {
       </section>
 
       {/* Iniciação Científica e Pesquisa na FT */}
-      <section className={styles.sectionBlock}>
+      <section id="iniciacao-cientifica" className={styles.sectionBlock}>
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <FlaskConical size={22} className={styles.headerIcon} />
@@ -644,11 +832,11 @@ export default function AcademicoPage() {
               <button
                 type="button"
                 onClick={handleCopyEmail}
-                className={`${styles.copyEmailBtn} ${copied ? styles.copied : ''}`}
+                className={`${styles.copyEmailBtn} ${icCopied ? styles.copied : ''}`}
                 title="Copiar modelo de e-mail"
               >
-                {copied ? <Check size={16} /> : <Copy size={16} />}
-                <span>{copied ? 'Copiado para a área de transferência' : 'Copiar Modelo'}</span>
+                {icCopied ? <Check size={16} /> : <Copy size={16} />}
+                <span>{icCopied ? 'Copiado para a área de transferência' : 'Copiar Modelo'}</span>
               </button>
             </div>
             <pre className={styles.emailPre}>{emailTemplateText}</pre>
@@ -755,7 +943,7 @@ export default function AcademicoPage() {
       </section>
 
       {/* Editais da DERI e Bolsas de Intercâmbio */}
-      <section className={styles.sectionBlock}>
+      <section id="intercambio-deri" className={styles.sectionBlock}>
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <Globe size={22} className={styles.headerIcon} />

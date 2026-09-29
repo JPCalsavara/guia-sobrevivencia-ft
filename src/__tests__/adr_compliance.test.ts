@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import fs from 'fs';
 import path from 'path';
 import { linksData } from '../data/links';
-import { courseComparisonData, graduationChecklistData } from '../data/academic';
+import { courseComparisonData, graduationChecklistData, padComparisonData } from '../data/academic';
 import { organizationsData } from '../data/organizations';
 import { geminiSyllabusPrompt } from '../data/prompts';
 
@@ -41,6 +41,15 @@ describe('Conformidade com ADR 0001: Ausência de Travessão, Parênteses e Emoj
       expect(item.detail).not.toMatch(forbiddenPunctuation);
       expect(item.detail).not.toMatch(parenthesesPattern);
     });
+
+    padComparisonData.forEach((row) => {
+      expect(row.criterion).not.toMatch(forbiddenPunctuation);
+      expect(row.criterion).not.toMatch(parenthesesPattern);
+      expect(row.withScholarship).not.toMatch(forbiddenPunctuation);
+      expect(row.withScholarship).not.toMatch(parenthesesPattern);
+      expect(row.withoutScholarship).not.toMatch(forbiddenPunctuation);
+      expect(row.withoutScholarship).not.toMatch(parenthesesPattern);
+    });
   });
 
   it('textos de organizações não devem violar o ADR 0001', () => {
@@ -76,5 +85,76 @@ describe('Conformidade com ADR 0001: Ausência de Travessão, Parênteses e Emoj
         expect(content).not.toMatch(parenthesesPattern);
       }
     });
+  });
+});
+
+describe('Conformidade com ADR 0004: Desacoplamento de Informações Voláteis', () => {
+  it('não deve conter horários exatos de refeições ou transporte hardcoded nas páginas de campus e links', () => {
+    const campusFile = fs.readFileSync(path.resolve(process.cwd(), 'src/app/campus/page.tsx'), 'utf8');
+    const linksFile = fs.readFileSync(path.resolve(process.cwd(), 'src/app/links/page.tsx'), 'utf8');
+
+    // Nao deve conter frases com horarios rigidos transcritos no texto
+    expect(campusFile).not.toMatch(/onze às catorze/i);
+    expect(campusFile).not.toMatch(/dezessete e trinta/i);
+    expect(campusFile).not.toMatch(/seis e quarenta até/i);
+    expect(campusFile).not.toMatch(/15 páginas/i);
+
+    // Links page nao deve prometer horarios no texto estatico
+    expect(linksFile).not.toMatch(/horários de transporte/i);
+  });
+
+  it('todos os links para servicos de transporte e refeicao devem apontar para dominios canonicos oficiais', () => {
+    const canonicalDomains = [
+      'unicamp.br',
+      'prefeituralimeira.unicamp.br',
+      'ft.unicamp.br',
+      'dac.unicamp.br'
+    ];
+
+    const criticalLinks = linksData.filter((l) =>
+      ['intercamp-info', 'intercamp-reserva', 'circular-info', 'circular-horarios', 'ru-info', 'ru-cardapio'].includes(l.id)
+    );
+
+    expect(criticalLinks.length).toBe(6);
+    criticalLinks.forEach((link) => {
+      const url = new URL(link.url);
+      const isOfficial = canonicalDomains.some((d) => url.hostname.endsWith(d));
+      expect(isOfficial).toBe(true);
+    });
+  });
+});
+
+describe('Conformidade com ADR 0003: Acessibilidade Digital e Recursos Ativos', () => {
+  it('o layout global deve conter link de salto para conteudo, id no main e AccessibilityWidget', () => {
+    const layoutContent = fs.readFileSync(path.resolve(process.cwd(), 'src/app/layout.tsx'), 'utf8');
+    expect(layoutContent).toContain('skipLink');
+    expect(layoutContent).toContain('href="#main-content"');
+    expect(layoutContent).toContain('id="main-content"');
+    expect(layoutContent).toContain('AccessibilityWidget');
+  });
+
+  it('as folhas de estilo globais devem conter foco visivel, skipLink e reducao de movimento', () => {
+    const scssContent = fs.readFileSync(path.resolve(process.cwd(), 'src/styles/globals.scss'), 'utf8');
+    expect(scssContent).toContain(':focus-visible');
+    expect(scssContent).toContain('.skipLink');
+    expect(scssContent).toContain('prefers-reduced-motion');
+    expect(scssContent).toContain('data-font-size');
+    expect(scssContent).toContain('data-color-filter');
+  });
+
+  it('o AccessibilityWidget deve prover suporte a daltonismo, escala de fonte e auxilio auditivo', () => {
+    const widgetContent = fs.readFileSync(
+      path.resolve(process.cwd(), 'src/components/AccessibilityWidget/AccessibilityWidget.tsx'),
+      'utf8'
+    );
+    expect(widgetContent).toContain('protanopia');
+    expect(widgetContent).toContain('deuteranopia');
+    expect(widgetContent).toContain('tritanopia');
+    expect(widgetContent).toContain('achromatopsia');
+    expect(widgetContent).toContain('high-contrast-yellow');
+    expect(widgetContent).toContain('normal');
+    expect(widgetContent).toContain('large');
+    expect(widgetContent).toContain('extralarge');
+    expect(widgetContent).toContain('VLibras');
   });
 });

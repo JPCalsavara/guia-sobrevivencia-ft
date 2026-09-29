@@ -190,6 +190,14 @@ export const linksData: ResourceLink[] = [
     badge: 'Matrícula',
   },
   {
+    id: 'dac-caderno-horarios',
+    title: 'Caderno de Horários DAC',
+    description: 'Consulta oficial das turmas ofertadas por disciplina e vagas para a matrícula',
+    url: 'https://www.dac.unicamp.br/portal/caderno-de-horarios/',
+    category: 'unicamp',
+    badge: 'Matrícula',
+  },
+  {
     id: 'grade-daconline',
     title: 'Grade DAC Online',
     description: 'Acompanhamento detalhado do desenvolvimento das matérias e integralização',
@@ -204,6 +212,14 @@ export const linksData: ResourceLink[] = [
     url: 'https://moodle.unicamp.br',
     category: 'unicamp',
     badge: 'Aulas',
+  },
+  {
+    id: 'prg-cronograma-pad',
+    title: 'Cronograma PAD na PRG',
+    description: 'Prazos de inscrição, homologação e início das atividades de monitoria na graduação',
+    url: 'https://www.prg.unicamp.br/cronograma-pad-2026/',
+    category: 'unicamp',
+    badge: 'Monitoria',
   },
   {
     id: 'eduroam-wifi',

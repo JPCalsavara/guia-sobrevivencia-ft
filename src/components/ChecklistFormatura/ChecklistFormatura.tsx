@@ -86,46 +86,53 @@ export function ChecklistFormatura() {
         </div>
       </div>
 
-      <div className={styles.progressArea}>
-        <div className={styles.progressText}>
-          <span className={styles.progressLabel}>Status do seu progresso</span>
-          <span className={styles.progressCount}>{count} de {total} requisitos cumpridos, {percentage}%</span>
+        <div className={styles.progressArea}>
+          <div className={styles.progressText}>
+            <span className={styles.progressLabel}>Status do seu progresso</span>
+            <span className={styles.progressCount}>{count} de {total} requisitos cumpridos, {percentage}%</span>
+          </div>
+          <div
+            className={styles.progressBar}
+            role="progressbar"
+            aria-valuenow={percentage}
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-label="Progresso de integralização curricular"
+          >
+            <div className={styles.progressFill} style={{ width: `${percentage}%` }} />
+          </div>
         </div>
-        <div className={styles.progressBar}>
-          <div className={styles.progressFill} style={{ width: `${percentage}%` }} />
-        </div>
-      </div>
 
-      <div className={styles.list}>
-        {graduationChecklistData.map((item) => {
-          const isDone = completedItems.includes(item.id);
-          return (
-            <div
-              key={item.id}
-              onClick={() => toggleItem(item.id)}
-              className={`${styles.item} ${isDone ? styles.itemDone : ''}`}
-            >
+        <div className={styles.list} role="group" aria-label="Requisitos de integralização curricular">
+          {graduationChecklistData.map((item) => {
+            const isDone = completedItems.includes(item.id);
+            return (
               <button
+                key={item.id}
                 type="button"
-                className={styles.checkButton}
-                aria-label={`Alternar estado do requisito ${item.title}`}
+                role="checkbox"
+                aria-checked={isDone}
+                onClick={() => toggleItem(item.id)}
+                className={`${styles.item} ${isDone ? styles.itemDone : ''}`}
+                aria-label={`${item.title}. ${item.description}`}
               >
-                {isDone ? (
-                  <CheckCircle2 size={22} className={styles.checkedIcon} />
-                ) : (
-                  <Circle size={22} className={styles.uncheckedIcon} />
-                )}
-              </button>
+                <div className={styles.checkButton} aria-hidden="true">
+                  {isDone ? (
+                    <CheckCircle2 size={22} className={styles.checkedIcon} />
+                  ) : (
+                    <Circle size={22} className={styles.uncheckedIcon} />
+                  )}
+                </div>
 
-              <div className={styles.itemContent}>
-                <h4 className={styles.itemTitle}>{item.title}</h4>
-                <p className={styles.itemDesc}>{item.description}</p>
-                <p className={styles.itemDetail}>{item.detail}</p>
-              </div>
-            </div>
-          );
-        })}
+                <div className={styles.itemContent}>
+                  <h4 className={styles.itemTitle}>{item.title}</h4>
+                  <p className={styles.itemDesc}>{item.description}</p>
+                  <p className={styles.itemDetail}>{item.detail}</p>
+                </div>
+              </button>
+            );
+          })}
+        </div>
       </div>
-    </div>
   );
 }

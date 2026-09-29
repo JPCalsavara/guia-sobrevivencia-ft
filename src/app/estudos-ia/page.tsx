@@ -150,24 +150,32 @@ export default function EstudosIaPage() {
             Como potencializar seu aprendizado sem atrofiar seu raciocínio crítico e capacidade técnica
           </p>
 
-          <div className={styles.practicesTable}>
-            <div className={styles.tableHead}>
-              <span className={styles.headBad}>Prática Prejudicial</span>
-              <span className={styles.headGood}>Prática Recomendada</span>
+          <div
+            className={styles.practicesTable}
+            role="table"
+            aria-label="Comparativo de boas práticas no uso acadêmico de inteligência artificial"
+          >
+            <div className={styles.tableHead} role="rowgroup">
+              <div role="row" style={{ display: 'contents' }}>
+                <span className={styles.headBad} role="columnheader">Prática Prejudicial</span>
+                <span className={styles.headGood} role="columnheader">Prática Recomendada</span>
+              </div>
             </div>
 
-            {practiceComparisons.map((row, idx) => (
-              <div key={idx} className={styles.tableRow}>
-                <div className={styles.badCell}>
-                  <XCircle size={18} className={styles.badIcon} />
-                  <span>{row.bad}</span>
+            <div role="rowgroup" style={{ display: 'contents' }}>
+              {practiceComparisons.map((row, idx) => (
+                <div key={idx} className={styles.tableRow} role="row">
+                  <div className={styles.badCell} role="cell">
+                    <XCircle size={18} className={styles.badIcon} aria-hidden="true" />
+                    <span>{row.bad}</span>
+                  </div>
+                  <div className={styles.goodCell} role="cell">
+                    <CheckCircle2 size={18} className={styles.goodIcon} aria-hidden="true" />
+                    <span>{row.good}</span>
+                  </div>
                 </div>
-                <div className={styles.goodCell}>
-                  <CheckCircle2 size={18} className={styles.goodIcon} />
-                  <span>{row.good}</span>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
