@@ -80,10 +80,95 @@
 
 html {
   font-family: $font-sans;
-  font-size: 16px;
+  font-size: var(--base-font-size, 16px);
   line-height: 1.6;
   scroll-behavior: smooth;
   color-scheme: light;
+}
+
+[data-font-size='normal'] {
+  --base-font-size: 16px;
+}
+
+[data-font-size='large'] {
+  --base-font-size: 18px;
+}
+
+[data-font-size='extralarge'] {
+  --base-font-size: 20px;
+}
+
+// Link de salto para o conteudo principal
+.skipLink {
+  position: absolute;
+  top: -100px;
+  left: $spacing-md;
+  background-color: var(--primary);
+  color: #ffffff;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $radius-sm;
+  z-index: 10000;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: $shadow-md;
+  transition: top $transition-fast;
+
+  &:focus,
+  &:focus-visible {
+    top: $spacing-sm;
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+// Foco visivel global para navegacao por teclado
+:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+// Filtros visuais de adaptacao de cores para daltonismo
+[data-color-filter='protanopia'] {
+  filter: url('#protanopia-filter');
+}
+
+[data-color-filter='deuteranopia'] {
+  filter: url('#deuteranopia-filter');
+}
+
+[data-color-filter='tritanopia'] {
+  filter: url('#tritanopia-filter');
+}
+
+[data-color-filter='achromatopsia'] {
+  filter: grayscale(100%) contrast(110%);
+}
+
+[data-color-filter='high-contrast-yellow'] {
+  --bg-color: #000000 !important;
+  --surface-color: #121212 !important;
+  --surface-elevated: #1e1e1e !important;
+  --surface-glass: rgba(18, 18, 18, 0.98) !important;
+  --border-color: #ffd700 !important;
+  --text-primary: #ffff00 !important;
+  --text-secondary: #00ffff !important;
+  --text-muted: #ffffff !important;
+  --primary: #ffff00 !important;
+  --primary-hover: #ffffff !important;
+  --accent: #00ffff !important;
+  --accent-hover: #ffffff !important;
+}
+
+// Respeito a preferencia por reducao de movimento
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 [data-theme='dark'] {

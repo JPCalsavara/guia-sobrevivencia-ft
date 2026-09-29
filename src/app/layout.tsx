@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
+import { Analytics } from '@vercel/analytics/next';
 import { Navbar } from '@/components/Navbar/Navbar';
 import { Footer } from '@/components/Footer/Footer';
+import { AccessibilityWidget } from '@/components/AccessibilityWidget/AccessibilityWidget';
 import '@/styles/globals.scss';
 
 export const metadata: Metadata = {
@@ -16,9 +18,16 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" data-theme="light" suppressHydrationWarning>
       <body suppressHydrationWarning>
+        <a href="#main-content" className="skipLink">
+          Pular para o conteúdo principal
+        </a>
         <Navbar />
-        <main>{children}</main>
+        <main id="main-content" tabIndex={-1}>
+          {children}
+        </main>
         <Footer />
+        <AccessibilityWidget />
+        <Analytics />
       </body>
     </html>
   );
