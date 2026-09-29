@@ -1,0 +1,271 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.wrapper {
+  margin-top: $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+.headerArea {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.headerBadge {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: $radius-full;
+  background-color: var(--ft-blue-soft);
+  color: var(--ft-blue);
+  border: 1px solid var(--ft-blue-border);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.title {
+  font-size: 1.375rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+// Abas de seleção de curso
+.tabButtons {
+  display: flex;
+  gap: $spacing-sm;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: $spacing-xs;
+  overflow-x: auto;
+}
+
+.tabBtn {
+  @include button-base;
+  padding: 0.65rem 1.15rem;
+  border-radius: $radius-md $radius-md 0 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-bottom: none;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: var(--ft-blue);
+    background-color: var(--surface-elevated);
+  }
+
+  &.activeTab {
+    color: var(--ft-blue);
+    font-weight: 800;
+    background-color: var(--surface-color);
+    border-color: var(--border-color);
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.04);
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: var(--surface-color);
+    }
+  }
+}
+
+// Grid de Semestres
+.semestersGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to('xl') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.semesterCard {
+  background-color: var(--surface-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-md;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.semesterHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-md $spacing-lg;
+  background-color: var(--surface-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.semesterTitle {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.creditsBadge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: $radius-full;
+  background-color: var(--ft-blue-soft);
+  color: var(--ft-blue);
+  border: 1px solid var(--ft-blue-border);
+}
+
+.subjectsList {
+  list-style: none;
+  padding: $spacing-sm;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.subjectRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-md;
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-sm;
+  transition: all 0.15s ease;
+
+  &:hover {
+    border-color: var(--ft-blue);
+  }
+}
+
+.subjectInfo {
+  display: flex;
+  align-items: baseline;
+  gap: $spacing-sm;
+  flex: 1;
+  min-width: 0;
+}
+
+.subjectCode {
+  font-family: $font-mono;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--ft-blue);
+  background-color: var(--ft-blue-soft);
+  padding: 0.15rem 0.35rem;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.subjectName {
+  font-size: 0.8125rem;
+  color: var(--text-primary);
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.subjectMeta {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  flex-shrink: 0;
+}
+
+.subjectCredits {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.typeTag {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.1rem 0.35rem;
+  border-radius: $radius-sm;
+
+  &.eletiva {
+    background-color: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fde68a;
+  }
+
+  &.extensao {
+    background-color: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+  }
+
+  &.pratica {
+    background-color: #f3e8ff;
+    color: #6b21a8;
+    border: 1px solid #e9d5ff;
+  }
+}
+
+// Callouts de regras de eletivas e estágio
+.curriculumCallout {
+  padding: $spacing-lg;
+  border-radius: $radius-md;
+  background-color: var(--surface-color);
+  border-left: 4px solid var(--ft-blue);
+  border-top: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+
+  h4 {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: $spacing-xs;
+  }
+
+  p {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  ul {
+    margin-top: $spacing-xs;
+    padding-left: $spacing-md;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    li {
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+  }
+}
