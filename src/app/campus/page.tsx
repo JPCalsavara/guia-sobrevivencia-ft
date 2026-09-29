@@ -11,7 +11,9 @@ import {
   Bus,
   Users2,
   ExternalLink,
-  Monitor
+  Monitor,
+  Printer,
+  Wifi
 } from 'lucide-react';
 import styles from './campus.module.scss';
 
@@ -143,6 +145,116 @@ export default function CampusPage() {
                 <span>Acessar Moodle Unicamp</span>
                 <ExternalLink size={14} />
               </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Cota de Impressão, WifiPrint e Laboratórios da DTIC */}
+      <section className={styles.sectionBlock}>
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <Printer size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>Laboratórios de Ensino, Cota de Impressão e WifiPrint</h2>
+              <p className={styles.cardSubtitle}>
+                Como imprimir documentos pelo celular ou notebook, locais das impressoras e cota mensal da DTIC
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.roomsGrid}>
+            <div className={styles.roomCard}>
+              <span className={styles.badgeNetwork}>Requer Rede Wi-Fi da FT</span>
+              <h3 className={styles.roomCardTitle}>Como Funciona o WifiPrint</h3>
+              <p className={styles.roomCardText}>
+                O serviço WifiPrint permite enviar arquivos para impressão diretamente do seu aparelho conectado à rede sem fio local.
+              </p>
+              <ol className={styles.stepList}>
+                <li><strong>Conexão:</strong> Conecte-se à rede sem fio Wifi_FT ou à rede Eduroam no campus da FT. Fora da rede o serviço não responde.</li>
+                <li><strong>Acesso:</strong> Leia o QR Code afixado no totem ao lado das impressoras ou acesse o endereço oficial wifiprint.</li>
+                <li><strong>Envio:</strong> Faça upload do arquivo em PDF ou texto e defina a quantidade de cópias.</li>
+                <li><strong>Padrão:</strong> Todas as impressões são feitas exclusivamente em preto e branco.</li>
+              </ol>
+              <div className={styles.buttonRow}>
+                <a
+                  href="https://www.ft.unicamp.br/wifiprint"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.actionBtn}
+                >
+                  <Wifi size={14} />
+                  <span>Acessar WifiPrint FT</span>
+                  <ExternalLink size={12} />
+                </a>
+              </div>
+            </div>
+
+            <div className={styles.roomCard}>
+              <span className={styles.badgeQuota}>Renovação Mensal</span>
+              <h3 className={styles.roomCardTitle}>Cota Mensal de Impressão</h3>
+              <p className={styles.roomCardText}>
+                Todo estudante regularmente matriculado na Faculdade de Tecnologia possui direito a uma cota de páginas mensais para trabalhos acadêmicos.
+              </p>
+              <ol className={styles.stepList}>
+                <li><strong>Créditos Automáticos:</strong> Todo primeiro dia do mês a cota é creditada automaticamente.</li>
+                <li><strong>Início do Ano Letivo:</strong> A cota é reiniciada para o valor inicial de 15 páginas.</li>
+                <li><strong>Consulta de Saldo:</strong> O saldo de páginas restantes pode ser verificado em tempo real na Intranet FT.</li>
+                <li><strong>Conta de Acesso:</strong> O login utiliza as credenciais cadastradas na informática da faculdade.</li>
+              </ol>
+              <div className={styles.buttonRow}>
+                <a
+                  href="https://sistemas.ft.unicamp.br/intranet"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${styles.actionBtn} ${styles.green}`}
+                >
+                  <span>Consultar Cota na Intranet</span>
+                  <ExternalLink size={12} />
+                </a>
+                <a
+                  href="https://wordpress.ft.unicamp.br/informatica/cota-de-impressao/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.actionBtn}
+                >
+                  <span>Normas da Cota</span>
+                  <ExternalLink size={12} />
+                </a>
+              </div>
+            </div>
+
+            <div className={styles.roomCard}>
+              <span className={styles.galleryTag}>DTIC e Espaços</span>
+              <h3 className={styles.roomCardTitle}>Locais e Portal da Informática</h3>
+              <p className={styles.roomCardText}>
+                As impressoras estão alocadas nos laboratórios de ensino da FT, identificados como LP01, LP02, LP03, LP09 e LP10.
+              </p>
+              <ol className={styles.stepList}>
+                <li><strong>Laboratórios:</strong> Ambientes de informática equipados para aulas práticas e estudo livre nos intervalos.</li>
+                <li><strong>Agendamento de Salas:</strong> O portal da DTIC disponibiliza informações sobre ocupação de salas de aula e anfiteatros.</li>
+                <li><strong>Fretado e Suporte:</strong> Orientações sobre o fretado intercampi, troca de senhas e instalação de programas.</li>
+              </ol>
+              <div className={styles.buttonRow}>
+                <a
+                  href="https://wordpress.ft.unicamp.br/informatica/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.actionBtn}
+                >
+                  <span>Portal DTIC Informática</span>
+                  <ExternalLink size={12} />
+                </a>
+                <a
+                  href="https://sistemas.ft.unicamp.br/salas"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.actionBtn}
+                >
+                  <span>Alocação de Salas</span>
+                  <ExternalLink size={12} />
+                </a>
+              </div>
             </div>
           </div>
         </div>

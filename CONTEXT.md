@@ -17,6 +17,12 @@
 - **Modo Escuro:** Alternativa noturna disponível mediante acionamento manual do usuário.
 - **Hero Section de Primeira Dobra:** Seção inicial da página que preenche integralmente a altura da janela junto com o cabeçalho.
 
+### Dados e Conformidade
+- **Fonte Canônica Oficial:** Portal, sistema ou canal mantido diretamente pela universidade, faculdade ou prefeitura responsável pela publicação de informações em tempo real.
+- **Navegação Acessível:** Implementação de interface conforme as diretrizes WCAG nível AA, operável por teclado e tecnologias assistivas.
+
 ## Decisões Arquiteturais Registradas
 - **ADR-0001:** Estilo textual sem marcas artificiais de escrita, com proibição de travessões, parênteses circulares e emojis decorativos.
 - **ADR-0002:** Todos os itens têm responsividade mobile obrigatória em qualquer tela ou dispositivo.
+- **ADR-0003:** Acessibilidade digital em conformidade com WCAG nível AA em todos os componentes e fluxos de navegação.
+- **ADR-0004:** Desacoplamento de dados voláteis e direcionamento exclusivo para fontes canônicas oficiais.

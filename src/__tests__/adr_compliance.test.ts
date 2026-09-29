@@ -64,6 +64,8 @@ describe('Conformidade com ADR 0001: Ausência de Travessão, Parênteses e Emoj
     const docs = [
       'docs/adr/0001-estilo-textual-sem-marcas-artificiais.md',
       'docs/adr/0002-responsividade-mobile-first.md',
+      'docs/adr/0003-acessibilidade-digital-wcag.md',
+      'docs/adr/0004-desacoplamento-de-informacoes-volateis.md',
       'CONTEXT.md'
     ];
     docs.forEach((docPath) => {

@@ -17,16 +17,19 @@ Compilação completa e categorizada de todos os links institucionais da Unicamp
 
 ---
 
-## 2. Faculdade de Tecnologia (FT Unicamp) — Portais e Infraestrutura
+## 2. Faculdade de Tecnologia FT: Portais e Infraestrutura
 
 | Sistema / Recurso | Descrição | Link Oficial |
 | :--- | :--- | :--- |
 | **Portal Oficial da FT** | Notícias, eventos, secretarias e corpo docente da FT | [ft.unicamp.br](https://www.ft.unicamp.br) |
 | **Intranet FT** | Portal interno com serviços acadêmicos, notas e dados | [sistemas.ft.unicamp.br/intranet](https://sistemas.ft.unicamp.br/intranet) |
 | **Alocação e Reserva de Salas** | Consulta em tempo real de ocupação de salas de aula e anfiteatros | [sistemas.ft.unicamp.br/salas](https://sistemas.ft.unicamp.br/salas) |
-| **TIC (Tecnologia da Informação)** | Coordenadoria de TI, labs de informática, contas e impressões | [ft.unicamp.br/tic](https://www.ft.unicamp.br/tic) |
-| **Catálogo de Cursos (BSI)** | Grade, ementas e critérios de integralização de Sistemas de Informação | [Catálogo BSI DAC](https://www.dac.unicamp.br/portal/graduacao/cursos/sistemas-de-informacao) |
-| **Catálogo de Cursos (TADS)** | Grade, ementas e critérios de Análise e Desenvolvimento de Sistemas | [Catálogo TADS DAC](https://www.dac.unicamp.br/portal/graduacao/cursos/analise-e-desenvolvimento-de-sistemas) |
+| **TIC Tecnologia da Informação** | Coordenadoria de TI, labs de informática e contas | [ft.unicamp.br/tic](https://www.ft.unicamp.br/tic) |
+| **WifiPrint FT** | Envio de impressões em preto e branco conectado na rede da FT | [ft.unicamp.br/wifiprint](https://www.ft.unicamp.br/wifiprint) |
+| **Cota de Impressão DTIC** | Normas e renovação mensal de 15 páginas nos laboratórios | [wordpress.ft.unicamp.br/informatica/cota-de-impressao](https://wordpress.ft.unicamp.br/informatica/cota-de-impressao/) |
+| **Portal DTIC Informática** | Estrutura de laboratórios LP01 a LP10, salas e fretado | [wordpress.ft.unicamp.br/informatica](https://wordpress.ft.unicamp.br/informatica/) |
+| **Catálogo de Cursos BSI** | Grade, ementas e critérios de integralização de Sistemas de Informação | [Catálogo BSI DAC](https://www.dac.unicamp.br/portal/graduacao/cursos/sistemas-de-informacao) |
+| **Catálogo de Cursos TADS** | Grade, ementas e critérios de Análise e Desenvolvimento de Sistemas | [Catálogo TADS DAC](https://www.dac.unicamp.br/portal/graduacao/cursos/analise-e-desenvolvimento-de-sistemas) |
 
 ---
 
