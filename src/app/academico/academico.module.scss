@@ -431,3 +431,65 @@
   white-space: pre-wrap;
   background-color: var(--surface-elevated);
 }
+
+.refLinksGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+  margin-top: $spacing-xl;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.refCard {
+  background-color: var(--surface-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-md;
+  padding: $spacing-lg;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: $spacing-sm;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: var(--ft-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+}
+
+.refCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-sm;
+}
+
+.refCardTitle {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+}
+
+.refCardDesc {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.refCardMeta {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ft-blue);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+

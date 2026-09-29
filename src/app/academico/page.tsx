@@ -17,7 +17,8 @@ import {
   Check,
   CheckCircle2,
   Clock,
-  FileText
+  FileText,
+  Award
 } from 'lucide-react';
 import { useClipboardCopy } from '@/hooks/useClipboardCopy';
 import styles from './academico.module.scss';
@@ -322,6 +323,41 @@ export default function AcademicoPage() {
           </div>
 
           <h3 className={styles.categoryTitle}>
+            <Award size={18} />
+            Seleção por Nota: CR, Reprovações e Distribuição de Bolsas
+          </h3>
+
+          <div className={styles.rulesGrid}>
+            <div className={styles.ruleCard}>
+              <h4 className={styles.ruleTitle}>Composição da Nota no Edital PIBIC</h4>
+              <p className={styles.ruleText}>
+                A Pró-Reitoria de Pesquisa avalia as propostas com base em três pilares ponderados: o mérito acadêmico do estudante calculado pelo Coeficiente de Rendimento, a qualidade e viabilidade do plano de pesquisa de doze meses, e o currículo Lattes do docente orientador. A combinação dessas notas gera a classificação final do projeto.
+              </p>
+            </div>
+
+            <div className={styles.ruleCard}>
+              <h4 className={styles.ruleTitle}>A Linha de Corte das Bolsas Pagas</h4>
+              <p className={styles.ruleText}>
+                As cotas financeiras de bolsas custeadas pelo CNPq e pela Unicamp são limitadas. Elas são concedidas aos projetos com as maiores pontuações no ranking geral até o esgotamento do orçamento disponível para cada faculdade e grande área do conhecimento.
+              </p>
+            </div>
+
+            <div className={styles.ruleCard}>
+              <h4 className={styles.ruleTitle}>Bolsa Remunerada versus Modalidade Voluntária</h4>
+              <p className={styles.ruleText}>
+                Quando uma proposta possui mérito científico aprovado pela comissão avaliadora mas a nota combinada não atinge a linha de corte das bolsas remuneradas, o projeto é contemplado na modalidade Iniciação Científica Voluntária. O estudante executa a pesquisa normalmente, recebe certificado oficial emitido pela Unicamp e valida créditos curriculares, apenas sem a remuneração mensal.
+              </p>
+            </div>
+
+            <div className={styles.ruleCard}>
+              <h4 className={styles.ruleTitle}>Impacto de Reprovações no PIBIC e FAPESP</h4>
+              <p className={styles.ruleText}>
+                No PIBIC, reprovações recentes ou por falta penalizam a pontuação do componente acadêmico do candidato, derrubando a colocação no ranking e podendo tirar a bolsa remunerada. Na FAPESP, o critério é ainda mais severo: reprovações não justificadas em disciplinas ou rendimento escolar mediano levam com frequência à rejeição sumária da solicitação de bolsa, pois a agência exige histórico de excelência continuada.
+              </p>
+            </div>
+          </div>
+
+          <h3 className={styles.categoryTitle}>
             <FileText size={18} />
             Preparação, Escolha do Tema e Linhas de Pesquisa
           </h3>
@@ -374,6 +410,104 @@ export default function AcademicoPage() {
               </button>
             </div>
             <pre className={styles.emailPre}>{emailTemplateText}</pre>
+          </div>
+
+          {/* Fontes Oficiais e Referências */}
+          <h3 className={styles.categoryTitle} style={{ marginTop: '2.5rem' }}>
+            <ExternalLink size={18} />
+            Fontes Oficiais e Regulamentações da Pesquisa
+          </h3>
+
+          <div className={styles.refLinksGrid}>
+            <a
+              href="https://www.prp.unicamp.br/pibic"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.refCard}
+            >
+              <div className={styles.refCardHeader}>
+                <span className={styles.refCardTitle}>
+                  Portal PIBIC da Pró-Reitoria de Pesquisa
+                </span>
+                <ExternalLink size={16} />
+              </div>
+              <p className={styles.refCardDesc}>
+                Editais oficiais anuais do PIBIC e PIBITI na Unicamp, cronogramas de inscrição, critérios de avaliação de mérito e modelos de relatórios parciais e finais.
+              </p>
+              <span className={styles.refCardMeta}>prp.unicamp.br/pibic</span>
+            </a>
+
+            <a
+              href="https://fapesp.br/bolsas/ic"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.refCard}
+            >
+              <div className={styles.refCardHeader}>
+                <span className={styles.refCardTitle}>
+                  Normas de Iniciação Científica da FAPESP
+                </span>
+                <ExternalLink size={16} />
+              </div>
+              <p className={styles.refCardDesc}>
+                Instruções para bolsas de IC, exigências de dedicação exclusiva, valores mensais vigentes, reserva técnica e critérios de análise do histórico escolar.
+              </p>
+              <span className={styles.refCardMeta}>fapesp.br/bolsas/ic</span>
+            </a>
+
+            <a
+              href="https://sage.fapesp.br"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.refCard}
+            >
+              <div className={styles.refCardHeader}>
+                <span className={styles.refCardTitle}>
+                  Sistema SAGe FAPESP
+                </span>
+                <ExternalLink size={16} />
+              </div>
+              <p className={styles.refCardDesc}>
+                Plataforma oficial para submissão contínua de projetos de pesquisa, cadastro de orientadores e estudantes, envio de documentação e acompanhamento de pareceres.
+              </p>
+              <span className={styles.refCardMeta}>sage.fapesp.br</span>
+            </a>
+
+            <a
+              href="https://www.ft.unicamp.br/pesquisa"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.refCard}
+            >
+              <div className={styles.refCardHeader}>
+                <span className={styles.refCardTitle}>
+                  Comissão de Pesquisa da FT Unicamp
+                </span>
+                <ExternalLink size={16} />
+              </div>
+              <p className={styles.refCardDesc}>
+                Página da Comissão de Pesquisa da Faculdade de Tecnologia, contendo o registro de projetos de pesquisa voluntária, laboratórios locais e suporte docente.
+              </p>
+              <span className={styles.refCardMeta}>ft.unicamp.br/pesquisa</span>
+            </a>
+
+            <a
+              href="https://www.gov.br/cnpq"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.refCard}
+            >
+              <div className={styles.refCardHeader}>
+                <span className={styles.refCardTitle}>
+                  Normas do CNPq sobre Bolsas e Estágio
+                </span>
+                <ExternalLink size={16} />
+              </div>
+              <p className={styles.refCardDesc}>
+                Resolução Normativa 017 de 2006 e Portaria Conjunta CAPES e CNPq 1 de 2023, que regulamentam a possibilidade de acúmulo de bolsa de IC com estágio profissional remunerado.
+              </p>
+              <span className={styles.refCardMeta}>gov.br/cnpq</span>
+            </a>
           </div>
         </div>
       </section>
