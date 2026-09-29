@@ -1,0 +1,5 @@
+npm run vectorize
+if git diff --name-only | grep -q "src/data/searchIndex.ts"; then
+  git add src/data/searchIndex.ts
+fi
+npm test
