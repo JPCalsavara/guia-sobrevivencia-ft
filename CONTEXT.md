@@ -20,6 +20,7 @@
 ### Dados e Conformidade
 - **Fonte Canônica Oficial:** Portal, sistema ou canal mantido diretamente pela universidade, faculdade ou prefeitura responsável pela publicação de informações em tempo real.
 - **Navegação Acessível:** Implementação de interface conforme as diretrizes WCAG nível AA, operável por teclado e tecnologias assistivas.
+- **Painel de Acessibilidade Ativa:** Módulo interativo com botão flutuante que disponibiliza adaptação de contraste para daltonismo, redimensionamento de fontes em degraus e acionamento de tradução em Língua Brasileira de Sinais.
 
 ## Decisões Arquiteturais Registradas
 - **ADR-0001:** Estilo textual sem marcas artificiais de escrita, com proibição de travessões, parênteses circulares e emojis decorativos.
