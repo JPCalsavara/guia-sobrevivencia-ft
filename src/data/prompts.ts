@@ -14,7 +14,7 @@ Regras importantes:
 - Caso o plano cite semanas em vez de datas exatas, estime a data a partir da data de início das aulas do semestre vigente.
 - Mantenha a saída limpa e direta para que o arquivo ics possa ser salvo e importado no Google Agenda ou Apple Calendar.`;
 
-export const latexResumeTemplate = `% Modelo baseado no devcelio/resume-template
+export const latexResumeTemplate = String.raw`% Modelo baseado no devcelio/resume-template
 % Adaptado para estudantes da Faculdade de Tecnologia da Unicamp
 \\documentclass[a4paper,10pt]{article}
 

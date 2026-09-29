@@ -18,7 +18,10 @@ import {
   CheckCircle2,
   Clock,
   FileText,
-  Award
+  Award,
+  Moon,
+  Calculator,
+  Globe
 } from 'lucide-react';
 import { useClipboardCopy } from '@/hooks/useClipboardCopy';
 import styles from './academico.module.scss';
@@ -117,6 +120,13 @@ export default function AcademicoPage() {
                 Cada crédito na Unicamp corresponde a quinze horas de atividades ao longo do semestre letivo. Uma matéria com quatro créditos representa sessenta horas de dedicação semestral, distribuídas em quatro horas semanais de aula.
               </p>
             </div>
+
+            <div className={styles.ruleCard}>
+              <h3 className={styles.ruleTitle}>Matrícula Semestral e Turmas</h3>
+              <p className={styles.ruleText}>
+                Durante o período de inscrição em disciplinas, a escolha da turma correta depende da consulta ao Caderno de Horários da DAC. É nesse portal que você pesquisa cada disciplina ofertada para verificar as opções disponíveis e identificar qual turma corresponde ao seu curso e período.
+              </p>
+            </div>
           </div>
 
           <div className={styles.eletivasArea}>
@@ -135,6 +145,23 @@ export default function AcademicoPage() {
 
             <div className={styles.gradeLinkBox}>
               <div>
+                <span className={styles.gradeLinkTitle}>Consulta de turmas no Caderno de Horários da DAC</span>
+                <span className={styles.gradeLinkDesc}>No momento de fazer sua matrícula, acesse este portal para pesquisar as disciplinas e conferir qual é a sua turma</span>
+              </div>
+              <a
+                href="https://www.dac.unicamp.br/portal/caderno-de-horarios/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.gradeButton}
+                aria-label="Acessar Caderno de Horários da DAC em nova janela"
+              >
+                <span>Caderno de Horários</span>
+                <ExternalLink size={14} aria-hidden="true" />
+              </a>
+            </div>
+
+            <div className={styles.gradeLinkBox} style={{ marginTop: '1rem' }}>
+              <div>
                 <span className={styles.gradeLinkTitle}>Acompanhe seu histórico oficial na Grade DAC Online</span>
                 <span className={styles.gradeLinkDesc}>Consulte quais créditos já foram validados e o que falta integralizar</span>
               </div>
@@ -143,10 +170,56 @@ export default function AcademicoPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.gradeButton}
+                aria-label="Acessar Grade DAC Online em nova janela"
               >
                 <span>Acessar Grade DAC</span>
-                <ExternalLink size={14} />
+                <ExternalLink size={14} aria-hidden="true" />
               </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Sobrevivência em Cálculo I e Geometria Analítica */}
+      <section className={styles.sectionBlock}>
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <Calculator size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>Sobrevivência em Cálculo I e Geometria Analítica</h2>
+              <p className={styles.cardSubtitle}>
+                Método prático em quatro etapas para superar as maiores taxas de reprovação do primeiro ano
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.rulesGrid}>
+            <div className={styles.ruleCard}>
+              <h3 className={styles.ruleTitle}>1. Plantões Semanais de PAD e PED na FT</h3>
+              <p className={styles.ruleText}>
+                A faculdade disponibiliza monitores do Programa de Apoio Didático, alunos veteranos com excelente rendimento, e do Programa de Estágio Docente, alunos de pós-graduação. Comparecer semanalmente aos plantões tira dúvidas acumuladas e treina a resolução detalhada de exercícios antes das semanas de prova.
+              </p>
+            </div>
+
+            <div className={styles.ruleCard}>
+              <h3 className={styles.ruleTitle}>2. O Banco de Provas Antigas do CDI</h3>
+              <p className={styles.ruleText}>
+                O estilo de cobrança dos professores da FT costuma seguir padrões consolidados ao longo dos anos. Obtenha as provas dos últimos três a cinco semestres com o Centro Acadêmico CDI ou com veteranos para simular o tempo de resolução e o formato exato das questões cobradas.
+              </p>
+            </div>
+
+            <div className={styles.ruleCard}>
+              <h3 className={styles.ruleTitle}>3. A Regra das Quarenta e Oito Horas</h3>
+              <p className={styles.ruleText}>
+                Cálculo diferencial e álgebra linear exigem memória muscular e intuição algébrica. A melhor estratégia é resolver a lista de exercícios indicada pelo professor em até quarenta e oito horas após a aula teórica, evitando o acúmulo de matérias na véspera da avaliação.
+              </p>
+            </div>
+
+            <div className={styles.ruleCard}>
+              <h3 className={styles.ruleTitle}>4. Videoaulas Didáticas e Simulados no NotebookLM</h3>
+              <p className={styles.ruleText}>
+                Utilize canais didáticos focados no passo a passo das equações, como Professor Aquino e Grings, para destravar dúvidas pontuais. Além disso, submeta o texto das listas de exercícios e suas anotações ao Google NotebookLM para gerar simulados e questionários interativos de autoavaliação.
+              </p>
             </div>
           </div>
         </div>
@@ -315,6 +388,51 @@ export default function AcademicoPage() {
               <h3 className={styles.pointTitle}>Como Estender a Graduação com Segurança</h3>
               <p className={styles.pointDesc}>
                 O catálogo de Sistemas de Informação estabelece prazo padrão de oito semestres e teto máximo de quatorze semestres. Para TADS, o prazo padrão é de seis semestres e o teto é de dez semestres. Há ampla margem antes de risco de jubilamento. Desacelerar a matrícula para duas ou três matérias por semestre viabiliza um estágio diurno de alto rendimento sem esgotamento mental.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Transição para o Noturno no BSI */}
+      <section className={styles.sectionBlock}>
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <Moon size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>Transição para o Noturno no BSI: Como Concluir em Quatro Anos</h2>
+              <p className={styles.cardSubtitle}>
+                Estratégias com equivalências em TADS, adiantamento de matérias e os alertas reais de sobrecarga
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.rulesGrid}>
+            <div className={styles.ruleCard}>
+              <h3 className={styles.ruleTitle}>Equivalências Oficiais com TADS no Noturno</h3>
+              <p className={styles.ruleText}>
+                Disciplinas estruturantes como Bancos de Dados, Engenharia de Software, Redes de Computadores e Programação Web possuem turmas equivalentes noturnas em TADS. No período de alteração de matrícula do e-DAC, o estudante de BSI pode solicitar matrícula nessas turmas noturnas para liberar o período diurno para o estágio.
+              </p>
+            </div>
+
+            <div className={styles.ruleCard}>
+              <h3 className={styles.ruleTitle}>Adiantamento de Créditos no Ciclo Básico</h3>
+              <p className={styles.ruleText}>
+                Para esvaziar a grade diurna a partir do quinto semestre sem prorrogar a graduação, é fundamental adiantar matérias nos primeiros quatro semestres e cursar eletivas noturnas na FT ou na FCA. Manter o CR alto garante prioridade no e-DAC para conquistar vagas concorridas nas turmas noturnas.
+              </p>
+            </div>
+
+            <div className={styles.ruleCard}>
+              <h3 className={styles.ruleTitle}>O Gargalo das Matérias Exclusivas de BSI</h3>
+              <p className={styles.ruleText}>
+                Determinadas disciplinas obrigatórias do catálogo de BSI não possuem correspondente noturna em TADS e só são ofertadas durante o dia, como matérias de governança de TI, cálculo numérico ou modelagem avançada. O aluno precisará planejar com antecedência para cursá-las em horários com janela livre ou alinhar acordos de presença e horários flexíveis com a empresa de estágio.
+              </p>
+            </div>
+
+            <div className={styles.ruleCard}>
+              <h3 className={styles.ruleTitle}>O Alerta Realista: Sobrecarga e Rotina</h3>
+              <p className={styles.ruleText}>
+                Cursar todas as matérias restantes exclusivamente à noite e concluir em quatro anos significa encarar cinco a seis disciplinas por semestre das dezenove às vinte e duas horas e trinta minutos, logo após seis a oito horas diárias de estágio corporativo. É uma rotina pesada que exige planejamento de saúde e foco aos fins de semana.
               </p>
             </div>
           </div>
@@ -631,6 +749,82 @@ export default function AcademicoPage() {
                 Resolução Normativa 017 de 2006 e Portaria Conjunta CAPES e CNPq 1 de 2023, que regulamentam a possibilidade de acúmulo de bolsa de IC com estágio profissional remunerado.
               </p>
               <span className={styles.refCardMeta}>gov.br/cnpq</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Editais da DERI e Bolsas de Intercâmbio */}
+      <section className={styles.sectionBlock}>
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <Globe size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>Editais da DERI: Como Conseguir Bolsas de Intercâmbio</h2>
+              <p className={styles.cardSubtitle}>
+                Oportunidades de mobilidade internacional financiadas pela Unicamp mesmo em cenários de oscilação da BAPE
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.rulesGrid}>
+            <div className={styles.ruleCard}>
+              <h3 className={styles.ruleTitle}>Bolsas Santander de Mobilidade Internacional</h3>
+              <p className={styles.ruleText}>
+                Editais anuais concorridos promovidos em parceria com o Santander Universidades, como o Santander Graduação e Top Espanha. Concedem auxílio financeiro direto em dinheiro e passagens para alunos com bom histórico acadêmico realizarem intercâmbio de um semestre ou cursos intensivos de idioma e cultura.
+              </p>
+            </div>
+
+            <div className={styles.ruleCard}>
+              <h3 className={styles.ruleTitle}>Programa Erasmus Mais com a Europa</h3>
+              <p className={styles.ruleText}>
+                Editais vinculados a fundos da União Europeia em parceria com universidades de Portugal, Espanha, França e Alemanha. As bolsas oferecem repasses mensais em euros para custeio de moradia e alimentação, além de isenção total das taxas escolares na instituição europeia.
+              </p>
+            </div>
+
+            <div className={styles.ruleCard}>
+              <h3 className={styles.ruleTitle}>Rede AUGM: Mobilidade na América Latina</h3>
+              <p className={styles.ruleText}>
+                O Programa Escala Estudantil da Associação de Universidades do Grupo Montevidéu reúne universidades de destaque na Argentina, Uruguai, Chile, Paraguai e Bolívia. A universidade receptora assume o compromisso de garantir acomodação e alimentação gratuitas ao estudante durante todo o intercâmbio.
+              </p>
+            </div>
+
+            <div className={styles.ruleCard}>
+              <h3 className={styles.ruleTitle}>Acordos Bilaterais com Isenção de Mensalidades</h3>
+              <p className={styles.ruleText}>
+                A Unicamp mantém centenas de convênios diretos com universidades na América do Norte, Europa e Ásia. Mesmo nos editais sem ajuda de custo mensal, o estudante fica totalmente isento das mensalidades acadêmicas que costumam custar milhares de dólares por período no exterior.
+              </p>
+            </div>
+
+            <div className={styles.ruleCard}>
+              <h3 className={styles.ruleTitle}>Como Preparar um Perfil Altamente Competitivo</h3>
+              <p className={styles.ruleText}>
+                Os editais da DERI classificam os candidatos principalmente pelo Coeficiente de Rendimento, sendo recomendado manter CR superior a sete zero ou sete cinco, e pelo Coeficiente de Progressão entre quarenta e oitenta por cento. A proficiência em idioma estrangeiro pode ser comprovada por testes gratuitos ou subsidiados realizados no Centro de Ensino de Línguas da Unicamp.
+              </p>
+            </div>
+
+            <div className={styles.ruleCard}>
+              <h3 className={styles.ruleTitle}>Acompanhamento Contínuo de Editais</h3>
+              <p className={styles.ruleText}>
+                Os editais abrem ao longo de todo o ano letivo com janelas específicas para cada hemisfério e universidade parceira. Acesse com frequência o portal da DERI e cadastre-se nos boletins informativos da Diretoria para não perder os prazos de inscrição.
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.gradeLinkBox} style={{ marginTop: '1.5rem' }}>
+            <div>
+              <span className={styles.gradeLinkTitle}>Portal Oficial da Diretoria Executiva de Relações Internacionais DERI</span>
+              <span className={styles.gradeLinkDesc}>Consulte os editais abertos, convênios vigentes e calendários de inscrição de intercâmbio</span>
+            </div>
+            <a
+              href="https://www.internationaloffice.unicamp.br/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.gradeButton}
+              aria-label="Acessar portal da DERI em nova janela"
+            >
+              <span>Acessar Portal DERI</span>
+              <ExternalLink size={14} aria-hidden="true" />
             </a>
           </div>
         </div>
