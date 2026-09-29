@@ -25,6 +25,7 @@ import {
   Users
 } from 'lucide-react';
 import { useClipboardCopy } from '@/hooks/useClipboardCopy';
+import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
 import { padComparisonData } from '@/data/academic';
 import styles from './academico.module.scss';
 
@@ -61,6 +62,91 @@ Atenciosamente,
 [Seu Nome Completo]
 RA: [Seu RA]
 E-mail: [seu.email]@dac.unicamp.br`;
+
+const academicTopics: TopicItem[] = [
+  {
+    id: 'bsi-vs-tads',
+    title: 'BSI versus TADS',
+    subtopics: [
+      { id: 'bsi-vs-tads', title: 'Matriz Comparativa' },
+    ],
+  },
+  {
+    id: 'coeficientes-dac',
+    title: 'Coeficientes e Métricas DAC',
+    subtopics: [
+      { id: 'coeficientes-metricas', title: 'CR, CP e Vetores Horários' },
+      { id: 'coeficientes-eletivas', title: 'Eletivas do Catálogo e Livres' },
+    ],
+  },
+  {
+    id: 'calculo-geometria',
+    title: 'Cálculo I e Geometria Analítica',
+    subtopics: [
+      { id: 'calculo-plantoes', title: 'Plantões PAD e Provas Antigas' },
+      { id: 'calculo-metodologia', title: 'Regra 48h e Simulados com IA' },
+    ],
+  },
+  {
+    id: 'checklist-formatura',
+    title: 'Checklist de Formatura',
+    subtopics: [
+      { id: 'checklist-formatura', title: 'Etapas de Integralização' },
+    ],
+  },
+  {
+    id: 'monitoria-pad',
+    title: 'Monitoria PAD na FT',
+    subtopics: [
+      { id: 'pad-requisitos', title: 'Requisitos e Atribuições' },
+      { id: 'pad-comparativo', title: 'Remunerada versus Voluntária' },
+      { id: 'pad-cronograma', title: 'Ciclo Semestral e Cronograma' },
+      { id: 'pad-email', title: 'Modelo de E-mail de Contato' },
+    ],
+  },
+  {
+    id: 'horas-extensao',
+    title: 'Horas e Extensão',
+    subtopics: [
+      { id: 'horas-conceitos', title: 'Complementares versus Extensão' },
+      { id: 'horas-regulamentos', title: 'Regulamentos Oficiais em PDF' },
+    ],
+  },
+  {
+    id: 'estrategia-carreira',
+    title: 'Estratégia e Estágio',
+    subtopics: [
+      { id: 'estrategia-carreira', title: 'Lei do Estágio e Formatura' },
+    ],
+  },
+  {
+    id: 'noturno-bsi',
+    title: 'Transição Noturno no BSI',
+    subtopics: [
+      { id: 'noturno-bsi', title: 'Equivalências TADS e Rotina' },
+    ],
+  },
+  {
+    id: 'iniciacao-cientifica',
+    title: 'Iniciação Científica',
+    subtopics: [
+      { id: 'ic-cronograma', title: 'Linha do Tempo Anual' },
+      { id: 'ic-modalidades', title: 'PIBIC, FAPESP e Voluntária' },
+      { id: 'ic-selecao', title: 'Critérios de Avaliação e Linha de Corte' },
+      { id: 'ic-contato', title: 'Mapeamento e Modelo de Contato' },
+    ],
+  },
+  {
+    id: 'intercambio-deri',
+    title: 'Intercâmbio e Editais DERI',
+    subtopics: [
+      { id: 'intercambio-fluxo', title: 'Fluxo em Seis Fases' },
+      { id: 'intercambio-diferenciais', title: 'Diferenciais para Aprovação' },
+      { id: 'intercambio-potsdam', title: 'Estudo de Caso Edital Potsdam' },
+      { id: 'intercambio-bolsas', title: 'Modalidades de Bolsas' },
+    ],
+  },
+];
 
 export default function AcademicoPage() {
   const { copied: icCopied, copy: copyIcEmail } = useClipboardCopy();
@@ -110,10 +196,17 @@ export default function AcademicoPage() {
         </motion.div>
       </section>
 
-      {/* BSI vs TADS */}
-      <section id="bsi-vs-tads" className={styles.sectionBlock}>
-        <TableBsiTads />
-      </section>
+      {/* Conteúdo com Barra Lateral Esquerda */}
+      <div className={styles.contentWithSidebar}>
+        <aside>
+          <DocSidebar topics={academicTopics} />
+        </aside>
+
+        <div className={styles.mainContentArea}>
+          {/* BSI vs TADS */}
+          <section id="bsi-vs-tads" className={styles.sectionBlock}>
+            <TableBsiTads />
+          </section>
 
       {/* Regras da DAC e Coeficientes */}
       <section id="coeficientes-dac" className={styles.sectionBlock}>
@@ -128,7 +221,7 @@ export default function AcademicoPage() {
             </div>
           </div>
 
-          <div className={styles.rulesGrid}>
+          <div id="coeficientes-metricas" className={styles.rulesGrid}>
             <div className={styles.ruleCard}>
               <h3 className={styles.ruleTitle}>CR, Coeficiente de Rendimento</h3>
               <p className={styles.ruleText}>
@@ -165,7 +258,7 @@ export default function AcademicoPage() {
             </div>
           </div>
 
-          <div className={styles.eletivasArea}>
+          <div id="coeficientes-eletivas" className={styles.eletivasArea}>
             <h3 className={styles.eletivasTitle}>Eletivas do Catálogo versus Eletivas Livres</h3>
             <p className={styles.eletivasDesc}>
               Para se formar, você precisará cumprir créditos eletivos além das disciplinas obrigatórias:
@@ -217,7 +310,7 @@ export default function AcademicoPage() {
       </section>
 
       {/* Sobrevivência em Cálculo I e Geometria Analítica */}
-      <section className={styles.sectionBlock}>
+      <section id="calculo-geometria" className={styles.sectionBlock}>
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <Calculator size={22} className={styles.headerIcon} />
@@ -230,7 +323,7 @@ export default function AcademicoPage() {
           </div>
 
           <div className={styles.rulesGrid}>
-            <div className={styles.ruleCard}>
+            <div id="calculo-plantoes" className={styles.ruleCard}>
               <h3 className={styles.ruleTitle}>1. Plantões Semanais de PAD e PED na FT</h3>
               <p className={styles.ruleText}>
                 A faculdade disponibiliza monitores do Programa de Apoio Didático, alunos veteranos com excelente rendimento, e do Programa de Estágio Docente, alunos de pós-graduação. Comparecer semanalmente aos plantões tira dúvidas acumuladas e treina a resolução detalhada de exercícios antes das semanas de prova.
@@ -244,7 +337,7 @@ export default function AcademicoPage() {
               </p>
             </div>
 
-            <div className={styles.ruleCard}>
+            <div id="calculo-metodologia" className={styles.ruleCard}>
               <h3 className={styles.ruleTitle}>3. A Regra das Quarenta e Oito Horas</h3>
               <p className={styles.ruleText}>
                 Cálculo diferencial e álgebra linear exigem memória muscular e intuição algébrica. A melhor estratégia é resolver a lista de exercícios indicada pelo professor em até quarenta e oito horas após a aula teórica, evitando o acúmulo de matérias na véspera da avaliação.
@@ -283,7 +376,7 @@ export default function AcademicoPage() {
             O Programa de Apoio Didático, PAD, gerido pela Pró-Reitoria de Graduação PRG da Unicamp, viabiliza a atuação de estudantes de graduação como monitores acadêmicos em disciplinas curriculares da FT. A monitoria fortalece o aprendizado dos colegas em disciplinas com maior nível de exigência, como Cálculo, Geometria Analítica e Programação, ao mesmo tempo em que desenvolve a didática e o domínio conceitual do próprio monitor.
           </p>
 
-          <div className={styles.rulesGrid} style={{ marginTop: '1.5rem', marginBottom: '2rem' }}>
+          <div id="pad-requisitos" className={styles.rulesGrid} style={{ marginTop: '1.5rem', marginBottom: '2rem' }}>
             <div className={styles.ruleCard}>
               <h3 className={styles.ruleTitle}>Requisitos e Quem Pode Ser Monitor</h3>
               <p className={styles.ruleText}>
@@ -313,7 +406,7 @@ export default function AcademicoPage() {
             </div>
           </div>
 
-          <h3 className={styles.categoryTitle} style={{ marginTop: '1.5rem', marginBottom: '1rem' }}>
+          <h3 id="pad-comparativo" className={styles.categoryTitle} style={{ marginTop: '1.5rem', marginBottom: '1rem' }}>
             <Award size={18} />
             Comparativo: Modalidade com Bolsa versus Modalidade Voluntária
           </h3>
@@ -346,7 +439,7 @@ export default function AcademicoPage() {
           </div>
 
           {/* Etapas do Ciclo PAD com link para Cronograma PRG */}
-          <h3 className={styles.categoryTitle} style={{ marginTop: '2rem' }}>
+          <h3 id="pad-cronograma" className={styles.categoryTitle} style={{ marginTop: '2rem' }}>
             <Calendar size={18} />
             Etapas do Ciclo Semestral e Cronograma da PRG
           </h3>
@@ -397,7 +490,7 @@ export default function AcademicoPage() {
           </div>
 
           {/* Modelo de E-mail de Contato para Monitoria */}
-          <div className={styles.emailBox} style={{ marginTop: '2rem' }}>
+          <div id="pad-email" className={styles.emailBox} style={{ marginTop: '2rem' }}>
             <div className={styles.emailHeader}>
               <div className={styles.emailHeaderTitle}>
                 <Mail size={18} />
@@ -431,7 +524,7 @@ export default function AcademicoPage() {
             </div>
           </div>
 
-          <div className={styles.rulesGrid}>
+          <div id="horas-conceitos" className={styles.rulesGrid}>
             <div className={styles.ruleCard}>
               <h3 className={styles.ruleTitle}>O Que São Atividades Complementares</h3>
               <p className={styles.ruleText}>
@@ -461,7 +554,7 @@ export default function AcademicoPage() {
             </div>
           </div>
 
-          <h3 className={styles.categoryTitle} style={{ marginTop: '2.5rem' }}>
+          <h3 id="horas-regulamentos" className={styles.categoryTitle} style={{ marginTop: '2.5rem' }}>
             <FileText size={18} />
             Regulamentos Oficiais de Sistemas de Informação em PDF
           </h3>
@@ -645,7 +738,7 @@ export default function AcademicoPage() {
             Linha do Tempo Anual da Iniciação Científica
           </h3>
 
-          <div className={styles.timelineGrid}>
+          <div id="ic-cronograma" className={styles.timelineGrid}>
             <div className={styles.timelineItem}>
               <span className={styles.timelineBadge}>Janeiro a Março</span>
               <h4 className={styles.timelineTitle}>1. Mapeamento e Primeiro Contato</h4>
@@ -692,7 +785,7 @@ export default function AcademicoPage() {
             Matriz de Modalidades e Compatibilidade com Estágio
           </h3>
 
-          <div className={styles.matrixWrapper}>
+          <div id="ic-modalidades" className={styles.matrixWrapper}>
             <table className={styles.matrixTable}>
               <thead>
                 <tr>
@@ -757,7 +850,7 @@ export default function AcademicoPage() {
             Seleção por Nota: CR, Reprovações e Distribuição de Bolsas
           </h3>
 
-          <div className={styles.rulesGrid}>
+          <div id="ic-selecao" className={styles.rulesGrid}>
             <div className={styles.ruleCard}>
               <h4 className={styles.ruleTitle}>Composição da Nota no Edital PIBIC</h4>
               <p className={styles.ruleText}>
@@ -792,7 +885,7 @@ export default function AcademicoPage() {
             Preparação, Escolha do Tema e Linhas de Pesquisa
           </h3>
 
-          <div className={styles.rulesGrid}>
+          <div id="ic-contato" className={styles.rulesGrid}>
             <div className={styles.ruleCard}>
               <h4 className={styles.ruleTitle}>Você Não Precisa Ter Uma Ideia Pronta</h4>
               <p className={styles.ruleText}>
@@ -948,61 +1041,260 @@ export default function AcademicoPage() {
           <div className={styles.cardHeader}>
             <Globe size={22} className={styles.headerIcon} />
             <div>
-              <h2 className={styles.cardTitle}>Editais da DERI: Como Conseguir Bolsas de Intercâmbio</h2>
+              <h2 className={styles.cardTitle}>Intercâmbio Acadêmico e Editais da DERI Unicamp</h2>
               <p className={styles.cardSubtitle}>
-                Oportunidades de mobilidade internacional financiadas pela Unicamp mesmo em cenários de oscilação da BAPE
+                Guia prático de mobilidade internacional, certificação de idiomas, processo seletivo no SIGA e estudo de caso oficial
               </p>
             </div>
           </div>
 
-          <div className={styles.rulesGrid}>
-            <div className={styles.ruleCard}>
-              <h3 className={styles.ruleTitle}>Bolsas Santander de Mobilidade Internacional</h3>
-              <p className={styles.ruleText}>
-                Editais anuais concorridos promovidos em parceria com o Santander Universidades, como o Santander Graduação e Top Espanha. Concedem auxílio financeiro direto em dinheiro e passagens para alunos com bom histórico acadêmico realizarem intercâmbio de um semestre ou cursos intensivos de idioma e cultura.
-              </p>
-            </div>
+          <p className={styles.ruleText} style={{ marginBottom: '1.5rem' }}>
+            A Diretoria Executiva de Relações Internacionais, DERI, coordena todos os acordos de cooperação acadêmica e mobilidade discente da Unicamp com instituições de ensino superior nos cinco continentes. Participar de um intercâmbio durante a graduação permite cursar disciplinas avançadas de computação em universidades de prestígio global, vivenciar imersão cultural, praticar línguas estrangeiras e convalidar créditos no histórico escolar da FT com isenção total de mensalidades acadêmicas no exterior.
+          </p>
 
-            <div className={styles.ruleCard}>
-              <h3 className={styles.ruleTitle}>Programa Erasmus Mais com a Europa</h3>
-              <p className={styles.ruleText}>
-                Editais vinculados a fundos da União Europeia em parceria com universidades de Portugal, Espanha, França e Alemanha. As bolsas oferecem repasses mensais em euros para custeio de moradia e alimentação, além de isenção total das taxas escolares na instituição europeia.
-              </p>
-            </div>
+          {/* Subtópico 1: O Fluxo em Seis Fases */}
+          <div id="intercambio-fluxo">
+            <h3 className={styles.categoryTitle}>
+              <CheckCircle2 size={18} />
+              Fluxo Passo a Passo para Realizar Intercâmbio na Unicamp
+            </h3>
+            <p className={styles.ruleText} style={{ marginBottom: '1rem' }}>
+              O planejamento de mobilidade internacional exige preparação prévia com antecedência mínima de um a dois anos antes do embarque. Siga este roteiro em seis fases sequenciais:
+            </p>
 
-            <div className={styles.ruleCard}>
-              <h3 className={styles.ruleTitle}>Rede AUGM: Mobilidade na América Latina</h3>
-              <p className={styles.ruleText}>
-                O Programa Escala Estudantil da Associação de Universidades do Grupo Montevidéu reúne universidades de destaque na Argentina, Uruguai, Chile, Paraguai e Bolívia. A universidade receptora assume o compromisso de garantir acomodação e alimentação gratuitas ao estudante durante todo o intercâmbio.
-              </p>
-            </div>
+            <div className={styles.exchangeGrid}>
+              <div className={styles.exchangePhaseCard}>
+                <span className={styles.exchangePhaseBadge}>Fase 1: Idioma</span>
+                <h4 className={styles.exchangePhaseTitle}>1. Preparação e Certificação no CEL</h4>
+                <p className={styles.exchangePhaseDesc}>
+                  O principal filtro de eliminação dos editais é a proficiência linguística. A maioria das instituições exige nível B2 ou C1 em inglês ou no idioma do país anfitrião. A DERI aceita declarações formais de proficiência emitidas pelo Centro de Ensino de Línguas da Unicamp, CEL, que podem ser obtidas cursando disciplinas de línguas ou realizando testes de nivelamento no campus de Barão Geraldo. Não deixe para realizar o teste de proficiência após a abertura do edital.
+                </p>
+              </div>
 
-            <div className={styles.ruleCard}>
-              <h3 className={styles.ruleTitle}>Acordos Bilaterais com Isenção de Mensalidades</h3>
-              <p className={styles.ruleText}>
-                A Unicamp mantém centenas de convênios diretos com universidades na América do Norte, Europa e Ásia. Mesmo nos editais sem ajuda de custo mensal, o estudante fica totalmente isento das mensalidades acadêmicas que costumam custar milhares de dólares por período no exterior.
-              </p>
-            </div>
+              <div className={styles.exchangePhaseCard}>
+                <span className={styles.exchangePhaseBadge}>Fase 2: Editais</span>
+                <h4 className={styles.exchangePhaseTitle}>2. Mapeamento de Editais e Factsheets</h4>
+                <p className={styles.exchangePhaseDesc}>
+                  Acompanhe a página de editais da DERI ao longo de todo o ano. Para cada universidade conveniada, consulte atentamente o edital publicado e o Factsheet institucional da universidade parceira. No Factsheet constam informações determinantes: calendário semestral, restrições para cursos de computação, oferta de matérias ministradas em inglês, prazos de inscrição e exigências de seguro saúde.
+                </p>
+              </div>
 
-            <div className={styles.ruleCard}>
-              <h3 className={styles.ruleTitle}>Como Preparar um Perfil Altamente Competitivo</h3>
-              <p className={styles.ruleText}>
-                Os editais da DERI classificam os candidatos principalmente pelo Coeficiente de Rendimento, sendo recomendado manter CR superior a sete zero ou sete cinco, e pelo Coeficiente de Progressão entre quarenta e oitenta por cento. A proficiência em idioma estrangeiro pode ser comprovada por testes gratuitos ou subsidiados realizados no Centro de Ensino de Línguas da Unicamp.
-              </p>
-            </div>
+              <div className={styles.exchangePhaseCard}>
+                <span className={styles.exchangePhaseBadge}>Fase 3: SIGA</span>
+                <h4 className={styles.exchangePhaseTitle}>3. Inscrição no SIGA e Learning Agreement</h4>
+                <p className={styles.exchangePhaseDesc}>
+                  A candidatura oficial é feita pelo portal eletrônico SIGA Mobilidade da DERI. O candidato envia histórico escolar atualizado, comprovante de proficiência, carta de motivação e a proposta de Plano de Estudos, o Learning Agreement. As disciplinas selecionadas na instituição estrangeira devem guardar afinidade com a grade curricular de BSI ou TADS para posterior validação na FT.
+                </p>
+              </div>
 
-            <div className={styles.ruleCard}>
-              <h3 className={styles.ruleTitle}>Acompanhamento Contínuo de Editais</h3>
-              <p className={styles.ruleText}>
-                Os editais abrem ao longo de todo o ano letivo com janelas específicas para cada hemisfério e universidade parceira. Acesse com frequência o portal da DERI e cadastre-se nos boletins informativos da Diretoria para não perder os prazos de inscrição.
-              </p>
+              <div className={styles.exchangePhaseCard}>
+                <span className={styles.exchangePhaseBadge}>Fase 4: Seleção</span>
+                <h4 className={styles.exchangePhaseTitle}>4. Avaliação e Classificação por Mérito</h4>
+                <p className={styles.exchangePhaseDesc}>
+                  A comissão de relações internacionais avalia os candidatos aplicando fórmulas objetivas de classificação. O Coeficiente de Rendimento, CR, é o critério preponderante de pontuação e desempate. O Coeficiente de Progressão, CP, deve situar-se preferencialmente entre quarenta e oitenta por cento. Reprovações não justificadas acarretam perda de pontos na concorrência.
+                </p>
+              </div>
+
+              <div className={styles.exchangePhaseCard}>
+                <span className={styles.exchangePhaseBadge}>Fase 5: Aceite</span>
+                <h4 className={styles.exchangePhaseTitle}>5. Nomination Oficial e Carta de Aceite</h4>
+                <p className={styles.exchangePhaseDesc}>
+                  Com a aprovação no ranking interno da Unicamp, a DERI formaliza a indicação do estudante, procedimento chamado de Nomination, junto à instituição internacional parceira. O estudante conclui a matrícula na universidade de destino, envia eventuais documentos complementares e recebe a Carta Oficial de Aceite, documento essencial para o visto consular.
+                </p>
+              </div>
+
+              <div className={styles.exchangePhaseCard}>
+                <span className={styles.exchangePhaseBadge}>Fase 6: Embarque</span>
+                <h4 className={styles.exchangePhaseTitle}>6. Matrícula de Mobilidade na DAC e Viagem</h4>
+                <p className={styles.exchangePhaseDesc}>
+                  Com a carta de aceite em mãos, o estudante abre processo de trancamento especial por intercâmbio junto à DAC. Essa modalidade preserva a vaga na Unicamp e congela a contagem de tempo de integralização para evitar jubilamento. Em seguida, contrata seguro saúde internacional com cobertura exigida pelo país, emite o visto de estudante no consulado e organiza o embarque.
+                </p>
+              </div>
             </div>
           </div>
 
-          <div className={styles.gradeLinkBox} style={{ marginTop: '1.5rem' }}>
+          {/* Subtópico 2: O Que É Diferencial para Entrar */}
+          <div id="intercambio-diferenciais" style={{ marginTop: '2.5rem' }}>
+            <h3 className={styles.categoryTitle}>
+              <Award size={18} />
+              Diferenciais Competitivos para Conquistar a Vaga e Bolsas
+            </h3>
+            <p className={styles.ruleText} style={{ marginBottom: '1.25rem' }}>
+              Em editais com grande procura ou que ofertam auxílio financeiro direto, pequenos detalhes no histórico e na trajetória acadêmica separam os estudantes classificados dos suplentes:
+            </p>
+
+            <div className={styles.rulesGrid}>
+              <div className={styles.ruleCard}>
+                <h4 className={styles.ruleTitle}>CR Elevado desde o Primeiro Ano</h4>
+                <p className={styles.ruleText}>
+                  Como o Coeficiente de Rendimento é a principal métrica do ranking da DERI, candidatos com CR acima de sete vírgula cinco ou oito vírgula zero largam com ampla vantagem competitiva. Manter média alta no ciclo básico garante prioridade tanto em editais de intercâmbio quanto em solicitações de bolsas de estudo Santander e Erasmus.
+                </p>
+              </div>
+
+              <div className={styles.ruleCard}>
+                <h4 className={styles.ruleTitle}>Proficiência Antecipada e Nível C1</h4>
+                <p className={styles.ruleText}>
+                  Candidatos que já possuem o certificado de proficiência emitido pelo CEL ou por exames internacionais antes da publicação do edital conseguem escolher livremente as universidades mais concorridas. Demonstrar domínio avançado, como nível C1, amplia o leque de disciplinas aceitas no exterior, inclusive no nível de pós-graduação.
+                </p>
+              </div>
+
+              <div className={styles.ruleCard}>
+                <h4 className={styles.ruleTitle}>Iniciação Científica e Publicações</h4>
+                <p className={styles.ruleText}>
+                  Estudantes que desenvolveram pesquisa com bolsa PIBIC, PIBITI ou FAPESP na FT possuem diferencial substancial na avaliação do currículo acadêmico e na carta de recomendação de professores. Essa bagagem investigativa é altamente valorizada pelas universidades europeias e norte-americanas parceiras.
+                </p>
+              </div>
+
+              <div className={styles.ruleCard}>
+                <h4 className={styles.ruleTitle}>Plano de Estudos Coerente e Alinhado com a FT</h4>
+                <p className={styles.ruleText}>
+                  Elaborar uma proposta de estudos sólida, demonstrando quais matérias do curso estrangeiro correspondem às disciplinas obrigatórias ou eletivas de BSI e TADS, facilita o aval prévio da coordenação de graduação e convence a banca examinadora do real aproveitamento do intercâmbio.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Subtópico 3: Estudo de Caso Oficial Edital Potsdam */}
+          <div id="intercambio-potsdam" className={styles.potsdamCaseBox}>
+            <div className={styles.potsdamHeader}>
+              <div className={styles.potsdamTitle}>
+                <GraduationCap size={20} color="#2563eb" />
+                <span>Estudo de Caso Oficial: Edital DERI 85 de 2026 e Universidade de Potsdam</span>
+              </div>
+              <div className={styles.potsdamMeta}>
+                <span className={`${styles.pillTag} ${styles.tagBlue}`}>Alemanha</span>
+                <span className={`${styles.pillTag} ${styles.tagGreen}`}>Isenção de Mensalidades</span>
+                <span className={`${styles.pillTag} ${styles.tagAmber}`}>Nível B2</span>
+              </div>
+            </div>
+
+            <p className={styles.ruleText}>
+              Para exemplificar o funcionamento real dos processos seletivos da Unicamp, analisamos o <strong>Edital DERI número 85 de 2026</strong> e o <strong>Factsheet UP 2026 e 2027</strong> referentes ao acordo de cooperação acadêmica com a <strong>Universität Potsdam</strong>, localizada no estado de Brandemburgo, na Alemanha, vizinha a Berlim:
+            </p>
+
+            <div className={styles.rulesGrid} style={{ marginTop: '1.25rem' }}>
+              <div className={styles.ruleCard}>
+                <h4 className={styles.ruleTitle}>Isenção Integral de Taxas Acadêmicas</h4>
+                <p className={styles.ruleText}>
+                  O acordo bilateral assegura gratuidade completa de mensalidades escolares na Universität Potsdam. O estudante fica responsável apenas pelas despesas com passagens aéreas, alojamento estudantil e a taxa semestral administrativa da universidade alemã, a qual inclui passe livre integral no transporte público regional por trens, metrôs e ônibus em Berlim e Brandemburgo.
+                </p>
+              </div>
+
+              <div className={styles.ruleCard}>
+                <h4 className={styles.ruleTitle}>Semestres Letivos e Calendário Alemão</h4>
+                <p className={styles.ruleText}>
+                  O Factsheet da instituição anfitriã estrutura o ano acadêmico em dois semestres: o Winter Semester, semestre de inverno, com período letivo de outubro a março e aulas de outubro a meados de fevereiro, e o Summer Semester, semestre de verão, com período letivo de abril a setembro e aulas de abril a meados de julho.
+                </p>
+              </div>
+
+              <div className={styles.ruleCard}>
+                <h4 className={styles.ruleTitle}>Critério Linguístico e Declaração do CEL</h4>
+                <p className={styles.ruleText}>
+                  A Universidade de Potsdam exige comprovação formal de nível mínimo B2 no Quadro Europeu Comum de Referência para as Línguas, seja em inglês para disciplinas internacionais ou em alemão. A DERI aceita expressamente a declaração emitida pelo Centro de Ensino de Línguas da Unicamp como comprovante válido de proficiência.
+                </p>
+              </div>
+
+              <div className={styles.ruleCard}>
+                <h4 className={styles.ruleTitle}>Moradia e Assistência Estudantil</h4>
+                <p className={styles.ruleText}>
+                  O Factsheet orienta os intercambistas da Unicamp a solicitarem vaga nos dormitórios universitários geridos pela associação pública Studentenwerk Potsdam com custos consideravelmente mais acessíveis do que o mercado imobiliário privado da região metropolitana de Berlim.
+                </p>
+              </div>
+            </div>
+
+            {/* Grid de Links Oficiais dos PDFs de Potsdam */}
+            <div className={styles.potsdamDocsGrid}>
+              <a
+                href="https://www.internationaloffice.unicamp.br/wp-content/uploads/sites/26/2026/09/Potsdam-852026.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.potsdamDocCard}
+              >
+                <div className={styles.potsdamDocInfo}>
+                  <span className={styles.potsdamDocName}>Edital DERI 85 de 2026 em PDF</span>
+                  <span className={styles.potsdamDocDesc}>Vagas e normas de inscrição para a Universidade de Potsdam</span>
+                </div>
+                <ExternalLink size={16} color="#2563eb" />
+              </a>
+
+              <a
+                href="https://www.internationaloffice.unicamp.br/wp-content/uploads/sites/26/2026/09/Factsheet_UP_2026-27.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.potsdamDocCard}
+              >
+                <div className={styles.potsdamDocInfo}>
+                  <span className={styles.potsdamDocName}>Factsheet Oficial UP 2026 e 2027</span>
+                  <span className={styles.potsdamDocDesc}>Prazos de nomination, alojamento, vistos e calendário semestral</span>
+                </div>
+                <ExternalLink size={16} color="#2563eb" />
+              </a>
+            </div>
+          </div>
+
+          {/* Subtópico 4: Modalidades de Bolsas e Financiamento */}
+          <div id="intercambio-bolsas" style={{ marginTop: '2.5rem' }}>
+            <h3 className={styles.categoryTitle}>
+              <Globe size={18} />
+              Modalidades de Bolsas e Auxílios Financeiros de Intercâmbio
+            </h3>
+            <p className={styles.ruleText} style={{ marginBottom: '1.25rem' }}>
+              Mesmo em conjunturas com menor disponibilidade de recursos internos, a DERI oferece canais com bolsas de manutenção e benefícios expressivos:
+            </p>
+
+            <div className={styles.rulesGrid}>
+              <div className={styles.ruleCard}>
+                <h3 className={styles.ruleTitle}>Bolsas Santander de Mobilidade Internacional</h3>
+                <p className={styles.ruleText}>
+                  Editais anuais concorridos promovidos em parceria com o Santander Universidades, como o Santander Graduação e Top Espanha. Concedem auxílio financeiro direto em dinheiro e passagens para alunos com bom histórico acadêmico realizarem intercâmbio de um semestre ou cursos intensivos de idioma e cultura.
+                </p>
+              </div>
+
+              <div className={styles.ruleCard}>
+                <h3 className={styles.ruleTitle}>Programa Erasmus Mais com a Europa</h3>
+                <p className={styles.ruleText}>
+                  Editais vinculados a fundos da União Europeia em parceria com universidades de Portugal, Espanha, França e Alemanha. As bolsas oferecem repasses mensais em euros para custeio de moradia e alimentação, além de isenção total das taxas escolares na instituição europeia.
+                </p>
+              </div>
+
+              <div className={styles.ruleCard}>
+                <h3 className={styles.ruleTitle}>Rede AUGM: Mobilidade na América Latina</h3>
+                <p className={styles.ruleText}>
+                  O Programa Escala Estudantil da Associação de Universidades do Grupo Montevidéu reúne universidades de destaque na Argentina, Uruguai, Chile, Paraguai e Bolívia. A universidade receptora assume o compromisso de garantir acomodação e alimentação gratuitas ao estudante durante todo o intercâmbio.
+                </p>
+              </div>
+
+              <div className={styles.ruleCard}>
+                <h3 className={styles.ruleTitle}>Acordos Bilaterais com Isenção de Mensalidades</h3>
+                <p className={styles.ruleText}>
+                  A Unicamp mantém centenas de convênios diretos com universidades na América do Norte, Europa e Ásia. Mesmo nos editais sem ajuda de custo mensal, o estudante fica totalmente isento das mensalidades acadêmicas que costumam custar milhares de dólares por período no exterior.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Links Oficiais para Editais e Portal DERI */}
+          <div className={styles.gradeLinkBox} style={{ marginTop: '2rem' }}>
+            <div>
+              <span className={styles.gradeLinkTitle}>Consulta de Editais Abertos de Intercâmbio na DERI</span>
+              <span className={styles.gradeLinkDesc}>Acesse a lista atualizada de editais de mobilidade internacional com inscrições em andamento</span>
+            </div>
+            <a
+              href="https://www.internationaloffice.unicamp.br/intercambio/editais/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.gradeButton}
+              aria-label="Consultar editais abertos na DERI em nova janela"
+            >
+              <span>Ver Editais Abertos</span>
+              <ExternalLink size={14} aria-hidden="true" />
+            </a>
+          </div>
+
+          <div className={styles.gradeLinkBox} style={{ marginTop: '1rem' }}>
             <div>
               <span className={styles.gradeLinkTitle}>Portal Oficial da Diretoria Executiva de Relações Internacionais DERI</span>
-              <span className={styles.gradeLinkDesc}>Consulte os editais abertos, convênios vigentes e calendários de inscrição de intercâmbio</span>
+              <span className={styles.gradeLinkDesc}>Consulte os convênios vigentes, orientações de visto e boletins informativos da Diretoria</span>
             </div>
             <a
               href="https://www.internationaloffice.unicamp.br/"
@@ -1017,6 +1309,8 @@ export default function AcademicoPage() {
           </div>
         </div>
       </section>
+        </div>
+      </div>
     </div>
   );
 }

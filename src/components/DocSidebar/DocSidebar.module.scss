@@ -1,0 +1,231 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.sidebarWrapper {
+  width: 100%;
+}
+
+// Botao flutuante ou barra de disparo no mobile
+.mobileTriggerBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-sm $spacing-md;
+  background-color: var(--surface-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-md;
+  margin-bottom: $spacing-lg;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  @include respond-to('lg') {
+    display: none;
+  }
+
+  &:hover {
+    border-color: var(--ft-blue);
+  }
+}
+
+.mobileTriggerLabel {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.mobileCurrentTopic {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 180px;
+}
+
+// Backdrop no mobile
+.mobileBackdrop {
+  display: none;
+
+  &.open {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    backdrop-filter: blur(2px);
+  }
+
+  @include respond-to('lg') {
+    display: none !important;
+  }
+}
+
+// Container do Menu
+.sidebarContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--surface-color);
+
+  // Comportamento Mobile Drawer
+  @media (max-width: 1023px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 300px;
+    max-width: 85vw;
+    z-index: 999;
+    padding: $spacing-xl $spacing-lg;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.2);
+    border-right: 1px solid var(--border-color);
+    overflow-y: auto;
+
+    &.open {
+      transform: translateX(0);
+    }
+  }
+
+  // Comportamento Desktop Sticky
+  @include respond-to('lg') {
+    position: sticky;
+    top: 5rem;
+    max-height: calc(100vh - 6rem);
+    overflow-y: auto;
+    padding: $spacing-md;
+    border: 1px solid var(--border-color);
+    border-radius: $radius-lg;
+    box-shadow: $shadow-sm;
+
+    // Barra de rolagem discreta
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--border-color);
+      border-radius: 4px;
+    }
+  }
+}
+
+.sidebarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: $spacing-md;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: $spacing-md;
+}
+
+.sidebarTitle {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.closeMobileBtn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: $radius-sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include respond-to('lg') {
+    display: none;
+  }
+
+  &:hover {
+    color: var(--text-primary);
+    background-color: var(--surface-elevated);
+  }
+}
+
+.topicList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.topicItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.topicLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.6rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: $radius-sm;
+  transition: all 0.15s ease;
+  line-height: 1.3;
+
+  &:hover {
+    color: var(--text-primary);
+    background-color: var(--surface-elevated);
+  }
+
+  &.active {
+    color: var(--ft-blue);
+    font-weight: 700;
+    background-color: var(--ft-blue-soft);
+  }
+}
+
+.topicIcon {
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.subtopicList {
+  list-style: none;
+  padding: 0 0 0 1.25rem;
+  margin: 0.25rem 0 0.5rem 0.5rem;
+  border-left: 2px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.subtopicLink {
+  display: block;
+  padding: 0.25rem 0.4rem;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-radius: $radius-sm;
+  transition: color 0.15s ease;
+  line-height: 1.3;
+
+  &:hover {
+    color: var(--text-primary);
+  }
+
+  &.active {
+    color: var(--ft-blue);
+    font-weight: 600;
+  }
+}

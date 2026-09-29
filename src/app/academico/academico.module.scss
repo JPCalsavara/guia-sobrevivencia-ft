@@ -781,5 +781,169 @@
   line-height: 1.5;
 }
 
+// Layout de 2 colunas com DocSidebar
+.contentWithSidebar {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+  margin-top: $spacing-xl;
+
+  @include respond-to('lg') {
+    display: grid;
+    grid-template-columns: 270px minmax(0, 1fr);
+    gap: $spacing-2xl;
+    align-items: flex-start;
+  }
+}
+
+.mainContentArea {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+// Estilos de Fluxo de Intercâmbio DERI
+.exchangeGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+  margin: $spacing-lg 0;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to('xl') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.exchangePhaseCard {
+  background-color: var(--surface-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-md;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  position: relative;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: var(--ft-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  }
+}
+
+.exchangePhaseBadge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--ft-blue);
+  background-color: var(--ft-blue-soft);
+  border: 1px solid var(--ft-blue-border);
+  padding: 0.2rem 0.5rem;
+  border-radius: $radius-sm;
+  width: fit-content;
+  margin-bottom: 0.25rem;
+}
+
+.exchangePhaseTitle {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.exchangePhaseDesc {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+// Estudo de Caso de Potsdam
+.potsdamCaseBox {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-left: 5px solid #2563eb;
+  border-radius: $radius-md;
+  padding: $spacing-xl;
+  margin: $spacing-xl 0;
+  box-shadow: $shadow-sm;
+}
+
+.potsdamHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+  margin-bottom: $spacing-md;
+}
+
+.potsdamTitle {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.potsdamMeta {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  flex-wrap: wrap;
+}
+
+.potsdamDocsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+  margin-top: $spacing-lg;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.potsdamDocCard {
+  background-color: var(--surface-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-md;
+  padding: $spacing-md $spacing-lg;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-md;
+  text-decoration: none;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: #2563eb;
+    background-color: rgba(37, 99, 235, 0.05);
+  }
+}
+
+.potsdamDocInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.potsdamDocName {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.potsdamDocDesc {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+
 
 
