@@ -69,11 +69,20 @@ export function TableBsiTads() {
         </table>
       </div>
 
-      <div className={styles.callout}>
-        <h4 className={styles.calloutTitle}>O Fenômeno da Batalha por Vagas Noturnas</h4>
-        <p className={styles.calloutText}>
-          A partir do quinto semestre letivo, a maioria dos estudantes de BSI ingressa em vagas de estágio diurno em empresas de Campinas, Limeira e região metropolitana de São Paulo. Como as aulas de BSI ocorrem de dia, esses estudantes passam a disputar as vagas das disciplinas equivalentes oferecidas no período noturno para TADS. Por esse motivo, manter um Coeficiente de Rendimento alto desde o primeiro semestre é decisivo para conseguir prioridade de matrícula no sistema e-DAC.
-        </p>
+      <div className={styles.calloutGrid}>
+        <div className={`${styles.callout} ${styles.blue}`}>
+          <h4 className={styles.calloutTitle}>Deslocamento Regional e Trabalho Cedo em TADS</h4>
+          <p className={styles.calloutText}>
+            Grande parte dos estudantes de TADS reside em cidades vizinhas como Americana, Santa Bárbara d&apos;Oeste, Piracicaba, Cosmópolis, Araras, Rio Claro e Campinas. Essa parcela expressiva da turma mantém a rotina de viajar diariamente de ida e volta em ônibus intermunicipais ou vans universitárias até o término do curso. Pela concentração das aulas no período noturno e pela necessidade prática de sustento, a maioria ingressa no mercado de trabalho ou estágio muito mais cedo, conciliando jornada profissional durante o dia e faculdade à noite.
+          </p>
+        </div>
+
+        <div className={styles.callout}>
+          <h4 className={styles.calloutTitle}>O Fenômeno da Batalha por Vagas Noturnas</h4>
+          <p className={styles.calloutText}>
+            A partir do quinto semestre letivo, a maioria dos estudantes de BSI ingressa em vagas de estágio diurno em empresas de Campinas, Limeira e região metropolitana de São Paulo. Como as aulas de BSI ocorrem de dia, esses estudantes passam a disputar as vagas das disciplinas equivalentes oferecidas no período noturno para TADS. Por esse motivo, manter um Coeficiente de Rendimento alto desde o primeiro semestre é decisivo para conseguir prioridade de matrícula no sistema e-DAC.
+          </p>
+        </div>
       </div>
     </div>
   );

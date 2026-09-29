@@ -45,6 +45,11 @@ export const courseComparisonData: CourseComparison[] = [
     bsi: 'Vantagem formal para mestrados acadêmicos e vistos de quatro anos de curso',
     tads: 'Aceito em pós-graduações especializadas, mestrados profissionais e mercado global',
   },
+  {
+    criterion: 'Rotina e Inserção no Mercado de Trabalho',
+    bsi: 'Maioria reside em repúblicas ou kitnets em Limeira nos anos iniciais, iniciando estágio formal a partir do quinto semestre',
+    tads: 'Muitos estudantes viajam diariamente de cidades vizinhas em ida e volta até o final do curso, trabalhando ou estagiando mais cedo por necessidade e disponibilidade noturna',
+  },
 ];
 
 export interface GraduationCheckItem {
