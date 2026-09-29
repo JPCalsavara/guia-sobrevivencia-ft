@@ -10,7 +10,9 @@ import {
   CheckCircle2,
   XCircle,
   Lightbulb,
-  Workflow
+  Workflow,
+  Youtube,
+  ExternalLink
 } from 'lucide-react';
 import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
 import styles from './estudos-ia.module.scss';
@@ -49,6 +51,13 @@ const aiTopics: TopicItem[] = [
     title: 'Agentes de Código',
     subtopics: [
       { id: 'transicao-agentes', title: 'Chatbots versus Agentes e MCP' },
+    ],
+  },
+  {
+    id: 'fundamentos-ia-canais',
+    title: 'Fundamentos e Redes Neurais',
+    subtopics: [
+      { id: 'fundamentos-ia-canais', title: 'Canais Internacionais de IA' },
     ],
   },
 ];
@@ -259,6 +268,92 @@ export default function EstudosIaPage() {
               <p className={styles.agentDesc}>
                 O Model Context Protocol estabelece um padrão aberto para conectar modelos a bancos de dados, servidores de documentação e terminais de comando, transformando a IA em assistente integrado.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Fundamentos Teóricos e Redes Neurais: Canais Internacionais */}
+      <section id="fundamentos-ia-canais" className={styles.sectionBlock}>
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <Youtube size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>Fundamentos de Redes Neurais e Inteligência Artificial</h2>
+              <p className={styles.cardSubtitle}>
+                Canais e cursos internacionais de referência para compreender a teoria matemática e a engenharia de modelos de linguagem
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.channelsGrid}>
+            <div className={styles.channelCard}>
+              <div className={styles.channelCardHeader}>
+                <div>
+                  <span className={styles.channelBadge}>Redes Neurais e LLMs</span>
+                  <h3 className={styles.channelTitle}>Andrej Karpathy</h3>
+                </div>
+                <Youtube size={20} color="#dc2626" />
+              </div>
+              <p className={styles.channelDesc}>
+                Série Neural Networks Zero to Hero, ministrada por um dos cofundadores da OpenAI, construindo redes neurais, retropropagação e modelos GPT do zero em código Python puro.
+              </p>
+              <a
+                href="https://www.youtube.com/watch?v=VMj-3S1tku0&list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.channelActionBtn}
+              >
+                <Youtube size={16} />
+                <span>Assistir Série no YouTube</span>
+                <ExternalLink size={12} />
+              </a>
+            </div>
+
+            <div className={styles.channelCard}>
+              <div className={styles.channelCardHeader}>
+                <div>
+                  <span className={styles.channelBadge}>Matemática Visual</span>
+                  <h3 className={styles.channelTitle}>3Blue1Brown</h3>
+                </div>
+                <Youtube size={20} color="#dc2626" />
+              </div>
+              <p className={styles.channelDesc}>
+                Animações visuais intuitivas criadas por Grant Sanderson sobre a essência da álgebra linear, cálculo e a mecânica vetorial de transformações e redes neurais profundas.
+              </p>
+              <a
+                href="https://www.youtube.com/c/3blue1brown"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.channelActionBtn}
+              >
+                <Youtube size={16} />
+                <span>Acessar Canal 3Blue1Brown</span>
+                <ExternalLink size={12} />
+              </a>
+            </div>
+
+            <div className={styles.channelCard}>
+              <div className={styles.channelCardHeader}>
+                <div>
+                  <span className={styles.channelBadge}>Machine Learning e Estatística</span>
+                  <h3 className={styles.channelTitle}>StatQuest com Josh Starmer</h3>
+                </div>
+                <Youtube size={20} color="#dc2626" />
+              </div>
+              <p className={styles.channelDesc}>
+                Conceitos fundamentais de estatística, algoritmos de aprendizado de máquina, árvores de decisão e redes neurais explicados passo a passo de forma acessível.
+              </p>
+              <a
+                href="https://www.youtube.com/@statquest"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.channelActionBtn}
+              >
+                <Youtube size={16} />
+                <span>Acessar Canal StatQuest</span>
+                <ExternalLink size={12} />
+              </a>
             </div>
           </div>
         </div>

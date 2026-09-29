@@ -13,7 +13,14 @@ import {
   ExternalLink,
   Monitor,
   Printer,
-  Wifi
+  Wifi,
+  Home,
+  Building,
+  Key,
+  Compass,
+  Car,
+  ShieldCheck,
+  CheckCircle2,
 } from 'lucide-react';
 import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
 import styles from './campus.module.scss';
@@ -64,9 +71,12 @@ const campusTopics: TopicItem[] = [
   },
   {
     id: 'moradia-convivencia',
-    title: 'Moradia e Vida Social',
+    title: 'Moradia e Habitação',
     subtopics: [
-      { id: 'moradia-convivencia', title: 'Repúblicas e Desapego' },
+      { id: 'moradia-modalidades', title: 'Modalidades e Preços' },
+      { id: 'moradia-predios', title: 'Prédios e Condomínios' },
+      { id: 'moradia-bairros', title: 'Bairros e Avenidas' },
+      { id: 'moradia-imobiliarias', title: 'Imobiliárias e Contratos' },
     ],
   },
 ];
@@ -515,35 +525,411 @@ export default function CampusPage() {
         <OrganizationDirectory />
       </section>
 
-      {/* Vida Social, Moradia e Economia Estudantil */}
-      <section id="moradia-convivencia" className={styles.sectionBlock}>
+      {/* 1. Modalidades de Moradia e Comparativo de Preços */}
+      <section id="moradia-modalidades" className={styles.sectionBlock}>
         <div className={styles.blockCard}>
-          <h2 className={styles.cardTitle}>Convivência, Moradia e Economia Estudantil</h2>
-          <p className={styles.cardSubtitle}>
-            Dicas para morar com tranquilidade, feiras de escambo e segurança em Limeira
-          </p>
+          <div className={styles.cardHeader}>
+            <Home size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>Modalidades de Moradia Estudantil e Faixas de Preço</h2>
+              <p className={styles.cardSubtitle}>
+                Comparativo completo entre república, pensionato, kitnet individual e apartamento compartilhado em Limeira
+              </p>
+            </div>
+          </div>
 
-          <div className={styles.lifeGrid}>
-            <div className={styles.lifeCard}>
-              <h3 className={styles.lifeTitle}>Moradia e Repúblicas</h3>
-              <p className={styles.lifeText}>
-                Os bairros mais próximos da FT são o Jardim Nova Itália, a Vila Cristovam e a Vila Anita. A comunidade conta com repúblicas tradicionais de integração e também repúblicas com foco em silêncio e estudos, além de pensionatos e kitnets individuais.
+          <div className={styles.housingGrid}>
+            <div className={styles.housingCard}>
+              <div className={styles.housingHeader}>
+                <span className={`${styles.housingBadge} ${styles.republica}`}>República Estudantil</span>
+                <h3 className={styles.housingTitle}>República Tradicional</h3>
+              </div>
+
+              <div className={styles.priceHighlight}>
+                <span className={styles.priceVal}>R$ 450 a R$ 750</span>
+                <span className={styles.priceNote}>por mês com contas inclusas</span>
+              </div>
+
+              <div className={styles.housingPoints}>
+                <div className={styles.pointItem}>
+                  <strong>Localização Típica</strong>
+                  Jardim Nova Itália, Vila Cristovam, Jardim Morro Azul e proximidades do Morar Mais.
+                </div>
+                <div className={styles.pointItem}>
+                  <strong>Vantagens</strong>
+                  Menor custo mensal, forte integração social, rede de apoio acadêmico com veteranos e divisão de despesas domésticas.
+                </div>
+                <div className={styles.pointItem}>
+                  <strong>Pontos de Atenção</strong>
+                  Rotinas e horários variados entre os moradores, menor privacidade e necessidade de assembleias para regras da casa.
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.housingCard}>
+              <div className={styles.housingHeader}>
+                <span className={`${styles.housingBadge} ${styles.pensionato}`}>Pensionato e Alojamento</span>
+                <h3 className={styles.housingTitle}>Pensionato Universitário</h3>
+              </div>
+
+              <div className={styles.priceHighlight}>
+                <span className={styles.priceVal}>R$ 400 a R$ 700</span>
+                <span className={styles.priceNote}>por mês em quarto individual ou dividido</span>
+              </div>
+
+              <div className={styles.housingPoints}>
+                <div className={styles.pointItem}>
+                  <strong>Localização Típica</strong>
+                  Forte concentração no Jardim Morro Azul, nas ruas atrás da Escola Municipal Aldo José Kuhl, com opções no Jardim Paulista e Jardim Nossa Senhora de Fátima.
+                </div>
+                <div className={styles.pointItem}>
+                  <strong>Vantagens</strong>
+                  Baixo custo mensal, mobília básica pronta para uso, ideal para quem quer economizar sem participar da rotina de eventos de república.
+                </div>
+                <div className={styles.pointItem}>
+                  <strong>Pontos de Atenção</strong>
+                  Você não escolhe com quem divide o quarto ou as áreas comuns, com regras mais rígidas de visitas e horários de silêncio.
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.housingCard}>
+              <div className={styles.housingHeader}>
+                <span className={`${styles.housingBadge} ${styles.kitnet}`}>Kitnet ou Studio</span>
+                <h3 className={styles.housingTitle}>Kitnet Individual</h3>
+              </div>
+
+              <div className={styles.priceHighlight}>
+                <span className={styles.priceVal}>R$ 800 a R$ 2.000</span>
+                <span className={styles.priceNote}>por mês conforme mobília e conservação</span>
+              </div>
+
+              <div className={styles.housingPoints}>
+                <div className={styles.pointItem}>
+                  <strong>Localização Típica</strong>
+                  Quase todas concentradas no lado da FCA, nos bairros Jardim Cidade Universitária I e II e Chácara Antonieta.
+                </div>
+                <div className={styles.pointItem}>
+                  <strong>Vantagens</strong>
+                  Privacidade total, silêncio absoluto para dedicação aos estudos e liberdade completa de horários e rotina pessoal.
+                </div>
+                <div className={styles.pointItem}>
+                  <strong>Pontos de Atenção</strong>
+                  Custo total mais elevado, contas de consumo pagas integralmente à parte e necessidade de circular ou bicicleta para se deslocar até a FT.
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.housingCard}>
+              <div className={styles.housingHeader}>
+                <span className={`${styles.housingBadge} ${styles.apartamento}`}>Apartamento em Grupo</span>
+                <h3 className={styles.housingTitle}>Locação Compartilhada</h3>
+              </div>
+
+              <div className={styles.priceHighlight}>
+                <span className={styles.priceVal}>R$ 500 a R$ 900</span>
+                <span className={styles.priceNote}>por pessoa dividindo entre dois a quatro colegas</span>
+              </div>
+
+              <div className={styles.housingPoints}>
+                <div className={styles.pointItem}>
+                  <strong>Localização Típica</strong>
+                  Condomínios como Morar Mais, Edifício Bahamas na José Paolillo e Residencial Azaleias na Ciro Scartezini.
+                </div>
+                <div className={styles.pointItem}>
+                  <strong>Vantagens</strong>
+                  Você escolhe quem mora junto, ambiente de estudos alinhado, infraestrutura de condomínio fechado com portaria e segurança.
+                </div>
+                <div className={styles.pointItem}>
+                  <strong>Pontos de Atenção</strong>
+                  Valor total do contrato de 1.500 a 2.500 reais mensais, exigência de fiador ou seguro fiança e responsabilidade contratual solidária.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. Prédios e Condomínios Mapeados */}
+      <section id="moradia-predios" className={styles.sectionBlock}>
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <Building size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>Prédios e Condomínios Mapeados em Limeira</h2>
+              <p className={styles.cardSubtitle}>
+                Principais edifícios habitados por estudantes universitários com análise de logística e bandeco
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.buildingsGrid}>
+            <div className={styles.buildingCard}>
+              <div className={styles.buildingHeader}>
+                <span className={styles.buildingTag}>Condomínio Clube</span>
+                <h3 className={styles.buildingTitle}>Condomínio Morar Mais Limeira</h3>
+                <span className={styles.buildingAddress}>Próximo ao anel viário e rodovia</span>
+              </div>
+
+              <p className={styles.buildingText}>
+                Grande condomínio fechado de prédios com apartamentos de dois e três dormitórios, muito procurado por grupos de amigos que dividem o aluguel entre duas a quatro pessoas.
+              </p>
+
+              <div className={styles.buildingMeta}>
+                <div className={styles.metaRow}>
+                  <strong>Valores:</strong> 1.500 a 2.500 reais de custo total mensal
+                </div>
+                <div className={styles.metaRow}>
+                  <strong>Prós:</strong> Infraestrutura excelente com lazer completo, piscina, academia e portaria com segurança 24 horas.
+                </div>
+                <div className={styles.metaRow}>
+                  <strong>Logística:</strong> Fica mais afastado do centro urbano; exige carro próprio, Uber compartilhado ou circular para ir às aulas na FT e para bandecar.
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.buildingCard}>
+              <div className={styles.buildingHeader}>
+                <span className={styles.buildingTag}>Lado FCA e Bandeco</span>
+                <h3 className={styles.buildingTitle}>Prédios da Rua José Paolillo</h3>
+                <span className={styles.buildingAddress}>Edifício Bahamas e torres vizinhas</span>
+              </div>
+
+              <p className={styles.buildingText}>
+                Diversos prédios residenciais de uma e duas torres com valores variados, situados no corredor de acesso direto ao campus da FCA.
+              </p>
+
+              <div className={styles.buildingMeta}>
+                <div className={styles.metaRow}>
+                  <strong>Valores:</strong> Médios e compatíveis com locação estudantil
+                </div>
+                <div className={styles.metaRow}>
+                  <strong>Prós:</strong> Permite ir a pé para as refeições diárias no Restaurante Universitário da FCA, além de ponto de ônibus e circular bem próximo.
+                </div>
+                <div className={styles.metaRow}>
+                  <strong>Logística:</strong> Excelente para quem prioriza alimentação econômica no bandeco e usa o circular gratuito para subir até o campus da FT.
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.buildingCard}>
+              <div className={styles.buildingHeader}>
+                <span className={styles.buildingTag}>Colado na FT</span>
+                <h3 className={styles.buildingTitle}>Residencial Azaleias</h3>
+                <span className={styles.buildingAddress}>Rua Doutor Ciro Scartezini, Vila Cristovam</span>
+              </div>
+
+              <p className={styles.buildingText}>
+                Prédio residencial localizado a poucos passos da portaria principal da Faculdade de Tecnologia, muito procurado para aluguel de quarto ou apartamento completo em conjunto.
+              </p>
+
+              <div className={styles.buildingMeta}>
+                <div className={styles.metaRow}>
+                  <strong>Valores:</strong> Quarto individual ou apartamento em grupo
+                </div>
+                <div className={styles.metaRow}>
+                  <strong>Prós:</strong> Elimina custos com transporte e tempo de trânsito, permitindo ir a pé para salas de aula, laboratórios e biblioteca a qualquer momento.
+                </div>
+                <div className={styles.metaRow}>
+                  <strong>Logística:</strong> Proximidade total com o campus da FT e com o bandeco local nos horários de funcionamento dos dias úteis.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Avenidas e Bairros de Convivência */}
+      <section id="moradia-bairros" className={styles.sectionBlock}>
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <Compass size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>Avenidas de Convivência e Bairros Universitários</h2>
+              <p className={styles.cardSubtitle}>
+                As duas principais artérias da vida estudantil e a divisão estratégica entre o Lado FT e o Lado FCA
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.avenuesGrid}>
+            <div className={styles.avenueCard}>
+              <h3 className={styles.avenueTitle}>Avenida Cônego Manuel Alves</h3>
+              <p className={styles.avenueDesc}>
+                O principal eixo comercial e gastronômico que atende o dia a dia dos estudantes da FT, ligando os bairros residenciais à região central.
+              </p>
+              <ul className={styles.avenueList}>
+                <li>Padarias, mercearias, lanchonetes e restaurantes por quilo acessíveis.</li>
+                <li>Farmácias e serviços bancários rápidos para conveniência dos moradores.</li>
+                <li>Rota segura e muito utilizada para caminhadas e deslocamento de bicicleta até a FT.</li>
+              </ul>
+            </div>
+
+            <div className={styles.avenueCard}>
+              <h3 className={styles.avenueTitle}>Avenida Fabrício Vampré</h3>
+              <p className={styles.avenueDesc}>
+                Grande artéria urbana de Limeira que concentra os maiores estabelecimentos comerciais, hipermercados e saídas rodoviárias.
+              </p>
+              <ul className={styles.avenueList}>
+                <li>Grandes redes de supermercados, atacarejos, academias e agências bancárias.</li>
+                <li>Conexão ágil para quem viaja nos fins de semana em direção a Campinas e São Paulo.</li>
+                <li>Corredor com linhas de transporte coletivo e acesso fácil para o anel viário da cidade.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className={styles.neighborhoodsSplit}>
+            <div className={styles.neighborhoodCard}>
+              <h4>Bairros Lado FT: Jardim Nova Itália, Vila Cristovam, Vila Anita e Morro Azul</h4>
+              <p>
+                Bairros tranquilos, seguros e arborizados no entorno imediato da Faculdade de Tecnologia. Permitem caminhar até as aulas sem depender de ônibus. O Jardim Morro Azul se destaca pela concentração de pensionatos econômicos perto da Escola Municipal Aldo José Kuhl.
               </p>
             </div>
 
-            <div className={styles.lifeCard}>
-              <h3 className={styles.lifeTitle}>Grupos de Escambo e Desapego</h3>
-              <p className={styles.lifeText}>
-                No encerramento de cada semestre letivo, formandos negociam móveis, colchões, eletrodomésticos e livros com grandes descontos nos grupos de desapego estudantis. Sempre confira o email acadêmico do anunciante e faça testes presenciais antes de realizar pagamentos.
+            <div className={styles.neighborhoodCard}>
+              <h4>Bairros Lado FCA: Jardim Cidade Universitária I e II e Chácara Antonieta</h4>
+              <p>
+                Região moderna onde se concentram quase todas as kitnets novas e prédios estilo studio. Muito procurada por quem quer morar sozinho e valoriza a proximidade com o Restaurante Universitário da FCA, utilizando o circular gratuito para se deslocar até a FT.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Imobiliárias de Limeira, Contratos e Desapego */}
+      <section id="moradia-imobiliarias" className={styles.sectionBlock}>
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <Key size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>Imobiliárias Locais e Orientações para Locação</h2>
+              <p className={styles.cardSubtitle}>
+                Canais oficiais das imobiliárias mais procuradas por estudantes e recomendações para assinar contrato sem dor de cabeça
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.realtorsGrid}>
+            <div className={styles.realtorCard}>
+              <div>
+                <h3 className={styles.realtorName}>Imobiliária Roque</h3>
+                <p className={styles.realtorDesc}>
+                  Uma das mais tradicionais de Limeira, com ampla oferta de casas e apartamentos na Vila Cristovam, Jardim Nova Itália e Centro.
+                </p>
+              </div>
+              <a
+                href="https://www.imobiliariaroque.com.br/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.realtorActionBtn}
+                aria-label="Acessar portal da Imobiliária Roque em nova janela"
+              >
+                <span>Portal Imobiliária Roque</span>
+                <ExternalLink size={12} aria-hidden="true" />
+              </a>
             </div>
 
-            <div className={styles.lifeCard}>
-              <h3 className={styles.lifeTitle}>Caronas Solidárias</h3>
-              <p className={styles.lifeText}>
-                Estudantes organizam grupos de carona para viagens de fim de semana entre Limeira, Campinas e São Paulo, com rateio proporcional de combustível e pedágio, proporcionando economia e segurança no deslocamento.
-              </p>
+            <div className={styles.realtorCard}>
+              <div>
+                <h3 className={styles.realtorName}>Bom Jesus Imóveis</h3>
+                <p className={styles.realtorDesc}>
+                  Forte catálogo imobiliário no município de Limeira com opções residenciais variadas para estudantes universitários.
+                </p>
+              </div>
+              <a
+                href="https://www.bomjesusimoveis.com.br/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.realtorActionBtn}
+                aria-label="Acessar portal da Bom Jesus Imóveis em nova janela"
+              >
+                <span>Portal Bom Jesus Imóveis</span>
+                <ExternalLink size={12} aria-hidden="true" />
+              </a>
             </div>
+
+            <div className={styles.realtorCard}>
+              <div>
+                <h3 className={styles.realtorName}>Imobiliária Della Nina</h3>
+                <p className={styles.realtorDesc}>
+                  Imóveis para locação bem situados nos principais eixos de transporte e acesso aos campi universitários.
+                </p>
+              </div>
+              <a
+                href="https://www.dellaninaimoveis.com.br/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.realtorActionBtn}
+                aria-label="Acessar portal da Imobiliária Della Nina em nova janela"
+              >
+                <span>Portal Della Nina Imóveis</span>
+                <ExternalLink size={12} aria-hidden="true" />
+              </a>
+            </div>
+
+            <div className={styles.realtorCard}>
+              <div>
+                <h3 className={styles.realtorName}>Imobiliária Boa Vista</h3>
+                <p className={styles.realtorDesc}>
+                  Imóveis residenciais com atendimento direcionado para locação de apartamentos, casas e kitnets na região.
+                </p>
+              </div>
+              <a
+                href="https://www.boavistaimoveis.com.br/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.realtorActionBtn}
+                aria-label="Acessar portal da Imobiliária Boa Vista em nova janela"
+              >
+                <span>Portal Imobiliária Boa Vista</span>
+                <ExternalLink size={12} aria-hidden="true" />
+              </a>
+            </div>
+
+            <div className={styles.realtorCard}>
+              <div>
+                <h3 className={styles.realtorName}>QuintoAndar Limeira</h3>
+                <p className={styles.realtorDesc}>
+                  Plataforma digital para alugar sem necessidade de fiador tradicional, com fotos detalhadas e contrato assinado online.
+                </p>
+              </div>
+              <a
+                href="https://www.quintoandar.com.br/alugar/imovel/limeira-sp-brasil"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.realtorActionBtn}
+                aria-label="Acessar QuintoAndar Limeira em nova janela"
+              >
+                <span>Buscar no QuintoAndar</span>
+                <ExternalLink size={12} aria-hidden="true" />
+              </a>
+            </div>
+
+            <div className={styles.realtorCard}>
+              <div>
+                <h3 className={styles.realtorName}>Zap Imóveis Limeira</h3>
+                <p className={styles.realtorDesc}>
+                  Portal agregador com filtros específicos por bairro, faixa de preço, número de dormitórios e proximidade da faculdade.
+                </p>
+              </div>
+              <a
+                href="https://www.zapimoveis.com.br/aluguel/imoveis/sp+limeira/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.realtorActionBtn}
+                aria-label="Acessar Zap Imóveis Limeira em nova janela"
+              >
+                <span>Buscar no Zap Imóveis</span>
+                <ExternalLink size={12} aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+
+          <div className={styles.contractCallout}>
+            <h4>Recomendações Práticas para Contratos de Locação e Mobília</h4>
+            <p>
+              Ao negociar com imobiliárias locais, pergunte se aceitam cartão de crédito ou seguro fiança caso sua família não possua fiador com imóvel quitado no estado de São Paulo. No dia da entrega das chaves, tire fotos nítidas e vídeos de todos os cômodos, tomadas, pintura e torneiras para anexar formalmente ao laudo de vistoria inicial. Para mobiliar o espaço sem gastar muito, participe dos grupos de desapego dos formandos da Unicamp no fim de cada semestre, onde eletrodomésticos, camas e mesas são repassados por valores simbólicos.
+            </p>
           </div>
         </div>
       </section>

@@ -95,7 +95,8 @@ const careerTopics: TopicItem[] = [
     id: 'canais-recomendados',
     title: 'Canais Recomendados',
     subtopics: [
-      { id: 'canais-recomendados', title: 'Criadores de Conteúdo Técnico' },
+      { id: 'canais-nacionais', title: 'Criadores em Português' },
+      { id: 'canais-internacionais', title: 'Canais Internacionais em Inglês' },
     ],
   },
 ];
@@ -574,6 +575,40 @@ export default function CarreiraPage() {
               <p className={styles.skillDesc}>
                 Ciência foca em modelagem estatística, hipóteses e algoritmos preditivos. Engenharia foca em pipelines confiáveis, arquitetura de dados e alta performance na ingestão.
               </p>
+
+              <div className={styles.courseraHighlightCard}>
+                <div className={styles.courseraHeader}>
+                  <h4 className={styles.courseraTitle}>Especialização em Ciência de Dados com Python Michigan</h4>
+                  <span className={styles.roadmapBadge}>Coursera</span>
+                </div>
+                <p className={styles.courseraDesc}>
+                  Trilha com cinco cursos cobrindo manipulação com pandas, visualização de dados, aprendizado de máquina com scikit-learn, processamento de texto e análise de redes.
+                </p>
+                <p className={styles.courseraBenefit}>
+                  Gratuidade integral para discentes da Unicamp com email dac por meio da iniciativa Coursera for Campus.
+                </p>
+                <div className={styles.courseraActions}>
+                  <a
+                    href="https://www.coursera.org/specializations/data-science-python"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.trackActionBtn}
+                  >
+                    <span>Acessar Especialização</span>
+                    <ExternalLink size={12} />
+                  </a>
+                  <a
+                    href="https://www.coursera.org/programs/unicamp-on-coursera"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${styles.trackActionBtn} ${styles.green}`}
+                  >
+                    <span>Ativar Coursera Unicamp</span>
+                    <ExternalLink size={12} />
+                  </a>
+                </div>
+              </div>
+
               <div className={styles.trackActions}>
                 <a
                   href="https://www.youtube.com/watch?v=UmMBIsW7cMg"
@@ -731,6 +766,7 @@ export default function CarreiraPage() {
             </div>
           </div>
 
+          <h3 id="canais-nacionais" className={styles.channelsSubheading}>Criadores de Conteúdo em Português</h3>
           <div className={styles.channelsGrid}>
             <div className={styles.channelCard}>
               <div className={styles.channelCardHeader}>
@@ -823,17 +859,112 @@ export default function CarreiraPage() {
                 <ExternalLink size={12} />
               </a>
             </div>
+          </div>
+
+          <h3 id="canais-internacionais" className={styles.channelsSubheading}>Canais e Criadores Internacionais em Inglês</h3>
+          <div className={styles.channelsGrid}>
+            <div className={styles.channelCard}>
+              <div className={styles.channelCardHeader}>
+                <div>
+                  <span className={styles.channelBadge}>Cursos Completos</span>
+                  <h3 className={styles.channelTitle}>freeCodeCamp.org</h3>
+                </div>
+                <Youtube size={20} color="#dc2626" />
+              </div>
+              <p className={styles.channelDesc}>
+                Aulas e tutoriais aprofundados sobre desenvolvimento web moderno, backend com Python, computação em nuvem e estruturas de dados essenciais.
+              </p>
+              <a
+                href="https://www.youtube.com/@freecodecamp"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.channelActionBtn}
+              >
+                <Youtube size={16} />
+                <span>Acessar freeCodeCamp</span>
+                <ExternalLink size={12} />
+              </a>
+            </div>
+
+            <div className={styles.channelCard}>
+              <div className={styles.channelCardHeader}>
+                <div>
+                  <span className={styles.channelBadge}>Fundamentos de Computação</span>
+                  <h3 className={styles.channelTitle}>Harvard CS50 com David Malan</h3>
+                </div>
+                <Youtube size={20} color="#dc2626" />
+              </div>
+              <p className={styles.channelDesc}>
+                Aulas de introdução à ciência da computação de Harvard, explorando raciocínio algorítmico, linguagem C, Python, SQL e abstrações de sistemas.
+              </p>
+              <a
+                href="https://www.youtube.com/@cs50"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.channelActionBtn}
+              >
+                <Youtube size={16} />
+                <span>Acessar Harvard CS50</span>
+                <ExternalLink size={12} />
+              </a>
+            </div>
+
+            <div className={styles.channelCard}>
+              <div className={styles.channelCardHeader}>
+                <div>
+                  <span className={styles.channelBadge}>Algoritmos e Entrevistas</span>
+                  <h3 className={styles.channelTitle}>NeetCode</h3>
+                </div>
+                <Youtube size={20} color="#dc2626" />
+              </div>
+              <p className={styles.channelDesc}>
+                Mapeamento visual e sistemático de problemas de estruturas de dados e algoritmos com padrões para preparação de entrevistas técnicas.
+              </p>
+              <a
+                href="https://www.youtube.com/@NeetCode"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.channelActionBtn}
+              >
+                <Youtube size={16} />
+                <span>Acessar NeetCode</span>
+                <ExternalLink size={12} />
+              </a>
+            </div>
+
+            <div className={styles.channelCard}>
+              <div className={styles.channelCardHeader}>
+                <div>
+                  <span className={styles.channelBadge}>Arquitetura e Tendências</span>
+                  <h3 className={styles.channelTitle}>Fireship</h3>
+                </div>
+                <Youtube size={20} color="#dc2626" />
+              </div>
+              <p className={styles.channelDesc}>
+                Apresentações dinâmicas de ferramentas emergentes, resumo de ecossistemas em alta velocidade e cobertura de novidades da indústria tech.
+              </p>
+              <a
+                href="https://www.youtube.com/@Fireship"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.channelActionBtn}
+              >
+                <Youtube size={16} />
+                <span>Acessar Fireship</span>
+                <ExternalLink size={12} />
+              </a>
+            </div>
 
             <div className={styles.channelCard}>
               <div className={styles.channelCardHeader}>
                 <div>
                   <span className={styles.channelBadge}>Sistemas Distribuídos</span>
-                  <h3 className={styles.channelTitle}>ByteByteGo e Internacionais</h3>
+                  <h3 className={styles.channelTitle}>ByteByteGo</h3>
                 </div>
                 <Youtube size={20} color="#dc2626" />
               </div>
               <p className={styles.channelDesc}>
-                Diagramas visuais de arquitetura distribuída, redes com Hussein Nasser, estruturas de dados com NeetCode e produtividade com ThePrimeagen.
+                Diagramas visuais detalhados sobre arquitetura de sistemas de alta escala, mensageria, balanceamento de carga e bancos de dados distribuídos.
               </p>
               <a
                 href="https://www.youtube.com/@ByteByteGo"
@@ -843,6 +974,52 @@ export default function CarreiraPage() {
               >
                 <Youtube size={16} />
                 <span>Acessar ByteByteGo</span>
+                <ExternalLink size={12} />
+              </a>
+            </div>
+
+            <div className={styles.channelCard}>
+              <div className={styles.channelCardHeader}>
+                <div>
+                  <span className={styles.channelBadge}>Backend e Protocolos</span>
+                  <h3 className={styles.channelTitle}>Hussein Nasser</h3>
+                </div>
+                <Youtube size={20} color="#dc2626" />
+              </div>
+              <p className={styles.channelDesc}>
+                Engenharia de backend profunda, funcionamento interno de protocolos de rede, modelo TCP, concorrência e desempenho de bancos de dados.
+              </p>
+              <a
+                href="https://www.youtube.com/@hnasr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.channelActionBtn}
+              >
+                <Youtube size={16} />
+                <span>Acessar Hussein Nasser</span>
+                <ExternalLink size={12} />
+              </a>
+            </div>
+
+            <div className={styles.channelCard}>
+              <div className={styles.channelCardHeader}>
+                <div>
+                  <span className={styles.channelBadge}>Sistemas e Produtividade</span>
+                  <h3 className={styles.channelTitle}>ThePrimeagen</h3>
+                </div>
+                <Youtube size={20} color="#dc2626" />
+              </div>
+              <p className={styles.channelDesc}>
+                Discussões focadas em performance de código, produtividade no terminal com editores modulares e cultura prática de software.
+              </p>
+              <a
+                href="https://www.youtube.com/@ThePrimeTimeagen"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.channelActionBtn}
+              >
+                <Youtube size={16} />
+                <span>Acessar ThePrimeagen</span>
                 <ExternalLink size={12} />
               </a>
             </div>

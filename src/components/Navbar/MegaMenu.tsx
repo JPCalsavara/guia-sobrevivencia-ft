@@ -163,6 +163,11 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
                     <span>Diretório de Organizações Estudantis</span>
                   </Link>
                 </li>
+                <li>
+                  <Link href="/campus#moradia-modalidades" onClick={onClose} className={styles.menuLink}>
+                    <span>Guia de Moradia e Habitação</span>
+                  </Link>
+                </li>
               </ul>
             </div>
 
