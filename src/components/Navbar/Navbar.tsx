@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Sun, Moon, Menu, X, BookOpen, Briefcase, Cpu, MapPin, ExternalLink, Link2, Home, Compass, Layers, ChevronDown, Search } from 'lucide-react';
+import { Sun, Moon, Menu, X, BookOpen, Briefcase, Cpu, MapPin, ExternalLink, Link2, Home, Compass, Layers, ChevronDown, Search, GraduationCap } from 'lucide-react';
 import { MegaMenu } from './MegaMenu';
 import { SearchModal } from '../SearchModal/SearchModal';
 import styles from './Navbar.module.scss';
@@ -45,10 +45,11 @@ export function Navbar() {
 
   const navLinks = [
     { href: '/', label: 'Início', icon: Home },
+    { href: '/calouros', label: 'Calouros', icon: GraduationCap },
     { href: '/academico', label: 'Acadêmico', icon: BookOpen },
-    { href: '/campus', label: 'Campus e Vida', icon: MapPin },
+    { href: '/campus', label: 'Campus', icon: MapPin },
     { href: '/carreira', label: 'Carreira', icon: Briefcase },
-    { href: '/estudos-ia', label: 'Estudos e IA', icon: Cpu },
+    { href: '/estudos-ia', label: 'IA', icon: Cpu },
     { href: '/links', label: 'Links Úteis', icon: Link2 },
   ];
 

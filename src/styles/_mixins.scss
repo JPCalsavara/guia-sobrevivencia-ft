@@ -49,6 +49,14 @@ $breakpoint-xl: 1280px;
     padding-left: $spacing-xl;
     padding-right: $spacing-xl;
   }
+
+  @include respond-to('lg') {
+    max-width: 1480px;
+  }
+
+  @include respond-to('2xl') {
+    max-width: 1600px;
+  }
 }
 
 // Efeito de vidro sutil
