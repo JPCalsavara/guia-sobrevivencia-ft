@@ -90,8 +90,9 @@ const academicTopics: TopicItem[] = [
   },
   {
     id: 'calculo-geometria',
-    title: 'Cálculo I e Geometria Analítica',
+    title: 'Cálculo e o Efeito Cascata de Prog 1',
     subtopics: [
+      { id: 'alerta-prog1-tranca-tudo', title: 'Programação 1: O Cálculo da TI' },
       { id: 'calculo-plantoes', title: 'Plantões PAD e Provas Antigas' },
       { id: 'calculo-metodologia', title: 'Padrões de Resolução e Regra 48h' },
       { id: 'calculo-canais', title: 'Canais do Professor Ferretto' },
@@ -384,11 +385,27 @@ export default function AcademicoPage() {
           <div className={styles.cardHeader}>
             <Calculator size={22} className={styles.headerIcon} />
             <div>
-              <h2 className={styles.cardTitle}>Sobrevivência em Cálculo I e Geometria Analítica</h2>
+              <h2 className={styles.cardTitle}>Sobrevivência em Cálculo I e o Efeito Cascata de Programação 1</h2>
               <p className={styles.cardSubtitle}>
-                Método prático em quatro etapas para superar as maiores taxas de reprovação do primeiro ano
+                Método prático para superar as maiores taxas de reprovação e evitar o travamento da grade curricular
               </p>
             </div>
+          </div>
+
+          {/* Alerta de Programação 1 */}
+          <div id="alerta-prog1-tranca-tudo" className={styles.prog1AlertCard}>
+            <div className={styles.prog1AlertHeader}>
+              <AlertTriangle size={24} className={styles.prog1AlertIcon} aria-hidden="true" />
+              <div>
+                <h3 className={styles.prog1AlertTitle}>Atenção Crítica: Reprovar em Programação 1 Tranca Toda a Grade de TI</h3>
+                <p className={styles.prog1AlertSubtitle}>
+                  O papel de gargalo que Cálculo 1 exerce nas engenharias é exatamente o papel de Programação 1 nos cursos de tecnologia
+                </p>
+              </div>
+            </div>
+            <p className={styles.prog1AlertText}>
+              Nos cursos da Faculdade de Tecnologia como Sistemas de Informação e TADS, a matéria de Programação 1 é o alicerce de toda a cadeia técnica. Reprovar nesta disciplina gera um bloqueio em cascata imediato: ela impede a matrícula em Programação 2, que por sua vez trava Estruturas de Dados, Programação Orientada a Objetos, Bancos de Dados e matérias avançadas de Engenharia de Software. Essa retenção atrasa semestres inteiros e adia os requisitos mínimos para conseguir estágio. Pratique código diariamente no computador, resolva os exercícios logo após as aulas e busque a monitoria PAD desde a primeira semana do semestre.
+            </p>
           </div>
 
           <div className={styles.rulesGrid}>

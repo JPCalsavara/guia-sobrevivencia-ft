@@ -86,5 +86,34 @@ describe('Catalogo de Links e Recursos', () => {
     expect(nexusLink).toBeDefined();
     expect(nexusLink?.category).toBe('organizacoes');
     expect(nexusLink?.url).toBe('https://www.instagram.com/nexus.girls_unicamp/');
+
+    const kipperGitLink = linksData.find((l) => l.id === 'video-kipper-git-github');
+    expect(kipperGitLink).toBeDefined();
+    expect(kipperGitLink?.category).toBe('carreira-tecnologia');
+    expect(kipperGitLink?.url).toContain('pyM5QLS2h6M');
+  });
+
+  it('deve conter programas de estagio estruturados Agibank, Nubank, CI e T, Itau e BTG', () => {
+    const agibank = linksData.find((l) => l.id === 'estagio-agibank');
+    const nubank = linksData.find((l) => l.id === 'estagio-nubank');
+    const ciandt = linksData.find((l) => l.id === 'estagio-ciandt');
+    const itau = linksData.find((l) => l.id === 'estagio-itau');
+    const btg = linksData.find((l) => l.id === 'estagio-verao-btg');
+
+    expect(agibank).toBeDefined();
+    expect(agibank?.url).toBe('https://carreiras.agibank.com.br/estagio');
+
+    expect(nubank).toBeDefined();
+    expect(nubank?.url).toBe('https://estagio.nubank.com.br/');
+
+    expect(ciandt).toBeDefined();
+    expect(ciandt?.url).toBe('https://ciandt.com/br/pt-br/carreiras/programa-de-estagio');
+
+    expect(itau).toBeDefined();
+    expect(itau?.url).toContain('itau.com.br');
+
+    expect(btg).toBeDefined();
+    expect(btg?.url).toBe('https://conteudo.btgpactual.com/estagio-de-ferias');
   });
 });
+

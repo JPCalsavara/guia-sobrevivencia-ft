@@ -36,6 +36,8 @@ const careerTopics: TopicItem[] = [
     title: 'Sazonalidade e Feiras',
     subtopics: [
       { id: 'sazonalidade-estagio', title: 'Janela de Contratação' },
+      { id: 'feiras-recrutamento-agosto', title: 'Feiras de Carreiras em Agosto' },
+      { id: 'programas-estagio-frequencia', title: 'Programas de Estágio Estruturados' },
       { id: 'requisito-legal', title: 'Elegibilidade Institucional' },
     ],
   },
@@ -223,6 +225,217 @@ export default function CarreiraPage() {
               <p className={styles.timelineDesc}>
                 Pela legislação vigente e pelas normas da DAC, o estudante precisa estar regularmente matriculado e cursando a partir do terceiro semestre letivo para estágios não obrigatórios, respeitando o teto de trinta horas semanais.
               </p>
+            </div>
+          </div>
+
+          {/* Feiras de Carreiras em Destaque */}
+          <div id="feiras-recrutamento-agosto" className={styles.fairsContainer}>
+            <div className={styles.fairsSubHeader}>
+              <h3 className={styles.fairsSubTitle}>Principais Feiras de Carreiras e Recrutamento em Agosto</h3>
+              <p className={styles.fairsSubDesc}>
+                Participe dos maiores eventos de conexões corporativas, entregue currículos e converse diretamente com gestores e recrutadores
+              </p>
+            </div>
+
+            <div className={styles.fairsGrid}>
+              <div className={styles.fairCard}>
+                <div>
+                  <div className={styles.fairHeader}>
+                    <span className={styles.fairBadge}>Limeira FT e FCA</span>
+                    <Instagram size={18} className={styles.instagramIcon} aria-hidden="true" />
+                  </div>
+                  <h4 className={styles.fairTitle}>Feira Unicamp Limeira</h4>
+                  <p className={styles.fairDesc}>
+                    Feira de tecnologia e carreiras dos campi de Limeira realizada no mês de agosto. Conecta os alunos da FT e da FCA com indústrias regionais, polos corporativos e startups inovadoras.
+                  </p>
+                </div>
+                <a
+                  href="https://www.instagram.com/feiraunicamplimeira/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.fairActionBtn}
+                  aria-label="Acessar Instagram da Feira Unicamp Limeira em nova janela"
+                >
+                  <Instagram size={14} aria-hidden="true" />
+                  <span>Instagram Feira Limeira</span>
+                  <ExternalLink size={12} aria-hidden="true" />
+                </a>
+              </div>
+
+              <div className={styles.fairCard}>
+                <div>
+                  <div className={styles.fairHeader}>
+                    <span className={styles.fairBadge}>Unicamp Barão Geraldo</span>
+                    <Instagram size={18} className={styles.instagramIcon} aria-hidden="true" />
+                  </div>
+                  <h4 className={styles.fairTitle}>Workshop Integrativo WI</h4>
+                  <p className={styles.fairDesc}>
+                    A maior feira de estágios da Unicamp, sediada anualmente em agosto no campus de Campinas. Reúne dezenas de estandes de gigantes de tecnologia, consultorias e bancos de investimento.
+                  </p>
+                </div>
+                <a
+                  href="https://www.instagram.com/workshopintegrativo/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.fairActionBtn}
+                  aria-label="Acessar Instagram do Workshop Integrativo Unicamp em nova janela"
+                >
+                  <Instagram size={14} aria-hidden="true" />
+                  <span>Instagram do WI</span>
+                  <ExternalLink size={12} aria-hidden="true" />
+                </a>
+              </div>
+
+              <div className={styles.fairCard}>
+                <div>
+                  <div className={styles.fairHeader}>
+                    <span className={styles.fairBadge}>São Paulo Capital</span>
+                    <Instagram size={18} className={styles.instagramIcon} aria-hidden="true" />
+                  </div>
+                  <h4 className={styles.fairTitle}>Conferências Na Prática</h4>
+                  <p className={styles.fairDesc}>
+                    Grandes conferências de carreira da Fundação Estudar sediadas na capital paulista. Contam com processo seletivo prévio para participação e conexões diretas com líderes e recrutadores de destaque.
+                  </p>
+                </div>
+                <a
+                  href="https://www.instagram.com/napraticaorg/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.fairActionBtn}
+                  aria-label="Acessar Instagram do Na Pratica em nova janela"
+                >
+                  <Instagram size={14} aria-hidden="true" />
+                  <span>Instagram Na Prática</span>
+                  <ExternalLink size={12} aria-hidden="true" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Programas de Estágio Estruturados */}
+          <div id="programas-estagio-frequencia" className={styles.fairsContainer} style={{ marginTop: '2.5rem' }}>
+            <div className={styles.fairsSubHeader}>
+              <h3 className={styles.fairsSubTitle}>Onde e Quando Procurar: Principais Programas de Estágio Estruturados</h3>
+              <p className={styles.fairsSubDesc}>
+                Conheça a periodicidade dos processos seletivos para planejar suas inscrições com antecedência e não perder as janelas de abertura
+              </p>
+            </div>
+
+            <div className={styles.programsGrid}>
+              <div className={styles.programCard}>
+                <div className={styles.programCardTop}>
+                  <div className={styles.programHeader}>
+                    <span className={`${styles.programFrequencyBadge} ${styles.badgeBlue}`}>2 Vezes por Ano</span>
+                    <Building2 size={18} className={styles.programIcon} aria-hidden="true" />
+                  </div>
+                  <h4 className={styles.programTitle}>Programa de Estágio Agibank</h4>
+                  <p className={styles.programDesc}>
+                    O Agi abre turmas semestrais, tipicamente com seleções ocorrendo no começo do ano e no meio do ano, para posições em tecnologia, engenharia de software, produtos digitais e operações.
+                  </p>
+                </div>
+                <a
+                  href="https://carreiras.agibank.com.br/estagio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.programActionBtn}
+                  aria-label="Acessar portal de estágio do Agibank em nova janela"
+                >
+                  <span>Portal de Estágio Agi</span>
+                  <ExternalLink size={12} aria-hidden="true" />
+                </a>
+              </div>
+
+              <div className={styles.programCard}>
+                <div className={styles.programCardTop}>
+                  <div className={styles.programHeader}>
+                    <span className={`${styles.programFrequencyBadge} ${styles.badgePurple}`}>1 Vez por Ano</span>
+                    <Building2 size={18} className={styles.programIcon} aria-hidden="true" />
+                  </div>
+                  <h4 className={styles.programTitle}>Programa de Estágio Nubank</h4>
+                  <p className={styles.programDesc}>
+                    O Nubank abre processo seletivo anual altamente concorrido. As etapas incluem testes práticos de raciocínio, lógica de programação e resolução de problemas no estilo LeetCode, seguidos por entrevistas técnicas e de cultura.
+                  </p>
+                </div>
+                <a
+                  href="https://estagio.nubank.com.br/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.programActionBtn}
+                  aria-label="Acessar portal de estágio do Nubank em nova janela"
+                >
+                  <span>Portal de Estágio Nubank</span>
+                  <ExternalLink size={12} aria-hidden="true" />
+                </a>
+              </div>
+
+              <div className={styles.programCard}>
+                <div className={styles.programCardTop}>
+                  <div className={styles.programHeader}>
+                    <span className={`${styles.programFrequencyBadge} ${styles.badgeGreen}`}>1 Vez por Ano</span>
+                    <Building2 size={18} className={styles.programIcon} aria-hidden="true" />
+                  </div>
+                  <h4 className={styles.programTitle}>Programa de Estágio CI e T</h4>
+                  <p className={styles.programDesc}>
+                    Abertura anual tradicionalmente na janela de agosto a outubro para formação de turmas no início do ano seguinte, oferecendo oportunidades em desenvolvimento de software com presença forte no polo de Campinas e vagas remotas.
+                  </p>
+                </div>
+                <a
+                  href="https://ciandt.com/br/pt-br/carreiras/programa-de-estagio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.programActionBtn}
+                  aria-label="Acessar portal de estágio da CI e T em nova janela"
+                >
+                  <span>Portal de Estágio CI e T</span>
+                  <ExternalLink size={12} aria-hidden="true" />
+                </a>
+              </div>
+
+              <div className={styles.programCard}>
+                <div className={styles.programCardTop}>
+                  <div className={styles.programHeader}>
+                    <span className={`${styles.programFrequencyBadge} ${styles.badgeAmber}`}>Inscrição Contínua</span>
+                    <Building2 size={18} className={styles.programIcon} aria-hidden="true" />
+                  </div>
+                  <h4 className={styles.programTitle}>Estágio Corporativo Itaú Unibanco</h4>
+                  <p className={styles.programDesc}>
+                    O Itaú opera com banco de talentos aberto o ano todo. Você submete sua candidatura inicial e o currículo permanece ativo para convocações contínuas conforme a abertura de vagas nos times de tecnologia e negócios.
+                  </p>
+                </div>
+                <a
+                  href="https://carreiras.itau.com.br/vaga/sao-paulo/programa-de-estagio-corporativo-2026/35299/97432985872"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.programActionBtn}
+                  aria-label="Acessar estágio corporativo do Itau em nova janela"
+                >
+                  <span>Candidatura Contínua Itaú</span>
+                  <ExternalLink size={12} aria-hidden="true" />
+                </a>
+              </div>
+
+              <div className={styles.programCard}>
+                <div className={styles.programCardTop}>
+                  <div className={styles.programHeader}>
+                    <span className={`${styles.programFrequencyBadge} ${styles.badgeCyan}`}>Estágio de Férias e Verão</span>
+                    <Building2 size={18} className={styles.programIcon} aria-hidden="true" />
+                  </div>
+                  <h4 className={styles.programTitle}>Estágio de Férias BTG Pactual</h4>
+                  <p className={styles.programDesc}>
+                    Ideal para quem estuda em período integral e não tem 30 horas semanais livres durante os semestres letivos. O programa proporciona imersão prática intensiva em São Paulo durante os recessos de verão e de inverno.
+                  </p>
+                </div>
+                <a
+                  href="https://conteudo.btgpactual.com/estagio-de-ferias"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.programActionBtn}
+                  aria-label="Acessar estágio de férias do BTG Pactual em nova janela"
+                >
+                  <span>Portal BTG Férias</span>
+                  <ExternalLink size={12} aria-hidden="true" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -459,6 +672,30 @@ export default function CarreiraPage() {
               >
                 <Youtube size={15} aria-hidden="true" />
                 <span>Assistir Vídeo sobre Currículo</span>
+                <ExternalLink size={12} aria-hidden="true" />
+              </a>
+            </div>
+
+            <div className={styles.cvVideoCard}>
+              <div>
+                <div className={styles.cvVideoHeader}>
+                  <span className={styles.cvVideoBadge}>Git e GitHub na Prática</span>
+                  <Youtube size={18} color="#dc2626" aria-hidden="true" />
+                </div>
+                <h3 className={styles.cvVideoTitle}>Fernanda Kipper: Guia Prático de Git e GitHub do Zero</h3>
+                <p className={styles.cvVideoDesc}>
+                  Aprenda comandos essenciais como commit, branch, merge e pull request na prática para versionar projetos acadêmicos e profissionais.
+                </p>
+              </div>
+              <a
+                href="https://www.youtube.com/watch?v=pyM5QLS2h6M"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.cvVideoBtn}
+                aria-label="Assistir aula de Git e GitHub da Fernanda Kipper no YouTube em nova janela"
+              >
+                <Youtube size={15} aria-hidden="true" />
+                <span>Assistir Aula de Git e GitHub</span>
                 <ExternalLink size={12} aria-hidden="true" />
               </a>
             </div>
@@ -1011,11 +1248,12 @@ export default function CarreiraPage() {
               </div>
               <h3 className={styles.skillTitle}>Trilha Dados e IA: Ciência versus Engenharia</h3>
               <p className={styles.skillDesc}>
-                Ciência foca em modelagem estatística, hipóteses e algoritmos preditivos. Engenharia foca em pipelines confiáveis e ingestão escalável. Inclui especialização Michigan gratuita via Coursera Unicamp.
+                Ciência foca em modelagem estatística, hipóteses e algoritmos preditivos. Engenharia foca em pipelines confiáveis e ingestão escalável. Participe da Liga de Ciência de Dados da Unicamp Liga DS para atuar em projetos práticos com dados reais e aproveite a especialização Michigan gratuita via Coursera Unicamp.
               </p>
               <div className={styles.skillTagsRow}>
                 <span className={styles.skillTag}>Python</span>
                 <span className={styles.skillTag}>Pandas</span>
+                <span className={styles.skillTag}>Liga DS</span>
                 <span className={styles.skillTag}>Scikit-Learn</span>
                 <span className={styles.skillTag}>SQL</span>
                 <span className={styles.skillTag}>Pipelines</span>
@@ -1048,6 +1286,16 @@ export default function CarreiraPage() {
                   <span>Roadmap AI</span>
                   <ExternalLink size={12} />
                 </a>
+                <a
+                  href="https://www.instagram.com/ligadsunicamp/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${styles.trackActionBtn} ${styles.purple}`}
+                  aria-label="Acessar Instagram da Liga de Ciencia de Dados da Unicamp em nova janela"
+                >
+                  <span>Liga DS Unicamp</span>
+                  <ExternalLink size={12} />
+                </a>
               </div>
             </div>
 
@@ -1061,10 +1309,11 @@ export default function CarreiraPage() {
               </div>
               <h3 className={styles.skillTitle}>Trilha Portfólio: Construção de Prova de Trabalho</h3>
               <p className={styles.skillDesc}>
-                Em vez de colecionar certificados teóricos, implemente projetos com código público no GitHub, documentação de arquitetura clara e deploy funcional para recrutadores técnicos testarem na prática.
+                Em vez de acumular certificados puramente teóricos, implemente soluções com código público no GitHub ou ingresse em projetos de desenvolvimento na Atria Jr., empresa júnior da FT que constrói software e consultoria para clientes reais, gerando comprovação prática no currículo.
               </p>
               <div className={styles.skillTagsRow}>
                 <span className={styles.skillTag}>GitHub</span>
+                <span className={styles.skillTag}>Atria Jr. FT</span>
                 <span className={styles.skillTag}>Deploy Ativo</span>
                 <span className={styles.skillTag}>README Técnico</span>
                 <span className={styles.skillTag}>Projetos Reais</span>
@@ -1086,6 +1335,16 @@ export default function CarreiraPage() {
                   className={styles.trackActionBtn}
                 >
                   <span>GitHub Student Pack</span>
+                  <ExternalLink size={12} />
+                </a>
+                <a
+                  href="https://atriajr.com.br"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${styles.trackActionBtn} ${styles.green}`}
+                  aria-label="Acessar portal oficial da Atria Jr em nova janela"
+                >
+                  <span>Projetos Atria Jr.</span>
                   <ExternalLink size={12} />
                 </a>
               </div>
