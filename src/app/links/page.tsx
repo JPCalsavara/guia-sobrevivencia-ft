@@ -2,71 +2,127 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { linksData, ResourceLink } from '@/data/links';
+import { linksData, ResourceLink, LinkCategory } from '@/data/links';
 import { Link2, Search, ExternalLink } from 'lucide-react';
 import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
 import styles from './links.module.scss';
 
 const linksTopics: TopicItem[] = [
   {
-    id: 'categoria-ft',
-    title: 'Faculdade de Tecnologia',
+    id: 'categoria-alimentacao',
+    title: 'Alimentação e RU',
     subtopics: [
-      { id: 'categoria-ft', title: 'Portais e Serviços FT' },
+      { id: 'categoria-alimentacao', title: 'Restaurante Universitário e Saldo' },
     ],
   },
   {
-    id: 'categoria-unicamp',
-    title: 'Sistemas Centrais DAC',
+    id: 'categoria-transporte',
+    title: 'Transporte e Mobilidade',
     subtopics: [
-      { id: 'categoria-unicamp', title: 'DAC, SIGA e e-DAC' },
+      { id: 'categoria-transporte', title: 'Circular e Intercampi Linha 84' },
     ],
   },
   {
-    id: 'categoria-prefeitura',
-    title: 'Prefeitura e Transporte',
+    id: 'categoria-matricula',
+    title: 'Matrícula e Vida Acadêmica',
     subtopics: [
-      { id: 'categoria-prefeitura', title: 'Circular e Intercampi' },
+      { id: 'categoria-matricula', title: 'DAC, SIGA e Grade DAC Online' },
+    ],
+  },
+  {
+    id: 'categoria-aulas',
+    title: 'Aulas e Ambientes Virtuais',
+    subtopics: [
+      { id: 'categoria-aulas', title: 'Moodle, Classroom e Salas da FT' },
+    ],
+  },
+  {
+    id: 'categoria-intercambio',
+    title: 'Intercâmbio e DERI',
+    subtopics: [
+      { id: 'categoria-intercambio', title: 'Editais e Guias de Preparação' },
+    ],
+  },
+  {
+    id: 'categoria-iniciacao-cientifica',
+    title: 'Iniciação Científica',
+    subtopics: [
+      { id: 'categoria-iniciacao-cientifica', title: 'PIBIC e FAPESP SAGe' },
+    ],
+  },
+  {
+    id: 'categoria-permanencia',
+    title: 'Permanência e DEAPE',
+    subtopics: [
+      { id: 'categoria-permanencia', title: 'BAS, Mentoria PMU e Moradia' },
     ],
   },
   {
     id: 'categoria-organizacoes',
     title: 'Organizações Estudantis',
     subtopics: [
-      { id: 'categoria-organizacoes', title: 'Entidades e Ligas Acadêmicas' },
+      { id: 'categoria-organizacoes', title: 'Centros, Atlética e Ligas' },
     ],
   },
   {
-    id: 'categoria-ferramentas',
-    title: 'Ferramentas de Estudo',
+    id: 'categoria-carreira-tecnologia',
+    title: 'Carreira e Tecnologia',
     subtopics: [
-      { id: 'categoria-ferramentas', title: 'Softwares e Plataformas' },
+      { id: 'categoria-carreira-tecnologia', title: 'AWS, GitHub e Ferramentas' },
     ],
   },
 ];
 
-const categoryMeta: Record<string, { label: string; subtitle: string }> = {
-  ft: {
-    label: 'Faculdade de Tecnologia FT',
-    subtitle: 'Portais institucionais, intranet, bibliotecas e suporte de TI local',
+const categoryMeta: Record<LinkCategory, { label: string; subtitle: string }> = {
+  alimentacao: {
+    label: 'Alimentação e Restaurante Universitário',
+    subtitle: 'Cardápio diário, compra de créditos via Pix pela Funcamp e aplicativo de carteirinha digital',
   },
-  unicamp: {
-    label: 'Sistemas Centrais Unicamp',
-    subtitle: 'DAC, SIGA, e-DAC, Moodle, carteirinha digital e serviços centrais',
+  transporte: {
+    label: 'Transporte e Mobilidade',
+    subtitle: 'Circular gratuito FT e FCA, fretado intercampi Linha 84, reservas e passe escolar SOU Limeira',
   },
-  prefeitura: {
-    label: 'Prefeitura e Limeira',
-    subtitle: 'Transporte circular gratuito, fretado intercampi e Restaurante Universitário',
+  matricula: {
+    label: 'Matrícula e Vida Acadêmica',
+    subtitle: 'Portal da Diretoria Acadêmica, matrícula virtual no SIGA, caderno de matérias e Grade DAC Online',
+  },
+  aulas: {
+    label: 'Aulas e Ambientes Virtuais',
+    subtitle: 'Moodle, Google Sala de Aula, alocação de salas em tempo real na FT, laboratórios e Wi-Fi Eduroam',
+  },
+  intercambio: {
+    label: 'Intercâmbio e Mobilidade Internacional',
+    subtitle: 'Diretoria de Relações Internacionais DERI, guias oficiais de planejamento e editais no exterior',
+  },
+  'iniciacao-cientifica': {
+    label: 'Iniciação Científica e Pesquisa',
+    subtitle: 'Editais anuais PIBIC com bolsas do CNPq, Pró-Reitoria de Pesquisa e fluxo contínuo na FAPESP',
+  },
+  permanencia: {
+    label: 'Permanência e Apoio Estudantil',
+    subtitle: 'Bolsa Auxílio-Social BAS, editais de seleção socioeconômica, mentoria PMU da DEAPE e moradia',
   },
   organizacoes: {
     label: 'Organizações Estudantis',
-    subtitle: 'Centros acadêmicos, atléticas, empresas juniores e ligas de estudo',
+    subtitle: 'Centros acadêmicos, atlética universitária, empresas juniores e ligas de tecnologia em Limeira',
   },
-  ferramentas: {
-    label: 'Ferramentas de Estudo',
-    subtitle: 'Plataformas de notas, simuladores de grade horária e repositórios acadêmicos',
+  'carreira-tecnologia': {
+    label: 'Carreira, Tecnologia e Ferramentas',
+    subtitle: 'AWS Builder Center para alunos, GitHub Student Developer Pack, Overleaf, roadmaps e canais de estudo',
   },
 };
+
+const categoryOrder: LinkCategory[] = [
+  'alimentacao',
+  'transporte',
+  'matricula',
+  'aulas',
+  'intercambio',
+  'iniciacao-cientifica',
+  'permanencia',
+  'organizacoes',
+  'carreira-tecnologia',
+];
 
 export default function LinksPage() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -74,16 +130,20 @@ export default function LinksPage() {
 
   const categories = [
     { key: 'all', label: 'Todos os Recursos' },
-    { key: 'ft', label: 'Faculdade de Tecnologia FT' },
-    { key: 'unicamp', label: 'Sistemas Centrais Unicamp' },
-    { key: 'prefeitura', label: 'Prefeitura e Limeira' },
-    { key: 'organizacoes', label: 'Organizações Estudantis' },
-    { key: 'ferramentas', label: 'Ferramentas de Estudo' },
+    { key: 'alimentacao', label: 'Alimentação e RU' },
+    { key: 'transporte', label: 'Transporte' },
+    { key: 'matricula', label: 'Matrícula e DAC' },
+    { key: 'aulas', label: 'Aulas e Ambientes' },
+    { key: 'intercambio', label: 'Intercâmbio DERI' },
+    { key: 'iniciacao-cientifica', label: 'Iniciação Científica' },
+    { key: 'permanencia', label: 'Permanência DEAPE' },
+    { key: 'organizacoes', label: 'Organizações' },
+    { key: 'carreira-tecnologia', label: 'Carreira e Tech' },
   ];
 
-  const activeCategories = selectedCategory === 'all'
-    ? ['ft', 'unicamp', 'prefeitura', 'organizacoes', 'ferramentas']
-    : [selectedCategory];
+  const activeCategories: LinkCategory[] = selectedCategory === 'all'
+    ? categoryOrder
+    : [selectedCategory as LinkCategory];
 
   const filterItem = (item: ResourceLink) => {
     const term = searchTerm.toLowerCase();
@@ -118,7 +178,7 @@ export default function LinksPage() {
           </h1>
 
           <p className={styles.pageDescription}>
-            Catálogo unificado de sistemas acadêmicos da DAC, serviços da FT, transporte intercampi e plataformas de estudo.
+            Catálogo unificado por temas cobrindo alimentação, transporte, matrícula, aulas, intercâmbio, pesquisa e ferramentas de estudo.
           </p>
         </motion.div>
       </section>
@@ -126,7 +186,7 @@ export default function LinksPage() {
       {/* Conteúdo com Barra Lateral Esquerda */}
       <div className={styles.contentWithSidebar}>
         <aside className={styles.sidebarAside}>
-          <DocSidebar topics={linksTopics} title="Diretório de Links" />
+          <DocSidebar topics={linksTopics} title="Temas de Links" />
         </aside>
 
         <div className={styles.mainContentArea}>
@@ -192,12 +252,12 @@ export default function LinksPage() {
                       href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`${styles.linkCard} ${styles[`card_${link.category}`] || ''}`}
+                      className={`${styles.linkCard} ${styles[`card_${link.category.replace('-', '_')}`] || ''}`}
                       aria-label={`${link.title} em nova janela`}
                     >
                       <div className={styles.cardHeader}>
                         {link.badge && (
-                          <span className={`${styles.badge} ${styles[`badge_${link.category}`] || ''}`}>
+                          <span className={`${styles.badge} ${styles[`badge_${link.category.replace('-', '_')}`] || ''}`}>
                             {link.badge}
                           </span>
                         )}
@@ -224,4 +284,3 @@ export default function LinksPage() {
     </div>
   );
 }
-

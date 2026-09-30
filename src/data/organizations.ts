@@ -7,6 +7,7 @@ export interface Organization {
   instagramHandle?: string;
   instagramUrl?: string;
   websiteUrl?: string;
+  linkedinUrl?: string;
 }
 
 export const organizationsData: Organization[] = [
@@ -20,6 +21,7 @@ export const organizationsData: Organization[] = [
     instagramHandle: '@atriajr',
     instagramUrl: 'https://www.instagram.com/atriajr/',
     websiteUrl: 'https://atriajr.com.br',
+    linkedinUrl: 'https://www.linkedin.com/company/atriajr/',
   },
 
   // 2. Ligas Acadêmicas
@@ -32,6 +34,7 @@ export const organizationsData: Organization[] = [
     instagramHandle: '@lics.unicamp',
     instagramUrl: 'https://www.instagram.com/lics.unicamp/',
     websiteUrl: 'https://www.lics.tec.br',
+    linkedinUrl: 'https://www.linkedin.com/company/lics-liga-de-ciberseguranca/',
   },
   {
     id: 'liestag',
@@ -72,6 +75,16 @@ export const organizationsData: Organization[] = [
     instagramHandle: '@ligadsunicamp',
     instagramUrl: 'https://www.instagram.com/ligadsunicamp/',
     websiteUrl: 'https://www.instagram.com/ligadsunicamp/',
+    linkedinUrl: 'https://www.linkedin.com/company/liga-de-data-science/',
+  },
+  {
+    id: 'liga-mkt-unicamp',
+    name: 'Liga de Marketing Unicamp',
+    category: 'ligas',
+    categoryLabel: 'Liga Acadêmica',
+    description: 'Liga acadêmica voltada ao aprendizado prático de marketing, estratégias de branding, growth, comunicação digital e análise de mercado para a comunidade universitária.',
+    websiteUrl: 'https://www.linkedin.com/company/liga-mkt-unicamp/',
+    linkedinUrl: 'https://www.linkedin.com/company/liga-mkt-unicamp/',
   },
 
   // 3. Projetos de Extensão e Ação Social
@@ -84,6 +97,7 @@ export const organizationsData: Organization[] = [
     instagramHandle: '@semeiacode',
     instagramUrl: 'https://www.instagram.com/semeiacode/',
     websiteUrl: 'https://semeiacode.vercel.app/',
+    linkedinUrl: 'https://www.linkedin.com/company/semeiacode/',
   },
   {
     id: 'enactus-limeira',
@@ -94,6 +108,7 @@ export const organizationsData: Organization[] = [
     instagramHandle: '@unicamplimeiraenactus',
     instagramUrl: 'https://www.instagram.com/unicamplimeiraenactus/',
     websiteUrl: 'https://enactusbrasil.org',
+    linkedinUrl: 'https://www.linkedin.com/company/enactus-limeira/',
   },
   {
     id: 'cvu-limeira',
@@ -104,6 +119,7 @@ export const organizationsData: Organization[] = [
     instagramHandle: '@cvulimeira',
     instagramUrl: 'https://www.instagram.com/cvulimeira/',
     websiteUrl: 'https://cvu.org.br',
+    linkedinUrl: 'https://www.linkedin.com/company/cvu-fca/',
   },
   {
     id: 'trotedacidadania-limeira',
@@ -212,6 +228,42 @@ export const organizationsData: Organization[] = [
     instagramHandle: '@fabricadeinovacao',
     instagramUrl: 'https://www.instagram.com/fabricadeinovacao/',
     websiteUrl: 'https://fabricadeinovacao.org.br',
+  },
+  {
+    id: 'marsha-pelo-orgulho',
+    name: 'Coletivo Marsha Pelo Orgulho',
+    category: 'extensao',
+    categoryLabel: 'Coletivo Estudantil',
+    description: 'Coletivo LGBTQIA+ atuante na Unicamp em Limeira com foco em acolhimento, representatividade, debates sobre diversidade e integração estudantil.',
+    instagramHandle: '@marsha_pelo_orgulho',
+    instagramUrl: 'https://www.instagram.com/marsha_pelo_orgulho/',
+  },
+  {
+    id: 'robocamp-ft',
+    name: 'RoboCamp FT',
+    category: 'extensao',
+    categoryLabel: 'Projeto de Robótica',
+    description: 'Iniciativa de robótica e desenvolvimento tecnológico da Faculdade de Tecnologia, focada em prototipagem de hardware, automação e oficinas práticas.',
+    instagramHandle: '@robocamp.ft',
+    instagramUrl: 'https://www.instagram.com/robocamp.ft/',
+  },
+  {
+    id: 'aupe-unicamp',
+    name: 'AUPE Associação Universitária em Projetos de Extensão',
+    category: 'extensao',
+    categoryLabel: 'Projeto de Extensão',
+    description: 'Associação universitária dedicada a projetos de extensão comunitária, capacitação de estudantes e ações sociais integradas nos campi de Limeira.',
+    instagramHandle: '@aupe.unicamp',
+    instagramUrl: 'https://www.instagram.com/aupe.unicamp/',
+  },
+  {
+    id: 'nexus-girls-unicamp',
+    name: 'Nexus Girls Unicamp',
+    category: 'extensao',
+    categoryLabel: 'Projeto de Extensão',
+    description: 'Iniciativa da Associação Nexus na Unicamp dedicada ao acolhimento, capacitação e incentivo ao protagonismo feminino nas áreas de tecnologia, ciências exatas e inovação.',
+    instagramHandle: '@nexus.girls_unicamp',
+    instagramUrl: 'https://www.instagram.com/nexus.girls_unicamp/',
   },
 
   // 4. Centro Acadêmico e Representação
