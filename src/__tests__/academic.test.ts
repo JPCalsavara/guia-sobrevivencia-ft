@@ -38,4 +38,19 @@ describe('Dados Acadêmicos e Integralização', () => {
     expect(titles).toContain('Extensão');
     expect(titles).toContain('Estágio');
   });
+
+  it('deve validar integracao do JourneyFilter nas paginas academico e carreira', async () => {
+    const fs = await import('fs');
+    const path = await import('path');
+    const academicoPage = fs.readFileSync(path.resolve(process.cwd(), 'src/app/academico/page.tsx'), 'utf8');
+    const carreiraPage = fs.readFileSync(path.resolve(process.cwd(), 'src/app/carreira/page.tsx'), 'utf8');
+
+    expect(academicoPage).toContain('JourneyFilter');
+    expect(academicoPage).toContain('onSelectStage={setJourneyStage}');
+    expect(academicoPage).toContain('highlightStage');
+
+    expect(carreiraPage).toContain('JourneyFilter');
+    expect(carreiraPage).toContain('onSelectStage={setJourneyStage}');
+    expect(carreiraPage).toContain('highlightStage');
+  });
 });

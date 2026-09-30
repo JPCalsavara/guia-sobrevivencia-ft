@@ -498,6 +498,16 @@ export default function CampusPage() {
                 <span>Página Oficial do Circular</span>
                 <ExternalLink size={14} aria-hidden="true" />
               </a>
+              <a
+                href="/images/horarios-circular.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.transportLink}
+                aria-label="Baixar documento de horários do circular em PDF em nova janela"
+              >
+                <span>Baixar Horários em PDF</span>
+                <ExternalLink size={14} aria-hidden="true" />
+              </a>
             </div>
 
             <div className={styles.transportCard}>

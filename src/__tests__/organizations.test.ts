@@ -21,6 +21,41 @@ describe('Diretorio de Organizacoes Estudantis', () => {
     expect(ids).toContain('idea-unicamp');
     expect(ids).toContain('explora-ft');
     expect(ids).toContain('embaixadoras-stem');
+    expect(ids).toContain('liga-mkt-unicamp');
+    expect(ids).toContain('marsha-pelo-orgulho');
+    expect(ids).toContain('robocamp-ft');
+    expect(ids).toContain('aupe-unicamp');
+    expect(ids).toContain('nexus-girls-unicamp');
+  });
+
+  it('deve conter a associacao de extensao AUPE Unicamp com instagram oficial', () => {
+    const aupe = organizationsData.find((o) => o.id === 'aupe-unicamp');
+    expect(aupe).toBeDefined();
+    expect(aupe?.name).toContain('AUPE');
+    expect(aupe?.category).toBe('extensao');
+    expect(aupe?.instagramUrl).toBe('https://www.instagram.com/aupe.unicamp/');
+  });
+
+  it('deve conter o projeto Nexus Girls Unicamp com instagram oficial', () => {
+    const nexus = organizationsData.find((o) => o.id === 'nexus-girls-unicamp');
+    expect(nexus).toBeDefined();
+    expect(nexus?.name).toBe('Nexus Girls Unicamp');
+    expect(nexus?.category).toBe('extensao');
+    expect(nexus?.instagramUrl).toBe('https://www.instagram.com/nexus.girls_unicamp/');
+  });
+
+  it('deve conter o site oficial do Semeia Code', () => {
+    const semeia = organizationsData.find((o) => o.id === 'semeia-code');
+    expect(semeia).toBeDefined();
+    expect(semeia?.websiteUrl).toBe('https://semeiacode.vercel.app/');
+  });
+
+  it('deve validar URLs do LinkedIn presentes nas organizacoes', () => {
+    const orgsWithLinkedin = organizationsData.filter((o) => o.linkedinUrl);
+    expect(orgsWithLinkedin.length).toBeGreaterThanOrEqual(6);
+    orgsWithLinkedin.forEach((org) => {
+      expect(org.linkedinUrl).toMatch(/^https:\/\/(www\.)?linkedin\.com\//);
+    });
   });
 
   it('cada organizacao deve possuir nome, categoria e descricao valida', () => {

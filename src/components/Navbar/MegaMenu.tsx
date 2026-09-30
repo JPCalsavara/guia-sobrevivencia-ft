@@ -271,6 +271,37 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
                 </li>
               </ul>
             </div>
+
+            <div className={styles.subgroup} style={{ marginTop: '1.25rem' }}>
+              <h4 className={styles.subgroupTitle}>Guia do Calouro</h4>
+              <ul className={styles.linkList}>
+                <li>
+                  <Link href="/calouros#acabei-de-passar" onClick={onClose} className={styles.menuLink}>
+                    <span>Matrícula Virtual e RA</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/calouros#unicamp-limeira-ft" onClick={onClose} className={styles.menuLink}>
+                    <span>Campus FT versus FCA</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/calouros#salas-aulas-ft" onClick={onClose} className={styles.menuLink}>
+                    <span>Onde São as Aulas na FT</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/calouros#bandejao-recarga" onClick={onClose} className={styles.menuLink}>
+                    <span>Bandejão e Recarga Pix</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/calouros#bolsas-sociais-deape" onClick={onClose} className={styles.menuLink}>
+                    <span>Bolsas Sociais da DEAPE</span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

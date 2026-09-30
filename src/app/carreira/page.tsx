@@ -1,8 +1,9 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { LatexCodeBlock } from '@/components/LatexCodeBlock/LatexCodeBlock';
+import { JourneyFilter, JourneyStage } from '@/components/JourneyFilter/JourneyFilter';
 import {
   Briefcase,
   Calendar,
@@ -116,7 +117,34 @@ const careerTopics: TopicItem[] = [
   },
 ];
 
+const sectionStageMap: Record<string, { stage: JourneyStage; label: string }> = {
+  'sazonalidade-estagio': { stage: 'formando', label: 'Foco: Formando, 7º e 8º Semestres' },
+  'testes-tecnicos': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
+  'curriculo-latex': { stage: 'formando', label: 'Foco: Formando, 7º e 8º Semestres' },
+  'entrevistas-pitch': { stage: 'formando', label: 'Foco: Formando, 7º e 8º Semestres' },
+  'portfolio-github': { stage: 'calouro', label: 'Foco: Calouro, 1º e 2º Semestres' },
+  'empresas-mercado': { stage: 'formando', label: 'Foco: Formando, 7º e 8º Semestres' },
+  'computacao-nuvem': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
+  'roadmap-sh': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
+  'trilhas-aprendizado': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
+  'devops-ciberseguranca': { stage: 'calouro', label: 'Foco: Calouro, 1º e 2º Semestres' },
+  'canais-recomendados': { stage: 'calouro', label: 'Foco: Calouro, 1º e 2º Semestres' },
+};
+
 export default function CarreiraPage() {
+  const [journeyStage, setJourneyStage] = useState<JourneyStage>('all');
+
+  const renderStageBadge = (sectionId: string) => {
+    const meta = sectionStageMap[sectionId];
+    if (!meta) return null;
+    const isSelected = journeyStage !== 'all' && meta.stage === journeyStage;
+    return (
+      <div className={styles.stageFocusBadge}>
+        {isSelected ? `Etapa em Destaque: ${meta.label}` : meta.label}
+      </div>
+    );
+  };
+
   return (
     <div className={styles.container}>
       {/* Header */}
@@ -148,8 +176,19 @@ export default function CarreiraPage() {
         </aside>
 
         <div className={styles.mainContentArea}>
+          {/* Seletor Interativo de Momento da Graduação */}
+          <JourneyFilter
+            currentStage={journeyStage}
+            onSelectStage={setJourneyStage}
+            pageContext="carreira"
+          />
+
           {/* Sazonalidade e Feiras de Estágio */}
-          <section id="sazonalidade-estagio" className={styles.sectionBlock}>
+          <section
+            id="sazonalidade-estagio"
+            className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['sazonalidade-estagio']?.stage === journeyStage ? styles.highlightStage : ''}`}
+          >
+            {renderStageBadge('sazonalidade-estagio')}
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <Calendar size={22} className={styles.headerIcon} />
@@ -190,7 +229,11 @@ export default function CarreiraPage() {
       </section>
 
       {/* Testes Técnicos */}
-      <section id="testes-tecnicos" className={styles.sectionBlock}>
+      <section
+        id="testes-tecnicos"
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['testes-tecnicos']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('testes-tecnicos')}
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <Code2 size={22} className={styles.headerIcon} />
@@ -228,7 +271,11 @@ export default function CarreiraPage() {
       </section>
 
       {/* Currículo em LaTeX */}
-      <section id="curriculo-latex" className={styles.sectionBlock}>
+      <section
+        id="curriculo-latex"
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['curriculo-latex']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('curriculo-latex')}
         <div className={styles.latexHeader}>
           <FileText size={22} className={styles.headerIcon} />
           <div>
@@ -242,7 +289,11 @@ export default function CarreiraPage() {
       </section>
 
       {/* Vídeo de Pitch e Entrevistas de Estágio */}
-      <section id="entrevistas-pitch" className={styles.sectionBlock}>
+      <section
+        id="entrevistas-pitch"
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['entrevistas-pitch']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('entrevistas-pitch')}
         <div className={styles.blockCard}>
           <div className={styles.resourceHeader}>
             <div className={styles.resourceHeaderLeft}>
@@ -320,7 +371,11 @@ export default function CarreiraPage() {
       </section>
 
       {/* GitHub e LinkedIn */}
-      <section id="portfolio-github" className={styles.sectionBlock}>
+      <section
+        id="portfolio-github"
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['portfolio-github']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('portfolio-github')}
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <Layers size={22} className={styles.headerIcon} />
@@ -412,7 +467,11 @@ export default function CarreiraPage() {
       </section>
 
       {/* O Ecossistema de Empresas e Modelos de Trabalho */}
-      <section id="empresas-mercado" className={styles.sectionBlock}>
+      <section
+        id="empresas-mercado"
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['empresas-mercado']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('empresas-mercado')}
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <Building2 size={22} className={styles.headerIcon} />
@@ -593,7 +652,11 @@ export default function CarreiraPage() {
       </section>
 
       {/* Trilhas e Computação em Nuvem */}
-      <section id="computacao-nuvem" className={styles.sectionBlock}>
+      <section
+        id="computacao-nuvem"
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['computacao-nuvem']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('computacao-nuvem')}
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <Cloud size={22} className={styles.headerIcon} />
@@ -627,11 +690,64 @@ export default function CarreiraPage() {
               </p>
             </div>
           </div>
+
+          {/* AWS Builder Center e Benefícios Estudantis da Comunidade AWS */}
+          <div className={styles.companyTipsCallout} style={{ marginTop: '1.5rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '0.75rem' }}>
+              <div>
+                <h4 style={{ margin: 0, fontSize: '1.1rem', fontWeight: 700 }}>AWS Builder Center para Estudantes da Unicamp</h4>
+                <p style={{ margin: '0.25rem 0 0', fontSize: '0.875rem', color: 'var(--text-secondary)' }}>
+                  Doze meses de acesso ao AWS Skill Builder Pro, créditos progressivos na nuvem e vouchers integrais de certificação
+                </p>
+              </div>
+              <a
+                href="https://bit.ly/4w1pxMi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.roadmapActionButton}
+                aria-label="Acessar cadastro do AWS Builder Center para estudantes em nova janela"
+              >
+                <span>Acessar AWS Builder Center</span>
+                <ExternalLink size={14} aria-hidden="true" />
+              </a>
+            </div>
+
+            <p style={{ fontSize: '0.875rem', lineHeight: 1.6, color: 'var(--text-secondary)', marginBottom: '0.75rem' }}>
+              Ao se cadastrar na plataforma como estudante da Unicamp, você obtém aprovação sem necessidade de informar cartão de crédito ou dados bancários. O programa integra a comunidade oficial da AWS e disponibiliza uma trilha gamificada com vinte e um badges de engajamento técnico:
+            </p>
+
+            <div className={styles.cloudGrid}>
+              <div className={styles.cloudCard}>
+                <h3 className={styles.cloudTitle}>Doze Meses de Skill Builder Pro</h3>
+                <p className={styles.cloudText}>
+                  Acesso liberado a cursos práticos, laboratórios autoguiados e simulados preparatórios oficiais da Amazon Web Services para aprimorar sua formação técnica.
+                </p>
+              </div>
+
+              <div className={styles.cloudCard}>
+                <h3 className={styles.cloudTitle}>Créditos Progressivos na Nuvem</h3>
+                <p className={styles.cloudText}>
+                  Ao conquistar sete badges por meio de publicações e comentários em Spaces, você recebe dez dólares em créditos na AWS. Ao atingir catorze badges, ganha mais vinte dólares adicionais.
+                </p>
+              </div>
+
+              <div className={styles.cloudCard}>
+                <h3 className={styles.cloudTitle}>Voucher Gratuito para Exames</h3>
+                <p className={styles.cloudText}>
+                  Ao completar os vinte e um badges de engajamento, você ganha um voucher integral para realizar certificações de nível foundational em computação em nuvem ou inteligência artificial.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Roteiros Visuais e Ideias de Projetos no Roadmap.sh */}
-      <section id="roadmap-sh" className={styles.sectionBlock}>
+      <section
+        id="roadmap-sh"
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['roadmap-sh']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('roadmap-sh')}
         <div className={styles.blockCard}>
           <div className={styles.resourceHeader}>
             <div className={styles.resourceHeaderLeft}>
@@ -786,7 +902,11 @@ export default function CarreiraPage() {
       </section>
 
       {/* Trilhas Tecnológicas com Links Práticos */}
-      <section id="trilhas-aprendizado" className={styles.sectionBlock}>
+      <section
+        id="trilhas-aprendizado"
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['trilhas-aprendizado']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('trilhas-aprendizado')}
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <Code2 size={22} className={styles.headerIcon} />
@@ -975,7 +1095,11 @@ export default function CarreiraPage() {
       </section>
 
       {/* DevOps, Cloud e Cibersegurança com Recomendação da LICS */}
-      <section id="devops-ciberseguranca" className={styles.sectionBlock}>
+      <section
+        id="devops-ciberseguranca"
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['devops-ciberseguranca']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('devops-ciberseguranca')}
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <ShieldCheck size={22} className={styles.headerIcon} />
@@ -1066,7 +1190,11 @@ export default function CarreiraPage() {
       </section>
 
       {/* Canais Recomendados */}
-      <section id="canais-recomendados" className={styles.sectionBlock}>
+      <section
+        id="canais-recomendados"
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['canais-recomendados']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('canais-recomendados')}
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <Youtube size={22} className={styles.headerIcon} />

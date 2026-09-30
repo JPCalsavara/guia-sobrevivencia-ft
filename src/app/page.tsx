@@ -22,6 +22,16 @@ import styles from './page.module.scss';
 export default function HomePage() {
   const hubPillars = [
     {
+      id: 'calouros',
+      title: 'Guia do Calouro e Boas-Vindas',
+      subtitle: 'Matrícula, RA, Salas de Aula, Bandejão, Circular, Monitorias e Bolsas DEAPE',
+      description: 'O passo a passo completo para o novo ingressante: entenda a localização do Campus 1 FT Limeira, confirme sua vaga, acesse o Moodle e aproveite a calourada.',
+      href: '/calouros',
+      icon: GraduationCap,
+      badge: 'Ingressantes',
+      color: 'blue',
+    },
+    {
       id: 'academico',
       title: 'Estrutura Acadêmica e Regras da DAC',
       subtitle: 'BSI versus TADS, Coeficientes CR e CP, Grade DAC Online e Estratégia de Formatura',
@@ -87,14 +97,14 @@ export default function HomePage() {
           </p>
 
           <div className={styles.heroActions}>
-            <Link href="/academico" className={styles.primaryButton}>
-              <span>Iniciar pelo Guia Acadêmico</span>
+            <Link href="/calouros" className={styles.primaryButton}>
+              <span>Guia do Calouro e Ingressante</span>
               <ArrowRight size={18} />
             </Link>
 
-            <Link href="/campus" className={styles.secondaryButton}>
-              <span>Explorar Espaços e Entidades</span>
-              <Users size={18} />
+            <Link href="/academico" className={styles.secondaryButton}>
+              <span>Guia Acadêmico da DAC</span>
+              <BookOpen size={18} />
             </Link>
           </div>
         </motion.div>

@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { organizationsData, Organization } from '@/data/organizations';
-import { ExternalLink, Instagram, Globe, Users } from 'lucide-react';
+import { ExternalLink, Instagram, Globe, Users, Linkedin } from 'lucide-react';
 import styles from './OrganizationDirectory.module.scss';
 
 interface CategoryConfig {
@@ -125,6 +125,20 @@ export function OrganizationDirectory() {
                       >
                         <Instagram size={14} aria-hidden="true" />
                         <span>Instagram</span>
+                        <ExternalLink size={12} aria-hidden="true" />
+                      </a>
+                    )}
+                    {org.linkedinUrl && (
+                      <a
+                        href={org.linkedinUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.linkButtonLinkedin}
+                        title={`Acessar LinkedIn de ${org.name}`}
+                        aria-label={`Acessar LinkedIn de ${org.name} em nova janela`}
+                      >
+                        <Linkedin size={14} aria-hidden="true" />
+                        <span>LinkedIn</span>
                         <ExternalLink size={12} aria-hidden="true" />
                       </a>
                     )}

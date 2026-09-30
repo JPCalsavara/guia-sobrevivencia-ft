@@ -111,6 +111,7 @@ describe('Conformidade com ADR 0004: Desacoplamento de Informações Voláteis',
   it('não deve conter horários exatos de refeições ou transporte hardcoded nas páginas de campus e links', () => {
     const campusFile = fs.readFileSync(path.resolve(process.cwd(), 'src/app/campus/page.tsx'), 'utf8');
     const linksFile = fs.readFileSync(path.resolve(process.cwd(), 'src/app/links/page.tsx'), 'utf8');
+    const calourosFile = fs.readFileSync(path.resolve(process.cwd(), 'src/app/calouros/page.tsx'), 'utf8');
 
     // Nao deve conter frases com horarios rigidos transcritos no texto
     expect(campusFile).not.toMatch(/onze às catorze/i);
@@ -118,8 +119,10 @@ describe('Conformidade com ADR 0004: Desacoplamento de Informações Voláteis',
     expect(campusFile).not.toMatch(/seis e quarenta até/i);
     expect(campusFile).not.toMatch(/15 páginas/i);
 
-    // Links page nao deve prometer horarios no texto estatico
+    // Links page e Calouros page nao devem prometer horarios no texto estatico
     expect(linksFile).not.toMatch(/horários de transporte/i);
+    expect(calourosFile).not.toMatch(/onze às catorze/i);
+    expect(calourosFile).not.toMatch(/dezessete e trinta/i);
   });
 
   it('todos os links para servicos de transporte e refeicao devem apontar para dominios canonicos oficiais', () => {

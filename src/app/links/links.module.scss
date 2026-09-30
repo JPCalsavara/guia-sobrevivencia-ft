@@ -176,22 +176,49 @@
   color: var(--ft-blue);
   transition: all 0.2s ease;
 
-  &.badge_ft {
+  &.badge_ft,
+  &.badge_matricula {
     background-color: #e0f2fe;
     border-color: #bae6fd;
     color: #0369a1;
   }
 
-  &.badge_unicamp {
+  &.badge_unicamp,
+  &.badge_permanencia {
     background-color: #fee2e2;
     border-color: #fecaca;
     color: #991b1b;
   }
 
-  &.badge_prefeitura {
+  &.badge_prefeitura,
+  &.badge_alimentacao {
     background-color: #fef3c7;
     border-color: #fde68a;
     color: #92400e;
+  }
+
+  &.badge_transporte {
+    background-color: #e0f2fe;
+    border-color: #bae6fd;
+    color: #0284c7;
+  }
+
+  &.badge_aulas {
+    background-color: #ecfdf5;
+    border-color: #a7f3d0;
+    color: #047857;
+  }
+
+  &.badge_intercambio {
+    background-color: #f3e8ff;
+    border-color: #e9d5ff;
+    color: #6b21a8;
+  }
+
+  &.badge_iniciacao_cientifica {
+    background-color: #fae8ff;
+    border-color: #f5d0fe;
+    color: #86198f;
   }
 
   &.badge_organizacoes {
@@ -200,51 +227,69 @@
     color: #3730a3;
   }
 
-  &.badge_ferramentas {
+  &.badge_ferramentas,
+  &.badge_carreira_tecnologia {
     background-color: #dcfce7;
     border-color: #bbf7d0;
     color: #166534;
   }
 }
 
-.card_ft {
-  border-top: 3px solid #0284c7;
-}
-
-.card_unicamp {
-  border-top: 3px solid #dc2626;
-}
-
-.card_prefeitura {
-  border-top: 3px solid #d97706;
-}
-
-.card_organizacoes {
-  border-top: 3px solid #6366f1;
-}
-
-.card_ferramentas {
-  border-top: 3px solid #16a34a;
-}
+.card_alimentacao { border-top: 3px solid #d97706; }
+.card_transporte { border-top: 3px solid #0284c7; }
+.card_matricula { border-top: 3px solid #005da4; }
+.card_aulas { border-top: 3px solid #059669; }
+.card_intercambio { border-top: 3px solid #9333ea; }
+.card_iniciacao_cientifica { border-top: 3px solid #c026d3; }
+.card_permanencia { border-top: 3px solid #dc2626; }
+.card_organizacoes { border-top: 3px solid #6366f1; }
+.card_carreira_tecnologia { border-top: 3px solid #16a34a; }
 
 [data-theme='dark'] {
   .badge {
-    &.badge_ft {
+    &.badge_ft,
+    &.badge_matricula {
       background-color: rgba(14, 165, 233, 0.18);
       border-color: rgba(14, 165, 233, 0.35);
       color: #7dd3fc;
     }
 
-    &.badge_unicamp {
+    &.badge_unicamp,
+    &.badge_permanencia {
       background-color: rgba(239, 68, 68, 0.18);
       border-color: rgba(239, 68, 68, 0.35);
       color: #fca5a5;
     }
 
-    &.badge_prefeitura {
+    &.badge_prefeitura,
+    &.badge_alimentacao {
       background-color: rgba(245, 158, 11, 0.18);
       border-color: rgba(245, 158, 11, 0.35);
       color: #fcd34d;
+    }
+
+    &.badge_transporte {
+      background-color: rgba(56, 189, 248, 0.18);
+      border-color: rgba(56, 189, 248, 0.35);
+      color: #38bdf8;
+    }
+
+    &.badge_aulas {
+      background-color: rgba(16, 185, 129, 0.18);
+      border-color: rgba(16, 185, 129, 0.35);
+      color: #6ee7b7;
+    }
+
+    &.badge_intercambio {
+      background-color: rgba(168, 85, 247, 0.18);
+      border-color: rgba(168, 85, 247, 0.35);
+      color: #d8b4fe;
+    }
+
+    &.badge_iniciacao_cientifica {
+      background-color: rgba(217, 70, 239, 0.18);
+      border-color: rgba(217, 70, 239, 0.35);
+      color: #f0abfc;
     }
 
     &.badge_organizacoes {
@@ -253,7 +298,8 @@
       color: #a5b4fc;
     }
 
-    &.badge_ferramentas {
+    &.badge_ferramentas,
+    &.badge_carreira_tecnologia {
       background-color: rgba(34, 197, 94, 0.18);
       border-color: rgba(34, 197, 94, 0.35);
       color: #86efac;
