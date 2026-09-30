@@ -1,10 +1,11 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { TableBsiTads } from '@/components/TableBsiTads/TableBsiTads';
 import { CurriculumGrids } from '@/components/CurriculumGrids/CurriculumGrids';
 import { ChecklistFormatura } from '@/components/ChecklistFormatura/ChecklistFormatura';
+import { JourneyFilter, JourneyStage } from '@/components/JourneyFilter/JourneyFilter';
 import {
   BookOpen,
   TrendingUp,
@@ -111,6 +112,14 @@ const academicTopics: TopicItem[] = [
       { id: 'pad-comparativo', title: 'Remunerada versus Voluntária' },
       { id: 'pad-cronograma', title: 'Ciclo Semestral e Cronograma' },
       { id: 'pad-email', title: 'Modelo de E-mail de Contato' },
+      { id: 'mentoria-pmu', title: 'PMU Mentoria e Apoio Ingressante' },
+    ],
+  },
+  {
+    id: 'bolsas-permanencia-deape',
+    title: 'Bolsas Sociais e Permanência',
+    subtopics: [
+      { id: 'bolsas-permanencia-deape', title: 'BAS, Moradia e Isenção do RU' },
     ],
   },
   {
@@ -151,6 +160,7 @@ const academicTopics: TopicItem[] = [
     id: 'intercambio-deri',
     title: 'Intercâmbio e Editais DERI',
     subtopics: [
+      { id: 'intercambio-analise-editais', title: 'Análise de Editais e Proficiência' },
       { id: 'intercambio-fluxo', title: 'Fluxo em Seis Fases' },
       { id: 'intercambio-diferenciais', title: 'Diferenciais para Aprovação' },
       { id: 'intercambio-potsdam', title: 'Estudo de Caso Edital Potsdam' },
@@ -159,7 +169,22 @@ const academicTopics: TopicItem[] = [
   },
 ];
 
+const sectionStageMap: Record<string, { stage: JourneyStage; label: string }> = {
+  'bsi-vs-tads': { stage: 'calouro', label: 'Foco: Calouro, 1º e 2º Semestres' },
+  'coeficientes-dac': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
+  'calculo-geometria': { stage: 'calouro', label: 'Foco: Calouro, 1º e 2º Semestres' },
+  'checklist-formatura': { stage: 'formando', label: 'Foco: Formando, 7º e 8º Semestres' },
+  'monitoria-pad': { stage: 'calouro', label: 'Foco: Calouro, 1º e 2º Semestres' },
+  'bolsas-permanencia-deape': { stage: 'calouro', label: 'Foco: Calouro, 1º e 2º Semestres' },
+  'horas-extensao': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
+  'estrategia-carreira': { stage: 'formando', label: 'Foco: Formando, 7º e 8º Semestres' },
+  'noturno-bsi': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
+  'iniciacao-cientifica': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
+  'intercambio-deri': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
+};
+
 export default function AcademicoPage() {
+  const [journeyStage, setJourneyStage] = useState<JourneyStage>('all');
   const { copied: icCopied, copy: copyIcEmail } = useClipboardCopy();
   const { copied: padCopied, copy: copyPadEmail } = useClipboardCopy();
 
@@ -169,6 +194,17 @@ export default function AcademicoPage() {
 
   const handleCopyPadEmail = () => {
     copyPadEmail(padEmailTemplateText);
+  };
+
+  const renderStageBadge = (sectionId: string) => {
+    const meta = sectionStageMap[sectionId];
+    if (!meta) return null;
+    const isSelected = journeyStage !== 'all' && meta.stage === journeyStage;
+    return (
+      <div className={styles.stageFocusBadge}>
+        {isSelected ? `Etapa em Destaque: ${meta.label}` : meta.label}
+      </div>
+    );
   };
 
   return (
@@ -214,8 +250,19 @@ export default function AcademicoPage() {
         </aside>
 
         <div className={styles.mainContentArea}>
+          {/* Seletor Interativo de Momento da Graduação */}
+          <JourneyFilter
+            currentStage={journeyStage}
+            onSelectStage={setJourneyStage}
+            pageContext="academico"
+          />
+
           {/* BSI vs TADS */}
-          <section id="bsi-vs-tads" className={styles.sectionBlock}>
+          <section
+            id="bsi-vs-tads"
+            className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['bsi-vs-tads']?.stage === journeyStage ? styles.highlightStage : ''}`}
+          >
+            {renderStageBadge('bsi-vs-tads')}
             <TableBsiTads />
             <div id="grade-curricular" style={{ marginTop: '2.5rem' }}>
               <CurriculumGrids />
@@ -223,7 +270,11 @@ export default function AcademicoPage() {
           </section>
 
       {/* Regras da DAC e Coeficientes */}
-      <section id="coeficientes-dac" className={styles.sectionBlock}>
+      <section
+        id="coeficientes-dac"
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['coeficientes-dac']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('coeficientes-dac')}
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <TrendingUp size={22} className={styles.headerIcon} />
@@ -324,7 +375,11 @@ export default function AcademicoPage() {
       </section>
 
       {/* Sobrevivência em Cálculo I e Geometria Analítica */}
-      <section id="calculo-geometria" className={styles.sectionBlock}>
+      <section
+        id="calculo-geometria"
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['calculo-geometria']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('calculo-geometria')}
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <Calculator size={22} className={styles.headerIcon} />
@@ -430,12 +485,20 @@ export default function AcademicoPage() {
       </section>
 
       {/* Checklist de Formatura */}
-      <section id="checklist-formatura" className={styles.sectionBlock}>
+      <section
+        id="checklist-formatura"
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['checklist-formatura']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('checklist-formatura')}
         <ChecklistFormatura />
       </section>
 
       {/* Monitoria PAD - Com Bolsa versus Sem Bolsa e Cronograma Oficial */}
-      <section id="monitoria-pad" className={styles.sectionBlock}>
+      <section
+        id="monitoria-pad"
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['monitoria-pad']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('monitoria-pad')}
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <Users size={22} className={styles.headerIcon} />
@@ -583,11 +646,167 @@ export default function AcademicoPage() {
             </div>
             <pre className={styles.emailPre}>{padEmailTemplateText}</pre>
           </div>
+
+          {/* PMU - Programa de Mentoria da Unicamp da DEAPE */}
+          <div id="mentoria-pmu" style={{ marginTop: '2.5rem' }}>
+            <div className={styles.cardHeader} style={{ marginBottom: '1rem' }}>
+              <Users size={20} className={styles.headerIcon} />
+              <div>
+                <h3 className={styles.cardTitle} style={{ fontSize: '1.25rem' }}>
+                  PMU: Programa de Mentoria da Unicamp e Apoio ao Ingressante
+                </h3>
+                <p className={styles.cardSubtitle}>
+                  Iniciativa da DEAPE que conecta veteranos bolsistas aos calouros para acolhimento e orientação acadêmica
+                </p>
+              </div>
+            </div>
+
+            <p className={styles.ruleText} style={{ marginBottom: '1rem' }}>
+              Criado institucionalmente pela Diretoria Executiva de Apoio e Permanência Estudantil, o PMU promove a adaptação e o sucesso dos ingressantes por meio da mentoria entre pares. Veteranos selecionados por edital recebem bolsa mensal para orientar novos alunos sobre sistemas acadêmicos, rotina de estudos e convivência nos campi.
+            </p>
+
+            <div className={styles.rulesGrid}>
+              <div className={styles.ruleCard}>
+                <h4 className={styles.ruleTitle}>Acolhimento para o Calouro</h4>
+                <p className={styles.ruleText}>
+                  Ingressantes contam com um mentor dedicado do seu próprio curso para esclarecer dúvidas nos primeiros meses, entender como estudar para matérias desafiadoras e navegar pelos recursos da universidade.
+                </p>
+              </div>
+
+              <div className={styles.ruleCard}>
+                <h4 className={styles.ruleTitle}>Bolsa Remunerada para Veteranos</h4>
+                <p className={styles.ruleText}>
+                  Estudantes a partir do segundo ano podem se candidatar nos editais anuais da DEAPE para a modalidade PMU de graduação, recebendo remuneração mensal para cumprir atividades de tutoria e relatórios.
+                </p>
+              </div>
+
+              <div className={styles.ruleCard}>
+                <h4 className={styles.ruleTitle}>Critérios e Restrições</h4>
+                <p className={styles.ruleText}>
+                  O programa exige matrícula regular, bom histórico acadêmico e dedicação semanal às atividades formativas. Não é permitido acumular o benefício com outras bolsas regulares de trabalho remunerado.
+                </p>
+              </div>
+            </div>
+
+            <div className={styles.gradeLinkBox} style={{ marginTop: '1.25rem' }}>
+              <div>
+                <span className={styles.gradeLinkTitle}>Portal Oficial do PMU na DEAPE Wiki</span>
+                <span className={styles.gradeLinkDesc}>
+                  Consulte as resoluções vigentes, manuais de orientação e editais abertos para seleção de mentores
+                </span>
+              </div>
+              <a
+                href="https://deape.unicamp.br/deape-wiki/bolsas-e-programas/pmu-programa-de-mentoria-da-unicamp/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.gradeButton}
+                aria-label="Acessar página oficial do PMU na DEAPE Wiki em nova janela"
+              >
+                <span>Acessar DEAPE Wiki PMU</span>
+                <ExternalLink size={14} aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Bolsas Sociais e Permanência Estudantil DEAPE */}
+      <section
+        id="bolsas-permanencia-deape"
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['bolsas-permanencia-deape']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('bolsas-permanencia-deape')}
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <GraduationCap size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>Bolsas Sociais e Permanência Estudantil da DEAPE</h2>
+              <p className={styles.cardSubtitle}>
+                Apoio financeiro, moradia e alimentação gratuita para estudantes de graduação com vulnerabilidade socioeconômica
+              </p>
+            </div>
+          </div>
+
+          <p className={styles.ruleText} style={{ marginBottom: '1.25rem' }}>
+            A Diretoria Executiva de Apoio e Permanência Estudantil, que sucedeu o antigo SAE, gerencia os programas de assistência estudantil da Unicamp. O objetivo é assegurar condições plenas de permanência, moradia e subsistência para que estudantes de baixa renda concluam seus cursos com excelência.
+          </p>
+
+          <div className={styles.rulesGrid}>
+            <div className={styles.ruleCard}>
+              <h3 className={styles.ruleTitle}>Bolsa Auxílio-Social BAS</h3>
+              <p className={styles.ruleText}>
+                Principal bolsa de permanência da universidade, concedida mediante avaliação socioeconômica. Prevê auxílio financeiro mensal, isenção total da taxa de alimentação no Restaurante Universitário e auxílio transporte em contrapartida a atividades em projetos acadêmicos ou comunitários.
+              </p>
+            </div>
+
+            <div className={styles.ruleCard}>
+              <h3 className={styles.ruleTitle}>Bolsa de Incentivo Complementar BAS-IC</h3>
+              <p className={styles.ruleText}>
+                Modalidade voltada a estudantes contemplados com bolsas acadêmicas de pesquisa como PIBIC ou extensão cujo valor seja inferior à BAS. O programa complementa a renda até o valor integral e mantém o direito ao bandejão gratuito.
+              </p>
+            </div>
+
+            <div className={styles.ruleCard}>
+              <h3 className={styles.ruleTitle}>Auxílio-Moradia e Instalação</h3>
+              <p className={styles.ruleText}>
+                Estudantes cuja família reside fora da região dos campi podem concorrer a vagas no Programa de Moradia Estudantil ou ao auxílio financeiro para moradia, além do auxílio instalação para custear despesas de mudança no primeiro mês.
+              </p>
+            </div>
+
+            <div className={styles.ruleCard}>
+              <h3 className={styles.ruleTitle}>Inscrições e Processo Seletivo SIG-DEAPE</h3>
+              <p className={styles.ruleText}>
+                O processo seletivo ocorre anualmente de forma online pelo sistema SIG-DEAPE. Calouros contam com edital específico no início do primeiro semestre letivo para envio de documentos comprobatórios de renda familiar.
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.gradeLinkBox} style={{ marginTop: '1.5rem' }}>
+            <div>
+              <span className={styles.gradeLinkTitle}>Editais de Bolsas e Processos Seletivos DEAPE</span>
+              <span className={styles.gradeLinkDesc}>
+                Acesse o calendário oficial de inscrições, editais para calouros e veteranos e comunicados do serviço social
+              </span>
+            </div>
+            <a
+              href="https://deape.unicamp.br/processos-seletivos/editais-de-bolsas/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.gradeButton}
+              aria-label="Consultar editais de bolsas no portal da DEAPE em nova janela"
+            >
+              <span>Ver Editais de Bolsas</span>
+              <ExternalLink size={14} aria-hidden="true" />
+            </a>
+          </div>
+
+          <div className={styles.gradeLinkBox} style={{ marginTop: '1rem' }}>
+            <div>
+              <span className={styles.gradeLinkTitle}>Bolsa Auxílio-Social BAS na DEAPE Wiki</span>
+              <span className={styles.gradeLinkDesc}>
+                Consulte as regras completas, documentação exigida e benefícios associados na página informativa oficial
+              </span>
+            </div>
+            <a
+              href="https://deape.unicamp.br/deape-wiki/bolsas-e-programas/bas-bolsa-auxilio-social/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.gradeButton}
+              aria-label="Acessar página da BAS na DEAPE Wiki em nova janela"
+            >
+              <span>Manual da BAS na DEAPE</span>
+              <ExternalLink size={14} aria-hidden="true" />
+            </a>
+          </div>
         </div>
       </section>
 
       {/* Horas Complementares versus Curricularização da Extensão */}
-      <section id="horas-extensao" className={styles.sectionBlock}>
+      <section
+        id="horas-extensao"
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['horas-extensao']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('horas-extensao')}
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <GraduationCap size={22} className={styles.headerIcon} />
@@ -755,7 +974,11 @@ export default function AcademicoPage() {
       </section>
 
       {/* Estratégia de Desacelerar o Curso */}
-      <section id="estrategia-carreira" className={styles.sectionBlock}>
+      <section
+        id="estrategia-carreira"
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['estrategia-carreira']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('estrategia-carreira')}
         <div className={styles.strategyCard}>
           <div className={styles.strategyHeader}>
             <ShieldAlert size={24} className={styles.strategyIcon} />
@@ -842,7 +1065,11 @@ export default function AcademicoPage() {
       </section>
 
       {/* Transição para o Noturno no BSI */}
-      <section id="noturno-bsi" className={styles.sectionBlock}>
+      <section
+        id="noturno-bsi"
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['noturno-bsi']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('noturno-bsi')}
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <Moon size={22} className={styles.headerIcon} />
@@ -907,7 +1134,11 @@ export default function AcademicoPage() {
       </section>
 
       {/* Iniciação Científica e Pesquisa na FT */}
-      <section id="iniciacao-cientifica" className={styles.sectionBlock}>
+      <section
+        id="iniciacao-cientifica"
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['iniciacao-cientifica']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('iniciacao-cientifica')}
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <FlaskConical size={22} className={styles.headerIcon} />
@@ -1222,7 +1453,11 @@ export default function AcademicoPage() {
       </section>
 
       {/* Editais da DERI e Bolsas de Intercâmbio */}
-      <section id="intercambio-deri" className={styles.sectionBlock}>
+      <section
+        id="intercambio-deri"
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['intercambio-deri']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('intercambio-deri')}
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
             <Globe size={22} className={styles.headerIcon} />
@@ -1237,6 +1472,102 @@ export default function AcademicoPage() {
           <p className={styles.ruleText} style={{ marginBottom: '1.5rem' }}>
             A Diretoria Executiva de Relações Internacionais coordena convênios com instituições globais. O intercâmbio permite cursar disciplinas avançadas no exterior, praticar outros idiomas e convalidar créditos na FT com isenção de mensalidades estrangeiras.
           </p>
+
+          {/* Subtópico: Como Analisar Editais da DERI */}
+          <div id="intercambio-analise-editais" style={{ marginBottom: '2.5rem' }}>
+            <h3 className={styles.categoryTitle}>
+              <Globe size={18} />
+              Como Analisar os Editais da DERI: Cada Caso é Singular
+            </h3>
+            <p className={styles.ruleText} style={{ marginBottom: '1.25rem' }}>
+              Não existe um regulamento universal para todas as universidades parceiras. Na mobilidade internacional da Unicamp, cada edital rege suas próprias normas, critérios de pontuação, restrições curriculares e prazos de candidatura. É altamente recomendado acessar com frequência o portal oficial da DERI e entrar em contato direto com a equipe para esclarecer particularidades de cada instituição estrangeira.
+            </p>
+
+            <div className={styles.rulesGrid}>
+              <div className={styles.ruleCard}>
+                <h4 className={styles.ruleTitle}>Níveis de Proficiência B1 e B2</h4>
+                <p className={styles.ruleText}>
+                  A grande maioria dos acordos exige comprovação formal nos níveis B1 ou B2 do Quadro Europeu Comum de Referência para as Línguas, seja em língua inglesa ou no idioma oficial do país de acolhida. Em cursos ministrados integralmente em inglês na Europa ou Ásia, a proficiência em inglês costuma ser aceita mesmo em países com outra língua nativa.
+                </p>
+              </div>
+
+              <div className={styles.ruleCard}>
+                <h4 className={styles.ruleTitle}>Certificados e Exames Privados</h4>
+                <p className={styles.ruleText}>
+                  Na maioria dos processos, a universidade estrangeira exige que os testes oficiais de proficiência sejam prestados de forma privada pelo próprio candidato, a exemplo do TOEFL iBT e IELTS para o inglês, DELE ou SIELE para o espanhol, DELF ou DALF para o francês, e TestDaF para o alemão. Determinados editais aceitam declarações do Centro de Ensino de Línguas da Unicamp, desde que previsto no edital.
+                </p>
+              </div>
+
+              <div className={styles.ruleCard}>
+                <h4 className={styles.ruleTitle}>Reprovações e Coeficiente Padrão</h4>
+                <p className={styles.ruleText}>
+                  O limite tolerado de reprovações é fixado por edital. A classificação dos candidatos utiliza o Coeficiente de Rendimento Padrão CRP, que calcula o desvio em relação à média da turma pela fórmula do CR menos o CR médio dividido pelo desvio padrão. Valores positivos indicam desempenho superior à média discente.
+                </p>
+              </div>
+
+              <div className={styles.ruleCard}>
+                <h4 className={styles.ruleTitle}>Afastamento versus Trancamento</h4>
+                <p className={styles.ruleText}>
+                  O intercambista não realiza trancamento comum de curso, mas sim Afastamento por Intercâmbio no SIGA. É obrigatório apresentar Plano de Estudos aprovado pelo coordenador de graduação da FT, Carta de Aceite da anfitriã e Seguro Saúde Internacional com cobertura de despesas hospitalares e repatriação conforme a Deliberação CONSU.
+                </p>
+              </div>
+            </div>
+
+            {/* Documentos Oficiais em PDF da DERI */}
+            <h4 style={{ fontSize: '1rem', fontWeight: 700, marginTop: '1.75rem', marginBottom: '0.75rem' }}>
+              Guias Oficiais da DERI para Download e Preparação
+            </h4>
+
+            <div className={styles.pdfGrid}>
+              <a
+                href="https://www.internationaloffice.unicamp.br/wp-content/uploads/sites/26/2025/02/Projeto-ingresso-1.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.pdfCard}
+              >
+                <div>
+                  <span className={styles.pdfBadge}>
+                    <FileText size={14} />
+                    <span>Guia Oficial DERI</span>
+                  </span>
+                  <h4 className={styles.pdfCardTitle} style={{ marginTop: '0.75rem' }}>
+                    Projeto Ingresso: Passaporte para o Mundo
+                  </h4>
+                  <p className={styles.pdfCardDesc}>
+                    Material institucional da DERI com orientações sobre internacionalização em casa, programas de idiomas acessíveis como o IAT e estratégias desde o primeiro ano.
+                  </p>
+                </div>
+                <span className={styles.pdfCardAction}>
+                  <span>Acessar PDF Oficial</span>
+                  <ExternalLink size={14} />
+                </span>
+              </a>
+
+              <a
+                href="https://www.internationaloffice.unicamp.br/wp-content/uploads/sites/26/2024/11/Preparacao-para-o-Intercambio_-Dicas-e-Orientacoes-Essenciais.pptx.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.pdfCard}
+              >
+                <div>
+                  <span className={styles.pdfBadge}>
+                    <FileText size={14} />
+                    <span>Dicas e Orientações DERI</span>
+                  </span>
+                  <h4 className={styles.pdfCardTitle} style={{ marginTop: '0.75rem' }}>
+                    Preparação para o Intercâmbio: Dicas Essenciais
+                  </h4>
+                  <p className={styles.pdfCardDesc}>
+                    Apresentação oficial cobrindo orçamento em moeda local, planejamento de vistos, exigências do seguro internacional e etiqueta acadêmica no exterior.
+                  </p>
+                </div>
+                <span className={styles.pdfCardAction}>
+                  <span>Acessar PDF Oficial</span>
+                  <ExternalLink size={14} />
+                </span>
+              </a>
+            </div>
+          </div>
 
           {/* Subtópico 1: O Fluxo em Seis Fases */}
           <div id="intercambio-fluxo">

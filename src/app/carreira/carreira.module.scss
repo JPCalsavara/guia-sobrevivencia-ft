@@ -53,6 +53,31 @@
 
 .sectionBlock {
   margin-bottom: $spacing-3xl;
+  border-radius: $radius-lg;
+  transition: all $transition-normal;
+
+  &.highlightStage {
+    padding: $spacing-lg;
+    background-color: rgba(0, 138, 71, 0.03);
+    border: 2px solid var(--ft-green);
+    box-shadow: 0 0 0 4px var(--ft-green-soft);
+  }
+}
+
+.stageFocusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.65rem;
+  border-radius: $radius-full;
+  background-color: var(--ft-green-soft);
+  color: var(--ft-green);
+  border: 1px solid var(--ft-green-border);
+  margin-bottom: $spacing-md;
 }
 
 .blockCard {
