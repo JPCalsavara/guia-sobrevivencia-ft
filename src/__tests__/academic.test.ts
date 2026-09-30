@@ -53,4 +53,16 @@ describe('Dados Acadêmicos e Integralização', () => {
     expect(carreiraPage).toContain('onSelectStage={setJourneyStage}');
     expect(carreiraPage).toContain('highlightStage');
   });
+
+  it('deve conter o alerta critico de Programacao 1 tranca a grade', async () => {
+    const fs = await import('fs');
+    const path = await import('path');
+    const academicoPage = fs.readFileSync(path.resolve(process.cwd(), 'src/app/academico/page.tsx'), 'utf8');
+
+    expect(academicoPage).toContain('alerta-prog1-tranca-tudo');
+    expect(academicoPage).toContain('Programação 1 Tranca Toda a Grade de TI');
+    expect(academicoPage).toContain('Programação 2');
+    expect(academicoPage).toContain('Estruturas de Dados');
+  });
 });
+

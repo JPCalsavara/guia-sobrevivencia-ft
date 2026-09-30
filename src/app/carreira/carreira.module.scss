@@ -616,6 +616,14 @@
     }
   }
 
+  &.purple {
+    &:hover {
+      border-color: #8b5cf6;
+      color: #8b5cf6;
+      background-color: rgba(139, 92, 246, 0.08);
+    }
+  }
+
   &.awsBtn {
     background-color: rgba(245, 158, 11, 0.12);
     color: #d97706;
@@ -809,6 +817,10 @@
 
   @include respond-to('md') {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to('lg') {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -1038,6 +1050,240 @@
     color: var(--text-secondary);
     line-height: 1.6;
     margin: 0;
+  }
+}
+
+// Feiras de Carreiras
+.fairsContainer {
+  margin-top: $spacing-2xl;
+  padding-top: $spacing-xl;
+  border-top: 1px solid var(--border-color);
+}
+
+.fairsSubHeader {
+  margin-bottom: $spacing-lg;
+}
+
+.fairsSubTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.fairsSubDesc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.fairsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.fairCard {
+  background-color: var(--surface-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-md;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: $spacing-md;
+}
+
+.fairHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.fairBadge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--ft-blue);
+  background-color: var(--ft-blue-soft);
+  border: 1px solid var(--ft-blue-border);
+  padding: 0.2rem 0.55rem;
+  border-radius: $radius-full;
+}
+
+.instagramIcon {
+  color: #e1306c;
+  flex-shrink: 0;
+}
+
+.fairTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.fairDesc {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.fairActionBtn {
+  @include button-base;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.5rem 0.875rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border-radius: $radius-sm;
+  background-color: var(--surface-color);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  text-decoration: none;
+  transition: all $transition-fast;
+
+  &:hover {
+    background-color: rgba(225, 48, 108, 0.08);
+    border-color: #e1306c;
+    color: #e1306c;
+    transform: translateY(-1px);
+  }
+}
+
+.programsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to('lg') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.programCard {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-md;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: $spacing-md;
+  transition: all $transition-fast;
+
+  &:hover {
+    border-color: var(--ft-blue);
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+}
+
+.programCardTop {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.programHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.programFrequencyBadge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: $radius-full;
+  border: 1px solid transparent;
+
+  &.badgeBlue {
+    color: var(--ft-blue);
+    background-color: var(--ft-blue-soft);
+    border-color: var(--ft-blue-border);
+  }
+
+  &.badgePurple {
+    color: #7c3aed;
+    background-color: rgba(124, 58, 237, 0.1);
+    border-color: rgba(124, 58, 237, 0.25);
+  }
+
+  &.badgeGreen {
+    color: var(--ft-green);
+    background-color: var(--ft-green-soft);
+    border-color: var(--ft-green-border);
+  }
+
+  &.badgeAmber {
+    color: #d97706;
+    background-color: rgba(217, 119, 6, 0.1);
+    border-color: rgba(217, 119, 6, 0.25);
+  }
+
+  &.badgeCyan {
+    color: #0891b2;
+    background-color: rgba(8, 145, 178, 0.1);
+    border-color: rgba(8, 145, 178, 0.25);
+  }
+}
+
+.programIcon {
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.programTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.programDesc {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.programActionBtn {
+  @include button-base;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.5rem 0.875rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border-radius: $radius-sm;
+  background-color: var(--surface-color);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  text-decoration: none;
+  transition: all $transition-fast;
+
+  &:hover {
+    background-color: var(--ft-blue-soft);
+    border-color: var(--ft-blue);
+    color: var(--ft-blue);
+    transform: translateY(-1px);
   }
 }
 

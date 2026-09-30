@@ -1283,6 +1283,51 @@
   margin-top: $spacing-sm;
 }
 
+.prog1AlertCard {
+  background-color: rgba(220, 38, 38, 0.05);
+  border: 1px solid rgba(220, 38, 38, 0.25);
+  border-left: 4px solid #dc2626;
+  border-radius: $radius-md;
+  padding: $spacing-lg;
+  margin-bottom: $spacing-xl;
+}
+
+.prog1AlertHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-md;
+  margin-bottom: $spacing-sm;
+}
+
+.prog1AlertIcon {
+  color: #dc2626;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.prog1AlertTitle {
+  font-size: 1.0625rem;
+  font-weight: 800;
+  color: #b91c1c;
+  line-height: 1.35;
+  margin-bottom: 0.25rem;
+}
+
+.prog1AlertSubtitle {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.prog1AlertText {
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  line-height: 1.65;
+  margin: 0;
+}
+
 
 
 
