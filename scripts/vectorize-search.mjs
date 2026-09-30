@@ -30,7 +30,27 @@ const DOMAIN_EXPANSIONS = {
   'coeficientes-metricas': ['cr', 'cp', 'coeficiente de rendimento', 'coeficiente de progressao', 'vetores horarios', 'dac'],
   'checklist-formatura': ['formatura', 'colacao de grau', 'integralizacao', 'diploma', 'tcc', 'estagio obrigatorio'],
   'monitoria-pad': ['pad', 'monitoria', 'bolsa pad', 'apoio didatico', 'prg', 'monitor voluntario'],
-  'notebooklm-cerebro': ['notebooklm', 'segundo cerebro', 'slides', 'provas antigas', 'simulados', 'moodle']
+  'notebooklm-cerebro': ['notebooklm', 'segundo cerebro', 'slides', 'provas antigas', 'simulados', 'moodle'],
+  'acabei-de-passar': ['aprovado', 'primeiros passos', 'matricula', 'ra', 'dga', 'dac', 'boas vindas'],
+  'unicamp-limeira-ft': ['campus 1', 'fca', 'campus 2', 'localizacao', 'diferenca', 'jardim morro azul'],
+  'calourada-recepcao': ['trote', 'integracao', 'kit bixo', 'veteranos', 'recepcao', 'calourada'],
+  'salas-aulas-ft': ['salas de aula', 'bloco pa', 'bloco pb', 'laboratorios', 'tic', 'intranet ft'],
+  'ambientes-estudo': ['moodle', 'google classroom', 'ead', 'atividades', 'materiais', 'disciplinas'],
+  'bandejao-recarga': ['restaurante universitario', 'ru', 'funcamp', 'pix', 'saldo', 'refeicoes'],
+  'transporte-circular': ['circular gratuito', 'linha 84', 'intercampi', 'sou limeira', 'onibus'],
+  'apoio-monitorias-pmu': ['monitoria', 'pad', 'ped', 'pmu', 'mentoria', 'reforco', 'deape'],
+  'bolsas-sociais-deape': ['bas', 'auxilio social', 'moradia', 'deape', 'isencao ru', 'baef'],
+  'organizacoes-e-ic': ['entidades', 'ligas', 'atria jr', 'lics', 'semeia code', 'enactus', 'cvu', 'pibic', 'pesquisa'],
+  'beneficios-tecnologia': ['aws', 'builder center', 'cloud', 'skill builder', 'certificacao', 'creditos', 'github pack'],
+  'categoria-alimentacao': ['bandejao', 'ru', 'cardapio', 'refeicoes', 'funcamp', 'pix', 'saldo', 'carteirinha'],
+  'categoria-transporte': ['circular', 'fretado', 'intercampi', 'linha 84', 'onibus', 'reserva', 'sou limeira'],
+  'categoria-matricula': ['dac', 'matricula', 'siga', 'edac', 'grade online', 'caderno de horarios'],
+  'categoria-aulas': ['moodle', 'google classroom', 'salas', 'pa', 'sa', 'lp', 'tic', 'wifiprint'],
+  'categoria-intercambio': ['deri', 'intercambio', 'mobilidade', 'toefl', 'ielts', 'crp'],
+  'categoria-iniciacao-cientifica': ['pibic', 'fapesp', 'prp', 'pesquisa', 'iniciacao cientifica', 'bolsa ic'],
+  'categoria-permanencia': ['deape', 'bas', 'bolsa auxilio social', 'pmu', 'moradia', 'isencao ru'],
+  'categoria-organizacoes': ['centros academicos', 'cat', 'atletica', 'aaatu', 'lics', 'liga ds'],
+  'categoria-carreira-tecnologia': ['aws', 'builder center', 'github pack', 'overleaf', 'latex', 'roadmap', 'carreira']
 };
 
 function normalizeText(text) {
@@ -239,8 +259,14 @@ export function generateSearchIndex() {
       basePath: '/academico',
     },
     {
+      filePath: path.join(projectRoot, 'src/app/calouros/page.tsx'),
+      pageName: 'Calouros',
+      category: 'academico',
+      basePath: '/calouros',
+    },
+    {
       filePath: path.join(projectRoot, 'src/app/campus/page.tsx'),
-      pageName: 'Campus e Vida',
+      pageName: 'Campus',
       category: 'campus',
       basePath: '/campus',
     },
@@ -252,7 +278,7 @@ export function generateSearchIndex() {
     },
     {
       filePath: path.join(projectRoot, 'src/app/estudos-ia/page.tsx'),
-      pageName: 'Estudos e IA',
+      pageName: 'IA',
       category: 'estudos-ia',
       basePath: '/estudos-ia',
     },

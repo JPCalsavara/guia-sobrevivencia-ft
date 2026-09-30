@@ -109,7 +109,7 @@ export default function EstudosIaPage() {
       {/* Conteúdo com Barra Lateral Esquerda */}
       <div className={styles.contentWithSidebar}>
         <aside className={styles.sidebarAside}>
-          <DocSidebar topics={aiTopics} title="Estudos e IA" />
+          <DocSidebar topics={aiTopics} title="IA" />
         </aside>
 
         <div className={styles.mainContentArea}>
