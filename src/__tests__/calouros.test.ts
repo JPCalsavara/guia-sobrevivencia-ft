@@ -44,6 +44,7 @@ describe('Guia do Calouro da Faculdade de Tecnologia', () => {
     const essentialSections = [
       'acabei-de-passar',
       'unicamp-limeira-ft',
+      'moradia-calouros',
       'calourada-recepcao',
       'salas-aulas-ft',
       'ambientes-estudo',
@@ -57,6 +58,61 @@ describe('Guia do Calouro da Faculdade de Tecnologia', () => {
 
     essentialSections.forEach((sectionId) => {
       expect(calourosFileContent).toContain(`id="${sectionId}"`);
+    });
+  });
+
+  it('deve orientar sobre moradia com bairros estrategicos, principais vias e imobiliarias locais', () => {
+    expect(calourosFileContent).toContain('id="moradia-calouros"');
+    expect(calourosFileContent).toContain('id="principais-ruas-limeira"');
+    expect(calourosFileContent).toContain('id="imobiliarias-e-contratos"');
+
+    // Bairros
+    expect(calourosFileContent).toContain('Vila Cristovam');
+    expect(calourosFileContent).toContain('Jardim Nova Itália');
+    expect(calourosFileContent).toContain('Vila Anita');
+    expect(calourosFileContent).toContain('Morro Azul');
+
+    // Vias
+    expect(calourosFileContent).toContain('Avenida Cônego Manuel Alves');
+    expect(calourosFileContent).toContain('Avenida Fabrício Vampré');
+    expect(calourosFileContent).toContain('Rua Paschoal Marmo');
+
+    // Imobiliarias
+    expect(calourosFileContent).toContain('Imobiliária Roque');
+    expect(calourosFileContent).toContain('Bom Jesus Imóveis');
+    expect(calourosFileContent).toContain('Imobiliária Della Nina');
+    expect(calourosFileContent).toContain('Imobiliária Boa Vista');
+    expect(calourosFileContent).toContain('Prates Imóveis');
+
+    // Cross-links
+    expect(calourosFileContent).toContain('/campus#moradia-convivencia');
+    expect(calourosFileContent).toContain('Bolsa Auxílio-Moradia da DEAPE');
+  });
+
+  it('deve apresentar a automacao de planos de desenvolvimento e exportacao para o Google Calendar', () => {
+    expect(calourosFileContent).toContain('id="automacao-google-calendar"');
+    expect(calourosFileContent).toContain('Plano de Desenvolvimento da Disciplina');
+    expect(calourosFileContent).toContain('Google Calendar');
+    expect(calourosFileContent).toContain('Google Agenda');
+    expect(calourosFileContent).toContain('aula.ics');
+    expect(calourosFileContent).toContain('Copiar Prompt de Calendário');
+    expect(calourosFileContent).toContain('/estudos-ia#prompts-estruturados');
+  });
+
+  it('deve conter as imobiliarias de Limeira cadastradas no linksData', () => {
+    const realtorLinkIds = [
+      'imobiliaria-roque',
+      'bom-jesus-imoveis',
+      'della-nina-imoveis',
+      'boa-vista-imoveis',
+      'prates-imoveis'
+    ];
+
+    realtorLinkIds.forEach((id) => {
+      const found = linksData.find((l) => l.id === id);
+      expect(found).toBeDefined();
+      expect(found?.url).toBeTruthy();
+      expect(found?.category).toBe('permanencia');
     });
   });
 
@@ -144,4 +200,12 @@ describe('Guia do Calouro da Faculdade de Tecnologia', () => {
     expect(calourosFileContent).not.toMatch(/onze às catorze/i);
     expect(calourosFileContent).not.toMatch(/dezessete e trinta/i);
   });
+
+  it('deve conter alerta de Programacao 1 tranca grade para calouros', () => {
+    expect(calourosFileContent).toContain('prog1CalouroAlert');
+    expect(calourosFileContent).toContain('Atenção Calouro: Programação 1 Tranca a Grade Curricular');
+    expect(calourosFileContent).toContain('Programação 2');
+    expect(calourosFileContent).toContain('Estruturas de Dados');
+  });
 });
+

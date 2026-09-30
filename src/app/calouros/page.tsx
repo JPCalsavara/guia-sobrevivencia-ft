@@ -26,9 +26,14 @@ import {
   Globe,
   Sparkles,
   Cloud,
-  ArrowRight
+  ArrowRight,
+  Home,
+  Copy,
+  Check
 } from 'lucide-react';
 import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
+import { useClipboardCopy } from '@/hooks/useClipboardCopy';
+import { geminiSyllabusPrompt } from '@/data/prompts';
 import styles from './calouros.module.scss';
 
 const calourosTopics: TopicItem[] = [
@@ -50,6 +55,15 @@ const calourosTopics: TopicItem[] = [
     ],
   },
   {
+    id: 'moradia-calouros',
+    title: 'Onde Morar: Bairros e Imobiliárias',
+    subtopics: [
+      { id: 'moradia-calouros', title: 'Bairros Próximos e Lado FT' },
+      { id: 'principais-ruas-limeira', title: 'Avenidas Cônego e Fabrício' },
+      { id: 'imobiliarias-e-contratos', title: 'Imobiliárias e Aluguel' },
+    ],
+  },
+  {
     id: 'calourada-recepcao',
     title: 'Calourada e Trote Solidário',
     subtopics: [
@@ -68,10 +82,11 @@ const calourosTopics: TopicItem[] = [
   },
   {
     id: 'ambientes-estudo',
-    title: 'Moodle e Google Classroom',
+    title: 'Moodle, Classroom e Agenda',
     subtopics: [
       { id: 'ambientes-estudo', title: 'Moodle para Conteúdo das Aulas' },
       { id: 'classroom-google-dac', title: 'Google Classroom e e-DAC' },
+      { id: 'automacao-google-calendar', title: 'Automação para o Google Calendar' },
     ],
   },
   {
@@ -129,6 +144,11 @@ const calourosTopics: TopicItem[] = [
 ];
 
 export default function CalourosPage() {
+  const { copied, copy } = useClipboardCopy();
+
+  const handleCopyCalendarPrompt = () => {
+    copy(geminiSyllabusPrompt);
+  };
   return (
     <div className={styles.container}>
       {/* Cabeçalho da Página */}
@@ -309,6 +329,252 @@ export default function CalourosPage() {
                     <span>Mapa Google</span>
                     <ExternalLink size={14} aria-hidden="true" />
                   </a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Seção Nova: Onde Morar em Limeira */}
+          <section id="moradia-calouros" className={styles.sectionBlock}>
+            <div className={styles.blockCard}>
+              <div className={styles.cardHeader}>
+                <Home size={24} className={styles.headerIcon} />
+                <div>
+                  <h2 className={styles.cardTitle}>Onde Morar em Limeira: Bairros, Ruas e Imobiliárias</h2>
+                  <p className={styles.cardSubtitle}>
+                    Guia estratégico para calouros escolherem moradia perto da FT, principais avenidas e imobiliárias locais
+                  </p>
+                </div>
+              </div>
+
+              {/* Bairros Lado FT x Lado FCA */}
+              <div className={styles.rulesGrid}>
+                <div className={styles.ruleCard}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <span className={`${styles.pillTag} ${styles.tagBlue}`}>Recomendado FT</span>
+                    <h3 className={styles.ruleTitle}>Bairros Lado FT</h3>
+                  </div>
+                  <p className={styles.ruleText}>
+                    Vila Cristovam, Jardim Nova Itália, Vila Anita e Morro Azul ficam no entorno imediato da faculdade. Morar nessa região permite ir a pé para as aulas todos os dias sem depender de transporte público.
+                  </p>
+                </div>
+
+                <div className={styles.ruleCard}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <span className={`${styles.pillTag} ${styles.tagPurple}`}>Lado FCA</span>
+                    <h3 className={styles.ruleTitle}>Bairros Lado FCA</h3>
+                  </div>
+                  <p className={styles.ruleText}>
+                    Jardim Cidade Universitária I e II e Chácara Antonieta possuem prédios modernos e kitnets novas. Para chegar até a FT, é necessário utilizar o circular gratuito da Unicamp ou linhas municipais.
+                  </p>
+                </div>
+
+                <div className={styles.ruleCard}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <span className={`${styles.pillTag} ${styles.tagGreen}`}>Centro</span>
+                    <h3 className={styles.ruleTitle}>Região Central</h3>
+                  </div>
+                  <p className={styles.ruleText}>
+                    Forte comércio, terminal urbano e acesso a bancos. Fica a cerca de quinze minutos de caminhada da FT subindo pela Avenida Cônego Manuel Alves.
+                  </p>
+                </div>
+
+                <div className={styles.ruleCard}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <span className={`${styles.pillTag} ${styles.tagOrange}`}>Repúblicas</span>
+                    <h3 className={styles.ruleTitle}>Repúblicas e Pensionatos</h3>
+                  </div>
+                  <p className={styles.ruleText}>
+                    Opção econômica e ideal para convivência e troca de experiências com veteranos. As despesas de aluguel, energia e internet são compartilhadas entre os moradores.
+                  </p>
+                </div>
+              </div>
+
+              {/* Principais Ruas e Avenidas */}
+              <div id="principais-ruas-limeira" className={styles.avenuesGrid}>
+                <div className={styles.avenueCard}>
+                  <h3 className={styles.avenueTitle}>Avenida Cônego Manuel Alves</h3>
+                  <p className={styles.avenueDesc}>
+                    Principal artéria de ligação entre a FT e a região central de Limeira.
+                  </p>
+                  <ul className={styles.avenueList}>
+                    <li>Rota preferida para caminhadas e deslocamento de bicicleta até a FT.</li>
+                    <li>Concentra padarias, restaurantes econômicos por quilo, marmitarias e lanchonetes.</li>
+                    <li>Farmácias, pequenos mercados de bairro e serviços essenciais.</li>
+                  </ul>
+                </div>
+
+                <div className={styles.avenueCard}>
+                  <h3 className={styles.avenueTitle}>Avenida Fabrício Vampré</h3>
+                  <p className={styles.avenueDesc}>
+                    Grande avenida comercial que conecta os bairros residenciais à malha viária e rodovias.
+                  </p>
+                  <ul className={styles.avenueList}>
+                    <li>Hipermercados de grande porte, atacarejos e academias completas.</li>
+                    <li>Agências bancárias, caixas eletrônicos e farmácias com plantão estendido.</li>
+                    <li>Acesso rápido para deslocamentos rodoviários rumo a Campinas ou São Paulo.</li>
+                  </ul>
+                </div>
+
+                <div className={styles.avenueCard}>
+                  <h3 className={styles.avenueTitle}>Rua Paschoal Marmo</h3>
+                  <p className={styles.avenueDesc}>
+                    Acesso principal à portaria de pedestres e veículos do Campus 1 da FT Unicamp.
+                  </p>
+                  <ul className={styles.avenueList}>
+                    <li>Ponto de parada oficial do ônibus circular gratuito entre os campi de Limeira.</li>
+                    <li>Presença de repúblicas tradicionais e kitnets a poucos passos da portaria.</li>
+                    <li>Fácil acesso ao restaurante universitário, biblioteca e secretarias acadêmicas.</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Imobiliárias e Aluguel */}
+              <div id="imobiliarias-e-contratos">
+                <div className={styles.cardHeader} style={{ marginTop: '1.5rem', marginBottom: '1rem', paddingBottom: '0.75rem', borderBottom: '1px solid var(--border-color)' }}>
+                  <Key size={20} className={styles.headerIcon} />
+                  <div>
+                    <h3 className={styles.roomCardTitle} style={{ fontSize: '1.1rem', margin: 0 }}>
+                      Principais Imobiliárias de Limeira para Estudantes
+                    </h3>
+                    <p className={styles.ruleText} style={{ margin: 0, fontSize: '0.85rem' }}>
+                      Imobiliárias mais utilizadas por universitários da FT para locação de apartamentos, casas e kitnets
+                    </p>
+                  </div>
+                </div>
+
+                <div className={styles.realtorsGrid}>
+                  <div className={styles.realtorCard}>
+                    <div>
+                      <h4 className={styles.realtorName}>Imobiliária Roque</h4>
+                      <p className={styles.realtorDesc}>
+                        Uma das mais tradicionais de Limeira, com forte catálogo de casas e apartamentos na Vila Cristovam, Nova Itália e Centro.
+                      </p>
+                    </div>
+                    <a
+                      href="https://www.imobiliariaroque.com.br/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.realtorActionBtn}
+                      aria-label="Acessar portal da Imobiliária Roque em nova janela"
+                    >
+                      <span>Portal Imobiliária Roque</span>
+                      <ExternalLink size={12} aria-hidden="true" />
+                    </a>
+                  </div>
+
+                  <div className={styles.realtorCard}>
+                    <div>
+                      <h4 className={styles.realtorName}>Bom Jesus Imóveis</h4>
+                      <p className={styles.realtorDesc}>
+                        Grande oferta de kitnets e imóveis residenciais compactos voltados para quem vem estudar na cidade.
+                      </p>
+                    </div>
+                    <a
+                      href="https://www.bomjesusimoveis.com.br/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.realtorActionBtn}
+                      aria-label="Acessar portal da Bom Jesus Imóveis em nova janela"
+                    >
+                      <span>Portal Bom Jesus Imóveis</span>
+                      <ExternalLink size={12} aria-hidden="true" />
+                    </a>
+                  </div>
+
+                  <div className={styles.realtorCard}>
+                    <div>
+                      <h4 className={styles.realtorName}>Imobiliária Della Nina</h4>
+                      <p className={styles.realtorDesc}>
+                        Opções variadas de aluguel residencial bem situadas em corredores de fácil acesso aos campi.
+                      </p>
+                    </div>
+                    <a
+                      href="https://www.dellaninaimoveis.com.br/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.realtorActionBtn}
+                      aria-label="Acessar portal da Imobiliária Della Nina em nova janela"
+                    >
+                      <span>Portal Della Nina Imóveis</span>
+                      <ExternalLink size={12} aria-hidden="true" />
+                    </a>
+                  </div>
+
+                  <div className={styles.realtorCard}>
+                    <div>
+                      <h4 className={styles.realtorName}>Imobiliária Boa Vista</h4>
+                      <p className={styles.realtorDesc}>
+                        Locação de apartamentos, studios e casas em bairros residenciais tranquilos no entorno universitário.
+                      </p>
+                    </div>
+                    <a
+                      href="https://www.boavistaimoveis.com.br/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.realtorActionBtn}
+                      aria-label="Acessar portal da Imobiliária Boa Vista em nova janela"
+                    >
+                      <span>Portal Imobiliária Boa Vista</span>
+                      <ExternalLink size={12} aria-hidden="true" />
+                    </a>
+                  </div>
+
+                  <div className={styles.realtorCard}>
+                    <div>
+                      <h4 className={styles.realtorName}>Prates Imóveis</h4>
+                      <p className={styles.realtorDesc}>
+                        Amplo catálogo imobiliário para locação residencial e repúblicas estudantis em diversos pontos de Limeira.
+                      </p>
+                    </div>
+                    <a
+                      href="https://www.pratesimoveis.com.br/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.realtorActionBtn}
+                      aria-label="Acessar portal da Prates Imóveis em nova janela"
+                    >
+                      <span>Portal Prates Imóveis</span>
+                      <ExternalLink size={12} aria-hidden="true" />
+                    </a>
+                  </div>
+                </div>
+
+                <div className={`${styles.alertBox} ${styles.alertTip}`} style={{ marginTop: '1.25rem' }}>
+                  <span className={styles.alertTitle}>
+                    <ShieldCheck size={16} />
+                    Dicas Essenciais para Calouros na Locação
+                  </span>
+                  <p className={styles.alertText}>
+                    Visite o imóvel pessoalmente antes de fechar contrato para checar ventilação, incidência de sol e silêncio. Confira se o condomínio ou IPTU estão inclusos no anúncio e avalie a modalidade de garantia exigida, como seguro fiança, título de capitalização ou fiador. Para estudantes em vulnerabilidade socioeconômica, consulte os editais da Bolsa Auxílio-Moradia da DEAPE.
+                  </p>
+                </div>
+              </div>
+
+              <div className={styles.gradeLinkBox}>
+                <div>
+                  <span className={styles.gradeLinkTitle}>Mapa Completo de Moradia e Bolsas Sociais</span>
+                  <span className={styles.gradeLinkDesc}>
+                    Veja o mapa de condomínios no Campus ou confira as bolsas de permanência
+                  </span>
+                </div>
+                <div className={styles.buttonGroup}>
+                  <Link
+                    href="/campus#moradia-convivencia"
+                    className={styles.gradeButton}
+                    aria-label="Ver mapa territorial e condomínios na página campus"
+                  >
+                    <span>Mapa de Moradia no Campus</span>
+                    <ArrowRight size={14} aria-hidden="true" />
+                  </Link>
+                  <Link
+                    href="/calouros#bolsas-sociais-deape"
+                    className={styles.gradeButtonSecondary}
+                    aria-label="Ver informações de bolsas sociais da DEAPE"
+                  >
+                    <span>Bolsas Sociais DEAPE</span>
+                    <ArrowRight size={14} aria-hidden="true" />
+                  </Link>
                 </div>
               </div>
             </div>
@@ -504,6 +770,77 @@ export default function CalourosPage() {
                   <p className={styles.ruleText}>
                     Você pode conectar as apostilas e ementas baixadas do Moodle ao Google NotebookLM para sintetizar leituras longas, gerar cartões de memorização e criar simulados pré-prova.
                   </p>
+                </div>
+              </div>
+
+              {/* Automação: Planos de Desenvolvimento no Google Calendar */}
+              <div id="automacao-google-calendar" className={styles.calendarAutomationBox}>
+                <div className={styles.automationHeader}>
+                  <div className={styles.automationIcon}>
+                    <Calendar size={22} aria-hidden="true" />
+                  </div>
+                  <div>
+                    <h3 className={styles.automationTitle}>
+                      Automação: Plano de Ensino e Avaliações no Google Calendar
+                    </h3>
+                    <p className={styles.automationSubtitle}>
+                      Converta o cronograma avaliativo em PDF da disciplina em eventos de agenda com alarmes vinte e quatro horas antes
+                    </p>
+                  </div>
+                </div>
+
+                <div className={styles.automationBody}>
+                  <p className={styles.automationDesc}>
+                    Na primeira semana letiva, cada professor disponibiliza no Moodle o <strong>Plano de Desenvolvimento da Disciplina</strong>, também chamado de Plano de Ensino ou Syllabus. Esse documento oficial traz as regras do curso, datas de todas as provas P1 e P2, exames finais, seminários e entregas de laboratório.
+                  </p>
+                  <p className={styles.automationDesc}>
+                    Em vez de cadastrar manualmente cada compromisso, você pode utilizar inteligência artificial para extrair os dados e gerar um arquivo padrão iCalendar com extensão ics, importando tudo de uma vez no Google Agenda.
+                  </p>
+
+                  <h4 className={styles.stepsMiniTitle}>Passo a Passo da Automação em Três Etapas</h4>
+                  <ol className={styles.automationSteps}>
+                    <li>
+                      <strong>Baixe o Plano de Ensino:</strong> Acesse o Moodle da disciplina e faça o download do arquivo PDF do plano de desenvolvimento disponibilizado pelo docente.
+                    </li>
+                    <li>
+                      <strong>Extraia com o Prompt de IA:</strong> Acesse o Google Gemini ou Google AI Studio, faça upload do PDF do plano e execute o prompt estruturado pronto. Ele gerará o código que começa com BEGIN:VCALENDAR e termina com END:VCALENDAR com alarmes programados para vinte e quatro horas antes de cada evento.
+                    </li>
+                    <li>
+                      <strong>Importe no Google Agenda:</strong> Salve o código gerado em um arquivo de texto com o nome aula.ics no seu computador. No Google Agenda na web, clique em Configurações, selecione Importar e Exportar e suba o arquivo aula.ics. Todas as provas e alertas ficarão salvos instantaneamente no seu celular e calendário da conta Unicamp.
+                    </li>
+                  </ol>
+
+                  <div className={styles.automationActionRow}>
+                    <button
+                      type="button"
+                      onClick={handleCopyCalendarPrompt}
+                      className={`${styles.copyPromptBtn} ${copied ? styles.copyPromptCopied : ''}`}
+                      aria-label="Copiar prompt para extrair calendário de plano de aula"
+                    >
+                      {copied ? <Check size={16} aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}
+                      <span>{copied ? 'Prompt Copiado com Sucesso' : 'Copiar Prompt de Calendário'}</span>
+                    </button>
+
+                    <a
+                      href="https://aistudio.google.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.aiStudioBtn}
+                      aria-label="Abrir Google AI Studio em nova janela"
+                    >
+                      <span>Abrir Google AI Studio</span>
+                      <ExternalLink size={14} aria-hidden="true" />
+                    </a>
+
+                    <Link
+                      href="/estudos-ia#prompts-estruturados"
+                      className={styles.learnMoreBtn}
+                      aria-label="Ver prompt detalhado no Guia de Estudos com IA"
+                    >
+                      <span>Ver no Guia de IA</span>
+                      <ArrowRight size={14} aria-hidden="true" />
+                    </Link>
+                  </div>
                 </div>
               </div>
 
@@ -717,6 +1054,17 @@ export default function CalourosPage() {
                     Apoio pedagógico com veteranos de turmas anteriores e mentoria individual para ingressantes
                   </p>
                 </div>
+              </div>
+
+              {/* Alerta Crítico: Programação 1 */}
+              <div className={styles.prog1CalouroAlert}>
+                <div className={styles.prog1CalouroHeader}>
+                  <AlertTriangle size={20} className={styles.prog1CalouroIcon} aria-hidden="true" />
+                  <h3 className={styles.prog1CalouroTitle}>Atenção Calouro: Programação 1 Tranca a Grade Curricular</h3>
+                </div>
+                <p className={styles.prog1CalouroText}>
+                  Assim como Cálculo 1 é o gargalo clássico nas engenharias, Programação 1 desempenha esse papel na computação da FT. Se reprovar nesta matéria, você tranca a sequência de pré-requisitos para os semestres seguintes, incluindo Programação 2, Estruturas de Dados e Orientação a Objetos. Utilize os plantões semanais de PAD desde as primeiras semanas para sanar dúvidas e praticar código regularmente.
+                </p>
               </div>
 
               <div id="mentoria-pmu-ingressantes" className={styles.rulesGrid}>
