@@ -382,3 +382,85 @@ export const ftInternshipProceduresData: InternshipStep[] = [
   },
 ];
 
+// Procedimentos Oficiais de TCC na FT Unicamp
+export interface TccStep {
+  stepNumber: number;
+  title: string;
+  description: string;
+  detail: string;
+}
+
+export const ftTccProceduresData: TccStep[] = [
+  {
+    stepNumber: 1,
+    title: 'Matrícula nas Disciplinas de TCC',
+    description: 'Inscrição formal via SIGA DAC conforme a estrutura curricular do curso',
+    detail: 'No curso de Sistemas de Informação, o estudante deve cursar SI912 referente ao TCC I para elaboração da proposta e fundamentação, seguido de SI913 referente ao TCC II para implementação e defesa final. No curso de Análise e Desenvolvimento de Sistemas, o aluno pode optar pelo projeto de conclusão ou pelo estágio supervisionado.',
+  },
+  {
+    stepNumber: 2,
+    title: 'Definição do Docente Orientador e Tema',
+    description: 'Alinhamento do projeto acadêmico ou tecnológico com um professor da FT',
+    detail: 'O aluno entra em contato direto com docentes cujas linhas de pesquisa coincidam com seus interesses. É possível contar também com um coorientador externo ou pós-graduando, desde que haja um docente responsável da Faculdade de Tecnologia.',
+  },
+  {
+    stepNumber: 3,
+    title: 'Cadastro Eletrônico da Proposta no SIGA',
+    description: 'Submissão formal do plano de trabalho dentro dos prazos fixados no calendário',
+    detail: 'O estudante deve preencher os dados do projeto no módulo de TCC do SIGA, indicando título, resumo, cronograma e orientador. O professor orientador precisa validar e aprovar eletronicamente a submissão para que a proposta seja homologada.',
+  },
+  {
+    stepNumber: 4,
+    title: 'Desenvolvimento do Trabalho e Defesa perante Banca',
+    description: 'Execução do projeto e avaliação pública por docentes examinadores',
+    detail: 'Ao final de TCC II, o estudante redige a monografia e agenda a apresentação pública da banca examinadora composta pelo orientador e membros convidados especialistas no tema.',
+  },
+  {
+    stepNumber: 5,
+    title: 'Substituição da Monografia por Artigo Científico',
+    description: 'Aproveitamento de artigo técnico ou científico em conferência ou periódico',
+    detail: 'A Instrução Normativa da FT permite substituir o modelo clássico de monografia por um artigo científico aceito para publicação ou submetido a eventos e periódicos qualificados da área, com anuência formal do orientador e da comissão de graduação.',
+  },
+  {
+    stepNumber: 6,
+    title: 'Depósito Final e Homologação na Biblioteca',
+    description: 'Envio da versão corrigida no sistema SIGA e integração ao acervo digital',
+    detail: 'Após a defesa e a incorporação das recomendações da banca examinadora, o arquivo final em PDF é enviado via SIGA com a ficha catalográfica emitida pela Biblioteca da FT para homologação da colação de grau.',
+  },
+];
+
+// Diretrizes do Programa Integrado de Formação PIF
+export interface PifGuideline {
+  stepNumber: number;
+  title: string;
+  description: string;
+  detail: string;
+}
+
+export const pifGuidelinesData: PifGuideline[] = [
+  {
+    stepNumber: 1,
+    title: 'Fundamentação Legal e Objetivo do PIF',
+    description: 'Integração entre a graduação e a pós-graduação estrita na Unicamp',
+    detail: 'Criado pela Deliberação CEPE-A-22 de 2001, o Programa Integrado de Formação permite a alunos de graduação com alto desempenho cursar disciplinas avançadas de mestrado, promovendo continuidade imediata na carreira acadêmica.',
+  },
+  {
+    stepNumber: 2,
+    title: 'Critérios de Elegibilidade e Rendimento Escolar',
+    description: 'Exigência de Coeficiente de Rendimento elevado e percentual de curso avançado',
+    detail: 'Para solicitar participação, o estudante precisa manter CR elevado, geralmente superior ao limiar estabelecido pelo programa de pós-graduação pretendido, além de ter cumprido no mínimo setenta por cento dos créditos da graduação.',
+  },
+  {
+    stepNumber: 3,
+    title: 'Inscrição como Estudante Especial na DAC',
+    description: 'Solicitação formal de matrícula em disciplinas do catálogo de pós-graduação',
+    detail: 'O aluno submete requerimento como Estudante Especial na Diretoria Acadêmica DAC, indicando as matérias de pós-graduação de interesse com a anuência do docente responsável pela disciplina e da coordenação do programa.',
+  },
+  {
+    stepNumber: 4,
+    title: 'Convalidação Direta de Créditos no Mestrado',
+    description: 'Aproveitamento integral de créditos e notas após admissão no processo seletivo',
+    detail: 'Ao ingressar oficialmente no mestrado acadêmico da FT ou de outro instituto da Unicamp, os créditos das matérias cursadas no PIF são aproveitados integralmente, possibilitando concluir a dissertação de mestrado em menos tempo.',
+  },
+];
+

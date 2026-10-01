@@ -23,6 +23,7 @@ interface DocSidebarProps {
 export function DocSidebar({ topics, title = 'Estrutura da Página' }: DocSidebarProps) {
   const [activeId, setActiveId] = useState<string>('');
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [showFloatingPill, setShowFloatingPill] = useState(false);
   const [collapsedGroups, setCollapsedGroups] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
@@ -36,6 +37,7 @@ export function DocSidebar({ topics, title = 'Estrutura da Página' }: DocSideba
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 140;
+      setShowFloatingPill(window.scrollY > 200);
 
       for (let i = allIds.length - 1; i >= 0; i--) {
         const id = allIds[i];
@@ -90,7 +92,7 @@ export function DocSidebar({ topics, title = 'Estrutura da Página' }: DocSideba
 
   return (
     <nav className={styles.sidebarWrapper} aria-label="Sumário da página">
-      {/* Botão Gatilho no Mobile */}
+      {/* Botão Gatilho Estático no Topo no Mobile */}
       <button
         type="button"
         onClick={() => setIsMobileOpen(true)}
@@ -108,6 +110,29 @@ export function DocSidebar({ topics, title = 'Estrutura da Página' }: DocSideba
           </span>
         )}
       </button>
+
+      {/* Floating Pill Inferior no Mobile */}
+      <div className={`${styles.floatingPillWrapper} ${showFloatingPill ? styles.visible : ''}`}>
+        <button
+          type="button"
+          onClick={() => setIsMobileOpen(true)}
+          className={styles.floatingPillBtn}
+          aria-expanded={isMobileOpen}
+          aria-controls="doc-sidebar-tree"
+          aria-label="Abrir sumário rápido de tópicos da página"
+        >
+          <div className={styles.pillIconBadge}>
+            <ListFilter size={15} aria-hidden="true" />
+          </div>
+          <div className={styles.pillContent}>
+            <span className={styles.pillLabel}>Tópico Atual</span>
+            <span className={styles.pillTopicTitle}>
+              {activeTopic ? activeTopic.title : title}
+            </span>
+          </div>
+          <ChevronRight size={15} className={styles.pillChevron} aria-hidden="true" />
+        </button>
+      </div>
 
       {/* Backdrop Mobile */}
       <div

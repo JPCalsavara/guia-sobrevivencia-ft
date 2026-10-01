@@ -25,7 +25,12 @@ import {
   Laptop,
   Landmark,
   Factory,
-  PlaySquare
+  PlaySquare,
+  Lightbulb,
+  Award,
+  Globe,
+  Languages,
+  Rocket
 } from 'lucide-react';
 import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
 import styles from './carreira.module.scss';
@@ -81,6 +86,25 @@ const careerTopics: TopicItem[] = [
     ],
   },
   {
+    id: 'empreendedorismo-inova-desafio',
+    title: 'Inovação e Empreendedorismo',
+    subtopics: [
+      { id: 'inova-unicamp-hub', title: 'Agência de Inovação Inova' },
+      { id: 'desafio-unicamp-edicao', title: 'Competição Desafio Unicamp' },
+      { id: 'empresas-filhas-unicamp', title: 'Ecossistema de Empresas Filhas' },
+      { id: 'si800-disciplina', title: 'Conexão Curricular SI800' },
+    ],
+  },
+  {
+    id: 'idiomas-confucio-cel',
+    title: 'Idiomas Estrangeiros',
+    subtopics: [
+      { id: 'instituto-confucio-mandarim', title: 'Instituto Confúcio e Mandarim' },
+      { id: 'cel-idiomas-gratuitos', title: 'Centro de Ensino de Línguas CEL' },
+      { id: 'hsk-bolsas-china', title: 'Exames HSK e Bolsas Internacionais' },
+    ],
+  },
+  {
     id: 'computacao-nuvem',
     title: 'Computação em Nuvem',
     subtopics: [
@@ -126,6 +150,8 @@ const sectionStageMap: Record<string, { stage: JourneyStage; label: string }> = 
   'entrevistas-pitch': { stage: 'formando', label: 'Foco: Formando, 7º e 8º Semestres' },
   'portfolio-github': { stage: 'calouro', label: 'Foco: Calouro, 1º e 2º Semestres' },
   'empresas-mercado': { stage: 'formando', label: 'Foco: Formando, 7º e 8º Semestres' },
+  'empreendedorismo-inova-desafio': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
+  'idiomas-confucio-cel': { stage: 'calouro', label: 'Foco: Calouro, 1º e 2º Semestres' },
   'computacao-nuvem': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
   'roadmap-sh': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
   'trilhas-aprendizado': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
@@ -884,6 +910,256 @@ export default function CarreiraPage() {
               <li><strong>Bancos e Fintechs:</strong> Inscreva-se nos bancos de talentos oficiais continuamente, pois as triagens não esperam editais abertos.</li>
               <li><strong>Indústrias da Região:</strong> Participe das feiras de carreiras na FT e conecte-se com veteranos para obter indicações diretas.</li>
             </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Empreendedorismo, Inova Unicamp e Desafio Unicamp */}
+      <section
+        id="empreendedorismo-inova-desafio"
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['empreendedorismo-inova-desafio']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('empreendedorismo-inova-desafio')}
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <Rocket size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>Inovação, Agência Inova e o Desafio Unicamp</h2>
+              <p className={styles.cardSubtitle}>
+                Modelagem de negócios, patentes protegidas, mentorias com o mercado e o ecossistema de empresas filhas
+              </p>
+            </div>
+          </div>
+
+          <p style={{ fontSize: '0.9375rem', lineHeight: 1.6, color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>
+            A Unicamp é uma das universidades mais empreendedoras da América Latina. Por meio da Agência de Inovação Inova Unicamp, os estudantes têm acesso a programas de incentivo à criação de startups de base tecnológica, proteção de propriedade intelectual e competições com premiações expressivas.
+          </p>
+
+          <div className={styles.skillsGrid}>
+            <div id="inova-unicamp-hub" className={styles.skillItem}>
+              <div className={styles.skillItemHeader}>
+                <div className={`${styles.skillIconWrap} ${styles.blue}`}>
+                  <Lightbulb size={20} />
+                </div>
+                <span className={styles.skillBadge}>Inovação</span>
+              </div>
+              <h3 className={styles.skillTitle}>Agência de Inovação Inova Unicamp</h3>
+              <p className={styles.skillDesc}>
+                Responsável por gerir as patentes e marcas registradas da universidade, além de conectar pesquisadores ao setor produtivo. A Inova oferece oficinas de propriedade intelectual, suporte para licenciamento de software e programas contínuos de fomento ao empreendedorismo jovem.
+              </p>
+            </div>
+
+            <div id="desafio-unicamp-edicao" className={styles.skillItem}>
+              <div className={styles.skillItemHeader}>
+                <div className={`${styles.skillIconWrap} ${styles.green}`}>
+                  <Award size={20} />
+                </div>
+                <span className={`${styles.skillBadge} ${styles.green}`}>Competição</span>
+              </div>
+              <h3 className={styles.skillTitle}>Competição Desafio Unicamp</h3>
+              <p className={styles.skillDesc}>
+                Competição anual de modelagem de negócios baseada em tecnologias reais patenteadas pela Unicamp. As equipes recebem capacitação com a metodologia Lean Startup, contam com mentoria direta de executivos seniores do mercado e disputam prêmios financeiros e aceleração em incubadoras.
+              </p>
+            </div>
+
+            <div id="empresas-filhas-unicamp" className={styles.skillItem}>
+              <div className={styles.skillItemHeader}>
+                <div className={`${styles.skillIconWrap} ${styles.purple}`}>
+                  <Building2 size={20} />
+                </div>
+                <span className={`${styles.skillBadge} ${styles.purple}`}>Ecossistema</span>
+              </div>
+              <h3 className={styles.skillTitle}>Rede de Empresas Filhas da Unicamp</h3>
+              <p className={styles.skillDesc}>
+                Comunidade formada por startups e multinacionais fundadas por alunos, ex-alunos e docentes da universidade, incluindo casos notáveis como CI e T, Movile, iFood e QuintoAndar. Essa rede mantém parceria ativa com a universidade e contrata centenas de estagiários anualmente.
+              </p>
+            </div>
+
+            <div id="si800-disciplina" className={styles.skillItem}>
+              <div className={styles.skillItemHeader}>
+                <div className={`${styles.skillIconWrap} ${styles.amber}`}>
+                  <FileText size={20} />
+                </div>
+                <span className={`${styles.skillBadge} ${styles.amber}`}>Currículo FT</span>
+              </div>
+              <h3 className={styles.skillTitle}>Conexão Curricular com a Disciplina SI800</h3>
+              <p className={styles.skillDesc}>
+                A disciplina SI800, intitulada Empreendedorismo e Inovação, integra a grade curricular dos cursos de computação da FT. Nela os estudantes desenvolvem protótipos de produtos viáveis e planos de negócios com créditos de extensão curricularizados, conectando a teoria às iniciativas da Inova.
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.roadmapCardsGrid} style={{ marginTop: '1.5rem' }}>
+            <div className={styles.roadmapCard}>
+              <div className={styles.roadmapCardHeader}>
+                <span className={styles.roadmapBadge}>Inovação</span>
+                <h3 className={styles.roadmapCardTitle}>Portal Oficial da Inova Unicamp</h3>
+                <p className={styles.roadmapCardDesc}>
+                  Acompanhe editais de inovação, vitrine de tecnologias licenciáveis, programas de mentoria e notícias do ecossistema empreendedor.
+                </p>
+              </div>
+              <div className={styles.roadmapCardFooter}>
+                <a
+                  href="https://www.inova.unicamp.br/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.cardInlineLink}
+                >
+                  <span>Acessar Inova Unicamp</span>
+                  <ExternalLink size={14} aria-hidden="true" />
+                </a>
+              </div>
+            </div>
+
+            <div className={styles.roadmapCard}>
+              <div className={styles.roadmapCardHeader}>
+                <span className={styles.roadmapBadge}>Competição</span>
+                <h3 className={styles.roadmapCardTitle}>Edital do Desafio Unicamp</h3>
+                <p className={styles.roadmapCardDesc}>
+                  Regulamento completo da competição de modelagem de negócios, datas de formação de equipes, catálogo de tecnologias e prêmios.
+                </p>
+              </div>
+              <div className={styles.roadmapCardFooter}>
+                <a
+                  href="https://www.inova.unicamp.br/desafio/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.cardInlineLink}
+                >
+                  <span>Ver Desafio Unicamp</span>
+                  <ExternalLink size={14} aria-hidden="true" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Estudo de Idiomas Estrangeiros em Limeira e Barão Geraldo */}
+      <section
+        id="idiomas-confucio-cel"
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['idiomas-confucio-cel']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('idiomas-confucio-cel')}
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <Globe size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>Estudo de Línguas Estrangeiras em Limeira e Barão Geraldo</h2>
+              <p className={styles.cardSubtitle}>
+                Acesso altamente acessível a cursos de Mandarim no Instituto Confúcio e matérias gratuitas de idiomas no CEL da Unicamp
+              </p>
+            </div>
+          </div>
+
+          <p style={{ fontSize: '0.9375rem', lineHeight: 1.6, color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>
+            O domínio de idiomas é um dos maiores diferenciais competitivos para carreiras globais de tecnologia e intercâmbio acadêmico. Como estudante da Unicamp, você conta com oportunidades presenciais e online de alto nível com subsídio institucional integral ou taxas muito reduzidas.
+          </p>
+
+          <div className={styles.skillsGrid}>
+            <div id="instituto-confucio-mandarim" className={styles.skillItem}>
+              <div className={styles.skillItemHeader}>
+                <div className={`${styles.skillIconWrap} ${styles.blue}`}>
+                  <Languages size={20} />
+                </div>
+                <span className={styles.skillBadge}>Mandarim</span>
+              </div>
+              <h3 className={styles.skillTitle}>Instituto Confúcio na Unicamp: Mandarim</h3>
+              <p className={styles.skillDesc}>
+                Fruto de convênio oficial com o Ministério da Educação da China e a Universidade Jiaotong de Pequim. Oferece turmas de Mandarim lecionadas por professores nativos com material didático internacional. Os alunos da Unicamp contam com valores de matrícula extremamente acessíveis e descontos institucionais.
+              </p>
+            </div>
+
+            <div id="cel-idiomas-gratuitos" className={styles.skillItem}>
+              <div className={styles.skillItemHeader}>
+                <div className={`${styles.skillIconWrap} ${styles.green}`}>
+                  <FileText size={20} />
+                </div>
+                <span className={`${styles.skillBadge} ${styles.green}`}>Gratuito</span>
+              </div>
+              <h3 className={styles.skillTitle}>Centro de Ensino de Línguas CEL Unicamp</h3>
+              <p className={styles.skillDesc}>
+                O CEL oferece disciplinas regulares totalmente gratuitas de Inglês, Espanhol, Francês, Alemão, Italiano e Japonês. As matérias são cursadas como disciplinas eletivas livres com créditos contabilizados no histórico escolar, havendo turmas ofertadas em Barão Geraldo e nos campi de Limeira.
+              </p>
+            </div>
+
+            <div id="hsk-bolsas-china" className={styles.skillItem}>
+              <div className={styles.skillItemHeader}>
+                <div className={`${styles.skillIconWrap} ${styles.purple}`}>
+                  <Award size={20} />
+                </div>
+                <span className={`${styles.skillBadge} ${styles.purple}`}>Bolsas e HSK</span>
+              </div>
+              <h3 className={styles.skillTitle}>Certificação HSK e Bolsas de Estudo na China</h3>
+              <p className={styles.skillDesc}>
+                O Instituto Confúcio é centro aplicador oficial dos testes de proficiência HSK e HSKK. Estudantes que se destacam nas aulas podem concorrer a bolsas completas de intercâmbio, incluindo programas de imersão de verão ou semestres letivos em universidades chinesas de ponta.
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.roadmapCardsGrid} style={{ marginTop: '1.5rem' }}>
+            <div className={styles.roadmapCard}>
+              <div className={styles.roadmapCardHeader}>
+                <span className={styles.roadmapBadge}>Mandarim</span>
+                <h3 className={styles.roadmapCardTitle}>Portal do Instituto Confúcio Unicamp</h3>
+                <p className={styles.roadmapCardDesc}>
+                  Consulte turmas abertas, níveis de Mandarim, cronograma de matrícula com desconto estudantil e calendário dos exames HSK.
+                </p>
+              </div>
+              <div className={styles.roadmapCardFooter}>
+                <a
+                  href="https://www.institutoconfucio.unicamp.br/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.cardInlineLink}
+                >
+                  <span>Acessar Instituto Confúcio</span>
+                  <ExternalLink size={14} aria-hidden="true" />
+                </a>
+              </div>
+            </div>
+
+            <div className={styles.roadmapCard}>
+              <div className={styles.roadmapCardHeader}>
+                <span className={styles.roadmapBadge}>Línguas DAC</span>
+                <h3 className={styles.roadmapCardTitle}>Centro de Ensino de Línguas CEL</h3>
+                <p className={styles.roadmapCardDesc}>
+                  Orientações para testes de nivelamento, oferta semestral de disciplinas de línguas e aproveitamento de créditos eletivos na DAC.
+                </p>
+              </div>
+              <div className={styles.roadmapCardFooter}>
+                <a
+                  href="https://www.cel.unicamp.br/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.cardInlineLink}
+                >
+                  <span>Acessar Portal do CEL</span>
+                  <ExternalLink size={14} aria-hidden="true" />
+                </a>
+              </div>
+            </div>
+
+            <div className={styles.roadmapCard}>
+              <div className={styles.roadmapCardHeader}>
+                <span className={styles.roadmapBadge}>Instagram</span>
+                <h3 className={styles.roadmapCardTitle}>Instagram Instituto Confúcio</h3>
+                <p className={styles.roadmapCardDesc}>
+                  Avisos rápidos sobre abertura de turmas presenciais e virtuais, eventos culturais, workshops de caligrafia e oportunidades na China.
+                </p>
+              </div>
+              <div className={styles.roadmapCardFooter}>
+                <a
+                  href="https://www.instagram.com/confucio.unicamp/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.cardInlineLink}
+                >
+                  <span>Ver @confucio.unicamp</span>
+                  <ExternalLink size={14} aria-hidden="true" />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
