@@ -1,0 +1,42 @@
+{
+  "geradoEm": "2026-09-30",
+  "resumo": {
+    "visitantes_unicos": 88,
+    "visualizacoes_totais": 294,
+    "paginas_por_visitante": 3.34,
+    "taxa_rejeicao_percentual": 35.0
+  },
+  "rotasAltaDemanda": [
+    "/academico"
+  ],
+  "rotasBaixaDescoberta": [
+    "/calouros",
+    "/links"
+  ],
+  "recomendacoes": [
+    {
+      "alvo": "/academico",
+      "prioridade": "alta",
+      "acao": "Destacar atalhos de regras da DAC e alerta de Programacao 1 na primeira dobra da pagina inicial",
+      "justificativa": "A rota academica concentra 36.7% de todo o consumo de conteudo do portal"
+    },
+    {
+      "alvo": "/calouros",
+      "prioridade": "critica",
+      "acao": "Adicionar banner de boas-vindas com chamada direta para moradia e calendario na pagina inicial",
+      "justificativa": "Apenas 6.7% das visualizacoes de conteudo chegam ao guia do calouro, revelando deficit de descoberta"
+    },
+    {
+      "alvo": "ui_mobile",
+      "prioridade": "continua",
+      "acao": "Validar largura de tabelas, cartoes e alvos de toque em telas Android",
+      "justificativa": "Dispositivos moveis representam 49.0% dos acessos, com Android liderando 40.0% do total geral"
+    },
+    {
+      "alvo": "ferramentas_desenvolvimento",
+      "prioridade": "media",
+      "acao": "Manter scripts, atalhos de terminal e orientacoes de configuracao em ambiente GNU Linux",
+      "justificativa": "Usuarios GNU Linux somam 12.0% da base, confirmando perfil de graduandos de computacao da FT"
+    }
+  ]
+}
