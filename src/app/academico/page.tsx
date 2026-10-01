@@ -33,6 +33,7 @@ import {
   Lightbulb,
 } from 'lucide-react';
 import { useClipboardCopy } from '@/hooks/useClipboardCopy';
+import { useTopicTracker } from '@/hooks/useTopicTracker';
 import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
 import { padComparisonData, ftInternshipProceduresData } from '@/data/academic';
 import styles from './academico.module.scss';
@@ -189,11 +190,28 @@ export default function AcademicoPage() {
   const { copied: icCopied, copy: copyIcEmail } = useClipboardCopy();
   const { copied: padCopied, copy: copyPadEmail } = useClipboardCopy();
 
+  const { ref: padSectionRef, recordInteraction: recordPadInteraction } = useTopicTracker({
+    topicId: 'monitoria-pad',
+    topicTitle: 'Monitoria PAD',
+  });
+
+  const { ref: icSectionRef, recordInteraction: recordIcInteraction } = useTopicTracker({
+    topicId: 'iniciacao-cientifica',
+    topicTitle: 'Iniciação Científica e Pesquisa',
+  });
+
+  const { ref: prog1SectionRef } = useTopicTracker({
+    topicId: 'alerta-prog1-tranca-tudo',
+    topicTitle: 'Alerta Programação 1 Tranca a Grade',
+  });
+
   const handleCopyEmail = () => {
+    recordIcInteraction('copy_ic_email');
     copyIcEmail(emailTemplateText);
   };
 
   const handleCopyPadEmail = () => {
+    recordPadInteraction('copy_pad_email');
     copyPadEmail(padEmailTemplateText);
   };
 
@@ -393,7 +411,7 @@ export default function AcademicoPage() {
           </div>
 
           {/* Alerta de Programação 1 */}
-          <div id="alerta-prog1-tranca-tudo" className={styles.prog1AlertCard}>
+          <div id="alerta-prog1-tranca-tudo" ref={prog1SectionRef as React.RefObject<HTMLDivElement>} className={styles.prog1AlertCard}>
             <div className={styles.prog1AlertHeader}>
               <AlertTriangle size={24} className={styles.prog1AlertIcon} aria-hidden="true" />
               <div>
@@ -513,6 +531,7 @@ export default function AcademicoPage() {
       {/* Monitoria PAD - Com Bolsa versus Sem Bolsa e Cronograma Oficial */}
       <section
         id="monitoria-pad"
+        ref={padSectionRef as React.RefObject<HTMLElement>}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['monitoria-pad']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('monitoria-pad')}
@@ -542,7 +561,7 @@ export default function AcademicoPage() {
             <div className={styles.ruleCard}>
               <h3 className={styles.ruleTitle}>Atribuições e Limites</h3>
               <p className={styles.ruleText}>
-                Conduzir plantões semanais de dúvidas, auxiliar em listas e apoiar aulas práticas. É proibido ministrar aulas teóricas ou corrigir notas de provas.
+                Conduzir plantões semanais de dúvidas, auxiliar em listas e apoiar aulas práticas. É proibido ministrar aulas teóricas e corrigir ou atribuir notas a provas.
               </p>
             </div>
 
@@ -580,11 +599,11 @@ export default function AcademicoPage() {
                   <tr key={item.criterion}>
                     <th scope="row">{item.criterion}</th>
                     <td>
-                      <span >Remunerado</span>
+                      <span className={`${styles.pillTag} ${styles.tagBlue}`}>Remunerado</span>{' '}
                       {item.withScholarship}
                     </td>
                     <td>
-                      <span >Voluntário</span>
+                      <span className={`${styles.pillTag} ${styles.tagGreen}`}>Voluntário</span>{' '}
                       {item.withoutScholarship}
                     </td>
                   </tr>
@@ -610,9 +629,9 @@ export default function AcademicoPage() {
 
             <div className={styles.stepCard}>
               <div className={styles.stepNumber}>2</div>
-              <h4 className={styles.stepTitle}>Inscrição no Sistema PAD da PRG</h4>
+              <h4 className={styles.stepTitle}>Registro do Monitor pelo Docente</h4>
               <p className={styles.stepDesc}>
-                No período fixado no cronograma semestral da PRG, acesse o portal de monitorias da Unicamp e registre sua inscrição formal na disciplina acordada com o docente.
+                Após a seleção do estudante pelo professor responsável, o próprio docente registra o aluno em formulário próprio da Faculdade de Tecnologia e no sistema da PRG dentro dos prazos fixados no cronograma.
               </p>
             </div>
 
@@ -1153,6 +1172,7 @@ export default function AcademicoPage() {
       {/* Iniciação Científica e Pesquisa na FT */}
       <section
         id="iniciacao-cientifica"
+        ref={icSectionRef as React.RefObject<HTMLElement>}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['iniciacao-cientifica']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('iniciacao-cientifica')}
@@ -1174,26 +1194,26 @@ export default function AcademicoPage() {
 
           <div id="ic-cronograma" className={styles.timelineGrid}>
             <div className={styles.timelineItem}>
-              <span className={styles.timelineBadge}>Janeiro a Março</span>
+              <span className={styles.timelineBadge}>Novembro a Março</span>
               <h4 className={styles.timelineTitle}>1. Mapeamento e Primeiro Contato</h4>
               <p className={styles.timelineDesc}>
-                Buscar linhas de pesquisa dos docentes da FT, consultar o Lattes e enviar e-mail formal manifestando interesse acadêmico.
+                Buscar linhas de pesquisa dos docentes da FT, consultar o currículo Lattes e enviar mensagem formal manifestando interesse acadêmico. Iniciar o diálogo a partir de novembro do ano anterior permite amadurecer a proposta com calma antes da abertura dos editais.
               </p>
             </div>
 
             <div className={styles.timelineItem}>
               <span className={styles.timelineBadge}>Março a Maio</span>
-              <h4 className={styles.timelineTitle}>2. Inscrição e Submissão</h4>
+              <h4 className={styles.timelineTitle}>2. Inscrição e Submissão do Projeto</h4>
               <p className={styles.timelineDesc}>
-                Período oficial de submissão do plano de pesquisa no edital PIBIC e PIBITI via PRP Unicamp ou submissão FAPESP contínua.
+                Período oficial de submissão do projeto de pesquisa no edital PIBIC e PIBITI via PRP Unicamp. Para bolsas FAPESP, a submissão do projeto pelo sistema SAGe ocorre sob a modalidade de fluxo contínuo ao longo do ano inteiro.
               </p>
             </div>
 
             <div className={styles.timelineItem}>
-              <span className={styles.timelineBadge}>Agosto</span>
-              <h4 className={styles.timelineTitle}>3. Início da Vigência</h4>
+              <span className={styles.timelineBadge}>Agosto e Setembro</span>
+              <h4 className={styles.timelineTitle}>3. Homologação e Início da Vigência</h4>
               <p className={styles.timelineDesc}>
-                Divulgação dos resultados, assinatura do termo de outorga e início oficial da bolsa com reuniões de alinhamento com o orientador.
+                Divulgação dos resultados do edital e assinatura do termo de outorga em agosto, com início oficial da vigência da pesquisa e da concessão da bolsa em primeiro de setembro.
               </p>
             </div>
 
@@ -1201,7 +1221,7 @@ export default function AcademicoPage() {
               <span className={styles.timelineBadge}>Fevereiro</span>
               <h4 className={styles.timelineTitle}>4. Relatório Parcial</h4>
               <p className={styles.timelineDesc}>
-                Entrega obrigatória do relatório semestral para avaliação do progresso dos experimentos e adequação do cronograma inicial.
+                Entrega obrigatória do relatório semestral para avaliação do progresso do trabalho e de eventuais adequações do cronograma inicial.
               </p>
             </div>
 
@@ -1209,7 +1229,7 @@ export default function AcademicoPage() {
               <span className={styles.timelineBadge}>Julho a Outubro</span>
               <h4 className={styles.timelineTitle}>5. Relatório Final e Congresso</h4>
               <p className={styles.timelineDesc}>
-                Conclusão dos doze meses, entrega do relatório final e apresentação obrigatória de pôster no Congresso de Iniciação Científica da Unicamp.
+                Conclusão dos doze meses de vigência, entrega do relatório final, submissão prévia de resumo científico e apresentação de pôster no Congresso de Iniciação Científica da Unicamp.
               </p>
             </div>
           </div>
@@ -1232,9 +1252,9 @@ export default function AcademicoPage() {
               <tbody>
                 <tr>
                   <td>
-                    <strong>PIBIC e PIBITI CNPq Unicamp</strong>
+                    <strong>PIBIC e PIBITI CNPq ou DEAPE Unicamp</strong>
                   </td>
-                  <td>12 meses, de agosto a julho. 20 horas semanais.</td>
+                  <td>12 meses, de setembro a agosto. Mínimo de 12 horas semanais.</td>
                   <td>
                     <span className={styles.tagAllowed}>Permitido com anuência</span>
                     <p style={{ marginTop: '0.5rem', fontSize: '0.8125rem' }}>
@@ -1242,7 +1262,7 @@ export default function AcademicoPage() {
                     </p>
                   </td>
                   <td>
-                    Edital anual, histórico escolar com bom rendimento. Confere bolsa mensal, pontuação em seleções de mestrado e créditos de atividades complementares.
+                    Edital anual unificado com concessão de bolsas do CNPq e da DEAPE Unicamp funcionando sob as mesmas diretrizes. Exige bom rendimento acadêmico. Confere bolsa mensal, pontuação em seleções de mestrado e créditos de atividades complementares.
                   </td>
                 </tr>
                 <tr>
@@ -1257,22 +1277,22 @@ export default function AcademicoPage() {
                     </p>
                   </td>
                   <td>
-                    Submissão contínua no sistema SAGe. Exige excelente histórico escolar, ausência de reprovações recentes e plano detalhado. Oferece bolsa com valor superior e reserva técnica.
+                    Submissão contínua no sistema SAGe. Exige excelente histórico escolar, ausência de reprovações e projeto detalhado. Oferece bolsa com valor superior e reserva técnica.
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <strong>Iniciação Científica Voluntária PIC</strong>
+                    <strong>Iniciação Científica Voluntária no Edital PIBIC</strong>
                   </td>
-                  <td>6 a 12 meses flexíveis. 10 a 20 horas semanais.</td>
+                  <td>12 meses, de setembro a agosto. Mínimo de 12 horas semanais.</td>
                   <td>
                     <span className={styles.tagFlexible}>Totalmente liberado</span>
                     <p style={{ marginTop: '0.5rem', fontSize: '0.8125rem' }}>
-                      Sem vínculo financeiro com agências de fomento, não há impedimento legal para estagiar ou trabalhar em regime CLT simultaneamente.
+                      Sem vínculo financeiro de bolsa, não há impedimento legal para estagiar ou trabalhar em regime profissional simultaneamente.
                     </p>
                   </td>
                   <td>
-                    Inscrição simplificada junto à Comissão de Pesquisa da FT. Garante certificado oficial de pesquisador emitido pela Unicamp e pontuação curricular.
+                    Integrada ao mesmo edital unificado PIBIC e PIBITI da PRP Unicamp para propostas com mérito aprovado sem cota financeira de bolsa. Garante certificado oficial de pesquisador emitido pela Unicamp e créditos curriculares.
                   </td>
                 </tr>
               </tbody>
@@ -1288,7 +1308,7 @@ export default function AcademicoPage() {
             <div className={styles.ruleCard}>
               <h4 className={styles.ruleTitle}>Composição da Nota no Edital PIBIC</h4>
               <p className={styles.ruleText}>
-                A Pró-Reitoria de Pesquisa avalia as propostas com base em três pilares ponderados: o mérito acadêmico do estudante calculado pelo Coeficiente de Rendimento, a qualidade e viabilidade do plano de pesquisa de doze meses, e o currículo Lattes do docente orientador. A combinação dessas notas gera a classificação final do projeto.
+                A Pró-Reitoria de Pesquisa avalia as propostas com base em três pilares ponderados: o mérito acadêmico do estudante calculado pelo Coeficiente de Rendimento, a qualidade e viabilidade do projeto de pesquisa de doze meses, e o currículo Lattes do docente orientador. A combinação dessas notas gera a classificação final da proposta.
               </p>
             </div>
 
@@ -1302,14 +1322,14 @@ export default function AcademicoPage() {
             <div className={styles.ruleCard}>
               <h4 className={styles.ruleTitle}>Bolsa Remunerada versus Modalidade Voluntária</h4>
               <p className={styles.ruleText}>
-                Quando uma proposta possui mérito científico aprovado pela comissão avaliadora mas a nota combinada não atinge a linha de corte das bolsas remuneradas, o projeto é contemplado na modalidade Iniciação Científica Voluntária. O estudante executa a pesquisa normalmente, recebe certificado oficial emitido pela Unicamp e valida créditos curriculares, apenas sem a remuneração mensal.
+                Quando uma proposta possui mérito científico aprovado pela comissão avaliadora mas a nota combinada não atinge a linha de corte das bolsas remuneradas, o projeto é contemplado na modalidade de Iniciação Científica Voluntária dentro do próprio edital PIBIC. O estudante executa a pesquisa normalmente, recebe certificado oficial emitido pela Unicamp e valida créditos curriculares, apenas sem a remuneração mensal.
               </p>
             </div>
 
             <div className={styles.ruleCard}>
               <h4 className={styles.ruleTitle}>Impacto de Reprovações no PIBIC e FAPESP</h4>
               <p className={styles.ruleText}>
-                No PIBIC, reprovações recentes ou por falta penalizam a pontuação do componente acadêmico do candidato, derrubando a colocação no ranking e podendo tirar a bolsa remunerada. Na FAPESP, o critério é ainda mais severo: reprovações não justificadas em disciplinas ou rendimento escolar mediano levam com frequência à rejeição sumária da solicitação de bolsa, pois a agência exige histórico de excelência continuada.
+                No PIBIC, reprovações no histórico escolar ou por falta penalizam a pontuação do componente acadêmico do candidato, derrubando a colocação no ranking e podendo tirar a bolsa remunerada. Na FAPESP, o critério é ainda mais severo: qualquer reprovação no histórico escolar ou rendimento acadêmico mediano leva com frequência à rejeição sumária da solicitação de bolsa, pois a agência exige histórico de excelência continuada.
               </p>
             </div>
           </div>
@@ -1330,21 +1350,21 @@ export default function AcademicoPage() {
             <div className={styles.ruleCard}>
               <h4 className={styles.ruleTitle}>Mapeando Docentes no Currículo Lattes</h4>
               <p className={styles.ruleText}>
-                Acesse a Plataforma Lattes do CNPq ou o site da FT para consultar o histórico dos professores. Analise os artigos mais recentes publicados, as orientações de mestrado concluídas e os projetos em andamento para entender o foco de atuação de cada docente antes de iniciar contato.
+                Acesse a Plataforma Lattes do CNPq ou o portal oficial da FT para consultar a trajetória dos professores. Analise os artigos mais recentes publicados, as orientações de iniciação científica e de pós-graduação e os projetos em andamento para entender o foco de atuação de cada docente antes de iniciar contato.
               </p>
             </div>
 
             <div className={styles.ruleCard}>
-              <h4 className={styles.ruleTitle}>Docentes e Áreas na Computação da FT</h4>
+              <h4 className={styles.ruleTitle}>Áreas de Pesquisa em Computação na FT</h4>
               <p className={styles.ruleText}>
-                A FT reúne especialistas em diversas frentes: redes e sistemas operacionais com o professor Plinio Vilela, otimização e algoritmos com o professor Luis Meira, computação de alto desempenho e sistemas distribuídos com o professor Andre Gradvohl, visão computacional com o professor Marco Carvalho, e interface humano-computador e acessibilidade com o professor Celmar Silva.
+                O corpo docente da Faculdade de Tecnologia conduz pesquisas em diversas áreas da computação, incluindo Inteligência Artificial, Ciência de Dados, Engenharia de Software, Redes e Sistemas Distribuídos, Otimização Combinatória, Visão Computacional, Interação Humano Computador e Acessibilidade Digital. O estudante deve consultar a página oficial de docentes no portal da FT para conhecer os professores de cada linha e seus respectivos laboratórios.
               </p>
             </div>
 
             <div className={styles.ruleCard}>
-              <h4 className={styles.ruleTitle}>Iniciação Científica e TCC</h4>
+              <h4 className={styles.ruleTitle}>Iniciação Científica e Equivalência com TCC</h4>
               <p className={styles.ruleText}>
-                Desenvolver iniciação científica durante o terceiro ou quarto semestre acelera expressivamente a elaboração do Trabalho de Conclusão de Curso. A metodologia de pesquisa, os experimentos e a revisão bibliográfica construídos durante o projeto podem servir como alicerce direto para a monografia do TCC.
+                Desenvolver iniciação científica durante o curso acelera expressivamente a conclusão da graduação. Conforme as normas de Trabalho de Conclusão de Curso da FT para os cursos de Bacharelado em Sistemas de Informação e Tecnologia em Análise e Desenvolvimento de Sistemas, caso o estudante publique ou tenha artigo científico aceito em evento ou periódico científico qualificado decorrente de sua pesquisa, esse artigo pode ser utilizado como substituto formal da monografia perante a banca examinadora.
               </p>
             </div>
           </div>
