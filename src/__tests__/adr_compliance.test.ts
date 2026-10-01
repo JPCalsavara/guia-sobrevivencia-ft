@@ -97,6 +97,7 @@ describe('Conformidade com ADR 0001: Ausência de Travessão, Parênteses e Emoj
       'docs/adr/0005-concisao-e-clareza-orientada-a-essencia.md',
       'docs/adr/0006-otimizacao-continua-guiada-por-telemetria.md',
       'docs/adr/0007-hospedagem-na-vercel-com-analytics-integrado.md',
+      'docs/adr/0008-versionamento-semantico-releases-automaticos-e-protecao-de-branch.md',
       'CONTEXT.md'
     ];
     docs.forEach((docPath) => {
