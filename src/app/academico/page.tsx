@@ -31,6 +31,7 @@ import {
   AlertTriangle,
   Youtube,
   Lightbulb,
+  Languages,
 } from 'lucide-react';
 import { useClipboardCopy } from '@/hooks/useClipboardCopy';
 import { useTopicTracker } from '@/hooks/useTopicTracker';
@@ -91,6 +92,7 @@ const academicTopics: TopicItem[] = [
     subtopics: [
       { id: 'coeficientes-metricas', title: 'CR, CP e Vetores Horários' },
       { id: 'coeficientes-eletivas', title: 'Eletivas do Catálogo e Livres' },
+      { id: 'cel-linguas-estrangeiras', title: 'Línguas Estrangeiras no CEL' },
     ],
   },
   {
@@ -445,6 +447,80 @@ export default function AcademicoPage() {
                 <span>Acessar Grade DAC</span>
                 <ExternalLink size={14} aria-hidden="true" />
               </a>
+            </div>
+
+            {/* Bloco Detalhado: Línguas Estrangeiras no CEL Unicamp */}
+            <div id="cel-linguas-estrangeiras" className={styles.celLanguageBox}>
+              <div className={styles.celHeader}>
+                <div className={styles.celIconWrapper}>
+                  <Languages size={20} aria-hidden="true" />
+                </div>
+                <div>
+                  <h4 className={styles.celTitle}>Aulas de Línguas Estrangeiras no Centro de Ensino de Línguas CEL</h4>
+                  <p className={styles.celSubtitle}>
+                    Disciplinas semestrais gratuitas com créditos eletivos no histórico escolar e catálogo oficial
+                  </p>
+                </div>
+              </div>
+
+              <p className={styles.celText}>
+                Para fazer aulas de língua estrangeira na Unicamp, você se inscreve nas disciplinas do Centro de Ensino de Línguas CEL. O centro oferece turmas regulares de Alemão, Espanhol, Francês, Hebraico, Inglês, Italiano, Japonês, Russo e Português Língua Adicional para estrangeiros.
+              </p>
+
+              <div className={styles.celStepsGrid}>
+                <div className={styles.celStepCard}>
+                  <span className={styles.celStepNumber}>1</span>
+                  <div>
+                    <h5 className={styles.celStepTitle}>Matrícula Semestral na DAC</h5>
+                    <p className={styles.celStepDesc}>
+                      A inscrição ocorre diretamente no sistema de matrícula de graduação da DAC durante as fases de eletivas livres, sem qualquer cobrança de mensalidade.
+                    </p>
+                  </div>
+                </div>
+
+                <div className={styles.celStepCard}>
+                  <span className={styles.celStepNumber}>2</span>
+                  <div>
+                    <h5 className={styles.celStepTitle}>Prova de Nivelamento</h5>
+                    <p className={styles.celStepDesc}>
+                      Quem já possui conhecimento prévio no idioma pode realizar a prova de nivelamento semestral do CEL para ingressar diretamente em níveis intermediários ou avançados.
+                    </p>
+                  </div>
+                </div>
+
+                <div className={styles.celStepCard}>
+                  <span className={styles.celStepNumber}>3</span>
+                  <div>
+                    <h5 className={styles.celStepTitle}>Aproveitamento Curricular</h5>
+                    <p className={styles.celStepDesc}>
+                      Ao ser aprovado, os créditos constam no seu histórico escolar oficial da Unicamp e abatem as exigências de eletivas livres do seu catálogo de curso.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className={styles.celActionsRow}>
+                <a
+                  href="https://www.cel.unicamp.br/disciplinas/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.celActionBtnPrimary}
+                  aria-label="Acessar catálogo de disciplinas e horários do CEL em nova janela"
+                >
+                  <span>Catálogo de Disciplinas e Horários CEL</span>
+                  <ExternalLink size={14} aria-hidden="true" />
+                </a>
+                <a
+                  href="https://www.cel.unicamp.br/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.celActionBtnSecondary}
+                  aria-label="Acessar portal institucional do CEL em nova janela"
+                >
+                  <span>Portal Oficial do CEL</span>
+                  <ExternalLink size={14} aria-hidden="true" />
+                </a>
+              </div>
             </div>
           </div>
         </div>

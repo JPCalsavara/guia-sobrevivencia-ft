@@ -288,7 +288,23 @@ export const linksData: ResourceLink[] = [
     description: 'Catálogo de livros físicos, renovação online de empréstimos e acervo da biblioteca da FT',
     url: 'https://www.sbu.unicamp.br',
     category: 'aulas',
-    badge: 'Biblioteca',
+    badge: 'Biblioteca SBU',
+  },
+  {
+    id: 'biblioteca-ft-portal',
+    title: 'Portal da Biblioteca da FT',
+    description: 'Serviços locais no campus de Limeira, acervo setorial, salas de estudo e malote intercampi',
+    url: 'https://www3.ft.unicamp.br/pt-br/biblioteca',
+    category: 'aulas',
+    badge: 'Biblioteca FT',
+  },
+  {
+    id: 'biblioteca-ft-instagram',
+    title: 'Instagram da Biblioteca FT CTL',
+    description: 'Canal oficial com avisos de horários especiais, novos títulos, eventos culturais e treinamentos',
+    url: 'https://www.instagram.com/bibliotecaftctl/',
+    category: 'aulas',
+    badge: 'Instagram',
   },
 
   // 5. Intercâmbio e Mobilidade Internacional
@@ -322,7 +338,15 @@ export const linksData: ResourceLink[] = [
     description: 'Cursos gratuitos de idiomas para a comunidade acadêmica com aproveitamento em créditos eletivos livres',
     url: 'https://www.cel.unicamp.br',
     category: 'intercambio',
-    badge: 'Idiomas',
+    badge: 'Idiomas CEL',
+  },
+  {
+    id: 'cel-disciplinas',
+    title: 'Catálogo de Disciplinas e Horários do CEL',
+    description: 'Grade horária semestral com turmas de línguas estrangeiras para inscrição via sistema de matrícula da DAC',
+    url: 'https://www.cel.unicamp.br/disciplinas/',
+    category: 'intercambio',
+    badge: 'Disciplinas CEL',
   },
 
   // 6. Iniciação Científica e Pesquisa
