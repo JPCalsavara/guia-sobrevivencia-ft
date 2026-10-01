@@ -47,8 +47,8 @@ export function Navbar() {
     { href: '/', label: 'Início', icon: Home },
     { href: '/calouros', label: 'Calouros', icon: GraduationCap },
     { href: '/academico', label: 'Acadêmico', icon: BookOpen },
-    { href: '/campus', label: 'Campus', icon: MapPin },
     { href: '/carreira', label: 'Carreira', icon: Briefcase },
+    { href: '/campus', label: 'Campus', icon: MapPin },
     { href: '/estudos-ia', label: 'IA', icon: Cpu },
     { href: '/links', label: 'Links Úteis', icon: Link2 },
   ];

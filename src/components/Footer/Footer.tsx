@@ -120,7 +120,7 @@ export function Footer() {
                 </li>
                 <li>
                   <a
-                    href="https://moodle.unicamp.br"
+                    href="https://moodle.ggte.unicamp.br"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Moodle Unicamp em nova janela"
@@ -159,6 +159,9 @@ export function Footer() {
         <div className={styles.bottomBar}>
           <p className={styles.copy}>
             Guia do Calouro da Faculdade de Tecnologia da Unicamp. Este material é mantido de forma colaborativa e não substitui as normas oficiais publicadas pela Diretoria Acadêmica da Unicamp.
+          </p>
+          <p className={styles.bugReport}>
+            Encontrou algum link quebrado ou bug? Envie uma mensagem pelo Google Chat institucional para <strong>j197837@dac.unicamp.br</strong> para reportar problemas e solicitar correções.
           </p>
         </div>
       </div>

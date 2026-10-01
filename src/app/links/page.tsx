@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { linksData, ResourceLink, LinkCategory } from '@/data/links';
-import { Link2, Search, ExternalLink } from 'lucide-react';
+import { Link2, Search, ExternalLink, MessageSquare } from 'lucide-react';
 import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
 import styles from './links.module.scss';
 
@@ -181,6 +181,14 @@ export default function LinksPage() {
             Catálogo unificado por temas cobrindo alimentação, transporte, matrícula, aulas, intercâmbio, pesquisa e ferramentas de estudo.
           </p>
         </motion.div>
+
+        {/* Banner de Contato e Reporte de Links Quebrados */}
+        <div className={styles.reportBanner}>
+          <MessageSquare size={18} className={styles.reportIcon} aria-hidden="true" />
+          <p className={styles.reportText}>
+            Encontrou algum link fora do ar ou bug no portal? Envie uma mensagem pelo Google Chat institucional para <strong>j197837@dac.unicamp.br</strong> para que possamos corrigir rapidamente.
+          </p>
+        </div>
       </section>
 
       {/* Conteúdo com Barra Lateral Esquerda */}
