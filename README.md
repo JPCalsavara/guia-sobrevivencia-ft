@@ -92,15 +92,17 @@ O projeto conta com uma arquitetura de telemetria hibrida, combinando observabil
 
 ### Executando a Analise Estatistica e Gerando os Graficos
 
-#### Metodo Recomendado: Via Container Docker Leve
-Para rodar a analise com Pandas e Matplotlib sem precisar instalar Python ou pacotes no computador:
+#### Metodo Recomendado: Via Script Shell e Container Docker Leve
+Para rodar a analise com Pandas e Matplotlib sem precisar instalar Python ou pacotes no computador, basta executar o script shell pronto ou o atalho do npm:
 
 ```bash
-docker run --rm \
-  -v "$(pwd)":/app \
-  -w /app \
-  python:3.11-slim \
-  bash -c "pip install --no-cache-dir pandas matplotlib && python3 scripts/analisar_telemetria.py"
+./scripts/run_analytics_docker.sh
+```
+
+Ou alternativamente:
+
+```bash
+npm run analytics:docker
 ```
 
 #### Metodo Alternativo: Via Ambiente Virtual Python Local
