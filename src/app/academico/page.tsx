@@ -35,7 +35,7 @@ import {
 import { useClipboardCopy } from '@/hooks/useClipboardCopy';
 import { useTopicTracker } from '@/hooks/useTopicTracker';
 import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
-import { padComparisonData, ftInternshipProceduresData } from '@/data/academic';
+import { padComparisonData, ftInternshipProceduresData, ftTccProceduresData, pifGuidelinesData } from '@/data/academic';
 import styles from './academico.module.scss';
 
 const emailTemplateText = `Prezado Professor [Nome do Docente],
@@ -104,6 +104,16 @@ const academicTopics: TopicItem[] = [
     title: 'Checklist de Formatura',
     subtopics: [
       { id: 'checklist-formatura', title: 'Etapas de Integralização' },
+    ],
+  },
+  {
+    id: 'tcc-pos-graduacao-pif',
+    title: 'TCC e Pós-Graduação PIF',
+    subtopics: [
+      { id: 'tcc-procedimentos', title: 'Regulamento e Etapas de TCC' },
+      { id: 'tcc-substituicao-artigo', title: 'Substituição por Artigo Científico' },
+      { id: 'pif-pos-graduacao', title: 'Aceleração de Mestrado via PIF' },
+      { id: 'tcc-links-oficiais', title: 'Links Oficiais e Manuais SIGA' },
     ],
   },
   {
@@ -176,6 +186,7 @@ const sectionStageMap: Record<string, { stage: JourneyStage; label: string }> = 
   'coeficientes-dac': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
   'calculo-geometria': { stage: 'calouro', label: 'Foco: Calouro, 1º e 2º Semestres' },
   'checklist-formatura': { stage: 'formando', label: 'Foco: Formando, 7º e 8º Semestres' },
+  'tcc-pos-graduacao-pif': { stage: 'formando', label: 'Foco: Formando, 7º e 8º Semestres' },
   'monitoria-pad': { stage: 'calouro', label: 'Foco: Calouro, 1º e 2º Semestres' },
   'bolsas-permanencia-deape': { stage: 'calouro', label: 'Foco: Calouro, 1º e 2º Semestres' },
   'horas-extensao': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
@@ -252,6 +263,7 @@ export default function AcademicoPage() {
             <a href="#bsi-vs-tads" className={styles.jumpPill}>BSI vs TADS</a>
             <a href="#coeficientes-dac" className={styles.jumpPill}>Coeficientes e CR</a>
             <a href="#checklist-formatura" className={styles.jumpPill}>Checklist Formatura</a>
+            <a href="#tcc-pos-graduacao-pif" className={styles.jumpPill}>TCC e Pós PIF</a>
             <a href="#monitoria-pad" className={styles.jumpPill}>Monitoria PAD</a>
             <a href="#horas-extensao" className={styles.jumpPill}>Horas e Extensão</a>
             <a href="#estrategia-carreira" className={styles.jumpPill}>Estratégia e Estágio</a>
@@ -526,6 +538,193 @@ export default function AcademicoPage() {
       >
         {renderStageBadge('checklist-formatura')}
         <ChecklistFormatura />
+      </section>
+
+      {/* TCC e Pós-Graduação PIF */}
+      <section
+        id="tcc-pos-graduacao-pif"
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['tcc-pos-graduacao-pif']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('tcc-pos-graduacao-pif')}
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <GraduationCap size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>TCC na FT Unicamp e Aceleração de Pós-Graduação com o PIF</h2>
+              <p className={styles.cardSubtitle}>
+                Regulamentos de Trabalho de Conclusão de Curso para BSI e TADS, trâmites no SIGA, substituição por artigo científico e ingresso antecipado no mestrado
+              </p>
+            </div>
+          </div>
+
+          <p className={styles.ruleText}>
+            O Trabalho de Conclusão de Curso é o ápice da formação acadêmica e técnica. No Bacharelado em Sistemas de Informação, a entrega e defesa pública de monografia ou artigo científico são obrigatórias, estruturadas em duas disciplinas semestrais. No curso de Análise e Desenvolvimento de Sistemas, o concluinte pode optar entre o projeto de conclusão ou o estágio supervisionado em empresa de tecnologia.
+          </p>
+
+          {/* Subtópico 1: Procedimentos de TCC na FT */}
+          <div id="tcc-procedimentos" style={{ marginTop: '2rem' }}>
+            <h3 className={styles.categoryTitle}>
+              <ClipboardCheck size={18} />
+              Procedimentos Oficiais de TCC no SIGA DAC
+            </h3>
+            <p className={styles.ruleText} style={{ marginBottom: '1.25rem' }}>
+              Desde o cadastro da proposta até o depósito da versão final com a ficha catalográfica da Biblioteca da FT, todo o fluxo é documentado no sistema SIGA:
+            </p>
+
+            <div className={styles.internshipStepsGrid}>
+              {ftTccProceduresData.map((step) => (
+                <div key={step.stepNumber} className={styles.internshipStepCard}>
+                  <span className={styles.stepNumberBadge}>Etapa {step.stepNumber}</span>
+                  <h3 className={styles.stepTitle}>{step.title}</h3>
+                  <p className={styles.stepDesc}>{step.description}</p>
+                  <p className={styles.stepDetail}>{step.detail}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Subtópico 2: Substituição da Monografia por Artigo Científico */}
+          <div id="tcc-substituicao-artigo" style={{ marginTop: '2.5rem' }}>
+            <h3 className={styles.categoryTitle}>
+              <FileText size={18} />
+              Substituição da Monografia por Artigo Científico
+            </h3>
+
+            <div className={styles.rulesGrid}>
+              <div className={`${styles.ruleCard} ${styles.ruleCardBlue}`}>
+                <div className={styles.ruleCardHeader}>
+                  <div className={styles.ruleIconWrapper}>
+                    <Award size={18} aria-hidden="true" />
+                  </div>
+                  <h3 className={styles.ruleTitle}>Instrução Normativa de Publicação</h3>
+                </div>
+                <p className={styles.ruleText}>
+                  A Faculdade de Tecnologia autoriza formalmente que a monografia tradicional de TCC seja substituída por um artigo científico original, desde que aceito para publicação ou submetido a periódico indexado ou congresso qualificado da área de computação.
+                </p>
+              </div>
+
+              <div className={`${styles.ruleCard} ${styles.ruleCardGreen}`}>
+                <div className={styles.ruleCardHeader}>
+                  <div className={styles.ruleIconWrapper}>
+                    <FlaskConical size={18} aria-hidden="true" />
+                  </div>
+                  <h3 className={styles.ruleTitle}>Sinergia com Iniciação Científica</h3>
+                </div>
+                <p className={styles.ruleText}>
+                  Estudantes que desenvolveram pesquisa com bolsa PIBIC ou FAPESP ao longo da graduação podem aproveitar os resultados experimentais obtidos para submeter o artigo científico com o orientador, otimizando o tempo de conclusão do curso.
+                </p>
+              </div>
+
+              <div className={`${styles.ruleCard} ${styles.ruleCardPurple}`}>
+                <div className={styles.ruleCardHeader}>
+                  <div className={styles.ruleIconWrapper}>
+                    <CheckCircle2 size={18} aria-hidden="true" />
+                  </div>
+                  <h3 className={styles.ruleTitle}>Requisitos para Homologação</h3>
+                </div>
+                <p className={styles.ruleText}>
+                  O artigo precisa conter o estudante como autor principal ou coautor de destaque e o docente orientador da FT. O comprovante formal de aceite ou submissão do evento ou revista deve ser anexado ao processo eletrônico no SIGA para validação pela banca.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Subtópico 3: PIF Programa Integrado de Formação */}
+          <div id="pif-pos-graduacao" style={{ marginTop: '2.5rem' }}>
+            <h3 className={styles.categoryTitle}>
+              <GraduationCap size={18} />
+              Programa Integrado de Formação PIF: Adiantando o Mestrado na Graduação
+            </h3>
+            <p className={styles.ruleText} style={{ marginBottom: '1.25rem' }}>
+              Regulado pela Deliberação CEPE-A-22 de 2001, o PIF é uma oportunidade estratégica para estudantes que almejam carreira em pesquisa acadêmica ou pós-graduação estrita na Unicamp:
+            </p>
+
+            <div className={styles.internshipStepsGrid}>
+              {pifGuidelinesData.map((step) => (
+                <div key={step.stepNumber} className={styles.internshipStepCard}>
+                  <span className={styles.stepNumberBadge}>Fase {step.stepNumber}</span>
+                  <h3 className={styles.stepTitle}>{step.title}</h3>
+                  <p className={styles.stepDesc}>{step.description}</p>
+                  <p className={styles.stepDetail}>{step.detail}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Subtópico 4: Links Oficiais e Tutoriais SIGA */}
+          <div id="tcc-links-oficiais" style={{ marginTop: '2.5rem' }}>
+            <h3 className={styles.categoryTitle}>
+              <ExternalLink size={18} />
+              Links Oficiais e Manuais de TCC e PIF
+            </h3>
+
+            <div className={styles.refLinksGrid}>
+              <a
+                href="https://www.ft.unicamp.br/pt-br/graduacao/tccestagio"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.refCard}
+              >
+                <div className={styles.refCardHeader}>
+                  <span className={styles.refCardTitle}>Portal de TCC e Estágio da FT</span>
+                  <ExternalLink size={16} />
+                </div>
+                <p className={styles.refCardDesc}>
+                  Página oficial da Secretaria de Graduação da FT com regulamentos de TCC, instruções normativas, modelos de documentos e calendários de entrega.
+                </p>
+                <span className={styles.refCardMeta}>ft.unicamp.br/graduacao/tccestagio</span>
+              </a>
+
+              <a
+                href="https://www.ft.unicamp.br/pt-br/graduacao/tcc/procedimentos/alunos"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.refCard}
+              >
+                <div className={styles.refCardHeader}>
+                  <span className={styles.refCardTitle}>Procedimentos de TCC no SIGA para Alunos</span>
+                  <ExternalLink size={16} />
+                </div>
+                <p className={styles.refCardDesc}>
+                  Manual oficial com tutoriais detalhados para preenchimento de propostas, submissão de arquivos e acompanhamento das decisões da banca avaliadora.
+                </p>
+                <span className={styles.refCardMeta}>ft.unicamp.br/graduacao/tcc/procedimentos/alunos</span>
+              </a>
+
+              <a
+                href="https://www.dac.unicamp.br/portal/estudantes/pif"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.refCard}
+              >
+                <div className={styles.refCardHeader}>
+                  <span className={styles.refCardTitle}>Portal do PIF na Diretoria Acadêmica DAC</span>
+                  <ExternalLink size={16} />
+                </div>
+                <p className={styles.refCardDesc}>
+                  Instruções regulamentares da DAC sobre o Programa Integrado de Formação, critérios para Estudante Especial e convalidação formal de créditos.
+                </p>
+                <span className={styles.refCardMeta}>dac.unicamp.br/portal/estudantes/pif</span>
+              </a>
+
+              <a
+                href="https://www.dac.unicamp.br/portal/estude-na-unicamp/estudante-especial"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.refCard}
+              >
+                <div className={styles.refCardHeader}>
+                  <span className={styles.refCardTitle}>Estudante Especial em Pós-Graduação DAC</span>
+                  <ExternalLink size={16} />
+                </div>
+                <p className={styles.refCardDesc}>
+                  Diretrizes oficiais da DAC para inscrição de estudantes em disciplinas isoladas de programas de mestrado e doutorado da universidade.
+                </p>
+                <span className={styles.refCardMeta}>dac.unicamp.br/portal/estude-na-unicamp/estudante-especial</span>
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Monitoria PAD - Com Bolsa versus Sem Bolsa e Cronograma Oficial */}
