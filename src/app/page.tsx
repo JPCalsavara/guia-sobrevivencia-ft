@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -15,7 +15,10 @@ import {
   ExternalLink,
   Users,
   GraduationCap,
-  ChevronDown
+  ChevronDown,
+  Search,
+  Eye,
+  Link2,
 } from 'lucide-react';
 import styles from './page.module.scss';
 
@@ -73,6 +76,89 @@ export default function HomePage() {
     },
   ];
 
+  const [selectedStage, setSelectedStage] = useState<'bixo' | 'cursando' | 'formando'>('bixo');
+
+  const stageQuickTracks = {
+    bixo: {
+      label: 'Bixo: 1º e 2º Semestres',
+      description: 'Foco inicial em ambientação, moradia, sobrevivência no ciclo básico e adaptação universitária',
+      ctaText: 'Acessar Trilha do Ingressante',
+      ctaLink: '/calouros',
+      topics: [
+        {
+          title: 'Onde Morar em Limeira',
+          desc: 'Bairros lado FT versus lado FCA, principais avenidas e lista de imobiliárias',
+          link: '/calouros#moradia-calouros',
+          tag: 'Moradia',
+        },
+        {
+          title: 'Alerta Crítico: Programação 1 Tranca a Grade',
+          desc: 'Entenda o efeito cascata da retenção em TI e os plantões semanais de monitoria PAD',
+          link: '/academico#alerta-prog1-tranca-tudo',
+          tag: 'Ciclo Básico',
+        },
+        {
+          title: 'Transporte e Ônibus Circular Gratuito',
+          desc: 'Horários do circular entre FT e FCA e reserva do fretado Linha 84 para Campinas',
+          link: '/calouros#transporte-circular',
+          tag: 'Transporte',
+        },
+      ],
+    },
+    cursando: {
+      label: 'Cursando: 3º ao 6º Semestres',
+      description: 'Foco em aceleração curricular, monitoria, bolsas de pesquisa e integralização de extensão',
+      ctaText: 'Acessar Guia Acadêmico para Cursando',
+      ctaLink: '/academico?stage=cursando',
+      topics: [
+        {
+          title: 'Monitoria PAD e Mentoria PMU',
+          desc: 'Requisitos para monitoria voluntária ou remunerada e modelo de e-mail pronto para docentes',
+          link: '/academico?stage=cursando#monitoria-pad',
+          tag: 'Monitoria',
+        },
+        {
+          title: 'Iniciação Científica e Linha do Tempo',
+          desc: 'Contato antecipado com orientador no meio do segundo semestre e bolsas PIBIC ou FAPESP',
+          link: '/academico?stage=cursando#iniciacao-cientifica',
+          tag: 'Pesquisa',
+        },
+        {
+          title: 'Horas Complementares e Extensão Obrigatória',
+          desc: 'Cumprimento dos 10% de extensão na grade e prazos para envio de certificados',
+          link: '/academico?stage=cursando#horas-extensao',
+          tag: 'Extensão',
+        },
+      ],
+    },
+    formando: {
+      label: 'Formando: 7º e 8º Semestres',
+      description: 'Foco em estágio supervisionado, defesa de TCC, colação de grau oficial e formatura',
+      ctaText: 'Acessar Guia de Formatura e Carreira',
+      ctaLink: '/academico?stage=formando',
+      topics: [
+        {
+          title: 'Checklist de Formatura e 5 Requisitos DAC',
+          desc: 'Cem por cento de créditos, aprovação em TCC, estágio, extensão e regularidade no Enade',
+          link: '/academico?stage=formando#checklist-formatura',
+          tag: 'Integralização',
+        },
+        {
+          title: 'Cerimônia de Formatura e Colação de Grau',
+          desc: 'Solenidade oficial pública e gratuita na FT, becas, colação em gabinete e diploma digital',
+          link: '/academico?stage=formando#cerimonia-formatura-colacao',
+          tag: 'Colação',
+        },
+        {
+          title: 'Sazonalidade de Contratações e Trâmite DEAPE',
+          desc: 'Regra de concomitância do estágio remunerado, normas para CLT e feiras de recrutamento',
+          link: '/carreira?stage=formando#sazonalidade-estagio',
+          tag: 'Carreira',
+        },
+      ],
+    },
+  };
+
   return (
     <div className={styles.container}>
       {/* Hero Section Institucional - Preenche a primeira dobra da tela junto com o Header */}
@@ -106,6 +192,11 @@ export default function HomePage() {
               <span>Guia Acadêmico da DAC</span>
               <BookOpen size={18} />
             </Link>
+
+            <a href="#como-usar-o-guia" className={styles.tertiaryButton}>
+              <span>Como Navegar e Acessibilidade</span>
+              <Compass size={18} />
+            </a>
           </div>
         </motion.div>
 
@@ -140,6 +231,130 @@ export default function HomePage() {
                 <Link href="/campus" className={styles.campusTextLink}>
                   <span>Conhecer a infraestrutura de salas e laboratórios</span>
                   <ArrowRight size={16} />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Guia de Uso do Portal, Acessibilidade e Filtros de Jornada */}
+        <section id="como-usar-o-guia" className={styles.guideSection}>
+          <div className={styles.guideCard}>
+            <div className={styles.guideHeader}>
+              <div className={styles.guideBadge}>
+                <Compass size={14} aria-hidden="true" />
+                <span>Navegação Inteligente e Acessibilidade</span>
+              </div>
+              <h2 className={styles.guideTitle}>
+                Como Navegar no Guia e Recursos Inclusivos
+              </h2>
+              <p className={styles.guideSubtitle}>
+                Aprenda a explorar os conteúdos de acordo com o momento da sua graduação, utilize a busca semântica instantânea e configure as ferramentas de acessibilidade
+              </p>
+            </div>
+
+            {/* Três Ferramentas do Portal */}
+            <div className={styles.resourcesGrid}>
+              <div className={styles.resourceCard}>
+                <div className={styles.resourceIconBox}>
+                  <Search size={20} aria-hidden="true" />
+                </div>
+                <h3 className={styles.resourceTitle}>Busca Semântica pela Lupa</h3>
+                <p className={styles.resourceDesc}>
+                  Pressione o atalho Ctrl K ou toque no ícone de lupa no topo para pesquisar códigos de matérias, nomes de professores, siglas da Unicamp e tópicos regimentais com destaque visual imediato.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    const event = new KeyboardEvent('keydown', { key: 'k', ctrlKey: true });
+                    window.dispatchEvent(event);
+                  }}
+                  className={styles.resourceAction}
+                  aria-label="Abrir barra de busca instantânea"
+                >
+                  <span>Testar busca agora</span>
+                  <ArrowRight size={14} aria-hidden="true" />
+                </button>
+              </div>
+
+              <div className={styles.resourceCard}>
+                <div className={styles.resourceIconBox}>
+                  <Eye size={20} aria-hidden="true" />
+                </div>
+                <h3 className={styles.resourceTitle}>Acessibilidade Inclusiva WCAG AA</h3>
+                <p className={styles.resourceDesc}>
+                  Utilize o botão flutuante no canto inferior direito para ativar contraste especial para daltonismo, aumentar a tipografia em degraus e acionar tradução em Libras com o VLibras. O portal é totalmente navegável via tecla Tab.
+                </p>
+                <span className={styles.resourceAction} style={{ cursor: 'default' }}>
+                  <span>Disponível no botão flutuante</span>
+                </span>
+              </div>
+
+              <div className={styles.resourceCard}>
+                <div className={styles.resourceIconBox}>
+                  <Link2 size={20} aria-hidden="true" />
+                </div>
+                <h3 className={styles.resourceTitle}>Central Canônica de Links</h3>
+                <p className={styles.resourceDesc}>
+                  Acesse em um único ponto os sistemas essenciais: Grade DAC Online, SIGA, cardápio do RU, salas da FT, horários do fretado Linha 84, catálogo do CEL e acervo da Biblioteca SBU.
+                </p>
+                <Link href="/links" className={styles.resourceAction} aria-label="Acessar o diretório de links úteis">
+                  <span>Abrir diretório de links</span>
+                  <ArrowRight size={14} aria-hidden="true" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Seletor de Jornada Interativo */}
+            <div className={styles.stageFilterBox}>
+              <h3 className={styles.stageFilterTitle}>
+                Explore os Tópicos pelo Momento do seu Curso
+              </h3>
+              <p className={styles.stageFilterSub}>
+                Selecione o seu momento para filtrar prioridades imediatas e acessar os guias internos com visualização customizada
+              </p>
+
+              <div className={styles.stageTabList} role="tablist" aria-label="Filtrar tópicos por momento da graduação">
+                {(['bixo', 'cursando', 'formando'] as const).map((stage) => (
+                  <button
+                    key={stage}
+                    type="button"
+                    role="tab"
+                    aria-selected={selectedStage === stage}
+                    onClick={() => setSelectedStage(stage)}
+                    className={`${styles.stageTabBtn} ${selectedStage === stage ? styles.activeStage : ''}`}
+                  >
+                    <span>{stageQuickTracks[stage].label}</span>
+                  </button>
+                ))}
+              </div>
+
+              <p className={styles.stageDescription}>
+                {stageQuickTracks[selectedStage].description}
+              </p>
+
+              <div className={styles.stageTopicsGrid}>
+                {stageQuickTracks[selectedStage].topics.map((t, idx) => (
+                  <Link key={idx} href={t.link} className={styles.stageTopicCard}>
+                    <div>
+                      <div className={styles.stageTopicHeader}>
+                        <span className={styles.stageTopicTag}>{t.tag}</span>
+                      </div>
+                      <h4 className={styles.stageTopicTitle}>{t.title}</h4>
+                      <p className={styles.stageTopicDesc}>{t.desc}</p>
+                    </div>
+                    <span className={styles.stageTopicAction}>
+                      <span>Acessar tópico</span>
+                      <ArrowRight size={14} aria-hidden="true" />
+                    </span>
+                  </Link>
+                ))}
+              </div>
+
+              <div className={styles.stageCtaRow}>
+                <Link href={stageQuickTracks[selectedStage].ctaLink} className={styles.stageCtaBtn}>
+                  <span>{stageQuickTracks[selectedStage].ctaText}</span>
+                  <ArrowRight size={16} aria-hidden="true" />
                 </Link>
               </div>
             </div>
@@ -267,6 +482,13 @@ export default function HomePage() {
                 </div>
                 <ExternalLink size={16} />
               </a>
+            </div>
+
+            <div className={styles.quickAllLinksRow}>
+              <Link href="/links" className={styles.quickAllLinksBtn} aria-label="Ver todos os links e sistemas no diretório completo">
+                <span>Ver Todos os Sistemas no Diretório Completo de Links</span>
+                <ArrowRight size={18} aria-hidden="true" />
+              </Link>
             </div>
           </div>
         </section>

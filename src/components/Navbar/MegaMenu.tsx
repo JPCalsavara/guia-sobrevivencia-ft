@@ -75,13 +75,18 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
                   </Link>
                 </li>
                 <li>
+                  <Link href="/academico#cerimonia-formatura-colacao" onClick={onClose} className={styles.menuLink}>
+                    <span>Colação de Grau e Formatura</span>
+                  </Link>
+                </li>
+                <li>
                   <Link href="/academico#estrategia-carreira" onClick={onClose} className={styles.menuLink}>
                     <span>Estratégia de Conclusão e Estágio</span>
                   </Link>
                 </li>
                 <li>
                   <Link href="/academico#noturno-bsi" onClick={onClose} className={styles.menuLink}>
-                    <span>Transição Noturno no BSI</span>
+                    <span>Realidade do Noturno no BSI</span>
                   </Link>
                 </li>
               </ul>
@@ -273,8 +278,13 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
             </div>
 
             <div className={styles.subgroup} style={{ marginTop: '1.25rem' }}>
-              <h4 className={styles.subgroupTitle}>Guia do Calouro</h4>
+              <h4 className={styles.subgroupTitle}>Guia do Calouro e Acessibilidade</h4>
               <ul className={styles.linkList}>
+                <li>
+                  <Link href="/#como-usar-o-guia" onClick={onClose} className={styles.menuLink}>
+                    <span>Como Usar o Guia e Acessibilidade</span>
+                  </Link>
+                </li>
                 <li>
                   <Link href="/calouros#acabei-de-passar" onClick={onClose} className={styles.menuLink}>
                     <span>Matrícula Virtual e RA</span>

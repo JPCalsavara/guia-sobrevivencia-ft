@@ -464,3 +464,51 @@ export const pifGuidelinesData: PifGuideline[] = [
   },
 ];
 
+// Procedimentos da Cerimônia de Formatura e Colação de Grau
+export interface GraduationCeremonyStep {
+  stepNumber: number;
+  title: string;
+  category: 'oficial' | 'gabinete' | 'digital' | 'comissao';
+  description: string;
+  detail: string;
+}
+
+export const ftGraduationCeremonyData: GraduationCeremonyStep[] = [
+  {
+    stepNumber: 1,
+    title: 'Conferência de Integralização e Homologação na DAC',
+    category: 'oficial',
+    description: 'Validação automática do cumprimento dos cinco requisitos curriculares',
+    detail: 'A Diretoria Acadêmica confere o cumprimento de cem por cento dos créditos, aprovação em TCC, validação de estágio supervisionado, dez por cento de extensão universitária e regularidade no Enade. Com tudo aprovado, o formando entra na lista oficial de colação de grau.',
+  },
+  {
+    stepNumber: 2,
+    title: 'Colação de Grau Solene Oficial na FT',
+    category: 'oficial',
+    description: 'Cerimônia pública gratuita presidida pela Diretoria e Secretaria de Graduação',
+    detail: 'Rito acadêmico obrigatório realizado no campus de Limeira sem qualquer custo para o estudante. A FT fornece as vestimentas talares, beca e capelo, para o ato solene. O formando profere o juramento oficial do curso, recebe a outorga de grau e assina a ata oficial que formaliza o término da graduação.',
+  },
+  {
+    stepNumber: 3,
+    title: 'Colação de Grau Extraordinária em Gabinete',
+    category: 'gabinete',
+    description: 'Antecipação do rito para formandos com posse imediata em concurso ou pós-graduação',
+    detail: 'Caso o estudante já tenha cumprido todos os requisitos de integralização e necessite do diploma ou comprovante de conclusão com urgência comprovada por edital de matrícula em mestrado ou convocação de concurso público, é possível protocolar pedido fundamentado perante a Secretaria de Graduação para colação antecipada em gabinete com a Diretoria.',
+  },
+  {
+    stepNumber: 4,
+    title: 'Emissão e Registro do Diploma Digital da Unicamp',
+    category: 'digital',
+    description: 'Documento oficial gratuito com certificado digital no padrão ICP-Brasil',
+    detail: 'Conforme a regulamentação do MEC, o diploma de graduação da Unicamp é emitido em formato eletrônico nativo pelo sistema SIGA da DAC. O arquivo conta com assinatura digital avançada, representação visual em PDF com QR Code de validação e arquivo XML assinado, possuindo fé pública sem custos adicionais de expedição.',
+  },
+  {
+    stepNumber: 5,
+    title: 'Diferença entre Rito Oficial e Comissão Festiva',
+    category: 'comissao',
+    description: 'Esclarecimento sobre a natureza voluntária de festas e bailes de gala',
+    detail: 'A colação de grau oficial é o único rito que confere validade jurídica e permite a expedição do diploma, sendo totalmente gratuita e promovida pela faculdade. A adesão a comissões de formatura de estudantes, contratação de empresas de eventos, bailes de gala ou fotos de estúdio é voluntária e de iniciativa exclusiva dos alunos, não tendo qualquer vínculo com a universidade.',
+  },
+];
+
+

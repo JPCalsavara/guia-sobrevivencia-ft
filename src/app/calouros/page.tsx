@@ -35,6 +35,7 @@ import {
 import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
 import { useClipboardCopy } from '@/hooks/useClipboardCopy';
 import { geminiSyllabusPrompt } from '@/data/prompts';
+import { ShareWhatsAppButton } from '@/components/ShareWhatsAppButton/ShareWhatsAppButton';
 import styles from './calouros.module.scss';
 
 const calourosTopics: TopicItem[] = [
@@ -578,6 +579,12 @@ export default function CalourosPage() {
                   </Link>
                 </div>
               </div>
+
+              <ShareWhatsAppButton
+                title="Onde Morar em Limeira: Bairros e Imobiliárias para Alunos da FT"
+                sectionId="moradia-calouros"
+                customMessage="Guia de bairros, kitnets e imobiliárias para novos estudantes da FT Unicamp em Limeira:"
+              />
             </div>
           </section>
 
