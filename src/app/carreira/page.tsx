@@ -1269,7 +1269,7 @@ export default function CarreiraPage() {
                   <ExternalLink size={12} />
                 </a>
                 <a
-                  href="https://www.coursera.org/programs/unicamp-on-coursera"
+                  href="https://www.coursera.org/partners/unicamp"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`${styles.trackActionBtn} ${styles.green}`}

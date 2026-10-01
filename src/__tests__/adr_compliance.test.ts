@@ -94,6 +94,9 @@ describe('Conformidade com ADR 0001: Ausência de Travessão, Parênteses e Emoj
       'docs/adr/0002-responsividade-mobile-first.md',
       'docs/adr/0003-acessibilidade-digital-wcag.md',
       'docs/adr/0004-desacoplamento-de-informacoes-volateis.md',
+      'docs/adr/0005-concisao-e-clareza-orientada-a-essencia.md',
+      'docs/adr/0006-otimizacao-continua-guiada-por-telemetria.md',
+      'docs/adr/0007-hospedagem-na-vercel-com-analytics-integrado.md',
       'CONTEXT.md'
     ];
     docs.forEach((docPath) => {

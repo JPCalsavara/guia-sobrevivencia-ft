@@ -1,0 +1,36 @@
+{
+  "period": "Last 7 Days, Sep 23 to Sep 30",
+  "visitors": 88,
+  "page_views": 294,
+  "bounce_rate": 0.35,
+  "routes": {
+    "/": 114,
+    "/academico": 66,
+    "/carreira": 34,
+    "/campus": 32,
+    "/estudos-ia": 24,
+    "/calouros": 12,
+    "/links": 12
+  },
+  "devices": {
+    "desktop": 0.51,
+    "mobile": 0.49
+  },
+  "operating_systems": {
+    "android": 0.40,
+    "windows": 0.36,
+    "gnu_linux": 0.12,
+    "ios": 0.10,
+    "mac": 0.02
+  },
+  "referrers": {
+    "direct_dark_social": 284,
+    "linkedin.com": 9,
+    "facebook.com": 1
+  },
+  "countries": {
+    "brazil": 0.96,
+    "germany": 0.02,
+    "united_states": 0.02
+  }
+}

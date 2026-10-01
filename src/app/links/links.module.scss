@@ -407,3 +407,32 @@
   color: var(--text-secondary);
 }
 
+.reportBanner {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  background-color: var(--ft-blue-soft);
+  border: 1px solid var(--ft-blue-border);
+  border-radius: $radius-md;
+  padding: $spacing-md $spacing-lg;
+  margin-top: $spacing-lg;
+}
+
+.reportIcon {
+  color: var(--ft-blue);
+  flex-shrink: 0;
+}
+
+.reportText {
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  line-height: 1.55;
+  margin: 0;
+
+  strong {
+    color: var(--ft-blue);
+    font-weight: 700;
+  }
+}
+
+

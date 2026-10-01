@@ -9,7 +9,8 @@
     "lint": "next lint",
     "test": "vitest run",
     "test:watch": "vitest",
-    "vectorize": "node scripts/vectorize-search.mjs"
+    "vectorize": "node scripts/vectorize-search.mjs",
+    "analytics:optimize": "python3 scripts/analytics_optimizer.py"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

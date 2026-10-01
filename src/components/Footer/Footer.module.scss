@@ -117,10 +117,27 @@
   margin-top: $spacing-3xl;
   padding-top: $spacing-lg;
   border-top: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
 }
 
 .copy {
   font-size: 0.8125rem;
   color: var(--text-muted);
   line-height: 1.5;
+  margin: 0;
 }
+
+.bugReport {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+
+  strong {
+    color: var(--ft-blue);
+    font-weight: 700;
+  }
+}
+

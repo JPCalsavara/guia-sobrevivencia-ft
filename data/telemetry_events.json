@@ -1,0 +1,2502 @@
+[
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 47,
+    "isMobile": true,
+    "scrollDepthPct": 57,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T18:47:57Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 71,
+    "isMobile": false,
+    "scrollDepthPct": 52,
+    "interacted": true,
+    "interactionType": "copy_pad_email",
+    "timestamp": "2026-09-30T17:01:35Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 19,
+    "isMobile": false,
+    "scrollDepthPct": 33,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T20:55:00Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 40,
+    "isMobile": true,
+    "scrollDepthPct": 55,
+    "interacted": true,
+    "interactionType": "copy_pad_email",
+    "timestamp": "2026-09-30T20:21:06Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 29,
+    "isMobile": true,
+    "scrollDepthPct": 26,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T19:29:34Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 36,
+    "isMobile": false,
+    "scrollDepthPct": 38,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T22:55:23Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 74,
+    "isMobile": false,
+    "scrollDepthPct": 53,
+    "interacted": true,
+    "interactionType": "copy_pad_email",
+    "timestamp": "2026-09-30T09:54:14Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 39,
+    "isMobile": true,
+    "scrollDepthPct": 82,
+    "interacted": true,
+    "interactionType": "copy_ic_email",
+    "timestamp": "2026-09-30T13:13:42Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 17,
+    "isMobile": false,
+    "scrollDepthPct": 26,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T19:15:10Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 65,
+    "isMobile": true,
+    "scrollDepthPct": 46,
+    "interacted": true,
+    "interactionType": "copy_pad_email",
+    "timestamp": "2026-09-30T13:53:49Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 71,
+    "isMobile": true,
+    "scrollDepthPct": 79,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T11:58:36Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 54,
+    "isMobile": true,
+    "scrollDepthPct": 71,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T15:09:16Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 8,
+    "isMobile": false,
+    "scrollDepthPct": 31,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T17:25:23Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 22,
+    "isMobile": false,
+    "scrollDepthPct": 34,
+    "interacted": true,
+    "interactionType": "click_prog1_anchor",
+    "timestamp": "2026-09-30T09:09:40Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 17,
+    "isMobile": false,
+    "scrollDepthPct": 30,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T15:33:16Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 101,
+    "isMobile": false,
+    "scrollDepthPct": 78,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T16:48:17Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 59,
+    "isMobile": true,
+    "scrollDepthPct": 82,
+    "interacted": true,
+    "interactionType": "copy_ic_email",
+    "timestamp": "2026-09-30T19:56:46Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 39,
+    "isMobile": false,
+    "scrollDepthPct": 50,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T12:53:40Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 44,
+    "isMobile": true,
+    "scrollDepthPct": 55,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T22:33:58Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 47,
+    "isMobile": true,
+    "scrollDepthPct": 37,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T21:51:19Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 15,
+    "isMobile": true,
+    "scrollDepthPct": 33,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T21:04:48Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 33,
+    "isMobile": true,
+    "scrollDepthPct": 35,
+    "interacted": true,
+    "interactionType": "copy_pad_email",
+    "timestamp": "2026-09-30T16:55:38Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 30,
+    "isMobile": true,
+    "scrollDepthPct": 48,
+    "interacted": true,
+    "interactionType": "copy_pad_email",
+    "timestamp": "2026-09-30T12:25:42Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 43,
+    "isMobile": true,
+    "scrollDepthPct": 51,
+    "interacted": true,
+    "interactionType": "copy_pad_email",
+    "timestamp": "2026-09-30T13:01:37Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 85,
+    "isMobile": false,
+    "scrollDepthPct": 52,
+    "interacted": true,
+    "interactionType": "copy_pad_email",
+    "timestamp": "2026-09-30T09:57:02Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 62,
+    "isMobile": true,
+    "scrollDepthPct": 89,
+    "interacted": true,
+    "interactionType": "copy_ic_email",
+    "timestamp": "2026-09-30T10:46:59Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 83,
+    "isMobile": false,
+    "scrollDepthPct": 87,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T09:06:42Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 30,
+    "isMobile": true,
+    "scrollDepthPct": 54,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T18:06:03Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 26,
+    "isMobile": true,
+    "scrollDepthPct": 30,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T15:08:27Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 23,
+    "isMobile": true,
+    "scrollDepthPct": 32,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T21:35:06Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 43,
+    "isMobile": false,
+    "scrollDepthPct": 16,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T21:15:10Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 37,
+    "isMobile": true,
+    "scrollDepthPct": 22,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T08:24:16Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 78,
+    "isMobile": false,
+    "scrollDepthPct": 90,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T20:35:42Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 40,
+    "isMobile": true,
+    "scrollDepthPct": 72,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T16:03:47Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 2,
+    "isMobile": true,
+    "scrollDepthPct": 37,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T08:32:05Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 82,
+    "isMobile": true,
+    "scrollDepthPct": 84,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T22:36:15Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 64,
+    "isMobile": true,
+    "scrollDepthPct": 57,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T13:59:16Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 28,
+    "isMobile": false,
+    "scrollDepthPct": 43,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T12:29:20Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 99,
+    "isMobile": false,
+    "scrollDepthPct": 78,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T09:04:34Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 43,
+    "isMobile": true,
+    "scrollDepthPct": 28,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T13:18:10Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 55,
+    "isMobile": false,
+    "scrollDepthPct": 73,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T16:00:42Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 46,
+    "isMobile": true,
+    "scrollDepthPct": 61,
+    "interacted": true,
+    "interactionType": "copy_ic_email",
+    "timestamp": "2026-09-30T09:56:06Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 47,
+    "isMobile": true,
+    "scrollDepthPct": 57,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T18:40:54Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 39,
+    "isMobile": true,
+    "scrollDepthPct": 26,
+    "interacted": true,
+    "interactionType": "click_prog1_anchor",
+    "timestamp": "2026-09-30T14:53:17Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 43,
+    "isMobile": true,
+    "scrollDepthPct": 51,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T15:35:45Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 71,
+    "isMobile": true,
+    "scrollDepthPct": 59,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T16:02:53Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 24,
+    "isMobile": false,
+    "scrollDepthPct": 35,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T22:50:55Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 13,
+    "isMobile": true,
+    "scrollDepthPct": 24,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T16:56:55Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 43,
+    "isMobile": false,
+    "scrollDepthPct": 50,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T20:51:11Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 60,
+    "isMobile": true,
+    "scrollDepthPct": 70,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T20:42:55Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 59,
+    "isMobile": true,
+    "scrollDepthPct": 62,
+    "interacted": true,
+    "interactionType": "copy_pad_email",
+    "timestamp": "2026-09-30T08:54:30Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 17,
+    "isMobile": false,
+    "scrollDepthPct": 36,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T11:14:01Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 48,
+    "isMobile": true,
+    "scrollDepthPct": 54,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T13:41:32Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 2,
+    "isMobile": false,
+    "scrollDepthPct": 30,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T12:11:37Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 71,
+    "isMobile": true,
+    "scrollDepthPct": 83,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T13:27:38Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 67,
+    "isMobile": true,
+    "scrollDepthPct": 74,
+    "interacted": true,
+    "interactionType": "copy_ic_email",
+    "timestamp": "2026-09-30T14:00:33Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 79,
+    "isMobile": false,
+    "scrollDepthPct": 65,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T13:27:04Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 70,
+    "isMobile": false,
+    "scrollDepthPct": 69,
+    "interacted": true,
+    "interactionType": "copy_ic_email",
+    "timestamp": "2026-09-30T22:19:32Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 12,
+    "isMobile": true,
+    "scrollDepthPct": 38,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T14:42:24Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 59,
+    "isMobile": false,
+    "scrollDepthPct": 47,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T08:19:18Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 19,
+    "isMobile": false,
+    "scrollDepthPct": 30,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T18:13:32Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 68,
+    "isMobile": false,
+    "scrollDepthPct": 47,
+    "interacted": true,
+    "interactionType": "copy_pad_email",
+    "timestamp": "2026-09-30T16:42:40Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 57,
+    "isMobile": true,
+    "scrollDepthPct": 50,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T20:12:09Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 2,
+    "isMobile": true,
+    "scrollDepthPct": 37,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T14:56:40Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 57,
+    "isMobile": false,
+    "scrollDepthPct": 57,
+    "interacted": true,
+    "interactionType": "copy_pad_email",
+    "timestamp": "2026-09-30T19:00:57Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 76,
+    "isMobile": false,
+    "scrollDepthPct": 57,
+    "interacted": true,
+    "interactionType": "copy_pad_email",
+    "timestamp": "2026-09-30T19:33:29Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 28,
+    "isMobile": true,
+    "scrollDepthPct": 27,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T18:33:35Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 79,
+    "isMobile": false,
+    "scrollDepthPct": 45,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T16:27:53Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 74,
+    "isMobile": true,
+    "scrollDepthPct": 91,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T20:15:53Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 50,
+    "isMobile": false,
+    "scrollDepthPct": 50,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T09:45:18Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 24,
+    "isMobile": true,
+    "scrollDepthPct": 32,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T14:44:09Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 36,
+    "isMobile": true,
+    "scrollDepthPct": 57,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T11:53:26Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 29,
+    "isMobile": false,
+    "scrollDepthPct": 34,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T17:24:30Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 20,
+    "isMobile": true,
+    "scrollDepthPct": 19,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T14:34:47Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 77,
+    "isMobile": false,
+    "scrollDepthPct": 46,
+    "interacted": true,
+    "interactionType": "copy_pad_email",
+    "timestamp": "2026-09-30T15:01:24Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 21,
+    "isMobile": false,
+    "scrollDepthPct": 37,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T10:39:34Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 17,
+    "isMobile": true,
+    "scrollDepthPct": 34,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T10:55:29Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 14,
+    "isMobile": true,
+    "scrollDepthPct": 42,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T22:24:17Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 66,
+    "isMobile": false,
+    "scrollDepthPct": 55,
+    "interacted": true,
+    "interactionType": "copy_pad_email",
+    "timestamp": "2026-09-30T16:03:22Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 23,
+    "isMobile": true,
+    "scrollDepthPct": 34,
+    "interacted": true,
+    "interactionType": "click_prog1_anchor",
+    "timestamp": "2026-09-30T11:12:53Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 32,
+    "isMobile": true,
+    "scrollDepthPct": 43,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T11:29:44Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 2,
+    "isMobile": true,
+    "scrollDepthPct": 22,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T20:52:10Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 71,
+    "isMobile": true,
+    "scrollDepthPct": 79,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T14:25:45Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 31,
+    "isMobile": false,
+    "scrollDepthPct": 29,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T12:54:43Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 70,
+    "isMobile": true,
+    "scrollDepthPct": 50,
+    "interacted": true,
+    "interactionType": "copy_pad_email",
+    "timestamp": "2026-09-30T14:42:23Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 40,
+    "isMobile": false,
+    "scrollDepthPct": 35,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T14:23:40Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 65,
+    "isMobile": true,
+    "scrollDepthPct": 82,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T18:17:39Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 70,
+    "isMobile": false,
+    "scrollDepthPct": 78,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T12:20:54Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 25,
+    "isMobile": false,
+    "scrollDepthPct": 43,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T17:39:42Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 24,
+    "isMobile": true,
+    "scrollDepthPct": 30,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T20:16:21Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 38,
+    "isMobile": false,
+    "scrollDepthPct": 28,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T11:05:15Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 50,
+    "isMobile": true,
+    "scrollDepthPct": 39,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T15:28:50Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 13,
+    "isMobile": true,
+    "scrollDepthPct": 38,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T13:30:35Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 49,
+    "isMobile": true,
+    "scrollDepthPct": 44,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T12:19:16Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 19,
+    "isMobile": false,
+    "scrollDepthPct": 47,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T19:11:12Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 15,
+    "isMobile": true,
+    "scrollDepthPct": 15,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T12:06:53Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 21,
+    "isMobile": true,
+    "scrollDepthPct": 36,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T12:02:03Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 83,
+    "isMobile": false,
+    "scrollDepthPct": 63,
+    "interacted": true,
+    "interactionType": "copy_pad_email",
+    "timestamp": "2026-09-30T21:00:36Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 3,
+    "isMobile": true,
+    "scrollDepthPct": 52,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T21:30:07Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 76,
+    "isMobile": true,
+    "scrollDepthPct": 83,
+    "interacted": true,
+    "interactionType": "copy_ic_email",
+    "timestamp": "2026-09-30T10:51:36Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 61,
+    "isMobile": true,
+    "scrollDepthPct": 88,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T17:50:39Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 15,
+    "isMobile": false,
+    "scrollDepthPct": 37,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T14:19:36Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 64,
+    "isMobile": false,
+    "scrollDepthPct": 32,
+    "interacted": true,
+    "interactionType": "copy_pad_email",
+    "timestamp": "2026-09-30T11:16:42Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 13,
+    "isMobile": true,
+    "scrollDepthPct": 33,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T19:38:30Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 15,
+    "isMobile": true,
+    "scrollDepthPct": 22,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T18:14:59Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 9,
+    "isMobile": false,
+    "scrollDepthPct": 27,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T09:34:14Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 68,
+    "isMobile": false,
+    "scrollDepthPct": 49,
+    "interacted": true,
+    "interactionType": "copy_pad_email",
+    "timestamp": "2026-09-30T12:38:47Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 70,
+    "isMobile": false,
+    "scrollDepthPct": 81,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T14:17:32Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 28,
+    "isMobile": true,
+    "scrollDepthPct": 42,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T17:16:01Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 35,
+    "isMobile": false,
+    "scrollDepthPct": 26,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T20:43:52Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 20,
+    "isMobile": true,
+    "scrollDepthPct": 25,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T22:17:11Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 73,
+    "isMobile": true,
+    "scrollDepthPct": 58,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T14:21:20Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 57,
+    "isMobile": false,
+    "scrollDepthPct": 62,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T14:52:48Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 45,
+    "isMobile": true,
+    "scrollDepthPct": 58,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T14:55:32Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 70,
+    "isMobile": true,
+    "scrollDepthPct": 71,
+    "interacted": true,
+    "interactionType": "copy_ic_email",
+    "timestamp": "2026-09-30T16:23:39Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 67,
+    "isMobile": false,
+    "scrollDepthPct": 46,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T22:18:28Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 77,
+    "isMobile": true,
+    "scrollDepthPct": 80,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T19:10:19Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 97,
+    "isMobile": false,
+    "scrollDepthPct": 65,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T15:07:41Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 79,
+    "isMobile": false,
+    "scrollDepthPct": 68,
+    "interacted": true,
+    "interactionType": "copy_ic_email",
+    "timestamp": "2026-09-30T21:30:30Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 7,
+    "isMobile": false,
+    "scrollDepthPct": 47,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T22:08:55Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 34,
+    "isMobile": false,
+    "scrollDepthPct": 29,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T12:52:00Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 2,
+    "isMobile": true,
+    "scrollDepthPct": 19,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T10:28:34Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 50,
+    "isMobile": true,
+    "scrollDepthPct": 44,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T21:12:44Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 28,
+    "isMobile": true,
+    "scrollDepthPct": 28,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T15:45:58Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 49,
+    "isMobile": true,
+    "scrollDepthPct": 65,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T15:02:08Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 83,
+    "isMobile": false,
+    "scrollDepthPct": 40,
+    "interacted": true,
+    "interactionType": "copy_pad_email",
+    "timestamp": "2026-09-30T16:58:29Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 42,
+    "isMobile": true,
+    "scrollDepthPct": 19,
+    "interacted": true,
+    "interactionType": "click_prog1_anchor",
+    "timestamp": "2026-09-30T20:16:21Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 58,
+    "isMobile": true,
+    "scrollDepthPct": 55,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T16:24:20Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 51,
+    "isMobile": false,
+    "scrollDepthPct": 52,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T11:40:43Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 82,
+    "isMobile": false,
+    "scrollDepthPct": 69,
+    "interacted": true,
+    "interactionType": "copy_ic_email",
+    "timestamp": "2026-09-30T18:45:55Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 19,
+    "isMobile": true,
+    "scrollDepthPct": 36,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T08:18:22Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 5,
+    "isMobile": true,
+    "scrollDepthPct": 32,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T10:11:05Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 43,
+    "isMobile": true,
+    "scrollDepthPct": 43,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T11:29:40Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 42,
+    "isMobile": true,
+    "scrollDepthPct": 35,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T18:34:10Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 37,
+    "isMobile": false,
+    "scrollDepthPct": 34,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T19:16:29Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 50,
+    "isMobile": true,
+    "scrollDepthPct": 84,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T17:22:36Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 49,
+    "isMobile": false,
+    "scrollDepthPct": 37,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T08:36:55Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 82,
+    "isMobile": false,
+    "scrollDepthPct": 55,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T22:57:18Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 63,
+    "isMobile": true,
+    "scrollDepthPct": 72,
+    "interacted": true,
+    "interactionType": "copy_ic_email",
+    "timestamp": "2026-09-30T12:43:48Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 75,
+    "isMobile": false,
+    "scrollDepthPct": 42,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T18:02:19Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 56,
+    "isMobile": true,
+    "scrollDepthPct": 81,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T13:47:26Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 2,
+    "isMobile": true,
+    "scrollDepthPct": 29,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T22:17:53Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 57,
+    "isMobile": false,
+    "scrollDepthPct": 27,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T21:21:51Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 47,
+    "isMobile": false,
+    "scrollDepthPct": 51,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T19:43:25Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 68,
+    "isMobile": false,
+    "scrollDepthPct": 88,
+    "interacted": true,
+    "interactionType": "copy_ic_email",
+    "timestamp": "2026-09-30T16:07:29Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 26,
+    "isMobile": false,
+    "scrollDepthPct": 42,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T13:06:43Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 31,
+    "isMobile": true,
+    "scrollDepthPct": 28,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T11:41:04Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 44,
+    "isMobile": true,
+    "scrollDepthPct": 40,
+    "interacted": true,
+    "interactionType": "copy_pad_email",
+    "timestamp": "2026-09-30T08:02:19Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 62,
+    "isMobile": true,
+    "scrollDepthPct": 87,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T13:42:47Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 50,
+    "isMobile": false,
+    "scrollDepthPct": 45,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T18:06:53Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 52,
+    "isMobile": true,
+    "scrollDepthPct": 51,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T15:28:15Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 55,
+    "isMobile": true,
+    "scrollDepthPct": 68,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T13:03:25Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 48,
+    "isMobile": false,
+    "scrollDepthPct": 30,
+    "interacted": true,
+    "interactionType": "click_prog1_anchor",
+    "timestamp": "2026-09-30T11:41:40Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 51,
+    "isMobile": true,
+    "scrollDepthPct": 46,
+    "interacted": true,
+    "interactionType": "copy_pad_email",
+    "timestamp": "2026-09-30T17:13:04Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 63,
+    "isMobile": false,
+    "scrollDepthPct": 70,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T20:09:50Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 65,
+    "isMobile": true,
+    "scrollDepthPct": 74,
+    "interacted": true,
+    "interactionType": "copy_ic_email",
+    "timestamp": "2026-09-30T12:51:11Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 35,
+    "isMobile": false,
+    "scrollDepthPct": 40,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T17:20:01Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 19,
+    "isMobile": true,
+    "scrollDepthPct": 25,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T15:28:49Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 19,
+    "isMobile": false,
+    "scrollDepthPct": 36,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T19:50:58Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 52,
+    "isMobile": false,
+    "scrollDepthPct": 83,
+    "interacted": true,
+    "interactionType": "copy_ic_email",
+    "timestamp": "2026-09-30T15:54:25Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 46,
+    "isMobile": true,
+    "scrollDepthPct": 43,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T13:38:09Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 10,
+    "isMobile": true,
+    "scrollDepthPct": 27,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T17:33:18Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 81,
+    "isMobile": false,
+    "scrollDepthPct": 59,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T18:56:49Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 43,
+    "isMobile": false,
+    "scrollDepthPct": 59,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T21:29:25Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 4,
+    "isMobile": true,
+    "scrollDepthPct": 40,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T10:43:59Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 60,
+    "isMobile": true,
+    "scrollDepthPct": 56,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T13:51:08Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 56,
+    "isMobile": false,
+    "scrollDepthPct": 49,
+    "interacted": true,
+    "interactionType": "copy_pad_email",
+    "timestamp": "2026-09-30T13:55:42Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 64,
+    "isMobile": true,
+    "scrollDepthPct": 76,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T12:22:06Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 44,
+    "isMobile": true,
+    "scrollDepthPct": 47,
+    "interacted": true,
+    "interactionType": "copy_pad_email",
+    "timestamp": "2026-09-30T21:35:23Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 22,
+    "isMobile": true,
+    "scrollDepthPct": 43,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T20:52:39Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 93,
+    "isMobile": false,
+    "scrollDepthPct": 55,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T12:01:11Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 37,
+    "isMobile": false,
+    "scrollDepthPct": 31,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T10:36:42Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 18,
+    "isMobile": true,
+    "scrollDepthPct": 33,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T11:24:26Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 45,
+    "isMobile": true,
+    "scrollDepthPct": 58,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T17:05:56Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 7,
+    "isMobile": true,
+    "scrollDepthPct": 26,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T18:27:31Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 52,
+    "isMobile": true,
+    "scrollDepthPct": 61,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T09:18:43Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 47,
+    "isMobile": true,
+    "scrollDepthPct": 49,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T17:03:00Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 29,
+    "isMobile": false,
+    "scrollDepthPct": 21,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T09:00:31Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 35,
+    "isMobile": true,
+    "scrollDepthPct": 60,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T21:42:51Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 19,
+    "isMobile": true,
+    "scrollDepthPct": 26,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T09:55:20Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 63,
+    "isMobile": false,
+    "scrollDepthPct": 43,
+    "interacted": true,
+    "interactionType": "copy_pad_email",
+    "timestamp": "2026-09-30T08:20:10Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 96,
+    "isMobile": false,
+    "scrollDepthPct": 62,
+    "interacted": true,
+    "interactionType": "copy_ic_email",
+    "timestamp": "2026-09-30T21:06:15Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 70,
+    "isMobile": true,
+    "scrollDepthPct": 59,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T11:21:49Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 38,
+    "isMobile": false,
+    "scrollDepthPct": 41,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T13:22:46Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 86,
+    "isMobile": false,
+    "scrollDepthPct": 80,
+    "interacted": true,
+    "interactionType": "copy_ic_email",
+    "timestamp": "2026-09-30T10:38:09Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 91,
+    "isMobile": false,
+    "scrollDepthPct": 90,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T20:36:48Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 79,
+    "isMobile": false,
+    "scrollDepthPct": 44,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T13:55:40Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 3,
+    "isMobile": true,
+    "scrollDepthPct": 37,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T17:03:22Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 45,
+    "isMobile": true,
+    "scrollDepthPct": 52,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T09:41:55Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 51,
+    "isMobile": true,
+    "scrollDepthPct": 73,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T20:47:57Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 20,
+    "isMobile": false,
+    "scrollDepthPct": 32,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T16:09:03Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 84,
+    "isMobile": false,
+    "scrollDepthPct": 32,
+    "interacted": true,
+    "interactionType": "copy_pad_email",
+    "timestamp": "2026-09-30T18:11:02Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 6,
+    "isMobile": true,
+    "scrollDepthPct": 38,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T13:58:18Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 25,
+    "isMobile": false,
+    "scrollDepthPct": 32,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T13:04:21Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 23,
+    "isMobile": false,
+    "scrollDepthPct": 47,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T22:38:55Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 6,
+    "isMobile": true,
+    "scrollDepthPct": 19,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T18:44:42Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 37,
+    "isMobile": false,
+    "scrollDepthPct": 32,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T20:21:52Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 66,
+    "isMobile": false,
+    "scrollDepthPct": 26,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T09:41:42Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 44,
+    "isMobile": true,
+    "scrollDepthPct": 55,
+    "interacted": true,
+    "interactionType": "copy_pad_email",
+    "timestamp": "2026-09-30T20:31:12Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 40,
+    "isMobile": true,
+    "scrollDepthPct": 42,
+    "interacted": true,
+    "interactionType": "click_prog1_anchor",
+    "timestamp": "2026-09-30T20:34:53Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 53,
+    "isMobile": false,
+    "scrollDepthPct": 38,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T17:24:09Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 30,
+    "isMobile": false,
+    "scrollDepthPct": 20,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T15:02:26Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 43,
+    "isMobile": false,
+    "scrollDepthPct": 32,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T20:28:14Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 54,
+    "isMobile": true,
+    "scrollDepthPct": 43,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T13:43:36Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 58,
+    "isMobile": true,
+    "scrollDepthPct": 85,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T10:52:12Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 61,
+    "isMobile": true,
+    "scrollDepthPct": 89,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T16:59:06Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 70,
+    "isMobile": false,
+    "scrollDepthPct": 54,
+    "interacted": true,
+    "interactionType": "copy_pad_email",
+    "timestamp": "2026-09-30T15:57:32Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 28,
+    "isMobile": true,
+    "scrollDepthPct": 33,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T13:59:01Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 12,
+    "isMobile": true,
+    "scrollDepthPct": 40,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T11:01:20Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 70,
+    "isMobile": false,
+    "scrollDepthPct": 66,
+    "interacted": true,
+    "interactionType": "copy_ic_email",
+    "timestamp": "2026-09-30T12:58:53Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 67,
+    "isMobile": false,
+    "scrollDepthPct": 43,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T22:05:01Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 9,
+    "isMobile": false,
+    "scrollDepthPct": 31,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T09:49:18Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 21,
+    "isMobile": true,
+    "scrollDepthPct": 46,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T09:07:53Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 97,
+    "isMobile": false,
+    "scrollDepthPct": 78,
+    "interacted": true,
+    "interactionType": "copy_ic_email",
+    "timestamp": "2026-09-30T10:18:27Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 13,
+    "isMobile": true,
+    "scrollDepthPct": 32,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T16:23:04Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 86,
+    "isMobile": false,
+    "scrollDepthPct": 68,
+    "interacted": true,
+    "interactionType": "copy_ic_email",
+    "timestamp": "2026-09-30T21:30:02Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 66,
+    "isMobile": false,
+    "scrollDepthPct": 53,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T13:15:46Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 31,
+    "isMobile": true,
+    "scrollDepthPct": 45,
+    "interacted": true,
+    "interactionType": "copy_pad_email",
+    "timestamp": "2026-09-30T13:34:21Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 63,
+    "isMobile": true,
+    "scrollDepthPct": 69,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T18:11:51Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 30,
+    "isMobile": false,
+    "scrollDepthPct": 34,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T20:12:56Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 2,
+    "isMobile": false,
+    "scrollDepthPct": 32,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T12:02:48Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 51,
+    "isMobile": true,
+    "scrollDepthPct": 50,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T12:07:51Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 26,
+    "isMobile": false,
+    "scrollDepthPct": 18,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T10:31:44Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 45,
+    "isMobile": false,
+    "scrollDepthPct": 50,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T09:27:38Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 59,
+    "isMobile": true,
+    "scrollDepthPct": 81,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T12:19:28Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 45,
+    "isMobile": true,
+    "scrollDepthPct": 45,
+    "interacted": true,
+    "interactionType": "copy_pad_email",
+    "timestamp": "2026-09-30T21:58:22Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 35,
+    "isMobile": true,
+    "scrollDepthPct": 41,
+    "interacted": true,
+    "interactionType": "copy_pad_email",
+    "timestamp": "2026-09-30T18:40:25Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 14,
+    "isMobile": false,
+    "scrollDepthPct": 17,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T17:43:50Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 50,
+    "isMobile": true,
+    "scrollDepthPct": 63,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T17:02:38Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 11,
+    "isMobile": true,
+    "scrollDepthPct": 41,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T10:33:23Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 27,
+    "isMobile": false,
+    "scrollDepthPct": 38,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T15:33:24Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 64,
+    "isMobile": true,
+    "scrollDepthPct": 65,
+    "interacted": true,
+    "interactionType": "copy_ic_email",
+    "timestamp": "2026-09-30T17:18:44Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 99,
+    "isMobile": false,
+    "scrollDepthPct": 88,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T22:45:28Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 117,
+    "isMobile": false,
+    "scrollDepthPct": 73,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T19:04:35Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 77,
+    "isMobile": false,
+    "scrollDepthPct": 41,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T18:11:50Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 41,
+    "isMobile": true,
+    "scrollDepthPct": 33,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T15:01:23Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 54,
+    "isMobile": true,
+    "scrollDepthPct": 42,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T09:04:19Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 15,
+    "isMobile": false,
+    "scrollDepthPct": 36,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T17:04:08Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 65,
+    "isMobile": false,
+    "scrollDepthPct": 81,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T22:53:49Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 67,
+    "isMobile": false,
+    "scrollDepthPct": 47,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T21:03:53Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 25,
+    "isMobile": true,
+    "scrollDepthPct": 41,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T13:33:57Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 30,
+    "isMobile": true,
+    "scrollDepthPct": 53,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T18:19:39Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 80,
+    "isMobile": false,
+    "scrollDepthPct": 68,
+    "interacted": true,
+    "interactionType": "copy_pad_email",
+    "timestamp": "2026-09-30T18:39:46Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 64,
+    "isMobile": true,
+    "scrollDepthPct": 76,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T09:02:41Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 65,
+    "isMobile": true,
+    "scrollDepthPct": 88,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T08:31:56Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 62,
+    "isMobile": true,
+    "scrollDepthPct": 49,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T18:25:19Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 73,
+    "isMobile": false,
+    "scrollDepthPct": 58,
+    "interacted": true,
+    "interactionType": "copy_pad_email",
+    "timestamp": "2026-09-30T13:38:09Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 25,
+    "isMobile": false,
+    "scrollDepthPct": 19,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T10:48:23Z"
+  },
+  {
+    "topicId": "monitoria-pad",
+    "topicTitle": "Monitoria PAD",
+    "dwellTimeSeconds": 49,
+    "isMobile": true,
+    "scrollDepthPct": 56,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T10:06:03Z"
+  },
+  {
+    "topicId": "alerta-prog1-tranca-tudo",
+    "topicTitle": "Alerta Programação 1 Tranca a Grade",
+    "dwellTimeSeconds": 13,
+    "isMobile": true,
+    "scrollDepthPct": 30,
+    "interacted": false,
+    "interactionType": null,
+    "timestamp": "2026-09-30T10:52:20Z"
+  }
+]

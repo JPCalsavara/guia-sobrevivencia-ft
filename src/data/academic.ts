@@ -102,21 +102,21 @@ export const padComparisonData: PadComparison[] = [
   {
     criterion: 'Remuneração Financeira',
     withScholarship: 'Bolsa mensal concedida pela PRG com pagamento direto em conta corrente',
-    withoutScholarship: 'Atividade voluntária sem remuneração em dinheiro',
+    withoutScholarship: 'Atividade voluntária sem remuneração financeira',
   },
   {
     criterion: 'Certificado Oficial da PRG',
     withScholarship: 'Emitido formalmente pela Pró-Reitoria de Graduação ao término do período letivo',
-    withoutScholarship: 'Emitido com idêntico valor institucional e mesmos direitos acadêmicos',
+    withoutScholarship: 'Emitido formalmente pela Pró-Reitoria de Graduação ao término do período letivo',
   },
   {
     criterion: 'Aproveitamento como Atividades Complementares',
     withScholarship: 'Validação de créditos na DAC conforme os limites do regulamento do catálogo',
-    withoutScholarship: 'Validação de créditos na DAC com a mesma pontuação horária',
+    withoutScholarship: 'Validação de créditos na DAC conforme os limites do regulamento do catálogo',
   },
   {
     criterion: 'Carga Horária Semanal',
-    withScholarship: 'De oito a doze horas semanais de apoio a plantões e auxílio didático',
+    withScholarship: 'De oito a doze horas semanais com flexibilidade acordada com o docente',
     withoutScholarship: 'De oito a doze horas semanais com flexibilidade acordada com o docente',
   },
   {
@@ -126,8 +126,8 @@ export const padComparisonData: PadComparison[] = [
   },
   {
     criterion: 'Critério Básico de Seleção',
-    withScholarship: 'Aprovação prévia na disciplina com nota destacada e avaliação do docente',
-    withoutScholarship: 'Aprovação prévia na disciplina com nota destacada e interesse espontâneo',
+    withScholarship: 'Aprovação prévia na matéria com nota destacada, avaliação do Coeficiente de Rendimento e seleção pelo docente',
+    withoutScholarship: 'Aprovação prévia na matéria com nota destacada, avaliação do Coeficiente de Rendimento e seleção pelo docente',
   },
 ];
 

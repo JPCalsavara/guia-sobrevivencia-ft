@@ -27,3 +27,6 @@
 - **ADR-0002:** Todos os itens têm responsividade mobile obrigatória em qualquer tela ou dispositivo.
 - **ADR-0003:** Acessibilidade digital em conformidade com WCAG nível AA em todos os componentes e fluxos de navegação.
 - **ADR-0004:** Desacoplamento de dados voláteis e direcionamento exclusivo para fontes canônicas oficiais.
+- **ADR-0005:** Concisão e clareza orientada à essência da informação para o estudante.
+- **ADR-0006:** Otimização contínua guiada por telemetria e análise de uso do portal.
+- **ADR-0007:** Hospedagem na Vercel com Analytics integrado e observabilidade contínua.
