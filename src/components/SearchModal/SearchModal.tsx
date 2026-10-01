@@ -42,6 +42,13 @@ const QUICK_SUGGESTIONS = [
   'Iniciação Científica'
 ];
 
+function formatCleanSummary(doc: SearchDocument): string {
+  if (!doc.summary || doc.summary.includes('id=') || doc.summary.includes('style=') || doc.summary.includes('className=')) {
+    return `${doc.title} na Faculdade de Tecnologia da Unicamp.`;
+  }
+  return doc.summary;
+}
+
 export function SearchModal({ isOpen, onClose }: SearchModalProps) {
   const [query, setQuery] = useState('');
   const [apiKey, setApiKey] = useState('');
@@ -352,7 +359,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                             )}
                           </div>
                           <h3 className={styles.resultTitle}>{doc.title}</h3>
-                          <p className={styles.resultSummary}>{doc.summary}</p>
+                          <p className={styles.resultSummary}>{formatCleanSummary(doc)}</p>
                         </div>
                         <ChevronRight size={18} className={styles.resultArrow} aria-hidden="true" />
                       </Link>

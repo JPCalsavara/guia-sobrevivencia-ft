@@ -2,8 +2,20 @@
 
 import React, { useState } from 'react';
 import { bsiCurriculumData, tadsCurriculumData } from '@/data/academic';
-import { BookOpen, Layers, Award, Sparkles, CheckCircle } from 'lucide-react';
+import { BookOpen, Layers, Award, Sparkles, CheckCircle, ExternalLink } from 'lucide-react';
 import styles from './CurriculumGrids.module.scss';
+
+function getSubjectCatalogUrl(code: string, semesterNumber: number, customUrl?: string): string {
+  if (customUrl) return customUrl;
+  const currentYear = new Date().getFullYear();
+  const semesterPeriod = semesterNumber % 2 === 1 ? 1 : 2;
+
+  if (code.startsWith('ELET')) {
+    return `https://www.dac.unicamp.br/portal/caderno-de-horarios/${currentYear}/${semesterPeriod}/S/G`;
+  }
+
+  return `https://www.dac.unicamp.br/portal/caderno-de-horarios/${currentYear}/${semesterPeriod}/S/G/FT#${code}`;
+}
 
 export function CurriculumGrids() {
   const [selectedCourse, setSelectedCourse] = useState<'bsi' | 'tads'>('bsi');
@@ -20,7 +32,7 @@ export function CurriculumGrids() {
         </div>
         <h2 className={styles.title}>Grades Curriculares Oficiais: BSI e TADS 2026</h2>
         <p className={styles.subtitle}>
-          Consulte a distribuição exata de créditos, códigos de disciplinas obrigatórias, práticas em laboratório e requisitos de extensão para cada período letivo.
+          Consulte a distribuição exata de créditos, códigos de disciplinas obrigatórias, práticas em laboratório e requisitos de extensão para cada período letivo. Clique em qualquer matéria para abrir sua turma e ementa no Caderno de Horários da DAC.
         </p>
       </div>
 
@@ -56,29 +68,43 @@ export function CurriculumGrids() {
             </div>
 
             <ul className={styles.subjectsList}>
-              {semester.subjects.map((sub, idx) => (
-                <li key={`${sub.code}-${idx}`} className={styles.subjectRow}>
-                  <div className={styles.subjectInfo}>
-                    <span className={styles.subjectCode}>{sub.code}</span>
-                    <span className={styles.subjectName} title={sub.name}>
-                      {sub.name}
-                    </span>
-                  </div>
+              {semester.subjects.map((sub, idx) => {
+                const catalogUrl = getSubjectCatalogUrl(sub.code, semester.semesterNumber, sub.catalogUrl);
+                return (
+                  <li key={`${sub.code}-${idx}`} className={styles.subjectRow}>
+                    <a
+                      href={catalogUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.subjectLink}
+                      title={`Consultar horários e ementa de ${sub.code} no Caderno DAC`}
+                    >
+                      <div className={styles.subjectInfo}>
+                        <span className={styles.subjectCode}>
+                          {sub.code}
+                          <ExternalLink size={10} className={styles.externalIcon} aria-hidden="true" />
+                        </span>
+                        <span className={styles.subjectName} title={sub.name}>
+                          {sub.name}
+                        </span>
+                      </div>
 
-                  <div className={styles.subjectMeta}>
-                    {sub.type === 'eletiva' && (
-                      <span className={`${styles.typeTag} ${styles.eletiva}`}>Eletiva</span>
-                    )}
-                    {sub.type === 'extensao' && (
-                      <span className={`${styles.typeTag} ${styles.extensao}`}>Extensão</span>
-                    )}
-                    {sub.type === 'pratica' && (
-                      <span className={`${styles.typeTag} ${styles.pratica}`}>Prática</span>
-                    )}
-                    <span className={styles.subjectCredits}>{sub.credits} cr</span>
-                  </div>
-                </li>
-              ))}
+                      <div className={styles.subjectMeta}>
+                        {sub.type === 'eletiva' && (
+                          <span className={`${styles.typeTag} ${styles.eletiva}`}>Eletiva</span>
+                        )}
+                        {sub.type === 'extensao' && (
+                          <span className={`${styles.typeTag} ${styles.extensao}`}>Extensão</span>
+                        )}
+                        {sub.type === 'pratica' && (
+                          <span className={`${styles.typeTag} ${styles.pratica}`}>Prática</span>
+                        )}
+                        <span className={styles.subjectCredits}>{sub.credits} cr</span>
+                      </div>
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         ))}

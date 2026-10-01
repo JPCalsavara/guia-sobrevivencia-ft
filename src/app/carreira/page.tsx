@@ -30,7 +30,8 @@ import {
   Award,
   Globe,
   Languages,
-  Rocket
+  Rocket,
+  Trophy
 } from 'lucide-react';
 import { useJourneyStage } from '@/hooks/useJourneyStage';
 import { useSectionOrdering } from '@/hooks/useSectionOrdering';
@@ -52,9 +53,10 @@ const careerTopics: TopicItem[] = [
   },
   {
     id: 'testes-tecnicos',
-    title: 'Testes Técnicos de Entrada',
+    title: 'Testes Técnicos e Maratona',
     subtopics: [
       { id: 'testes-tecnicos', title: 'Estruturas de Dados e Lógica' },
+      { id: 'maratona-programacao', title: 'Maratona de Programação e ICPC' },
     ],
   },
   {
@@ -549,6 +551,95 @@ export default function CarreiraPage() {
               <p className={styles.skillDesc}>
                 Modelagem de classes com responsabilidade única, encapsulamento de regras de negócio e organização de entidades simulando serviços corporativos reais.
               </p>
+            </div>
+          </div>
+
+          {/* Maratona de Programação SBC e ICPC */}
+          <div id="maratona-programacao" className={styles.maratonaBox}>
+            <div className={styles.maratonaHeader}>
+              <div className={styles.maratonaHeaderLeft}>
+                <Trophy size={22} className={styles.headerIcon} />
+                <div>
+                  <h3 className={styles.maratonaTitle}>Maratona de Programação e Preparação ICPC SBC</h3>
+                  <p className={styles.maratonaSubtitle}>
+                    Treinamento algorítmico intensivo, raciocínio sob pressão e aceleração para entrevistas de Big Tech
+                  </p>
+                </div>
+              </div>
+              <a
+                href="https://maratona.sbc.org.br/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.maratonaActionBtn}
+              >
+                <span>Site Oficial SBC</span>
+                <ExternalLink size={13} aria-hidden="true" />
+              </a>
+            </div>
+
+            <div className={styles.maratonaGrid}>
+              <div className={styles.maratonaCard}>
+                <h4 className={styles.maratonaCardTitle}>Regras e Dinâmica da Prova</h4>
+                <p>
+                  Times de três alunos com um computador individual compartilhado por cinco horas ininterruptas. O caderno traz de 10 a 13 problemas desafiadores em ordem mista de complexidade. Cada problema solucionado com resposta aceita concede à equipe um balão colorido representativo.
+                </p>
+              </div>
+
+              <div className={styles.maratonaCard}>
+                <h4 className={styles.maratonaCardTitle}>Impacto em Entrevistas de Big Tech</h4>
+                <p>
+                  As fases técnicas de triagem de gigantes como Google, Meta, Uber e Mercado Livre utilizam problemas com matrizes, grafos, busca em largura, filas de prioridade e programação dinâmica idênticos aos exercícios da maratona, exigindo estimativa precisa de complexidade Big O.
+                </p>
+              </div>
+
+              <div className={styles.maratonaCard}>
+                <h4 className={styles.maratonaCardTitle}>Plataformas de Treino e Tradição Unicamp</h4>
+                <p>
+                  Utilize o Beecrowd para fixar a base com enunciados em português e o Codeforces ou LeetCode para desafios avançados com limites severos de memória e tempo. A Unicamp possui histórico vitorioso de classificação para a final mundial, com treinos abertos no campus.
+                </p>
+              </div>
+            </div>
+
+            <div className={styles.maratonaLinksRow}>
+              <span className={styles.maratonaLinksLabel}>Portais recomendados para praticar:</span>
+              <div className={styles.maratonaChips}>
+                <a
+                  href="https://beecrowd.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.maratonaChip}
+                >
+                  <span>Beecrowd Brasil</span>
+                  <ExternalLink size={11} aria-hidden="true" />
+                </a>
+                <a
+                  href="https://codeforces.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.maratonaChip}
+                >
+                  <span>Codeforces Rounds</span>
+                  <ExternalLink size={11} aria-hidden="true" />
+                </a>
+                <a
+                  href="https://leetcode.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.maratonaChip}
+                >
+                  <span>LeetCode Interview</span>
+                  <ExternalLink size={11} aria-hidden="true" />
+                </a>
+                <a
+                  href="https://maratona.sbc.org.br/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.maratonaChip}
+                >
+                  <span>SBC Maratona</span>
+                  <ExternalLink size={11} aria-hidden="true" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
