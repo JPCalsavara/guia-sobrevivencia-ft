@@ -17,6 +17,11 @@
 - **Armadilha da Equivalência:** Risco no qual o estudante cursa matéria equivalente fora da FT sem carga de extensão, gerando déficit irreversível de horas que impede a colação de grau.
 - **Disciplina Extracurricular:** Disciplina cursada após o cumprimento de todas as eletivas, identificada com a marcação X no e-DAC, aproveitável em atividades complementares.
 - **Planejamento de Iniciação Científica:** Cronograma orientado pelo corpo docente com busca de orientador até meados do segundo semestre para submissão no primeiro semestre do ano subsequente, dependente de histórico sem reprovações.
+- **Colação de Grau Solene:** Cerimônia pública oficial e gratuita presidida pela Diretoria da FT e pela Secretaria de Graduação, indispensável para a outorga legal do título, juramento do curso, assinatura da ata de colação e expedição do diploma.
+- **Colação em Gabinete:** Rito administrativo extraordinário e gratuito perante a diretoria para antecipação de outorga de grau em casos comprovados de aprovação em programas de pós-graduação stricto sensu ou posse em concurso público.
+- **Diploma Digital DAC:** Documento acadêmico oficial emitido em formato eletrônico nativo com assinatura digital ICP-Brasil e validação em plataforma do Ministério da Educação, registrado sem custos adicionais ao formando.
+- **Guia de Navegação do Portal:** Bloco explicativo com direcionamento de fluxos por momento da graduação e mapa de recursos de busca e acessibilidade.
+- **Compartilhamento Dark Social:** Distribuição orgânica de links do guia por meio de canais privados de mensagens entre discentes, viabilizada por botões de compartilhamento direto no WhatsApp.
 
 ### Identidade Visual e Interface
 - **Azul FT:** Cor institucional que simboliza tecnologia, computação e inovação. No modo claro, adota tom escuro profundo para contraste nítido contra o fundo branco. No modo escuro, adota tom claro para leitura contrastante no fundo escuro.

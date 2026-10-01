@@ -40,7 +40,8 @@ import { useSectionOrdering } from '@/hooks/useSectionOrdering';
 import { JourneyStageHeader } from '@/components/JourneyStageHeader/JourneyStageHeader';
 import { SecondarySectionsToggle } from '@/components/SecondarySectionsToggle/SecondarySectionsToggle';
 import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
-import { padComparisonData, ftInternshipProceduresData, ftTccProceduresData, pifGuidelinesData } from '@/data/academic';
+import { padComparisonData, ftInternshipProceduresData, ftTccProceduresData, pifGuidelinesData, ftGraduationCeremonyData } from '@/data/academic';
+import { ShareWhatsAppButton } from '@/components/ShareWhatsAppButton/ShareWhatsAppButton';
 import styles from './academico.module.scss';
 
 const emailTemplateText = `Prezado Professor [Nome do Docente],
@@ -107,9 +108,10 @@ const academicTopics: TopicItem[] = [
   },
   {
     id: 'checklist-formatura',
-    title: 'Checklist de Formatura',
+    title: 'Checklist e Formatura',
     subtopics: [
       { id: 'checklist-formatura', title: 'Etapas de Integralização' },
+      { id: 'cerimonia-formatura-colacao', title: 'Cerimônia e Colação de Grau' },
     ],
   },
   {
@@ -561,6 +563,11 @@ export default function AcademicoPage() {
             <p className={styles.prog1AlertText}>
               Nos cursos da Faculdade de Tecnologia como Sistemas de Informação e TADS, a matéria de Programação 1 é o alicerce de toda a cadeia técnica. Reprovar nesta disciplina gera um bloqueio em cascata imediato: ela impede a matrícula em Programação 2, que por sua vez trava Estruturas de Dados, Programação Orientada a Objetos, Bancos de Dados e matérias avançadas de Engenharia de Software. Essa retenção atrasa semestres inteiros e adia os requisitos mínimos para conseguir estágio. Pratique código diariamente no computador, resolva os exercícios logo após as aulas e busque a monitoria PAD desde a primeira semana do semestre.
             </p>
+            <ShareWhatsAppButton
+              title="Alerta Crítico: Reprovar em Programação 1 Tranca a Grade de TI na FT"
+              sectionId="alerta-prog1-tranca-tudo"
+              customMessage="Atenção estudantes da FT Unicamp: confira o alerta sobre como evitar o efeito cascata de Programação 1 e manter a grade em dia:"
+            />
           </div>
 
           <div className={styles.rulesGrid}>
@@ -664,6 +671,59 @@ export default function AcademicoPage() {
       >
         {renderStageBadge('checklist-formatura')}
         <ChecklistFormatura />
+
+        {/* Cerimônia de Formatura e Colação de Grau na FT */}
+        <div id="cerimonia-formatura-colacao" className={styles.blockCard} style={{ marginTop: '2rem' }}>
+          <div className={styles.cardHeader}>
+            <GraduationCap size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>Cerimônia de Formatura e Colação de Grau na FT Unicamp</h2>
+              <p className={styles.cardSubtitle}>
+                Rito oficial solene, colação extraordinária em gabinete, emissão do diploma digital e distinção com a comissão festiva
+              </p>
+            </div>
+          </div>
+
+          <p className={styles.ruleText}>
+            A colação de grau é o ato acadêmico obrigatório pelo qual a universidade outorga formalmente o título universitário ao estudante que concluiu com aprovação todos os requisitos de integralização do currículo. A solenidade oficial é gratuita e pública, organizada pela Diretoria da FT e pela Secretaria de Graduação em Limeira.
+          </p>
+
+          <div className={styles.internshipStepsGrid}>
+            {ftGraduationCeremonyData.map((step) => (
+              <div key={step.stepNumber} className={styles.internshipStepCard}>
+                <span className={styles.stepNumberBadge}>Etapa {step.stepNumber}</span>
+                <h3 className={styles.stepTitle}>{step.title}</h3>
+                <p className={styles.stepDesc}>{step.description}</p>
+                <p className={styles.stepDetail}>{step.detail}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className={styles.gradeLinkBox} style={{ marginTop: '1.25rem' }}>
+            <div>
+              <span className={styles.gradeLinkTitle}>Portal de Colação e Diplomas da DAC Unicamp</span>
+              <span className={styles.gradeLinkDesc}>
+                Consulte calendários oficiais de colação de grau, validação de diplomas digitais e orientações da Secretaria Geral
+              </span>
+            </div>
+            <a
+              href="https://www.dac.unicamp.br/portal/estudantes/graduacao/colacao-de-grau"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.gradeButton}
+              aria-label="Acessar portal oficial de colação de grau da DAC em nova janela"
+            >
+              <span>Portal de Colação da DAC</span>
+              <ExternalLink size={14} aria-hidden="true" />
+            </a>
+          </div>
+
+          <ShareWhatsAppButton
+            title="Como Funciona a Formatura e Colação de Grau na FT Unicamp"
+            sectionId="cerimonia-formatura-colacao"
+            customMessage="Confira como funciona a formatura oficial na FT Unicamp, rito gratuito, gabinete e diploma digital:"
+          />
+        </div>
       </section>
 
       {/* TCC e Pós-Graduação PIF */}
@@ -1008,6 +1068,11 @@ export default function AcademicoPage() {
               </button>
             </div>
             <pre className={styles.emailPre}>{padEmailTemplateText}</pre>
+            <ShareWhatsAppButton
+              title="Monitoria PAD na FT Unicamp: Requisitos e Modelo de E-mail"
+              sectionId="pad-email"
+              customMessage="Veja como funciona a monitoria PAD na FT Unicamp com modelo de e-mail pronto para docentes:"
+            />
           </div>
 
           {/* PMU - Programa de Mentoria da Unicamp da DEAPE */}
@@ -1745,6 +1810,11 @@ export default function AcademicoPage() {
               </button>
             </div>
             <pre className={styles.emailPre}>{emailTemplateText}</pre>
+            <ShareWhatsAppButton
+              title="Iniciação Científica e Bolsas PIBIC na FT Unicamp"
+              sectionId="ic-contato"
+              customMessage="Linha do tempo oficial e modelo de e-mail para buscar orientador de Iniciação Científica na FT Unicamp:"
+            />
           </div>
 
           {/* Fontes Oficiais e Referências */}
