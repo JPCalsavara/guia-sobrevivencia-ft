@@ -49,4 +49,26 @@ describe('Serviço de Busca Local e Chave de IA', () => {
     clearStoredApiKey();
     expect(getStoredApiKey()).toBe('');
   });
+
+  it('nenhum documento no searchIndex deve conter artefatos como id= ou style= ou className=', async () => {
+    const { searchIndex } = await import('../data/searchIndex');
+    expect(searchIndex.length).toBeGreaterThan(100);
+
+    for (const doc of searchIndex) {
+      expect(doc.summary).not.toContain('id=');
+      expect(doc.summary).not.toContain('style=');
+      expect(doc.summary).not.toContain('className=');
+      expect(doc.summary).not.toMatch(/<[^>]+>/);
+      expect(doc.summary).not.toContain('$}');
+      expect(doc.summary).not.toContain('`}');
+    }
+  });
+
+  it('deve encontrar a secao de Maratona de Programacao ao buscar termos chave', () => {
+    const results = performLocalSearch('maratona');
+    expect(results.length).toBeGreaterThan(0);
+    const maratonaDoc = results.find((d) => d.id.includes('maratona'));
+    expect(maratonaDoc).toBeDefined();
+    expect(maratonaDoc?.summary).not.toContain('id=');
+  });
 });

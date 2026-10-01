@@ -64,5 +64,17 @@ describe('Dados Acadêmicos e Integralização', () => {
     expect(academicoPage).toContain('Programação 2');
     expect(academicoPage).toContain('Estruturas de Dados');
   });
+
+  it('deve conter links dinamicos para o Caderno de Horarios da DAC no CurriculumGrids', async () => {
+    const fs = await import('fs');
+    const path = await import('path');
+    const gridComponent = fs.readFileSync(path.resolve(process.cwd(), 'src/components/CurriculumGrids/CurriculumGrids.tsx'), 'utf8');
+
+    expect(gridComponent).toContain('caderno-de-horarios');
+    expect(gridComponent).toContain('getFullYear');
+    expect(gridComponent).toContain('/S/G/FT#');
+    expect(gridComponent).toContain('target="_blank"');
+    expect(gridComponent).toContain('rel="noopener noreferrer"');
+  });
 });
 

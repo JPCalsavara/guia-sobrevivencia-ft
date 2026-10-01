@@ -137,6 +137,7 @@ export interface CourseSubject {
   credits: number;
   type: 'obrigatoria' | 'eletiva' | 'extensao' | 'pratica';
   note?: string;
+  catalogUrl?: string;
 }
 
 export interface SemesterCurriculum {

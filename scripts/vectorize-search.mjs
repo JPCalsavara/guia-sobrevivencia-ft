@@ -14,7 +14,8 @@ const STOP_WORDS = new Set([
   'essas', 'esses', 'pelas', 'este', 'dele', 'voces', 'lhes', 'meus', 'minhas',
   'teu', 'tua', 'teus', 'tuas', 'nosso', 'nossa', 'nossos', 'nossas', 'dela',
   'delas', 'esta', 'estes', 'estas', 'aquele', 'aquela', 'aqueles', 'aquelas',
-  'isto', 'aquilo', 'sao', 'era', 'foi', 'tem', 'sobre', 'cada', 'onde', 'pode'
+  'isto', 'aquilo', 'sao', 'era', 'foi', 'tem', 'sobre', 'cada', 'onde', 'pode',
+  'style', 'classname', 'class', 'div', 'span', 'section', 'button', 'href', 'onclick', 'target', 'rel', 'src', 'alt'
 ]);
 
 // Sinônimos e termos de ancoragem para subtópicos conhecidos do domínio
@@ -24,6 +25,7 @@ const DOMAIN_EXPANSIONS = {
   'cota-impressao': ['impressao', 'wifiprint', 'dtic', 'cotas', 'paginas', 'scanner', 'laboratorio'],
   'ferramentas-ti': ['dtic', 'laboratorios', 'computadores', 'senhas', 'rede', 'informatica'],
   'curriculo-latex': ['curriculo', 'latex', 'devcelio', 'ats', 'overleaf', 'cv', 'modelo'],
+  'maratona-programacao': ['maratona', 'icpc', 'sbc', 'beecrowd', 'codeforces', 'leetcode', 'programacao competitiva', 'algoritmos', 'estruturas de dados'],
   'fundamentos-ia-canais': ['karpathy', '3blue1brown', 'statquest', 'redes neurais', 'gpt do zero', 'matematica visual', 'llm'],
   'trilhas-aprendizado': ['coursera', 'michigan', 'ciencia de dados', 'pandas', 'scikit learn', 'full stack', 'devops'],
   'bsi-vs-tads': ['bsi', 'tads', 'sistemas de informacao', 'analise e desenvolvimento de sistemas', 'noturno', 'integral'],
@@ -80,24 +82,62 @@ function sanitizeAdr0001(text) {
     .trim();
 }
 
+function stripJsxAndHtml(raw) {
+  let text = raw;
+  // Remove comentarios JSX: {/* ... */}
+  text = text.replace(/\{\/\*[\s\S]*?\*\/\}/g, ' ');
+  // Remove comentarios HTML
+  text = text.replace(/<!--[\s\S]*?-->/g, ' ');
+  // Remove tags de estilo ou script
+  text = text.replace(/<(script|style)[^>]*>[\s\S]*?<\/\1>/gi, ' ');
+
+  // Remove blocos de chaves repetidamente ate nao restarem chaves aninhadas
+  let prev = '';
+  while (prev !== text) {
+    prev = text;
+    text = text.replace(/\{[^{}]*\}/g, ' ');
+  }
+
+  // Remove todas as tags HTML e JSX
+  text = text.replace(/<[^>]*>/g, ' ');
+
+  // Substitui entidades HTML usuais
+  text = text
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"');
+
+  // Remove atributos ou vestigios de codigo
+  text = text
+    .replace(/\b(id|className|style|onClick|onChange|href|src|alt|title)=("[^"]*"|'[^']*'|\S+)/gi, ' ')
+    .replace(/[$`{}]/g, ' ')
+    .replace(/<|>|\/>|<\//g, ' ');
+
+  return text.replace(/\s+/g, ' ').trim();
+}
+
 function extractSectionContent(fileContent, elementId) {
   const match = fileContent.match(new RegExp(`id=["']${elementId}["']`, 'i'));
   if (!match || match.index === undefined) return '';
 
   const idIndex = match.index;
-  const chunk = fileContent.slice(idIndex, idIndex + 4500);
+  // Encontra o fechamento '>' da tag de abertura que contem esse id
+  const closeBracketIndex = fileContent.indexOf('>', idIndex);
+  if (closeBracketIndex === -1) return '';
 
-  // Procura proximo bloco id="...
-  const nextSectionMatch = chunk.slice(25).search(/id=["'][a-z0-9_-]+["']/i);
-  const relevantSlice = nextSectionMatch !== -1 ? chunk.slice(0, nextSectionMatch + 25) : chunk;
+  const contentStartIndex = closeBracketIndex + 1;
+  const rest = fileContent.slice(contentStartIndex);
 
-  const textOnly = relevantSlice
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/\{[^}]+\}/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
+  // Procura o inicio da proxima tag que contenha um id="..."
+  const nextSectionMatch = rest.match(/<[a-zA-Z0-9_-]+[^>]*\bid=["'][a-z0-9_-]+["']/i);
+  const rawChunk = nextSectionMatch && nextSectionMatch.index !== undefined
+    ? rest.slice(0, nextSectionMatch.index)
+    : rest.slice(0, 4500);
 
-  return sanitizeAdr0001(textOnly);
+  const cleanText = stripJsxAndHtml(rawChunk);
+  return sanitizeAdr0001(cleanText);
 }
 
 function extractTopicItemsFromPage(filePath, pageName, category, basePath) {
@@ -140,8 +180,20 @@ function extractTopicItemsFromPage(filePath, pageName, category, basePath) {
         // Resume em uma frase clara para o summary
         let summarySentence = '';
         if (combinedText) {
-          const sentences = combinedText.split(/[.!?]+/).map((s) => s.trim()).filter((s) => s.length > 25);
-          summarySentence = sentences.length > 0 ? sentences[0] + '.' : '';
+          const candidateSentences = combinedText
+            .split(/[.!?]+/)
+            .map((s) => s.trim())
+            .filter((s) => {
+              if (s.length < 25) return false;
+              if (/\b(id=|className=|style=|onClick=|const |import |export |return |function |type |interface )\b/i.test(s)) return false;
+              if (/[<>{}`$]/.test(s)) return false;
+              if (!/[A-Za-zÀ-ÿ]/.test(s)) return false;
+              return true;
+            });
+
+          if (candidateSentences.length > 0) {
+            summarySentence = candidateSentences[0] + '.';
+          }
         }
 
         if (!summarySentence || summarySentence.length < 20) {
@@ -149,6 +201,9 @@ function extractTopicItemsFromPage(filePath, pageName, category, basePath) {
         }
 
         summarySentence = sanitizeAdr0001(summarySentence);
+        if (summarySentence.includes('id=') || summarySentence.includes('style=') || summarySentence.includes('className=') || /[<>{}`$]/.test(summarySentence)) {
+          summarySentence = `${topicTitle}, foco em ${subTitle} na Faculdade de Tecnologia da Unicamp.`;
+        }
 
         // Term weights calculation
         const termWeights = {};
