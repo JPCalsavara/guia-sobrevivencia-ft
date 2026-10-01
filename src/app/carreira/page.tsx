@@ -1130,7 +1130,7 @@ export default function CarreiraPage() {
               </div>
               <h3 className={styles.skillTitle}>Centro de Ensino de Línguas CEL Unicamp</h3>
               <p className={styles.skillDesc}>
-                O CEL oferece disciplinas regulares totalmente gratuitas de Inglês, Espanhol, Francês, Alemão, Italiano e Japonês. As matérias são cursadas como disciplinas eletivas livres com créditos contabilizados no histórico escolar, havendo turmas ofertadas em Barão Geraldo e nos campi de Limeira.
+                O CEL oferece disciplinas regulares totalmente gratuitas de Alemão, Espanhol, Francês, Hebraico, Inglês, Italiano, Japonês, Russo e Português Língua Adicional. As matérias são cursadas como disciplinas eletivas livres com créditos contabilizados no histórico escolar, havendo turmas ofertadas em Barão Geraldo e nos campi de Limeira, além de provas semestrais de nivelamento.
               </p>
             </div>
 
@@ -1186,6 +1186,27 @@ export default function CarreiraPage() {
                   className={styles.cardInlineLink}
                 >
                   <span>Acessar Portal do CEL</span>
+                  <ExternalLink size={14} aria-hidden="true" />
+                </a>
+              </div>
+            </div>
+
+            <div className={styles.roadmapCard}>
+              <div className={styles.roadmapCardHeader}>
+                <span className={styles.roadmapBadge}>Disciplinas DAC</span>
+                <h3 className={styles.roadmapCardTitle}>Catálogo de Disciplinas CEL</h3>
+                <p className={styles.roadmapCardDesc}>
+                  Consulte a grade horária oficial das turmas de línguas para planejar sua matrícula de eletivas livres via DAC.
+                </p>
+              </div>
+              <div className={styles.roadmapCardFooter}>
+                <a
+                  href="https://www.cel.unicamp.br/disciplinas/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.cardInlineLink}
+                >
+                  <span>Disciplinas e Horários</span>
                   <ExternalLink size={14} aria-hidden="true" />
                 </a>
               </div>

@@ -27,6 +27,10 @@ import {
   Check,
   Sparkles,
   PartyPopper,
+  BookOpen,
+  Repeat,
+  FileText,
+  Instagram,
 } from 'lucide-react';
 import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
 import styles from './campus.module.scss';
@@ -37,6 +41,17 @@ const campusTopics: TopicItem[] = [
     title: 'Galeria do Campus',
     subtopics: [
       { id: 'campus-galeria', title: 'Biblioteca e Auditório' },
+    ],
+  },
+  {
+    id: 'biblioteca-sbu-ft',
+    title: 'Biblioteca FT e SBU',
+    subtopics: [
+      { id: 'biblioteca-sbu-ft', title: 'Apresentação e Acervo' },
+      { id: 'biblioteca-emprestimo-malote', title: 'Empréstimo e Malote Intercampi' },
+      { id: 'biblioteca-estudo-espacos', title: 'Salas de Estudo e Cabines' },
+      { id: 'biblioteca-bases-tcc', title: 'Bases Digitais e Ficha TCC' },
+      { id: 'biblioteca-redes-contato', title: 'Instagram Oficial e Canais' },
     ],
   },
   {
@@ -165,6 +180,142 @@ export default function CampusPage() {
               <p className={styles.galleryDesc}>
                 Ambiente de grandes conferências, recepção de calouros pela comissão discente, palestras técnicas com profissionais de mercado e defesas de graduação.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Biblioteca FT e Sistema de Bibliotecas da Unicamp SBU */}
+      <section id="biblioteca-sbu-ft" className={styles.sectionBlock}>
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <BookOpen size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>Biblioteca Setorial da FT e Sistema SBU Unicamp</h2>
+              <p className={styles.cardSubtitle}>
+                Biblioteca Prof. Dr. René Marie Joseph Dreifuss no CTL Limeira, integrada à rede de 29 bibliotecas da Unicamp
+              </p>
+            </div>
+          </div>
+
+          <p className={styles.libraryIntroText}>
+            A Biblioteca Setorial da FT atende prioritariamente aos cursos de graduação e pós-graduação da Faculdade de Tecnologia e integra o Sistema de Bibliotecas da Unicamp, coordenado pela Coordenadoria do SBU. O estudante possui acesso tanto ao acervo local quanto aos materiais de todos os campi da universidade por meio de logística integrada e empréstimo unificado.
+          </p>
+
+          <div className={styles.libraryGrid}>
+            <div id="biblioteca-emprestimo-malote" className={styles.libraryCard}>
+              <div className={styles.libraryCardHeader}>
+                <div className={`${styles.libraryIconWrapper} ${styles.blue}`}>
+                  <Repeat size={20} aria-hidden="true" />
+                </div>
+                <span className={`${styles.libraryBadge} ${styles.blue}`}>Circulação e Malote</span>
+              </div>
+              <h3 className={styles.libraryCardTitle}>Empréstimo Unificado e Malote Intercampi</h3>
+              <p className={styles.libraryCardDesc}>
+                Com seu RA e senha de biblioteca cadastrados no primeiro acesso, você retira livros físicos em qualquer uma das 29 bibliotecas da Unicamp. Caso a obra de que necessita esteja apenas em Barão Geraldo ou em Piracicaba, você pode solicitar via malote intercampi pelo sistema online e o exemplar chega diretamente ao balcão de atendimento da FT em Limeira. As devoluções também podem ser feitas em qualquer unidade da rede.
+              </p>
+            </div>
+
+            <div id="biblioteca-estudo-espacos" className={styles.libraryCard}>
+              <div className={styles.libraryCardHeader}>
+                <div className={`${styles.libraryIconWrapper} ${styles.green}`}>
+                  <Building2 size={20} aria-hidden="true" />
+                </div>
+                <span className={`${styles.libraryBadge} ${styles.green}`}>Ambientes</span>
+              </div>
+              <h3 className={styles.libraryCardTitle}>Espaços de Estudo Individual e Coletivo</h3>
+              <p className={styles.libraryCardDesc}>
+                A unidade oferece cabines individuais silenciosas para concentração, mesas amplas com tomadas acessíveis para notebooks, salas fechadas para reuniões e elaboração de trabalhos acadêmicos em grupo, além de computadores integrados à rede universitária para pesquisa de acervo e consultas rápidas.
+              </p>
+            </div>
+
+            <div id="biblioteca-bases-tcc" className={styles.libraryCard}>
+              <div className={styles.libraryCardHeader}>
+                <div className={`${styles.libraryIconWrapper} ${styles.purple}`}>
+                  <FileText size={20} aria-hidden="true" />
+                </div>
+                <span className={`${styles.libraryBadge} ${styles.purple}`}>Pesquisa e TCC</span>
+              </div>
+              <h3 className={styles.libraryCardTitle}>Bases Digitais, VPN e Ficha Catalográfica</h3>
+              <p className={styles.libraryCardDesc}>
+                Acesso aos periódicos da Capes, IEEE Xplore, ScienceDirect e e-books especializados no campus ou remotamente via VPN do CCUEC. Para concluintes, a equipe bibliotecária fornece orientação de normalização ABNT, geração automatizada de ficha catalográfica no padrão SBU e procedimentos de depósito legal no Repositório da Produção Científica e Intelectual da Unicamp.
+              </p>
+            </div>
+
+            <div id="biblioteca-redes-contato" className={styles.libraryCard}>
+              <div className={styles.libraryCardHeader}>
+                <div className={`${styles.libraryIconWrapper} ${styles.amber}`}>
+                  <Instagram size={20} aria-hidden="true" />
+                </div>
+                <span className={`${styles.libraryBadge} ${styles.amber}`}>Comunicação</span>
+              </div>
+              <h3 className={styles.libraryCardTitle}>Canal Oficial no Instagram e Atendimento</h3>
+              <p className={styles.libraryCardDesc}>
+                O perfil oficial @bibliotecaftctl é o canal mais ágil para acompanhar avisos de horários especiais em períodos de provas ou recessos acadêmicos, chegada de novos títulos para computação e engenharias, ofertas de treinamentos para levantamento bibliográfico e programações culturais do campus.
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.libraryActionCardsGrid}>
+            <div className={styles.libraryActionCard}>
+              <div>
+                <span className={styles.libraryActionBadge}>Portal Setorial</span>
+                <h4 className={styles.libraryActionTitle}>Portal Oficial da Biblioteca da FT</h4>
+                <p className={styles.libraryActionDesc}>
+                  Consulte os serviços locais no campus CTL de Limeira, comissões, canais de contato e formulários de atendimento.
+                </p>
+              </div>
+              <a
+                href="https://www3.ft.unicamp.br/pt-br/biblioteca"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.libraryActionBtn}
+                aria-label="Acessar portal da biblioteca da Faculdade de Tecnologia em nova janela"
+              >
+                <span>Acessar Portal da FT</span>
+                <ExternalLink size={14} aria-hidden="true" />
+              </a>
+            </div>
+
+            <div className={styles.libraryActionCard}>
+              <div>
+                <span className={styles.libraryActionBadge}>Rede Unicamp</span>
+                <h4 className={styles.libraryActionTitle}>Sistema de Bibliotecas SBU</h4>
+                <p className={styles.libraryActionDesc}>
+                  Pesquise no catálogo Acervus, renove seus empréstimos ativos e solicite reservas e materiais via malote entre campi.
+                </p>
+              </div>
+              <a
+                href="https://www.sbu.unicamp.br/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.libraryActionBtn}
+                aria-label="Acessar portal central do SBU Unicamp em nova janela"
+              >
+                <span>Acessar Portal do SBU</span>
+                <ExternalLink size={14} aria-hidden="true" />
+              </a>
+            </div>
+
+            <div className={styles.libraryActionCard}>
+              <div>
+                <span className={styles.libraryActionBadge}>Redes Sociais</span>
+                <h4 className={styles.libraryActionTitle}>Instagram Oficial @bibliotecaftctl</h4>
+                <p className={styles.libraryActionDesc}>
+                  Avisos dinâmicos de funcionamento, eventos, novos livros físicos e digitais e avisos para a comunidade de Limeira.
+                </p>
+              </div>
+              <a
+                href="https://www.instagram.com/bibliotecaftctl/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.libraryActionBtn}
+                aria-label="Acessar perfil da biblioteca da FT no Instagram em nova janela"
+              >
+                <Instagram size={14} aria-hidden="true" />
+                <span>Ver @bibliotecaftctl</span>
+                <ExternalLink size={14} aria-hidden="true" />
+              </a>
             </div>
           </div>
         </div>

@@ -975,3 +975,185 @@
   }
 }
 
+// Seção da Biblioteca FT e SBU
+.libraryIntroText {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: $spacing-xl;
+}
+
+.libraryGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+  margin-bottom: $spacing-2xl;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.libraryCard {
+  background-color: var(--surface-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-lg;
+  padding: $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  transition: transform $transition-fast, border-color $transition-fast, box-shadow $transition-fast;
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: var(--ft-blue);
+    box-shadow: $shadow-sm;
+  }
+}
+
+.libraryCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-md;
+}
+
+.libraryIconWrapper {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: $radius-md;
+  @include flex-center;
+
+  &.blue {
+    background-color: var(--ft-blue-soft);
+    color: var(--ft-blue);
+  }
+
+  &.green {
+    background-color: var(--ft-green-soft);
+    color: var(--ft-green);
+  }
+
+  &.purple {
+    background-color: rgba(123, 31, 162, 0.12);
+    color: #7b1fa2;
+  }
+
+  &.amber {
+    background-color: rgba(217, 119, 6, 0.12);
+    color: #d97706;
+  }
+}
+
+.libraryBadge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.625rem;
+  border-radius: $radius-full;
+
+  &.blue {
+    background-color: var(--ft-blue-soft);
+    color: var(--ft-blue);
+  }
+
+  &.green {
+    background-color: var(--ft-green-soft);
+    color: var(--ft-green);
+  }
+
+  &.purple {
+    background-color: rgba(123, 31, 162, 0.12);
+    color: #7b1fa2;
+  }
+
+  &.amber {
+    background-color: rgba(217, 119, 6, 0.12);
+    color: #d97706;
+  }
+}
+
+.libraryCardTitle {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: $spacing-xs;
+}
+
+.libraryCardDesc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.libraryActionCardsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+  border-top: 1px solid var(--border-color);
+  padding-top: $spacing-xl;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.libraryActionCard {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-md;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: $spacing-md;
+}
+
+.libraryActionBadge {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ft-green);
+  background-color: var(--ft-green-soft);
+  padding: 0.2rem 0.5rem;
+  border-radius: $radius-full;
+  margin-bottom: $spacing-xs;
+}
+
+.libraryActionTitle {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.libraryActionDesc {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.libraryActionBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.875rem;
+  background-color: var(--surface-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-md;
+  color: var(--text-primary);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all $transition-fast;
+
+  &:hover {
+    background-color: var(--ft-blue-soft);
+    color: var(--ft-blue);
+    border-color: var(--ft-blue);
+  }
+}
+
