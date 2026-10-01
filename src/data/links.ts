@@ -195,7 +195,7 @@ export const linksData: ResourceLink[] = [
   {
     id: 'ft-procedimentos-estagio',
     title: 'Procedimentos de Estágio na FT',
-    description: 'Manual com fluxo oficial de documentação, prazos e relatórios via SAE para alunos da FT Unicamp',
+    description: 'Manual com fluxo oficial de documentação, prazos e relatórios via DEAPE para alunos da FT Unicamp',
     url: 'https://www3.ft.unicamp.br/graduacao/estagio/procedimentos/alunos',
     category: 'matricula',
     badge: 'Estágio',
@@ -393,12 +393,12 @@ export const linksData: ResourceLink[] = [
     badge: 'Mentoria PMU',
   },
   {
-    id: 'sae-permanencia',
-    title: 'Serviço de Apoio ao Estudante SAE',
-    description: 'Inscrições para bolsas de assistência social, auxílio moradia e programas de permanência da Unicamp',
-    url: 'https://www.sae.unicamp.br',
+    id: 'deape-permanencia-portal',
+    title: 'Diretoria Executiva de Apoio e Permanência DEAPE',
+    description: 'Portal oficial para bolsas de assistência social, moradia, alimentação e homologação de estágios da Unicamp',
+    url: 'https://deape.unicamp.br',
     category: 'permanencia',
-    badge: 'Apoio Social',
+    badge: 'DEAPE Unicamp',
   },
   {
     id: 'prg-cronograma-pad',

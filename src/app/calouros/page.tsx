@@ -29,7 +29,8 @@ import {
   ArrowRight,
   Home,
   Copy,
-  Check
+  Check,
+  Lightbulb,
 } from 'lucide-react';
 import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
 import { useClipboardCopy } from '@/hooks/useClipboardCopy';
@@ -697,6 +698,16 @@ export default function CalourosPage() {
                     A FT mantém um sistema web na intranet onde você pesquisa o código da sua matéria ou horário e vê exatamente em qual PA, SA ou LP sua aula foi alocada no dia.
                   </p>
                 </div>
+              </div>
+
+              <div className={`${styles.alertBox} ${styles.alertTip}`} style={{ marginTop: '1.25rem' }}>
+                <span className={styles.alertTitle}>
+                  <Lightbulb size={16} />
+                  Dica de Ouro dos Professores: Foco em Sala de Aula
+                </span>
+                <p className={styles.alertText}>
+                  O principal desafio apontado pelos docentes da FT é a dispersão com smartphones durante as explicações. Manter o celular guardado, acompanhar o raciocínio da aula e tirar dúvidas diretamente com o professor no momento em que surgem são os hábitos que mais diferenciam os estudantes aprovados de primeira.
+                </p>
               </div>
 
               <div className={styles.gradeLinkBox}>

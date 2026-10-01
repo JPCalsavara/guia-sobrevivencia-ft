@@ -9,6 +9,14 @@
 - **CP:** Coeficiente de Progressão, percentual de créditos já concluídos em relação à carga total exigida pelo catálogo do curso.
 - **Grade DAC Online:** Plataforma oficial mantida pela Diretoria Acadêmica para acompanhamento da integralização curricular e emissão de históricos.
 - **Vetor de Disciplina:** Distribuição semanal das horas em Teoria, Prática, Laboratório e Orientação.
+- **DEAPE:** Diretoria Executiva de Apoio e Permanência Estudantil, órgão oficial da Unicamp responsável pela homologação de termos de estágio e benefícios de permanência.
+- **SI916 e SI917:** Disciplinas oficiais de estágio curricular supervisionado vigentes no catálogo da FT, correspondendo a SI916 para BSI e SI917 para TADS.
+- **Contemporaneidade do Estágio:** Regra que exige matrícula na disciplina de estágio no mesmo semestre letivo em que o estágio remunerado é executado para que haja aproveitamento formal.
+- **Estágio em Regime CLT:** Exigência formal da Unicamp de abertura de termo de estágio obrigatório não remunerado para estudantes contratados via CLT, com duração de dez semanas para BSI e seis semanas para TADS.
+- **Curricularização da Extensão:** Exigência regulamentar de dez por cento da carga do curso em extensão, suprida pelas matérias obrigatórias de BSI e TADS, identificada por SI918 até o catálogo 2022 ou SI919 e SI920 a partir do catálogo 2023.
+- **Armadilha da Equivalência:** Risco no qual o estudante cursa matéria equivalente fora da FT sem carga de extensão, gerando déficit irreversível de horas que impede a colação de grau.
+- **Disciplina Extracurricular:** Disciplina cursada após o cumprimento de todas as eletivas, identificada com a marcação X no e-DAC, aproveitável em atividades complementares.
+- **Planejamento de Iniciação Científica:** Cronograma orientado pelo corpo docente com busca de orientador até meados do segundo semestre para submissão no primeiro semestre do ano subsequente, dependente de histórico sem reprovações.
 
 ### Identidade Visual e Interface
 - **Azul FT:** Cor institucional que simboliza tecnologia, computação e inovação. No modo claro, adota tom escuro profundo para contraste nítido contra o fundo branco. No modo escuro, adota tom claro para leitura contrastante no fundo escuro.
@@ -30,3 +38,4 @@
 - **ADR-0005:** Concisão e clareza orientada à essência da informação para o estudante.
 - **ADR-0006:** Otimização contínua guiada por telemetria e análise de uso do portal.
 - **ADR-0007:** Hospedagem na Vercel com Analytics integrado e observabilidade contínua.
+- **ADR-0008:** Versionamento semântico com releases automáticos no git-flow e bloqueio de comissões diretas na branch main.

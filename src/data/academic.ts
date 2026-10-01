@@ -47,7 +47,7 @@ export const courseComparisonData: CourseComparison[] = [
   },
   {
     criterion: 'Rotina e Inserção no Mercado de Trabalho',
-    bsi: 'Maioria reside em repúblicas ou kitnets em Limeira nos anos iniciais, iniciando estágio formal a partir do quinto semestre',
+    bsi: 'Maioria reside em Limeira nos anos iniciais e realiza estágio formal no quarto ano letivo, pois as turmas noturnas de TADS não possuem vagas para BSI',
     tads: 'Muitos estudantes viajam diariamente de cidades vizinhas em ida e volta até o final do curso, trabalhando ou estagiando mais cedo por necessidade e disponibilidade noturna',
   },
 ];
@@ -69,20 +69,20 @@ export const graduationChecklistData: GraduationCheckItem[] = [
   {
     id: 'eletivas',
     title: 'Cota Mínima de Créditos em Disciplinas Eletivas',
-    description: 'Cumprir os créditos exigidos entre eletivas do catálogo e eletivas livres',
-    detail: 'Eletivas livres podem ser cursadas na FCA em Limeira ou nos institutos de Barão Geraldo, além do Centro de Ensino de Línguas.',
+    description: 'Cumprir os créditos exigidos entre eletivas de bloco e eletivas livres presenciais',
+    detail: 'Eletivas gerais podem ser cursadas na FCA em Limeira ou nos institutos de Barão Geraldo, com aulas e avaliações presenciais, não sendo admitido abater estágio nem atividades complementares.',
   },
   {
     id: 'extensao',
     title: 'Atividades Complementares e Curricularização da Extensão',
-    description: 'Comprovar o mínimo regulamentar de sessenta horas complementares',
-    detail: 'Certificados emitidos pela Atria, Liestag, Semeia Code, Enactus ou Coursera institucional contam para essa meta.',
+    description: 'Comprovar a carga regulamentar no e-DAC conforme o catálogo de ingresso',
+    detail: 'Em BSI e TADS as disciplinas obrigatórias já suprem os dez por cento de extensão. Verifique no e-DAC se seu catálogo exige SI918, para ingressantes até 2022, ou SI919 e SI920 a partir de 2023. Certificados de atividades complementares podem ser enviados durante todo o semestre letivo até quinze dias antes da semana de estudos.',
   },
   {
     id: 'tcc-estagio',
     title: 'Conclusão Aprovada de TCC ou Estágio Supervisionado',
-    description: 'Apresentar monografia ou relatório formal de estágio conforme o curso',
-    detail: 'Em BSI é necessária a aprovação formal em banca examinadora. Em TADS é exigido o relatório de estágio na empresa conveniada.',
+    description: 'Apresentar monografia ou estágio formal contemporâneo homologado via DEAPE',
+    detail: 'Em BSI é necessária a aprovação de TCC perante banca e estágio SI916. Em TADS cursa-se estágio SI917 ou projeto prático. O estágio remunerado precisa ser realizado no mesmo semestre da matrícula para aproveitamento. Alunos CLT devem abrir estágio obrigatório não remunerado de dez semanas em BSI ou seis semanas em TADS.',
   },
   {
     id: 'quitacao-biblioteca',
@@ -223,8 +223,7 @@ export const bsiCurriculumData: SemesterCurriculum[] = [
     semesterLabel: '6º Semestre',
     totalCredits: 20,
     subjects: [
-      { code: 'SI910', name: 'Estágio em Computação I', credits: 10, type: 'obrigatoria', note: 'Estágio supervisionado formal com plano homologado via SAE' },
-      { code: 'ELET-04', name: 'Créditos Eletivos do Catálogo', credits: 10, type: 'eletiva' },
+      { code: 'ELET-04', name: 'Créditos Eletivos do Catálogo', credits: 20, type: 'eletiva', note: 'Disciplinas eletivas avançadas de computação, iniciação científica ou monitoria' },
     ],
   },
   {
@@ -237,7 +236,7 @@ export const bsiCurriculumData: SemesterCurriculum[] = [
       { code: 'SI702', name: 'Inteligência Artificial', credits: 4, type: 'obrigatoria' },
       { code: 'SI703', name: 'Governança e Planejamento Estratégico de TI', credits: 2, type: 'obrigatoria' },
       { code: 'SI704', name: 'Seminários II', credits: 2, type: 'obrigatoria' },
-      { code: 'SI911', name: 'Estágio em Computação II', credits: 10, type: 'obrigatoria' },
+      { code: 'SI916', name: 'Estágio em Computação', credits: 10, type: 'obrigatoria', note: 'Estágio curricular supervisionado formal contemporâneo homologado via DEAPE' },
       { code: 'SI912', name: 'Trabalho de Conclusão de Curso I', credits: 6, type: 'obrigatoria', note: 'Definição de tema, orientador e proposta inicial' },
     ],
   },
@@ -348,38 +347,38 @@ export const ftInternshipProceduresData: InternshipStep[] = [
   {
     stepNumber: 1,
     title: 'Verificação da Modalidade: Obrigatório versus Não Obrigatório',
-    description: 'Definição se o estágio terá aproveitamento em disciplinas curriculares ou atuação livre',
-    detail: 'No estágio obrigatório, o estudante precisa estar matriculado nas disciplinas formais de estágio do curso, como SI910 e SI911 no BSI. No estágio não obrigatório, não há exigência de matrícula em disciplina específica.',
+    description: 'Definição se o estágio terá aproveitamento em disciplinas curriculares ou atuação profissional livre',
+    detail: 'No estágio obrigatório, o estudante precisa estar matriculado nas disciplinas curriculares vigentes, sendo SI916 para BSI e SI917 para TADS. O estágio remunerado só é aproveitado como obrigatório se for realizado de forma contemporânea no mesmo semestre letivo da matrícula.',
   },
   {
     stepNumber: 2,
-    title: 'Cadastro Exclusivo no Sistema de Estágio do SAE',
+    title: 'Cadastro Exclusivo no Sistema de Estágio da DEAPE',
     description: 'Registro do plano de trabalho da empresa e dados do aluno na plataforma oficial',
-    detail: 'Tanto para estágios remunerados quanto voluntários, a formalização ocorre via sistema SAE. A empresa cadastrada insere o Plano de Atividades com a descrição das tarefas técnicas que serão desempenhadas.',
+    detail: 'Tanto para estágios remunerados quanto não remunerados, a formalização ocorre via sistema da DEAPE. A empresa cadastrada insere o Plano de Atividades com a descrição das tarefas técnicas que serão desempenhadas.',
   },
   {
     stepNumber: 3,
     title: 'Avaliação da Correlação pelo Coordenador de Curso',
     description: 'Análise de compatibilidade entre as tarefas corporativas e o perfil pedagógico do curso',
-    detail: 'A coordenação do curso de graduação da FT analisa o plano de estágio via sistema SAE. Para aprovação, o estágio deve demonstrar correlação direta com tecnologia e respeitar os limites da Lei Federal 11.788 de 2008.',
+    detail: 'A coordenação do curso de graduação da FT analisa o plano de estágio via sistema DEAPE. Para aprovação, o estágio deve demonstrar correlação direta com tecnologia e respeitar os limites da Lei Federal 11.788 de 2008.',
   },
   {
     stepNumber: 4,
     title: 'Assinatura e Entrega do Termo de Compromisso',
     description: 'Protocolo formal do documento antes do primeiro dia de atuação na empresa',
-    detail: 'Após o deferimento eletrônico, o termo de compromisso de estágio gerado pelo sistema deve ser assinado pelo aluno, pela empresa e pela universidade, sendo protocolado no SAE da FT antes do início das atividades.',
+    detail: 'Após o deferimento eletrônico, o termo de compromisso de estágio gerado pelo sistema deve ser assinado pelo aluno, pela empresa e pela universidade, sendo protocolado junto à DEAPE e à FT antes do início das atividades.',
   },
   {
     stepNumber: 5,
     title: 'Acompanhamento e Elaboração do Relatório Final',
     description: 'Validação de aprendizagem com parecer do supervisor corporativo',
-    detail: 'Ao término do período acordado, o estudante faz o envio do Relatório Final de Estágio no sistema SAE, com a avaliação e assinatura do supervisor da empresa e a validação do professor responsável para concessão dos créditos.',
+    detail: 'Ao término do período acordado, o estudante faz o envio do Relatório Final de Estágio no sistema DEAPE, com a avaliação e assinatura do supervisor da empresa e a validação do professor responsável para concessão dos créditos.',
   },
   {
     stepNumber: 6,
-    title: 'Trâmite de Casos Especiais para Vínculo CLT',
-    description: 'Regulamentação para estudantes que já possuem carteira assinada na área técnica',
-    detail: 'A legislação proíbe estágio regular se o estudante mantiver vínculo CLT na mesma função da vaga. Estudantes nessa condição devem procurar a Secretaria de Graduação da FT para abertura de processo de Casos Especiais.',
+    title: 'Procedimento para Estudantes com Vínculo CLT',
+    description: 'Abertura de estágio obrigatório não remunerado para quem já possui carteira assinada',
+    detail: 'Estudantes com contrato CLT devem abrir formalmente termo de estágio obrigatório não remunerado junto à empresa para cumprir as horas curriculares, com duração de dez semanas para BSI ou seis semanas para TADS. É fundamental verificar previamente se a empresa aceita firmar o termo e atentar para o limite legal de até dois anos de estágio na mesma organização.',
   },
 ];
 

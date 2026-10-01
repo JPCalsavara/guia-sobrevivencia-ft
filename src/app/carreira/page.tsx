@@ -293,9 +293,17 @@ export default function CarreiraPage() {
 
             <div id="requisito-legal" className={styles.timelineItem}>
               <span className={styles.periodBadge}>Requisito Legal</span>
-              <h3 className={styles.timelineTitle}>Elegibilidade Institucional</h3>
+              <h3 className={styles.timelineTitle}>Modalidades e Elegibilidade</h3>
               <p className={styles.timelineDesc}>
-                Pela legislação vigente e pelas normas da DAC, o estudante precisa estar regularmente matriculado e cursando a partir do terceiro semestre letivo para estágios não obrigatórios, respeitando o teto de trinta horas semanais.
+                Para estágios não obrigatórios remunerados, o estudante pode iniciar a partir do terceiro semestre com tramitação prévia via sistema da DEAPE e limite de trinta horas semanais. O estágio obrigatório curricular corresponde a SI916 em BSI e SI917 em TADS.
+              </p>
+            </div>
+
+            <div className={styles.timelineItem}>
+              <span className={styles.periodBadge}>Concomitância e CLT</span>
+              <h3 className={styles.timelineTitle}>Validação e Casos de Vínculo Formal</h3>
+              <p className={styles.timelineDesc}>
+                O estágio remunerado precisa ser concomitante com a matrícula na disciplina de estágio no mesmo semestre. Estudantes contratados via CLT devem abrir estágio obrigatório não remunerado de dez semanas para BSI ou seis semanas para TADS. O curso de BSI foi desenhado pela coordenação para o estágio ocorrer no quarto ano, evitando quebra da matriz curricular com tentativas frustradas de migração para o noturno.
               </p>
             </div>
           </div>
