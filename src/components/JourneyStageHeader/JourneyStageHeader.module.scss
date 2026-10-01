@@ -1,0 +1,139 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.headerCard {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--ft-blue);
+  border-radius: $radius-lg;
+  padding: $spacing-xl;
+  margin-bottom: $spacing-2xl;
+  box-shadow: $shadow-sm;
+  transition: all $transition-normal;
+}
+
+.headerTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+  margin-bottom: $spacing-md;
+}
+
+.titleArea {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+}
+
+.stageIconBadge {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: $radius-md;
+  background-color: var(--ft-blue-soft);
+  color: var(--ft-blue);
+  border: 1px solid var(--ft-blue-border);
+  @include flex-center;
+  flex-shrink: 0;
+}
+
+.badgeAndTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.stagePill {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.55rem;
+  border-radius: $radius-full;
+  background-color: var(--ft-blue-soft);
+  color: var(--ft-blue);
+  border: 1px solid var(--ft-blue-border);
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.resetBtn {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: none;
+  border: 1px solid var(--border-color);
+  padding: 0.35rem 0.75rem;
+  border-radius: $radius-full;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover {
+    color: var(--text-primary);
+    border-color: var(--ft-blue);
+    background-color: var(--surface-elevated);
+  }
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0 0 $spacing-lg 0;
+}
+
+.goalsContainer {
+  background-color: var(--surface-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-md;
+  padding: $spacing-lg;
+}
+
+.goalsHeading {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+  margin: 0 0 $spacing-md 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.goalsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-sm;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.goalItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+.checkIcon {
+  color: var(--ft-blue);
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
