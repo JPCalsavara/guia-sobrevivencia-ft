@@ -159,9 +159,9 @@ const academicTopics: TopicItem[] = [
   },
   {
     id: 'noturno-bsi',
-    title: 'Transição Noturno no BSI',
+    title: 'Realidade do Noturno no BSI',
     subtopics: [
-      { id: 'noturno-bsi', title: 'Equivalências TADS e Rotina' },
+      { id: 'noturno-bsi', title: 'Lotação TADS e 4º Ano' },
     ],
   },
   {
@@ -402,16 +402,19 @@ export default function AcademicoPage() {
           </div>
 
           <div id="coeficientes-eletivas" className={styles.eletivasArea}>
-            <h3 className={styles.eletivasTitle}>Eletivas do Catálogo versus Eletivas Livres</h3>
+            <h3 className={styles.eletivasTitle}>Estrutura de Eletivas e Disciplinas Extracurriculares</h3>
             <p className={styles.eletivasDesc}>
-              Para se formar, você precisará cumprir créditos eletivos além das disciplinas obrigatórias:
+              Para integralizar sua graduação, o cumprimento de créditos eletivos divide-se em blocos com finalidades pedagógicas distintas:
             </p>
             <ul className={styles.eletivasList}>
               <li>
-                <strong>Eletivas do Catálogo:</strong> Disciplinas técnicas oferecidas pela própria FT, como tópicos em computação em nuvem, bancos de dados avançados e mineração de dados. Elas abatem diretamente a cota de eletivas técnicas do curso.
+                <strong>Eletivas de Bloco Específico:</strong> Disciplinas vinculadas a eixos formativos obrigatórios definidos pelo curso, abrangendo o bloco de Trabalho de Conclusão de Curso como SI912 e SI913, e o bloco de Estágio Supervisionado como SI916 em BSI ou SI917 em TADS.
               </li>
               <li>
-                <strong>Eletivas Livres:</strong> Disciplinas cursadas em qualquer instituto da Unicamp, incluindo cursos na FCA em Limeira ou no Instituto de Computação em Barão Geraldo, além de línguas estrangeiras no Centro de Ensino de Línguas.
+                <strong>Eletivas Livres em Qualquer Unidade da Unicamp:</strong> Matérias regulares cursadas em faculdades e institutos da Unicamp, como na FCA em Limeira, nos institutos de Barão Geraldo ou no Centro de Ensino de Línguas CEL. Devem obrigatoriamente possuir aulas teóricas ou práticas, controle de frequência e provas formais, não sendo permitido validar estágio corporativo nem atividades complementares nessa cota.
+              </li>
+              <li>
+                <strong>Disciplinas Extracurriculares Marcadas com X:</strong> Disciplinas cursadas após o preenchimento total das cotas de eletivas exigidas pelo catálogo. Elas são identificadas com a letra X na tela de integralização do e-DAC e não alteram a carga da grade regular, podendo ser aproveitadas para cumprimento de Atividades Complementares ou Atividades Complementares de Extensão caso tenham carga horária extensionista associada.
               </li>
             </ul>
 
@@ -1203,16 +1206,42 @@ export default function AcademicoPage() {
             </div>
 
             <div className={styles.ruleCard}>
-              <h3 className={styles.ruleTitle}>Como Identificar o Regulamento do Seu Catálogo</h3>
+              <h3 className={styles.ruleTitle}>Como Identificar Sua Norma de Extensão no e-DAC</h3>
               <p className={styles.ruleText}>
-                As regras exatas dependem do seu ano de ingresso na universidade. O catálogo 2018 segue a norma SI918, o catálogo 2019 adota a norma SI919 e os ingressantes a partir do catálogo 2020 cumprem as diretrizes integradas de extensão e atividades complementares estabelecidas na norma SI920.
+                Consulte diretamente a tela de integralização curricular no e-DAC. Os catálogos até 2022 não possuíam curricularização obrigatória de extensão e exigem a norma SI918. Já os catálogos a partir de 2023 exigem as normas SI919 para Atividades Complementares de Extensão e SI920 para Atividades Complementares Gerais.
+              </p>
+            </div>
+
+            <div className={styles.ruleCard}>
+              <h3 className={styles.ruleTitle}>Obrigatórias de BSI e TADS Já Cumprem os 10%</h3>
+              <p className={styles.ruleText}>
+                Nos cursos de BSI e TADS, as disciplinas obrigatórias da própria grade curricular já foram projetadas com créditos de extensão suficientes para atingir os dez por cento exigidos pelo MEC. Cumprindo a grade regular, essa meta é integralizada com sucesso.
+              </p>
+            </div>
+
+            <div className={styles.ruleCard}>
+              <h3 className={styles.ruleTitle}>Prazos de Entrega de Certificados</h3>
+              <p className={styles.ruleText}>
+                Ao se matricular na disciplina de atividades complementares, você não precisa ter todos os comprovantes prontos no primeiro dia de aula. A entrega dos certificados pode ser realizada durante todo o semestre letivo, tendo como limite até quinze dias antes do início da semana de estudos. Enviar com antecedência é recomendável para permitir eventuais correções documentais.
+              </p>
+            </div>
+
+            <div className={`${styles.ruleCard} ${styles.ruleCardAmber}`} style={{ gridColumn: '1 / -1' }}>
+              <div className={styles.ruleCardHeader}>
+                <div className={styles.ruleIconWrapper}>
+                  <AlertTriangle size={18} aria-hidden="true" />
+                </div>
+                <h3 className={styles.ruleTitle}>Alerta Crítico: A Armadilha das Disciplinas Equivalentes sem Extensão</h3>
+              </div>
+              <p className={styles.ruleText}>
+                Muita atenção ao solicitar equivalência de matérias cursadas fora da FT ou em outros institutos da Unicamp. Se uma disciplina obrigatória da FT possui carga horária de extensão e você cursar uma disciplina equivalente que não possua extensão, você não conseguirá colar grau por falta de horas extensionistas. Como o sistema DAC considera a matéria equivalente como já cumprida, não será possível se matricular novamente na matéria original da FT, forçando o estudante a cursar disciplinas extracurriculares adicionais para sanar o déficit de extensão.
               </p>
             </div>
           </div>
 
           <h3 id="horas-tabela" className={styles.categoryTitle} style={{ marginTop: '2.5rem', marginBottom: '1rem' }}>
             <Award size={18} />
-            Quadro Comparativo: Atividades Complementares versus Curricularização da Extensão
+            Quadro Comparativo: Atividades Complementares, Extensão e Disciplinas da Grade
           </h3>
 
           <div className={styles.gdeTableContainer}>
@@ -1220,35 +1249,35 @@ export default function AcademicoPage() {
               <thead>
                 <tr>
                   <th scope="col">Critério de Avaliação</th>
-                  <th scope="col" className={styles.tagBlue}>Atividades Complementares</th>
-                  <th scope="col" className={styles.tagGreen}>Curricularização da Extensão</th>
+                  <th scope="col" className={styles.tagBlue}>Atividades Complementares Gerais SI920</th>
+                  <th scope="col" className={styles.tagGreen}>Atividades Complementares de Extensão SI919</th>
+                  <th scope="col">Extensão nas Obrigatórias da Grade</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <th scope="row">Objetivo Central</th>
-                  <td>Enriquecimento formativo e multidisciplinar do próprio estudante durante o curso</td>
-                  <td>Aplicação prática do conhecimento universitário com impacto direto na sociedade externa</td>
+                  <td>Enriquecimento formativo e profissional autônomo do estudante</td>
+                  <td>Ações extensionistas desenvolvidas pelo aluno junto à sociedade externa</td>
+                  <td>Formação técnica curricular com projetos integrados à comunidade</td>
                 </tr>
                 <tr>
-                  <th scope="row">Público-Alvo e Foco</th>
-                  <td>Desenvolvimento individual do aluno no ambiente acadêmico ou corporativo</td>
-                  <td>Comunidade externa, escolas públicas, ONGs e cidadãos fora dos campi</td>
+                  <th scope="row">Público Beneficiado</th>
+                  <td>O próprio estudante no ambiente acadêmico ou corporativo</td>
+                  <td>Comunidade externa, escolas públicas, ONGs e cidadãos</td>
+                  <td>Sociedade e setor produtivo conectados à disciplina</td>
                 </tr>
                 <tr>
-                  <th scope="row">Exigência Curricular</th>
-                  <td>Mínimo de sessenta horas com limites de teto por modalidade no catálogo</td>
-                  <td>Obrigatoriedade de dez por cento da carga horária total do curso a partir do catálogo 2020</td>
+                  <th scope="row">Como Cumprir</th>
+                  <td>Cursos livres, congressos, monitoria PAD e iniciação científica</td>
+                  <td>Oficinas comunitárias, projetos da FT e iniciativas sociais</td>
+                  <td>Matrícula e aprovação nas disciplinas obrigatórias da FT com carga de extensão</td>
                 </tr>
                 <tr>
-                  <th scope="row">Exemplos Válidos</th>
-                  <td>Cursos online, participação em congressos, monitoria PAD, iniciação científica e ligas</td>
-                  <td>Oficinas em escolas, projetos sociais da FT, consultorias comunitárias e eventos abertos</td>
-                </tr>
-                <tr>
-                  <th scope="row">Forma de Comprovação</th>
-                  <td>Certificados com CNPJ, carga horária e assinatura para convalidação na coordenação</td>
-                  <td>Matrícula formal em disciplinas e projetos de extensão cadastrados na PROEC</td>
+                  <th scope="row">Prazo de Comprovação</th>
+                  <td>Envio de certificados no e-DAC até quinze dias antes da semana de estudos</td>
+                  <td>Envio de certificados com comprovação de impacto social externo</td>
+                  <td>Automático no histórico escolar após a aprovação na matéria</td>
                 </tr>
               </tbody>
             </table>
@@ -1386,13 +1415,13 @@ export default function AcademicoPage() {
             <div>
               <h2 className={styles.cardTitle}>Procedimentos Oficiais de Estágio na FT Unicamp</h2>
               <p className={styles.cardSubtitle}>
-                Passo a passo burocrático e prazos regulamentares via sistema SAE para validação legal do termo de compromisso e relatórios semestrais
+                Passo a passo burocrático e prazos regulamentares via sistema da DEAPE para validação legal do termo de compromisso e relatórios semestrais
               </p>
             </div>
           </div>
 
           <p className={styles.ruleText}>
-            Todo estágio realizado por estudantes da Faculdade de Tecnologia precisa obrigatoriamente ser formalizado antes do início efetivo das atividades laborais. A tramitação é realizada através do sistema de estágio do SAE. Atividades com vínculo empregatício CLT não podem ser cadastradas diretamente como estágio pela mesma empresa sem abertura prévia de processo de Casos Especiais junto à Secretaria de Graduação da FT.
+            Todo estágio realizado por estudantes da Faculdade de Tecnologia precisa obrigatoriamente ser formalizado antes do início efetivo das atividades laborais. A tramitação é realizada através do sistema de estágio da DEAPE. Para integralização nas disciplinas SI916 em BSI ou SI917 em TADS, o estágio remunerado deve ocorrer de forma concomitante com a matrícula no mesmo semestre letivo. No caso de estudantes com contrato de trabalho formal CLT, a atividade profissional não pode ser cadastrada diretamente como estágio remunerado pela mesma empresa. Para cumprir o requisito da disciplina, o estudante deve abrir termo de estágio obrigatório não remunerado de dez semanas em BSI ou seis semanas em TADS, respeitando o limite legal de até dois anos de estágio na mesma empresa.
           </p>
 
           <div className={styles.internshipStepsGrid}>
@@ -1438,9 +1467,9 @@ export default function AcademicoPage() {
           <div className={styles.cardHeader}>
             <Moon size={22} className={styles.headerIcon} />
             <div>
-              <h2 className={styles.cardTitle}>Transição para o Noturno no BSI: Como Concluir em Quatro Anos</h2>
+              <h2 className={styles.cardTitle}>Realidade do Noturno e Planejamento do Estágio no BSI</h2>
               <p className={styles.cardSubtitle}>
-                Estratégias com equivalências em TADS, adiantamento de matérias e os alertas reais de sobrecarga
+                Orientações da coordenação sobre a lotação das turmas de TADS, limites do CR e estruturação do estágio no quarto ano
               </p>
             </div>
           </div>
@@ -1449,12 +1478,12 @@ export default function AcademicoPage() {
             <div className={`${styles.ruleCard} ${styles.ruleCardBlue}`}>
               <div className={styles.ruleCardHeader}>
                 <div className={styles.ruleIconWrapper}>
-                  <GitMerge size={18} aria-hidden="true" />
+                  <AlertTriangle size={18} aria-hidden="true" />
                 </div>
-                <h3 className={styles.ruleTitle}>Equivalências Oficiais com TADS no Noturno</h3>
+                <h3 className={styles.ruleTitle}>Lotação Integral das Turmas Noturnas de TADS</h3>
               </div>
               <p className={styles.ruleText}>
-                Disciplinas estruturantes como Bancos de Dados, Engenharia de Software, Redes de Computadores e Programação Web possuem turmas equivalentes noturnas em TADS. No período de alteração de matrícula do e-DAC, o estudante de BSI pode solicitar matrícula nessas turmas noturnas para liberar o período diurno para o estágio.
+                As salas do curso noturno de TADS operam com capacidade física máxima preenchida exclusivamente pelos próprios alunos de TADS. Alunos de BSI não conseguem vagas nessas turmas na matrícula ordinária nem em alteração de matrícula, salvo casos excepcionais de choque de horários para quem já reprovou matérias.
               </p>
             </div>
 
@@ -1463,10 +1492,10 @@ export default function AcademicoPage() {
                 <div className={styles.ruleIconWrapper}>
                   <TrendingUp size={18} aria-hidden="true" />
                 </div>
-                <h3 className={styles.ruleTitle}>Adiantamento de Créditos no Ciclo Básico</h3>
+                <h3 className={styles.ruleTitle}>O Mito do CR Alto para Vagas Noturnas</h3>
               </div>
               <p className={styles.ruleText}>
-                Para esvaziar a grade diurna a partir do quinto semestre sem prorrogar a graduação, é fundamental adiantar matérias nos primeiros quatro semestres e cursar eletivas noturnas na FT ou na FCA. Manter o CR alto garante prioridade no e-DAC para conquistar vagas concorridas nas turmas noturnas.
+                Ter um Coeficiente de Rendimento elevado não garante vaga noturna de TADS para alunos de BSI. A prioridade regimental e o espaço físico das turmas pertencem inteiramente a TADS. Supor que o CR alto permitirá migrar a grade para a noite logo no início para antecipar estágio gera frustrações e planos inviáveis.
               </p>
             </div>
 
@@ -1475,22 +1504,22 @@ export default function AcademicoPage() {
                 <div className={styles.ruleIconWrapper}>
                   <Layers size={18} aria-hidden="true" />
                 </div>
-                <h3 className={styles.ruleTitle}>O Gargalo das Matérias Exclusivas de BSI</h3>
+                <h3 className={styles.ruleTitle}>Desestruturação da Matriz e Atraso na Formatura</h3>
               </div>
               <p className={styles.ruleText}>
-                Determinadas disciplinas obrigatórias do catálogo de BSI não possuem correspondente noturna em TADS e só são ofertadas durante o dia, como matérias de governança de TI, cálculo numérico ou modelagem avançada. O aluno precisará planejar com antecedência para cursá-las em horários com janela livre ou alinhar acordos de presença e horários flexíveis com a empresa de estágio.
+                Tentar puxar matérias noturnas quebra o fluxo planejado do catálogo. Diversas disciplinas do quinto semestre de BSI são oferecidas no primeiro semestre civil, enquanto em TADS ocorrem no segundo semestre civil. Além disso, disciplinas exclusivas de BSI só existem de dia. Inverter a grade resulta em atrasos severos na conclusão do curso.
               </p>
             </div>
 
             <div className={`${styles.ruleCard} ${styles.ruleCardAmber}`}>
               <div className={styles.ruleCardHeader}>
                 <div className={styles.ruleIconWrapper}>
-                  <AlertTriangle size={18} aria-hidden="true" />
+                  <GitMerge size={18} aria-hidden="true" />
                 </div>
-                <h3 className={styles.ruleTitle}>O Alerta Realista: Viagens Regionais e Rotina</h3>
+                <h3 className={styles.ruleTitle}>Planejamento Correto: Estágio no Quarto Ano</h3>
               </div>
               <p className={styles.ruleText}>
-                Muitos estudantes de TADS e veteranos de BSI no noturno viajam diariamente de municípios vizinhos como Americana, Santa Bárbara d&apos;Oeste e Piracicaba em vans ou ônibus intermunicipais. Encarar aulas das dezenove às vinte e duas horas e trinta minutos após oito horas diárias de trabalho ou estágio e deslocamento constante exige planejamento de sono, saúde e foco nas prioridades.
+                O projeto pedagógico de BSI foi desenhado de forma deliberada para o estágio supervisionado ocorrer no quarto ano, sétimo e oitavo semestres. Nesses semestres a carga presencial diurna é reduzida, permitindo estagiar sem desestruturar a grade horária e sem conflitar com aulas obrigatórias.
               </p>
             </div>
           </div>
@@ -1523,10 +1552,10 @@ export default function AcademicoPage() {
 
           <div id="ic-cronograma" className={styles.timelineGrid}>
             <div className={styles.timelineItem}>
-              <span className={styles.timelineBadge}>Novembro a Março</span>
-              <h4 className={styles.timelineTitle}>1. Mapeamento e Primeiro Contato</h4>
+              <span className={styles.timelineBadge}>Meio do 2º Semestre a Março</span>
+              <h4 className={styles.timelineTitle}>1. Antecipação do Primeiro Contato</h4>
               <p className={styles.timelineDesc}>
-                Buscar linhas de pesquisa dos docentes da FT, consultar o currículo Lattes e enviar mensagem formal manifestando interesse acadêmico. Iniciar o diálogo a partir de novembro do ano anterior permite amadurecer a proposta com calma antes da abertura dos editais.
+                O estudante deve procurar o docente orientador já na metade do segundo semestre letivo. Essa manifestação prévia garante tempo hábil para definir o plano de trabalho e amadurecer a proposta durante o primeiro semestre do ano seguinte, preparando a submissão com calma antes da abertura dos editais.
               </p>
             </div>
 
@@ -1642,6 +1671,13 @@ export default function AcademicoPage() {
             </div>
 
             <div className={styles.ruleCard}>
+              <h4 className={styles.ruleTitle}>Histórico sem Reprovações como Critério Decisivo</h4>
+              <p className={styles.ruleText}>
+                O rendimento acadêmico e a ausência total de reprovações são os principais critérios objetivos que os professores e os comitês de pesquisa utilizam para selecionar candidatos. Reprovações derrubam a pontuação no edital PIBIC e costumam inviabilizar bolsas da FAPESP, que exige histórico escolar impecável.
+              </p>
+            </div>
+
+            <div className={styles.ruleCard}>
               <h4 className={styles.ruleTitle}>A Linha de Corte das Bolsas Pagas</h4>
               <p className={styles.ruleText}>
                 As cotas financeiras de bolsas custeadas pelo CNPq e pela Unicamp são limitadas. Elas são concedidas aos projetos com as maiores pontuações no ranking geral até o esgotamento do orçamento disponível para cada faculdade e grande área do conhecimento.
@@ -1652,13 +1688,6 @@ export default function AcademicoPage() {
               <h4 className={styles.ruleTitle}>Bolsa Remunerada versus Modalidade Voluntária</h4>
               <p className={styles.ruleText}>
                 Quando uma proposta possui mérito científico aprovado pela comissão avaliadora mas a nota combinada não atinge a linha de corte das bolsas remuneradas, o projeto é contemplado na modalidade de Iniciação Científica Voluntária dentro do próprio edital PIBIC. O estudante executa a pesquisa normalmente, recebe certificado oficial emitido pela Unicamp e valida créditos curriculares, apenas sem a remuneração mensal.
-              </p>
-            </div>
-
-            <div className={styles.ruleCard}>
-              <h4 className={styles.ruleTitle}>Impacto de Reprovações no PIBIC e FAPESP</h4>
-              <p className={styles.ruleText}>
-                No PIBIC, reprovações no histórico escolar ou por falta penalizam a pontuação do componente acadêmico do candidato, derrubando a colocação no ranking e podendo tirar a bolsa remunerada. Na FAPESP, o critério é ainda mais severo: qualquer reprovação no histórico escolar ou rendimento acadêmico mediano leva com frequência à rejeição sumária da solicitação de bolsa, pois a agência exige histórico de excelência continuada.
               </p>
             </div>
           </div>

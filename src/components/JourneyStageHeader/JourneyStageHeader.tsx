@@ -45,7 +45,7 @@ const academicStageMeta: Record<Exclude<JourneyStage, 'all'>, StageMeta> = {
     icon: Award,
     goals: [
       'Revisar o checklist de formatura e quitação de pendências na DAC e Biblioteca',
-      'Formalizar termo de compromisso de estágio obrigatório via sistema SAE',
+      'Formalizar termo de compromisso de estágio obrigatório via sistema da DEAPE',
       'Concluir disciplinas de TCC ou protocolar substituição por artigo científico',
       'Avaliar antecipação de créditos de mestrado pelo Programa Integrado de Formação PIF',
     ],
