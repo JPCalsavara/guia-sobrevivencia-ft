@@ -32,6 +32,10 @@ import {
   Languages,
   Rocket
 } from 'lucide-react';
+import { useJourneyStage } from '@/hooks/useJourneyStage';
+import { useSectionOrdering } from '@/hooks/useSectionOrdering';
+import { JourneyStageHeader } from '@/components/JourneyStageHeader/JourneyStageHeader';
+import { SecondarySectionsToggle } from '@/components/SecondarySectionsToggle/SecondarySectionsToggle';
 import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
 import styles from './carreira.module.scss';
 
@@ -159,8 +163,37 @@ const sectionStageMap: Record<string, { stage: JourneyStage; label: string }> = 
   'canais-recomendados': { stage: 'calouro', label: 'Foco: Calouro, 1º e 2º Semestres' },
 };
 
+const allCareerSectionIds = [
+  'sazonalidade-estagio',
+  'testes-tecnicos',
+  'curriculo-latex',
+  'entrevistas-pitch',
+  'portfolio-github',
+  'empresas-mercado',
+  'empreendedorismo-inova-desafio',
+  'idiomas-confucio-cel',
+  'computacao-nuvem',
+  'roadmap-sh',
+  'trilhas-aprendizado',
+  'devops-ciberseguranca',
+  'canais-recomendados',
+];
+
 export default function CarreiraPage() {
-  const [journeyStage, setJourneyStage] = useState<JourneyStage>('all');
+  const { stage: journeyStage, selectStage: setJourneyStage } = useJourneyStage('all');
+  const {
+    isSecondaryOpen,
+    setIsSecondaryOpen,
+    secondarySections,
+    getSectionStyle,
+  } = useSectionOrdering(journeyStage, sectionStageMap, allCareerSectionIds);
+
+  const displayedTopics = journeyStage === 'all'
+    ? careerTopics
+    : [
+        ...careerTopics.filter((t) => sectionStageMap[t.id]?.stage === journeyStage),
+        ...careerTopics.filter((t) => sectionStageMap[t.id]?.stage !== journeyStage),
+      ];
 
   const renderStageBadge = (sectionId: string) => {
     const meta = sectionStageMap[sectionId];
@@ -200,7 +233,7 @@ export default function CarreiraPage() {
       {/* Conteúdo com Barra Lateral Esquerda */}
       <div className={styles.contentWithSidebar}>
         <aside className={styles.sidebarAside}>
-          <DocSidebar topics={careerTopics} title="Carreira e Mercado" />
+          <DocSidebar topics={displayedTopics} title="Carreira e Mercado" />
         </aside>
 
         <div className={styles.mainContentArea}>
@@ -211,9 +244,20 @@ export default function CarreiraPage() {
             pageContext="carreira"
           />
 
+          {journeyStage !== 'all' && (
+            <div id="trilha-prioritaria" style={{ order: 1 }}>
+              <JourneyStageHeader
+                stage={journeyStage}
+                pageContext="carreira"
+                onReset={() => setJourneyStage('all')}
+              />
+            </div>
+          )}
+
           {/* Sazonalidade e Feiras de Estágio */}
           <section
             id="sazonalidade-estagio"
+            style={getSectionStyle('sazonalidade-estagio')}
             className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['sazonalidade-estagio']?.stage === journeyStage ? styles.highlightStage : ''}`}
           >
             {renderStageBadge('sazonalidade-estagio')}
@@ -470,6 +514,7 @@ export default function CarreiraPage() {
       {/* Testes Técnicos */}
       <section
         id="testes-tecnicos"
+        style={getSectionStyle('testes-tecnicos')}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['testes-tecnicos']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('testes-tecnicos')}
@@ -512,6 +557,7 @@ export default function CarreiraPage() {
       {/* Currículo em LaTeX */}
       <section
         id="curriculo-latex"
+        style={getSectionStyle('curriculo-latex')}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['curriculo-latex']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('curriculo-latex')}
@@ -530,6 +576,7 @@ export default function CarreiraPage() {
       {/* Vídeo de Pitch e Entrevistas de Estágio */}
       <section
         id="entrevistas-pitch"
+        style={getSectionStyle('entrevistas-pitch')}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['entrevistas-pitch']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('entrevistas-pitch')}
@@ -612,6 +659,7 @@ export default function CarreiraPage() {
       {/* GitHub e LinkedIn */}
       <section
         id="portfolio-github"
+        style={getSectionStyle('portfolio-github')}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['portfolio-github']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('portfolio-github')}
@@ -732,6 +780,7 @@ export default function CarreiraPage() {
       {/* O Ecossistema de Empresas e Modelos de Trabalho */}
       <section
         id="empresas-mercado"
+        style={getSectionStyle('empresas-mercado')}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['empresas-mercado']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('empresas-mercado')}
@@ -917,6 +966,7 @@ export default function CarreiraPage() {
       {/* Empreendedorismo, Inova Unicamp e Desafio Unicamp */}
       <section
         id="empreendedorismo-inova-desafio"
+        style={getSectionStyle('empreendedorismo-inova-desafio')}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['empreendedorismo-inova-desafio']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('empreendedorismo-inova-desafio')}
@@ -1038,6 +1088,7 @@ export default function CarreiraPage() {
       {/* Estudo de Idiomas Estrangeiros em Limeira e Barão Geraldo */}
       <section
         id="idiomas-confucio-cel"
+        style={getSectionStyle('idiomas-confucio-cel')}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['idiomas-confucio-cel']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('idiomas-confucio-cel')}
@@ -1167,6 +1218,7 @@ export default function CarreiraPage() {
       {/* Trilhas e Computação em Nuvem */}
       <section
         id="computacao-nuvem"
+        style={getSectionStyle('computacao-nuvem')}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['computacao-nuvem']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('computacao-nuvem')}
@@ -1258,6 +1310,7 @@ export default function CarreiraPage() {
       {/* Roteiros Visuais e Ideias de Projetos no Roadmap.sh */}
       <section
         id="roadmap-sh"
+        style={getSectionStyle('roadmap-sh')}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['roadmap-sh']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('roadmap-sh')}
@@ -1417,6 +1470,7 @@ export default function CarreiraPage() {
       {/* Trilhas Tecnológicas com Links Práticos */}
       <section
         id="trilhas-aprendizado"
+        style={getSectionStyle('trilhas-aprendizado')}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['trilhas-aprendizado']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('trilhas-aprendizado')}
@@ -1632,6 +1686,7 @@ export default function CarreiraPage() {
       {/* DevOps, Cloud e Cibersegurança com Recomendação da LICS */}
       <section
         id="devops-ciberseguranca"
+        style={getSectionStyle('devops-ciberseguranca')}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['devops-ciberseguranca']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('devops-ciberseguranca')}
@@ -1727,6 +1782,7 @@ export default function CarreiraPage() {
       {/* Canais Recomendados */}
       <section
         id="canais-recomendados"
+        style={getSectionStyle('canais-recomendados')}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['canais-recomendados']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('canais-recomendados')}
@@ -2001,6 +2057,16 @@ export default function CarreiraPage() {
           </div>
         </div>
       </section>
+
+      {journeyStage !== 'all' && secondarySections.length > 0 && (
+        <SecondarySectionsToggle
+          isOpen={isSecondaryOpen}
+          onToggle={() => setIsSecondaryOpen(!isSecondaryOpen)}
+          count={secondarySections.length}
+          title="Demais Tópicos de Carreira"
+          subtitle="Conteúdos profissionais voltados para outros momentos da formação"
+        />
+      )}
         </div>
       </div>
     </div>

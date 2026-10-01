@@ -34,6 +34,10 @@ import {
 } from 'lucide-react';
 import { useClipboardCopy } from '@/hooks/useClipboardCopy';
 import { useTopicTracker } from '@/hooks/useTopicTracker';
+import { useJourneyStage } from '@/hooks/useJourneyStage';
+import { useSectionOrdering } from '@/hooks/useSectionOrdering';
+import { JourneyStageHeader } from '@/components/JourneyStageHeader/JourneyStageHeader';
+import { SecondarySectionsToggle } from '@/components/SecondarySectionsToggle/SecondarySectionsToggle';
 import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
 import { padComparisonData, ftInternshipProceduresData, ftTccProceduresData, pifGuidelinesData } from '@/data/academic';
 import styles from './academico.module.scss';
@@ -196,8 +200,37 @@ const sectionStageMap: Record<string, { stage: JourneyStage; label: string }> = 
   'intercambio-deri': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
 };
 
+const allAcademicSectionIds = [
+  'bsi-vs-tads',
+  'coeficientes-dac',
+  'calculo-geometria',
+  'checklist-formatura',
+  'tcc-pos-graduacao-pif',
+  'monitoria-pad',
+  'bolsas-permanencia-deape',
+  'horas-extensao',
+  'estrategia-carreira',
+  'noturno-bsi',
+  'iniciacao-cientifica',
+  'intercambio-deri',
+];
+
 export default function AcademicoPage() {
-  const [journeyStage, setJourneyStage] = useState<JourneyStage>('all');
+  const { stage: journeyStage, selectStage: setJourneyStage } = useJourneyStage('all');
+  const {
+    isSecondaryOpen,
+    setIsSecondaryOpen,
+    secondarySections,
+    getSectionStyle,
+  } = useSectionOrdering(journeyStage, sectionStageMap, allAcademicSectionIds);
+
+  const displayedTopics = journeyStage === 'all'
+    ? academicTopics
+    : [
+        ...academicTopics.filter((t) => sectionStageMap[t.id]?.stage === journeyStage),
+        ...academicTopics.filter((t) => sectionStageMap[t.id]?.stage !== journeyStage),
+      ];
+
   const { copied: icCopied, copy: copyIcEmail } = useClipboardCopy();
   const { copied: padCopied, copy: copyPadEmail } = useClipboardCopy();
 
@@ -277,7 +310,7 @@ export default function AcademicoPage() {
       {/* Conteúdo com Barra Lateral Esquerda */}
       <div className={styles.contentWithSidebar}>
         <aside className={styles.sidebarAside}>
-          <DocSidebar topics={academicTopics} />
+          <DocSidebar topics={displayedTopics} />
         </aside>
 
         <div className={styles.mainContentArea}>
@@ -288,9 +321,20 @@ export default function AcademicoPage() {
             pageContext="academico"
           />
 
+          {journeyStage !== 'all' && (
+            <div id="trilha-prioritaria" style={{ order: 1 }}>
+              <JourneyStageHeader
+                stage={journeyStage}
+                pageContext="academico"
+                onReset={() => setJourneyStage('all')}
+              />
+            </div>
+          )}
+
           {/* BSI vs TADS */}
           <section
             id="bsi-vs-tads"
+            style={getSectionStyle('bsi-vs-tads')}
             className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['bsi-vs-tads']?.stage === journeyStage ? styles.highlightStage : ''}`}
           >
             {renderStageBadge('bsi-vs-tads')}
@@ -303,6 +347,7 @@ export default function AcademicoPage() {
       {/* Regras da DAC e Coeficientes */}
       <section
         id="coeficientes-dac"
+        style={getSectionStyle('coeficientes-dac')}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['coeficientes-dac']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('coeficientes-dac')}
@@ -408,6 +453,7 @@ export default function AcademicoPage() {
       {/* Sobrevivência em Cálculo I e Geometria Analítica */}
       <section
         id="calculo-geometria"
+        style={getSectionStyle('calculo-geometria')}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['calculo-geometria']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('calculo-geometria')}
@@ -534,6 +580,7 @@ export default function AcademicoPage() {
       {/* Checklist de Formatura */}
       <section
         id="checklist-formatura"
+        style={getSectionStyle('checklist-formatura')}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['checklist-formatura']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('checklist-formatura')}
@@ -543,6 +590,7 @@ export default function AcademicoPage() {
       {/* TCC e Pós-Graduação PIF */}
       <section
         id="tcc-pos-graduacao-pif"
+        style={getSectionStyle('tcc-pos-graduacao-pif')}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['tcc-pos-graduacao-pif']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('tcc-pos-graduacao-pif')}
@@ -731,6 +779,7 @@ export default function AcademicoPage() {
       <section
         id="monitoria-pad"
         ref={padSectionRef as React.RefObject<HTMLElement>}
+        style={getSectionStyle('monitoria-pad')}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['monitoria-pad']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('monitoria-pad')}
@@ -948,6 +997,7 @@ export default function AcademicoPage() {
       {/* Bolsas Sociais e Permanência Estudantil DEAPE */}
       <section
         id="bolsas-permanencia-deape"
+        style={getSectionStyle('bolsas-permanencia-deape')}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['bolsas-permanencia-deape']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('bolsas-permanencia-deape')}
@@ -1039,6 +1089,7 @@ export default function AcademicoPage() {
       {/* Horas Complementares versus Curricularização da Extensão */}
       <section
         id="horas-extensao"
+        style={getSectionStyle('horas-extensao')}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['horas-extensao']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('horas-extensao')}
@@ -1211,6 +1262,7 @@ export default function AcademicoPage() {
       {/* Estratégia de Desacelerar o Curso */}
       <section
         id="estrategia-carreira"
+        style={getSectionStyle('estrategia-carreira')}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['estrategia-carreira']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('estrategia-carreira')}
@@ -1302,6 +1354,7 @@ export default function AcademicoPage() {
       {/* Transição para o Noturno no BSI */}
       <section
         id="noturno-bsi"
+        style={getSectionStyle('noturno-bsi')}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['noturno-bsi']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('noturno-bsi')}
@@ -1372,6 +1425,7 @@ export default function AcademicoPage() {
       <section
         id="iniciacao-cientifica"
         ref={icSectionRef as React.RefObject<HTMLElement>}
+        style={getSectionStyle('iniciacao-cientifica')}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['iniciacao-cientifica']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('iniciacao-cientifica')}
@@ -1691,6 +1745,7 @@ export default function AcademicoPage() {
       {/* Editais da DERI e Bolsas de Intercâmbio */}
       <section
         id="intercambio-deri"
+        style={getSectionStyle('intercambio-deri')}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['intercambio-deri']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('intercambio-deri')}
@@ -2062,6 +2117,16 @@ export default function AcademicoPage() {
           </div>
         </div>
       </section>
+
+      {journeyStage !== 'all' && secondarySections.length > 0 && (
+        <SecondarySectionsToggle
+          isOpen={isSecondaryOpen}
+          onToggle={() => setIsSecondaryOpen(!isSecondaryOpen)}
+          count={secondarySections.length}
+          title="Demais Tópicos da Graduação"
+          subtitle="Conteúdos acadêmicos voltados para outros momentos do curso"
+        />
+      )}
         </div>
       </div>
     </div>

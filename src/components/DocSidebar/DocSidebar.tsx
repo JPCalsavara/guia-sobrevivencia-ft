@@ -75,6 +75,7 @@ export function DocSidebar({ topics, title = 'Estrutura da Página' }: DocSideba
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     setIsMobileOpen(false);
+    window.location.hash = id;
     const element = document.getElementById(id);
     if (element) {
       const yOffset = -90;

@@ -52,6 +52,20 @@ const stages: StageOption[] = [
 ];
 
 export function JourneyFilter({ currentStage, onSelectStage, pageContext }: JourneyFilterProps) {
+  const handleStageClick = (stageKey: JourneyStage) => {
+    onSelectStage(stageKey);
+    if (stageKey !== 'all') {
+      setTimeout(() => {
+        const el = document.getElementById('trilha-prioritaria');
+        if (el) {
+          const yOffset = -85;
+          const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  };
+
   return (
     <section className={styles.journeyContainer} aria-label="Seletor de momento na graduação">
       <div className={styles.journeyHeader}>
@@ -73,7 +87,7 @@ export function JourneyFilter({ currentStage, onSelectStage, pageContext }: Jour
             <button
               key={stage.key}
               type="button"
-              onClick={() => onSelectStage(stage.key)}
+              onClick={() => handleStageClick(stage.key)}
               className={`${styles.stageCard} ${isActive ? styles.stageActive : ''}`}
               aria-pressed={isActive}
             >
