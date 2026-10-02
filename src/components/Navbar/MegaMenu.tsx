@@ -286,6 +286,16 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
                   </Link>
                 </li>
                 <li>
+                  <Link href="/duvidas" onClick={onClose} className={styles.menuLink}>
+                    <span>Portal de Dúvidas Comuns</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/duvidas#mandar-duvida" onClick={onClose} className={styles.menuLink}>
+                    <span>Mande sua Dúvida para a Equipe</span>
+                  </Link>
+                </li>
+                <li>
                   <Link href="/calouros#acabei-de-passar" onClick={onClose} className={styles.menuLink}>
                     <span>Matrícula Virtual e RA</span>
                   </Link>
