@@ -36,6 +36,7 @@ export function Footer() {
                 <li><Link href="/estudos-ia">Estudos com Gemini e NotebookLM</Link></li>
                 <li><Link href="/campus">Salas, Bandejão e Organizações</Link></li>
                 <li><Link href="/duvidas">Portal de Dúvidas Comuns</Link></li>
+                <li><Link href="/estatisticas">Estatísticas e Pesquisa</Link></li>
                 <li><Link href="/links">Diretório de Links Oficiais</Link></li>
               </ul>
             </nav>

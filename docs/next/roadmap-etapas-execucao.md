@@ -54,7 +54,7 @@ Todas as especificacoes textuais e codigos respeitam rigorosamente a ADR 0001, c
 ## Etapa 2: Tela Publica de Estatisticas em Producao e Pesquisa com Estudantes
 
 ### 1. Pagina Publica de Metricas do Portal
-- [ ] **Rota Publica `/estatisticas`:**
+- [x] **Rota Publica `/estatisticas`:**
   - Painel transparente com metricas reais consolidadas de audiencia do portal.
   - Total de visitantes unicos, visualizacoes de pagina e tempo medio de permanencia.
   - Divisao percentual de acessos entre dispositivos moveis e computadores.
@@ -62,7 +62,7 @@ Todas as especificacoes textuais e codigos respeitam rigorosamente a ADR 0001, c
   - Graficos leves de distribuicao de acessos sem utilizacao de bibliotecas pesadas.
 
 ### 2. Modulo de Pesquisa e Termometro Discente
-- [ ] **Enquete Interativa Integrada:**
+- [x] **Enquete Interativa Integrada:**
   - Modulo rapido de pesquisa discente com tres questoes fundamentais sobre momento do curso, maior desafio na rotina academica e pretensao profissional.
   - Rota de API `/api/pesquisa` para recepcao e agregacao segura dos votos.
   - Exibicao imediata dos resultados consolidados e porcentagens na propria pagina de estatisticas logo apos o voto do discente.

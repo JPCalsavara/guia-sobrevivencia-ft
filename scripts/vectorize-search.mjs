@@ -368,6 +368,12 @@ export function generateSearchIndex() {
       category: 'duvidas',
       basePath: '/duvidas',
     },
+    {
+      filePath: path.join(projectRoot, 'src/app/estatisticas/page.tsx'),
+      pageName: 'Estatísticas',
+      category: 'estatisticas',
+      basePath: '/estatisticas',
+    },
   ];
 
   const allDocuments = [];
@@ -408,7 +414,7 @@ export function generateSearchIndex() {
   subtopic?: string;
   page: string;
   url: string;
-  category: 'academico' | 'campus' | 'carreira' | 'estudos-ia' | 'links' | 'duvidas';
+  category: 'academico' | 'campus' | 'carreira' | 'estudos-ia' | 'links' | 'duvidas' | 'estatisticas';
   summary: string;
   keywords: string[];
   termVector?: Record<string, number>;
