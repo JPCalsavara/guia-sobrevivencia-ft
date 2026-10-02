@@ -511,4 +511,70 @@ export const ftGraduationCeremonyData: GraduationCeremonyStep[] = [
   },
 ];
 
+export interface PostgraduateProgram {
+  id: string;
+  name: string;
+  degree: string;
+  unit: string;
+  description: string;
+  researchLines: string[];
+  selectionProcess: string;
+}
+
+export const postgraduateProgramsData: PostgraduateProgram[] = [
+  {
+    id: 'pos-ft-computacao-engenharia',
+    name: 'Programa de Pós-Graduação em Tecnologia',
+    degree: 'Mestrado e Doutorado Acadêmico',
+    unit: 'Faculdade de Tecnologia da Unicamp, Campus Limeira',
+    description: 'Programa multidisciplinar sediado na própria FT, com forte interseção entre ciência da computação, engenharia de software, inteligência artificial, processamento de sinais e sustentabilidade.',
+    researchLines: [
+      'Sistemas Inteligentes e Ciência de Dados',
+      'Engenharia de Software e Sistemas Distribuídos',
+      'Visão Computacional e Processamento de Imagens',
+      'Tecnologia Aplicada à Saúde e Meio Ambiente'
+    ],
+    selectionProcess: 'Processo seletivo semestral via edital público com análise de histórico escolar, currículo Lattes, proposta de pesquisa preliminar e carta de aceite de orientador docente da FT.'
+  },
+  {
+    id: 'pos-ic-ciencia-computacao',
+    name: 'Programa de Pós-Graduação em Ciência da Computação',
+    degree: 'Mestrado e Doutorado Acadêmico',
+    unit: 'Instituto de Computação da Unicamp, Campus Barão Geraldo',
+    description: 'Um dos programas de pós-graduação mais conceituados da América Latina, com nota máxima na avaliação da CAPES, atraindo pesquisadores de todo o mundo para investigações de ponta.',
+    researchLines: [
+      'Inteligência Artificial e Aprendizado de Máquina',
+      'Teoria da Computação e Otimização Combinatória',
+      'Sistemas de Computação e Redes de Alta Escala',
+      'Segurança da Informação e Criptografia'
+    ],
+    selectionProcess: 'Exame Nacional de Pós-Graduação em Computação POSCOMP, avaliação de rendimento na graduação e cartas de recomendação acadêmica.'
+  }
+];
+
+export interface ScholarshipInfo {
+  agency: string;
+  fullName: string;
+  monthlyValue: string;
+  duration: string;
+  requirements: string;
+}
+
+export const scholarshipTypesData: ScholarshipInfo[] = [
+  {
+    agency: 'FAPESP',
+    fullName: 'Fundação de Amparo à Pesquisa do Estado de São Paulo',
+    monthlyValue: 'Valores mensais de aproximadamente 2800 reais para mestrado e 4400 reais para doutorado, acrescidos de reserva técnica para congressos e materiais.',
+    duration: 'Até vinte e quatro meses no mestrado e até quarenta e oito meses no doutorado.',
+    requirements: 'Projeto de pesquisa de alto mérito científico, histórico acadêmico exemplar, dedicação exclusiva e prestação de contas semestral detalhada.'
+  },
+  {
+    agency: 'CAPES e CNPq',
+    fullName: 'Coordenação de Aperfeiçoamento de Pessoal de Nível Superior e Conselho Nacional de Desenvolvimento Científico',
+    monthlyValue: 'Valores padronizados federais de 2100 reais para mestrado acadêmico e 3100 reais para doutorado acadêmico.',
+    duration: 'Vinte e quatro meses no mestrado e quarenta e oito meses no doutorado com renovação semestral.',
+    requirements: 'Classificação no processo seletivo do programa de pós-graduação, dedicação integral às atividades do laboratório e publicação de artigos.'
+  }
+];
+
 

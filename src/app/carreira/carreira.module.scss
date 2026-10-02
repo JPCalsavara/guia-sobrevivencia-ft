@@ -1427,5 +1427,155 @@
   }
 }
 
+.comparisonTableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin: $spacing-lg 0;
+  border: 1px solid var(--border-color);
+  border-radius: $radius-md;
+  background-color: var(--surface-color);
+}
+
+.comparisonTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.875rem;
+
+  th, td {
+    padding: $spacing-md $spacing-lg;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+
+  thead th {
+    background-color: var(--surface-elevated);
+    color: var(--text-primary);
+    font-weight: 700;
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  tbody tr:hover td {
+    background-color: rgba(0, 138, 71, 0.02);
+  }
+}
+
+.companyShowcaseGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+  margin-top: $spacing-lg;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to('lg') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.companyCard {
+  background-color: var(--surface-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-lg;
+  padding: $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: $spacing-md;
+  transition: all $transition-fast;
+
+  &:hover {
+    border-color: var(--ft-green);
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+}
+
+.companyCardTop {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.companyName {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.companyTag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ft-green);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.companyDesc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.companyDetailBlock {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  background-color: var(--surface-color);
+  padding: $spacing-sm $spacing-md;
+  border-radius: $radius-sm;
+  border: 1px solid var(--border-color);
+}
+
+.companyLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--ft-green);
+  text-decoration: none;
+  align-self: flex-start;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.academyCard {
+  background-color: var(--surface-elevated);
+  border: 2px solid var(--ft-blue-border);
+  border-radius: $radius-lg;
+  padding: $spacing-xl;
+  margin-top: $spacing-lg;
+}
+
+.squadGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+  margin-top: $spacing-lg;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.squadCard {
+  background-color: var(--surface-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-md;
+  padding: $spacing-md $spacing-lg;
+}
+
 
 

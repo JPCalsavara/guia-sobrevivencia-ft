@@ -31,13 +31,23 @@ import {
   Globe,
   Languages,
   Rocket,
-  Trophy
+  Trophy,
+  Users,
+  GraduationCap
 } from 'lucide-react';
 import { useJourneyStage } from '@/hooks/useJourneyStage';
 import { useSectionOrdering } from '@/hooks/useSectionOrdering';
 import { JourneyStageHeader } from '@/components/JourneyStageHeader/JourneyStageHeader';
 import { SecondarySectionsToggle } from '@/components/SecondarySectionsToggle/SecondarySectionsToggle';
 import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
+import { MobileTopicPills } from '@/components/MobileTopicPills/MobileTopicPills';
+import {
+  internshipVsTraineeData,
+  companiesShowcaseData,
+  appleDeveloperAcademyData,
+  marketVsResearchData,
+  hackathonGuideData
+} from '@/data/careerExpanded';
 import styles from './carreira.module.scss';
 
 const careerTopics: TopicItem[] = [
@@ -52,11 +62,28 @@ const careerTopics: TopicItem[] = [
     ],
   },
   {
+    id: 'trainee-vs-estagio',
+    title: 'Estágio versus Trainee e Júnior',
+    subtopics: [
+      { id: 'comparativo-estagio-trainee-junior', title: 'Matriz Comparativa das Modalidades' },
+      { id: 'processos-seletivos-trainee', title: 'Processos Seletivos e Liderança' },
+    ],
+  },
+  {
     id: 'testes-tecnicos',
     title: 'Testes Técnicos e Maratona',
     subtopics: [
       { id: 'testes-tecnicos', title: 'Estruturas de Dados e Lógica' },
       { id: 'maratona-programacao', title: 'Maratona de Programação e ICPC' },
+    ],
+  },
+  {
+    id: 'hackathons-bootcamps',
+    title: 'Hackathons e Apple Developer Academy',
+    subtopics: [
+      { id: 'guia-hackathons-squads', title: 'Guia de Hackathons e Squads' },
+      { id: 'hackathon-itau-agentes', title: 'Hackathon Itaú Batalha de Agentes' },
+      { id: 'apple-developer-academy', title: 'Apple Developer Academy Campinas' },
     ],
   },
   {
@@ -89,6 +116,14 @@ const careerTopics: TopicItem[] = [
       { id: 'empresas-remotas-tech', title: 'Empresas Tech e Trabalho Remoto' },
       { id: 'empresas-financeiras', title: 'Bancos e Fintechs' },
       { id: 'empresas-industrias', title: 'Polo Industrial e Consultorias' },
+    ],
+  },
+  {
+    id: 'empresas-tech-programas',
+    title: 'Vitrine Tech e Mercado vs Pesquisa',
+    subtopics: [
+      { id: 'vitrine-empresas-tech', title: 'Vitrine de Empresas Líderes' },
+      { id: 'mercado-vs-pesquisa', title: 'Mercado versus Pesquisa Acadêmica' },
     ],
   },
   {
@@ -151,11 +186,14 @@ const careerTopics: TopicItem[] = [
 
 const sectionStageMap: Record<string, { stage: JourneyStage; label: string }> = {
   'sazonalidade-estagio': { stage: 'formando', label: 'Foco: Formando, 7º e 8º Semestres' },
+  'trainee-vs-estagio': { stage: 'formando', label: 'Foco: Formando, 7º e 8º Semestres' },
   'testes-tecnicos': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
+  'hackathons-bootcamps': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
   'curriculo-latex': { stage: 'formando', label: 'Foco: Formando, 7º e 8º Semestres' },
   'entrevistas-pitch': { stage: 'formando', label: 'Foco: Formando, 7º e 8º Semestres' },
   'portfolio-github': { stage: 'calouro', label: 'Foco: Calouro, 1º e 2º Semestres' },
   'empresas-mercado': { stage: 'formando', label: 'Foco: Formando, 7º e 8º Semestres' },
+  'empresas-tech-programas': { stage: 'formando', label: 'Foco: Formando, 7º e 8º Semestres' },
   'empreendedorismo-inova-desafio': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
   'idiomas-confucio-cel': { stage: 'calouro', label: 'Foco: Calouro, 1º e 2º Semestres' },
   'computacao-nuvem': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
@@ -167,11 +205,14 @@ const sectionStageMap: Record<string, { stage: JourneyStage; label: string }> = 
 
 const allCareerSectionIds = [
   'sazonalidade-estagio',
+  'trainee-vs-estagio',
   'testes-tecnicos',
+  'hackathons-bootcamps',
   'curriculo-latex',
   'entrevistas-pitch',
   'portfolio-github',
   'empresas-mercado',
+  'empresas-tech-programas',
   'empreendedorismo-inova-desafio',
   'idiomas-confucio-cel',
   'computacao-nuvem',
@@ -239,6 +280,9 @@ export default function CarreiraPage() {
         </aside>
 
         <div className={styles.mainContentArea}>
+          {/* Navegação Rápida por Pílulas no Topo para Mobile */}
+          <MobileTopicPills topics={displayedTopics} />
+
           {/* Seletor Interativo de Momento da Graduação */}
           <JourneyFilter
             currentStage={journeyStage}
@@ -521,6 +565,99 @@ export default function CarreiraPage() {
         </div>
       </section>
 
+      {/* Estágio versus Trainee versus Efetivo Júnior */}
+      <section
+        id="trainee-vs-estagio"
+        style={getSectionStyle('trainee-vs-estagio')}
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['trainee-vs-estagio']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('trainee-vs-estagio')}
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <Briefcase size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>Comparativo: Estágio versus Trainee versus Efetivo Júnior</h2>
+              <p className={styles.cardSubtitle}>
+                Diferenciação de momentos na graduação, regimes de trabalho, faixas de remuneração e objetivos de carreira
+              </p>
+            </div>
+          </div>
+
+          <p className={styles.pageDescription} style={{ marginBottom: '1.5rem' }}>
+            Planejar os passos finais da graduação na FT exige compreender as distinções entre as portas de entrada no mercado corporativo de tecnologia. Enquanto o estágio prioriza aprendizado com carga horária protegida por lei, os programas de trainee buscam acelerar jovens talentos para posições executivas e de liderança técnica sob regime integral.
+          </p>
+
+          {/* Subtópico 1: Matriz Comparativa */}
+          <div id="comparativo-estagio-trainee-junior" style={{ marginTop: '2rem' }}>
+            <h3 className={styles.cardTitle} style={{ fontSize: '1.1rem', marginBottom: '0.75rem' }}>
+              Matriz Comparativa das Modalidades de Contratação
+            </h3>
+            <p className={styles.cardSubtitle} style={{ marginBottom: '1rem' }}>
+              Parâmetros regulatórios, remuneração média e níveis de exigência em cada trilha
+            </p>
+
+            <div className={styles.comparisonTableWrapper}>
+              <table className={styles.comparisonTable}>
+                <thead>
+                  <tr>
+                    <th>Critério</th>
+                    <th>Estágio de Graduação</th>
+                    <th>Programa de Trainee</th>
+                    <th>Efetivo Júnior CLT</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {internshipVsTraineeData.map((row, idx) => (
+                    <tr key={idx}>
+                      <td><strong>{row.criterion}</strong></td>
+                      <td>{row.estagio}</td>
+                      <td>{row.trainee}</td>
+                      <td>{row.junior}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Subtópico 2: Processos Seletivos de Trainee */}
+          <div id="processos-seletivos-trainee" style={{ marginTop: '2.5rem' }}>
+            <h3 className={styles.cardTitle} style={{ fontSize: '1.1rem', marginBottom: '0.75rem' }}>
+              Estrutura dos Processos Seletivos de Trainee e Foco em Liderança
+            </h3>
+            <p className={styles.cardSubtitle} style={{ marginBottom: '1.25rem' }}>
+              Etapas eliminatórias, dinâmicas de grupo, resolução de casos de negócio e painéis executivos
+            </p>
+
+            <div className={styles.timelineGrid}>
+              <div className={styles.timelineItem}>
+                <span className={styles.periodBadge}>Fase 1: Triagem e Testes</span>
+                <h4 className={styles.timelineTitle}>Fit Cultural e Raciocínio Lógico</h4>
+                <p className={styles.timelineDesc}>
+                  Avaliações online de alinhamento de valores com a companhia, lógica matemática, interpretação estruturada de dados e proficiência em inglês.
+                </p>
+              </div>
+
+              <div className={styles.timelineItem}>
+                <span className={styles.periodBadge}>Fase 2: Imersão em Grupo</span>
+                <h4 className={styles.timelineTitle}>Dinâmicas e Business Cases</h4>
+                <p className={styles.timelineDesc}>
+                  Resolução colaborativa de problemas reais de negócios em equipes interdisciplinares, com análise de liderança situacional, adaptabilidade e comunicação.
+                </p>
+              </div>
+
+              <div className={styles.timelineItem}>
+                <span className={styles.periodBadge}>Fase 3: Apresentação Final</span>
+                <h4 className={styles.timelineTitle}>Painel com Diretores e C-Level</h4>
+                <p className={styles.timelineDesc}>
+                  Apresentação de projeto individual ou de squad perante a diretoria executiva, defendendo viabilidade financeira, arquitetura de software e impacto estratégico.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Testes Técnicos */}
       <section
         id="testes-tecnicos"
@@ -647,6 +784,150 @@ export default function CarreiraPage() {
                   <span>SBC Maratona</span>
                   <ExternalLink size={11} aria-hidden="true" />
                 </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hackathons, Bootcamps e Apple Developer Academy */}
+      <section
+        id="hackathons-bootcamps"
+        style={getSectionStyle('hackathons-bootcamps')}
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['hackathons-bootcamps']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('hackathons-bootcamps')}
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <Trophy size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>Hackathons Universitários, Bootcamps e Apple Developer Academy</h2>
+              <p className={styles.cardSubtitle}>
+                Maratonas de desenvolvimento de fim de semana, squads multidisciplinares e capacitação avançada em ecossistema Apple
+              </p>
+            </div>
+          </div>
+
+          <p className={styles.pageDescription} style={{ marginBottom: '1.5rem' }}>
+            Hackathons e programas imersivos são os aceleradores mais rápidos de aprendizado prático e portfólio para estudantes de computação da FT. Em vinte e quatro a quarenta e oito horas intensivas, equipes constroem soluções funcionais para desafios reais, estabelecendo contato direto com recrutadores técnicos de grandes empresas.
+          </p>
+
+          {/* Subtópico 1: Guia de Hackathons e Squads */}
+          <div id="guia-hackathons-squads" style={{ marginTop: '2rem' }}>
+            <h3 className={styles.cardTitle} style={{ fontSize: '1.1rem', marginBottom: '0.75rem' }}>
+              {hackathonGuideData.title}
+            </h3>
+            <p className={styles.cardSubtitle} style={{ marginBottom: '1rem' }}>
+              {hackathonGuideData.description}
+            </p>
+
+            <div className={styles.squadGrid}>
+              {hackathonGuideData.squadRoles.map((item, idx) => (
+                <div key={idx} className={styles.squadCard}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.35rem' }}>
+                    <Users size={16} style={{ color: 'var(--ft-green)' }} />
+                    <strong style={{ fontSize: '0.9rem', color: 'var(--text-primary)' }}>{item.role}</strong>
+                  </div>
+                  <p style={{ fontSize: '0.8125rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Subtópico 2: Hackathon Itaú Batalha de Agentes */}
+          <div id="hackathon-itau-agentes" style={{ marginTop: '2.5rem' }}>
+            <div className={styles.skillItem} style={{ borderLeft: '4px solid var(--ft-green)' }}>
+              <div className={styles.skillItemHeader}>
+                <div>
+                  <span className={styles.periodBadge}>Maratona em Destaque</span>
+                  <h3 className={styles.skillTitle} style={{ marginTop: '0.25rem' }}>
+                    {hackathonGuideData.featuredHackathon.title}
+                  </h3>
+                </div>
+                <a
+                  href={hackathonGuideData.featuredHackathon.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.companyLink}
+                  aria-label="Acessar página do Hackathon Itaú Batalha de Agentes em nova janela"
+                >
+                  <span>Página Oficial do Evento</span>
+                  <ExternalLink size={12} aria-hidden="true" />
+                </a>
+              </div>
+              <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginTop: '0.75rem' }}>
+                {hackathonGuideData.featuredHackathon.description}
+              </p>
+            </div>
+          </div>
+
+          {/* Subtópico 3: Apple Developer Academy */}
+          <div id="apple-developer-academy" style={{ marginTop: '2.5rem' }}>
+            <div className={styles.academyCard}>
+              <div className={styles.skillItemHeader}>
+                <div>
+                  <span className={`${styles.skillBadge} ${styles.green}`}>Residência Tecnológica Internacional</span>
+                  <h3 className={styles.skillTitle} style={{ marginTop: '0.35rem' }}>
+                    Apple Developer Academy em Campinas
+                  </h3>
+                  <span style={{ fontSize: '0.8125rem', color: 'var(--text-secondary)' }}>
+                    Parceria {appleDeveloperAcademyData.partnership} e {appleDeveloperAcademyData.institution} • {appleDeveloperAcademyData.duration}
+                  </span>
+                </div>
+                <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+                  <a
+                    href={appleDeveloperAcademyData.websiteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.companyLink}
+                    aria-label="Acessar site oficial da Apple Developer Academy Campinas em nova janela"
+                  >
+                    <Globe size={13} aria-hidden="true" />
+                    <span>Site Oficial</span>
+                    <ExternalLink size={12} aria-hidden="true" />
+                  </a>
+                  <a
+                    href={appleDeveloperAcademyData.instagramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.companyLink}
+                    aria-label="Acessar Instagram da Apple Developer Academy Campinas em nova janela"
+                  >
+                    <Instagram size={13} aria-hidden="true" />
+                    <span>Instagram</span>
+                    <ExternalLink size={12} aria-hidden="true" />
+                  </a>
+                </div>
+              </div>
+
+              <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginTop: '1rem' }}>
+                {appleDeveloperAcademyData.description}
+              </p>
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem', marginTop: '1.25rem' }}>
+                <div style={{ backgroundColor: 'var(--surface-color)', padding: '1rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+                  <strong style={{ fontSize: '0.85rem', color: 'var(--text-primary)', display: 'block', marginBottom: '0.5rem' }}>
+                    Benefícios e Suporte ao Aluno:
+                  </strong>
+                  <ul style={{ margin: '0 0 0 1.25rem', fontSize: '0.8125rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+                    {appleDeveloperAcademyData.benefits.map((b, bIdx) => (
+                      <li key={bIdx} style={{ marginBottom: '0.35rem' }}>{b}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div style={{ backgroundColor: 'var(--surface-color)', padding: '1rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+                  <strong style={{ fontSize: '0.85rem', color: 'var(--text-primary)', display: 'block', marginBottom: '0.5rem' }}>
+                    Competências Desenvolvidas:
+                  </strong>
+                  <ul style={{ margin: '0 0 0 1.25rem', fontSize: '0.8125rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+                    {appleDeveloperAcademyData.skills.map((s, sIdx) => (
+                      <li key={sIdx} style={{ marginBottom: '0.35rem' }}>{s}</li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -1058,6 +1339,108 @@ export default function CarreiraPage() {
               <li><strong>Bancos e Fintechs:</strong> Inscreva-se nos bancos de talentos oficiais continuamente, pois as triagens não esperam editais abertos.</li>
               <li><strong>Indústrias da Região:</strong> Participe das feiras de carreiras na FT e conecte-se com veteranos para obter indicações diretas.</li>
             </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Vitrine de Empresas Tech e Mercado versus Pesquisa */}
+      <section
+        id="empresas-tech-programas"
+        style={getSectionStyle('empresas-tech-programas')}
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['empresas-tech-programas']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('empresas-tech-programas')}
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <Building2 size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>Vitrine de Empresas Tech e Carreira Corporativa versus Pesquisa</h2>
+              <p className={styles.cardSubtitle}>
+                Perfis de contratação de referências do setor e análise comparativa entre emprego corporativo e carreira acadêmica
+              </p>
+            </div>
+          </div>
+
+          <p className={styles.pageDescription} style={{ marginBottom: '1.5rem' }}>
+            Para além dos modelos gerais de contratação, entender as exigências específicas de empresas que lideram a transformação tecnológica no país permite direcionar seus estudos, projetos de portfólio e decisões de carreira com segurança.
+          </p>
+
+          {/* Subtópico 1: Vitrine de Empresas Líderes */}
+          <div id="vitrine-empresas-tech" style={{ marginTop: '2rem' }}>
+            <h3 className={styles.cardTitle} style={{ fontSize: '1.1rem', marginBottom: '0.75rem' }}>
+              Vitrine de Empresas Líderes em Tecnologia e Seus Programas
+            </h3>
+            <p className={styles.cardSubtitle} style={{ marginBottom: '1rem' }}>
+              Cultura, trilhas de formação, critérios seletivos e canais oficiais de recrutamento
+            </p>
+
+            <div className={styles.companyShowcaseGrid}>
+              {companiesShowcaseData.map((company) => (
+                <div key={company.id} className={styles.companyCard}>
+                  <div className={styles.companyCardTop}>
+                    <span className={styles.companyTag}>{company.tag}</span>
+                    <h4 className={styles.companyName}>{company.name}</h4>
+                    <p className={styles.companyDesc}>{company.description}</p>
+                  </div>
+
+                  <div className={styles.companyDetailBlock}>
+                    <strong style={{ display: 'block', color: 'var(--text-primary)', marginBottom: '0.25rem' }}>
+                      Programas e Oportunidades:
+                    </strong>
+                    <span>{company.programs}</span>
+                  </div>
+
+                  <div className={styles.companyDetailBlock}>
+                    <strong style={{ display: 'block', color: 'var(--text-primary)', marginBottom: '0.25rem' }}>
+                      Perfil Desejado:
+                    </strong>
+                    <span>{company.hiringProfile}</span>
+                  </div>
+
+                  <a
+                    href={company.officialUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.companyLink}
+                    aria-label={`Acessar portal oficial de carreiras de ${company.name} em nova janela`}
+                  >
+                    <span>Carreiras {company.name}</span>
+                    <ExternalLink size={12} aria-hidden="true" />
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Subtópico 2: Matriz Decisória Mercado vs Pesquisa */}
+          <div id="mercado-vs-pesquisa" style={{ marginTop: '2.5rem' }}>
+            <h3 className={styles.cardTitle} style={{ fontSize: '1.1rem', marginBottom: '0.75rem' }}>
+              Matriz Decisória: Carreira no Mercado Corporativo versus Pesquisa Acadêmica
+            </h3>
+            <p className={styles.cardSubtitle} style={{ marginBottom: '1rem' }}>
+              Quadro analítico para apoiar a reflexão entre emprego corporativo e pós-graduação estrita
+            </p>
+
+            <div className={styles.comparisonTableWrapper}>
+              <table className={styles.comparisonTable}>
+                <thead>
+                  <tr>
+                    <th>Dimensão Analisada</th>
+                    <th>Carreira no Mercado Corporativo</th>
+                    <th>Carreira em Pesquisa e Academia</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {marketVsResearchData.map((row, idx) => (
+                    <tr key={idx}>
+                      <td><strong>{row.criterion}</strong></td>
+                      <td>{row.mercado}</td>
+                      <td>{row.pesquisa}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>

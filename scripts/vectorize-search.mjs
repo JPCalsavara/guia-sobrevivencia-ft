@@ -59,7 +59,19 @@ const DOMAIN_EXPANSIONS = {
   'duvidas-moradia-auxilios': ['moradia', 'republicas', 'kitnets', 'aluguel', 'sae', 'deape', 'bolsa bas', 'isencao ru'],
   'duvidas-estagio-contratos': ['estagio', 'contrato', 'termo de compromisso', 'horas', 'bsi', 'tads', 'comissao de estagios'],
   'duvidas-formatura-colacao': ['formatura', 'colacao de grau', 'diploma', 'baile', 'beca', 'mec', 'dac'],
-  'mandar-duvida': ['mandar duvida', 'enviar pergunta', 'contato', 'google chat', 'email', 'duvidas frequentes', 'suporte']
+  'mandar-duvida': ['mandar duvida', 'enviar pergunta', 'contato', 'google chat', 'email', 'duvidas frequentes', 'suporte'],
+  'trainee-vs-estagio': ['trainee', 'estagio', 'clt', 'junior', 'salario executivo', 'processo seletivo trainee'],
+  'comparativo-estagio-trainee-junior': ['comparativo estagio trainee', 'diferenca estagio clt', 'salario trainee', 'remuneracao', 'carga horaria'],
+  'processos-seletivos-trainee': ['processo seletivo trainee', 'dinamica de grupo', 'business case', 'painel executivo', 'fit cultural'],
+  'hackathons-bootcamps': ['hackathon', 'maratona de programacao', 'bootcamp', 'apple developer academy', 'squads'],
+  'guia-hackathons-squads': ['guia hackathon', 'como montar squad', 'equipe multidisciplinar', 'pitch', 'prototipo'],
+  'hackathon-itau-agentes': ['hackathon itau', 'batalha de agentes', 'inteligencia artificial', 'agentes autonomos', 'itau tecnologia'],
+  'apple-developer-academy': ['apple developer academy', 'instituto eldorado', 'campinas', 'swift', 'swiftui', 'ios', 'macbook'],
+  'empresas-tech-programas': ['empresas tech', 'tractian', 'itau', 'stone', 'qi tech', 'agibank', 'mercado versus pesquisa'],
+  'vitrine-empresas-tech': ['tractian', 'itau tecnologia', 'recruta stone', 'qi tech', 'agibank', 'programas estagio tecnologia'],
+  'mercado-vs-pesquisa': ['mercado corporativo versus pesquisa', 'pesquisa cientifica', 'carreira mercado ou mestrado', 'fapesp versus clt'],
+  'pos-graduacao-ft-ic': ['mestrado tecnologia ft', 'pos graduacao computacao ic', 'doutorado unicamp', 'poscomp'],
+  'bolsas-posgraduacao': ['bolsa fapesp mestrado', 'bolsa capes', 'bolsa cnpq', 'pos graduacao fapesp', 'remuneracao pesquisa']
 };
 
 function normalizeText(text) {
