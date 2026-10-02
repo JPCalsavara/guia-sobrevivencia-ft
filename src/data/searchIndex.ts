@@ -4705,6 +4705,7 @@ export const searchIndex: SearchDocument[] = [
       "diferenca"
     ],
     "termVector": {
+      "850": 0.03,
       "1300": 0.03,
       "1888": 0.03,
       "diferencas": 0.17,
@@ -4752,8 +4753,10 @@ export const searchIndex: SearchDocument[] = [
       "outras": 0.03,
       "fica": 0.03,
       "cerca": 0.03,
-      "quatro": 0.03,
-      "quilometros": 0.03,
+      "metros": 0.03,
+      "trajeto": 0.03,
+      "minutos": 0.07,
+      "bicicleta": 0.03,
       "mapa": 0.07,
       "ilustrado": 0.03,
       "blocos": 0.03,

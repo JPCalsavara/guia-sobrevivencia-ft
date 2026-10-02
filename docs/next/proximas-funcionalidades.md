@@ -91,7 +91,7 @@ Transformar a solucao no Guia Definitivo da Unicamp em Limeira, unificando a Fac
 
 ### Diretrizes de Integracao Territorial e Academica
 - **Territorio do Campus 2 da FCA:** Mapeamento dos bairros do entorno da FCA, incluindo Jardim Cidade Universitaria I e II, Chacara Antonieta e Vila Santa Rosalia.
-- **Mobilidade entre Campi:** Integracao completa dos horarios e paradas do circular gratuito municipal da Unicamp que liga a FT a FCA, alem de rotas ciclomoviarias e servicos de van intercampi.
+- **Mobilidade entre Campi:** Integracao completa dos horarios e paradas do circular gratuito municipal da Unicamp que liga a FT a FCA, rota de apenas 850 metros com trajeto de doze minutos de caminhada e quatro minutos de bicicleta, alem de rotas ciclomoviarias e servicos de van intercampi.
 - **Novos Cursos da FCA no Portal:**
   - Administracao e Administracao Publica.
   - Engenharia de Producao e Engenharia de Manufatura.
