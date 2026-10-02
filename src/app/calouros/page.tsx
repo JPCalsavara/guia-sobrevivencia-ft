@@ -276,7 +276,7 @@ export default function CalourosPage() {
                     <h3 className={styles.ruleTitle}>Faculdade de Ciências Aplicadas FCA</h3>
                   </div>
                   <p className={styles.ruleText}>
-                    Rua Pedro Zaccaria, 1300, Jardim Santa Luíza. Abriga cursos de administração, ciências do esporte, nutrição e outras engenharias. Fica a cerca de quatro quilômetros da FT.
+                    Rua Pedro Zaccaria, 1300, Jardim Santa Luíza. Abriga cursos de administração, ciências do esporte, nutrição e outras engenharias. Fica a cerca de 850 metros da FT, trajeto de 12 minutos a pé e 4 minutos de bicicleta.
                   </p>
                 </div>
               </div>
