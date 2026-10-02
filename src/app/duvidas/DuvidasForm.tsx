@@ -10,9 +10,11 @@ export function DuvidasForm() {
   const [categoria, setCategoria] = useState('Geral');
   const [pergunta, setPergunta] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [protocolo, setProtocolo] = useState('');
   const [erro, setErro] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email.trim() || !pergunta.trim()) {
       setErro('Por favor preencha seu e-mail de contato e detalhe sua dúvida com clareza.');
@@ -24,7 +26,34 @@ export function DuvidasForm() {
     }
 
     setErro('');
-    setSubmitted(true);
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/duvidas', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nome: nome.trim(),
+          email: email.trim(),
+          categoria,
+          pergunta: pergunta.trim()
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Falha ao processar envio');
+      }
+
+      setProtocolo(data.protocolo || '');
+      setSubmitted(true);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'Falha na conexao. Tente novamente.';
+      setErro(`Nao foi possivel despachar sua duvida automaticamente: ${msg}. Voce pode utilizar os canais diretos abaixo.`);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const emailDestino = 'j197837@dac.unicamp.br';
@@ -44,6 +73,7 @@ export function DuvidasForm() {
     setEmail('');
     setCategoria('Geral');
     setPergunta('');
+    setProtocolo('');
     setSubmitted(false);
     setErro('');
   };
@@ -67,9 +97,9 @@ export function DuvidasForm() {
       {submitted ? (
         <div className={styles.successCard} role="status">
           <CheckCircle2 size={36} className={styles.successIcon} aria-hidden="true" />
-          <h3 className={styles.successTitle}>Dúvida Registrada com Sucesso</h3>
+          <h3 className={styles.successTitle}>Dúvida Enviada com Sucesso</h3>
           <p className={styles.successDesc}>
-            Obrigado pelo envio. Para garantir agilidade no atendimento, você também pode disparar sua pergunta agora mesmo diretamente para o canal dos mantenedores discentes:
+            Sua pergunta foi despachada diretamente para a caixa de e-mail institucional <strong>{emailDestino}</strong> sob o protocolo <code>{protocolo || 'FT-' + Date.now().toString().slice(-6)}</code>. Nossa equipe responderá ao endereço <strong>{email}</strong> informado por você.
           </p>
           <div className={styles.successActions}>
             <a
@@ -179,9 +209,9 @@ export function DuvidasForm() {
             <p className={styles.privacyNotice}>
               Seus dados de contato são utilizados exclusivamente para responder a esta solicitação. Nenhuma informação pessoal é compartilhada com terceiros.
             </p>
-            <button type="submit" className={styles.submitBtn}>
+            <button type="submit" disabled={isSubmitting} className={styles.submitBtn}>
               <Send size={16} aria-hidden="true" />
-              <span>Enviar Dúvida para a Equipe</span>
+              <span>{isSubmitting ? 'Enviando Dúvida...' : 'Enviar Dúvida para a Equipe'}</span>
             </button>
           </div>
         </form>

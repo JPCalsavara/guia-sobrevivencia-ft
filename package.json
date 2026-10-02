@@ -11,6 +11,7 @@
     "test:watch": "vitest",
     "vectorize": "node scripts/vectorize-search.mjs",
     "release": "node scripts/auto-release.mjs",
+    "report:analytics": "node scripts/daily-analytics-report.mjs",
     "analytics:optimize": "python3 scripts/analytics_optimizer.py",
     "analytics:docker": "bash scripts/run_analytics_docker.sh"
   },
