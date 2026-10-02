@@ -72,7 +72,7 @@ describe('Dados Acadêmicos e Integralização', () => {
 
     expect(gridComponent).toContain('caderno-de-horarios');
     expect(gridComponent).toContain('getFullYear');
-    expect(gridComponent).toContain('/S/G/FT#');
+    expect(gridComponent).toContain('/S/G/FT/');
     expect(gridComponent).toContain('target="_blank"');
     expect(gridComponent).toContain('rel="noopener noreferrer"');
   });
