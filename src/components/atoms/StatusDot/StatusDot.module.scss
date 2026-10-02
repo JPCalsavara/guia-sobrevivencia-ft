@@ -1,0 +1,33 @@
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+
+  &.online {
+    background-color: var(--dracula-green, #50fa7b);
+    box-shadow: 0 0 6px var(--dracula-green, #50fa7b);
+  }
+
+  &.warning {
+    background-color: var(--dracula-orange, #ffb86c);
+    box-shadow: 0 0 6px var(--dracula-orange, #ffb86c);
+  }
+
+  &.busy {
+    background-color: var(--dracula-red, #ff5555);
+    box-shadow: 0 0 6px var(--dracula-red, #ff5555);
+  }
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
