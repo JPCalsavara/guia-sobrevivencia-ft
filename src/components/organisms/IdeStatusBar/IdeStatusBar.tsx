@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { GitBranch, CheckCircle2, Tag, MapPin, Code2 } from 'lucide-react';
 import { IdeStatusItem } from '@/components/molecules/IdeStatusItem/IdeStatusItem';
 import { StatusDot } from '@/components/atoms/StatusDot/StatusDot';
+import packageInfo from '../../../../package.json';
 import styles from './IdeStatusBar.module.scss';
 
 export function IdeStatusBar() {
@@ -51,7 +52,7 @@ export function IdeStatusBar() {
         />
         <IdeStatusItem
           icon={<Tag size={13} style={{ color: 'var(--dracula-cyan, #8be9fd)' }} />}
-          label="v1.9.0"
+          label={`v${packageInfo.version}`}
           tooltip="Versão semântica ativa do portal"
         />
       </div>
