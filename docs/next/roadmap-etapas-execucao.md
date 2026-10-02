@@ -72,22 +72,22 @@ Todas as especificacoes textuais e codigos respeitam rigorosamente a ADR 0001, c
 ## Etapa 3: Redesign Estilo IDE com Tema Dracula, Atomic Design e Testes Responsivos
 
 ### 1. Estetica Autentica de IDE com Tema Dracula
-- [ ] **Paleta Oficial Dracula no Modo Escuro:**
+- [x] **Paleta Oficial Dracula no Modo Escuro:**
   - Cores autenticas do Dracula como padrao escuro: fundo principal `#282a36`, fundo secundario `#21222c`, selecao `#44475a`, texto claro `#f8f8f2`, roxo `#bd93f9`, ciano `#8be9fd`, verde `#50fa7b`, rosa `#ff79c6` e comentario `#6272a4`.
-- [ ] **Elementos Visuais de Editor de Codigo:**
+- [x] **Elementos Visuais de Editor de Codigo:**
   - Barra superior no cabecalho simulando abas de arquivos abertos em IDE com nomes simbolicos de arquivos e icones correspondentes.
   - Barra de status no rodape estilo editor de codigo exibindo ramo git main, tag da versao ativa, codificacao UTF-8 e status da aplicacao.
   - Tipografia aprimorada com detalhes tecnicos monoespacados em atalhos e rotas.
 
 ### 2. Arquitetura Atomic Design
-- [ ] **Refatoracao Modular dos Componentes:**
+- [x] **Refatoracao Modular dos Componentes:**
   - Reorganizacao dos modulos de emprego, moradia e duvidas nas camadas formais:
     - Atomos: botoes estilizados, etiquetas de status, icones de arquivo, badges de categoria.
     - Moleculas: cartoes de moradia, cartoes de estagio e trainee, acordeoes de duvidas, pilulas de navegacao.
     - Organismos: barra de abas de IDE, mural de oportunidades corporativas, barra de status inferior.
 
 ### 3. Testes Automatizados de Componentes Desktop e Mobile
-- [ ] **Suite de Testes de Renderizacao Responsiva:**
+- [x] **Suite de Testes de Renderizacao Responsiva:**
   - Testes com `@testing-library/react` simulando viewports desktop de 1280 pixels e mobile de 375 pixels.
   - Validacao da presenca exclusiva de `DocSidebar` em telas amplas e da presenca exclusiva de `MobileTopicPills` em telas compactas.
   - Garantia de conformidade total com os testes de acessibilidade e ausencia de violacoes da ADR 0001.

@@ -1,0 +1,46 @@
+.tabItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.85rem;
+  background-color: var(--surface-color);
+  border-right: 1px solid var(--border-color);
+  border-bottom: 2px solid transparent;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  transition: all 150ms ease;
+  white-space: nowrap;
+  user-select: none;
+  position: relative;
+
+  &:hover {
+    color: var(--text-primary);
+    background-color: var(--surface-elevated);
+  }
+
+  &.active {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--dracula-purple, var(--ft-green));
+    font-weight: 600;
+  }
+}
+
+.filename {
+  letter-spacing: -0.01em;
+}
+
+.tabIndicator {
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background-color: transparent;
+  margin-left: 0.25rem;
+
+  .active & {
+    background-color: var(--dracula-purple, var(--ft-green));
+  }
+}

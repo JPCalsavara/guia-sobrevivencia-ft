@@ -36,6 +36,21 @@ $color-dark-green-border: rgba(52, 211, 153, 0.35);
 $color-unicamp-red: #b91c1c;
 $color-unicamp-darkred: #881337;
 
+// Paleta Oficial Dracula para estetica de editor de codigo
+$dracula-bg: #282a36;
+$dracula-surface: #21222c;
+$dracula-current-line: #44475a;
+$dracula-selection: #44475a;
+$dracula-foreground: #f8f8f2;
+$dracula-comment: #6272a4;
+$dracula-cyan: #8be9fd;
+$dracula-green: #50fa7b;
+$dracula-orange: #ffb86c;
+$dracula-pink: #ff79c6;
+$dracula-purple: #bd93f9;
+$dracula-red: #ff5555;
+$dracula-yellow: #f1fa8c;
+
 // Paleta clara base
 $color-light-bg: #f8fafc;
 $color-light-surface: #ffffff;
@@ -45,14 +60,14 @@ $color-light-text-primary: #0a0f1d;
 $color-light-text-secondary: #27364b;
 $color-light-text-muted: #52637a;
 
-// Paleta escura base
-$color-dark-bg: #090d16;
-$color-dark-surface: #111827;
-$color-dark-surface-elevated: #1f293d;
-$color-dark-border: #334155;
-$color-dark-text-primary: #f8fafc;
-$color-dark-text-secondary: #cbd5e1;
-$color-dark-text-muted: #94a3b8;
+// Paleta escura base alinhada ao padrao Dracula
+$color-dark-bg: $dracula-bg;
+$color-dark-surface: $dracula-surface;
+$color-dark-surface-elevated: $dracula-selection;
+$color-dark-border: #44475a;
+$color-dark-text-primary: $dracula-foreground;
+$color-dark-text-secondary: #e2e8f0;
+$color-dark-text-muted: $dracula-comment;
 
 // Espacamentos
 $spacing-xs: 0.25rem;

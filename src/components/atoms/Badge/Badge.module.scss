@@ -1,0 +1,59 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border: 1px solid transparent;
+  line-height: 1.4;
+
+  &.dracula-purple {
+    background-color: rgba(189, 147, 249, 0.15);
+    color: var(--dracula-purple, #bd93f9);
+    border-color: rgba(189, 147, 249, 0.35);
+  }
+
+  &.dracula-cyan {
+    background-color: rgba(139, 233, 253, 0.15);
+    color: var(--dracula-cyan, #8be9fd);
+    border-color: rgba(139, 233, 253, 0.35);
+  }
+
+  &.dracula-green {
+    background-color: rgba(80, 250, 123, 0.15);
+    color: var(--dracula-green, #50fa7b);
+    border-color: rgba(80, 250, 123, 0.35);
+  }
+
+  &.dracula-pink {
+    background-color: rgba(255, 121, 198, 0.15);
+    color: var(--dracula-pink, #ff79c6);
+    border-color: rgba(255, 121, 198, 0.35);
+  }
+
+  &.dracula-orange {
+    background-color: rgba(255, 184, 108, 0.15);
+    color: var(--dracula-orange, #ffb86c);
+    border-color: rgba(255, 184, 108, 0.35);
+  }
+
+  &.ft-green {
+    background-color: var(--ft-green-soft);
+    color: var(--ft-green);
+    border-color: var(--ft-green-border);
+  }
+
+  &.ft-blue {
+    background-color: var(--ft-blue-soft);
+    color: var(--ft-blue);
+    border-color: var(--ft-blue-border);
+  }
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+}

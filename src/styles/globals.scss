@@ -34,40 +34,54 @@
   --warning: #b45309;
   --danger: #b91c1c;
 
+  --dracula-bg: #{$dracula-bg};
+  --dracula-surface: #{$dracula-surface};
+  --dracula-current-line: #{$dracula-current-line};
+  --dracula-selection: #{$dracula-selection};
+  --dracula-foreground: #{$dracula-foreground};
+  --dracula-comment: #{$dracula-comment};
+  --dracula-cyan: #{$dracula-cyan};
+  --dracula-green: #{$dracula-green};
+  --dracula-orange: #{$dracula-orange};
+  --dracula-pink: #{$dracula-pink};
+  --dracula-purple: #{$dracula-purple};
+  --dracula-red: #{$dracula-red};
+  --dracula-yellow: #{$dracula-yellow};
+
   @media (max-width: 768px) {
     --header-height: #{$header-height-mobile};
   }
 }
 
-// Modo escuro: Destaques claros (Azul e Verde brilhantes) para alto contraste com fundo preto
+// Modo escuro alinhado a estetica autentica de IDE com tema oficial Dracula
 [data-theme='dark'] {
-  --bg-color: #{$color-dark-bg};
-  --surface-color: #{$color-dark-surface};
-  --surface-elevated: #{$color-dark-surface-elevated};
-  --surface-glass: rgba(17, 24, 39, 0.92);
-  --border-color: #{$color-dark-border};
-  --text-primary: #{$color-dark-text-primary};
-  --text-secondary: #{$color-dark-text-secondary};
-  --text-muted: #{$color-dark-text-muted};
+  --bg-color: #{$dracula-bg};
+  --surface-color: #{$dracula-surface};
+  --surface-elevated: #{$dracula-selection};
+  --surface-glass: rgba(33, 34, 44, 0.94);
+  --border-color: #44475a;
+  --text-primary: #{$dracula-foreground};
+  --text-secondary: #e2e8f0;
+  --text-muted: #{$dracula-comment};
 
-  --ft-blue: #{$color-dark-blue};
-  --ft-blue-hover: #{$color-dark-blue-hover};
-  --ft-blue-soft: #{$color-dark-blue-soft};
-  --ft-blue-border: #{$color-dark-blue-border};
+  --ft-blue: #{$dracula-cyan};
+  --ft-blue-hover: #bbf2fd;
+  --ft-blue-soft: rgba(139, 233, 253, 0.16);
+  --ft-blue-border: rgba(139, 233, 253, 0.35);
 
-  --ft-green: #{$color-dark-green};
-  --ft-green-hover: #{$color-dark-green-hover};
-  --ft-green-soft: #{$color-dark-green-soft};
-  --ft-green-border: #{$color-dark-green-border};
+  --ft-green: #{$dracula-green};
+  --ft-green-hover: #79fbb0;
+  --ft-green-soft: rgba(80, 250, 123, 0.16);
+  --ft-green-border: rgba(80, 250, 123, 0.35);
 
   --primary: var(--ft-blue);
   --primary-hover: var(--ft-blue-hover);
   --accent: var(--ft-green);
   --accent-hover: var(--ft-green-hover);
-  --unicamp-red: #ef4444;
+  --unicamp-red: #{$dracula-red};
   --success: var(--ft-green);
-  --warning: #f59e0b;
-  --danger: #ef4444;
+  --warning: #{$dracula-orange};
+  --danger: #{$dracula-red};
 }
 
 *,
@@ -243,5 +257,9 @@ code, pre {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+body {
+  padding-bottom: 1.75rem;
 }
 
