@@ -40,7 +40,16 @@ import { useSectionOrdering } from '@/hooks/useSectionOrdering';
 import { JourneyStageHeader } from '@/components/JourneyStageHeader/JourneyStageHeader';
 import { SecondarySectionsToggle } from '@/components/SecondarySectionsToggle/SecondarySectionsToggle';
 import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
-import { padComparisonData, ftInternshipProceduresData, ftTccProceduresData, pifGuidelinesData, ftGraduationCeremonyData } from '@/data/academic';
+import { MobileTopicPills } from '@/components/MobileTopicPills/MobileTopicPills';
+import {
+  padComparisonData,
+  ftInternshipProceduresData,
+  ftTccProceduresData,
+  pifGuidelinesData,
+  ftGraduationCeremonyData,
+  postgraduateProgramsData,
+  scholarshipTypesData
+} from '@/data/academic';
 import { ShareWhatsAppButton } from '@/components/ShareWhatsAppButton/ShareWhatsAppButton';
 import styles from './academico.module.scss';
 
@@ -121,6 +130,8 @@ const academicTopics: TopicItem[] = [
       { id: 'tcc-procedimentos', title: 'Regulamento e Etapas de TCC' },
       { id: 'tcc-substituicao-artigo', title: 'Substituição por Artigo Científico' },
       { id: 'pif-pos-graduacao', title: 'Aceleração de Mestrado via PIF' },
+      { id: 'pos-graduacao-ft-ic', title: 'Mestrado e Doutorado FT e IC' },
+      { id: 'bolsas-posgraduacao', title: 'Bolsas de Pesquisa CAPES, CNPq e FAPESP' },
       { id: 'tcc-links-oficiais', title: 'Links Oficiais e Manuais SIGA' },
     ],
   },
@@ -296,18 +307,6 @@ export default function AcademicoPage() {
             Compreenda os coeficientes CR e CP, as diferenças entre os cursos de computação, os prazos regulamentares da DAC e como planejar sua grade para conciliar estudos e estágio com segurança.
           </p>
 
-          <nav className={styles.jumpNav} aria-label="Navegação rápida pelos tópicos acadêmicos">
-            <a href="#bsi-vs-tads" className={styles.jumpPill}>BSI vs TADS</a>
-            <a href="#coeficientes-dac" className={styles.jumpPill}>Coeficientes e CR</a>
-            <a href="#checklist-formatura" className={styles.jumpPill}>Checklist Formatura</a>
-            <a href="#tcc-pos-graduacao-pif" className={styles.jumpPill}>TCC e Pós PIF</a>
-            <a href="#monitoria-pad" className={styles.jumpPill}>Monitoria PAD</a>
-            <a href="#horas-extensao" className={styles.jumpPill}>Horas e Extensão</a>
-            <a href="#estrategia-carreira" className={styles.jumpPill}>Estratégia e Estágio</a>
-            <a href="#noturno-bsi" className={styles.jumpPill}>Transição Noturno</a>
-            <a href="#iniciacao-cientifica" className={styles.jumpPill}>Iniciação Científica</a>
-            <a href="#intercambio-deri" className={styles.jumpPill}>Intercâmbio DERI</a>
-          </nav>
         </motion.div>
       </section>
 
@@ -318,6 +317,9 @@ export default function AcademicoPage() {
         </aside>
 
         <div className={styles.mainContentArea}>
+          {/* Navegação Rápida por Pílulas no Topo para Mobile */}
+          <MobileTopicPills topics={displayedTopics} />
+
           {/* Seletor Interativo de Momento da Graduação */}
           <JourneyFilter
             currentStage={journeyStage}
@@ -838,7 +840,86 @@ export default function AcademicoPage() {
             </div>
           </div>
 
-          {/* Subtópico 4: Links Oficiais e Tutoriais SIGA */}
+          {/* Subtópico 4: Pós-Graduação Acadêmica na FT e no IC */}
+          <div id="pos-graduacao-ft-ic" style={{ marginTop: '2.5rem' }}>
+            <h3 className={styles.categoryTitle}>
+              <GraduationCap size={18} />
+              Estrutura de Mestrado e Doutorado na FT e no IC
+            </h3>
+            <p className={styles.ruleText} style={{ marginBottom: '1.25rem' }}>
+              A Unicamp oferece programas de pós-graduação estrita com excelência internacional para quem deseja seguir carreira em pesquisa científica ou aprofundamento tecnológico avançado:
+            </p>
+
+            <div className={styles.rulesGrid}>
+              {postgraduateProgramsData.map((prog) => (
+                <div key={prog.id} className={`${styles.ruleCard} ${styles.ruleCardBlue}`}>
+                  <div className={styles.ruleCardHeader}>
+                    <div className={styles.ruleIconWrapper}>
+                      <Award size={18} aria-hidden="true" />
+                    </div>
+                    <div>
+                      <h4 className={styles.ruleTitle}>{prog.name}</h4>
+                      <span className={styles.ruleTag} style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
+                        {prog.degree} • {prog.unit}
+                      </span>
+                    </div>
+                  </div>
+                  <p className={styles.ruleText} style={{ marginTop: '0.75rem' }}>
+                    {prog.description}
+                  </p>
+                  <div style={{ marginTop: '1rem' }}>
+                    <strong style={{ fontSize: '0.8125rem', color: 'var(--text-primary)' }}>Linhas de Investigação:</strong>
+                    <ul style={{ margin: '0.5rem 0 0 1.25rem', fontSize: '0.8125rem', color: 'var(--text-secondary)' }}>
+                      {prog.researchLines.map((line, idx) => (
+                        <li key={idx}>{line}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <p className={styles.ruleText} style={{ marginTop: '0.75rem', fontSize: '0.8125rem', fontStyle: 'italic' }}>
+                    Ingresso: {prog.selectionProcess}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Subtópico 5: Bolsas de Pesquisa CAPES, CNPq e FAPESP */}
+          <div id="bolsas-posgraduacao" style={{ marginTop: '2.5rem' }}>
+            <h3 className={styles.categoryTitle}>
+              <FlaskConical size={18} />
+              Bolsas de Pós-Graduação CAPES, CNPq e FAPESP
+            </h3>
+            <p className={styles.ruleText} style={{ marginBottom: '1.25rem' }}>
+              Para dedicação integral às pesquisas de mestrado e doutorado, agências de fomento estaduais e federais disponibilizam auxílios financeiros mensais com critérios de mérito acadêmico:
+            </p>
+
+            <div className={styles.rulesGrid}>
+              {scholarshipTypesData.map((s, idx) => (
+                <div key={idx} className={`${styles.ruleCard} ${idx === 0 ? styles.ruleCardGreen : styles.ruleCardPurple}`}>
+                  <div className={styles.ruleCardHeader}>
+                    <div className={styles.ruleIconWrapper}>
+                      <CheckCircle2 size={18} aria-hidden="true" />
+                    </div>
+                    <div>
+                      <h4 className={styles.ruleTitle}>Bolsa {s.agency}</h4>
+                      <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>{s.fullName}</span>
+                    </div>
+                  </div>
+                  <p className={styles.ruleText} style={{ marginTop: '0.75rem', fontWeight: 600, color: 'var(--ft-green)' }}>
+                    {s.monthlyValue}
+                  </p>
+                  <p className={styles.ruleText} style={{ marginTop: '0.5rem', fontSize: '0.8125rem' }}>
+                    Duração Máxima: {s.duration}
+                  </p>
+                  <p className={styles.ruleText} style={{ marginTop: '0.5rem', fontSize: '0.8125rem', color: 'var(--text-secondary)' }}>
+                    Critérios: {s.requirements}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Subtópico 6: Links Oficiais e Tutoriais SIGA */}
           <div id="tcc-links-oficiais" style={{ marginTop: '2.5rem' }}>
             <h3 className={styles.categoryTitle}>
               <ExternalLink size={18} />

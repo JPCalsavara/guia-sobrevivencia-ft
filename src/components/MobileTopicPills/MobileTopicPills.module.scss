@@ -1,0 +1,61 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.pillsWrapper {
+  display: block;
+  width: 100%;
+  margin-bottom: $spacing-md;
+
+  @include respond-to('lg') {
+    display: none;
+  }
+}
+
+.scrollArea {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding: 0.25rem 0.125rem 0.5rem 0.125rem;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.pillItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: $radius-full;
+  border: 1px solid var(--border-color);
+  background-color: var(--surface-color);
+  color: var(--text-secondary);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all $transition-fast;
+
+  &:hover {
+    color: var(--text-primary);
+    border-color: var(--ft-green);
+  }
+
+  &.active {
+    background-color: var(--ft-green);
+    color: #ffffff;
+    border-color: var(--ft-green);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--ft-green);
+    outline-offset: 2px;
+  }
+}
