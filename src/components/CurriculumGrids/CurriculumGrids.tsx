@@ -10,11 +10,11 @@ function getSubjectCatalogUrl(code: string, semesterNumber: number, customUrl?: 
   const currentYear = new Date().getFullYear();
   const semesterPeriod = semesterNumber % 2 === 1 ? 1 : 2;
 
-  if (code.startsWith('ELET')) {
+  if (code.startsWith('ELET') || code.startsWith('UNIV')) {
     return `https://www.dac.unicamp.br/portal/caderno-de-horarios/${currentYear}/${semesterPeriod}/S/G`;
   }
 
-  return `https://www.dac.unicamp.br/portal/caderno-de-horarios/${currentYear}/${semesterPeriod}/S/G/FT#${code}`;
+  return `https://www.dac.unicamp.br/portal/caderno-de-horarios/${currentYear}/${semesterPeriod}/S/G/FT/${code}`;
 }
 
 export function CurriculumGrids() {
