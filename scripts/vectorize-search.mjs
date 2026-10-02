@@ -52,7 +52,14 @@ const DOMAIN_EXPANSIONS = {
   'categoria-iniciacao-cientifica': ['pibic', 'fapesp', 'prp', 'pesquisa', 'iniciacao cientifica', 'bolsa ic'],
   'categoria-permanencia': ['deape', 'bas', 'bolsa auxilio social', 'pmu', 'moradia', 'isencao ru'],
   'categoria-organizacoes': ['centros academicos', 'cat', 'atletica', 'aaatu', 'lics', 'liga ds'],
-  'categoria-carreira-tecnologia': ['aws', 'builder center', 'github pack', 'overleaf', 'latex', 'roadmap', 'carreira']
+  'categoria-carreira-tecnologia': ['aws', 'builder center', 'github pack', 'overleaf', 'latex', 'roadmap', 'carreira'],
+  'duvidas-matricula-dac': ['duvidas', 'perguntas', 'faq', 'dac', 'trancamento', 'desistencia', 'coeficientes', 'cr', 'cp'],
+  'duvidas-reprovacao-prerequisitos': ['reprovacao', 'prerequisito', 'grade', 'recuperacao', 'integralizacao'],
+  'duvidas-bandejao-transporte': ['bandejao', 'ru', 'saldo', 'pix', 'funcamp', 'circular', 'linha 84', 'intercampi'],
+  'duvidas-moradia-auxilios': ['moradia', 'republicas', 'kitnets', 'aluguel', 'sae', 'deape', 'bolsa bas', 'isencao ru'],
+  'duvidas-estagio-contratos': ['estagio', 'contrato', 'termo de compromisso', 'horas', 'bsi', 'tads', 'comissao de estagios'],
+  'duvidas-formatura-colacao': ['formatura', 'colacao de grau', 'diploma', 'baile', 'beca', 'mec', 'dac'],
+  'mandar-duvida': ['mandar duvida', 'enviar pergunta', 'contato', 'google chat', 'email', 'duvidas frequentes', 'suporte']
 };
 
 function normalizeText(text) {
@@ -343,6 +350,12 @@ export function generateSearchIndex() {
       category: 'links',
       basePath: '/links',
     },
+    {
+      filePath: path.join(projectRoot, 'src/app/duvidas/page.tsx'),
+      pageName: 'Dúvidas',
+      category: 'duvidas',
+      basePath: '/duvidas',
+    },
   ];
 
   const allDocuments = [];
@@ -383,7 +396,7 @@ export function generateSearchIndex() {
   subtopic?: string;
   page: string;
   url: string;
-  category: 'academico' | 'campus' | 'carreira' | 'estudos-ia' | 'links';
+  category: 'academico' | 'campus' | 'carreira' | 'estudos-ia' | 'links' | 'duvidas';
   summary: string;
   keywords: string[];
   termVector?: Record<string, number>;

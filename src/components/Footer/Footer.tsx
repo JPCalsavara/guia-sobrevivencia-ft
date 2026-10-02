@@ -35,6 +35,7 @@ export function Footer() {
                 <li><Link href="/carreira">Estágios e Modelo de Currículo</Link></li>
                 <li><Link href="/estudos-ia">Estudos com Gemini e NotebookLM</Link></li>
                 <li><Link href="/campus">Salas, Bandejão e Organizações</Link></li>
+                <li><Link href="/duvidas">Portal de Dúvidas Comuns</Link></li>
                 <li><Link href="/links">Diretório de Links Oficiais</Link></li>
               </ul>
             </nav>
@@ -162,6 +163,17 @@ export function Footer() {
           </p>
           <p className={styles.bugReport}>
             Encontrou algum link quebrado ou bug? Envie uma mensagem pelo Google Chat institucional para <strong>j197837@dac.unicamp.br</strong> para reportar problemas e solicitar correções.
+          </p>
+          <p className={styles.credits}>
+            Criado e desenvolvido por{' '}
+            <a
+              href="https://www.linkedin.com/in/joaopedrocalsavara/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Perfil de Joao Pedro Calsavara no LinkedIn em nova janela"
+            >
+              João Pedro Calsavara no LinkedIn
+            </a>
           </p>
         </div>
       </div>

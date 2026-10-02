@@ -4,7 +4,7 @@ export interface SearchDocument {
   subtopic?: string;
   page: string;
   url: string;
-  category: 'academico' | 'campus' | 'carreira' | 'estudos-ia' | 'links';
+  category: 'academico' | 'campus' | 'carreira' | 'estudos-ia' | 'links' | 'duvidas';
   summary: string;
   keywords: string[];
   termVector?: Record<string, number>;
@@ -13099,6 +13099,249 @@ export const searchIndex: SearchDocument[] = [
       "roadmap": 0.22,
       "links": 0.19,
       "uteis": 0.1
+    }
+  },
+  {
+    "id": "duvidas-duvidas-matricula-dac",
+    "title": "Dúvidas Acadêmicas e Matrícula, Regras da DAC, Trancamento e Coeficientes",
+    "subtopic": "Regras da DAC, Trancamento e Coeficientes",
+    "page": "Dúvidas",
+    "url": "/duvidas#duvidas-matricula-dac",
+    "category": "duvidas",
+    "summary": "Dúvidas Acadêmicas e Matrícula, foco em Regras da DAC, Trancamento e Coeficientes na Faculdade de Tecnologia da Unicamp.",
+    "keywords": [
+      "duvidas",
+      "dac",
+      "trancamento",
+      "coeficientes",
+      "regras",
+      "perguntas",
+      "faq",
+      "desistencia",
+      "academicas",
+      "matricula"
+    ],
+    "termVector": {
+      "regras": 0.22,
+      "dac": 0.41,
+      "trancamento": 0.41,
+      "coeficientes": 0.41,
+      "duvidas": 0.52,
+      "academicas": 0.15,
+      "matricula": 0.15,
+      "perguntas": 0.2,
+      "faq": 0.2,
+      "desistencia": 0.2
+    }
+  },
+  {
+    "id": "duvidas-duvidas-reprovacao-prerequisitos",
+    "title": "Dúvidas Acadêmicas e Matrícula, Pré-requisitos e Reprovações",
+    "subtopic": "Pré-requisitos e Reprovações",
+    "page": "Dúvidas",
+    "url": "/duvidas#duvidas-reprovacao-prerequisitos",
+    "category": "duvidas",
+    "summary": "Dúvidas Acadêmicas e Matrícula, foco em Pré-requisitos e Reprovações na Faculdade de Tecnologia da Unicamp.",
+    "keywords": [
+      "duvidas",
+      "pre",
+      "requisitos",
+      "reprovacoes",
+      "reprovacao",
+      "prerequisito",
+      "grade",
+      "recuperacao",
+      "integralizacao",
+      "academicas"
+    ],
+    "termVector": {
+      "pre": 0.31,
+      "requisitos": 0.31,
+      "reprovacoes": 0.31,
+      "duvidas": 0.47,
+      "academicas": 0.22,
+      "matricula": 0.22,
+      "reprovacao": 0.28,
+      "prerequisito": 0.28,
+      "grade": 0.28,
+      "recuperacao": 0.28,
+      "integralizacao": 0.28
+    }
+  },
+  {
+    "id": "duvidas-duvidas-bandejao-transporte",
+    "title": "Dúvidas de Campus e Cotidiano, Bandejão com Pix e Linha 84 Intercampi",
+    "subtopic": "Bandejão com Pix e Linha 84 Intercampi",
+    "page": "Dúvidas",
+    "url": "/duvidas#duvidas-bandejao-transporte",
+    "category": "duvidas",
+    "summary": "Dúvidas de Campus e Cotidiano, foco em Bandejão com Pix e Linha 84 Intercampi na Faculdade de Tecnologia da Unicamp.",
+    "keywords": [
+      "bandejao",
+      "pix",
+      "linha",
+      "intercampi",
+      "duvidas",
+      "saldo",
+      "funcamp",
+      "circular",
+      "campus",
+      "cotidiano"
+    ],
+    "termVector": {
+      "bandejao": 0.42,
+      "pix": 0.42,
+      "linha": 0.42,
+      "intercampi": 0.42,
+      "duvidas": 0.33,
+      "campus": 0.16,
+      "cotidiano": 0.16,
+      "saldo": 0.2,
+      "funcamp": 0.2,
+      "circular": 0.2
+    }
+  },
+  {
+    "id": "duvidas-duvidas-moradia-auxilios",
+    "title": "Dúvidas de Campus e Cotidiano, Moradia Estudantil e Bolsas SAE",
+    "subtopic": "Moradia Estudantil e Bolsas SAE",
+    "page": "Dúvidas",
+    "url": "/duvidas#duvidas-moradia-auxilios",
+    "category": "duvidas",
+    "summary": "Dúvidas de Campus e Cotidiano, foco em Moradia Estudantil e Bolsas SAE na Faculdade de Tecnologia da Unicamp.",
+    "keywords": [
+      "moradia",
+      "sae",
+      "duvidas",
+      "estudantil",
+      "bolsas",
+      "republicas",
+      "kitnets",
+      "aluguel",
+      "deape",
+      "bolsa"
+    ],
+    "termVector": {
+      "moradia": 0.45,
+      "estudantil": 0.23,
+      "bolsas": 0.23,
+      "sae": 0.45,
+      "duvidas": 0.35,
+      "campus": 0.16,
+      "cotidiano": 0.16,
+      "republicas": 0.21,
+      "kitnets": 0.21,
+      "aluguel": 0.21,
+      "deape": 0.21,
+      "bolsa": 0.21,
+      "bas": 0.21,
+      "isencao": 0.21
+    }
+  },
+  {
+    "id": "duvidas-duvidas-estagio-contratos",
+    "title": "Dúvidas de Carreira e Formatura, Estágios e Termo de Compromisso",
+    "subtopic": "Estágios e Termo de Compromisso",
+    "page": "Dúvidas",
+    "url": "/duvidas#duvidas-estagio-contratos",
+    "category": "duvidas",
+    "summary": "Dúvidas de Carreira e Formatura, foco em Estágios e Termo de Compromisso na Faculdade de Tecnologia da Unicamp.",
+    "keywords": [
+      "estagios",
+      "termo",
+      "compromisso",
+      "duvidas",
+      "estagio",
+      "contrato",
+      "horas",
+      "bsi",
+      "tads",
+      "comissao"
+    ],
+    "termVector": {
+      "estagios": 0.44,
+      "termo": 0.44,
+      "compromisso": 0.44,
+      "duvidas": 0.34,
+      "carreira": 0.16,
+      "formatura": 0.16,
+      "estagio": 0.21,
+      "contrato": 0.21,
+      "horas": 0.21,
+      "bsi": 0.21,
+      "tads": 0.21,
+      "comissao": 0.21
+    }
+  },
+  {
+    "id": "duvidas-duvidas-formatura-colacao",
+    "title": "Dúvidas de Carreira e Formatura, Colação de Grau Oficial e Diploma",
+    "subtopic": "Colação de Grau Oficial e Diploma",
+    "page": "Dúvidas",
+    "url": "/duvidas#duvidas-formatura-colacao",
+    "category": "duvidas",
+    "summary": "Dúvidas de Carreira e Formatura, foco em Colação de Grau Oficial e Diploma na Faculdade de Tecnologia da Unicamp.",
+    "keywords": [
+      "colacao",
+      "grau",
+      "diploma",
+      "formatura",
+      "duvidas",
+      "oficial",
+      "baile",
+      "beca",
+      "mec",
+      "dac"
+    ],
+    "termVector": {
+      "colacao": 0.42,
+      "grau": 0.42,
+      "oficial": 0.22,
+      "diploma": 0.42,
+      "duvidas": 0.33,
+      "carreira": 0.16,
+      "formatura": 0.35,
+      "baile": 0.2,
+      "beca": 0.2,
+      "mec": 0.2,
+      "dac": 0.2
+    }
+  },
+  {
+    "id": "duvidas-mandar-duvida",
+    "title": "Envio de Dúvidas, Mande sua Dúvida para a Equipe",
+    "subtopic": "Mande sua Dúvida para a Equipe",
+    "page": "Dúvidas",
+    "url": "/duvidas#mandar-duvida",
+    "category": "duvidas",
+    "summary": "Envio de Dúvidas, foco em Mande sua Dúvida para a Equipe na Faculdade de Tecnologia da Unicamp.",
+    "keywords": [
+      "duvidas",
+      "duvida",
+      "mande",
+      "equipe",
+      "mandar",
+      "enviar",
+      "pergunta",
+      "contato",
+      "google",
+      "chat"
+    ],
+    "termVector": {
+      "mande": 0.23,
+      "duvida": 0.43,
+      "equipe": 0.23,
+      "envio": 0.16,
+      "duvidas": 0.55,
+      "mandar": 0.21,
+      "enviar": 0.21,
+      "pergunta": 0.21,
+      "contato": 0.21,
+      "google": 0.21,
+      "chat": 0.21,
+      "email": 0.21,
+      "frequentes": 0.21,
+      "suporte": 0.21
     }
   }
 ];
