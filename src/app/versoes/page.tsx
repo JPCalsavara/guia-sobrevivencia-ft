@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Tag, GitBranch, ExternalLink, HeartHandshake, Mail, Github, CheckCircle2 } from 'lucide-react';
 import { versionsData } from '@/data/versions';
+import { PROJECT_SUPPORT_EMAIL, PROJECT_CONTRIBUTING_URL } from '@/data/contacts';
 import styles from './versoes.module.scss';
 
 export const metadata = {
@@ -87,7 +88,7 @@ export default function VersoesPage() {
               </p>
             </div>
             <a
-              href="https://github.com/jpcalsavara/guia-sobrevivencia-ft"
+              href={PROJECT_CONTRIBUTING_URL}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.supportActionSecondary}
@@ -105,11 +106,11 @@ export default function VersoesPage() {
               </p>
             </div>
             <a
-              href="mailto:j197837@dac.unicamp.br?subject=Apoio%20ao%20Guia%20de%20Sobrevivencia%20FT"
+              href={`mailto:${PROJECT_SUPPORT_EMAIL}?subject=Apoio%20ao%20Guia%20de%20Sobrevivencia%20FT`}
               className={styles.supportActionBtn}
             >
               <Mail size={16} aria-hidden="true" />
-              <span>Enviar Email para j197837@dac.unicamp.br</span>
+              <span>Enviar Email de Contato Institucional</span>
             </a>
           </div>
         </div>

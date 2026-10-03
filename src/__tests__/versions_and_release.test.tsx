@@ -22,7 +22,7 @@ describe('Catalogo de Historico de Versoes e Apoio', () => {
 
     expect(screen.getByText('Historico de Versoes do Projeto')).toBeDefined();
     expect(screen.getByText('Como Apoiar e Ajudar o Projeto')).toBeDefined();
-    expect(screen.getByText('Enviar Email para j197837@dac.unicamp.br')).toBeDefined();
+    expect(screen.getByText('Enviar Email de Contato Institucional')).toBeDefined();
     expect(screen.getByText('Abrir Repositorio no GitHub')).toBeDefined();
   });
 
