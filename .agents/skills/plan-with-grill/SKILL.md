@@ -1,11 +1,11 @@
 ---
 name: plan-with-grill
-description: Elabora planos de implementacao tecnicos por meio de entrevista guiada com arvore de decisoes grill-me e gera o cartao executivo correspondente em docs/next.
+description: Elabora planos de implementacao tecnicos por meio de entrevista guiada com arvore de decisoes grill-me e gera o cartao executivo correspondente em docs/kanban/todo.
 ---
 
 # Skill Plan With Grill
 
-Esta skill estabelece o fluxo oficial de planejamento interativo no Guia de Sobrevivencia da Faculdade de Tecnologia da Unicamp. Seu proposito e eliminar ambiguidades de requisitos antes de qualquer escrita de codigo de producao, documentando as etapas em um cartao rastreavel em `docs/next/`.
+Esta skill estabelece o fluxo oficial de planejamento interativo no Guia de Sobrevivencia da Faculdade de Tecnologia da Unicamp. Seu proposito e eliminar ambiguidades de requisitos antes de qualquer escrita de codigo de producao, documentando as etapas em um cartao rastreavel em `docs/kanban/todo/`.
 
 ## Fluxo de Trabalho
 
@@ -27,7 +27,7 @@ Esta skill estabelece o fluxo oficial de planejamento interativo no Guia de Sobr
   - Plano de Verificacao com testes automatizados e checagem manual
 - Respeite rigorosamente a ADR 0001: ausencia total de parenteses, travessoes e emojis em todo o texto.
 
-### 3. Registro do Cartao Executivo em docs/next
-- Gere o cartao de execucao em formato markdown no caminho `docs/next/<nome-da-atividade>.md`.
+### 3. Registro do Cartao Executivo em docs/kanban/todo
+- Gere o cartao de execucao em formato markdown no caminho `docs/kanban/todo/<nome-da-atividade>.md`.
 - Divida o trabalho em etapas numeradas e itens com caixas de selecao nao marcadas.
 - O cartao servira de guia para a execucao subsequente e sera consumido pela skill git-flow-gatekeeper.

@@ -1,6 +1,6 @@
 ---
 name: git-flow-gatekeeper
-description: Orquestra o ciclo git-flow completo, executa a suite de testes e o AI Gatekeeper, ativa loop de auto-recuperacao com ate tres iteracoes, apaga o card concluido em docs/next e cria o Pull Request formal via gh pr create.
+description: Orquestra o ciclo git-flow completo, executa a suite de testes e o AI Gatekeeper, ativa loop de auto-recuperacao com ate tres iteracoes, move o card concluido para docs/kanban/done e cria o Pull Request formal via gh pr create.
 ---
 
 # Skill Git-Flow Gatekeeper
@@ -39,11 +39,11 @@ Esta skill coordena o fluxo de entrega continua de codigo no Guia de Sobrevivenc
   - O agente deve iterar autonomamente nesse ciclo por ate tres tentativas consecutivas.
   - Caso o problema persista apos a terceira iteracao, interrompa o fluxo e apresente o diagnostico detalhado ao desenvolvedor.
 
-### 5. Remocao do Cartao Concluido em docs/next
+### 5. Movimentacao do Cartao Concluido no Kanban
 - Apos a aprovacao completa dos testes e do AI Gatekeeper:
-  - Verifique se o cartao de execucao correspondente em `docs/next/<atividade>.md` teve todas as suas tarefas finalizadas.
-  - Remova o arquivo do cartao em `docs/next/` para manter a pasta limpa, contendo apenas trabalhos futuros.
-  - Adicione a remocao do arquivo ao stage do git.
+  - Verifique se o cartao de execucao correspondente em `docs/kanban/doing/<atividade>.md ou docs/kanban/todo/<atividade>.md` teve todas as suas tarefas finalizadas.
+  - Mova o arquivo do cartao para `docs/kanban/done/` para preservar o historico de tarefas concluidas.
+  - Adicione a movimentacao do arquivo ao stage do git.
 
 ### 6. Submissao do Pull Request
 - Registre o commit final com mensagem semantica no padrao Conventional Commits, com ausencia estrita de parenteses, travessoes e emojis segundo a ADR 0001.

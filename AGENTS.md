@@ -2,7 +2,7 @@
 
 ### Issue tracker
 
-Issues and specs live as local markdown files under `.scratch/<feature>/`. See `docs/agents/issue-tracker.md`.
+Acompanhamento de tarefas e features atraves de Kanban local estruturado em `docs/kanban/`. Cartoes executivos trafegam por `todo/`, `doing/` e `done/`. Consulte `docs/agents/issue-tracker.md`.
 
 ### Triage labels
 
@@ -18,4 +18,4 @@ Distribution of AI models across engineering tasks. See `docs/agents/model-matri
 
 ### Content to Card
 
-Fast-path content tickets directly to `docs/next/`. See `.agents/skills/content-to-card/SKILL.md`.
+Fast-path content tickets diretamente para `docs/kanban/todo/`. Consulte `.agents/skills/content-to-card/SKILL.md`.

@@ -1,30 +1,19 @@
-# Issue tracker: Local Markdown
+# Issue tracker: Kanban Local Markdown
 
-Issues and specs for this repo live as markdown files in `.scratch/`.
+O rastreamento de tarefas, *issues* e especificacoes neste repositorio utiliza arquivos Markdown organizados em um fluxo Kanban simples e transparente no diretorio `docs/kanban/`.
 
-## Conventions
+## Estrutura do Kanban
 
-- One feature per directory: `.scratch/<feature-slug>/`
-- The spec is `.scratch/<feature-slug>/spec.md`
-- Implementation issues are one file per ticket at `.scratch/<feature-slug>/issues/<NN>-<slug>.md`, numbered from `01`, never a single combined tickets file
-- Triage state is recorded as a `Status:` line near the top of each issue file (see `triage-labels.md` for the role strings)
-- Comments and conversation history append to the bottom of the file under a `## Comments` heading
+- `docs/kanban/todo/`: Guarda todas as tarefas, propostas e *cards* gerados (ex: via *content-to-card* ou *plan-with-grill*) que estao prontos ou aguardando fila de execucao.
+- `docs/kanban/doing/`: Para onde os *cards* sao movidos manualmente ou por agentes antes do inicio da implementacao. Isso sinaliza trabalho em andamento.
+- `docs/kanban/done/`: Arquivo historico permanente de tarefas entregues. O *git-flow-gatekeeper* move autonomamente os *cards* concluidos de *doing* (ou *todo*) para ca no momento do PR. Nao apague o historico.
 
-## When a skill says "publish to the issue tracker"
+## Convencoes
 
-Create a new file under `.scratch/<feature-slug>/` (creating the directory if needed).
+- Utilize um arquivo Markdown por tarefa (ex: `001-nome-da-feature.md`).
+- A numeracao ajuda na ordenacao cronologica das entregas e no rastreamento.
+- Nunca crie um documento com varias tarefas complexas de uma vez; separe-as em *cards* distintos para permitir a entrega continua paralela.
 
-## When a skill says "fetch the relevant ticket"
+## Quando uma skill solicitar a publicacao ou leitura
 
-Read the file at the referenced path. The user will normally pass the path or the issue number directly.
-
-## Wayfinding operations
-
-Used by `/wayfinder`. The **map** is a file with one **child** file per ticket.
-
-- **Map**: `.scratch/<effort>/map.md` (the Notes / Decisions-so-far / Fog body).
-- **Child ticket**: `.scratch/<effort>/issues/NN-<slug>.md`, numbered from `01`, with the question in the body. A `Type:` line records the ticket type (`research`/`prototype`/`grilling`/`task`); a `Status:` line records `claimed`/`resolved`.
-- **Blocking**: a `Blocked by: NN, NN` line near the top. A ticket is unblocked when every file it lists is `resolved`.
-- **Frontier**: scan `.scratch/<effort>/issues/` for files that are open, unblocked, and unclaimed; first by number wins.
-- **Claim**: set `Status: claimed` and save before any work.
-- **Resolve**: append the answer under an `## Answer` heading, set `Status: resolved`, then append a context pointer (gist + link) to the map's Decisions-so-far in `map.md`.
+Crie, mova ou leia o arquivo Markdown diretamente nos diretorios de *kanban*, respeitando seu status atual.

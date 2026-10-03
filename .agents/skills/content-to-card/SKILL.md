@@ -16,7 +16,7 @@ Muitas entregas do projeto consistem na adicao ou expansao de conteudos editoria
 3. Dicas academicas, orientacoes de estagio e grade curricular.
 4. Perguntas frequentes e boas praticas de estudo.
 
-Para esses cenarios, a elaboracao formal de especificacoes complexas com dezenas de historias de usuario e desnecessaria. Esta skill extrai os temas centrais e gera diretamente o cartao executivo em `docs/next/<slug>.md`.
+Para esses cenarios, a elaboracao formal de especificacoes complexas com dezenas de historias de usuario e desnecessaria. Esta skill extrai os temas centrais e gera diretamente o cartao executivo em `docs/kanban/todo/<slug>.md`.
 
 ## Fluxo de Execucao
 
@@ -30,11 +30,11 @@ A skill identifica automaticamente:
 - **Conformidade com ADR 0001:** Assegura que nenhum texto utilize parenteses, travessoes ou emojis.
 
 ### 3. Publicacao do Cartao em docs/next
-Gera o arquivo `docs/next/<slug-da-tarefa>.md` contendo:
+Gera o arquivo `docs/kanban/todo/<slug-da-tarefa>.md` contendo:
 - Titulo e objetivo claro.
 - Paginas e arquivos impactados.
 - Checklist numerado de subetapas com caixas de selecao nao marcadas.
 - Roteiro de testes automatizados e verificacao manual.
 
 ### 4. Execucao pelo Git Flow Gatekeeper
-Com o cartao criado em `docs/next/`, o desenvolvimento pode ser iniciado imediatamente na branch dedicada e concluido pela skill `git-flow-gatekeeper`.
+Com o cartao criado em `docs/kanban/todo/`, o desenvolvimento pode ser iniciado imediatamente na branch dedicada e concluido pela skill `git-flow-gatekeeper`.
