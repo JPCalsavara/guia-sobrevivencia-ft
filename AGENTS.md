@@ -11,3 +11,7 @@ Default canonical roles (`needs-triage`, `needs-info`, `ready-for-agent`, `ready
 ### Domain docs
 
 Single-context layout (`CONTEXT.md` + `docs/adr/`). See `docs/agents/domain.md`.
+
+### Model matrix
+
+Distribution of AI models across engineering tasks. See `docs/agents/model-matrix.md`.
