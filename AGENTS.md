@@ -15,3 +15,7 @@ Single-context layout (`CONTEXT.md` + `docs/adr/`). See `docs/agents/domain.md`.
 ### Model matrix
 
 Distribution of AI models across engineering tasks. See `docs/agents/model-matrix.md`.
+
+### Content to Card
+
+Fast-path content tickets directly to `docs/next/`. See `.agents/skills/content-to-card/SKILL.md`.
