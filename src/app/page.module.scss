@@ -83,7 +83,7 @@
 .primaryButton {
   @include button-base;
   background-color: var(--ft-blue);
-  color: #ffffff;
+  color: var(--on-primary);
   padding: 0.875rem 1.75rem;
   font-size: 1rem;
   font-weight: 700;
@@ -96,6 +96,7 @@
 
   &:hover {
     background-color: var(--ft-blue-hover);
+    color: var(--on-primary);
     transform: translateY(-2px);
     box-shadow: $shadow-lg;
   }
@@ -678,7 +679,7 @@
 
   &.activeStage {
     background-color: var(--ft-blue);
-    color: #ffffff;
+    color: var(--on-primary);
     border-color: var(--ft-blue);
     box-shadow: $shadow-sm;
   }
@@ -783,7 +784,7 @@
 
   &:hover {
     background-color: var(--ft-blue);
-    color: #ffffff;
+    color: var(--on-primary);
     border-color: var(--ft-blue);
   }
 }
@@ -801,13 +802,14 @@
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
   background-color: var(--ft-blue);
-  color: #ffffff;
+  color: var(--on-primary);
   font-size: 0.9375rem;
   font-weight: 700;
   box-shadow: $shadow-sm;
 
   &:hover {
     background-color: var(--ft-blue-hover);
+    color: var(--on-primary);
     transform: translateY(-1px);
     box-shadow: $shadow-md;
   }

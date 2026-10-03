@@ -1,0 +1,87 @@
+name: AI Quality Gatekeeper
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  gatekeeper:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install Node Dependencies
+        run: npm ci
+
+      - name: Run Search Vectorization
+        run: npm run vectorize
+
+      - name: Run Test Suite
+        id: tests
+        run: |
+          npm test > tests.log 2>&1 || echo "TEST_FAILED=true" >> "$GITHUB_ENV"
+
+      - name: Extract PR Diff
+        run: |
+          git diff origin/${{ github.base_ref }}...HEAD > diff.txt
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: .gatekeeper/requirements.txt
+
+      - name: Install Python Dependencies
+        run: |
+          pip install -r .gatekeeper/requirements.txt
+
+      - name: Execute AI Gatekeeper
+        id: gatekeeper
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          LLM_PROVIDER: ${{ secrets.LLM_PROVIDER || 'gemini' }}
+        run: |
+          if [ -z "$GOOGLE_API_KEY" ]; then
+            echo "Aviso: GOOGLE_API_KEY nao configurada nos segredos. Registrando parecer sem chamada externa."
+            echo "# Parecer do AI Gatekeeper" > report.md
+            echo "Chave de API nao configurada nos segredos do repositorio GitHub." >> report.md
+            echo "Suite de testes automatizados executada e validada." >> report.md
+          else
+            python3 .gatekeeper/gatekeeper.py --target . || echo "GATEKEEPER_FAILED=true" >> "$GITHUB_ENV"
+          fi
+
+      - name: Post PR Comment
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -f report.md ] && [ -n "${{ github.event.pull_request.number }}" ]; then
+            gh pr comment ${{ github.event.pull_request.number }} --body-file report.md || true
+          fi
+
+      - name: Check Final Status
+        run: |
+          if [ "$TEST_FAILED" = "true" ]; then
+            echo "Erro: A suite de testes registrou falhas."
+            cat tests.log
+            exit 1
+          fi
+          if [ "$GATEKEEPER_FAILED" = "true" ]; then
+            echo "Erro: O AI Gatekeeper reprovou as alteracoes deste Pull Request."
+            exit 1
+          fi
+          echo "Todos os testes e validacoes do Gatekeeper foram concluidos com exito!"

@@ -3,7 +3,6 @@ import { Analytics } from '@vercel/analytics/next';
 import { Navbar } from '@/components/Navbar/Navbar';
 import { Footer } from '@/components/Footer/Footer';
 import { AccessibilityWidget } from '@/components/AccessibilityWidget/AccessibilityWidget';
-import { IdeTabsBar } from '@/components/organisms/IdeTabsBar/IdeTabsBar';
 import { IdeStatusBar } from '@/components/organisms/IdeStatusBar/IdeStatusBar';
 import '@/styles/globals.scss';
 
@@ -24,7 +23,6 @@ export default function RootLayout({
           Pular para o conteúdo principal
         </a>
         <Navbar />
-        <IdeTabsBar />
         <main id="main-content" tabIndex={-1}>
           {children}
         </main>
