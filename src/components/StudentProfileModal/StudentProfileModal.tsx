@@ -68,20 +68,20 @@ export function StudentProfileModal({ isOpen, onClose }: StudentProfileModalProp
     if (currentStage === 'calouro') {
       return {
         title: 'Fase Ingressante ou Calouro',
-        desc: 'Foco inicial em matricula, habitacao, salas de aula, bandejao e reforco em calculo e programacao.',
+        desc: 'Foco inicial em matrícula, habitação, salas de aula, bandejão e reforço em cálculo e programação.',
         icon: GraduationCap,
       };
     }
     if (currentStage === 'meio') {
       return {
-        title: 'Fase Intermediaria ou Cursando',
-        desc: 'Foco em aceleracao de creditos, monitoria PAD, iniciacao cientifica e horas de extensao.',
+        title: 'Fase Intermediária ou Cursando',
+        desc: 'Foco em aceleração de créditos, monitoria PAD, iniciação científica e horas de extensão.',
         icon: TrendingUp,
       };
     }
     return {
       title: 'Fase Final ou Formando',
-      desc: 'Foco em estagio supervisionado, TCC, horas complementares e colacao de grau oficial.',
+      desc: 'Foco em estágio supervisionado, TCC, horas complementares e colação de grau oficial.',
       icon: Award,
     };
   };
@@ -114,20 +114,20 @@ export function StudentProfileModal({ isOpen, onClose }: StudentProfileModalProp
           <div className={styles.headerTitleGroup}>
             <div className={styles.badge}>
               <Sparkles size={13} aria-hidden="true" />
-              <span>Personalizacao da Jornada</span>
+              <span>Personalização da Jornada</span>
             </div>
             <h2 id="student-profile-modal-title" className={styles.title}>
-              Qual e o seu Curso e Semestre?
+              Qual é o seu Curso e Semestre?
             </h2>
             <p className={styles.description}>
-              Informe seu curso e o periodo letivo para sincronizar os filtros de conteudo e receber destaque nos temas mais urgentes.
+              Informe seu curso e o período letivo para sincronizar os filtros de conteúdo e receber destaque nos temas mais urgentes.
             </p>
           </div>
           <button
             type="button"
             onClick={onClose}
             className={styles.closeBtn}
-            aria-label="Fechar janela de selecao de perfil"
+            aria-label="Fechar janela de seleção de perfil"
           >
             <X size={20} aria-hidden="true" />
           </button>
@@ -135,7 +135,7 @@ export function StudentProfileModal({ isOpen, onClose }: StudentProfileModalProp
 
         {/* Escolha do Curso */}
         <div className={styles.section}>
-          <label className={styles.sectionLabel}>Curso de Graduacao</label>
+          <label className={styles.sectionLabel}>Curso de Graduação</label>
           <div className={styles.courseGrid} role="radiogroup" aria-label="Selecione seu curso">
             {(['bsi', 'tads'] as CourseId[]).map((courseId) => {
               const isSelected = selectedCourse === courseId;
@@ -158,7 +158,7 @@ export function StudentProfileModal({ isOpen, onClose }: StudentProfileModalProp
 
         {/* Escolha do Semestre */}
         <div className={styles.section}>
-          <label className={styles.sectionLabel}>Periodo Letivo Atual</label>
+          <label className={styles.sectionLabel}>Período Letivo Atual</label>
           <div className={styles.semesterGrid} role="group" aria-label="Selecione seu semestre letivo">
             {Array.from({ length: maxSemesters }, (_, i) => i + 1).map((sem) => {
               const isSelected = validSemester === sem;
@@ -203,7 +203,7 @@ export function StudentProfileModal({ isOpen, onClose }: StudentProfileModalProp
             className={styles.saveBtn}
           >
             <Check size={16} aria-hidden="true" />
-            <span>Salvar Preferencia</span>
+            <span>Salvar Preferência</span>
           </button>
         </div>
       </div>

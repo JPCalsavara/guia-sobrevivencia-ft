@@ -124,7 +124,7 @@ describe('Componente StudentProfileModal', () => {
       </StudentProfileProvider>
     );
 
-    expect(screen.getByText('Qual e o seu Curso e Semestre?')).toBeDefined();
+    expect(screen.getByText('Qual é o seu Curso e Semestre?')).toBeDefined();
     expect(screen.getByText('BSI')).toBeDefined();
     expect(screen.getByText('TADS')).toBeDefined();
 
@@ -133,7 +133,7 @@ describe('Componente StudentProfileModal', () => {
     expect(screen.getByText('6º Sem')).toBeDefined();
 
     // Clica em Salvar
-    fireEvent.click(screen.getByText('Salvar Preferencia'));
+    fireEvent.click(screen.getByText('Salvar Preferência'));
     expect(handleClose).toHaveBeenCalled();
   });
 });
@@ -164,6 +164,6 @@ describe('Componente Navbar com Menus Suspensos e Botao de Curso', () => {
     const profileBtn = screen.getByLabelText('Definir curso e periodo letivo');
     fireEvent.click(profileBtn);
 
-    expect(screen.getByText('Qual e o seu Curso e Semestre?')).toBeDefined();
+    expect(screen.getByText('Qual é o seu Curso e Semestre?')).toBeDefined();
   });
 });
