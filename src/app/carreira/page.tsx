@@ -60,7 +60,8 @@ import {
   bsiVsTadsCoordinatorData,
   postPandemicAndAiMarketData,
   careerYMatrixData,
-  careerVideosData
+  careerVideosData,
+  careerProjectsData
 } from '@/data/careerExpanded';
 import styles from './carreira.module.scss';
 
@@ -167,6 +168,15 @@ const careerTopics: TopicItem[] = [
     ],
   },
   {
+    id: 'projetos-portfolio',
+    title: 'Projetos Praticos',
+    subtopics: [
+      { id: 'projetos-portfolio', title: 'Desafios por Nivel' },
+      { id: 'projetos-web-cloud', title: 'Web e Computacao em Nuvem' },
+      { id: 'projetos-dados-seguranca', title: 'Dados e Seguranca' }
+    ],
+  },
+  {
     id: 'roadmap-sh',
     title: 'Roadmaps e Projetos',
     subtopics: [
@@ -182,17 +192,17 @@ const careerTopics: TopicItem[] = [
     ],
   },
   {
-    id: 'devops-ciberseguranca',
-    title: 'DevOps e Cibersegurança',
+    id: 'devops-infraestrutura',
+    title: 'DevOps e Infraestrutura',
     subtopics: [
-      { id: 'devops-ciberseguranca', title: 'Docker e Liga LICS Unicamp' },
+      { id: 'devops-infraestrutura', title: 'Docker e Liga LICS Unicamp' },
     ],
   },
   {
-    id: 'ciberseguranca-hacking-etico',
-    title: 'Cibersegurança e Hacking Ético',
+    id: 'seguranca-informacao',
+    title: 'Seguranca da Informacao',
     subtopics: [
-      { id: 'ciberseguranca-hacking-etico', title: 'Fundamentos, Especializações e Brenno M.' },
+      { id: 'seguranca-informacao', title: 'Fundamentos, Especializações e Brenno M.' },
     ],
   },
   {
@@ -264,8 +274,9 @@ const sectionStageMap: Record<string, { stage: JourneyStage; label: string }> = 
   'computacao-nuvem': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
   'roadmap-sh': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
   'trilhas-aprendizado': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
-  'devops-ciberseguranca': { stage: 'calouro', label: 'Foco: Calouro, 1º e 2º Semestres' },
-  'ciberseguranca-hacking-etico': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
+  'devops-infraestrutura': { stage: 'calouro', label: 'Foco: Calouro, 1º e 2º Semestres' },
+  'seguranca-informacao': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
+  'projetos-portfolio': { stage: 'calouro', label: 'Foco: Calouro, 1º e 2º Semestres' },
   'salarios-2026-mercado': { stage: 'formando', label: 'Foco: Formando, 7º e 8º Semestres' },
   'trabalhar-na-gringa': { stage: 'formando', label: 'Foco: Formando, 7º e 8º Semestres' },
   'bsi-vs-tads-coordenacao': { stage: 'calouro', label: 'Foco: Calouro, 1º e 2º Semestres' },
@@ -289,8 +300,9 @@ const allCareerSectionIds = [
   'computacao-nuvem',
   'roadmap-sh',
   'trilhas-aprendizado',
-  'devops-ciberseguranca',
-  'ciberseguranca-hacking-etico',
+  'projetos-portfolio',
+  'devops-infraestrutura',
+  'seguranca-informacao',
   'salarios-2026-mercado',
   'trabalhar-na-gringa',
   'bsi-vs-tads-coordenacao',
@@ -2047,6 +2059,107 @@ export default function CarreiraPage() {
         </div>
       </section>
 
+      
+      {/* Secao de Projetos Praticos e Portfolio */}
+      <section
+        id="projetos-portfolio"
+        style={getSectionStyle('projetos-portfolio')}
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['projetos-portfolio']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('projetos-portfolio')}
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <Code2 size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>Projetos Praticos e Construcao de Portfolio</h2>
+              <p className={styles.cardSubtitle}>
+                Especificacoes reais para implementar, hospedar e provar sua proficiencia tecnica
+              </p>
+            </div>
+          </div>
+          
+          <div className={styles.careerGridWrapper}>
+            {careerProjectsData.map((cat, idx) => (
+              <div key={idx} className={styles.tableCard}>
+                <div className={styles.tableCardHeader}>
+                  <h3 className={styles.tableCardTitle}>{cat.category}</h3>
+                  <p className={styles.cardSubtitle} style={{ marginTop: '0.5rem', marginBottom: '1rem' }}>{cat.description}</p>
+                </div>
+                <div className={styles.tableWrapper}>
+                  <table className={styles.dataTable}>
+                    <thead>
+                      <tr>
+                        <th>Projeto</th>
+                        <th>Descricao e Requisitos</th>
+                        <th>Tecnologias</th>
+                        <th>Nivel</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {cat.projects.map((proj, pIdx) => (
+                        <tr key={pIdx}>
+                          <td data-label="Projeto" style={{ fontWeight: 600 }}>{proj.title}</td>
+                          <td data-label="Descricao e Requisitos">{proj.description}</td>
+                          <td data-label="Tecnologias">
+                            <div className={styles.skillTagsRow} style={{ marginTop: 0 }}>
+                              {proj.tools.map((t, i) => (
+                                <span key={i} className={styles.skillTag}>{t}</span>
+                              ))}
+                            </div>
+                          </td>
+                          <td data-label="Nivel">
+                            <span className={`${styles.stageBadge} ${proj.level === 'Iniciante' ? styles.badgeCalouro : proj.level === 'Intermediario' ? styles.badgeMeio : styles.badgeFormando}`}>
+                              {proj.level}
+                            </span>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className={styles.skillsGrid} style={{ marginTop: '2rem' }}>
+            <div className={styles.skillItem}>
+              <h3 className={styles.skillTitle}>Projetos Reais na Atria Jr.</h3>
+              <p className={styles.skillDesc}>
+                Em vez de acumular certificados puramente teoricos, ingresse em projetos de desenvolvimento na Atria Jr., empresa junior da Faculdade de Tecnologia que constroi software e consultoria para clientes reais, gerando comprovacao pratica no curriculo.
+              </p>
+              <div className={styles.trackActions}>
+                <a
+                  href="https://atriajr.com.br"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${styles.trackActionBtn} ${styles.green}`}
+                >
+                  <span>Portal Atria Jr.</span>
+                  <ExternalLink size={12} />
+                </a>
+              </div>
+            </div>
+            <div className={styles.skillItem}>
+              <h3 className={styles.skillTitle}>Roadmap.sh Projects</h3>
+              <p className={styles.skillDesc}>
+                Explore dezenas de especificacoes arquiteturais prontas no Roadmap.sh para implementar aplicacoes reais de ponta a ponta.
+              </p>
+              <div className={styles.trackActions}>
+                <a
+                  href="https://roadmap.sh/projects"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.trackActionBtn}
+                >
+                  <span>Catalogo de Projetos</span>
+                  <ExternalLink size={12} />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Trilhas Tecnológicas com Links Práticos */}
       <section
         id="trilhas-aprendizado"
@@ -2209,52 +2322,43 @@ export default function CarreiraPage() {
               </div>
             </div>
 
-            {/* Trilha 4: Prova de Trabalho e Portfólio */}
+            {/* Trilha 4: Seguranca da Informacao */}
             <div className={styles.skillItem}>
               <div className={styles.skillItemHeader}>
                 <div className={`${styles.skillIconWrap} ${styles.green}`}>
-                  <Layers size={20} aria-hidden="true" />
+                  <ShieldCheck size={20} aria-hidden="true" />
                 </div>
-                <span className={`${styles.skillBadge} ${styles.green}`}>Empregabilidade</span>
+                <span className={`${styles.skillBadge} ${styles.green}`}>Ciberseguranca</span>
               </div>
-              <h3 className={styles.skillTitle}>Trilha Portfólio: Construção de Prova de Trabalho</h3>
+              <h3 className={styles.skillTitle}>Trilha Seguranca: Hacking Etico e Defesa</h3>
               <p className={styles.skillDesc}>
-                Em vez de acumular certificados puramente teóricos, implemente soluções com código público no GitHub ou ingresse em projetos de desenvolvimento na Atria Jr., empresa júnior da FT que constrói software e consultoria para clientes reais, gerando comprovação prática no currículo.
+                Proteja infraestruturas e previna ataques descobrindo falhas antes que sejam exploradas. Participe da Liga de Ciberseguranca da Unicamp LICS para competir em CTF e aplicar web hacking de forma etica.
               </p>
               <div className={styles.skillTagsRow}>
-                <span className={styles.skillTag}>GitHub</span>
-                <span className={styles.skillTag}>Atria Jr. FT</span>
-                <span className={styles.skillTag}>Deploy Ativo</span>
-                <span className={styles.skillTag}>README Técnico</span>
-                <span className={styles.skillTag}>Projetos Reais</span>
+                <span className={styles.skillTag}>OWASP</span>
+                <span className={styles.skillTag}>Web Hacking</span>
+                <span className={styles.skillTag}>CTF</span>
+                <span className={styles.skillTag}>LICS Unicamp</span>
               </div>
               <div className={styles.trackActions}>
                 <a
-                  href="https://roadmap.sh/projects"
+                  href="#seguranca-informacao"
+                  className={styles.trackActionBtn}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('seguranca-informacao')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  <span>Ver Detalhes da Trilha</span>
+                  <ShieldCheck size={12} />
+                </a>
+                <a
+                  href="https://roadmap.sh/cyber-security"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.trackActionBtn}
                 >
-                  <span>Catálogo de Projetos</span>
-                  <ExternalLink size={12} />
-                </a>
-                <a
-                  href="https://education.github.com/pack"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.trackActionBtn}
-                >
-                  <span>GitHub Student Pack</span>
-                  <ExternalLink size={12} />
-                </a>
-                <a
-                  href="https://atriajr.com.br"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${styles.trackActionBtn} ${styles.green}`}
-                  aria-label="Acessar portal oficial da Atria Jr em nova janela"
-                >
-                  <span>Projetos Atria Jr.</span>
+                  <span>Roadmap Cyber</span>
                   <ExternalLink size={12} />
                 </a>
               </div>
@@ -2263,29 +2367,29 @@ export default function CarreiraPage() {
         </div>
       </section>
 
-      {/* DevOps, Cloud e Cibersegurança com Recomendação da LICS */}
+      {/* DevOps e Infraestrutura */}
       <section
-        id="devops-ciberseguranca"
-        style={getSectionStyle('devops-ciberseguranca')}
-        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['devops-ciberseguranca']?.stage === journeyStage ? styles.highlightStage : ''}`}
+        id="devops-infraestrutura"
+        style={getSectionStyle('devops-infraestrutura')}
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['devops-infraestrutura']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
-        {renderStageBadge('devops-ciberseguranca')}
+        {renderStageBadge('devops-infraestrutura')}
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
-            <ShieldCheck size={22} className={styles.headerIcon} />
+            <Cloud size={22} className={styles.headerIcon} />
             <div>
-              <h2 className={styles.cardTitle}>DevOps, Nuvem e Cibersegurança na Universidade</h2>
+              <h2 className={styles.cardTitle}>DevOps e Infraestrutura Agil na Universidade</h2>
               <p className={styles.cardSubtitle}>
-                Práticas de infraestrutura ágil, esteiras de entrega contínua e a Liga de Cibersegurança da Unicamp
+                Praticas de automacao de infraestrutura, esteiras de entrega continua e orquestracao de conteineres
               </p>
             </div>
           </div>
 
           <div className={styles.skillsGrid}>
             <div className={styles.skillItem}>
-              <h3 className={styles.skillTitle}>Práticas de DevOps e Containers</h3>
+              <h3 className={styles.skillTitle}>Praticas de DevOps e Containers</h3>
               <p className={styles.skillDesc}>
-                Aprenda a padronizar ambientes locais com Docker e Docker Compose, automatizar testes em esteiras de integração contínua e provisionar recursos na nuvem de forma reprodutível.
+                Aprenda a padronizar ambientes locais com Docker e Docker Compose, automatizar testes em esteiras de integracao continua e provisionar recursos na nuvem de forma reprodutivel utilizando infraestrutura como codigo.
               </p>
               <div className={styles.trackActions}>
                 <a
@@ -2301,38 +2405,9 @@ export default function CarreiraPage() {
             </div>
 
             <div className={styles.skillItem}>
-              <h3 className={styles.skillTitle}>Cibersegurança e Recomendação da LICS</h3>
+              <h3 className={styles.skillTitle}>Nuvem com Beneficio Estudantil</h3>
               <p className={styles.skillDesc}>
-                Participe da LICS, Liga de Cibersegurança da Unicamp. A iniciativa promove grupos de estudo, treinamentos práticos de segurança defensiva e ofensiva, além de competições de CTF no cenário nacional.
-              </p>
-              <div className={styles.trackActions}>
-                <a
-                  href="https://www.lics.tec.br"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${styles.trackActionBtn} ${styles.green}`}
-                >
-                  <ShieldCheck size={14} />
-                  <span>Portal Oficial LICS</span>
-                  <ExternalLink size={12} />
-                </a>
-                <a
-                  href="https://www.instagram.com/lics.unicamp/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.trackActionBtn}
-                >
-                  <Instagram size={14} />
-                  <span>@lics.unicamp</span>
-                  <ExternalLink size={12} />
-                </a>
-              </div>
-            </div>
-
-            <div className={styles.skillItem}>
-              <h3 className={styles.skillTitle}>Nuvem com Benefício Estudantil</h3>
-              <p className={styles.skillDesc}>
-                Utilize o email institucional para acessar os programas AWS Educate e Google Cloud Innovators, obtendo créditos gratuitos para executar máquinas virtuais e laboratórios sem custos pessoais.
+                Utilize o email institucional para acessar os programas AWS Educate e Google Cloud Innovators, obtendo creditos gratuitos para executar maquinas virtuais, servicos gerenciados e laboratorios sem custos pessoais.
               </p>
               <div className={styles.trackActions}>
                 <a
@@ -2359,214 +2434,77 @@ export default function CarreiraPage() {
         </div>
       </section>
 
-      {/* Trilha de Cibersegurança e Hacking Ético com Curadoria de Brenno M. */}
+      {/* Trilha de Seguranca da Informacao */}
       <section
-        id="ciberseguranca-hacking-etico"
-        style={getSectionStyle('ciberseguranca-hacking-etico')}
-        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['ciberseguranca-hacking-etico']?.stage === journeyStage ? styles.highlightStage : ''}`}
+        id="seguranca-informacao"
+        style={getSectionStyle('seguranca-informacao')}
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['seguranca-informacao']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
-        {renderStageBadge('ciberseguranca-hacking-etico')}
+        {renderStageBadge('seguranca-informacao')}
         <div className={styles.blockCard}>
           <div className={styles.cardHeader}>
-            <Shield size={22} className={styles.headerIcon} />
+            <ShieldCheck size={22} className={styles.headerIcon} />
             <div>
-              <h2 className={styles.cardTitle}>Trilha de Cibersegurança e Hacking Ético: Roadmap e Curadoria Editorial</h2>
+              <h2 className={styles.cardTitle}>Trilha de Seguranca da Informacao e Hacking Etico</h2>
               <p className={styles.cardSubtitle}>
-                Fundamentos indispensáveis de computação, especializações práticas e centros de excelência recomendados
+                Roadmap tecnico, grupos de estudo universitarios e fundamentos de computacao para ofensiva cibernetica
               </p>
             </div>
           </div>
-
-          {/* Card de Honra Editorial ao Brenno M. */}
-          <div className={styles.brennoHonorCard}>
-            <div className={styles.brennoHeader}>
-              <span className={styles.brennoBadge}>Curadoria Especializada e Agradecimento</span>
-              <h3 className={styles.brennoTitle}>Agradecimento Editorial ao Especialista Brenno M.</h3>
-            </div>
-            <p className={styles.brennoDesc}>
-              A estruturação desta trilha foi construída a partir da curadoria pública e dos artigos de referência técnica de Brenno M., profissional de destaque em segurança ofensiva e pesquisa de vulnerabilidades. Seus artigos oferecem uma visão pragmática para quem deseja ingressar no universo hacker sem cair no ruído de promessas milagrosas e marketing superficial de cursos.
-            </p>
-            <div className={styles.brennoLinksRow}>
-              <a
-                href="https://www.linkedin.com/in/brennocm/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${styles.trackActionBtn} ${styles.green}`}
-              >
-                <Linkedin size={14} />
-                <span>Perfil de Brenno M. no LinkedIn</span>
-                <ExternalLink size={12} />
-              </a>
-              <a
-                href="https://brennocm.github.io/articles/pt-br/tips/hacking.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.trackActionBtn}
-              >
-                <span>Artigo: Quero ser hacker, e agora?</span>
-                <ExternalLink size={12} />
-              </a>
-              <a
-                href="https://brennocm.github.io/articles/pt-br/tips/suggested-courses.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.trackActionBtn}
-              >
-                <span>Artigo: Cursos e Treinamentos Recomendados</span>
-                <ExternalLink size={12} />
-              </a>
-            </div>
-          </div>
-
-          {/* Pilares Fundamentais */}
-          <h3 className={styles.channelsSubheading}>Pilares Fundamentais de Ciência da Computação</h3>
-          <p className={styles.cardSubtitle} style={{ marginBottom: '1rem' }}>
-            Não existe atalho para cibersegurança sem sólidos alicerces técnicos. Antes de executar qualquer ferramenta pronta, o estudante deve compreender a fundo os mecanismos de computação:
-          </p>
 
           <div className={styles.skillsGrid}>
             <div className={styles.skillItem}>
-              <h3 className={styles.skillTitle}>Organização e Arquitetura de Computadores</h3>
+              <h3 className={styles.skillTitle}>Ciberseguranca e Recomendacao da LICS</h3>
               <p className={styles.skillDesc}>
-                Funcionamento dos componentes da CPU, registradores gerais, ponteiros de instrução, registradores de pilha, fluxo de execução, barramentos de memória volátil RAM e diferenças entre arquiteturas x86 e ARM.
-              </p>
-            </div>
-
-            <div className={styles.skillItem}>
-              <h3 className={styles.skillTitle}>Sistemas Operacionais e Chamadas de Kernel</h3>
-              <p className={styles.skillDesc}>
-                Gerenciamento de processos, escalonador, memória virtual, privilégios de usuário e anéis de execução de kernel versus userland em ambientes operacionais Linux e Windows.
-              </p>
-            </div>
-
-            <div className={styles.skillItem}>
-              <h3 className={styles.skillTitle}>Redes de Computadores e Protocolos</h3>
-              <p className={styles.skillDesc}>
-                Modelo de camadas, arquitetura TCP IP, protocolos fundamentais como DNS, DHCP, HTTP e SSH, roteamento, inspeção profunda de pacotes com Wireshark e segmentação defensiva com firewalls.
-              </p>
-            </div>
-
-            <div className={styles.skillItem}>
-              <h3 className={styles.skillTitle}>Programação e Estruturas de Dados em C</h3>
-              <p className={styles.skillDesc}>
-                Controle direto e manual de memória, aritmética de ponteiros, alocação dinâmica com malloc e free, além da identificação de vulnerabilidades clássicas de corrupção de memória como estouro de buffer.
-              </p>
-            </div>
-
-            <div className={styles.skillItem}>
-              <h3 className={styles.skillTitle}>Princípios de Segurança da Informação</h3>
-              <p className={styles.skillDesc}>
-                Tríade fundamental de confidencialidade, integridade e disponibilidade, modelos de controle de acesso discricionário e mandatório e criptografia básica simétrica e assimétrica.
-              </p>
-            </div>
-          </div>
-
-          {/* Especializações Técnicas */}
-          <h3 className={styles.channelsSubheading} style={{ marginTop: '2rem' }}>Especializações Técnicas e Práticas no Mercado</h3>
-          <div className={styles.skillsGrid}>
-            <div className={styles.skillItem}>
-              <h3 className={styles.skillTitle}>Web Hacking e Segurança de Aplicações</h3>
-              <p className={styles.skillDesc}>
-                Desenvolvimento web, métodos e cabeçalhos HTTP, APIs REST e bancos de dados relacionais e não relacionais. Estudo profundo do Top 10 OWASP com exploração e mitigação de injeções SQL, Cross-Site Scripting, SSRF, IDOR e falhas de controle de acesso. Certificações de mercado recomendadas incluem eWPT, OSWE e BSCP da PortSwigger.
+                Participe da LICS, Liga de Ciberseguranca da Unicamp. A iniciativa promove grupos de estudo, treinamentos praticos de seguranca defensiva e ofensiva, alem de competicoes de CTF Capture The Flag no cenario nacional.
               </p>
               <div className={styles.trackActions}>
                 <a
-                  href="https://portswigger.net/web-security"
+                  href="https://www.lics.tec.br"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${styles.trackActionBtn} ${styles.green}`}
+                >
+                  <ShieldCheck size={14} />
+                  <span>Portal Oficial LICS</span>
+                  <ExternalLink size={12} />
+                </a>
+                <a
+                  href="https://www.instagram.com/lics.unicamp/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.trackActionBtn}
                 >
-                  <span>PortSwigger Academy</span>
+                  <Instagram size={14} />
+                  <span>@lics.unicamp</span>
                   <ExternalLink size={12} />
                 </a>
               </div>
             </div>
 
             <div className={styles.skillItem}>
-              <h3 className={styles.skillTitle}>Infrastructure Hacking e Active Directory</h3>
+              <h3 className={styles.skillTitle}>Curadoria Editorial e Hacking</h3>
               <p className={styles.skillDesc}>
-                Segurança de redes corporativas centradas em ambientes de domínio Windows Server. Enumeração de florestas Active Directory, ataques contra tickets Kerberos como AS-REP Roasting e Kerberoasting, delegações irrestritas, pós-exploração e movimentação lateral. Certificações de referência incluem OSCP, CRTO e PNPT.
+                A estruturacao avancada desta trilha foi construida a partir da curadoria publica de Brenno M., profissional de destaque em seguranca ofensiva e pesquisa de vulnerabilidades. Seus artigos oferecem uma visao pragmatica para quem deseja ingressar no universo hacker sem cair no ruido de marketing superficial.
               </p>
               <div className={styles.trackActions}>
                 <a
-                  href="https://www.offsec.com/"
+                  href="https://www.linkedin.com/in/brenno-m-a53b75191"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.trackActionBtn}
                 >
-                  <span>OffSec Treinamentos</span>
+                  <span>Perfil LinkedIn</span>
                   <ExternalLink size={12} />
                 </a>
               </div>
             </div>
-
+            
             <div className={styles.skillItem}>
-              <h3 className={styles.skillTitle}>Mobile Hacking e Engenharia Reversa</h3>
+              <h3 className={styles.skillTitle}>Fundamentos de Seguranca</h3>
               <p className={styles.skillDesc}>
-                Arquitetura do sistema Android, ciclo de vida de componentes como Activities, Services e Broadcast Receivers. Descompilação de pacotes APK com Jadx e Ghidra, bypass de verificações de root e SSL Pinning via hooking dinâmico com Frida e Objection.
+                Nao existe atalho para ciberseguranca sem solidos alicerces tecnicos. Antes de executar qualquer ferramenta pronta, o estudante deve compreender a fundo redes corporativas, Active Directory, arquitetura de sistemas e protocolos web.
               </p>
-            </div>
-          </div>
-
-          {/* Curadoria de Centros de Treinamento */}
-          <h3 className={styles.channelsSubheading} style={{ marginTop: '2rem' }}>Curadoria de Centros de Treinamento sem Ruído Comercial</h3>
-          <p className={styles.cardSubtitle} style={{ marginBottom: '1rem' }}>
-            Para fugir de cursos superficiais e promessas irreais de formação em poucas semanas, Brenno M. selecionou instituições nacionais e internacionais reconhecidas pela comunidade profissional:
-          </p>
-
-          <div className={styles.skillsGrid}>
-            <div className={styles.skillItem}>
-              <h3 className={styles.skillTitle}>Instituições e Academias Brasileiras</h3>
-              <p className={styles.skillDesc}>
-                Centros nacionais com instrutores atuantes e laboratórios práticos: Desec Security com forte foco em testes de invasão e infraestrutura; Sec4US com cursos avançados em perícia forense, análise de malware e defesa; GoHacking com treinamentos práticos de pentest corporativo. Outras entidades idôneas incluem CECYBER, ACADITI, Clavis Segurança da Informação e Daryus.
-              </p>
-              <div className={styles.trackActions}>
-                <a
-                  href="https://desecsecurity.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.trackActionBtn}
-                >
-                  <span>Desec Security</span>
-                  <ExternalLink size={12} />
-                </a>
-                <a
-                  href="https://sec4us.com.br/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.trackActionBtn}
-                >
-                  <span>Sec4US</span>
-                  <ExternalLink size={12} />
-                </a>
-              </div>
-            </div>
-
-            <div className={styles.skillItem}>
-              <h3 className={styles.skillTitle}>Instituições e Laboratórios Internacionais</h3>
-              <p className={styles.skillDesc}>
-                Plataformas de classe global: OffSec para segurança ofensiva com a certificação prática OSCP; PortSwigger Web Security Academy com laboratórios gratuitos de OWASP; TCM Security e INE Security com treinamentos acessíveis e práticos; Hack The Box Academy e TryHackMe com ambientes gamificados de máquinas virtuais; PentesterLab e SANS Institute para formações avançadas de alta especialização.
-              </p>
-              <div className={styles.trackActions}>
-                <a
-                  href="https://academy.hackthebox.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.trackActionBtn}
-                >
-                  <span>Hack The Box</span>
-                  <ExternalLink size={12} />
-                </a>
-                <a
-                  href="https://tryhackme.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.trackActionBtn}
-                >
-                  <span>TryHackMe</span>
-                  <ExternalLink size={12} />
-                </a>
-              </div>
             </div>
           </div>
         </div>

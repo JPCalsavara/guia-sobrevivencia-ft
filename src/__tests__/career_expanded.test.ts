@@ -10,7 +10,8 @@ import {
   bsiVsTadsCoordinatorData,
   postPandemicAndAiMarketData,
   careerYMatrixData,
-  careerVideosData
+  careerVideosData,
+  careerProjectsData
 } from '../data/careerExpanded';
 
 describe('Dados Expandidos de Carreira, Hackathons e Trainee', () => {
@@ -167,4 +168,27 @@ describe('Dados Expandidos de Carreira, Hackathons e Trainee', () => {
       expect(vid.url.startsWith('https://')).toBe(true);
     });
   });
+
+  it('deve validar o catalogo de projetos por nivel tecnico em conformidade com ADR 0001', () => {
+    expect(careerProjectsData.length).toBeGreaterThanOrEqual(4);
+    
+    const allProjects = careerProjectsData.flatMap(c => c.projects);
+    expect(allProjects.length).toBeGreaterThanOrEqual(8);
+    
+    careerProjectsData.forEach(cat => {
+      expect(cat.category).not.toMatch(parenthesesPattern);
+      expect(cat.description).not.toMatch(parenthesesPattern);
+      
+      cat.projects.forEach(proj => {
+        expect(['Iniciante', 'Intermediario', 'Avancado']).toContain(proj.level);
+        expect(proj.title).not.toMatch(parenthesesPattern);
+        expect(proj.title).not.toMatch(forbiddenPunctuation);
+        expect(proj.title).not.toMatch(emojiPattern);
+        expect(proj.description).not.toMatch(parenthesesPattern);
+        expect(proj.description).not.toMatch(emojiPattern);
+        expect(proj.tools.length).toBeGreaterThanOrEqual(2);
+      });
+    });
+  });
+
 });
