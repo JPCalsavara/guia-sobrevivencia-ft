@@ -21,7 +21,6 @@ import {
   HelpCircle,
   ArrowRight,
   Sparkles,
-  FileText,
   Mail,
 } from 'lucide-react';
 import { headerNavSections } from '@/data/headerTopics';
@@ -83,6 +82,17 @@ export function Navbar() {
     document.documentElement.setAttribute('data-theme', nextTheme);
   };
 
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   const handleMouseEnter = (sectionId: string) => {
     if (dropdownTimeoutRef.current) {
       clearTimeout(dropdownTimeoutRef.current);
@@ -113,8 +123,9 @@ export function Navbar() {
           : 'Meu Curso';
 
   return (
-    <header className={styles.header}>
-      <div className={styles.container}>
+    <>
+      <header className={styles.header}>
+        <div className={styles.container}>
         <Link href="/" className={styles.brand} aria-label="Pagina inicial do Guia FT Unicamp">
           <div className={styles.brandIconWrapper}>
             <Compass size={22} className={styles.brandIcon} />
@@ -248,17 +259,6 @@ export function Navbar() {
             <span className={styles.searchShortcutBadge}>Ctrl K</span>
           </button>
 
-          {/* Atalho Pesquisa Discente */}
-          <Link
-            href="/estatisticas#termometro-discente"
-            className={styles.surveyShortcut}
-            aria-label="Responder pesquisa discente da FT"
-            title="Responder pesquisa discente da FT"
-          >
-            <FileText size={16} aria-hidden="true" />
-            <span className={styles.surveyShortcutLabel}>Pesquisa</span>
-          </Link>
-
           {/* Alternador de Tema */}
           <button
             type="button"
@@ -284,6 +284,7 @@ export function Navbar() {
           </button>
         </div>
       </div>
+    </header>
 
       {/* Painel de Navegação Mobile */}
       {mobileMenuOpen && (
@@ -436,6 +437,6 @@ export function Navbar() {
         isOpen={searchModalOpen}
         onClose={() => setSearchModalOpen(false)}
       />
-    </header>
+    </>
   );
 }

@@ -107,13 +107,21 @@ export function StudentProfileModal({ isOpen, onClose }: StudentProfileModalProp
   };
 
   return (
-    <>
-      <div className={styles.backdrop} onClick={onClose} aria-hidden="true" />
+    <div
+      className={styles.modalOverlay}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) {
+          onClose();
+        }
+      }}
+      aria-modal="true"
+    >
       <div
         className={styles.modal}
         role="dialog"
         aria-modal="true"
         aria-labelledby="student-profile-modal-title"
+        onClick={(e) => e.stopPropagation()}
       >
         <div className={styles.modalHeader}>
           <div className={styles.headerTitleGroup}>
@@ -237,6 +245,6 @@ export function StudentProfileModal({ isOpen, onClose }: StudentProfileModalProp
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 }

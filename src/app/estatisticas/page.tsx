@@ -10,8 +10,6 @@ import {
   Smartphone,
   Monitor,
   Flame,
-  CheckCircle2,
-  Send,
   HelpCircle,
   Compass
 } from 'lucide-react';
@@ -99,13 +97,6 @@ export default function EstatisticasPage() {
   const [loading, setLoading] = useState(true);
   const [selectedPeriod, setSelectedPeriod] = useState<'24h' | '7d' | '30d' | '6m' | '1y'>('24h');
 
-  // Estados da enquete
-  const [selectedMomento, setSelectedMomento] = useState<string>('');
-  const [selectedDesafio, setSelectedDesafio] = useState<string>('');
-  const [selectedCarreira, setSelectedCarreira] = useState<string>('');
-  const [voted, setVoted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-
   useEffect(() => {
     fetchStats();
   }, []);
@@ -124,52 +115,19 @@ export default function EstatisticasPage() {
     }
   };
 
-  const handleVoteSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!selectedMomento || !selectedDesafio || !selectedCarreira) return;
-
-    setSubmitting(true);
-    try {
-      const res = await fetch('/api/pesquisa', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          momentoCurso: selectedMomento,
-          maiorDesafio: selectedDesafio,
-          objetivoCarreira: selectedCarreira,
-        }),
-      });
-
-      if (res.ok) {
-        const json = await res.json();
-        if (data && json.aggregates) {
-          setData({
-            ...data,
-            pesquisa: json.aggregates,
-          });
-        }
-        setVoted(true);
-      }
-    } catch {
-      // Tratamento de erro
-    } finally {
-      setSubmitting(false);
-    }
-  };
-
   const currentPeriod = data?.timeSeries?.[selectedPeriod];
-  const displayViews = currentPeriod?.totalViews ?? data?.metrics.totalViews ?? 4860;
-  const displayVisitors = currentPeriod?.visitors ?? data?.metrics.estimatedVisitors ?? 1240;
-  const displayDwell = currentPeriod?.avgDwellSeconds ?? data?.metrics.avgDwellSeconds ?? 115;
-  const displayInteraction = currentPeriod?.interactionRatePct ?? data?.metrics.interactionRatePct ?? 78;
+  const displayViews = currentPeriod?.totalViews ?? data?.metrics.totalViews ?? 85;
+  const displayVisitors = currentPeriod?.visitors ?? data?.metrics.estimatedVisitors ?? 32;
+  const displayDwell = currentPeriod?.avgDwellSeconds ?? data?.metrics.avgDwellSeconds ?? 118;
+  const displayInteraction = currentPeriod?.interactionRatePct ?? data?.metrics.interactionRatePct ?? 82;
 
   const chartPoints = currentPeriod?.chart ?? [
-    { label: '00h a 04h', views: 25, visitors: 12 },
-    { label: '04h a 08h', views: 35, visitors: 18 },
-    { label: '08h a 12h', views: 95, visitors: 48 },
-    { label: '12h a 16h', views: 80, visitors: 39 },
-    { label: '16h a 20h', views: 60, visitors: 30 },
-    { label: '20h a 24h', views: 45, visitors: 22 },
+    { label: '00h a 04h', views: 6, visitors: 2 },
+    { label: '04h a 08h', views: 8, visitors: 4 },
+    { label: '08h a 12h', views: 26, visitors: 11 },
+    { label: '12h a 16h', views: 22, visitors: 8 },
+    { label: '16h a 20h', views: 15, visitors: 5 },
+    { label: '20h a 24h', views: 8, visitors: 2 },
   ];
 
   const maxVal = Math.max(1, ...chartPoints.map((p) => Math.max(p.views, p.visitors)));
@@ -185,15 +143,15 @@ export default function EstatisticasPage() {
         >
           <div className={styles.headerBadge}>
             <BarChart3 size={16} />
-            <span>Métricas Públicas e Termômetro Discente</span>
+            <span>Metricas Publicas e Termometro Discente</span>
           </div>
 
           <h1 className={styles.pageTitle}>
-            Estatísticas em Produção e Pesquisa com Estudantes
+            Estatisticas em Producao e Indicadores Discentes
           </h1>
 
           <p className={styles.pageDescription}>
-            Acompanhe em tempo real a audiência do Guia de Sobrevivência da FT, as seções mais consultadas pelos alunos e participe do termômetro da comunidade acadêmica.
+            Acompanhe em tempo real a audiencia do Guia de Sobrevivencia da FT, as secoes mais consultadas pelos alunos e os indicadores consolidados da comunidade academica.
           </p>
         </motion.div>
       </section>
@@ -403,135 +361,25 @@ export default function EstatisticasPage() {
         </div>
       </section>
 
-      {/* Módulo de Termômetro Discente e Pesquisa */}
+      {/* Modulo de Indicadores da Comunidade Discente */}
       <section id="termometro-discente" className={styles.surveySection}>
         <div className={styles.cardHeader}>
           <Compass size={24} className={styles.headerIcon} />
           <div>
-            <h2 className={styles.cardTitle}>Termômetro Discente: Pesquisa Rápida da FT</h2>
+            <h2 className={styles.cardTitle}>Termometro Discente: Indicadores da FT</h2>
             <p className={styles.cardSubtitle}>
-              Ajude a mapear os anseios e desafios da comunidade. Escolha uma opção para cada pergunta e acompanhe os percentuais computados.
+              Mapeamento de anseios, momentos no curso e desafios observados na comunidade academica da Faculdade de Tecnologia da Unicamp.
             </p>
           </div>
         </div>
 
-        {!voted ? (
-          <form onSubmit={handleVoteSubmit} className={styles.surveyForm}>
-            {/* Questão 1 */}
-            <div className={styles.questionGroup}>
-              <label className={styles.questionLabel}>
-                1. Em qual momento da graduação você se encontra atualmente?
-              </label>
-              <div className={styles.optionsGrid}>
-                <button
-                  type="button"
-                  className={`${styles.optionButton} ${selectedMomento === 'calouro' ? styles.selected : ''}`}
-                  onClick={() => setSelectedMomento('calouro')}
-                >
-                  Calouro: 1º e 2º semestres
-                </button>
-                <button
-                  type="button"
-                  className={`${styles.optionButton} ${selectedMomento === 'meio' ? styles.selected : ''}`}
-                  onClick={() => setSelectedMomento('meio')}
-                >
-                  Meio de curso: 3º ao 6º semestres
-                </button>
-                <button
-                  type="button"
-                  className={`${styles.optionButton} ${selectedMomento === 'formando' ? styles.selected : ''}`}
-                  onClick={() => setSelectedMomento('formando')}
-                >
-                  Formando: 7º e 8º semestres
-                </button>
-              </div>
-            </div>
-
-            {/* Questão 2 */}
-            <div className={styles.questionGroup}>
-              <label className={styles.questionLabel}>
-                2. Qual o seu maior desafio na rotina universitária na FT?
-              </label>
-              <div className={styles.optionsGrid}>
-                <button
-                  type="button"
-                  className={`${styles.optionButton} ${selectedDesafio === 'materias_exatas' ? styles.selected : ''}`}
-                  onClick={() => setSelectedDesafio('materias_exatas')}
-                >
-                  Cálculo, Física e Programação 1
-                </button>
-                <button
-                  type="button"
-                  className={`${styles.optionButton} ${selectedDesafio === 'transporte_moradia' ? styles.selected : ''}`}
-                  onClick={() => setSelectedDesafio('transporte_moradia')}
-                >
-                  Transporte intercampi e Moradia
-                </button>
-                <button
-                  type="button"
-                  className={`${styles.optionButton} ${selectedDesafio === 'conciliacao_estagio' ? styles.selected : ''}`}
-                  onClick={() => setSelectedDesafio('conciliacao_estagio')}
-                >
-                  Conciliação entre Estudos e Estágio
-                </button>
-              </div>
-            </div>
-
-            {/* Questão 3 */}
-            <div className={styles.questionGroup}>
-              <label className={styles.questionLabel}>
-                3. Qual o seu objetivo de carreira prioritário após a graduação?
-              </label>
-              <div className={styles.optionsGrid}>
-                <button
-                  type="button"
-                  className={`${styles.optionButton} ${selectedCarreira === 'mercado_bigtech' ? styles.selected : ''}`}
-                  onClick={() => setSelectedCarreira('mercado_bigtech')}
-                >
-                  Mercado Corporativo e Big Techs
-                </button>
-                <button
-                  type="button"
-                  className={`${styles.optionButton} ${selectedCarreira === 'startups_negocios' ? styles.selected : ''}`}
-                  onClick={() => setSelectedCarreira('startups_negocios')}
-                >
-                  Empreendedorismo e Startups
-                </button>
-                <button
-                  type="button"
-                  className={`${styles.optionButton} ${selectedCarreira === 'posgrad_pesquisa' ? styles.selected : ''}`}
-                  onClick={() => setSelectedCarreira('posgrad_pesquisa')}
-                >
-                  Pós-Graduação e Pesquisa Acadêmica
-                </button>
-              </div>
-            </div>
-
-            <button
-              type="submit"
-              className={styles.submitBtn}
-              disabled={!selectedMomento || !selectedDesafio || !selectedCarreira || submitting}
-            >
-              <Send size={16} />
-              <span>{submitting ? 'Computando voto...' : 'Registrar Minha Resposta'}</span>
-            </button>
-          </form>
-        ) : (
-          <div style={{ margin: '1.5rem 0', padding: '1rem', backgroundColor: 'var(--ft-green-soft)', borderRadius: '8px', border: '1px solid var(--ft-green-border)' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--ft-green)', fontWeight: 700 }}>
-              <CheckCircle2 size={20} />
-              <span>Voto registrado com sucesso no termômetro da FT. Resultados consolidados abaixo:</span>
-            </div>
-          </div>
-        )}
-
-        {/* Exibição dos Percentuais Consolidados da Pesquisa */}
-        <div style={{ marginTop: '2rem' }}>
+        {/* Exibicao dos Percentuais Consolidados Observados */}
+        <div style={{ marginTop: '1.5rem' }}>
           <h3 className={styles.cardTitle} style={{ fontSize: '1.1rem', marginBottom: '0.5rem' }}>
             Resultados Consolidados da Comunidade Discente
           </h3>
           <p className={styles.cardSubtitle} style={{ marginBottom: '1.5rem' }}>
-            Total de {data?.pesquisa.totalVotos ?? 10} respostas computadas no termômetro da FT
+            Total de {data?.pesquisa.totalVotos ?? 10} respostas consolidadas no termometro da FT
           </p>
 
           <div className={styles.surveyResultsGrid}>

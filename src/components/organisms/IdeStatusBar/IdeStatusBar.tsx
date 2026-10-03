@@ -77,10 +77,10 @@ export function IdeStatusBar() {
           highlight
         />
         <IdeStatusItem
-          className={styles.hideOnMobile}
+          href="/versoes"
           icon={<Tag size={13} style={{ color: 'var(--dracula-cyan, #8be9fd)' }} />}
           label={`v${packageInfo.version}`}
-          tooltip="Versão semântica ativa do portal"
+          tooltip="Historico de versoes semanticas do portal"
         />
       </div>
 

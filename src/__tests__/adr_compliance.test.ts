@@ -8,6 +8,8 @@ import { geminiSyllabusPrompt } from '../data/prompts';
 import { searchIndex } from '../data/searchIndex';
 import { faqData } from '../data/faq';
 import { headerNavSections } from '../data/headerTopics';
+import { versionsData } from '../data/versions';
+import { PROJECT_SUPPORT_EMAIL, PROJECT_CONTRIBUTING_URL } from '../data/contacts';
 
 describe('Conformidade com ADR 0001: Ausência de Travessão, Parênteses e Emojis', () => {
   const forbiddenPunctuation = /[—–]/;
@@ -160,6 +162,30 @@ describe('Conformidade com ADR 0001: Ausência de Travessão, Parênteses e Emoj
         expect(content).not.toMatch(parenthesesPattern);
       }
     });
+  });
+
+  it('textos de versionsData nao devem violar o ADR 0001', () => {
+    versionsData.forEach((rel) => {
+      expect(rel.title).not.toMatch(forbiddenPunctuation);
+      expect(rel.title).not.toMatch(parenthesesPattern);
+      expect(rel.title).not.toMatch(emojiPattern);
+
+      rel.highlights.forEach((h) => {
+        expect(h).not.toMatch(forbiddenPunctuation);
+        expect(h).not.toMatch(parenthesesPattern);
+        expect(h).not.toMatch(emojiPattern);
+      });
+    });
+  });
+
+  it('textos de contatos institucionais nao devem violar o ADR 0001', () => {
+    expect(PROJECT_SUPPORT_EMAIL).not.toMatch(forbiddenPunctuation);
+    expect(PROJECT_SUPPORT_EMAIL).not.toMatch(parenthesesPattern);
+    expect(PROJECT_SUPPORT_EMAIL).not.toMatch(emojiPattern);
+
+    expect(PROJECT_CONTRIBUTING_URL).not.toMatch(forbiddenPunctuation);
+    expect(PROJECT_CONTRIBUTING_URL).not.toMatch(parenthesesPattern);
+    expect(PROJECT_CONTRIBUTING_URL).not.toMatch(emojiPattern);
   });
 });
 
