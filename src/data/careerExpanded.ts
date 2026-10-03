@@ -619,3 +619,95 @@ export const careerVideosData: CareerVideoResource[] = [
   }
 ];
 
+export interface ProjectRequirement {
+  title: string;
+  description: string;
+  tools: string[];
+  level: 'Iniciante' | 'Intermediario' | 'Avancado';
+}
+
+export interface CareerProjectCategory {
+  category: string;
+  iconType: string;
+  description: string;
+  projects: ProjectRequirement[];
+}
+
+export const careerProjectsData: CareerProjectCategory[] = [
+  {
+    category: 'Desenvolvimento Web e Full Stack',
+    iconType: 'Code2',
+    description: 'Aplicacoes interativas focadas na integracao entre interfaces dinamicas e arquiteturas de backend robustas.',
+    projects: [
+      {
+        title: 'API de Gestao Academica',
+        description: 'Desenvolver um backend tipado capaz de gerenciar matriculas de alunos, lancamento de notas e controle de frequencia. Implementar autenticacao baseada em tokens e documentacao de rotas utilizando o padrao integrado de mercado.',
+        tools: ['Node.js', 'TypeScript', 'NestJS', 'PostgreSQL', 'Swagger'],
+        level: 'Intermediario'
+      },
+      {
+        title: 'Painel Administrativo Responsivo',
+        description: 'Construir uma interface de usuario capaz de consumir dados assincronos, exibir graficos de desempenho de vendas e permitir operacoes de criacao, edicao e exclusao de registros comerciais.',
+        tools: ['React', 'Next.js', 'Tailwind CSS', 'Recharts'],
+        level: 'Iniciante'
+      }
+    ]
+  },
+  {
+    category: 'Computacao em Nuvem e DevOps',
+    iconType: 'Cloud',
+    description: 'Projetos voltados ao provisionamento automatico de infraestrutura, conteinerizacao e esteiras de entrega continua.',
+    projects: [
+      {
+        title: 'Esteira de Integracao Continua CI CD',
+        description: 'Configurar fluxos automatizados em um repositorio que interceptem alteracoes de codigo, executem a suite de testes unitarios e realizem a implantacao em um provedor de hospedagem de nuvem publica.',
+        tools: ['GitHub Actions', 'Docker', 'AWS EC2', 'Nginx'],
+        level: 'Intermediario'
+      },
+      {
+        title: 'Arquitetura Serverless Escalonavel',
+        description: 'Arquitetar o processamento assincrono de imagens recebidas via armazenamento em nuvem disparando eventos que redimensionam a imagem e atualizam os metadados em um banco de dados de chave e valor.',
+        tools: ['AWS Lambda', 'Amazon S3', 'DynamoDB', 'Serverless Framework'],
+        level: 'Avancado'
+      }
+    ]
+  },
+  {
+    category: 'Engenharia e Ciencia de Dados',
+    iconType: 'Database',
+    description: 'Sistemas focados na ingestao massiva de dados, transformacao estrutural e analises estatisticas preditivas.',
+    projects: [
+      {
+        title: 'Pipeline ETL de Dados Abertos',
+        description: 'Desenvolver um script em linguagem orientada a dados que capture bases publicas sobre educacao, efetue a limpeza de registros invalidos e carregue os dados estruturados em um data warehouse.',
+        tools: ['Python', 'Pandas', 'Apache Airflow', 'BigQuery'],
+        level: 'Intermediario'
+      },
+      {
+        title: 'Modelo Analitico Preditivo',
+        description: 'Treinar um modelo supervisionado capaz de prever a probabilidade de evasao de alunos com base em historico escolar, engajamento e variaveis demograficas, expondo as predições por meio de uma interface simples.',
+        tools: ['Python', 'Scikit-Learn', 'Streamlit', 'Jupyter'],
+        level: 'Avancado'
+      }
+    ]
+  },
+  {
+    category: 'Seguranca da Informacao e Ciberseguranca',
+    iconType: 'ShieldCheck',
+    description: 'Praticas de fortalecimento arquitetural, descoberta de vulnerabilidades e resolucao de desafios no formato CTF.',
+    projects: [
+      {
+        title: 'Auditoria de Vulnerabilidades Web',
+        description: 'Identificar, explorar de forma etica e corrigir falhas de injecao de consultas SQL e vulnerabilidades de execucao de scripts refletidos em uma aplicacao deliberadamente insegura.',
+        tools: ['OWASP Top 10', 'Burp Suite', 'SQLMap'],
+        level: 'Intermediario'
+      },
+      {
+        title: 'Fortificacao de Servidor de Aplicacao',
+        description: 'Configurar regras de firewall defensivas, desativar servicos desnecessarios, implementar bloqueio automatico contra tentativas repetidas de invasao e gerar chaves de acesso assimetricas em servidores virtuais.',
+        tools: ['Linux', 'UFW', 'Fail2Ban', 'SSH Keys'],
+        level: 'Iniciante'
+      }
+    ]
+  }
+];

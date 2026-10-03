@@ -185,10 +185,10 @@ export const headerNavSections: HeaderNavSection[] = [
         recommendedStages: ['meio', 'formando'],
       },
       {
-        id: 'ciberseguranca-hacking-etico',
-        title: 'Trilha de Cibersegurança e Hacking Ético',
-        href: '/carreira#ciberseguranca-hacking-etico',
-        tag: 'Segurança',
+        id: 'seguranca-informacao',
+        title: 'Trilha de Seguranca da Informacao',
+        href: '/carreira#seguranca-informacao',
+        tag: 'Seguranca',
         recommendedStages: ['calouro', 'meio', 'formando'],
       },
       {
