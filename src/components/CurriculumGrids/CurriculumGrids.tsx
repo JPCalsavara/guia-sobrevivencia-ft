@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { bsiCurriculumData, tadsCurriculumData } from '@/data/academic';
 import { BookOpen, Layers, Award, Sparkles, CheckCircle, ExternalLink } from 'lucide-react';
+import { useStudentProfile } from '@/contexts/StudentProfileContext';
 import styles from './CurriculumGrids.module.scss';
 
 function getSubjectCatalogUrl(code: string, semesterNumber: number, customUrl?: string): string {
@@ -18,7 +19,14 @@ function getSubjectCatalogUrl(code: string, semesterNumber: number, customUrl?: 
 }
 
 export function CurriculumGrids() {
+  const { profile } = useStudentProfile();
   const [selectedCourse, setSelectedCourse] = useState<'bsi' | 'tads'>('bsi');
+
+  useEffect(() => {
+    if (profile.course) {
+      setSelectedCourse(profile.course);
+    }
+  }, [profile.course]);
 
   const activeCurriculum = selectedCourse === 'bsi' ? bsiCurriculumData : tadsCurriculumData;
   const totalCourseCredits = activeCurriculum.reduce((acc, sem) => acc + sem.totalCredits, 0);

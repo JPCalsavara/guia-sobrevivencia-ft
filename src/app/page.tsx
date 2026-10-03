@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -20,6 +20,7 @@ import {
   Eye,
   Link2,
 } from 'lucide-react';
+import { useStudentProfile } from '@/contexts/StudentProfileContext';
 import styles from './page.module.scss';
 
 export default function HomePage() {
@@ -76,7 +77,18 @@ export default function HomePage() {
     },
   ];
 
+  const { profile } = useStudentProfile();
   const [selectedStage, setSelectedStage] = useState<'bixo' | 'cursando' | 'formando'>('bixo');
+
+  useEffect(() => {
+    if (profile.stage === 'calouro') {
+      setSelectedStage('bixo');
+    } else if (profile.stage === 'meio') {
+      setSelectedStage('cursando');
+    } else if (profile.stage === 'formando') {
+      setSelectedStage('formando');
+    }
+  }, [profile.stage]);
 
   const stageQuickTracks = {
     bixo: {

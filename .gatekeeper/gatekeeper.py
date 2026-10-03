@@ -39,7 +39,7 @@ IGNORE_PATTERNS = [
     ".map",
 ]
 
-def clean_diff(raw_diff: str, max_chars: int = 40000) -> str:
+def clean_diff(raw_diff: str, max_chars: int = 200000) -> str:
     """
     Cleans raw git diff:
     1. Filters out high-noise lockfiles, build artifacts, and minified bundles.

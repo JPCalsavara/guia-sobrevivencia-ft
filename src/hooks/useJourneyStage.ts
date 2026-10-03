@@ -26,6 +26,16 @@ export function useJourneyStage(initialStage: JourneyStage = 'all') {
     }
 
     try {
+      const storedProfile = localStorage.getItem('ft_student_profile');
+      if (storedProfile) {
+        const parsed = JSON.parse(storedProfile);
+        if (parsed?.stage && validStages.includes(parsed.stage)) {
+          setStage(parsed.stage);
+          setIsInitialized(true);
+          return;
+        }
+      }
+
       const saved = localStorage.getItem(STORAGE_KEY) as JourneyStage | null;
       if (saved && validStages.includes(saved)) {
         setStage(saved);
@@ -34,6 +44,19 @@ export function useJourneyStage(initialStage: JourneyStage = 'all') {
       // Ignora erros de armazenamento local restrito
     }
     setIsInitialized(true);
+  }, []);
+
+  useEffect(() => {
+    const handleProfileChange = (e: Event) => {
+      const customEvent = e as CustomEvent;
+      const newStage = customEvent.detail?.stage as JourneyStage | null;
+      if (newStage && ['calouro', 'meio', 'formando'].includes(newStage)) {
+        setStage(newStage);
+      }
+    };
+
+    window.addEventListener('ft_student_profile_changed', handleProfileChange);
+    return () => window.removeEventListener('ft_student_profile_changed', handleProfileChange);
   }, []);
 
   const selectStage = useCallback((newStage: JourneyStage) => {

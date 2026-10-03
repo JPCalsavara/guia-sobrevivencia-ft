@@ -4,6 +4,7 @@ import { Navbar } from '@/components/Navbar/Navbar';
 import { Footer } from '@/components/Footer/Footer';
 import { AccessibilityWidget } from '@/components/AccessibilityWidget/AccessibilityWidget';
 import { IdeStatusBar } from '@/components/organisms/IdeStatusBar/IdeStatusBar';
+import { StudentProfileProvider } from '@/contexts/StudentProfileContext';
 import '@/styles/globals.scss';
 
 export const metadata: Metadata = {
@@ -22,14 +23,16 @@ export default function RootLayout({
         <a href="#main-content" className="skipLink">
           Pular para o conteúdo principal
         </a>
-        <Navbar />
-        <main id="main-content" tabIndex={-1}>
-          {children}
-        </main>
-        <Footer />
-        <AccessibilityWidget />
-        <IdeStatusBar />
-        <Analytics />
+        <StudentProfileProvider>
+          <Navbar />
+          <main id="main-content" tabIndex={-1}>
+            {children}
+          </main>
+          <Footer />
+          <AccessibilityWidget />
+          <IdeStatusBar />
+          <Analytics />
+        </StudentProfileProvider>
       </body>
     </html>
   );
