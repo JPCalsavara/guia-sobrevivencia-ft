@@ -88,7 +88,22 @@ describe('Testes de Acessibilidade Cromatica WCAG 2.1 e Contraste nos Botoes', (
     const navbarModulePath = path.resolve(process.cwd(), 'src/components/Navbar/Navbar.module.scss');
     const navbarModuleContent = fs.readFileSync(navbarModulePath, 'utf8');
 
+    const calourosModulePath = path.resolve(process.cwd(), 'src/app/calouros/calouros.module.scss');
+    const calourosModuleContent = fs.readFileSync(calourosModulePath, 'utf8');
+
+    const academicoModulePath = path.resolve(process.cwd(), 'src/app/academico/academico.module.scss');
+    const academicoModuleContent = fs.readFileSync(academicoModulePath, 'utf8');
+
+    const linksModulePath = path.resolve(process.cwd(), 'src/app/links/links.module.scss');
+    const linksModuleContent = fs.readFileSync(linksModulePath, 'utf8');
+
     expect(pageModuleContent).toContain('color: var(--on-primary);');
     expect(navbarModuleContent).toContain('color: var(--on-primary);');
+    expect(calourosModuleContent).toContain('color: var(--on-primary);');
+    expect(academicoModuleContent).toContain('color: var(--on-primary);');
+    expect(linksModuleContent).toContain('color: var(--on-primary);');
+
+    // Validar contraste aprimorado de stepDetail
+    expect(academicoModuleContent).toContain('color: var(--text-secondary);');
   });
 });

@@ -117,7 +117,7 @@
 
   &.filterActive {
     background-color: var(--ft-blue);
-    color: #ffffff;
+    color: var(--on-primary);
     border-color: var(--ft-blue);
     font-weight: 600;
   }
@@ -432,6 +432,70 @@
   strong {
     color: var(--ft-blue);
     font-weight: 700;
+  }
+}
+
+.duvidasBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-md;
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-md;
+  padding: $spacing-md $spacing-lg;
+  margin-top: $spacing-md;
+  flex-wrap: wrap;
+}
+
+.duvidasInfo {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  flex: 1;
+  min-width: 260px;
+}
+
+.duvidasIcon {
+  color: var(--unicamp-red, #b91c1c);
+  flex-shrink: 0;
+}
+
+.duvidasTexts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.duvidasTitle {
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.duvidasDesc {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.duvidasBtn {
+  @include button-base;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5625rem 1.125rem;
+  background-color: var(--ft-blue);
+  color: var(--on-primary);
+  border-radius: $radius-md;
+  font-weight: 700;
+  font-size: 0.875rem;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: var(--ft-blue-hover);
+    color: var(--on-primary);
   }
 }
 

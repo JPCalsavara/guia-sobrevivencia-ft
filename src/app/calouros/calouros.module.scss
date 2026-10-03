@@ -230,6 +230,20 @@
 
   @include respond-to('md') {
     grid-template-columns: repeat(2, 1fr);
+
+    > :last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @include respond-to('lg') {
+    &:has(> :nth-child(3):last-child) {
+      grid-template-columns: repeat(3, 1fr);
+
+      > :last-child:nth-child(odd) {
+        grid-column: auto;
+      }
+    }
   }
 }
 
@@ -383,7 +397,7 @@
   gap: 0.5rem;
   padding: 0.625rem 1.125rem;
   background-color: var(--ft-blue);
-  color: #ffffff;
+  color: var(--on-primary);
   font-weight: 600;
   font-size: 0.875rem;
   border-radius: $radius-md;
@@ -395,7 +409,7 @@
   &:hover {
     background-color: var(--ft-blue-hover);
     transform: translateY(-1px);
-    color: #ffffff;
+    color: var(--on-primary);
   }
 }
 

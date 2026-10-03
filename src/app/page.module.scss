@@ -661,10 +661,10 @@
 .stageTabBtn {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.625rem 1.25rem;
-  border-radius: $radius-md;
-  font-size: 0.875rem;
+  gap: 0.625rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: $radius-lg;
+  font-size: 0.9375rem;
   font-weight: 700;
   background-color: var(--surface-secondary, rgba(0, 0, 0, 0.04));
   border: 1px solid var(--border-color);

@@ -49,12 +49,12 @@ describe('Catalogo de Links e Recursos', () => {
   });
 
   it('deve conter links de matricula, caderno de horarios, moodle e classroom', () => {
-    const gradeLink = linksData.find((l) => l.id === 'grade-daconline');
+    const duvidasLink = linksData.find((l) => l.id === 'duvidas-frequentes-ft');
     const cadernoLink = linksData.find((l) => l.id === 'dac-caderno-horarios');
     const moodleLink = linksData.find((l) => l.id === 'moodle-unicamp');
     const classroomLink = linksData.find((l) => l.id === 'google-classroom-unicamp');
 
-    expect(gradeLink).toBeDefined();
+    expect(duvidasLink).toBeDefined();
     expect(cadernoLink).toBeDefined();
     expect(moodleLink).toBeDefined();
     expect(classroomLink).toBeDefined();

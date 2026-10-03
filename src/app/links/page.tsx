@@ -1,9 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { linksData, ResourceLink, LinkCategory } from '@/data/links';
-import { Link2, Search, ExternalLink, MessageSquare } from 'lucide-react';
+import { Link2, Search, ExternalLink, MessageSquare, HelpCircle } from 'lucide-react';
 import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
 import styles from './links.module.scss';
 
@@ -26,7 +27,7 @@ const linksTopics: TopicItem[] = [
     id: 'categoria-matricula',
     title: 'Matrícula e Vida Acadêmica',
     subtopics: [
-      { id: 'categoria-matricula', title: 'DAC, SIGA e Grade DAC Online' },
+      { id: 'categoria-matricula', title: 'DAC, SIGA e Atendimento' },
     ],
   },
   {
@@ -84,7 +85,7 @@ const categoryMeta: Record<LinkCategory, { label: string; subtitle: string }> = 
   },
   matricula: {
     label: 'Matrícula e Vida Acadêmica',
-    subtitle: 'Portal da Diretoria Acadêmica, matrícula virtual no SIGA, caderno de matérias e Grade DAC Online',
+    subtitle: 'Portal da Diretoria Acadêmica, matrícula virtual no SIGA, caderno de matérias e suporte ao estudante',
   },
   aulas: {
     label: 'Aulas e Ambientes Virtuais',
@@ -188,6 +189,23 @@ export default function LinksPage() {
           <p className={styles.reportText}>
             Encontrou algum link fora do ar ou bug no portal? Envie uma mensagem pelo Google Chat institucional para <strong>j197837@dac.unicamp.br</strong> para que possamos corrigir rapidamente.
           </p>
+        </div>
+
+        {/* Banner de Duvidas e Atendimento */}
+        <div id="duvidas" className={styles.duvidasBanner}>
+          <div className={styles.duvidasInfo}>
+            <HelpCircle size={20} className={styles.duvidasIcon} aria-hidden="true" />
+            <div className={styles.duvidasTexts}>
+              <strong className={styles.duvidasTitle}>Precisa de orientacoes especificas ou tem duvidas?</strong>
+              <p className={styles.duvidasDesc}>
+                Consulte nossa Central de Duvidas com respostas sobre matricula, coeficientes e prazos.
+              </p>
+            </div>
+          </div>
+          <Link href="/duvidas" className={styles.duvidasBtn}>
+            <span>Acessar Duvidas</span>
+            <ExternalLink size={14} aria-hidden="true" />
+          </Link>
         </div>
       </section>
 

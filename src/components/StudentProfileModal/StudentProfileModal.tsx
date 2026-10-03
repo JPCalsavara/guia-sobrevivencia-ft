@@ -16,8 +16,8 @@ import {
   CourseId,
   COURSE_NAMES,
   COURSE_SHORT_NAMES,
-  COURSE_MAX_SEMESTERS,
-  computeJourneyStage,
+  COURSE_MAX_YEARS,
+  computeJourneyStageFromYear,
 } from '@/types/studentProfile';
 import styles from './StudentProfileModal.module.scss';
 
@@ -29,14 +29,17 @@ interface StudentProfileModalProps {
 export function StudentProfileModal({ isOpen, onClose }: StudentProfileModalProps) {
   const { profile, setProfile, clearProfile } = useStudentProfile();
   const [selectedCourse, setSelectedCourse] = useState<CourseId>('bsi');
-  const [selectedSemester, setSelectedSemester] = useState<number>(1);
+  const [selectedYear, setSelectedYear] = useState<number>(1);
 
   useEffect(() => {
     if (profile.course) {
       setSelectedCourse(profile.course);
     }
-    if (profile.semester) {
-      setSelectedSemester(profile.semester);
+    if (profile.year) {
+      setSelectedYear(profile.year);
+    } else if (profile.semester) {
+      const derived = Math.min(Math.max(1, Math.ceil(profile.semester / 2)), COURSE_MAX_YEARS[profile.course || 'bsi']);
+      setSelectedYear(derived);
     }
   }, [profile, isOpen]);
 
@@ -52,17 +55,17 @@ export function StudentProfileModal({ isOpen, onClose }: StudentProfileModalProp
 
   if (!isOpen) return null;
 
-  const maxSemesters = COURSE_MAX_SEMESTERS[selectedCourse];
-  const validSemester = Math.min(selectedSemester, maxSemesters);
+  const maxYears = COURSE_MAX_YEARS[selectedCourse];
+  const validYear = Math.min(selectedYear, maxYears);
 
   const handleSelectCourse = (course: CourseId) => {
     setSelectedCourse(course);
-    if (selectedSemester > COURSE_MAX_SEMESTERS[course]) {
-      setSelectedSemester(COURSE_MAX_SEMESTERS[course]);
+    if (selectedYear > COURSE_MAX_YEARS[course]) {
+      setSelectedYear(COURSE_MAX_YEARS[course]);
     }
   };
 
-  const currentStage = computeJourneyStage(validSemester);
+  const currentStage = computeJourneyStageFromYear(validYear, selectedCourse);
 
   const getStageDescription = () => {
     if (currentStage === 'calouro') {
@@ -90,14 +93,14 @@ export function StudentProfileModal({ isOpen, onClose }: StudentProfileModalProp
   const StageIcon = stageMeta.icon;
 
   const handleSave = () => {
-    setProfile(selectedCourse, validSemester);
+    setProfile(selectedCourse, validYear);
     onClose();
   };
 
   const handleClear = () => {
     clearProfile();
     setSelectedCourse('bsi');
-    setSelectedSemester(1);
+    setSelectedYear(1);
     onClose();
   };
 
@@ -117,10 +120,10 @@ export function StudentProfileModal({ isOpen, onClose }: StudentProfileModalProp
               <span>Personalização da Jornada</span>
             </div>
             <h2 id="student-profile-modal-title" className={styles.title}>
-              Qual é o seu Curso e Semestre?
+              Qual é o seu Curso e Ano?
             </h2>
             <p className={styles.description}>
-              Informe seu curso e o período letivo para sincronizar os filtros de conteúdo e receber destaque nos temas mais urgentes.
+              Informe seu curso e o ano letivo para sincronizar os filtros de conteúdo e receber destaque nos temas mais urgentes.
             </p>
           </div>
           <button
@@ -156,21 +159,28 @@ export function StudentProfileModal({ isOpen, onClose }: StudentProfileModalProp
           </div>
         </div>
 
-        {/* Escolha do Semestre */}
+        {/* Escolha do Ano */}
         <div className={styles.section}>
-          <label className={styles.sectionLabel}>Período Letivo Atual</label>
-          <div className={styles.semesterGrid} role="group" aria-label="Selecione seu semestre letivo">
-            {Array.from({ length: maxSemesters }, (_, i) => i + 1).map((sem) => {
-              const isSelected = validSemester === sem;
+          <label className={styles.sectionLabel}>Ano da Graduação</label>
+          <div className={styles.yearGrid} role="group" aria-label="Selecione seu ano letivo">
+            {Array.from({ length: maxYears }, (_, i) => i + 1).map((year) => {
+              const isSelected = validYear === year;
+              const stageTag =
+                year === 1
+                  ? 'Calouro'
+                  : (selectedCourse === 'tads' && year === 3) || year === 4
+                    ? 'Formando'
+                    : 'Cursando';
               return (
                 <button
-                  key={sem}
+                  key={year}
                   type="button"
-                  className={`${styles.semesterBtn} ${isSelected ? styles.active : ''}`}
-                  onClick={() => setSelectedSemester(sem)}
+                  className={`${styles.yearBtn} ${isSelected ? styles.active : ''}`}
+                  onClick={() => setSelectedYear(year)}
                   aria-pressed={isSelected}
                 >
-                  <span>{sem}º Sem</span>
+                  <span className={styles.yearTitle}>{year}º Ano</span>
+                  <span className={styles.yearSubtitle}>{stageTag}</span>
                 </button>
               );
             })}

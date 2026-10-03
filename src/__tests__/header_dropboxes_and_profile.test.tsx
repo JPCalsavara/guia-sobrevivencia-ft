@@ -4,7 +4,9 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { headerNavSections } from '../data/headerTopics';
 import {
   computeJourneyStage,
+  computeJourneyStageFromYear,
   COURSE_MAX_SEMESTERS,
+  COURSE_MAX_YEARS,
   COURSE_NAMES,
   COURSE_SHORT_NAMES,
 } from '../types/studentProfile';
@@ -42,7 +44,7 @@ describe('Dados Estruturados de Topicos do Cabecalho', () => {
 });
 
 describe('Calculos e Tipagem de Perfil do Estudante', () => {
-  it('deve calcular corretamente o estagio da graduacao', () => {
+  it('deve calcular corretamente o estagio da graduacao por semestre', () => {
     expect(computeJourneyStage(1)).toBe('calouro');
     expect(computeJourneyStage(2)).toBe('calouro');
     expect(computeJourneyStage(3)).toBe('meio');
@@ -53,9 +55,22 @@ describe('Calculos e Tipagem de Perfil do Estudante', () => {
     expect(computeJourneyStage(null)).toBeNull();
   });
 
-  it('deve respeitar limites maximos de semestres por curso', () => {
+  it('deve calcular corretamente o estagio da graduacao por ano letivo', () => {
+    expect(computeJourneyStageFromYear(1, 'bsi')).toBe('calouro');
+    expect(computeJourneyStageFromYear(2, 'bsi')).toBe('meio');
+    expect(computeJourneyStageFromYear(3, 'bsi')).toBe('meio');
+    expect(computeJourneyStageFromYear(4, 'bsi')).toBe('formando');
+    expect(computeJourneyStageFromYear(1, 'tads')).toBe('calouro');
+    expect(computeJourneyStageFromYear(2, 'tads')).toBe('meio');
+    expect(computeJourneyStageFromYear(3, 'tads')).toBe('formando');
+    expect(computeJourneyStageFromYear(null, 'bsi')).toBeNull();
+  });
+
+  it('deve respeitar limites maximos de semestres e anos por curso', () => {
     expect(COURSE_MAX_SEMESTERS.bsi).toBe(8);
     expect(COURSE_MAX_SEMESTERS.tads).toBe(6);
+    expect(COURSE_MAX_YEARS.bsi).toBe(4);
+    expect(COURSE_MAX_YEARS.tads).toBe(3);
   });
 });
 
@@ -64,13 +79,14 @@ function ProfileConsumerTestComponent() {
   return (
     <div>
       <span data-testid="course-display">{profile.course || 'nenhum'}</span>
+      <span data-testid="year-display">{profile.year || 0}</span>
       <span data-testid="semester-display">{profile.semester || 0}</span>
       <span data-testid="stage-display">{profile.stage || 'nenhum'}</span>
-      <button type="button" onClick={() => setProfile('bsi', 2)}>
-        Definir BSI 2
+      <button type="button" onClick={() => setProfile('bsi', 1, 2)}>
+        Definir BSI 1
       </button>
-      <button type="button" onClick={() => setProfile('tads', 4)}>
-        Definir TADS 4
+      <button type="button" onClick={() => setProfile('tads', 3, 6)}>
+        Definir TADS 3
       </button>
       <button type="button" onClick={clearProfile}>
         Limpar
@@ -92,17 +108,19 @@ describe('Contexto de Perfil do Estudante', () => {
     );
 
     expect(screen.getByTestId('course-display').textContent).toBe('nenhum');
+    expect(screen.getByTestId('year-display').textContent).toBe('0');
     expect(screen.getByTestId('semester-display').textContent).toBe('0');
 
-    fireEvent.click(screen.getByText('Definir BSI 2'));
+    fireEvent.click(screen.getByText('Definir BSI 1'));
 
     expect(screen.getByTestId('course-display').textContent).toBe('bsi');
+    expect(screen.getByTestId('year-display').textContent).toBe('1');
     expect(screen.getByTestId('semester-display').textContent).toBe('2');
     expect(screen.getByTestId('stage-display').textContent).toBe('calouro');
 
     const stored = JSON.parse(localStorage.getItem('ft_student_profile') || '{}');
     expect(stored.course).toBe('bsi');
-    expect(stored.semester).toBe(2);
+    expect(stored.year).toBe(1);
     expect(stored.stage).toBe('calouro');
 
     fireEvent.click(screen.getByText('Limpar'));
@@ -116,7 +134,7 @@ describe('Componente StudentProfileModal', () => {
     localStorage.clear();
   });
 
-  it('deve renderizar opcoes de curso e semestres validos', () => {
+  it('deve renderizar opcoes de curso e anos validos', () => {
     const handleClose = vi.fn();
     render(
       <StudentProfileProvider>
@@ -124,13 +142,13 @@ describe('Componente StudentProfileModal', () => {
       </StudentProfileProvider>
     );
 
-    expect(screen.getByText('Qual é o seu Curso e Semestre?')).toBeDefined();
+    expect(screen.getByText('Qual é o seu Curso e Ano?')).toBeDefined();
     expect(screen.getByText('BSI')).toBeDefined();
     expect(screen.getByText('TADS')).toBeDefined();
 
-    // Clica em TADS para ajustar semestres
+    // Clica em TADS para ajustar anos
     fireEvent.click(screen.getByText('TADS'));
-    expect(screen.getByText('6º Sem')).toBeDefined();
+    expect(screen.getByText('3º Ano')).toBeDefined();
 
     // Clica em Salvar
     fireEvent.click(screen.getByText('Salvar Preferência'));
@@ -164,6 +182,6 @@ describe('Componente Navbar com Menus Suspensos e Botao de Curso', () => {
     const profileBtn = screen.getByLabelText('Definir curso e periodo letivo');
     fireEvent.click(profileBtn);
 
-    expect(screen.getByText('Qual é o seu Curso e Semestre?')).toBeDefined();
+    expect(screen.getByText('Qual é o seu Curso e Ano?')).toBeDefined();
   });
 });
