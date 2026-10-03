@@ -258,6 +258,222 @@ button.navItem {
   }
 }
 
+.profileTrigger {
+  height: 2.5rem;
+  padding: 0 0.75rem;
+  border-radius: $radius-md;
+  border: 1px solid var(--border-color);
+  background-color: var(--surface-color);
+  color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all $transition-fast;
+  font-size: 0.8125rem;
+  font-weight: 600;
+
+  &:hover {
+    background-color: var(--ft-blue-soft);
+    border-color: var(--ft-blue);
+    color: var(--ft-blue);
+  }
+
+  &.hasProfile {
+    background-color: var(--ft-green-soft);
+    border-color: var(--ft-green-border);
+    color: var(--ft-green);
+
+    &:hover {
+      background-color: var(--ft-green-soft);
+      border-color: var(--ft-green);
+    }
+  }
+}
+
+.profileLabel {
+  display: none;
+  white-space: nowrap;
+
+  @include respond-to('sm') {
+    display: inline-block;
+  }
+}
+
+.dropdownWrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.navItemWithDropdown {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem 0.625rem;
+  border-radius: $radius-md;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  text-decoration: none;
+  transition: all $transition-fast;
+
+  &:hover,
+  &.isOpen {
+    color: var(--ft-blue);
+    background-color: var(--ft-blue-soft);
+  }
+
+  &.active {
+    color: var(--ft-blue);
+    background-color: var(--ft-blue-soft);
+    border: 1px solid var(--ft-blue-border);
+    font-weight: 700;
+  }
+}
+
+.chevronIcon {
+  transition: transform $transition-fast;
+
+  &.rotated {
+    transform: rotate(180deg);
+  }
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 320px;
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-lg;
+  box-shadow: $shadow-xl;
+  padding: 1rem;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  animation: dropdownFadeIn 0.15s ease-out;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 10px;
+    height: 10px;
+    background-color: var(--surface-color);
+    border-top: 1px solid var(--border-color);
+    border-left: 1px solid var(--border-color);
+  }
+}
+
+.dropdownHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-bottom: 0.625rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dropdownTitleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dropdownTitle {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.dropdownAllLink {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ft-blue);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.dropdownDesc {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  margin: 0;
+  line-height: 1.35;
+}
+
+.dropdownList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.dropdownTopicLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 0.5rem;
+  border-radius: $radius-sm;
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 0.8125rem;
+  transition: all $transition-fast;
+  gap: 0.5rem;
+
+  &:hover {
+    color: var(--ft-blue);
+    background-color: var(--ft-blue-soft);
+  }
+
+  &.recommended {
+    background-color: var(--ft-green-soft);
+    color: var(--ft-green);
+    font-weight: 600;
+  }
+}
+
+.topicTitleText {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.topicTag {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 0.1rem 0.35rem;
+  border-radius: $radius-sm;
+  background-color: var(--surface-elevated);
+  border: 1px solid var(--border-color);
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+}
+
+.recommendedTag {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 0.1rem 0.4rem;
+  border-radius: $radius-sm;
+  background-color: var(--ft-green);
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
 .mobileNav {
   display: flex;
   flex-direction: column;
@@ -267,10 +483,40 @@ button.navItem {
   background: var(--surface-color);
   gap: $spacing-xs;
   box-shadow: $shadow-lg;
+  max-height: 80vh;
+  overflow-y: auto;
 
   @include respond-to('lg') {
     display: none;
   }
+}
+
+.mobileProfileBtn {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: $radius-md;
+  border: 1px solid var(--border-color);
+  background-color: var(--surface-elevated);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  margin-bottom: $spacing-xs;
+
+  &.hasProfile {
+    background-color: var(--ft-green-soft);
+    border-color: var(--ft-green-border);
+    color: var(--ft-green);
+  }
+}
+
+.mobileProfileContent {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .mobileSearchTrigger {
@@ -293,6 +539,74 @@ button.navItem {
     background-color: var(--ft-blue);
     color: #ffffff;
   }
+}
+
+.mobileSectionGroup {
+  border: 1px solid var(--border-color);
+  border-radius: $radius-md;
+  overflow: hidden;
+  margin-bottom: 0.25rem;
+}
+
+.mobileSectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.75rem $spacing-md;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+
+  &:hover,
+  &.expanded {
+    background-color: var(--ft-blue-soft);
+    color: var(--ft-blue);
+  }
+}
+
+.mobileSectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mobileSectionList {
+  list-style: none;
+  padding: 0.25rem $spacing-md 0.75rem $spacing-md;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  background-color: var(--surface-elevated);
+  border-top: 1px solid var(--border-color);
+}
+
+.mobileTopicLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.35rem 0.5rem;
+  border-radius: $radius-sm;
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 0.8125rem;
+
+  &:hover {
+    background-color: var(--ft-blue-soft);
+    color: var(--ft-blue);
+  }
+}
+
+.mobileMainLink {
+  font-weight: 700;
+  color: var(--ft-blue);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.25rem;
 }
 
 .mobileNavItem {
@@ -335,5 +649,16 @@ button.navItem {
 
   &:hover {
     background-color: var(--ft-blue-hover);
+  }
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -4px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
   }
 }
