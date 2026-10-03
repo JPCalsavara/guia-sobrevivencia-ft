@@ -4,7 +4,13 @@ import {
   companiesShowcaseData,
   appleDeveloperAcademyData,
   marketVsResearchData,
-  hackathonGuideData
+  hackathonGuideData,
+  salarySurvey2026Data,
+  remoteGlobalWorkData,
+  bsiVsTadsCoordinatorData,
+  postPandemicAndAiMarketData,
+  careerYMatrixData,
+  careerVideosData
 } from '../data/careerExpanded';
 
 describe('Dados Expandidos de Carreira, Hackathons e Trainee', () => {
@@ -93,5 +99,72 @@ describe('Dados Expandidos de Carreira, Hackathons e Trainee', () => {
       'https://sejatrainee.com.br/hackathon-itau-batalha-de-agentes/'
     );
     expect(hackathonGuideData.squadRoles.length).toBeGreaterThanOrEqual(3);
+  });
+
+  it('deve conter a pesquisa salarial 2026 com niveis e regimes em conformidade com ADR 0001', () => {
+    expect(salarySurvey2026Data.niveis.length).toBeGreaterThanOrEqual(5);
+    expect(salarySurvey2026Data.regimes.length).toBeGreaterThanOrEqual(3);
+    expect(salarySurvey2026Data.roiGraduacao.length).toBeGreaterThanOrEqual(3);
+
+    salarySurvey2026Data.niveis.forEach((lvl) => {
+      expect(lvl.nivel).not.toMatch(forbiddenPunctuation);
+      expect(lvl.nivel).not.toMatch(parenthesesPattern);
+      expect(lvl.nivel).not.toMatch(emojiPattern);
+      expect(lvl.salarioMedio).not.toMatch(parenthesesPattern);
+      expect(lvl.faixaMercado).not.toMatch(parenthesesPattern);
+    });
+
+    salarySurvey2026Data.regimes.forEach((reg) => {
+      expect(reg.regime).not.toMatch(parenthesesPattern);
+      expect(reg.caracteristicas).not.toMatch(parenthesesPattern);
+      expect(reg.vantagens).not.toMatch(parenthesesPattern);
+    });
+  });
+
+  it('deve conter o guia de trabalho remoto na gringa e aspectos tributarios', () => {
+    expect(remoteGlobalWorkData.requisitos.length).toBeGreaterThanOrEqual(4);
+    expect(remoteGlobalWorkData.plataformas.length).toBeGreaterThanOrEqual(3);
+    expect(remoteGlobalWorkData.tributacao.length).toBeGreaterThanOrEqual(3);
+
+    remoteGlobalWorkData.requisitos.forEach((req) => {
+      expect(req.titulo).not.toMatch(parenthesesPattern);
+      expect(req.detalhe).not.toMatch(parenthesesPattern);
+    });
+  });
+
+  it('deve conter o comparativo BSI versus TADS com a coordenacao', () => {
+    expect(bsiVsTadsCoordinatorData.comparativos.length).toBeGreaterThanOrEqual(4);
+    expect(bsiVsTadsCoordinatorData.coordenadorNome).toContain('Guilherme');
+
+    bsiVsTadsCoordinatorData.comparativos.forEach((comp) => {
+      expect(comp.eixo).not.toMatch(parenthesesPattern);
+      expect(comp.bsi).not.toMatch(parenthesesPattern);
+      expect(comp.tads).not.toMatch(parenthesesPattern);
+      expect(comp.recomendacaoCoordenador).not.toMatch(parenthesesPattern);
+    });
+  });
+
+  it('deve conter a analise do mercado pos-pandemia, mitos de IA e devs de produto', () => {
+    expect(postPandemicAndAiMarketData.pandemiaVsHoje.length).toBeGreaterThanOrEqual(2);
+    expect(postPandemicAndAiMarketData.mitosIA.length).toBeGreaterThanOrEqual(2);
+    expect(postPandemicAndAiMarketData.desenvolvedorDeProduto.atributos.length).toBeGreaterThanOrEqual(3);
+
+    postPandemicAndAiMarketData.mitosIA.forEach((m) => {
+      expect(m.mito).not.toMatch(parenthesesPattern);
+      expect(m.realidade).not.toMatch(parenthesesPattern);
+      expect(m.impactoNaFT).not.toMatch(parenthesesPattern);
+    });
+  });
+
+  it('deve conter a matriz de carreira em Y e curadoria de videos', () => {
+    expect(careerYMatrixData.trilhaEspecialista.length).toBeGreaterThanOrEqual(3);
+    expect(careerYMatrixData.trilhaGestao.length).toBeGreaterThanOrEqual(3);
+    expect(careerYMatrixData.perguntasAutoavaliacao.length).toBeGreaterThanOrEqual(3);
+    expect(careerVideosData.length).toBeGreaterThanOrEqual(5);
+
+    careerVideosData.forEach((vid) => {
+      expect(vid.title).not.toMatch(parenthesesPattern);
+      expect(vid.url.startsWith('https://')).toBe(true);
+    });
   });
 });

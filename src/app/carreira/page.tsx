@@ -37,7 +37,11 @@ import {
   Rocket,
   Trophy,
   Users,
-  GraduationCap
+  GraduationCap,
+  DollarSign,
+  TrendingUp,
+  Sparkles,
+  CheckCircle2
 } from 'lucide-react';
 import { useJourneyStage } from '@/hooks/useJourneyStage';
 import { useSectionOrdering } from '@/hooks/useSectionOrdering';
@@ -50,7 +54,13 @@ import {
   companiesShowcaseData,
   appleDeveloperAcademyData,
   marketVsResearchData,
-  hackathonGuideData
+  hackathonGuideData,
+  salarySurvey2026Data,
+  remoteGlobalWorkData,
+  bsiVsTadsCoordinatorData,
+  postPandemicAndAiMarketData,
+  careerYMatrixData,
+  careerVideosData
 } from '@/data/careerExpanded';
 import styles from './carreira.module.scss';
 
@@ -186,6 +196,50 @@ const careerTopics: TopicItem[] = [
     ],
   },
   {
+    id: 'salarios-2026-mercado',
+    title: 'Pesquisa Salarial 2026',
+    subtopics: [
+      { id: 'salarios-2026-mercado', title: 'Faixas Salariais 2026' },
+      { id: 'regimes-contratacao', title: 'Regimes CLT, PJ e Cooperativas' },
+      { id: 'roi-graduacao-unicamp', title: 'Retorno sobre Investimento da Graduação' },
+    ],
+  },
+  {
+    id: 'trabalhar-na-gringa',
+    title: 'Trabalho na Gringa',
+    subtopics: [
+      { id: 'trabalhar-na-gringa', title: 'Contratação Remota Internacional' },
+      { id: 'requisitos-vagas-gringa', title: 'Inglês e Portfólio' },
+      { id: 'tributacao-pj-exterior', title: 'Tributação e Câmbio' },
+    ],
+  },
+  {
+    id: 'bsi-vs-tads-coordenacao',
+    title: 'BSI versus TADS Coordenador',
+    subtopics: [
+      { id: 'bsi-vs-tads-coordenacao', title: 'Visão da Coordenação' },
+      { id: 'comparativo-matrizes-tempo', title: 'Tempo e Matriz Curricular' },
+    ],
+  },
+  {
+    id: 'mercado-ia-devs-produto',
+    title: 'Mercado de IA e Devs de Produto',
+    subtopics: [
+      { id: 'mercado-ia-devs-produto', title: 'Mercado Pós-Pandemia' },
+      { id: 'ia-verdade-programacao', title: 'O Falso Fim da Programação' },
+      { id: 'era-devs-produto', title: 'A Era dos Devs de Produto' },
+    ],
+  },
+  {
+    id: 'carreira-em-y-lideranca',
+    title: 'Carreira em Y',
+    subtopics: [
+      { id: 'carreira-em-y-lideranca', title: 'Especialista versus Gestão' },
+      { id: 'autoavaliacao-trilha-y', title: 'Autoavaliação de Afinidade' },
+      { id: 'videos-referencia-carreira', title: 'Vídeos de Referência' },
+    ],
+  },
+  {
     id: 'canais-recomendados',
     title: 'Canais Recomendados',
     subtopics: [
@@ -212,6 +266,11 @@ const sectionStageMap: Record<string, { stage: JourneyStage; label: string }> = 
   'trilhas-aprendizado': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
   'devops-ciberseguranca': { stage: 'calouro', label: 'Foco: Calouro, 1º e 2º Semestres' },
   'ciberseguranca-hacking-etico': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
+  'salarios-2026-mercado': { stage: 'formando', label: 'Foco: Formando, 7º e 8º Semestres' },
+  'trabalhar-na-gringa': { stage: 'formando', label: 'Foco: Formando, 7º e 8º Semestres' },
+  'bsi-vs-tads-coordenacao': { stage: 'calouro', label: 'Foco: Calouro, 1º e 2º Semestres' },
+  'mercado-ia-devs-produto': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
+  'carreira-em-y-lideranca': { stage: 'formando', label: 'Foco: Formando, 7º e 8º Semestres' },
   'canais-recomendados': { stage: 'calouro', label: 'Foco: Calouro, 1º e 2º Semestres' },
 };
 
@@ -232,6 +291,11 @@ const allCareerSectionIds = [
   'trilhas-aprendizado',
   'devops-ciberseguranca',
   'ciberseguranca-hacking-etico',
+  'salarios-2026-mercado',
+  'trabalhar-na-gringa',
+  'bsi-vs-tads-coordenacao',
+  'mercado-ia-devs-produto',
+  'carreira-em-y-lideranca',
   'canais-recomendados',
 ];
 
@@ -2503,6 +2567,425 @@ export default function CarreiraPage() {
                   <ExternalLink size={12} />
                 </a>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pesquisa Salarial 2026 e Panorama de Remuneração */}
+      <section
+        id="salarios-2026-mercado"
+        style={getSectionStyle('salarios-2026-mercado')}
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['salarios-2026-mercado']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('salarios-2026-mercado')}
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <DollarSign size={24} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>{salarySurvey2026Data.title}</h2>
+              <p className={styles.cardSubtitle}>
+                {salarySurvey2026Data.description}
+              </p>
+            </div>
+          </div>
+
+          <div style={{ marginBottom: '1.5rem' }}>
+            <a
+              href={salarySurvey2026Data.sourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.channelActionBtn}
+              style={{ display: 'inline-flex', width: 'fit-content' }}
+            >
+              <ExternalLink size={16} />
+              <span>Acessar Relatorio da Pesquisa Salarial 2026</span>
+            </a>
+          </div>
+
+          <div className={styles.comparisonTableWrapper}>
+            <table className={styles.comparisonTable}>
+              <thead>
+                <tr>
+                  <th>Nivel</th>
+                  <th>Salario Medio</th>
+                  <th>Faixa de Mercado</th>
+                  <th>Regime Mais Comum</th>
+                  <th>Foco Principal</th>
+                </tr>
+              </thead>
+              <tbody>
+                {salarySurvey2026Data.niveis.map((row, idx) => (
+                  <tr key={idx}>
+                    <td><strong>{row.nivel}</strong></td>
+                    <td>{row.salarioMedio}</td>
+                    <td>{row.faixaMercado}</td>
+                    <td>{row.regimeComum}</td>
+                    <td>{row.focoPrincipal}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div id="regimes-contratacao" style={{ marginTop: '2.5rem' }}>
+            <h3 className={styles.cardTitle} style={{ fontSize: '1.15rem', marginBottom: '0.75rem' }}>
+              Regimes de Contratacao: CLT versus PJ versus Cooperativas
+            </h3>
+            <div className={styles.gridTwo}>
+              {salarySurvey2026Data.regimes.map((reg, idx) => (
+                <div key={idx} className={styles.card}>
+                  <h4 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
+                    {reg.regime}
+                  </h4>
+                  <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', marginBottom: '0.5rem', lineHeight: 1.5 }}>
+                    {reg.caracteristicas}
+                  </p>
+                  <p style={{ fontSize: '0.8125rem', color: 'var(--ft-green)', fontWeight: 600 }}>
+                    Vantagens: {reg.vantagens}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div id="roi-graduacao-unicamp" style={{ marginTop: '2.5rem' }}>
+            <h3 className={styles.cardTitle} style={{ fontSize: '1.15rem', marginBottom: '0.75rem' }}>
+              Retorno sobre o Investimento da Graduacao na FT Unicamp
+            </h3>
+            <div className={styles.comparisonTableWrapper}>
+              <table className={styles.comparisonTable}>
+                <thead>
+                  <tr>
+                    <th>Dimensao</th>
+                    <th>Graduacao na FT Unicamp</th>
+                    <th>Cursos Rapidos e Bootcamps</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {salarySurvey2026Data.roiGraduacao.map((roi, idx) => (
+                    <tr key={idx}>
+                      <td><strong>{roi.aspecto}</strong></td>
+                      <td>{roi.graduacaoUnicamp}</td>
+                      <td>{roi.cursosRapidosBootcamps}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Guia Completo para Trabalhar na Gringa do Brasil */}
+      <section
+        id="trabalhar-na-gringa"
+        style={getSectionStyle('trabalhar-na-gringa')}
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['trabalhar-na-gringa']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('trabalhar-na-gringa')}
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <Globe size={24} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>{remoteGlobalWorkData.title}</h2>
+              <p className={styles.cardSubtitle}>
+                {remoteGlobalWorkData.description}
+              </p>
+            </div>
+          </div>
+
+          <div id="requisitos-vagas-gringa">
+            <h3 className={styles.cardTitle} style={{ fontSize: '1.15rem', marginBottom: '1rem' }}>
+              Requisitos Eliminatorios para Vagas Internacionais
+            </h3>
+            <div className={styles.gridTwo}>
+              {remoteGlobalWorkData.requisitos.map((req, idx) => (
+                <div key={idx} className={styles.card}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
+                    <CheckCircle2 size={18} color="var(--ft-green)" />
+                    <h4 style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--text-primary)', margin: 0 }}>
+                      {req.titulo}
+                    </h4>
+                  </div>
+                  <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', lineHeight: 1.5, margin: 0 }}>
+                    {req.detalhe}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div style={{ marginTop: '2.5rem' }}>
+            <h3 className={styles.cardTitle} style={{ fontSize: '1.15rem', marginBottom: '1rem' }}>
+              Plataformas Recomendadas para Candidatura
+            </h3>
+            <div className={styles.gridTwo}>
+              {remoteGlobalWorkData.plataformas.map((plat, idx) => (
+                <div key={idx} className={styles.card}>
+                  <h4 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.35rem' }}>
+                    {plat.nome}
+                  </h4>
+                  <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', marginBottom: '0.75rem', lineHeight: 1.5 }}>
+                    {plat.modelo}
+                  </p>
+                  <a
+                    href={plat.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.channelActionBtn}
+                    style={{ display: 'inline-flex', width: 'fit-content' }}
+                  >
+                    <span>Conhecer Plataforma</span>
+                    <ExternalLink size={12} />
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div id="tributacao-pj-exterior" style={{ marginTop: '2.5rem' }}>
+            <h3 className={styles.cardTitle} style={{ fontSize: '1.15rem', marginBottom: '1rem' }}>
+              Aspectos Tributarios e Fechamento de Cambio no Brasil
+            </h3>
+            <div className={styles.gridTwo}>
+              {remoteGlobalWorkData.tributacao.map((trib, idx) => (
+                <div key={idx} className={styles.card}>
+                  <h4 style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--ft-blue)', marginBottom: '0.35rem' }}>
+                    {trib.conceito}
+                  </h4>
+                  <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', lineHeight: 1.5, margin: 0 }}>
+                    {trib.explicacao}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* BSI versus TADS com a Coordenação */}
+      <section
+        id="bsi-vs-tads-coordenacao"
+        style={getSectionStyle('bsi-vs-tads-coordenacao')}
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['bsi-vs-tads-coordenacao']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('bsi-vs-tads-coordenacao')}
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <GraduationCap size={24} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>{bsiVsTadsCoordinatorData.title}</h2>
+              <p className={styles.cardSubtitle}>
+                {bsiVsTadsCoordinatorData.description}
+              </p>
+            </div>
+          </div>
+
+          <div id="comparativo-matrizes-tempo" className={styles.comparisonTableWrapper}>
+            <table className={styles.comparisonTable}>
+              <thead>
+                <tr>
+                  <th>Eixo Avaliado</th>
+                  <th>Bacharelado em Sistemas de Informação</th>
+                  <th>Tecnologia em Análise e Desenvolvimento de Sistemas</th>
+                  <th>Orientacao da Coordenacao</th>
+                </tr>
+              </thead>
+              <tbody>
+                {bsiVsTadsCoordinatorData.comparativos.map((row, idx) => (
+                  <tr key={idx}>
+                    <td><strong>{row.eixo}</strong></td>
+                    <td>{row.bsi}</td>
+                    <td>{row.tads}</td>
+                    <td style={{ color: 'var(--ft-green)', fontWeight: 600 }}>{row.recomendacaoCoordenador}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* O Mercado Pós-Pandemia e a Verdade sobre a IA na Programação */}
+      <section
+        id="mercado-ia-devs-produto"
+        style={getSectionStyle('mercado-ia-devs-produto')}
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['mercado-ia-devs-produto']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('mercado-ia-devs-produto')}
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <TrendingUp size={24} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>{postPandemicAndAiMarketData.title}</h2>
+              <p className={styles.cardSubtitle}>
+                {postPandemicAndAiMarketData.description}
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.gridTwo}>
+            {postPandemicAndAiMarketData.pandemiaVsHoje.map((period, idx) => (
+              <div key={idx} className={styles.card}>
+                <h4 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
+                  {period.periodo}
+                </h4>
+                <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', marginBottom: '0.5rem', lineHeight: 1.5 }}>
+                  {period.contexto}
+                </p>
+                <p style={{ fontSize: '0.8125rem', color: 'var(--ft-blue)', fontWeight: 600 }}>
+                  Perfil Buscado: {period.perfilBuscado}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div id="ia-verdade-programacao" style={{ marginTop: '2.5rem' }}>
+            <h3 className={styles.cardTitle} style={{ fontSize: '1.15rem', marginBottom: '1rem' }}>
+              Mitos versus Realidade da Inteligencia Artificial na Engenharia
+            </h3>
+            <div className={styles.gridTwo}>
+              {postPandemicAndAiMarketData.mitosIA.map((item, idx) => (
+                <div key={idx} className={styles.card}>
+                  <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#dc2626', textTransform: 'uppercase' }}>
+                    Mito Propagado
+                  </span>
+                  <p style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--text-primary)', margin: '0.25rem 0 0.5rem 0' }}>
+                    {item.mito}
+                  </p>
+                  <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--ft-green)', textTransform: 'uppercase' }}>
+                    Realidade na Industria
+                  </span>
+                  <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', margin: '0.25rem 0 0.5rem 0', lineHeight: 1.5 }}>
+                    {item.realidade}
+                  </p>
+                  <p style={{ fontSize: '0.8125rem', color: 'var(--text-tertiary)', fontStyle: 'italic', margin: 0 }}>
+                    Impacto para o Aluno da FT: {item.impactoNaFT}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div id="era-devs-produto" style={{ marginTop: '2.5rem' }}>
+            <div className={styles.highlightBox}>
+              <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
+                {postPandemicAndAiMarketData.desenvolvedorDeProduto.conceito}
+              </h3>
+              <ul style={{ margin: 0, paddingLeft: '1.25rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                {postPandemicAndAiMarketData.desenvolvedorDeProduto.atributos.map((atr, idx) => (
+                  <li key={idx} style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+                    {atr}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Carreira em Y: Especialista versus Gestor */}
+      <section
+        id="carreira-em-y-lideranca"
+        style={getSectionStyle('carreira-em-y-lideranca')}
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['carreira-em-y-lideranca']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('carreira-em-y-lideranca')}
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <Layers size={24} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>{careerYMatrixData.title}</h2>
+              <p className={styles.cardSubtitle}>
+                {careerYMatrixData.description}
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.gridTwo}>
+            <div className={styles.card}>
+              <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--ft-blue)', marginBottom: '0.75rem' }}>
+                Trilha Especialista Tecnico
+              </h3>
+              {careerYMatrixData.trilhaEspecialista.map((esp, idx) => (
+                <div key={idx} style={{ marginBottom: '1rem', paddingBottom: '0.75rem', borderBottom: idx < 2 ? '1px solid var(--border-color)' : 'none' }}>
+                  <h4 style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--text-primary)', margin: '0 0 0.25rem 0' }}>
+                    {esp.cargo}
+                  </h4>
+                  <p style={{ fontSize: '0.8125rem', color: 'var(--text-secondary)', margin: '0 0 0.25rem 0', lineHeight: 1.4 }}>
+                    Foco: {esp.foco}
+                  </p>
+                  <p style={{ fontSize: '0.75rem', color: 'var(--text-tertiary)', margin: 0 }}>
+                    Desafios: {esp.desafios}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className={styles.card}>
+              <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--ft-green)', marginBottom: '0.75rem' }}>
+                Trilha Gestao e Lideranca
+              </h3>
+              {careerYMatrixData.trilhaGestao.map((ges, idx) => (
+                <div key={idx} style={{ marginBottom: '1rem', paddingBottom: '0.75rem', borderBottom: idx < 2 ? '1px solid var(--border-color)' : 'none' }}>
+                  <h4 style={{ fontSize: '0.9375rem', fontWeight: 700, color: 'var(--text-primary)', margin: '0 0 0.25rem 0' }}>
+                    {ges.cargo}
+                  </h4>
+                  <p style={{ fontSize: '0.8125rem', color: 'var(--text-secondary)', margin: '0 0 0.25rem 0', lineHeight: 1.4 }}>
+                    Foco: {ges.foco}
+                  </p>
+                  <p style={{ fontSize: '0.75rem', color: 'var(--text-tertiary)', margin: 0 }}>
+                    Desafios: {ges.desafios}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div id="autoavaliacao-trilha-y" style={{ marginTop: '2.5rem' }}>
+            <h3 className={styles.cardTitle} style={{ fontSize: '1.15rem', marginBottom: '1rem' }}>
+              Autoavaliacao para Reflexao de Carreira
+            </h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              {careerYMatrixData.perguntasAutoavaliacao.map((q, idx) => (
+                <div key={idx} className={styles.card} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                  <Compass size={20} color="var(--ft-green)" style={{ flexShrink: 0, marginTop: '0.15rem' }} />
+                  <p style={{ fontSize: '0.875rem', color: 'var(--text-primary)', margin: 0, lineHeight: 1.5 }}>
+                    {q}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div id="videos-referencia-carreira" style={{ marginTop: '2.5rem' }}>
+            <h3 className={styles.cardTitle} style={{ fontSize: '1.15rem', marginBottom: '1rem' }}>
+              Videos Recomendados sobre Salarios, IA e Carreira
+            </h3>
+            <div className={styles.channelsGrid}>
+              {careerVideosData.map((vid) => (
+                <div key={vid.id} className={styles.channelCard}>
+                  <div className={styles.channelCardHeader}>
+                    <div>
+                      <span className={styles.channelBadge}>{vid.topic}</span>
+                      <h4 className={styles.channelTitle} style={{ fontSize: '0.9375rem' }}>{vid.title}</h4>
+                      <span style={{ fontSize: '0.75rem', color: 'var(--text-tertiary)' }}>{vid.channel}</span>
+                    </div>
+                    <Youtube size={20} color="#dc2626" />
+                  </div>
+                  <a
+                    href={vid.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.channelActionBtn}
+                  >
+                    <Youtube size={16} />
+                    <span>Assistir no YouTube</span>
+                    <ExternalLink size={12} />
+                  </a>
+                </div>
+              ))}
             </div>
           </div>
         </div>
