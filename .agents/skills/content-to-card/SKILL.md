@@ -25,8 +25,8 @@ O desenvolvedor fornece notas brutas, topicos, links de videos do YouTube, artig
 
 ### 2. Mapeamento Editorial e Arquitetural
 A skill identifica automaticamente:
-- **Pagina de Destino:** Identifica qual rota do portal recebera o conteudo (ex: `/carreira`, `/academico`, `/calouros`, `/estudos-ia`, `/links`, `/duvidas`).
-- **Arquivos de Dados:** Mapeia quais catalogos em `src/data/` devem ser atualizados (ex: `links.ts`, `headerTopics.ts`, `searchIndex.ts`, `faq.ts`, `academic.ts`).
+- **Pagina de Destino:** Identifica qual rota do portal recebera o conteudo, como `/carreira`, `/academico`, `/calouros`, `/estudos-ia`, `/links` ou `/duvidas`.
+- **Arquivos de Dados:** Mapeia quais catalogos em `src/data/` devem ser atualizados, como `links.ts`, `headerTopics.ts`, `searchIndex.ts`, `faq.ts` ou `academic.ts`.
 - **Conformidade com ADR 0001:** Assegura que nenhum texto utilize parenteses, travessoes ou emojis.
 
 ### 3. Publicacao do Cartao em docs/next
