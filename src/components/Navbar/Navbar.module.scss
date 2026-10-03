@@ -220,28 +220,6 @@ button.navItem {
   }
 }
 
-.gradeLink {
-  @include button-base;
-  display: none;
-  background-color: var(--ft-blue);
-  color: var(--on-primary);
-  padding: 0.5625rem 1.125rem;
-  font-size: 0.875rem;
-  font-weight: 700;
-  white-space: nowrap;
-  box-shadow: $shadow-sm;
-
-  @include respond-to('sm') {
-    display: inline-flex;
-  }
-
-  &:hover {
-    background-color: var(--ft-blue-hover);
-    color: var(--on-primary);
-    transform: translateY(-1px);
-    box-shadow: $shadow-md;
-  }
-}
 
 .menuToggle {
   width: 2.5rem;
@@ -537,7 +515,7 @@ button.navItem {
 
   &:hover {
     background-color: var(--ft-blue);
-    color: #ffffff;
+    color: var(--on-primary);
   }
 }
 
@@ -633,24 +611,6 @@ button.navItem {
   }
 }
 
-.mobileGradeLink {
-  margin-top: $spacing-sm;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: $spacing-sm;
-  padding: 0.875rem;
-  background-color: var(--ft-blue);
-  color: #ffffff;
-  border-radius: $radius-md;
-  font-weight: 700;
-  font-size: 0.9375rem;
-  white-space: nowrap;
-
-  &:hover {
-    background-color: var(--ft-blue-hover);
-  }
-}
 
 @keyframes dropdownFadeIn {
   from {

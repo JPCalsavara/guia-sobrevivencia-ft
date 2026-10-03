@@ -26,16 +26,6 @@ import styles from './page.module.scss';
 export default function HomePage() {
   const hubPillars = [
     {
-      id: 'calouros',
-      title: 'Guia do Calouro e Boas-Vindas',
-      subtitle: 'Matrícula, RA, Salas de Aula, Bandejão, Circular, Monitorias e Bolsas DEAPE',
-      description: 'O passo a passo completo para o novo ingressante: entenda a localização do Campus 1 FT Limeira, confirme sua vaga, acesse o Moodle e aproveite a calourada.',
-      href: '/calouros',
-      icon: GraduationCap,
-      badge: 'Ingressantes',
-      color: 'blue',
-    },
-    {
       id: 'academico',
       title: 'Estrutura Acadêmica e Regras da DAC',
       subtitle: 'BSI versus TADS, Coeficientes CR e CP, Grade DAC Online e Estratégia de Formatura',

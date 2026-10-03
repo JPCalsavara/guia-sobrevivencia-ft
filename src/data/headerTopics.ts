@@ -328,6 +328,13 @@ export const headerNavSections: HeaderNavSection[] = [
         tag: 'Campus',
         recommendedStages: ['calouro', 'meio', 'formando'],
       },
+      {
+        id: 'categoria-duvidas-links',
+        title: 'Central de Duvidas e FAQ Oficial',
+        href: '/links#duvidas',
+        tag: 'Duvidas',
+        recommendedStages: ['calouro', 'meio', 'formando'],
+      },
     ],
   },
 ];

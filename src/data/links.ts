@@ -129,12 +129,12 @@ export const linksData: ResourceLink[] = [
     badge: 'Matrícula',
   },
   {
-    id: 'grade-daconline',
-    title: 'Grade DAC Online',
-    description: 'Acompanhamento detalhado do desenvolvimento das matérias, cumprimento de requisitos e integralização curricular',
-    url: 'https://grade.daconline.unicamp.br/login/',
+    id: 'duvidas-frequentes-ft',
+    title: 'Portal de Duvidas Frequentes e Atendimento FT',
+    description: 'Central de perguntas e respostas sobre vida academica, matricula, trancamento e apoio ao estudante',
+    url: 'https://www.ft.unicamp.br/graduacao/atendimento',
     category: 'matricula',
-    badge: 'Integralização',
+    badge: 'Duvidas e FAQ',
   },
   {
     id: 'dac-catalogo-bsi',

@@ -120,6 +120,10 @@
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: $spacing-md;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  flex-wrap: wrap;
 }
 
 .rulesGrid {
@@ -130,6 +134,20 @@
 
   @include respond-to('md') {
     grid-template-columns: repeat(2, 1fr);
+
+    > :last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @include respond-to('lg') {
+    &:has(> :nth-child(3):last-child) {
+      grid-template-columns: repeat(3, 1fr);
+
+      > :last-child:nth-child(odd) {
+        grid-column: auto;
+      }
+    }
   }
 }
 
@@ -286,12 +304,13 @@
 .gradeButton {
   @include button-base;
   background-color: var(--ft-blue);
-  color: #ffffff;
+  color: var(--on-primary);
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
 
   &:hover {
     background-color: var(--ft-blue-dark);
+    color: var(--on-primary);
   }
 }
 
@@ -1155,7 +1174,7 @@
 
 .stepDetail {
   font-size: 0.8125rem;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   line-height: 1.55;
   margin-top: $spacing-xs;
 }
@@ -1168,7 +1187,7 @@
   gap: 0.5rem;
   padding: 0.65rem 1.15rem;
   background-color: var(--ft-blue);
-  color: #ffffff;
+  color: var(--on-primary);
   border-radius: $radius-md;
   font-size: 0.875rem;
   font-weight: 700;
@@ -1176,6 +1195,7 @@
 
   &:hover {
     background-color: var(--ft-blue-hover);
+    color: var(--on-primary);
   }
 }
 

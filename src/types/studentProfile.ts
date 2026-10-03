@@ -4,8 +4,25 @@ export type JourneyStage = 'calouro' | 'meio' | 'formando';
 
 export interface StudentProfile {
   course: CourseId | null;
+  year: number | null;
   semester: number | null;
   stage: JourneyStage | null;
+}
+
+export const COURSE_MAX_YEARS: Record<CourseId, number> = {
+  bsi: 4,
+  tads: 3,
+};
+
+export function computeJourneyStageFromYear(year: number | null, course: CourseId | null): JourneyStage | null {
+  if (!year) return null;
+  if (year === 1) return 'calouro';
+  if (course === 'tads') {
+    if (year === 2) return 'meio';
+    return 'formando';
+  }
+  if (year <= 3) return 'meio';
+  return 'formando';
 }
 
 export function computeJourneyStage(semester: number | null): JourneyStage | null {

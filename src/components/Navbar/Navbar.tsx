@@ -12,7 +12,6 @@ import {
   Briefcase,
   Cpu,
   MapPin,
-  ExternalLink,
   Link2,
   Home,
   Compass,
@@ -103,9 +102,13 @@ export function Navbar() {
   };
 
   const profileButtonText =
-    profile.course && profile.semester
-      ? `${COURSE_SHORT_NAMES[profile.course]} · ${profile.semester}º Sem`
-      : 'Meu Curso';
+    profile.course && profile.year
+      ? `${COURSE_SHORT_NAMES[profile.course]} · ${profile.year}º Ano`
+      : profile.course && profile.semester
+        ? `${COURSE_SHORT_NAMES[profile.course]} · ${Math.ceil(profile.semester / 2)}º Ano`
+        : profile.course
+          ? COURSE_SHORT_NAMES[profile.course]
+          : 'Meu Curso';
 
   return (
     <header className={styles.header}>
@@ -254,17 +257,6 @@ export function Navbar() {
             {theme === 'dark' ? <Sun size={20} aria-hidden="true" /> : <Moon size={20} aria-hidden="true" />}
           </button>
 
-          {/* Link Grade DAC */}
-          <Link
-            href="https://grade.daconline.unicamp.br/login/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.gradeLink}
-            aria-label="Acessar Grade DAC Online em nova janela"
-          >
-            <span>Grade DAC</span>
-            <ExternalLink size={14} aria-hidden="true" />
-          </Link>
 
           {/* Botão Menu Mobile */}
           <button
@@ -300,9 +292,11 @@ export function Navbar() {
             <div className={styles.mobileProfileContent}>
               <GraduationCap size={18} aria-hidden="true" />
               <span>
-                {profile.course && profile.semester
-                  ? `${COURSE_SHORT_NAMES[profile.course]} · ${profile.semester}º Semestre`
-                  : 'Selecionar Curso e Semestre'}
+                {profile.course && profile.year
+                  ? `${COURSE_SHORT_NAMES[profile.course]} · ${profile.year}º Ano`
+                  : profile.course && profile.semester
+                    ? `${COURSE_SHORT_NAMES[profile.course]} · ${Math.ceil(profile.semester / 2)}º Ano`
+                    : 'Selecionar Curso e Ano'}
               </span>
             </div>
             <Sparkles size={16} aria-hidden="true" />
@@ -394,17 +388,6 @@ export function Navbar() {
             );
           })}
 
-          <Link
-            href="https://grade.daconline.unicamp.br/login/"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setMobileMenuOpen(false)}
-            className={styles.mobileGradeLink}
-            aria-label="Acessar Grade DAC Online em nova janela"
-          >
-            <span>Grade DAC Online</span>
-            <ExternalLink size={16} aria-hidden="true" />
-          </Link>
         </nav>
       )}
 
