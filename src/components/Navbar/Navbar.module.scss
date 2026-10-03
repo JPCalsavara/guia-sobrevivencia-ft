@@ -459,16 +459,20 @@ button.navItem {
 }
 
 .mobileNav {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  bottom: 1.75rem;
+  z-index: 999;
+  background-color: var(--surface-color);
+  padding: $spacing-md;
   display: flex;
   flex-direction: column;
-  padding: $spacing-md;
-  border-top: 1px solid var(--border-color);
-  border-bottom: 1px solid var(--border-color);
-  background: var(--surface-color);
   gap: $spacing-xs;
-  box-shadow: $shadow-lg;
-  max-height: 80vh;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  box-shadow: $shadow-xl;
 
   @include respond-to('lg') {
     display: none;
@@ -617,39 +621,6 @@ button.navItem {
   }
 }
 
-.surveyShortcut {
-  display: none;
-  height: 2.5rem;
-  padding: 0 0.625rem;
-  border-radius: $radius-md;
-  border: 1px solid var(--border-color);
-  background-color: var(--surface-color);
-  color: var(--text-secondary);
-  align-items: center;
-  gap: 0.35rem;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all $transition-fast;
-
-  @include respond-to('md') {
-    display: inline-flex;
-  }
-
-  &:hover {
-    background-color: var(--ft-blue-soft);
-    border-color: var(--ft-blue);
-    color: var(--ft-blue);
-  }
-}
-
-.surveyShortcutLabel {
-  display: none;
-
-  @include respond-to('xl') {
-    display: inline-block;
-  }
-}
 
 .mobileThemeToggle {
   width: 100%;

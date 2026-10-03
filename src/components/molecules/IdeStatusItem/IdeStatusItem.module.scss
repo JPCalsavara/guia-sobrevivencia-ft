@@ -18,6 +18,15 @@
   &.highlight {
     color: var(--dracula-green, var(--ft-green));
   }
+
+  &.linkItem {
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--dracula-cyan, #8be9fd);
+    }
+  }
 }
 
 .icon {

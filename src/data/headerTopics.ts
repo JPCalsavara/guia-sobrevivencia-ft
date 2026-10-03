@@ -308,6 +308,13 @@ export const headerNavSections: HeaderNavSection[] = [
     description: 'Central consolidada de acessos rapidos a portais oficiais da Unicamp, DAC e servicos estudantis.',
     topics: [
       {
+        id: 'categoria-duvidas-links',
+        title: 'Central de Duvidas por Area Tematica',
+        href: '/duvidas#lista-duvidas',
+        tag: 'Duvidas',
+        recommendedStages: ['calouro', 'meio', 'formando'],
+      },
+      {
         id: 'categoria-dac',
         title: 'Portais Oficiais da DAC e Caderno de Horarios',
         href: '/links#categoria-dac',
@@ -333,13 +340,6 @@ export const headerNavSections: HeaderNavSection[] = [
         title: 'Servicos de Transporte e Alimentacao',
         href: '/links#categoria-servicos',
         tag: 'Campus',
-        recommendedStages: ['calouro', 'meio', 'formando'],
-      },
-      {
-        id: 'categoria-duvidas-links',
-        title: 'Central de Duvidas e FAQ Oficial',
-        href: '/links#duvidas',
-        tag: 'Duvidas',
         recommendedStages: ['calouro', 'meio', 'formando'],
       },
       {

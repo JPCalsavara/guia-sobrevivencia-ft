@@ -1,24 +1,35 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
-.backdrop {
+.modalOverlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(15, 23, 42, 0.65);
-  backdrop-filter: blur(4px);
+  background-color: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   animation: fadeIn 0.2s ease-out;
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 0.75rem 0.5rem;
+    align-items: flex-start;
+  }
 }
 
 .modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 92%;
+  position: relative;
+  width: 100%;
   max-width: 520px;
-  max-height: 90vh;
+  max-height: calc(100vh - 3rem);
+  margin: auto;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   background-color: var(--card-bg, #ffffff);
   border: 1px solid var(--border-color, #e2e8f0);
   border-radius: $radius-xl;
@@ -28,8 +39,8 @@
   animation: modalScaleIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 
   @media (max-width: $breakpoint-sm) {
-    padding: 1.25rem;
-    width: 95%;
+    padding: 1.25rem 1rem;
+    max-height: calc(100vh - 1.5rem);
   }
 }
 
@@ -372,10 +383,10 @@
 @keyframes modalScaleIn {
   from {
     opacity: 0;
-    transform: translate(-50%, -46%) scale(0.96);
+    transform: scale(0.96);
   }
   to {
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
+    transform: scale(1);
   }
 }

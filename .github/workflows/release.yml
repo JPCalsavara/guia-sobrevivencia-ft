@@ -1,0 +1,40 @@
+name: Automated Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Extract Version
+        id: get_version
+        run: |
+          VERSION=`grep '"version":' package.json | head -n 1 | cut -d '"' -f 4`
+          echo "VERSION=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "TAG_NAME=v$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Check Tag and Create Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ steps.get_version.outputs.TAG_NAME }}
+        run: |
+          if git rev-parse "$TAG" >/dev/null 2>&1; then
+            echo "Tag $TAG ja existe no repositorio"
+          else
+            echo "Criando release para $TAG"
+            git tag "$TAG"
+            git push origin "$TAG"
+            gh release create "$TAG" --title "Release $TAG" --generate-notes
+          fi

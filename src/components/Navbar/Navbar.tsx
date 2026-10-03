@@ -21,7 +21,6 @@ import {
   HelpCircle,
   ArrowRight,
   Sparkles,
-  FileText,
   Mail,
 } from 'lucide-react';
 import { headerNavSections } from '@/data/headerTopics';
@@ -82,6 +81,17 @@ export function Navbar() {
     localStorage.setItem('ft_theme', nextTheme);
     document.documentElement.setAttribute('data-theme', nextTheme);
   };
+
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
 
   const handleMouseEnter = (sectionId: string) => {
     if (dropdownTimeoutRef.current) {
@@ -247,17 +257,6 @@ export function Navbar() {
             <Search size={18} aria-hidden="true" />
             <span className={styles.searchShortcutBadge}>Ctrl K</span>
           </button>
-
-          {/* Atalho Pesquisa Discente */}
-          <Link
-            href="/estatisticas#termometro-discente"
-            className={styles.surveyShortcut}
-            aria-label="Responder pesquisa discente da FT"
-            title="Responder pesquisa discente da FT"
-          >
-            <FileText size={16} aria-hidden="true" />
-            <span className={styles.surveyShortcutLabel}>Pesquisa</span>
-          </Link>
 
           {/* Alternador de Tema */}
           <button
