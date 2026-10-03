@@ -123,8 +123,9 @@ export function Navbar() {
           : 'Meu Curso';
 
   return (
-    <header className={styles.header}>
-      <div className={styles.container}>
+    <>
+      <header className={styles.header}>
+        <div className={styles.container}>
         <Link href="/" className={styles.brand} aria-label="Pagina inicial do Guia FT Unicamp">
           <div className={styles.brandIconWrapper}>
             <Compass size={22} className={styles.brandIcon} />
@@ -283,6 +284,7 @@ export function Navbar() {
           </button>
         </div>
       </div>
+    </header>
 
       {/* Painel de Navegação Mobile */}
       {mobileMenuOpen && (
@@ -435,6 +437,6 @@ export function Navbar() {
         isOpen={searchModalOpen}
         onClose={() => setSearchModalOpen(false)}
       />
-    </header>
+    </>
   );
 }
