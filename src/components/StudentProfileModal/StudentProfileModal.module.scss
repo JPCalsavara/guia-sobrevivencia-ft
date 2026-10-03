@@ -252,6 +252,61 @@
   line-height: 1.35;
 }
 
+.surveyBanner {
+  margin-top: 1rem;
+  padding: 0.875rem 1rem;
+  border-radius: $radius-lg;
+  background-color: var(--primary-light, #e0f2fe);
+  border: 1px solid var(--primary, #0284c7);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.surveyBannerText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.surveyBannerTitle {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--text-color, #0f172a);
+}
+
+.surveyBannerDesc {
+  font-size: 0.75rem;
+  color: var(--text-muted, #64748b);
+  line-height: 1.3;
+}
+
+.surveyBannerBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.75rem;
+  background-color: var(--primary, #0284c7);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: $radius-md;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: var(--primary-dark, #0369a1);
+  }
+}
+
 .actions {
   display: flex;
   align-items: center;

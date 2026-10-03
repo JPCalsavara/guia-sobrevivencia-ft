@@ -38,6 +38,7 @@ export function Footer() {
                 <li><Link href="/duvidas">Portal de Dúvidas Comuns</Link></li>
                 <li><Link href="/estatisticas">Estatísticas e Pesquisa</Link></li>
                 <li><Link href="/links">Diretório de Links Oficiais</Link></li>
+                <li><Link href="/campus#contatos-atendimento">Contatos e Atendimento</Link></li>
               </ul>
             </nav>
           </div>
@@ -168,7 +169,7 @@ export function Footer() {
           <p className={styles.credits}>
             Criado e desenvolvido por{' '}
             <a
-              href="https://www.linkedin.com/in/joaopedrocalsavara/"
+              href="https://www.linkedin.com/in/jo%C3%A3o-pedro-leite-calsavara-b951b6230/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Perfil de Joao Pedro Calsavara no LinkedIn em nova janela"

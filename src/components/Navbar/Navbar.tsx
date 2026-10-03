@@ -21,6 +21,8 @@ import {
   HelpCircle,
   ArrowRight,
   Sparkles,
+  FileText,
+  Mail,
 } from 'lucide-react';
 import { headerNavSections } from '@/data/headerTopics';
 import { useStudentProfile } from '@/contexts/StudentProfileContext';
@@ -246,6 +248,17 @@ export function Navbar() {
             <span className={styles.searchShortcutBadge}>Ctrl K</span>
           </button>
 
+          {/* Atalho Pesquisa Discente */}
+          <Link
+            href="/estatisticas#termometro-discente"
+            className={styles.surveyShortcut}
+            aria-label="Responder pesquisa discente da FT"
+            title="Responder pesquisa discente da FT"
+          >
+            <FileText size={16} aria-hidden="true" />
+            <span className={styles.surveyShortcutLabel}>Pesquisa</span>
+          </Link>
+
           {/* Alternador de Tema */}
           <button
             type="button"
@@ -388,6 +401,29 @@ export function Navbar() {
             );
           })}
 
+          {/* Link Contatos e Atendimento */}
+          <Link
+            href="/campus#contatos-atendimento"
+            onClick={() => setMobileMenuOpen(false)}
+            className={styles.mobileNavItem}
+          >
+            <Mail size={18} aria-hidden="true" />
+            <span>Contatos e Atendimento</span>
+          </Link>
+
+          {/* Alternador de Tema no Drawer Mobile */}
+          <button
+            type="button"
+            onClick={toggleTheme}
+            className={styles.mobileThemeToggle}
+            aria-label={theme === 'dark' ? 'Alternar para tema claro' : 'Alternar para tema escuro'}
+          >
+            <div className={styles.mobileThemeContent}>
+              {theme === 'dark' ? <Sun size={18} aria-hidden="true" /> : <Moon size={18} aria-hidden="true" />}
+              <span>{theme === 'dark' ? 'Tema Claro' : 'Tema Escuro'}</span>
+            </div>
+            <span className={styles.mobileThemeBadge}>{theme === 'dark' ? 'Escuro' : 'Claro'}</span>
+          </button>
         </nav>
       )}
 

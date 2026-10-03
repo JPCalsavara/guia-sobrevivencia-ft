@@ -6,12 +6,13 @@ export interface IdeStatusItemProps {
   label: string;
   tooltip?: string;
   highlight?: boolean;
+  className?: string;
 }
 
-export function IdeStatusItem({ icon, label, tooltip, highlight }: IdeStatusItemProps) {
+export function IdeStatusItem({ icon, label, tooltip, highlight, className }: IdeStatusItemProps) {
   return (
     <div
-      className={`${styles.statusItem} ${highlight ? styles.highlight : ''}`}
+      className={`${styles.statusItem} ${highlight ? styles.highlight : ''} ${className || ''}`.trim()}
       title={tooltip || label}
     >
       {icon && <span className={styles.icon}>{icon}</span>}

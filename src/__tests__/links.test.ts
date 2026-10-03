@@ -115,5 +115,17 @@ describe('Catalogo de Links e Recursos', () => {
     expect(btg).toBeDefined();
     expect(btg?.url).toBe('https://conteudo.btgpactual.com/estagio-de-ferias');
   });
+
+  it('deve conter recursos oficiais de ciberseguranca e curadoria de Brenno M', () => {
+    const desec = linksData.find((l) => l.id === 'desec-security');
+    const portswigger = linksData.find((l) => l.id === 'portswigger-academy');
+    const brenno = linksData.find((l) => l.id === 'brenno-artigos-hacking');
+
+    expect(desec).toBeDefined();
+    expect(desec?.category).toBe('carreira-tecnologia');
+    expect(portswigger).toBeDefined();
+    expect(brenno).toBeDefined();
+    expect(brenno?.url).toContain('brennocm.github.io');
+  });
 });
 

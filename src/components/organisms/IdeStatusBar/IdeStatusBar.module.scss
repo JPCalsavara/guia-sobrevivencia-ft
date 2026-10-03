@@ -33,3 +33,33 @@
     display: inline-flex;
   }
 }
+
+.pulseDot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--dracula-green, #50fa7b);
+  box-shadow: 0 0 6px var(--dracula-green, #50fa7b);
+  animation: pulseAnim 2s infinite ease-in-out;
+  margin-right: 2px;
+}
+
+@keyframes pulseAnim {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+}
+
+.hideOnMobile {
+  display: none !important;
+
+  @media (min-width: 640px) {
+    display: inline-flex !important;
+  }
+}

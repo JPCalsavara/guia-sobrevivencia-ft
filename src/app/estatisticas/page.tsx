@@ -19,12 +19,37 @@ import { PesquisaAggregates } from '@/lib/pesquisa';
 import { TopicItem } from '@/components/DocSidebar/DocSidebar';
 import styles from './estatisticas.module.scss';
 
+interface TimeSeriesPoint {
+  label: string;
+  views: number;
+  visitors: number;
+}
+
+interface TimeSeriesPeriod {
+  label: string;
+  totalViews: number;
+  visitors: number;
+  avgDwellSeconds: number;
+  interactionRatePct: number;
+  chart: TimeSeriesPoint[];
+}
+
 interface StatsResponse {
   metrics: {
     totalViews: number;
     estimatedVisitors: number;
     avgDwellSeconds: number;
     interactionRatePct: number;
+    liveVisitors?: number;
+    todayVisitors?: number;
+    totalHistory?: number;
+  };
+  timeSeries?: {
+    '24h': TimeSeriesPeriod;
+    '7d': TimeSeriesPeriod;
+    '30d': TimeSeriesPeriod;
+    '6m': TimeSeriesPeriod;
+    '1y': TimeSeriesPeriod;
   };
   devices: {
     mobilePct: number;
@@ -61,9 +86,18 @@ const estatisticasTopics: TopicItem[] = [
   },
 ];
 
+const TIME_PERIODS: Array<{ key: '24h' | '7d' | '30d' | '6m' | '1y'; label: string }> = [
+  { key: '24h', label: '24 Horas' },
+  { key: '7d', label: '1 Semana' },
+  { key: '30d', label: '1 Mês' },
+  { key: '6m', label: '6 Meses' },
+  { key: '1y', label: '1 Ano' },
+];
+
 export default function EstatisticasPage() {
   const [data, setData] = useState<StatsResponse | null>(null);
   const [loading, setLoading] = useState(true);
+  const [selectedPeriod, setSelectedPeriod] = useState<'24h' | '7d' | '30d' | '6m' | '1y'>('24h');
 
   // Estados da enquete
   const [selectedMomento, setSelectedMomento] = useState<string>('');
@@ -123,6 +157,23 @@ export default function EstatisticasPage() {
     }
   };
 
+  const currentPeriod = data?.timeSeries?.[selectedPeriod];
+  const displayViews = currentPeriod?.totalViews ?? data?.metrics.totalViews ?? 4860;
+  const displayVisitors = currentPeriod?.visitors ?? data?.metrics.estimatedVisitors ?? 1240;
+  const displayDwell = currentPeriod?.avgDwellSeconds ?? data?.metrics.avgDwellSeconds ?? 115;
+  const displayInteraction = currentPeriod?.interactionRatePct ?? data?.metrics.interactionRatePct ?? 78;
+
+  const chartPoints = currentPeriod?.chart ?? [
+    { label: '00h a 04h', views: 25, visitors: 12 },
+    { label: '04h a 08h', views: 35, visitors: 18 },
+    { label: '08h a 12h', views: 95, visitors: 48 },
+    { label: '12h a 16h', views: 80, visitors: 39 },
+    { label: '16h a 20h', views: 60, visitors: 30 },
+    { label: '20h a 24h', views: 45, visitors: 22 },
+  ];
+
+  const maxVal = Math.max(1, ...chartPoints.map((p) => Math.max(p.views, p.visitors)));
+
   return (
     <div className={styles.container}>
       {/* Header */}
@@ -147,30 +198,46 @@ export default function EstatisticasPage() {
         </motion.div>
       </section>
 
+      {/* Seletor de Período Temporal */}
+      <div className={styles.periodTabs} role="tablist" aria-label="Selecione a janela de tempo das estatísticas">
+        {TIME_PERIODS.map((period) => (
+          <button
+            key={period.key}
+            type="button"
+            role="tab"
+            aria-selected={selectedPeriod === period.key}
+            className={`${styles.periodTab} ${selectedPeriod === period.key ? styles.active : ''}`}
+            onClick={() => setSelectedPeriod(period.key)}
+          >
+            {period.label}
+          </button>
+        ))}
+      </div>
+
       {/* Grid de Métricas Principais */}
       <section id="metricas-audiencia" className={styles.metricsGrid}>
         <div className={styles.metricCard}>
           <div className={styles.metricHeader}>
-            <span className={styles.metricLabel}>Visualizações Totais</span>
+            <span className={styles.metricLabel}>Visualizações no Período</span>
             <div className={styles.metricIconWrap}>
               <Eye size={18} />
             </div>
           </div>
           <span className={styles.metricValue}>
-            {loading ? '...' : (data?.metrics.totalViews ?? 4860).toLocaleString('pt-BR')}
+            {loading ? '...' : displayViews.toLocaleString('pt-BR')}
           </span>
           <span className={styles.metricHelper}>Páginas e tópicos consultados</span>
         </div>
 
         <div className={styles.metricCard}>
           <div className={styles.metricHeader}>
-            <span className={styles.metricLabel}>Visitantes Únicos</span>
+            <span className={styles.metricLabel}>Visitantes no Período</span>
             <div className={styles.metricIconWrap}>
               <Users size={18} />
             </div>
           </div>
           <span className={styles.metricValue}>
-            {loading ? '...' : (data?.metrics.estimatedVisitors ?? 1240).toLocaleString('pt-BR')}
+            {loading ? '...' : displayVisitors.toLocaleString('pt-BR')}
           </span>
           <span className={styles.metricHelper}>Estudantes e pesquisadores</span>
         </div>
@@ -183,7 +250,7 @@ export default function EstatisticasPage() {
             </div>
           </div>
           <span className={styles.metricValue}>
-            {loading ? '...' : `${data?.metrics.avgDwellSeconds ?? 115}s`}
+            {loading ? '...' : `${displayDwell}s`}
           </span>
           <span className={styles.metricHelper}>Tempo dedicado por conteúdo</span>
         </div>
@@ -196,9 +263,68 @@ export default function EstatisticasPage() {
             </div>
           </div>
           <span className={styles.metricValue}>
-            {loading ? '...' : `${data?.metrics.interactionRatePct ?? 78}%`}
+            {loading ? '...' : `${displayInteraction}%`}
           </span>
           <span className={styles.metricHelper}>Cliques em links e simuladores</span>
+        </div>
+      </section>
+
+      {/* Gráfico de Evolução da Audiência */}
+      <section className={styles.chartCard} aria-label="Gráfico de evolução da audiência">
+        <div className={styles.chartHeader}>
+          <div className={styles.chartTitleGroup}>
+            <h2 className={styles.chartTitle}>
+              <BarChart3 size={20} aria-hidden="true" />
+              <span>Evolução da Audiência no Período de {TIME_PERIODS.find((p) => p.key === selectedPeriod)?.label}</span>
+            </h2>
+            <p className={styles.chartSubtitle}>
+              Distribuição de visualizações e visitantes únicos computados em produção
+            </p>
+          </div>
+          <div className={styles.chartLegend}>
+            <div className={styles.legendItem}>
+              <span className={styles.legendSquareViews} aria-hidden="true" />
+              <span>Visualizações</span>
+            </div>
+            <div className={styles.legendItem}>
+              <span className={styles.legendSquareVisitors} aria-hidden="true" />
+              <span>Visitantes</span>
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.chartPlotArea}>
+          {chartPoints.map((point, index) => {
+            const viewsHeightPct = Math.round((point.views / maxVal) * 100);
+            const visitorsHeightPct = Math.round((point.visitors / maxVal) * 100);
+
+            return (
+              <div
+                key={index}
+                className={styles.chartBarGroup}
+                title={`${point.label}: ${point.views} visualizações, ${point.visitors} visitantes`}
+              >
+                <div className={styles.barPair}>
+                  <div
+                    className={styles.barColViews}
+                    style={{ height: `${Math.max(6, viewsHeightPct)}%` }}
+                  />
+                  <div
+                    className={styles.barColVisitors}
+                    style={{ height: `${Math.max(6, visitorsHeightPct)}%` }}
+                  />
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className={styles.chartAxisLabels}>
+          {chartPoints.map((point, index) => (
+            <span key={index} className={styles.axisLabelItem}>
+              {point.label}
+            </span>
+          ))}
         </div>
       </section>
 

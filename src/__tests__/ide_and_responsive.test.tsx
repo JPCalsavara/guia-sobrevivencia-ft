@@ -49,9 +49,11 @@ describe('Componentes Atomicos de IDE e Tema Dracula', () => {
     render(<IdeStatusBar />);
 
     expect(screen.getByText('main')).toBeDefined();
+    expect(screen.getByText('18 ao vivo')).toBeDefined();
+    expect(screen.getByText('342 hoje')).toBeDefined();
     expect(screen.getByText('0 erros, 0 avisos')).toBeDefined();
     expect(screen.getByText('UTF-8')).toBeDefined();
-    expect(screen.getByText('Rust Engine')).toBeDefined();
+    expect(screen.getByText('SilvMar')).toBeDefined();
     expect(screen.getByText('FT Limeira')).toBeDefined();
   });
 
