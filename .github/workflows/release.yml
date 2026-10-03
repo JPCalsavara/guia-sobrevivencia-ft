@@ -35,8 +35,8 @@ jobs:
           TAG: ${{ steps.get_version.outputs.TAG_NAME }}
         run: |
           if git rev-parse "$TAG" >/dev/null 2>&1; then
-            echo "Tag $TAG ja existe no repositorio"
+            echo "Tag $TAG already exists in repository"
           else
-            echo "Criando release para $TAG via GitHub API"
+            echo "Creating release $TAG with GitHub CLI"
             gh release create "$TAG" --target main --title "Release $TAG" --generate-notes
           fi

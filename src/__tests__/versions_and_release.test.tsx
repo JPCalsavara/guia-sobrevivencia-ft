@@ -4,6 +4,7 @@ import { render, screen } from '@testing-library/react';
 import { versionsData } from '../data/versions';
 import VersoesPage from '../app/versoes/page';
 import { IdeStatusBar } from '../components/organisms/IdeStatusBar/IdeStatusBar';
+import packageInfo from '../../package.json';
 
 describe('Catalogo de Historico de Versoes e Apoio', () => {
   it('deve conter versoes ordenadas cronologicamente com tags semanticas validas', () => {
@@ -31,7 +32,7 @@ describe('Catalogo de Historico de Versoes e Apoio', () => {
 
     const versionLink = container.querySelector('a[href="/versoes"]');
     expect(versionLink).not.toBeNull();
-    expect(versionLink?.textContent).toContain('v1.11.0');
+    expect(versionLink?.textContent).toContain(`v${packageInfo.version}`);
 
     expect(versionLink?.className).not.toContain('hideOnMobile');
   });
