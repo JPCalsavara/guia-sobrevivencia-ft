@@ -224,7 +224,7 @@ button.navItem {
   @include button-base;
   display: none;
   background-color: var(--ft-blue);
-  color: #ffffff;
+  color: var(--on-primary);
   padding: 0.5625rem 1.125rem;
   font-size: 0.875rem;
   font-weight: 700;
@@ -237,6 +237,7 @@ button.navItem {
 
   &:hover {
     background-color: var(--ft-blue-hover);
+    color: var(--on-primary);
     transform: translateY(-1px);
     box-shadow: $shadow-md;
   }

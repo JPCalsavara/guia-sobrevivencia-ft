@@ -24,6 +24,9 @@ Adotar a politica de Versionamento Semantico SemVer associada a automacao de rel
 4. Conformidade estrita com o ADR 0001:
    Todas as tags, notas de release, comissoes e arquivos de script devem respeitar a ausencia total de travessoes, parenteses e emojis decorativos.
 
+5. Obrigatoriedade de Pull Requests e AI Gatekeeper:
+   Toda alteracao submetida para integracao na branch main exige a abertura de um Pull Request no GitHub. O pipeline de integracao continua executa a suite de testes automatizados, extrai o diff da branch e aciona o AI Gatekeeper com base nas regras do Context Harness. O merge e condicionado a aprovacao formal dos testes e ao parecer favoravel do Tech Lead supervisor do Gatekeeper, sendo impedidos envios diretos por meio do hook local de pre-push.
+
 ## Consequencias
 
 Garante-se integridade total da branch principal, pois nenhum codigo chega a producao sem passar pelo isolamento de branches e pela esteira de testes automatizados. O historico do repositorio passa a contar com marcadores de versao confiaveis, facilitando a observabilidade de lancamentos e o acompanhamento das melhorias entregues aos estudantes da FT.

@@ -13,7 +13,9 @@
     "release": "node scripts/auto-release.mjs",
     "report:analytics": "node scripts/daily-analytics-report.mjs",
     "analytics:optimize": "python3 scripts/analytics_optimizer.py",
-    "analytics:docker": "bash scripts/run_analytics_docker.sh"
+    "analytics:docker": "bash scripts/run_analytics_docker.sh",
+    "gatekeeper": "python3 .gatekeeper/gatekeeper.py --target .",
+    "harness:build": "python3 .gatekeeper/build_harness.py --docs docs README.md --output context_harness.json"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
