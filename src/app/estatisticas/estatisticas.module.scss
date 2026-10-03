@@ -393,3 +393,171 @@
   background-color: var(--ft-green);
   border-radius: $radius-full;
 }
+
+.periodTabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: $spacing-xs;
+  margin-bottom: $spacing-xl;
+}
+
+.periodTab {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.45rem 1rem;
+  border-radius: $radius-full;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover {
+    color: var(--ft-blue);
+    border-color: var(--ft-blue);
+    background-color: var(--ft-blue-soft);
+  }
+
+  &.active {
+    background-color: var(--ft-green);
+    border-color: var(--ft-green);
+    color: #ffffff;
+    font-weight: 700;
+  }
+}
+
+.chartCard {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: $radius-lg;
+  padding: $spacing-xl;
+  margin-bottom: $spacing-3xl;
+  box-shadow: $shadow-sm;
+}
+
+.chartHeader {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-xl;
+
+  @include respond-to('md') {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.chartTitleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.chartTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.chartSubtitle {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+.chartLegend {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.775rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.legendSquareViews {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background-color: var(--ft-blue);
+}
+
+.legendSquareVisitors {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background-color: var(--ft-green);
+}
+
+.chartPlotArea {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.5rem;
+  height: 200px;
+  padding-top: $spacing-lg;
+  border-bottom: 1px solid var(--border-color);
+  overflow-x: auto;
+}
+
+.chartBarGroup {
+  flex: 1;
+  min-width: 40px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.barPair {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 3px;
+}
+
+.barColViews {
+  width: 14px;
+  background-color: var(--ft-blue);
+  border-radius: 4px 4px 0 0;
+  transition: height 0.3s ease;
+  min-height: 4px;
+}
+
+.barColVisitors {
+  width: 14px;
+  background-color: var(--ft-green);
+  border-radius: 4px 4px 0 0;
+  transition: height 0.3s ease;
+  min-height: 4px;
+}
+
+.chartAxisLabels {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: $spacing-sm;
+  overflow-x: auto;
+}
+
+.axisLabelItem {
+  flex: 1;
+  min-width: 40px;
+  text-align: center;
+  font-size: 0.6875rem;
+  color: var(--text-tertiary);
+  font-weight: 600;
+}

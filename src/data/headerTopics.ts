@@ -184,6 +184,13 @@ export const headerNavSections: HeaderNavSection[] = [
         tag: 'Empresas',
         recommendedStages: ['meio', 'formando'],
       },
+      {
+        id: 'ciberseguranca-hacking-etico',
+        title: 'Trilha de Cibersegurança e Hacking Ético',
+        href: '/carreira#ciberseguranca-hacking-etico',
+        tag: 'Segurança',
+        recommendedStages: ['calouro', 'meio', 'formando'],
+      },
     ],
   },
   {
@@ -333,6 +340,13 @@ export const headerNavSections: HeaderNavSection[] = [
         title: 'Central de Duvidas e FAQ Oficial',
         href: '/links#duvidas',
         tag: 'Duvidas',
+        recommendedStages: ['calouro', 'meio', 'formando'],
+      },
+      {
+        id: 'contatos-atendimento-suporte',
+        title: 'Contatos e Atendimento Institucional',
+        href: '/campus#contatos-atendimento',
+        tag: 'Contatos',
         recommendedStages: ['calouro', 'meio', 'formando'],
       },
     ],

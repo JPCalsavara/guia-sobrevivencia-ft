@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import {
   X,
   GraduationCap,
@@ -10,6 +11,7 @@ import {
   BookOpen,
   TrendingUp,
   Award,
+  FileText,
 } from 'lucide-react';
 import { useStudentProfile } from '@/contexts/StudentProfileContext';
 import {
@@ -196,6 +198,24 @@ export function StudentProfileModal({ isOpen, onClose }: StudentProfileModalProp
             <span className={styles.stageTitle}>{stageMeta.title}</span>
             <span className={styles.stageDesc}>{stageMeta.desc}</span>
           </div>
+        </div>
+
+        {/* Banner do Formulário de Pesquisa Discente */}
+        <div className={styles.surveyBanner}>
+          <div className={styles.surveyBannerText}>
+            <span className={styles.surveyBannerTitle}>Pesquisa Discente e Termômetro</span>
+            <span className={styles.surveyBannerDesc}>
+              Compartilhe seus desafios e objetivos de carreira na FT em nosso formulário público.
+            </span>
+          </div>
+          <Link
+            href="/estatisticas#termometro-discente"
+            onClick={onClose}
+            className={styles.surveyBannerBtn}
+          >
+            <FileText size={14} aria-hidden="true" />
+            <span>Preencher Formulário</span>
+          </Link>
         </div>
 
         {/* Ações */}

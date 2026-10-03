@@ -18,6 +18,10 @@ import {
   Compass,
   ExternalLink,
   ShieldCheck,
+  Shield,
+  Lock,
+  Terminal,
+  Cpu,
   Instagram,
   Database,
   Server,
@@ -175,6 +179,13 @@ const careerTopics: TopicItem[] = [
     ],
   },
   {
+    id: 'ciberseguranca-hacking-etico',
+    title: 'Cibersegurança e Hacking Ético',
+    subtopics: [
+      { id: 'ciberseguranca-hacking-etico', title: 'Fundamentos, Especializações e Brenno M.' },
+    ],
+  },
+  {
     id: 'canais-recomendados',
     title: 'Canais Recomendados',
     subtopics: [
@@ -200,6 +211,7 @@ const sectionStageMap: Record<string, { stage: JourneyStage; label: string }> = 
   'roadmap-sh': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
   'trilhas-aprendizado': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
   'devops-ciberseguranca': { stage: 'calouro', label: 'Foco: Calouro, 1º e 2º Semestres' },
+  'ciberseguranca-hacking-etico': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
   'canais-recomendados': { stage: 'calouro', label: 'Foco: Calouro, 1º e 2º Semestres' },
 };
 
@@ -219,6 +231,7 @@ const allCareerSectionIds = [
   'roadmap-sh',
   'trilhas-aprendizado',
   'devops-ciberseguranca',
+  'ciberseguranca-hacking-etico',
   'canais-recomendados',
 ];
 
@@ -2274,6 +2287,219 @@ export default function CarreiraPage() {
                   className={styles.trackActionBtn}
                 >
                   <span>Google Innovators</span>
+                  <ExternalLink size={12} />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trilha de Cibersegurança e Hacking Ético com Curadoria de Brenno M. */}
+      <section
+        id="ciberseguranca-hacking-etico"
+        style={getSectionStyle('ciberseguranca-hacking-etico')}
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['ciberseguranca-hacking-etico']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('ciberseguranca-hacking-etico')}
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <Shield size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>Trilha de Cibersegurança e Hacking Ético: Roadmap e Curadoria Editorial</h2>
+              <p className={styles.cardSubtitle}>
+                Fundamentos indispensáveis de computação, especializações práticas e centros de excelência recomendados
+              </p>
+            </div>
+          </div>
+
+          {/* Card de Honra Editorial ao Brenno M. */}
+          <div className={styles.brennoHonorCard}>
+            <div className={styles.brennoHeader}>
+              <span className={styles.brennoBadge}>Curadoria Especializada e Agradecimento</span>
+              <h3 className={styles.brennoTitle}>Agradecimento Editorial ao Especialista Brenno M.</h3>
+            </div>
+            <p className={styles.brennoDesc}>
+              A estruturação desta trilha foi construída a partir da curadoria pública e dos artigos de referência técnica de Brenno M., profissional de destaque em segurança ofensiva e pesquisa de vulnerabilidades. Seus artigos oferecem uma visão pragmática para quem deseja ingressar no universo hacker sem cair no ruído de promessas milagrosas e marketing superficial de cursos.
+            </p>
+            <div className={styles.brennoLinksRow}>
+              <a
+                href="https://www.linkedin.com/in/brennocm/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${styles.trackActionBtn} ${styles.green}`}
+              >
+                <Linkedin size={14} />
+                <span>Perfil de Brenno M. no LinkedIn</span>
+                <ExternalLink size={12} />
+              </a>
+              <a
+                href="https://brennocm.github.io/articles/pt-br/tips/hacking.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.trackActionBtn}
+              >
+                <span>Artigo: Quero ser hacker, e agora?</span>
+                <ExternalLink size={12} />
+              </a>
+              <a
+                href="https://brennocm.github.io/articles/pt-br/tips/suggested-courses.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.trackActionBtn}
+              >
+                <span>Artigo: Cursos e Treinamentos Recomendados</span>
+                <ExternalLink size={12} />
+              </a>
+            </div>
+          </div>
+
+          {/* Pilares Fundamentais */}
+          <h3 className={styles.channelsSubheading}>Pilares Fundamentais de Ciência da Computação</h3>
+          <p className={styles.cardSubtitle} style={{ marginBottom: '1rem' }}>
+            Não existe atalho para cibersegurança sem sólidos alicerces técnicos. Antes de executar qualquer ferramenta pronta, o estudante deve compreender a fundo os mecanismos de computação:
+          </p>
+
+          <div className={styles.skillsGrid}>
+            <div className={styles.skillItem}>
+              <h3 className={styles.skillTitle}>Organização e Arquitetura de Computadores</h3>
+              <p className={styles.skillDesc}>
+                Funcionamento dos componentes da CPU, registradores gerais, ponteiros de instrução, registradores de pilha, fluxo de execução, barramentos de memória volátil RAM e diferenças entre arquiteturas x86 e ARM.
+              </p>
+            </div>
+
+            <div className={styles.skillItem}>
+              <h3 className={styles.skillTitle}>Sistemas Operacionais e Chamadas de Kernel</h3>
+              <p className={styles.skillDesc}>
+                Gerenciamento de processos, escalonador, memória virtual, privilégios de usuário e anéis de execução de kernel versus userland em ambientes operacionais Linux e Windows.
+              </p>
+            </div>
+
+            <div className={styles.skillItem}>
+              <h3 className={styles.skillTitle}>Redes de Computadores e Protocolos</h3>
+              <p className={styles.skillDesc}>
+                Modelo de camadas, arquitetura TCP IP, protocolos fundamentais como DNS, DHCP, HTTP e SSH, roteamento, inspeção profunda de pacotes com Wireshark e segmentação defensiva com firewalls.
+              </p>
+            </div>
+
+            <div className={styles.skillItem}>
+              <h3 className={styles.skillTitle}>Programação e Estruturas de Dados em C</h3>
+              <p className={styles.skillDesc}>
+                Controle direto e manual de memória, aritmética de ponteiros, alocação dinâmica com malloc e free, além da identificação de vulnerabilidades clássicas de corrupção de memória como estouro de buffer.
+              </p>
+            </div>
+
+            <div className={styles.skillItem}>
+              <h3 className={styles.skillTitle}>Princípios de Segurança da Informação</h3>
+              <p className={styles.skillDesc}>
+                Tríade fundamental de confidencialidade, integridade e disponibilidade, modelos de controle de acesso discricionário e mandatório e criptografia básica simétrica e assimétrica.
+              </p>
+            </div>
+          </div>
+
+          {/* Especializações Técnicas */}
+          <h3 className={styles.channelsSubheading} style={{ marginTop: '2rem' }}>Especializações Técnicas e Práticas no Mercado</h3>
+          <div className={styles.skillsGrid}>
+            <div className={styles.skillItem}>
+              <h3 className={styles.skillTitle}>Web Hacking e Segurança de Aplicações</h3>
+              <p className={styles.skillDesc}>
+                Desenvolvimento web, métodos e cabeçalhos HTTP, APIs REST e bancos de dados relacionais e não relacionais. Estudo profundo do Top 10 OWASP com exploração e mitigação de injeções SQL, Cross-Site Scripting, SSRF, IDOR e falhas de controle de acesso. Certificações de mercado recomendadas incluem eWPT, OSWE e BSCP da PortSwigger.
+              </p>
+              <div className={styles.trackActions}>
+                <a
+                  href="https://portswigger.net/web-security"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.trackActionBtn}
+                >
+                  <span>PortSwigger Academy</span>
+                  <ExternalLink size={12} />
+                </a>
+              </div>
+            </div>
+
+            <div className={styles.skillItem}>
+              <h3 className={styles.skillTitle}>Infrastructure Hacking e Active Directory</h3>
+              <p className={styles.skillDesc}>
+                Segurança de redes corporativas centradas em ambientes de domínio Windows Server. Enumeração de florestas Active Directory, ataques contra tickets Kerberos como AS-REP Roasting e Kerberoasting, delegações irrestritas, pós-exploração e movimentação lateral. Certificações de referência incluem OSCP, CRTO e PNPT.
+              </p>
+              <div className={styles.trackActions}>
+                <a
+                  href="https://www.offsec.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.trackActionBtn}
+                >
+                  <span>OffSec Treinamentos</span>
+                  <ExternalLink size={12} />
+                </a>
+              </div>
+            </div>
+
+            <div className={styles.skillItem}>
+              <h3 className={styles.skillTitle}>Mobile Hacking e Engenharia Reversa</h3>
+              <p className={styles.skillDesc}>
+                Arquitetura do sistema Android, ciclo de vida de componentes como Activities, Services e Broadcast Receivers. Descompilação de pacotes APK com Jadx e Ghidra, bypass de verificações de root e SSL Pinning via hooking dinâmico com Frida e Objection.
+              </p>
+            </div>
+          </div>
+
+          {/* Curadoria de Centros de Treinamento */}
+          <h3 className={styles.channelsSubheading} style={{ marginTop: '2rem' }}>Curadoria de Centros de Treinamento sem Ruído Comercial</h3>
+          <p className={styles.cardSubtitle} style={{ marginBottom: '1rem' }}>
+            Para fugir de cursos superficiais e promessas irreais de formação em poucas semanas, Brenno M. selecionou instituições nacionais e internacionais reconhecidas pela comunidade profissional:
+          </p>
+
+          <div className={styles.skillsGrid}>
+            <div className={styles.skillItem}>
+              <h3 className={styles.skillTitle}>Instituições e Academias Brasileiras</h3>
+              <p className={styles.skillDesc}>
+                Centros nacionais com instrutores atuantes e laboratórios práticos: Desec Security com forte foco em testes de invasão e infraestrutura; Sec4US com cursos avançados em perícia forense, análise de malware e defesa; GoHacking com treinamentos práticos de pentest corporativo. Outras entidades idôneas incluem CECYBER, ACADITI, Clavis Segurança da Informação e Daryus.
+              </p>
+              <div className={styles.trackActions}>
+                <a
+                  href="https://desecsecurity.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.trackActionBtn}
+                >
+                  <span>Desec Security</span>
+                  <ExternalLink size={12} />
+                </a>
+                <a
+                  href="https://sec4us.com.br/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.trackActionBtn}
+                >
+                  <span>Sec4US</span>
+                  <ExternalLink size={12} />
+                </a>
+              </div>
+            </div>
+
+            <div className={styles.skillItem}>
+              <h3 className={styles.skillTitle}>Instituições e Laboratórios Internacionais</h3>
+              <p className={styles.skillDesc}>
+                Plataformas de classe global: OffSec para segurança ofensiva com a certificação prática OSCP; PortSwigger Web Security Academy com laboratórios gratuitos de OWASP; TCM Security e INE Security com treinamentos acessíveis e práticos; Hack The Box Academy e TryHackMe com ambientes gamificados de máquinas virtuais; PentesterLab e SANS Institute para formações avançadas de alta especialização.
+              </p>
+              <div className={styles.trackActions}>
+                <a
+                  href="https://academy.hackthebox.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.trackActionBtn}
+                >
+                  <span>Hack The Box</span>
+                  <ExternalLink size={12} />
+                </a>
+                <a
+                  href="https://tryhackme.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.trackActionBtn}
+                >
+                  <span>TryHackMe</span>
                   <ExternalLink size={12} />
                 </a>
               </div>

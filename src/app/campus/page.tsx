@@ -1298,6 +1298,81 @@ export default function CampusPage() {
           </div>
         </div>
       </section>
+
+      {/* Contatos e Atendimento Institucional */}
+      <section
+        id="contatos-atendimento"
+        className={styles.sectionBlock}
+      >
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <Compass size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>Contatos e Atendimento Institucional da FT</h2>
+              <p className={styles.cardSubtitle}>
+                Canais de suporte discente, coordenações, biblioteca, suporte técnico e reporte de inconsistências
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.libraryActionCardsGrid}>
+            <div className={styles.libraryActionCard}>
+              <div>
+                <span className={styles.libraryActionBadge}>Atendimento Discente</span>
+                <h4 className={styles.libraryActionTitle}>Diretoria Acadêmica e Graduação FT</h4>
+                <p className={styles.libraryActionDesc}>
+                  Orientações sobre matrícula, requerimentos de aproveitamento de estudos e procedimentos de formatura.
+                </p>
+              </div>
+              <a
+                href="https://www.ft.unicamp.br/ensino/graduacao"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.libraryActionBtn}
+              >
+                <span>Portal da Graduação</span>
+                <ExternalLink size={14} aria-hidden="true" />
+              </a>
+            </div>
+
+            <div className={styles.libraryActionCard}>
+              <div>
+                <span className={styles.libraryActionBadge}>Suporte Tecnológico</span>
+                <h4 className={styles.libraryActionTitle}>Coordenadoria de TIC da FT</h4>
+                <p className={styles.libraryActionDesc}>
+                  Acesso aos laboratórios de computação, rede sem fio institucional eduroam e contas nos servidores acadêmicos.
+                </p>
+              </div>
+              <a
+                href="https://www.ft.unicamp.br/tic"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.libraryActionBtn}
+              >
+                <span>Portal de TIC</span>
+                <ExternalLink size={14} aria-hidden="true" />
+              </a>
+            </div>
+
+            <div className={styles.libraryActionCard}>
+              <div>
+                <span className={styles.libraryActionBadge}>Canal Comunitário</span>
+                <h4 className={styles.libraryActionTitle}>Reporte de Inconsistências do Guia</h4>
+                <p className={styles.libraryActionDesc}>
+                  Canal institucional via Google Chat pelo email j197837@dac.unicamp.br para sugestões de tópicos e correções.
+                </p>
+              </div>
+              <a
+                href="mailto:j197837@dac.unicamp.br"
+                className={styles.libraryActionBtn}
+              >
+                <span>Enviar Mensagem</span>
+                <ExternalLink size={14} aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
         </div>
       </div>
     </div>

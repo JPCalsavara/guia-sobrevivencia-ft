@@ -1577,5 +1577,58 @@
   padding: $spacing-md $spacing-lg;
 }
 
+.brennoHonorCard {
+  background-color: var(--surface-color);
+  border: 1px solid var(--ft-green-border);
+  border-left: 4px solid var(--ft-green);
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  margin-bottom: $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.brennoHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-sm;
+  flex-wrap: wrap;
+}
+
+.brennoBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: $radius-full;
+  background-color: var(--ft-green-soft);
+  color: var(--ft-green);
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 1px solid var(--ft-green-border);
+}
+
+.brennoTitle {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.brennoDesc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.brennoLinksRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  margin-top: $spacing-xs;
+}
+
 
 
