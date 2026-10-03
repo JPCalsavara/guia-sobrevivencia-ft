@@ -2363,7 +2363,6 @@ export default function CarreiraPage() {
                 </a>
               </div>
             </div>
-</div>
           </div>
         </div>
       </section>
@@ -2903,8 +2902,7 @@ export default function CarreiraPage() {
               Videos Recomendados sobre Salarios, IA e Carreira
             </h3>
             <div className={styles.channelsGrid}>
-              {careerVideosData,
-  careerProjectsData.map((vid) => (
+              {careerVideosData.map((vid) => (
                 <div key={vid.id} className={styles.channelCard}>
                   <div className={styles.channelCardHeader}>
                     <div>
