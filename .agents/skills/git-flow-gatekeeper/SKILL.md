@@ -10,7 +10,7 @@ Esta skill coordena o fluxo de entrega continua de codigo integrando testes auto
 ## Procedimento Operacional Padrao
 
 ### 1. Criacao e Gerenciamento da Branch
-- Garanta que todo o trabalho seja desenvolvido em uma branch isolada padronizada pela ADR 0003 `<tipo>/<ID-da-issue>-<titulo>`.
+- Garanta que todo o trabalho seja desenvolvido em uma branch isolada padronizada pela ADR 0003 `TIPO/ID-da-issue-titulo`.
 - Nunca realize comissoes de desenvolvimento diretamente na branch main, respeitando a protecao estrita da ADR 0008.
 
 ### 2. Execucao de Testes e Extracao de Diff

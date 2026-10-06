@@ -141,7 +141,7 @@ export const faqData: FaqItem[] = [
     keywords: ['salas', 'alocação', 'laboratórios', 'bloco pa', 'bloco pb', 'impressão', 'wifiprint'],
     links: [
       { label: 'Sistema de Alocação de Salas da FT', url: 'https://sistemas.ft.unicamp.br/salas', external: true },
-      { label: 'Coordenadoria de TIC da FT', url: 'https://www.ft.unicamp.br', external: true }
+      { label: 'Coordenadoria de TIC da FT', url: 'https://www.ft.unicamp.br/pt-br/laboratorios', external: true }
     ]
   },
   {
