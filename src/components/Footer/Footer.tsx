@@ -71,7 +71,7 @@ export function Footer() {
                 </li>
                 <li>
                   <a
-                    href="https://www.ft.unicamp.br/tic"
+                    href="https://www.ft.unicamp.br"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Coordenadoria de TIC em nova janela"

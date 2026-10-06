@@ -1,3 +1,4 @@
+import { careerVideosData, careerSurveyData } from './careerExpanded';
 export type LinkCategory =
   | 'alimentacao'
   | 'transporte'
@@ -132,7 +133,7 @@ export const linksData: ResourceLink[] = [
     id: 'duvidas-frequentes-ft',
     title: 'Portal de Duvidas Frequentes e Atendimento FT',
     description: 'Central de perguntas e respostas sobre vida academica, matricula, trancamento e apoio ao estudante',
-    url: 'https://www.ft.unicamp.br/graduacao/atendimento',
+    url: 'https://www.ft.unicamp.br',
     category: 'matricula',
     badge: 'Duvidas e FAQ',
   },
@@ -246,7 +247,7 @@ export const linksData: ResourceLink[] = [
     id: 'ft-tic',
     title: 'Coordenadoria de TIC da FT',
     description: 'Laboratórios de informática, contas de rede local e suporte de computação da faculdade',
-    url: 'https://www.ft.unicamp.br/tic',
+    url: 'https://www.ft.unicamp.br',
     category: 'aulas',
     badge: 'Informática',
   },
@@ -254,7 +255,7 @@ export const linksData: ResourceLink[] = [
     id: 'ft-wifiprint',
     title: 'WifiPrint FT Impressão Sem Fio',
     description: 'Envio de arquivos para impressão monocromática conectado na rede sem fio da faculdade',
-    url: 'https://www.ft.unicamp.br/wifiprint',
+    url: 'https://ibquota.ft.unicamp.br/wifiprint/',
     category: 'aulas',
     badge: 'Impressão',
   },
@@ -428,42 +429,14 @@ export const linksData: ResourceLink[] = [
     id: 'imobiliaria-roque',
     title: 'Imobiliária Roque Limeira',
     description: 'Catálogo de casas e apartamentos na Vila Cristovam, Jardim Nova Itália e Centro',
-    url: 'https://www.imobiliariaroque.com.br/',
+    url: 'https://roqueimoveis.com.br/',
     category: 'permanencia',
     badge: 'Moradia',
   },
-  {
-    id: 'bom-jesus-imoveis',
-    title: 'Bom Jesus Imóveis Limeira',
-    description: 'Opções residenciais e kitnets para locação no município de Limeira',
-    url: 'https://www.bomjesusimoveis.com.br/',
-    category: 'permanencia',
-    badge: 'Moradia',
-  },
-  {
-    id: 'della-nina-imoveis',
-    title: 'Imobiliária Della Nina Limeira',
-    description: 'Locação de imóveis próximos aos principais eixos de transporte e acesso aos campi',
-    url: 'https://www.dellaninaimoveis.com.br/',
-    category: 'permanencia',
-    badge: 'Moradia',
-  },
-  {
-    id: 'boa-vista-imoveis',
-    title: 'Imobiliária Boa Vista Limeira',
-    description: 'Atendimento para locação de apartamentos e casas na região universitária',
-    url: 'https://www.boavistaimoveis.com.br/',
-    category: 'permanencia',
-    badge: 'Moradia',
-  },
-  {
-    id: 'prates-imoveis',
-    title: 'Prates Imóveis Limeira',
-    description: 'Imóveis residenciais para estudantes e repúblicas em Limeira',
-    url: 'https://www.pratesimoveis.com.br/',
-    category: 'permanencia',
-    badge: 'Moradia',
-  },
+  
+  
+  
+  
 
   // 8. Organizações Estudantis
   {
@@ -1029,43 +1002,19 @@ export const linksData: ResourceLink[] = [
     badge: 'Curadoria Brenno M.',
   },
   {
-    id: 'pesquisa-salarial-programadores-2026',
-    title: 'Pesquisa Salarial de Programadores 2026',
-    description: 'Mapeamento consolidado de faixas salariais, regimes de contratacao e niveis de carreira realizado pelo canal Codigo Fonte TV',
-    url: 'https://share.google/Zio2FDrLT2Hvtk0AJ',
+    id: careerSurveyData.id,
+    title: careerSurveyData.title,
+    description: `Mapeamento consolidado de faixas salariais, regimes de contratacao e niveis de carreira realizado pelo canal ${careerSurveyData.source}`,
+    url: careerSurveyData.url,
     category: 'carreira-tecnologia',
     badge: 'Salários 2026',
   },
-  {
-    id: 'video-era-devs-produto',
-    title: 'A Era dos Desenvolvedores de Produto',
-    description: 'Analise em video sobre engenheiros que dominam codigo, compreendem negocios e geram valor real para usuarios',
-    url: 'https://www.youtube.com/watch?v=Y4Tu8Sl0iK0',
-    category: 'carreira-tecnologia',
-    badge: 'Product Engineering',
-  },
-  {
-    id: 'video-trabalho-na-gringa',
-    title: 'Guia de Contratacao Remota na Gringa por Fabiana Santana',
-    description: 'Instrucoes de preparacao tecnica, ingles instrumental e etapas para conquistar vagas em dolares e euros',
-    url: 'https://www.youtube.com/watch?v=-xhdkDlPBwk',
-    category: 'carreira-tecnologia',
-    badge: 'Carreira Global',
-  },
-  {
-    id: 'video-ia-programadores',
-    title: 'A Inteligencia Artificial e o Futuro dos Programadores',
-    description: 'Discussao realista sobre a evolucao das ferramentas de IA e por que os fundamentos de computacao continuam essenciais',
-    url: 'https://www.youtube.com/watch?v=P6b35GAAK3Y',
-    category: 'carreira-tecnologia',
-    badge: 'Mercado de IA',
-  },
-  {
-    id: 'video-carreira-em-y',
-    title: 'Carreira em Y: Especialista versus Gestor',
-    description: 'Explicacao das diferencas praticas entre lideranca tecnica e lideranca de gestao de equipes apos a senioridade',
-    url: 'https://www.youtube.com/watch?v=QyVFkGuswl4',
-    category: 'carreira-tecnologia',
-    badge: 'Carreira em Y',
-  },
+  ...careerVideosData.map((video) => ({
+    id: `video-${video.id}`,
+    title: video.title,
+    description: `Análise em vídeo sobre ${video.topic} apresentada pelo canal ${video.channel}`,
+    url: video.url,
+    category: 'carreira-tecnologia' as LinkCategory,
+    badge: 'Vídeo Recomendado',
+  }))
 ];

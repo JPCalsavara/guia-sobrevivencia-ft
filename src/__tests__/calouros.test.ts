@@ -79,10 +79,10 @@ describe('Guia do Calouro da Faculdade de Tecnologia', () => {
 
     // Imobiliarias
     expect(calourosFileContent).toContain('Imobiliária Roque');
-    expect(calourosFileContent).toContain('Bom Jesus Imóveis');
-    expect(calourosFileContent).toContain('Imobiliária Della Nina');
-    expect(calourosFileContent).toContain('Imobiliária Boa Vista');
-    expect(calourosFileContent).toContain('Prates Imóveis');
+    
+    expect(calourosFileContent).toContain('Portinari Imóveis');
+    expect(calourosFileContent).toContain('Sassi Imóveis');
+    
 
     // Cross-links
     expect(calourosFileContent).toContain('/campus#moradia-convivencia');
@@ -102,10 +102,11 @@ describe('Guia do Calouro da Faculdade de Tecnologia', () => {
   it('deve conter as imobiliarias de Limeira cadastradas no linksData', () => {
     const realtorLinkIds = [
       'imobiliaria-roque',
-      'bom-jesus-imoveis',
-      'della-nina-imoveis',
-      'boa-vista-imoveis',
-      'prates-imoveis'
+      
+      
+      
+      'portinari-imoveis',
+      'sassi-imoveis'
     ];
 
     realtorLinkIds.forEach((id) => {

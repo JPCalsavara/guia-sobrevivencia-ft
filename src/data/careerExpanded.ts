@@ -567,54 +567,61 @@ export interface CareerVideoResource {
   url: string;
 }
 
+export interface CareerSurveyResource {
+  id: string;
+  title: string;
+  source: string;
+  url: string;
+}
+
+export const careerSurveyData: CareerSurveyResource = {
+  id: 'pesquisa-salarial-2026',
+  title: 'Pesquisa Salarial de Programadores 2026',
+  source: 'Código Fonte',
+  url: 'https://pesquisa.codigofonte.com.br/2026',
+};
+
 export const careerVideosData: CareerVideoResource[] = [
   {
-    id: 'pesquisa-salarial-2026',
-    title: 'Pesquisa Salarial de Programadores 2026',
-    channel: 'Codigo Fonte TV',
-    topic: 'Salarios e Mercado Nacional',
-    url: 'https://share.google/Zio2FDrLT2Hvtk0AJ'
-  },
-  {
-    id: 'era-devs-produto',
-    title: 'A Era dos Desenvolvedores de Produto e o Futuro da Engenharia',
-    channel: 'Codigo Fonte TV',
-    topic: 'Product Engineering e Carreira em Y',
+    id: 'ainda-vale-programador-ia',
+    title: 'Ainda vale a pena ser programador na era da IA?',
+    channel: 'Renato Augusto',
+    topic: 'IA e Carreira',
     url: 'https://www.youtube.com/watch?v=Y4Tu8Sl0iK0'
   },
   {
-    id: 'trabalhar-na-gringa',
-    title: 'Como Conquistar Vagas Remotas Internacionais e Ganhar em Dolares',
-    channel: 'Fabiana Santana',
-    topic: 'Trabalho Internacional',
+    id: 'devs-jr-assustou',
+    title: 'Eu conversei com devs Jr e isso me assustou',
+    channel: 'Augusto Galego',
+    topic: 'Mercado Júnior',
     url: 'https://www.youtube.com/watch?v=-xhdkDlPBwk'
   },
   {
-    id: 'ia-fim-programacao',
-    title: 'A Inteligencia Artificial vai Acabar com os Programadores?',
-    channel: 'Codigo Fonte TV',
-    topic: 'Inteligencia Artificial e Carreira',
+    id: 'hackeando-entrevistas-rh',
+    title: 'Hackeando entrevistas: Como sempre ser aprovado pelo RH',
+    channel: 'Augusto Galego',
+    topic: 'Entrevistas',
     url: 'https://www.youtube.com/watch?v=P6b35GAAK3Y'
   },
   {
-    id: 'faculdade-ti-vale-a-pena',
-    title: 'Ainda Vale a Pena Fazer Faculdade de TI ou Cursos Rapidos Bastam?',
-    channel: 'Codigo Fonte TV',
-    topic: 'Graduacao e Mercado',
+    id: 'investimentos-sendo-dev',
+    title: 'Investimentos sendo dev',
+    channel: 'Augusto Galego',
+    topic: 'Finanças',
     url: 'https://www.youtube.com/watch?v=X0fqcXLk8To'
   },
   {
-    id: 'mercado-pos-pandemia',
-    title: 'O Fim da Bolha de TI e o Novo Mercado Pos-Pandemia',
-    channel: 'Codigo Fonte TV',
-    topic: 'Mercado de Trabalho',
+    id: 'dev-fora-da-curva',
+    title: 'Como ser um dev fora da curva?',
+    channel: 'Augusto Galego',
+    topic: 'Destaque Profissional',
     url: 'https://www.youtube.com/watch?v=fbS7RFxeJqU'
   },
   {
     id: 'carreira-em-y-lideranca',
-    title: 'Carreira em Y: Especialista ou Gestor de Engenharia',
-    channel: 'Codigo Fonte TV',
-    topic: 'Evolucao Profissional',
+    title: 'Se afaste do código o mais rápido possível',
+    channel: 'Augusto Galego',
+    topic: 'Carreira em Y',
     url: 'https://www.youtube.com/watch?v=QyVFkGuswl4'
   }
 ];
