@@ -34,7 +34,7 @@ export const versionsData: VersionRelease[] = [
       'Refinamento da paleta com contraste acessivel e compatibilidade WCAG AAA'
     ],
     type: 'minor',
-    githubUrl: 'https://github.com/jpcalsavara/guia-sobrevivencia-ft/releases/tag/v1.10.0',
+    githubUrl: 'https://github.com/JPCalsavara/guia-sobrevivencia-ft/releases',
   },
   {
     version: '1.9.2',
@@ -59,7 +59,7 @@ export const versionsData: VersionRelease[] = [
       'Canal de envio direto de questionamentos para a equipe curadora'
     ],
     type: 'minor',
-    githubUrl: 'https://github.com/jpcalsavara/guia-sobrevivencia-ft/releases/tag/v1.9.0',
+    githubUrl: 'https://github.com/JPCalsavara/guia-sobrevivencia-ft/releases',
   },
   {
     version: '1.8.0',
@@ -72,7 +72,7 @@ export const versionsData: VersionRelease[] = [
       'Adocao dos principios do metodo Feynman na rotina universitaria'
     ],
     type: 'minor',
-    githubUrl: 'https://github.com/jpcalsavara/guia-sobrevivencia-ft/releases/tag/v1.8.0',
+    githubUrl: 'https://github.com/JPCalsavara/guia-sobrevivencia-ft/releases',
   },
   {
     version: '1.7.0',
@@ -85,7 +85,7 @@ export const versionsData: VersionRelease[] = [
       'Mapa vetorial com localizacao das salas e laboratorios de informatica'
     ],
     type: 'minor',
-    githubUrl: 'https://github.com/jpcalsavara/guia-sobrevivencia-ft/releases/tag/v1.7.0',
+    githubUrl: 'https://github.com/JPCalsavara/guia-sobrevivencia-ft/releases',
   },
   {
     version: '1.5.0',
@@ -98,7 +98,7 @@ export const versionsData: VersionRelease[] = [
       'Alertas sobre cadeias de pre requisitos e retencao'
     ],
     type: 'minor',
-    githubUrl: 'https://github.com/jpcalsavara/guia-sobrevivencia-ft/releases/tag/v1.5.0',
+    githubUrl: 'https://github.com/JPCalsavara/guia-sobrevivencia-ft/releases',
   },
   {
     version: '1.0.0',
@@ -111,6 +111,6 @@ export const versionsData: VersionRelease[] = [
       'Arquitetura limpa com Next.js App Router e estilizacao SCSS modular'
     ],
     type: 'major',
-    githubUrl: 'https://github.com/jpcalsavara/guia-sobrevivencia-ft/releases/tag/v1.0.0',
+    githubUrl: 'https://github.com/JPCalsavara/guia-sobrevivencia-ft/releases',
   },
 ];

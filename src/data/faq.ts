@@ -141,7 +141,7 @@ export const faqData: FaqItem[] = [
     keywords: ['salas', 'alocação', 'laboratórios', 'bloco pa', 'bloco pb', 'impressão', 'wifiprint'],
     links: [
       { label: 'Sistema de Alocação de Salas da FT', url: 'https://sistemas.ft.unicamp.br/salas', external: true },
-      { label: 'Coordenadoria de TIC da FT', url: 'https://www.ft.unicamp.br/tic', external: true }
+      { label: 'Coordenadoria de TIC da FT', url: 'https://www.ft.unicamp.br/pt-br/laboratorios', external: true }
     ]
   },
   {
@@ -202,7 +202,7 @@ export const faqData: FaqItem[] = [
     keywords: ['bolsa', 'sae', 'deape', 'bas', 'auxílio social', 'permanência', 'isenção ru', 'moradia'],
     links: [
       { label: 'Bolsas e Permanência Estudantil', url: '/calouros#bolsas-sociais-deape' },
-      { label: 'Portal Oficial do SAE Unicamp', url: 'https://www.sae.unicamp.br', external: true }
+      { label: 'Portal Oficial do SAE Unicamp', url: 'https://deape.unicamp.br', external: true }
     ]
   }
 ];

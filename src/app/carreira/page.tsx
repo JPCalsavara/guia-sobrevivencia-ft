@@ -55,7 +55,7 @@ import {
   appleDeveloperAcademyData,
   marketVsResearchData,
   hackathonGuideData,
-  salarySurvey2026Data,
+  careerSurveyData,
   remoteGlobalWorkData,
   bsiVsTadsCoordinatorData,
   postPandemicAndAiMarketData,
@@ -2510,7 +2510,7 @@ export default function CarreiraPage() {
         </div>
       </section>
 
-      {/* Pesquisa Salarial 2026 e Panorama de Remuneração */}
+      {/* Pesquisa Salarial 2026 */}
       <section
         id="salarios-2026-mercado"
         style={getSectionStyle('salarios-2026-mercado')}
@@ -2521,96 +2521,30 @@ export default function CarreiraPage() {
           <div className={styles.cardHeader}>
             <DollarSign size={24} className={styles.headerIcon} />
             <div>
-              <h2 className={styles.cardTitle}>{salarySurvey2026Data.title}</h2>
+              <h2 className={styles.cardTitle}>{careerSurveyData.title}</h2>
               <p className={styles.cardSubtitle}>
-                {salarySurvey2026Data.description}
+                Consulte o mapeamento consolidado do mercado nacional realizado pelo {careerSurveyData.source}.
               </p>
             </div>
           </div>
 
           <div style={{ marginBottom: '1.5rem' }}>
             <a
-              href={salarySurvey2026Data.sourceUrl}
+              href={careerSurveyData.url}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.channelActionBtn}
               style={{ display: 'inline-flex', width: 'fit-content' }}
             >
               <ExternalLink size={16} />
-              <span>Acessar Relatorio da Pesquisa Salarial 2026</span>
+              <span>Acessar Relatório da Pesquisa Salarial 2026</span>
             </a>
           </div>
-
-          <div className={styles.comparisonTableWrapper}>
-            <table className={styles.comparisonTable}>
-              <thead>
-                <tr>
-                  <th>Nivel</th>
-                  <th>Salario Medio</th>
-                  <th>Faixa de Mercado</th>
-                  <th>Regime Mais Comum</th>
-                  <th>Foco Principal</th>
-                </tr>
-              </thead>
-              <tbody>
-                {salarySurvey2026Data.niveis.map((row, idx) => (
-                  <tr key={idx}>
-                    <td><strong>{row.nivel}</strong></td>
-                    <td>{row.salarioMedio}</td>
-                    <td>{row.faixaMercado}</td>
-                    <td>{row.regimeComum}</td>
-                    <td>{row.focoPrincipal}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <div id="regimes-contratacao" style={{ marginTop: '2.5rem' }}>
-            <h3 className={styles.cardTitle} style={{ fontSize: '1.15rem', marginBottom: '0.75rem' }}>
-              Regimes de Contratacao: CLT versus PJ versus Cooperativas
-            </h3>
-            <div className={styles.gridTwo}>
-              {salarySurvey2026Data.regimes.map((reg, idx) => (
-                <div key={idx} className={styles.card}>
-                  <h4 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
-                    {reg.regime}
-                  </h4>
-                  <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', marginBottom: '0.5rem', lineHeight: 1.5 }}>
-                    {reg.caracteristicas}
-                  </p>
-                  <p style={{ fontSize: '0.8125rem', color: 'var(--ft-green)', fontWeight: 600 }}>
-                    Vantagens: {reg.vantagens}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div id="roi-graduacao-unicamp" style={{ marginTop: '2.5rem' }}>
-            <h3 className={styles.cardTitle} style={{ fontSize: '1.15rem', marginBottom: '0.75rem' }}>
-              Retorno sobre o Investimento da Graduacao na FT Unicamp
-            </h3>
-            <div className={styles.comparisonTableWrapper}>
-              <table className={styles.comparisonTable}>
-                <thead>
-                  <tr>
-                    <th>Dimensao</th>
-                    <th>Graduacao na FT Unicamp</th>
-                    <th>Cursos Rapidos e Bootcamps</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {salarySurvey2026Data.roiGraduacao.map((roi, idx) => (
-                    <tr key={idx}>
-                      <td><strong>{roi.aspecto}</strong></td>
-                      <td>{roi.graduacaoUnicamp}</td>
-                      <td>{roi.cursosRapidosBootcamps}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+          
+          <div className={styles.warningBox}>
+            <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+              <strong>Nota:</strong> Em conformidade com as diretrizes do projeto (ADR 0004), dados brutos e voláteis de salários não são transcritos diretamente no Guia. Consulte o relatório oficial no link acima para obter informações atualizadas sobre faixas salariais, regimes de contratação e retorno sobre o investimento de tecnologias.
+            </p>
           </div>
         </div>
       </section>
@@ -2899,8 +2833,27 @@ export default function CarreiraPage() {
 
           <div id="videos-referencia-carreira" style={{ marginTop: '2.5rem' }}>
             <h3 className={styles.cardTitle} style={{ fontSize: '1.15rem', marginBottom: '1rem' }}>
-              Videos Recomendados sobre Salarios, IA e Carreira
+              Vídeos Recomendados sobre Carreira, IA e Mercado
             </h3>
+            
+            <div className={styles.card} style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1.25rem', borderLeft: '4px solid var(--ft-blue)' }}>
+              <div>
+                <span className={styles.channelBadge} style={{ marginBottom: '0.5rem', display: 'inline-block' }}>Pesquisa</span>
+                <h4 className={styles.channelTitle} style={{ fontSize: '1.05rem', margin: '0 0 0.25rem 0' }}>{careerSurveyData.title}</h4>
+                <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', margin: 0 }}>Fonte: {careerSurveyData.source}</p>
+              </div>
+              <a
+                href={careerSurveyData.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.channelActionBtn}
+                style={{ alignSelf: 'center', margin: 0 }}
+              >
+                <ExternalLink size={16} />
+                <span>Abrir pesquisa</span>
+              </a>
+            </div>
+
             <div className={styles.channelsGrid}>
               {careerVideosData.map((vid) => (
                 <div key={vid.id} className={styles.channelCard}>
@@ -2958,7 +2911,7 @@ export default function CarreiraPage() {
                 <Youtube size={20} color="#dc2626" />
               </div>
               <p className={styles.channelDesc}>
-                História da computação, arquitetura de sistemas operacionais, compiladores e lições diretas sobre maturidade e evolução técnica.
+                Série &apos;Começando aos 40&apos; com lições sobre fundamentos de programação para iniciantes, persistência e maturidade profissional.
               </p>
               <a
                 href="https://www.youtube.com/watch?v=sx4hAHhO9CY&list=PLdsnXVqbHDUc7htGFobbZoNen3r_wm3ki"

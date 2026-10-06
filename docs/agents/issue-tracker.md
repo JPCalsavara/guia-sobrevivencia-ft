@@ -1,30 +1,20 @@
-# Issue tracker: Local Markdown
+# Issue tracker: GitHub Issues
 
-Issues and specs for this repo live as markdown files in `.scratch/`.
+Conforme estipulado pela ADR 0004, o rastreamento de tarefas, issues e especificacoes neste repositorio utiliza nativamente as funcionalidades do GitHub Issues. Toda a antiga infraestrutura de Kanban baseada em arquivos Markdown locais no diretorio de documentacao foi substituida.
 
-## Conventions
+## Integracao de Agentes
 
-- One feature per directory: `.scratch/<feature-slug>/`
-- The spec is `.scratch/<feature-slug>/spec.md`
-- Implementation issues are one file per ticket at `.scratch/<feature-slug>/issues/<NN>-<slug>.md`, numbered from `01`, never a single combined tickets file
-- Triage state is recorded as a `Status:` line near the top of each issue file (see `triage-labels.md` for the role strings)
-- Comments and conversation history append to the bottom of the file under a `## Comments` heading
+1. As ferramentas e skills de agentes autonomos devem operar exclusivamente via API do MCP do Gitlab/GitHub para listar, buscar, comentar e fechar Issues.
+2. Nenhuma especificacao pendente de desenvolvimento reside no espaco de disco do projeto local.
+3. As PRs abertas pelos agentes ou contribuidores humanos devem declarar a palavra chave "Closes #ID" no corpo para atrelar a solucao.
 
-## When a skill says "publish to the issue tracker"
+## Fluxo de Integracao de Codigo e Branches
 
-Create a new file under `.scratch/<feature-slug>/` (creating the directory if needed).
+Conforme estipulado pela ADR 0003, o modelo de mesclagem e ramificacao impoe:
+- Nome da Branch: `<tipo>/<ID-da-issue>-<titulo>`.
+- Estrategia de Fusao: Somente _Squash and Merge_ deve ser empregada para integrar alteracoes de codigo de um request a ramificacao de producao. 
+- Mensagem de Commit: Ao concluir, o commit sintetizado seguira o formato imperativo e linear: `<tipo> <ID-da-issue>: <descricao>`. O uso de parenteses nesse padrao esta suspenso por forca da ADR 0001.
 
-## When a skill says "fetch the relevant ticket"
+## Excecoes
 
-Read the file at the referenced path. The user will normally pass the path or the issue number directly.
-
-## Wayfinding operations
-
-Used by `/wayfinder`. The **map** is a file with one **child** file per ticket.
-
-- **Map**: `.scratch/<effort>/map.md` (the Notes / Decisions-so-far / Fog body).
-- **Child ticket**: `.scratch/<effort>/issues/NN-<slug>.md`, numbered from `01`, with the question in the body. A `Type:` line records the ticket type (`research`/`prototype`/`grilling`/`task`); a `Status:` line records `claimed`/`resolved`.
-- **Blocking**: a `Blocked by: NN, NN` line near the top. A ticket is unblocked when every file it lists is `resolved`.
-- **Frontier**: scan `.scratch/<effort>/issues/` for files that are open, unblocked, and unclaimed; first by number wins.
-- **Claim**: set `Status: claimed` and save before any work.
-- **Resolve**: append the answer under an `## Answer` heading, set `Status: resolved`, then append a context pointer (gist + link) to the map's Decisions-so-far in `map.md`.
+Ate a maturidade total de todos os bots operacionais, se uma ferramenta for incapaz temporariamente de se conectar com o servidor do GitHub, podera adotar a criacao de artefatos efemeros na pasta brain, mas sua destinacao final tem de ser a migracao via console cli para o GitHub.

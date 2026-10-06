@@ -44,3 +44,6 @@
 - **ADR-0006:** Otimização contínua guiada por telemetria e análise de uso do portal.
 - **ADR-0007:** Hospedagem na Vercel com Analytics integrado e observabilidade contínua.
 - **ADR-0008:** Versionamento semântico com releases automáticos no git-flow e bloqueio de comissões diretas na branch main.
+- **Video Recomendado:** video externo curado com titulo e canal fieis ao original, sempre com id unico em careerExpanded.ts.
+- **Pesquisa de Mercado:** recurso externo que nao e video, apresentado em card proprio sem reproduzir seus numeros.
+- **Fonte Unica de Recursos:** regra de que um recurso aparece em um so arquivo de dados e os demais derivam dele.
