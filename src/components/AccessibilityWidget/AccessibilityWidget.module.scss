@@ -10,13 +10,13 @@
   height: 3.5rem;
   border-radius: $radius-full;
   background-color: var(--primary);
-  color: #ffffff;
+  color: var(--on-primary);
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: $shadow-xl;
   cursor: pointer;
-  border: 2px solid #ffffff;
+  border: 2px solid var(--on-primary);
   transition: transform $transition-fast, background-color $transition-fast;
 
   &:hover {
