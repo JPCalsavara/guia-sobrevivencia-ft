@@ -41,7 +41,8 @@ import {
   DollarSign,
   TrendingUp,
   Sparkles,
-  CheckCircle2
+  CheckCircle2,
+  BookOpen
 } from 'lucide-react';
 import { useJourneyStage } from '@/hooks/useJourneyStage';
 import { useSectionOrdering } from '@/hooks/useSectionOrdering';
@@ -2085,37 +2086,23 @@ export default function CarreiraPage() {
                   <h3 className={styles.tableCardTitle}>{cat.category}</h3>
                   <p className={styles.cardSubtitle} style={{ marginTop: '0.5rem', marginBottom: '1rem' }}>{cat.description}</p>
                 </div>
-                <div className={styles.tableWrapper}>
-                  <table className={styles.dataTable}>
-                    <thead>
-                      <tr>
-                        <th>Projeto</th>
-                        <th>Descricao e Requisitos</th>
-                        <th>Tecnologias</th>
-                        <th>Nivel</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {cat.projects.map((proj, pIdx) => (
-                        <tr key={pIdx}>
-                          <td data-label="Projeto" style={{ fontWeight: 600 }}>{proj.title}</td>
-                          <td data-label="Descricao e Requisitos">{proj.description}</td>
-                          <td data-label="Tecnologias">
-                            <div className={styles.skillTagsRow} style={{ marginTop: 0 }}>
-                              {proj.tools.map((t, i) => (
-                                <span key={i} className={styles.skillTag}>{t}</span>
-                              ))}
-                            </div>
-                          </td>
-                          <td data-label="Nivel">
-                            <span className={`${styles.stageBadge} ${proj.level === 'Iniciante' ? styles.badgeCalouro : proj.level === 'Intermediario' ? styles.badgeMeio : styles.badgeFormando}`}>
-                              {proj.level}
-                            </span>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                <div className={styles.projectCardsGrid}>
+                  {cat.projects.map((proj, pIdx) => (
+                    <div key={pIdx} className={styles.projectCard}>
+                      <div className={styles.projectCardHeader}>
+                        <h4 className={styles.projectCardTitle}>{proj.title}</h4>
+                        <span className={`${styles.projectLevelBadge} ${proj.level === 'Iniciante' ? styles.badgeCalouro : proj.level === 'Intermediario' ? styles.badgeMeio : styles.badgeFormando}`}>
+                          {proj.level}
+                        </span>
+                      </div>
+                      <p className={styles.projectCardDesc}>{proj.description}</p>
+                      <div className={styles.skillTagsRow} style={{ marginTop: 'auto', paddingTop: '0.5rem' }}>
+                        {proj.tools.map((t, i) => (
+                          <span key={i} className={styles.skillTag}>{t}</span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             ))}
@@ -2483,11 +2470,33 @@ export default function CarreiraPage() {
             </div>
 
             <div className={styles.skillItem}>
-              <h3 className={styles.skillTitle}>Curadoria Editorial e Hacking</h3>
+              <h3 className={styles.skillTitle}>Blog: Cultura Hacker e Curadoria em Red Team</h3>
               <p className={styles.skillDesc}>
-                A estruturacao avancada desta trilha foi construida a partir da curadoria publica de Brenno M., profissional de destaque em seguranca ofensiva e pesquisa de vulnerabilidades. Seus artigos oferecem uma visao pragmatica para quem deseja ingressar no universo hacker sem cair no ruido de marketing superficial.
+                A estruturacao avancada desta trilha conta com a curadoria do blog de Brenno M., profissional de destaque em seguranca ofensiva. Seu blog e um guia pratico para a verdadeira filosofia hacker, que transcende a ideia estereotipada de quebrar sistemas e atua como uma mentalidade de curiosidade insaciavel, questionamento e compreensao profunda de como a tecnologia funciona. Nele, voce entendera que executar ferramentas de automacao sem dominar as bases da computacao e como pilotar um aviao sem saber aviacao.
+                <br /><br />
+                Alem de fundamentos tecnicos, o blog atua como um filtro critico contra o ruido da internet. Em meio a conteudos que prometem "dominio em horas" com "receitas" simplistas, o autor defende que estudar seguranca exige curadoria e higiene de escolha. Os artigos apontam caminhos ancorados em metodo, revisao critica e validacao fundamentada, alertando que metricas de popularidade de plataformas nao substituem a verdadeira autoridade tecnica.
               </p>
               <div className={styles.trackActions}>
+                <a
+                  href="https://brennocm.github.io/articles/pt-br/tips/hacking.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.trackActionBtn}
+                >
+                  <Terminal size={14} />
+                  <span>Caminho para Hacking</span>
+                  <ExternalLink size={12} />
+                </a>
+                <a
+                  href="https://brennocm.github.io/articles/pt-br/tips/suggested-courses.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.trackActionBtn}
+                >
+                  <BookOpen size={14} />
+                  <span>Cursos e Conteudos</span>
+                  <ExternalLink size={12} />
+                </a>
                 <a
                   href="https://www.linkedin.com/in/brenno-m-a53b75191"
                   target="_blank"
