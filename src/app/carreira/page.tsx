@@ -2086,9 +2086,13 @@ export default function CarreiraPage() {
                   <h3 className={styles.tableCardTitle}>{cat.category}</h3>
                   <p className={styles.cardSubtitle} style={{ marginTop: '0.5rem', marginBottom: '1rem' }}>{cat.description}</p>
                 </div>
-                <div className={styles.projectCardsGrid}>
+                <div 
+                  className={styles.projectCardsGrid}
+                  role="list"
+                  aria-label={`Projetos de ${cat.category}`}
+                >
                   {cat.projects.map((proj, pIdx) => (
-                    <div key={pIdx} className={styles.projectCard}>
+                    <article key={pIdx} className={styles.projectCard} role="listitem">
                       <div className={styles.projectCardHeader}>
                         <h4 className={styles.projectCardTitle}>{proj.title}</h4>
                         <span className={`${styles.projectLevelBadge} ${proj.level === 'Iniciante' ? styles.badgeCalouro : proj.level === 'Intermediario' ? styles.badgeMeio : styles.badgeFormando}`}>
@@ -2096,12 +2100,16 @@ export default function CarreiraPage() {
                         </span>
                       </div>
                       <p className={styles.projectCardDesc}>{proj.description}</p>
-                      <div className={styles.skillTagsRow} style={{ marginTop: 'auto', paddingTop: '0.5rem' }}>
+                      <div 
+                        className={styles.skillTagsRow} 
+                        style={{ marginTop: 'auto', paddingTop: '0.5rem' }}
+                        aria-label="Tecnologias utilizadas"
+                      >
                         {proj.tools.map((t, i) => (
                           <span key={i} className={styles.skillTag}>{t}</span>
                         ))}
                       </div>
-                    </div>
+                    </article>
                   ))}
                 </div>
               </div>
@@ -2474,7 +2482,7 @@ export default function CarreiraPage() {
               <p className={styles.skillDesc}>
                 A estruturacao avancada desta trilha conta com a curadoria do blog de Brenno M., profissional de destaque em seguranca ofensiva. Seu blog e um guia pratico para a verdadeira filosofia hacker, que transcende a ideia estereotipada de quebrar sistemas e atua como uma mentalidade de curiosidade insaciavel, questionamento e compreensao profunda de como a tecnologia funciona. Nele, voce entendera que executar ferramentas de automacao sem dominar as bases da computacao e como pilotar um aviao sem saber aviacao.
                 <br /><br />
-                Alem de fundamentos tecnicos, o blog atua como um filtro critico contra o ruido da internet. Em meio a conteudos que prometem "dominio em horas" com "receitas" simplistas, o autor defende que estudar seguranca exige curadoria e higiene de escolha. Os artigos apontam caminhos ancorados em metodo, revisao critica e validacao fundamentada, alertando que metricas de popularidade de plataformas nao substituem a verdadeira autoridade tecnica.
+                Alem de fundamentos tecnicos, o blog atua como um filtro critico contra o ruido da internet. Em meio a conteudos que prometem &quot;dominio em horas&quot; com &quot;receitas&quot; simplistas, o autor defende que estudar seguranca exige curadoria e higiene de escolha. Os artigos apontam caminhos ancorados em metodo, revisao critica e validacao fundamentada, alertando que metricas de popularidade de plataformas nao substituem a verdadeira autoridade tecnica.
               </p>
               <div className={styles.trackActions}>
                 <a
