@@ -32,7 +32,7 @@ export function IdeStatusBar() {
           }
         }
       } catch {
-        // Mantem metricas padrao
+        // Mantem métricas padrao
       }
     };
     loadStats();

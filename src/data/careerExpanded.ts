@@ -20,21 +20,21 @@ export const internshipVsTraineeData: CareerComparisonRow[] = [
   },
   {
     criterion: 'Faixa de Remuneracao',
-    estagio: 'Bolsa auxilio de 1800 a 3500 reais mensais, alem de vale transporte e recesso remunerado.',
+    estagio: 'Bolsa auxilio de 1800 a 3500 reais mensais, além de vale transporte e recesso remunerado.',
     trainee: 'Salario executivo entre 6000 e 9000 reais mensais, bonus por metas e plano de previdencia.',
     junior: 'Salario base de mercado entre 4000 e 6500 reais mensais com beneficios corporativos padrao.'
   },
   {
     criterion: 'Objetivo Principal',
-    estagio: 'Aprendizado pratico supervisionado, aplicacao de conceitos academicos e adaptacao cultural.',
-    trainee: 'Aceleracao intensa de carreira para formacao de futuros lideres tecnicos e executivos.',
+    estagio: 'Aprendizado prático supervisionado, aplicacao de conceitos academicos e adaptacao cultural.',
+    trainee: 'Aceleracao intensa de carreira para formacao de futuros lideres técnicos e executivos.',
     junior: 'Execucao autonoma de demandas tecnicas operacionais dentro da equipe de desenvolvimento.'
   },
   {
     criterion: 'Processo Seletivo',
     estagio: 'Triagem de curriculo, testes de logica e entrevistas com lideranca tecnica imediata.',
     trainee: 'Etapas eliminatorias concorridas, dinamicas de grupo, business cases e painel com diretores.',
-    junior: 'Entrevista tecnica aprofundada, revisao de codigo no GitHub e avaliacao de experiencia previa.'
+    junior: 'Entrevista tecnica aprofundada, revisão de codigo no GitHub e avaliacao de experiencia previa.'
   }
 ];
 
@@ -63,8 +63,8 @@ export const companiesShowcaseData: CompanyShowcase[] = [
     name: 'Itaú Unibanco',
     tag: 'Maior Banco da América Latina',
     description: 'Maior instituicao financeira privada do pais, liderando processos macicos de modernizacao tecnologica para nuvem AWS e microsservicos.',
-    programs: 'Programa de Estagio de Tecnologia, Programa Trainee Itau Corporativo e realizacao do Hackathon Batalha de Agentes com foco em inteligencia artificial.',
-    hiringProfile: 'Graduandos de BSI, TADS e engenharias da FT interessados em sistemas distribuidos de alta escala, seguranca transacional e ciencia de dados.',
+    programs: 'Programa de Estagio de Tecnologia, Programa Trainee Itau Corporativo e realizacao do Hackathon Batalha de Agentes com foco em inteligência artificial.',
+    hiringProfile: 'Graduandos de BSI, TADS e engenharias da FT interessados em sistemas distribuidos de alta escala, segurança transacional e ciencia de dados.',
     officialUrl: 'https://www.itau.com.br/carreiras'
   },
   {
@@ -81,8 +81,8 @@ export const companiesShowcaseData: CompanyShowcase[] = [
     name: 'QI Tech',
     tag: 'Infraestrutura de Crédito e APIs',
     description: 'Primeira sociedade de credito direto autorizada pelo Banco Central do Brasil, construindo a infraestrutura para fintechs e servicos financeiros.',
-    programs: 'Desafios tecnicos para universitarios, bootcamps de formacao e estagios focados em engenharia de software de baixa latencia.',
-    hiringProfile: 'Desenvolvedores com interesse genuino em arquitetura de microsservicos, Python, Go, filas Kafka, seguranca criptografica e compliance regulatorio.',
+    programs: 'Desafios técnicos para universitários, bootcamps de formacao e estagios focados em engenharia de software de baixa latencia.',
+    hiringProfile: 'Desenvolvedores com interesse genuino em arquitetura de microsservicos, Python, Go, filas Kafka, segurança criptografica e compliance regulatorio.',
     officialUrl: 'https://qitech.com.br/'
   },
   {
@@ -113,7 +113,7 @@ export const appleDeveloperAcademyData: AppleDeveloperAcademy = {
   duration: 'De um a dois anos com dedicacao de quatro horas diarias',
   websiteUrl: 'https://developeracademy.eldorado.org.br/campinas/',
   instagramUrl: 'https://www.instagram.com/developeracademy.cps/',
-  description: 'Programa oficial de formacao e capacitacao avancada em tecnologia sediado no Instituto Eldorado em Campinas em parceria internacional com a Apple, capacitando universitarios da regiao na criacao de solucoes digitais no ecossistema iOS.',
+  description: 'Programa oficial de formacao e capacitacao avançada em tecnologia sediado no Instituto Eldorado em Campinas em parceria internacional com a Apple, capacitando universitários da regiao na criacao de solucoes digitais no ecossistema iOS.',
   benefits: [
     'Bolsa auxilio mensal competitiva concedida durante todo o periodo do programa.',
     'Emprestimo individual de kit completo da Apple incluindo MacBook, iPhone e Apple Watch durante as atividades.',
@@ -183,7 +183,7 @@ export const hackathonGuideData: HackathonGuide = {
     },
     {
       role: 'Desenvolvedor Backend e Dados',
-      description: 'Estrutura as APIs, conecta bancos de dados leves e integra modelos de inteligencia artificial da solucao.'
+      description: 'Estrutura as APIs, conecta bancos de dados leves e integra modelos de inteligência artificial da solucao.'
     },
     {
       role: 'Designer de Produto UI e UX',
@@ -191,12 +191,12 @@ export const hackathonGuideData: HackathonGuide = {
     },
     {
       role: 'Estrategista de Negocios e Pitch',
-      description: 'Valida a viabilidade mercadologica, precificacao, metricas e conduz a apresentacao final de tres minutos.'
+      description: 'Valida a viabilidade mercadologica, precificacao, métricas e conduz a apresentacao final de tres minutos.'
     }
   ],
   featuredHackathon: {
     title: 'Hackathon Itaú Batalha de Agentes',
-    description: 'Competicao universitária promovida pelo Itau com desafios praticos de negocios e construcao de agentes autonomos com inteligencia artificial, proporcionando premiacoes expressivas e via direta de contratacao.',
+    description: 'Competicao universitária promovida pelo Itau com desafios práticos de negocios e construcao de agentes autonomos com inteligência artificial, proporcionando premiacoes expressivas e via direta de contratacao.',
     url: 'https://sejatrainee.com.br/hackathon-itau-batalha-de-agentes/'
   }
 };
@@ -299,7 +299,7 @@ export const salarySurvey2026Data: SalarySurvey2026 = {
     {
       aspecto: 'Filtro Inicial de Contratacao',
       graduacaoUnicamp: 'Acesso imediato a feiras corporativas exclusivas e programas estruturados de estagio de empresas lideres.',
-      cursosRapidosBootcamps: 'Dificuldade severa para ultrapassar a triagem de inteligencia artificial em vagas disputadas.'
+      cursosRapidosBootcamps: 'Dificuldade severa para ultrapassar a triagem de inteligência artificial em vagas disputadas.'
     },
     {
       aspecto: 'Profundidade em Fundamentos',
@@ -340,7 +340,7 @@ export interface RemoteGlobalWork {
 
 export const remoteGlobalWorkData: RemoteGlobalWork = {
   title: 'Guia Completo para Trabalhar na Gringa do Brasil',
-  description: 'Passo a passo pratico para discentes e egressos da FT conquistarem contratos remotos de engenharia de software para empresas dos Estados Unidos e Europa, recebendo em moeda forte.',
+  description: 'Passo a passo prático para discentes e egressos da FT conquistarem contratos remotos de engenharia de software para empresas dos Estados Unidos e Europa, recebendo em moeda forte.',
   requisitos: [
     {
       titulo: 'Ingles Instrumental para Negocios e Engenharia',
@@ -367,12 +367,12 @@ export const remoteGlobalWorkData: RemoteGlobalWork = {
     },
     {
       nome: 'LinkedIn Internacional com Filtro Remoto',
-      modelo: 'Conexao com recrutadores tecnicos internacionais e postulacao em vagas nos Estados Unidos.',
+      modelo: 'Conexao com recrutadores técnicos internacionais e postulacao em vagas nos Estados Unidos.',
       url: 'https://www.linkedin.com/jobs'
     },
     {
       nome: 'Toptal e Turing',
-      modelo: 'Redes de alocacao com processo seletivo tecnico previo e projetos internacionais selecionados.',
+      modelo: 'Redes de alocacao com processo seletivo técnico previo e projetos internacionais selecionados.',
       url: 'https://www.turing.com'
     }
   ],
@@ -407,14 +407,14 @@ export interface BsiVsTadsCoordinator {
 }
 
 export const bsiVsTadsCoordinatorData: BsiVsTadsCoordinator = {
-  title: 'BSI versus TADS: Comparativo Estratégico com a Coordenação',
+  title: 'BSI ou TADS: Comparativo Estratégico com a Coordenação',
   description: 'Analise detalhada orientada pelas diretrizes do coordenador Professor Guilherme para apoiar os alunos na escolha de curso, momento de transicao e planejamento de carreira na Faculdade de Tecnologia.',
   coordenadorNome: 'Professor Guilherme',
   comparativos: [
     {
       eixo: 'Tempo de Formacao e Carga Horaria',
       bsi: 'Quatro anos de duracao com matriz ampla e diversificada.',
-      tads: 'Tres anos de duracao com formacao tecnologica acelerada e foco pratico.',
+      tads: 'Tres anos de duracao com formacao tecnologica acelerada e foco prático.',
       recomendacaoCoordenador: 'Estudantes que necessitam de insercao rapida no mercado se beneficiam do ritmo dinamico de TADS.'
     },
     {
@@ -433,7 +433,7 @@ export const bsiVsTadsCoordinatorData: BsiVsTadsCoordinator = {
       eixo: 'Reconhecimento Internacional e Diplomas',
       bsi: 'Grau de Bacharel com equivalencia imediata a Bachelor of Science em processos de visto e universidades do exterior.',
       tads: 'Grau de Tecnologo com plena validade de curso superior no Brasil, necessitando de comprovacao de creditos em alguns paises.',
-      recomendacaoCoordenador: 'Ambos os cursos abrem portas para carreiras globais quando acompanhados de solidos projetos praticos.'
+      recomendacaoCoordenador: 'Ambos os cursos abrem portas para carreiras globais quando acompanhados de solidos projetos práticos.'
     }
   ]
 };
@@ -469,19 +469,19 @@ export const postPandemicAndAiMarketData: PostPandemicAndAiMarket = {
   pandemiaVsHoje: [
     {
       periodo: 'O Periodo da Pandemia de 2020 a 2022',
-      contexto: 'Taxas de juros em minimas historicas, contratacoes massivas sem criterios tecnicos rigorosos e promessas de salarios exorbitantes em tres meses.',
+      contexto: 'Taxas de juros em minimas historicas, contratacoes massivas sem criterios técnicos rigorosos e promessas de salarios exorbitantes em tres meses.',
       perfilBuscado: 'Qualquer profissional com nocoes basicas de sintaxe era contratado com urgencia para compor times virtuais.'
     },
     {
       periodo: 'O Cenario Atual de 2024 a 2026',
       contexto: 'Ajuste de mercado, busca por eficiencia operacional e elevacao drastica da barra de exigencia tecnica nos processos seletivos.',
-      perfilBuscado: 'Profissionais com fundamentos solidos de computacao, pensamento critico e capacidade comprovada de entrega com qualidade.'
+      perfilBuscado: 'Profissionais com fundamentos solidos de computação, pensamento crítico e capacidade comprovada de entrega com qualidade.'
     }
   ],
   mitosIA: [
     {
-      mito: 'A inteligencia artificial vai extinguir a profissao de programador em poucos anos.',
-      realidade: 'A IA substitui a digitacao mecânica de codigo repetitivo, mas e incapaz de entender contexto de negocio, definir arquitetura e auditar seguranca com responsabilidade.',
+      mito: 'A inteligência artificial vai extinguir a profissao de programador em poucos anos.',
+      realidade: 'A IA substitui a digitacao mecânica de codigo repetitivo, mas e incapaz de entender contexto de negocio, definir arquitetura e auditar segurança com responsabilidade.',
       impactoNaFT: 'O aluno da FT que aprende a pensar conceitualmente usa ferramentas de IA como copilotos para produzir o equivalente a uma squad inteira.'
     },
     {
@@ -516,7 +516,7 @@ export interface CareerYMatrix {
 }
 
 export const careerYMatrixData: CareerYMatrix = {
-  title: 'Carreira em Y: Trilha Especialista versus Trilha de Gestao',
+  title: 'Carreira em Y: Trilha Especialista ou Trilha de Gestao',
   description: 'Guia de orientacao para a bifurcacao profissional que ocorre apos a senioridade tecnica, permitindo que o desenvolvedor escolha entre lideranca tecnica aprofundada ou lideranca de pessoas e processos.',
   trilhaEspecialista: [
     {
@@ -531,8 +531,8 @@ export const careerYMatrixData: CareerYMatrix = {
     },
     {
       cargo: 'Arquiteto de Software ou Fellow',
-      foco: 'Maxima autoridade tecnica da organizacao, padronizacao global de tecnologias e seguranca da informacao.',
-      desafios: 'Conciliar inovacao tecnologica radical com a estabilidade de sistemas legados de missao critica.'
+      foco: 'Maxima autoridade tecnica da organizacao, padronizacao global de tecnologias e segurança da informação.',
+      desafios: 'Conciliar inovacao tecnologica radical com a estabilidade de sistemas legados de missao crítica.'
     }
   ],
   trilhaGestao: [
@@ -555,7 +555,7 @@ export const careerYMatrixData: CareerYMatrix = {
   perguntasAutoavaliacao: [
     'Voce sente mais satisfacao ao resolver um bug complexo de concorrencia ou ao destravar o crescimento de um colega de equipe?',
     'Voce prefere passar quatro horas desenhando diagramas de arquitetura de microsservicos ou conversando individualmente com pessoas para alinhar motivacao e expectativas?',
-    'Como voce lida com reunioes de alinhamento com stakeholders de negocios versus blocos ininterruptos de escrita de codigo profundo?'
+    'Como voce lida com reunioes de alinhamento com stakeholders de negocios ou blocos ininterruptos de escrita de codigo profundo?'
   ]
 };
 
@@ -699,7 +699,7 @@ export const careerProjectsData: CareerProjectCategory[] = [
     ]
   },
   {
-    category: 'Seguranca da Informacao e Ciberseguranca',
+    category: 'Segurança da Informação e Cibersegurança',
     iconType: 'ShieldCheck',
     description: 'Praticas de fortalecimento arquitetural, descoberta de vulnerabilidades e resolucao de desafios no formato CTF.',
     projects: [

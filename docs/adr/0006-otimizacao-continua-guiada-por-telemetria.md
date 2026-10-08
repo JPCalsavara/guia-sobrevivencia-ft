@@ -2,7 +2,7 @@
 
 ## Contexto
 
-As decisoes de arquitetura da informacao, hierarquia de navegacao e prioridade de redacao no Guia do Estudante da Faculdade de Tecnologia da Unicamp necessitam de embasamento empirico. Sem dados reais de navegacao, corre-se o risco de investir esforco em conteudos de baixo interesse enquanto duvidas urgentes da comunidade discente permanecem desassistidas. O portal integra o Vercel Analytics em ambiente de producao, capturando metricas anonimas de visualizacoes, retencao, sistemas operacionais e dispositivos.
+As decisoes de arquitetura da informação, hierarquia de navegacao e prioridade de redacao no Guia do Estudante da Faculdade de Tecnologia da Unicamp necessitam de embasamento empirico. Sem dados reais de navegacao, corre-se o risco de investir esforco em conteúdos de baixo interesse enquanto duvidas urgentes da comunidade discente permanecem desassistidas. O portal integra o Vercel Analytics em ambiente de producao, capturando métricas anonimas de visualizacoes, retencao, sistemas operacionais e dispositivos.
 
 ## Decisao
 

@@ -80,7 +80,7 @@ export const headerNavSections: HeaderNavSection[] = [
     topics: [
       {
         id: 'bsi-vs-tads',
-        title: 'Comparativo Sistemas de Informacao versus TADS',
+        title: 'Comparativo Sistemas de Informação versus TADS',
         href: '/academico#bsi-vs-tads',
         tag: 'Cursos',
         recommendedStages: ['calouro', 'meio'],
@@ -151,7 +151,7 @@ export const headerNavSections: HeaderNavSection[] = [
       },
       {
         id: 'trainee-vs-estagio',
-        title: 'Comparativo Estagio versus Trainee versus Junior',
+        title: 'Comparativo Estagio ou Trainee ou Junior',
         href: '/carreira#trainee-vs-estagio',
         tag: 'Modalidades',
         recommendedStages: ['formando'],
@@ -186,9 +186,9 @@ export const headerNavSections: HeaderNavSection[] = [
       },
       {
         id: 'seguranca-informacao',
-        title: 'Trilha de Seguranca da Informacao',
+        title: 'Trilha de Segurança da Informação',
         href: '/carreira#seguranca-informacao',
-        tag: 'Seguranca',
+        tag: 'Segurança',
         recommendedStages: ['calouro', 'meio', 'formando'],
       },
       {
@@ -207,7 +207,7 @@ export const headerNavSections: HeaderNavSection[] = [
       },
       {
         id: 'bsi-vs-tads-coordenacao',
-        title: 'BSI versus TADS com a Coordenação',
+        title: 'BSI ou TADS com a Coordenação',
         href: '/carreira#bsi-vs-tads-coordenacao',
         tag: 'Coordenação',
         recommendedStages: ['calouro', 'meio', 'formando'],
@@ -304,7 +304,7 @@ export const headerNavSections: HeaderNavSection[] = [
     id: 'estudos-ia',
     label: 'IA',
     href: '/estudos-ia',
-    description: 'Inteligencia artificial para acelerar o estudo academico, geracao de cronogramas e dominio de codigo.',
+    description: 'Inteligência artificial para acelerar o estudo academico, geracao de cronogramas e domínio de codigo.',
     topics: [
       {
         id: 'notebooklm-cerebro',

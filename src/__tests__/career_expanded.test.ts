@@ -131,7 +131,7 @@ describe('Career Expanded Data Integration', () => {
     });
   });
 
-  it('deve validar o catalogo de projetos por nivel tecnico em conformidade com ADR 0001', () => {
+  it('deve validar o catalogo de projetos por nivel técnico em conformidade com ADR 0001', () => {
     careerProjectsData.forEach(cat => {
       expect(cat.category).not.toMatch(parenthesesPattern);
       cat.projects.forEach(proj => {

@@ -6,7 +6,7 @@ describe('Relatório Diário de Analytics e Sugestões de Melhoria', () => {
   const parenthesesPattern = /[()]/;
   const emojiPattern = /[\uD800-\uDBFF][\uDC00-\uDFFF]/;
 
-  it('deve compilar metricas de audiencia e gerar recomendacoes estruturadas', () => {
+  it('deve compilar métricas de audiencia e gerar recomendacoes estruturadas', () => {
     const reportData = generateDailyReportData();
 
     expect(reportData).toBeDefined();

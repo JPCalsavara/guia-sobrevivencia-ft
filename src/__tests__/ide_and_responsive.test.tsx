@@ -45,7 +45,7 @@ describe('Componentes Atomicos de IDE e Tema Dracula', () => {
     expect(activeTab?.getAttribute('aria-current')).toBe('page');
   });
 
-  it('renderiza a barra de status inferior estilo VS Code com metadados tecnicos', () => {
+  it('renderiza a barra de status inferior estilo VS Code com metadados técnicos', () => {
     render(<IdeStatusBar />);
 
     expect(screen.getByText('main')).toBeDefined();

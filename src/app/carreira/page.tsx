@@ -79,7 +79,7 @@ const careerTopics: TopicItem[] = [
   },
   {
     id: 'trainee-vs-estagio',
-    title: 'Estágio versus Trainee e Júnior',
+    title: 'Estágio ou Trainee e Júnior',
     subtopics: [
       { id: 'comparativo-estagio-trainee-junior', title: 'Matriz Comparativa das Modalidades' },
       { id: 'processos-seletivos-trainee', title: 'Processos Seletivos e Liderança' },
@@ -136,10 +136,10 @@ const careerTopics: TopicItem[] = [
   },
   {
     id: 'empresas-tech-programas',
-    title: 'Vitrine Tech e Mercado vs Pesquisa',
+    title: 'Vitrine Tech e Mercado ou Pesquisa',
     subtopics: [
       { id: 'vitrine-empresas-tech', title: 'Vitrine de Empresas Líderes' },
-      { id: 'mercado-vs-pesquisa', title: 'Mercado versus Pesquisa Acadêmica' },
+      { id: 'mercado-vs-pesquisa', title: 'Mercado ou Pesquisa Acadêmica' },
     ],
   },
   {
@@ -174,7 +174,7 @@ const careerTopics: TopicItem[] = [
     subtopics: [
       { id: 'projetos-portfolio', title: 'Desafios por Nivel' },
       { id: 'projetos-web-cloud', title: 'Web e Computacao em Nuvem' },
-      { id: 'projetos-dados-seguranca', title: 'Dados e Seguranca' }
+      { id: 'projetos-dados-seguranca', title: 'Dados e Segurança' }
     ],
   },
   {
@@ -201,7 +201,7 @@ const careerTopics: TopicItem[] = [
   },
   {
     id: 'seguranca-informacao',
-    title: 'Seguranca da Informacao',
+    title: 'Segurança da Informação',
     subtopics: [
       { id: 'seguranca-informacao', title: 'Fundamentos, Especializações e Brenno M.' },
     ],
@@ -226,7 +226,7 @@ const careerTopics: TopicItem[] = [
   },
   {
     id: 'bsi-vs-tads-coordenacao',
-    title: 'BSI versus TADS Coordenador',
+    title: 'BSI ou TADS Coordenador',
     subtopics: [
       { id: 'bsi-vs-tads-coordenacao', title: 'Visão da Coordenação' },
       { id: 'comparativo-matrizes-tempo', title: 'Tempo e Matriz Curricular' },
@@ -245,7 +245,7 @@ const careerTopics: TopicItem[] = [
     id: 'carreira-em-y-lideranca',
     title: 'Carreira em Y',
     subtopics: [
-      { id: 'carreira-em-y-lideranca', title: 'Especialista versus Gestão' },
+      { id: 'carreira-em-y-lideranca', title: 'Especialista ou Gestão' },
       { id: 'autoavaliacao-trilha-y', title: 'Autoavaliação de Afinidade' },
       { id: 'videos-referencia-carreira', title: 'Vídeos de Referência' },
     ],
@@ -655,7 +655,7 @@ export default function CarreiraPage() {
         </div>
       </section>
 
-      {/* Estágio versus Trainee versus Efetivo Júnior */}
+      {/* Estágio ou Trainee ou Efetivo Júnior */}
       <section
         id="trainee-vs-estagio"
         style={getSectionStyle('trainee-vs-estagio')}
@@ -666,7 +666,7 @@ export default function CarreiraPage() {
           <div className={styles.cardHeader}>
             <Briefcase size={22} className={styles.headerIcon} />
             <div>
-              <h2 className={styles.cardTitle}>Comparativo: Estágio versus Trainee versus Efetivo Júnior</h2>
+              <h2 className={styles.cardTitle}>Comparativo: Estágio ou Trainee ou Efetivo Júnior</h2>
               <p className={styles.cardSubtitle}>
                 Diferenciação de momentos na graduação, regimes de trabalho, faixas de remuneração e objetivos de carreira
               </p>
@@ -1433,7 +1433,7 @@ export default function CarreiraPage() {
         </div>
       </section>
 
-      {/* Vitrine de Empresas Tech e Mercado versus Pesquisa */}
+      {/* Vitrine de Empresas Tech e Mercado ou Pesquisa */}
       <section
         id="empresas-tech-programas"
         style={getSectionStyle('empresas-tech-programas')}
@@ -1444,7 +1444,7 @@ export default function CarreiraPage() {
           <div className={styles.cardHeader}>
             <Building2 size={22} className={styles.headerIcon} />
             <div>
-              <h2 className={styles.cardTitle}>Vitrine de Empresas Tech e Carreira Corporativa versus Pesquisa</h2>
+              <h2 className={styles.cardTitle}>Vitrine de Empresas Tech e Carreira Corporativa ou Pesquisa</h2>
               <p className={styles.cardSubtitle}>
                 Perfis de contratação de referências do setor e análise comparativa entre emprego corporativo e carreira acadêmica
               </p>
@@ -1502,10 +1502,10 @@ export default function CarreiraPage() {
             </div>
           </div>
 
-          {/* Subtópico 2: Matriz Decisória Mercado vs Pesquisa */}
+          {/* Subtópico 2: Matriz Decisória Mercado ou Pesquisa */}
           <div id="mercado-vs-pesquisa" style={{ marginTop: '2.5rem' }}>
             <h3 className={styles.cardTitle} style={{ fontSize: '1.1rem', marginBottom: '0.75rem' }}>
-              Matriz Decisória: Carreira no Mercado Corporativo versus Pesquisa Acadêmica
+              Matriz Decisória: Carreira no Mercado Corporativo ou Pesquisa Acadêmica
             </h3>
             <p className={styles.cardSubtitle} style={{ marginBottom: '1rem' }}>
               Quadro analítico para apoiar a reflexão entre emprego corporativo e pós-graduação estrita
@@ -2264,7 +2264,7 @@ export default function CarreiraPage() {
                 </div>
                 <span className={`${styles.skillBadge} ${styles.purple}`}>Dados e IA</span>
               </div>
-              <h3 className={styles.skillTitle}>Trilha Dados e IA: Ciência versus Engenharia</h3>
+              <h3 className={styles.skillTitle}>Trilha Dados e IA: Ciência ou Engenharia</h3>
               <p className={styles.skillDesc}>
                 Ciência foca em modelagem estatística, hipóteses e algoritmos preditivos. Engenharia foca em pipelines confiáveis e ingestão escalável. Participe da Liga de Ciência de Dados da Unicamp Liga DS para atuar em projetos práticos com dados reais e aproveite a especialização Michigan gratuita via Coursera Unicamp.
               </p>
@@ -2317,17 +2317,17 @@ export default function CarreiraPage() {
               </div>
             </div>
 
-            {/* Trilha 4: Seguranca da Informacao */}
+            {/* Trilha 4: Segurança da Informação */}
             <div className={styles.skillItem}>
               <div className={styles.skillItemHeader}>
                 <div className={`${styles.skillIconWrap} ${styles.green}`}>
                   <ShieldCheck size={20} aria-hidden="true" />
                 </div>
-                <span className={`${styles.skillBadge} ${styles.green}`}>Ciberseguranca</span>
+                <span className={`${styles.skillBadge} ${styles.green}`}>Cibersegurança</span>
               </div>
-              <h3 className={styles.skillTitle}>Trilha Seguranca: Hacking Etico e Defesa</h3>
+              <h3 className={styles.skillTitle}>Trilha Segurança: Hacking Ético e Defesa</h3>
               <p className={styles.skillDesc}>
-                Proteja infraestruturas e previna ataques descobrindo falhas antes que sejam exploradas. Participe da Liga de Ciberseguranca da Unicamp LICS para competir em CTF e aplicar web hacking de forma etica.
+                Proteja infraestruturas e previna ataques descobrindo falhas antes que sejam exploradas. Participe da Liga de Cibersegurança da Unicamp LICS para competir em CTF e aplicar web hacking de forma etica.
               </p>
               <div className={styles.skillTagsRow}>
                 <span className={styles.skillTag}>OWASP</span>
@@ -2375,7 +2375,7 @@ export default function CarreiraPage() {
             <div>
               <h2 className={styles.cardTitle}>DevOps e Infraestrutura Agil na Universidade</h2>
               <p className={styles.cardSubtitle}>
-                Praticas de automacao de infraestrutura, esteiras de entrega continua e orquestracao de conteineres
+                Praticas de automação de infraestrutura, esteiras de entrega continua e orquestracao de conteineres
               </p>
             </div>
           </div>
@@ -2429,7 +2429,7 @@ export default function CarreiraPage() {
         </div>
       </section>
 
-      {/* Trilha de Seguranca da Informacao */}
+      {/* Trilha de Segurança da Informação */}
       <section
         id="seguranca-informacao"
         style={getSectionStyle('seguranca-informacao')}
@@ -2440,18 +2440,18 @@ export default function CarreiraPage() {
           <div className={styles.cardHeader}>
             <ShieldCheck size={22} className={styles.headerIcon} />
             <div>
-              <h2 className={styles.cardTitle}>Trilha de Seguranca da Informacao e Hacking Etico</h2>
+              <h2 className={styles.cardTitle}>Trilha de Segurança da Informação e Hacking Ético</h2>
               <p className={styles.cardSubtitle}>
-                Roadmap tecnico, grupos de estudo universitarios e fundamentos de computacao para ofensiva cibernetica
+                Roadmap técnico, grupos de estudo universitários e fundamentos de computação para ofensiva cibernética
               </p>
             </div>
           </div>
 
-          <div className={styles.skillsGrid}>
+          <div className={styles.skillsGrid} style={{ gridTemplateColumns: '1fr' }}>
             <div className={styles.skillItem}>
-              <h3 className={styles.skillTitle}>Ciberseguranca e Recomendacao da LICS</h3>
+              <h3 className={styles.skillTitle}>Cibersegurança e Recomendação da LICS</h3>
               <p className={styles.skillDesc}>
-                Participe da LICS, Liga de Ciberseguranca da Unicamp. A iniciativa promove grupos de estudo, treinamentos praticos de seguranca defensiva e ofensiva, alem de competicoes de CTF Capture The Flag no cenario nacional.
+                Participe da LICS, Liga de Cibersegurança da Unicamp. A iniciativa promove grupos de estudo, treinamentos práticos de segurança defensiva e ofensiva, além de competições de CTF Capture The Flag no cenário nacional.
               </p>
               <div className={styles.trackActions}>
                 <a
@@ -2480,9 +2480,9 @@ export default function CarreiraPage() {
             <div className={styles.skillItem}>
               <h3 className={styles.skillTitle}>Blog: Cultura Hacker e Curadoria em Red Team</h3>
               <p className={styles.skillDesc}>
-                A estruturacao avancada desta trilha conta com a curadoria do blog de Brenno M., profissional de destaque em seguranca ofensiva. Seu blog e um guia pratico para a verdadeira filosofia hacker, que transcende a ideia estereotipada de quebrar sistemas e atua como uma mentalidade de curiosidade insaciavel, questionamento e compreensao profunda de como a tecnologia funciona. Nele, voce entendera que executar ferramentas de automacao sem dominar as bases da computacao e como pilotar um aviao sem saber aviacao.
+                A estruturação avançada desta trilha conta com a curadoria do blog de Brenno M., profissional de destaque em segurança ofensiva. Seu blog e um guia prático para a verdadeira filosofia hacker, que transcende a ideia estereotipada de quebrar sistemas e atua como uma mentalidade de curiosidade insaciável, questionamento e compreensão profunda de como a tecnologia funciona. Nele, você entenderá que executar ferramentas de automação sem dominar as bases da computação e como pilotar um avião sem saber aviação.
                 <br /><br />
-                Alem de fundamentos tecnicos, o blog atua como um filtro critico contra o ruido da internet. Em meio a conteudos que prometem &quot;dominio em horas&quot; com &quot;receitas&quot; simplistas, o autor defende que estudar seguranca exige curadoria e higiene de escolha. Os artigos apontam caminhos ancorados em metodo, revisao critica e validacao fundamentada, alertando que metricas de popularidade de plataformas nao substituem a verdadeira autoridade tecnica.
+                Além de fundamentos técnicos, o blog atua como um filtro crítico contra o ruído da internet. Em meio a conteúdos que prometem &quot;domínio em horas&quot; com &quot;receitas&quot; simplistas, o autor defende que estudar segurança exige curadoria e higiene de escolha. Os artigos apontam caminhos ancorados em metodo, revisão crítica e validação fundamentada, alertando que métricas de popularidade de plataformas não substituem a verdadeira autoridade tecnica.
               </p>
               <div className={styles.trackActions}>
                 <a
@@ -2518,9 +2518,9 @@ export default function CarreiraPage() {
             </div>
             
             <div className={styles.skillItem}>
-              <h3 className={styles.skillTitle}>Fundamentos de Seguranca</h3>
+              <h3 className={styles.skillTitle}>Fundamentos de Segurança</h3>
               <p className={styles.skillDesc}>
-                Nao existe atalho para ciberseguranca sem solidos alicerces tecnicos. Antes de executar qualquer ferramenta pronta, o estudante deve compreender a fundo redes corporativas, Active Directory, arquitetura de sistemas e protocolos web.
+                Nao existe atalho para ciberseguranca sem solidos alicerces técnicos. Antes de executar qualquer ferramenta pronta, o estudante deve compreender a fundo redes corporativas, Active Directory, arquitetura de sistemas e protocolos web.
               </p>
             </div>
           </div>
@@ -2653,7 +2653,7 @@ export default function CarreiraPage() {
         </div>
       </section>
 
-      {/* BSI versus TADS com a Coordenação */}
+      {/* BSI ou TADS com a Coordenação */}
       <section
         id="bsi-vs-tads-coordenacao"
         style={getSectionStyle('bsi-vs-tads-coordenacao')}
@@ -2732,7 +2732,7 @@ export default function CarreiraPage() {
 
           <div id="ia-verdade-programacao" style={{ marginTop: '2.5rem' }}>
             <h3 className={styles.cardTitle} style={{ fontSize: '1.15rem', marginBottom: '1rem' }}>
-              Mitos versus Realidade da Inteligencia Artificial na Engenharia
+              Mitos ou Realidade da Inteligência Artificial na Engenharia
             </h3>
             <div className={styles.gridTwo}>
               {postPandemicAndAiMarketData.mitosIA.map((item, idx) => (
@@ -2774,7 +2774,7 @@ export default function CarreiraPage() {
         </div>
       </section>
 
-      {/* Carreira em Y: Especialista versus Gestor */}
+      {/* Carreira em Y: Especialista ou Gestor */}
       <section
         id="carreira-em-y-lideranca"
         style={getSectionStyle('carreira-em-y-lideranca')}

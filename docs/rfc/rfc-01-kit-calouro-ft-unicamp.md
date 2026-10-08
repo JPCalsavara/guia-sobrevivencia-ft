@@ -12,19 +12,19 @@
 ## Contextualizacao
 
 ### Entendendo o problema
-O ingresso dos calouros na Faculdade de Tecnologia da Unicamp, Campus 1 em Limeira, especialmente nos cursos de computacao BSI e TADS, e marcado por uma dispersao critica de informacoes vitais. Regras burocraticas complexas da Diretoria Academica DAC, tais como Coeficiente de Rendimento CR, Coeficiente de Progressao CP, limites de integralizacao, curricularizacao da extensao e choque de turnos entre estagio e aulas diurnas, nao sao explicadas de forma pragmatica e estrategica aos ingressantes.
+O ingresso dos calouros na Faculdade de Tecnologia da Unicamp, Campus 1 em Limeira, especialmente nos cursos de computação BSI e TADS, e marcado por uma dispersao crítica de informacoes vitais. Regras burocraticas complexas da Diretoria Academica DAC, tais como Coeficiente de Rendimento CR, Coeficiente de Progressao CP, limites de integralizacao, curricularizacao da extensao e choque de turnos entre estagio e aulas diurnas, nao sao explicadas de forma pragmatica e estrategica aos ingressantes.
 
 Essa assimetria informacional resulta em calouros tomando decisoes precoces que prejudicam sua trajetoria academica e empregabilidade:
 1. Alunos de BSI ignoram a concorrencia feroz por vagas noturnas de TADS no terceiro e quarto ano, negligenciando o CR no ciclo basico e ficando impossibilitados de conciliar estagios em horario comercial.
 2. Estudantes aceleram a formatura sem cumprir estagios previos, caindo na armadilha da extincao do contrato pela Lei do Estagio, Lei 11.788 de 2008, e enfrentando a barreira de contratacao para vagas de Junior sem experiencia.
-3. Desconhecimento da infraestrutura fisica da FT e desorientacao quanto ao uso de ferramentas de inteligencia artificial.
+3. Desconhecimento da infraestrutura fisica da FT e desorientacao quanto ao uso de ferramentas de inteligência artificial.
 
 ### Explicando a solucao de forma macro
 A solucao proposta e o Kit Calouro FT Unicamp: uma plataforma web moderna, rapida e responsiva construida em Next.js 15 App Router e hospedada na Vercel, que unifica a curadoria definitiva de conteudo estrategico da vida academica e profissional na FT com componentes e rotinas serverless.
 
 A plataforma organiza-se em dois pilares:
 1. Frontend Informativo e Interativo: Landing page e rotas tematicas em Sass e Framer Motion, dividida em secoes verticais de academico, carreira, estudos e campus.
-2. Servicos e Automacoes: Prompts estruturados e gerador de calendario iCalendar padrao RFC 5545, alem de catalogo integrado de links oficiais.
+2. Servicos e Automacoes: Prompts estruturados e gerador de calendario iCalendar padrao RFC 5545, além de catalogo integrado de links oficiais.
 
 ### Alternativas Descartadas e Trade-offs
 

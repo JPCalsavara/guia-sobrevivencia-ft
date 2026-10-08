@@ -2,7 +2,7 @@
 
 ## Contexto
 
-Estudantes universitarios da Faculdade de Tecnologia da Unicamp conciliam rotinas intensas de aulas, deslocamento intermunicipal diario e estagios ou empregos integrais. Textos excessivamente longos, paragrafos densos e construcoes burocraticas dificultam a localizacao rapida de informacoes essenciais nos momentos de tomada de decisao, como matricula, aproveitamento de estudos, planejamento de carreira e estudos para exames.
+Estudantes universitários da Faculdade de Tecnologia da Unicamp conciliam rotinas intensas de aulas, deslocamento intermunicipal diario e estagios ou empregos integrais. Textos excessivamente longos, paragrafos densos e construcoes burocraticas dificultam a localizacao rapida de informacoes essenciais nos momentos de tomada de decisao, como matricula, aproveitamento de estudos, planejamento de carreira e estudos para exames.
 
 ## Decisao
 
