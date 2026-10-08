@@ -1,6 +1,6 @@
 ---
 name: plan-with-grill
-description: Elabora planos de implementacao tecnicos por meio de entrevista guiada com arvore de decisoes grill-me e gera o cartao executivo via GitHub Issues.
+description: Elabora planos de implementacao técnicos por meio de entrevista guiada com arvore de decisoes grill-me e gera o cartao executivo via GitHub Issues.
 ---
 
 # Skill Plan With Grill
@@ -15,7 +15,7 @@ Esta skill estabelece o fluxo oficial de planejamento interativo.
 - Para cada pergunta, apresente a recomendacao tecnica fundamentada nas ADRs vigentes.
 
 ### 2. Elaboracao do Artefato de Plano
-- Redija o documento de planejamento tecnico de forma atomica com secoes padronizadas.
+- Redija o documento de planejamento técnico de forma atomica com secoes padronizadas.
 - Respeite rigorosamente a ADR 0001: ausencia total de parenteses, travessoes e emojis em todo o texto.
 
 ### 3. Registro do Cartao Executivo no GitHub Issues

@@ -1,6 +1,6 @@
 ---
 name: publicar-staging-supabase
-description: Publica o conteudo de staging (markdown e imagens) no Supabase com seguranca, validacao previa e relatorio de upsert por entidade.
+description: Publica o conteudo de staging (markdown e imagens) no Supabase com segurança, validação previa e relatorio de upsert por entidade.
 user-invocable: true
 allowed-tools: "Read, Write, Edit, Bash, Glob, Grep"
 ---
@@ -25,11 +25,11 @@ Use este skill quando o usuario quiser enviar o conteudo preparado em `content-s
 5. Executar upsert em lote no banco (com chave unica por `slug` ou equivalente).
 6. Gerar relatorio final com inseridos, atualizados, ignorados e falhas.
 
-## Regras de seguranca
+## Regras de segurança
 
 - Nao executar `DELETE` em massa sem confirmacao explicita do usuario.
 - Em caso de conflito de schema, interromper e mostrar diff esperado.
-- Se faltar dado critico, interromper publicacao e listar pendencias.
+- Se faltar dado crítico, interromper publicacao e listar pendencias.
 
 ## Regras de consistencia
 

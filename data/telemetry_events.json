@@ -2498,5 +2498,14 @@
     "interacted": false,
     "interactionType": null,
     "timestamp": "2026-09-30T10:52:20Z"
+  },
+  {
+    "topicId": "iniciacao-cientifica",
+    "topicTitle": "Iniciação Científica e Pesquisa",
+    "dwellTimeSeconds": 4,
+    "isMobile": false,
+    "scrollDepthPct": 7,
+    "interacted": false,
+    "timestamp": "2026-10-08T00:24:53.132Z"
   }
 ]

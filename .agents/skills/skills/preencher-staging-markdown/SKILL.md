@@ -44,5 +44,5 @@ Use este skill para transformar conteudo bruto em arquivos markdown prontos em `
 ## Saida esperada
 
 - Lista dos arquivos criados/alterados.
-- Campos pendentes para revisao humana.
+- Campos pendentes para revisão humana.
 - Resumo curto do conteudo preparado para ingestao.

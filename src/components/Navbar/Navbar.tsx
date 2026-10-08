@@ -252,7 +252,7 @@ export function Navbar() {
             type="button"
             onClick={() => setSearchModalOpen(true)}
             className={styles.searchTrigger}
-            aria-label="Abrir busca no guia e assistente de inteligencia artificial"
+            aria-label="Abrir busca no guia e assistente de inteligência artificial"
             title="Buscar no guia ou consultar com IA, atalho Ctrl K"
           >
             <Search size={18} aria-hidden="true" />

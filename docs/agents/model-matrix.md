@@ -1,20 +1,20 @@
 # Matriz de Selecao de Modelos de IA e Playbook de Priorizacao
 
-Este documento estabelece a distribuicao recomendada de modelos de inteligencia artificial e o fluxo integrado de priorizacao de tarefas no Guia de Sobrevivencia da FT.
+Este documento estabelece a distribuicao recomendada de modelos de inteligência artificial e o fluxo integrado de priorizacao de tarefas no Guia de Sobrevivencia da FT.
 
 ## 1. Familias e Niveis de Modelos de IA
 
-1. Claude 3.7 Sonnet: Modelo de referencia para redacao de especificacoes completas to-spec, refatoracoes aprofundadas no ecossistema React e SCSS, design de interfaces e revisao semantica de codigo.
+1. Claude 3.7 Sonnet: Modelo de referencia para redacao de especificacoes completas to-spec, refatoracoes aprofundadas no ecossistema React e SCSS, design de interfaces e revisão semantica de codigo.
 2. Claude 3.5 Haiku: Modelo veloz indicado para correcoes mecanicas pontuais, ajustes de lint e triagem rapida de alteracoes.
 3. Gemini Pro: Modelo de alta capacidade cognitiva para orquestracao de fluxos, decomposicao sistemica, entrevistas grill-me e diagnostico de causas raiz em problemas complexos.
 4. Gemini Flash: Modelo de execucao rapida com ampla janela de contexto, ideal para pesquisas exploratorias no repositorio, ingestao de logs e confeccao de suites de testes unitarios.
-5. Gemini Flash-Lite: Modelo de custo zero adotado na automacao do AI Quality Gatekeeper via GitHub Actions para aprovacao agil de Pull Requests.
+5. Gemini Flash-Lite: Modelo de custo zero adotado na automação do AI Quality Gatekeeper via GitHub Actions para aprovacao agil de Pull Requests.
 
 ## 2. Matriz de Atividades e Modelos Recomendados
 
 | Fase do Ciclo | Atividade Especifica | Modelo Primario | Modelo Alternativo | Justificativa Tecnica |
 | :--- | :--- | :--- | :--- | :--- |
-| Planejamento | Conducao de entrevistas grill-me e planos tecnicos | Gemini Pro | Claude 3.7 Sonnet | Raciocinio aprofundado para exploracao da arvore de decisoes e consistencia com o dominio |
+| Planejamento | Conducao de entrevistas grill-me e planos técnicos | Gemini Pro | Claude 3.7 Sonnet | Raciocinio aprofundado para exploracao da arvore de decisoes e consistencia com o domínio |
 | Especificacao | Redacao da especificacao funcional to-spec | Claude 3.7 Sonnet | Gemini Pro | Capacidade superior de estruturar user stories e contratos de interface detalhados |
 | Decomposicao | Fatiamento em tickets verticais to-tickets | Claude 3.7 Sonnet | Gemini Pro | Mapeamento cirurgico de dependencias e fatiamento vertical em tracer bullets |
 | Pesquisa | Varredura de codigo e leitura de multiplos arquivos | Gemini Flash | Claude 3.5 Haiku | Agilidade de busca no repositorio sem consumo desnecessario de cotas cognitivas |

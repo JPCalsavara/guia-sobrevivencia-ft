@@ -33,7 +33,7 @@ export function computeJourneyStage(semester: number | null): JourneyStage | nul
 }
 
 export const COURSE_NAMES: Record<CourseId, string> = {
-  bsi: 'Sistemas de Informacao',
+  bsi: 'Sistemas de Informação',
   tads: 'Analise e Desenvolvimento de Sistemas',
 };
 

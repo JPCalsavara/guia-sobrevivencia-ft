@@ -14,7 +14,7 @@ Esta skill automatiza a transformacao imediata de solicitacoes de conteudo em ca
 O desenvolvedor fornece notas brutas, topicos, links de videos do YouTube, artigos ou sugestoes de pesquisa.
 
 ### 2. Mapeamento Editorial e Arquitetural
-A skill identifica automaticamente as rotas e arquivos impactados, alem de garantir a conformidade com a ADR 0001 antes de redigir a especificacao final.
+A skill identifica automaticamente as rotas e arquivos impactados, além de garantir a conformidade com a ADR 0001 antes de redigir a especificacao final.
 
 ### 3. Publicacao da Issue
 Utilizando a API MCP ou comando do gh cli, a skill cria a nova solicitacao no repositorio sob a aba de Issues. O titulo deve ser objetivo e o corpo deve incluir a listagem das operacoes necessarias em formato de checkboxes de markdown.

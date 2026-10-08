@@ -17,7 +17,7 @@ export const IDE_TABS_CONFIG: IdeTabConfig[] = [
   { href: '/carreira', filename: 'carreira.rs' },
   { href: '/campus', filename: 'campus.py' },
   { href: '/duvidas', filename: 'duvidas.sql' },
-  { href: '/estatisticas', filename: 'metricas.json' },
+  { href: '/estatisticas', filename: 'métricas.json' },
   { href: '/estudos-ia', filename: 'estudos_ia.py' },
   { href: '/links', filename: 'links_uteis.yaml' },
 ];

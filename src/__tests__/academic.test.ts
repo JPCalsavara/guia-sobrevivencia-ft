@@ -54,7 +54,7 @@ describe('Dados Acadêmicos e Integralização', () => {
     expect(carreiraPage).toContain('highlightStage');
   });
 
-  it('deve conter o alerta critico de Programacao 1 tranca a grade', async () => {
+  it('deve conter o alerta crítico de Programacao 1 tranca a grade', async () => {
     const fs = await import('fs');
     const path = await import('path');
     const academicoPage = fs.readFileSync(path.resolve(process.cwd(), 'src/app/academico/page.tsx'), 'utf8');

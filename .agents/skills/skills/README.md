@@ -11,7 +11,7 @@ Este repositório possui skills especializados para operar o pipeline de conteud
   - Preenche templates de `content-staging/markdown` e gera arquivos finais de projetos, experiencias e habilidades.
 
 - `publicar-staging-supabase`
-  - Publica staging no Supabase (storage + tabelas), com validacao e relatorio.
+  - Publica staging no Supabase (storage + tabelas), com validação e relatorio.
 
 - `restyle-ui-safe`
   - Ajusta estetica (cores, tipografia, composicao) preservando logica e comportamento.
