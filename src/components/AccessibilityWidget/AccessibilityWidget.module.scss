@@ -9,19 +9,19 @@
   width: 3.5rem;
   height: 3.5rem;
   border-radius: $radius-full;
-  background-color: #000000; /* Forçando fundo preto */
-  color: #000000; /* Forçando ícone preto */
+  background-color: var(--primary);
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: $shadow-xl;
   cursor: pointer;
-  border: 2px solid #000000;
-  transition: transform $transition-fast, background-color $transition-fast;
+  border: 2px solid var(--primary);
+  transition: transform $transition-fast, filter $transition-fast;
 
   &:hover {
     transform: scale(1.08);
-    background-color: #111111;
+    filter: brightness(1.1);
   }
 
   @media (max-width: 768px) {
