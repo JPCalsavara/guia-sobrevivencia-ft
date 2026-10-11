@@ -1,6 +1,6 @@
 ---
 name: curriculo-latex-assistant
-description: Assistente para criar e revisar curriculos LaTeX com base no resume-template (PT-BR/EN), com fluxo sem codigo via Prism e validacao de conteudo para mercado alvo.
+description: Assistente para criar e revisar curriculos LaTeX com base no resume-template (PT-BR/EN), com fluxo sem codigo via Prism e validação de conteudo para mercado alvo.
 user-invocable: true
 allowed-tools: "Read, Write, Edit, Bash, Glob, Grep"
 ---
@@ -40,9 +40,9 @@ Arquivos de referencia:
    - links e contato
 6. Entregar resultado em dois formatos:
    - alteracao aplicada no `.tex` (quando solicitado)
-   - resumo textual para revisao rapida
+   - resumo textual para revisão rapida
 
-## Guia para usuario nao tecnico (Prism)
+## Guia para usuario nao técnico (Prism)
 
 Quando o usuario pedir modo simples, orientar assim:
 
@@ -59,13 +59,13 @@ Alternativa para quem usa GitHub:
 ## Regras de qualidade
 
 - Priorizar clareza, especificidade e impacto (evitar texto generico).
-- Usar verbos de acao e, quando possivel, metricas concretas.
+- Usar verbos de acao e, quando possivel, métricas concretas.
 - Preservar coerencia de tempo verbal, formato de datas e terminologia.
-- Nao inventar certificacoes, cargos, metricas ou tecnologias nao confirmadas.
+- Nao inventar certificacoes, cargos, métricas ou tecnologias nao confirmadas.
 - Recomendar foto apenas se o usuario insistir; por padrao, manter sem foto (boas praticas ATS do template).
 - Para primeiro emprego/estagio, sugerir mover `Educacao` para o topo, conforme comentario no `.tex`.
 
-## Guardrails tecnicos do template
+## Guardrails técnicos do template
 
 - Nao remover pacotes e configuracoes base sem necessidade.
 - Nao quebrar a macro `\\cventry{...}{...}{...}{...}`.

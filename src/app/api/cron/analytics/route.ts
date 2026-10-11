@@ -20,7 +20,7 @@ export async function GET(req: Request) {
       dataRelatorio: data.dataRelatorio,
       emailEnviado: emailResult.emailEnviado,
       destinatario: 'j197837@dac.unicamp.br',
-      metricas: {
+      métricas: {
         visitantes: data.totalVisitantesSnapshot,
         visualizacoes: data.totalVisualizacoesSnapshot,
         eventosTelemetria: data.totalEventosTelemetria,

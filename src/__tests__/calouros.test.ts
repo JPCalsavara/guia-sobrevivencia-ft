@@ -89,7 +89,7 @@ describe('Guia do Calouro da Faculdade de Tecnologia', () => {
     expect(calourosFileContent).toContain('Bolsa Auxílio-Moradia da DEAPE');
   });
 
-  it('deve apresentar a automacao de planos de desenvolvimento e exportacao para o Google Calendar', () => {
+  it('deve apresentar a automação de planos de desenvolvimento e exportacao para o Google Calendar', () => {
     expect(calourosFileContent).toContain('id="automacao-google-calendar"');
     expect(calourosFileContent).toContain('Plano de Desenvolvimento da Disciplina');
     expect(calourosFileContent).toContain('Google Calendar');
@@ -167,7 +167,7 @@ describe('Guia do Calouro da Faculdade de Tecnologia', () => {
     expect(calourosFileContent).toContain('/images/horarios-circular.pdf');
   });
 
-  it('deve orientar sobre a Carteirinha Digital com tutorial do Cotil e validacao no totem', () => {
+  it('deve orientar sobre a Carteirinha Digital com tutorial do Cotil e validação no totem', () => {
     expect(calourosFileContent).toContain('cotil.unicamp.br/servicos_digitais/carteirinha-digital-unicamp');
     expect(calourosFileContent).toContain('totem validador');
   });

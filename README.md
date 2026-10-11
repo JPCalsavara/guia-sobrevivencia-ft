@@ -1,6 +1,6 @@
 # Guia do Estudante da Faculdade de Tecnologia da Unicamp
 
-Portal informativo, academico e de integracao estudantil desenvolvido para os graduandos da Faculdade de Tecnologia da Unicamp, com enfase nos cursos de Bacharelado em Sistemas de Informacao e Tecnologia em Analise e Desenvolvimento de Sistemas.
+Portal informativo, academico e de integracao estudantil desenvolvido para os graduandos da Faculdade de Tecnologia da Unicamp, com enfase nos cursos de Bacharelado em Sistemas de Informação e Tecnologia em Analise e Desenvolvimento de Sistemas.
 
 A plataforma foi projetada com arquitetura mobile first, conformidade de acessibilidade digital nivel AA das diretrizes WCAG e diretrizes arquiteturais estritas registradas em decisoes de projeto.
 
@@ -45,10 +45,10 @@ npm start
 ### Modulos de Conteudo do Portal
 
 - `/calouros`: Guia de acolhimento e sobrevivencia para ingressantes, englobando moradia estudantil em Limeira, funcionamento do Restaurante Universitario, linhas do circular, carteirinha DAC e suporte social.
-- `/academico`: Informacoes estruturais dos cursos de computacao da FT, comparativo entre BSI e TADS, explicacao matematica dos coeficientes CR e CP, regras da monitoria PAD com bolsa e voluntaria, linha do tempo da Iniciacao Cientifica PIBIC e FAPESP, aproveitamento de artigo publicado como substituto de monografia no TCC e intercambio pela DERI.
+- `/academico`: Informacoes estruturais dos cursos de computação da FT, comparativo entre BSI e TADS, explicacao matematica dos coeficientes CR e CP, regras da monitoria PAD com bolsa e voluntaria, linha do tempo da Iniciacao Cientifica PIBIC e FAPESP, aproveitamento de artigo publicado como substituto de monografia no TCC e intercambio pela DERI.
 - `/campus`: Infraestrutura física do campus de Limeira, mapas de blocos, laboratorios de informatica, biblioteca, refeitorio e unidades de atendimento a saude.
 - `/carreira`: Programas de estagio curricular obrigatorio e nao obrigatorio, convenios do SAE, feiras de recrutamento, trilhas tecnicas recomendadas e modelos de curriculo em LaTeX.
-- `/estudos-ia`: Referenciais formativos e boas praticas para o emprego etico, critico e produtivo de ferramentas de Inteligencia Artificial nos estudos de graduacao.
+- `/estudos-ia`: Referenciais formativos e boas praticas para o emprego etico, crítico e produtivo de ferramentas de Inteligência Artificial nos estudos de graduacao.
 - `/links`: Diretorio centralizado com hiperlinks canonicos que apontam diretamente para os portais oficiais da Unicamp, evitando dados volateis obsoletos.
 
 ### Organizacao de Diretorios
@@ -56,13 +56,13 @@ npm start
 ```
 guia-sobrevivencia-ft/
 ├── data/
-│   ├── analytics_snapshot.json    # Amostra de metricas de trafego
+│   ├── analytics_snapshot.json    # Amostra de métricas de trafego
 │   └── telemetry_events.json      # Registro de interacoes por componente
 ├── docs/
 │   └── adr/                       # Registro de decisoes arquiteturais de 0001 a 0007
 ├── scripts/
 │   ├── analisar_telemetria.py     # Script de ciencia de dados para correlacao e graficos
-│   ├── analytics_optimizer.py     # Otimizador continuo de rotas baseado em metricas
+│   ├── analytics_optimizer.py     # Otimizador continuo de rotas baseado em métricas
 │   └── vectorize-search.mjs       # Indexador de busca vetorial semantica
 ├── src/
 │   ├── app/                       # Rotas e paginas da aplicacao no padrao App Router
@@ -77,7 +77,7 @@ guia-sobrevivencia-ft/
 │   ├── data/                      # Estruturas de dados tipadas em TypeScript
 │   ├── hooks/                     # Custom hooks, incluindo useTopicTracker
 │   └── styles/                    # Folhas de estilo modulares em SCSS
-└── CONTEXT.md                     # Glossario do dominio e relacao das ADRs
+└── CONTEXT.md                     # Glossario do domínio e relacao das ADRs
 ```
 
 ---
@@ -118,7 +118,7 @@ python3 scripts/analisar_telemetria.py
 ### O que o Script Analisa e Responde
 
 O script processa os dados de telemetria e responde estatisticamente quais assuntos sao mais vistos e quais sao as causas do engajamento:
-- **Efeito de Posicao na Pagina:** Calcula a correlacao entre profundidade de rolagem e tempo de leitura para diferenciar conteudos vistos por estarem no topo daqueles buscados intencionalmente.
+- **Efeito de Posicao na Pagina:** Calcula a correlacao entre profundidade de rolagem e tempo de leitura para diferenciar conteúdos vistos por estarem no topo daqueles buscados intencionalmente.
 - **Engajamento Ativo:** Mede a correlacao entre o tempo de permanencia no cartao e a acao pratica de copiar modelos de e-mail de PAD e Iniciacao Cientifica.
 - **Perfil Mobile:** Compara o comportamento de leitura e retencao entre telas de celulares e computadores.
 

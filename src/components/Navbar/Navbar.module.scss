@@ -174,11 +174,15 @@ button.navItem {
   border: 1px solid var(--border-color);
   background-color: var(--surface-color);
   color: var(--text-secondary);
-  display: inline-flex;
+  display: none;
   align-items: center;
   gap: 0.5rem;
   cursor: pointer;
   transition: all $transition-fast;
+
+  @include respond-to('lg') {
+    display: inline-flex;
+  }
 
   &:hover {
     background-color: var(--ft-blue-soft);
@@ -247,13 +251,17 @@ button.navItem {
   border: 1px solid var(--border-color);
   background-color: var(--surface-color);
   color: var(--text-primary);
-  display: inline-flex;
+  display: none;
   align-items: center;
   gap: 0.5rem;
   cursor: pointer;
   transition: all $transition-fast;
   font-size: 0.8125rem;
   font-weight: 600;
+
+  @include respond-to('lg') {
+    display: inline-flex;
+  }
 
   &:hover {
     background-color: var(--ft-blue-soft);

@@ -10,18 +10,18 @@
   height: 3.5rem;
   border-radius: $radius-full;
   background-color: var(--primary);
-  color: var(--on-primary);
+  color: var(--bg-color);
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: $shadow-xl;
   cursor: pointer;
-  border: 2px solid var(--on-primary);
-  transition: transform $transition-fast, background-color $transition-fast;
+  border: 2px solid var(--primary);
+  transition: transform $transition-fast, filter $transition-fast;
 
   &:hover {
     transform: scale(1.08);
-    background-color: var(--primary-hover);
+    filter: brightness(1.1);
   }
 
   @media (max-width: 768px) {
