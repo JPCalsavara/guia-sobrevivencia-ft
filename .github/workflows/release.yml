@@ -22,21 +22,36 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Extract Version
-        id: get_version
-        run: |
-          VERSION=`grep '"version":' package.json | head -n 1 | cut -d '"' -f 4`
-          echo "VERSION=$VERSION" >> "$GITHUB_OUTPUT"
-          echo "TAG_NAME=v$VERSION" >> "$GITHUB_OUTPUT"
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
-      - name: Check Tag and Create Release
+      - name: Run Auto Release and Ensure Tag
+        id: release_step
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG: ${{ steps.get_version.outputs.TAG_NAME }}
         run: |
-          if git rev-parse "$TAG" >/dev/null 2>&1; then
-            echo "Tag $TAG already exists in repository"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          node scripts/auto-release.mjs
+
+          VERSION=$(node -p "require('./package.json').version")
+          TAG="v$VERSION"
+          echo "TAG=$TAG" >> "$GITHUB_OUTPUT"
+
+          if ! git rev-parse "$TAG" >/dev/null 2>&1; then
+            git tag -a "$TAG" -m "release: versao $VERSION gerada automaticamente via git-flow"
+          fi
+
+          git push origin main || true
+          git push origin "$TAG" || true
+
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "Release $TAG ja existente no GitHub, atualizando notas de lancamento"
+            gh release edit "$TAG" --title "Release $TAG" --generate-notes
           else
-            echo "Creating release $TAG with GitHub CLI"
+            echo "Publicando novo release oficial $TAG no GitHub"
             gh release create "$TAG" --target main --title "Release $TAG" --generate-notes
           fi

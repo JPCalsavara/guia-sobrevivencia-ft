@@ -2,7 +2,9 @@ name: AI Quality Gatekeeper
 
 on:
   pull_request:
-    branches: [main]
+    branches: [main, dev]
+  push:
+    branches: [main, dev]
 
 jobs:
   gatekeeper:
@@ -34,9 +36,13 @@ jobs:
         run: |
           npm test > tests.log 2>&1 || echo "TEST_FAILED=true" >> "$GITHUB_ENV"
 
-      - name: Extract PR Diff
+      - name: Extract Diff
         run: |
-          git diff origin/${{ github.base_ref }}...HEAD > diff.txt
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            git diff origin/${{ github.base_ref }}...HEAD > diff.txt
+          else
+            git diff HEAD~1...HEAD > diff.txt || touch diff.txt
+          fi
 
       - name: Set up Python
         uses: actions/setup-python@v5
