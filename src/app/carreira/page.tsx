@@ -41,7 +41,8 @@ import {
   DollarSign,
   TrendingUp,
   Sparkles,
-  CheckCircle2
+  CheckCircle2,
+  BookOpen
 } from 'lucide-react';
 import { useJourneyStage } from '@/hooks/useJourneyStage';
 import { useSectionOrdering } from '@/hooks/useSectionOrdering';
@@ -55,7 +56,7 @@ import {
   appleDeveloperAcademyData,
   marketVsResearchData,
   hackathonGuideData,
-  salarySurvey2026Data,
+  careerSurveyData,
   remoteGlobalWorkData,
   bsiVsTadsCoordinatorData,
   postPandemicAndAiMarketData,
@@ -78,7 +79,7 @@ const careerTopics: TopicItem[] = [
   },
   {
     id: 'trainee-vs-estagio',
-    title: 'Estágio versus Trainee e Júnior',
+    title: 'Estágio ou Trainee e Júnior',
     subtopics: [
       { id: 'comparativo-estagio-trainee-junior', title: 'Matriz Comparativa das Modalidades' },
       { id: 'processos-seletivos-trainee', title: 'Processos Seletivos e Liderança' },
@@ -135,10 +136,10 @@ const careerTopics: TopicItem[] = [
   },
   {
     id: 'empresas-tech-programas',
-    title: 'Vitrine Tech e Mercado vs Pesquisa',
+    title: 'Vitrine Tech e Mercado ou Pesquisa',
     subtopics: [
       { id: 'vitrine-empresas-tech', title: 'Vitrine de Empresas Líderes' },
-      { id: 'mercado-vs-pesquisa', title: 'Mercado versus Pesquisa Acadêmica' },
+      { id: 'mercado-vs-pesquisa', title: 'Mercado ou Pesquisa Acadêmica' },
     ],
   },
   {
@@ -173,7 +174,7 @@ const careerTopics: TopicItem[] = [
     subtopics: [
       { id: 'projetos-portfolio', title: 'Desafios por Nivel' },
       { id: 'projetos-web-cloud', title: 'Web e Computacao em Nuvem' },
-      { id: 'projetos-dados-seguranca', title: 'Dados e Seguranca' }
+      { id: 'projetos-dados-seguranca', title: 'Dados e Segurança' }
     ],
   },
   {
@@ -200,7 +201,7 @@ const careerTopics: TopicItem[] = [
   },
   {
     id: 'seguranca-informacao',
-    title: 'Seguranca da Informacao',
+    title: 'Segurança da Informação',
     subtopics: [
       { id: 'seguranca-informacao', title: 'Fundamentos, Especializações e Brenno M.' },
     ],
@@ -225,7 +226,7 @@ const careerTopics: TopicItem[] = [
   },
   {
     id: 'bsi-vs-tads-coordenacao',
-    title: 'BSI versus TADS Coordenador',
+    title: 'BSI ou TADS Coordenador',
     subtopics: [
       { id: 'bsi-vs-tads-coordenacao', title: 'Visão da Coordenação' },
       { id: 'comparativo-matrizes-tempo', title: 'Tempo e Matriz Curricular' },
@@ -244,7 +245,7 @@ const careerTopics: TopicItem[] = [
     id: 'carreira-em-y-lideranca',
     title: 'Carreira em Y',
     subtopics: [
-      { id: 'carreira-em-y-lideranca', title: 'Especialista versus Gestão' },
+      { id: 'carreira-em-y-lideranca', title: 'Especialista ou Gestão' },
       { id: 'autoavaliacao-trilha-y', title: 'Autoavaliação de Afinidade' },
       { id: 'videos-referencia-carreira', title: 'Vídeos de Referência' },
     ],
@@ -654,7 +655,7 @@ export default function CarreiraPage() {
         </div>
       </section>
 
-      {/* Estágio versus Trainee versus Efetivo Júnior */}
+      {/* Estágio ou Trainee ou Efetivo Júnior */}
       <section
         id="trainee-vs-estagio"
         style={getSectionStyle('trainee-vs-estagio')}
@@ -665,7 +666,7 @@ export default function CarreiraPage() {
           <div className={styles.cardHeader}>
             <Briefcase size={22} className={styles.headerIcon} />
             <div>
-              <h2 className={styles.cardTitle}>Comparativo: Estágio versus Trainee versus Efetivo Júnior</h2>
+              <h2 className={styles.cardTitle}>Comparativo: Estágio ou Trainee ou Efetivo Júnior</h2>
               <p className={styles.cardSubtitle}>
                 Diferenciação de momentos na graduação, regimes de trabalho, faixas de remuneração e objetivos de carreira
               </p>
@@ -1432,7 +1433,7 @@ export default function CarreiraPage() {
         </div>
       </section>
 
-      {/* Vitrine de Empresas Tech e Mercado versus Pesquisa */}
+      {/* Vitrine de Empresas Tech e Mercado ou Pesquisa */}
       <section
         id="empresas-tech-programas"
         style={getSectionStyle('empresas-tech-programas')}
@@ -1443,7 +1444,7 @@ export default function CarreiraPage() {
           <div className={styles.cardHeader}>
             <Building2 size={22} className={styles.headerIcon} />
             <div>
-              <h2 className={styles.cardTitle}>Vitrine de Empresas Tech e Carreira Corporativa versus Pesquisa</h2>
+              <h2 className={styles.cardTitle}>Vitrine de Empresas Tech e Carreira Corporativa ou Pesquisa</h2>
               <p className={styles.cardSubtitle}>
                 Perfis de contratação de referências do setor e análise comparativa entre emprego corporativo e carreira acadêmica
               </p>
@@ -1501,10 +1502,10 @@ export default function CarreiraPage() {
             </div>
           </div>
 
-          {/* Subtópico 2: Matriz Decisória Mercado vs Pesquisa */}
+          {/* Subtópico 2: Matriz Decisória Mercado ou Pesquisa */}
           <div id="mercado-vs-pesquisa" style={{ marginTop: '2.5rem' }}>
             <h3 className={styles.cardTitle} style={{ fontSize: '1.1rem', marginBottom: '0.75rem' }}>
-              Matriz Decisória: Carreira no Mercado Corporativo versus Pesquisa Acadêmica
+              Matriz Decisória: Carreira no Mercado Corporativo ou Pesquisa Acadêmica
             </h3>
             <p className={styles.cardSubtitle} style={{ marginBottom: '1rem' }}>
               Quadro analítico para apoiar a reflexão entre emprego corporativo e pós-graduação estrita
@@ -2085,37 +2086,31 @@ export default function CarreiraPage() {
                   <h3 className={styles.tableCardTitle}>{cat.category}</h3>
                   <p className={styles.cardSubtitle} style={{ marginTop: '0.5rem', marginBottom: '1rem' }}>{cat.description}</p>
                 </div>
-                <div className={styles.tableWrapper}>
-                  <table className={styles.dataTable}>
-                    <thead>
-                      <tr>
-                        <th>Projeto</th>
-                        <th>Descricao e Requisitos</th>
-                        <th>Tecnologias</th>
-                        <th>Nivel</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {cat.projects.map((proj, pIdx) => (
-                        <tr key={pIdx}>
-                          <td data-label="Projeto" style={{ fontWeight: 600 }}>{proj.title}</td>
-                          <td data-label="Descricao e Requisitos">{proj.description}</td>
-                          <td data-label="Tecnologias">
-                            <div className={styles.skillTagsRow} style={{ marginTop: 0 }}>
-                              {proj.tools.map((t, i) => (
-                                <span key={i} className={styles.skillTag}>{t}</span>
-                              ))}
-                            </div>
-                          </td>
-                          <td data-label="Nivel">
-                            <span className={`${styles.stageBadge} ${proj.level === 'Iniciante' ? styles.badgeCalouro : proj.level === 'Intermediario' ? styles.badgeMeio : styles.badgeFormando}`}>
-                              {proj.level}
-                            </span>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+                <div 
+                  className={styles.projectCardsGrid}
+                  role="list"
+                  aria-label={`Projetos de ${cat.category}`}
+                >
+                  {cat.projects.map((proj, pIdx) => (
+                    <article key={pIdx} className={styles.projectCard} role="listitem">
+                      <div className={styles.projectCardHeader}>
+                        <h4 className={styles.projectCardTitle}>{proj.title}</h4>
+                        <span className={`${styles.projectLevelBadge} ${proj.level === 'Iniciante' ? styles.badgeCalouro : proj.level === 'Intermediario' ? styles.badgeMeio : styles.badgeFormando}`}>
+                          {proj.level}
+                        </span>
+                      </div>
+                      <p className={styles.projectCardDesc}>{proj.description}</p>
+                      <div 
+                        className={styles.skillTagsRow} 
+                        style={{ marginTop: 'auto', paddingTop: '0.5rem' }}
+                        aria-label="Tecnologias utilizadas"
+                      >
+                        {proj.tools.map((t, i) => (
+                          <span key={i} className={styles.skillTag}>{t}</span>
+                        ))}
+                      </div>
+                    </article>
+                  ))}
                 </div>
               </div>
             ))}
@@ -2269,7 +2264,7 @@ export default function CarreiraPage() {
                 </div>
                 <span className={`${styles.skillBadge} ${styles.purple}`}>Dados e IA</span>
               </div>
-              <h3 className={styles.skillTitle}>Trilha Dados e IA: Ciência versus Engenharia</h3>
+              <h3 className={styles.skillTitle}>Trilha Dados e IA: Ciência ou Engenharia</h3>
               <p className={styles.skillDesc}>
                 Ciência foca em modelagem estatística, hipóteses e algoritmos preditivos. Engenharia foca em pipelines confiáveis e ingestão escalável. Participe da Liga de Ciência de Dados da Unicamp Liga DS para atuar em projetos práticos com dados reais e aproveite a especialização Michigan gratuita via Coursera Unicamp.
               </p>
@@ -2322,17 +2317,17 @@ export default function CarreiraPage() {
               </div>
             </div>
 
-            {/* Trilha 4: Seguranca da Informacao */}
+            {/* Trilha 4: Segurança da Informação */}
             <div className={styles.skillItem}>
               <div className={styles.skillItemHeader}>
                 <div className={`${styles.skillIconWrap} ${styles.green}`}>
                   <ShieldCheck size={20} aria-hidden="true" />
                 </div>
-                <span className={`${styles.skillBadge} ${styles.green}`}>Ciberseguranca</span>
+                <span className={`${styles.skillBadge} ${styles.green}`}>Cibersegurança</span>
               </div>
-              <h3 className={styles.skillTitle}>Trilha Seguranca: Hacking Etico e Defesa</h3>
+              <h3 className={styles.skillTitle}>Trilha Segurança: Hacking Ético e Defesa</h3>
               <p className={styles.skillDesc}>
-                Proteja infraestruturas e previna ataques descobrindo falhas antes que sejam exploradas. Participe da Liga de Ciberseguranca da Unicamp LICS para competir em CTF e aplicar web hacking de forma etica.
+                Proteja infraestruturas e previna ataques descobrindo falhas antes que sejam exploradas. Participe da Liga de Cibersegurança da Unicamp LICS para competir em CTF e aplicar web hacking de forma etica.
               </p>
               <div className={styles.skillTagsRow}>
                 <span className={styles.skillTag}>OWASP</span>
@@ -2380,7 +2375,7 @@ export default function CarreiraPage() {
             <div>
               <h2 className={styles.cardTitle}>DevOps e Infraestrutura Agil na Universidade</h2>
               <p className={styles.cardSubtitle}>
-                Praticas de automacao de infraestrutura, esteiras de entrega continua e orquestracao de conteineres
+                Praticas de automação de infraestrutura, esteiras de entrega continua e orquestracao de conteineres
               </p>
             </div>
           </div>
@@ -2434,7 +2429,7 @@ export default function CarreiraPage() {
         </div>
       </section>
 
-      {/* Trilha de Seguranca da Informacao */}
+      {/* Trilha de Segurança da Informação */}
       <section
         id="seguranca-informacao"
         style={getSectionStyle('seguranca-informacao')}
@@ -2445,18 +2440,18 @@ export default function CarreiraPage() {
           <div className={styles.cardHeader}>
             <ShieldCheck size={22} className={styles.headerIcon} />
             <div>
-              <h2 className={styles.cardTitle}>Trilha de Seguranca da Informacao e Hacking Etico</h2>
+              <h2 className={styles.cardTitle}>Trilha de Segurança da Informação e Hacking Ético</h2>
               <p className={styles.cardSubtitle}>
-                Roadmap tecnico, grupos de estudo universitarios e fundamentos de computacao para ofensiva cibernetica
+                Roadmap técnico, grupos de estudo universitários e fundamentos de computação para ofensiva cibernética
               </p>
             </div>
           </div>
 
-          <div className={styles.skillsGrid}>
+          <div className={styles.skillsGrid} style={{ gridTemplateColumns: '1fr' }}>
             <div className={styles.skillItem}>
-              <h3 className={styles.skillTitle}>Ciberseguranca e Recomendacao da LICS</h3>
+              <h3 className={styles.skillTitle}>Cibersegurança e Recomendação da LICS</h3>
               <p className={styles.skillDesc}>
-                Participe da LICS, Liga de Ciberseguranca da Unicamp. A iniciativa promove grupos de estudo, treinamentos praticos de seguranca defensiva e ofensiva, alem de competicoes de CTF Capture The Flag no cenario nacional.
+                Participe da LICS, Liga de Cibersegurança da Unicamp. A iniciativa promove grupos de estudo, treinamentos práticos de segurança defensiva e ofensiva, além de competições de CTF Capture The Flag no cenário nacional.
               </p>
               <div className={styles.trackActions}>
                 <a
@@ -2483,11 +2478,33 @@ export default function CarreiraPage() {
             </div>
 
             <div className={styles.skillItem}>
-              <h3 className={styles.skillTitle}>Curadoria Editorial e Hacking</h3>
+              <h3 className={styles.skillTitle}>Blog: Cultura Hacker e Curadoria em Red Team</h3>
               <p className={styles.skillDesc}>
-                A estruturacao avancada desta trilha foi construida a partir da curadoria publica de Brenno M., profissional de destaque em seguranca ofensiva e pesquisa de vulnerabilidades. Seus artigos oferecem uma visao pragmatica para quem deseja ingressar no universo hacker sem cair no ruido de marketing superficial.
+                A estruturação avançada desta trilha conta com a curadoria do blog de Brenno M., profissional de destaque em segurança ofensiva. Seu blog e um guia prático para a verdadeira filosofia hacker, que transcende a ideia estereotipada de quebrar sistemas e atua como uma mentalidade de curiosidade insaciável, questionamento e compreensão profunda de como a tecnologia funciona. Nele, você entenderá que executar ferramentas de automação sem dominar as bases da computação e como pilotar um avião sem saber aviação.
+                <br /><br />
+                Além de fundamentos técnicos, o blog atua como um filtro crítico contra o ruído da internet. Em meio a conteúdos que prometem &quot;domínio em horas&quot; com &quot;receitas&quot; simplistas, o autor defende que estudar segurança exige curadoria e higiene de escolha. Os artigos apontam caminhos ancorados em metodo, revisão crítica e validação fundamentada, alertando que métricas de popularidade de plataformas não substituem a verdadeira autoridade tecnica.
               </p>
               <div className={styles.trackActions}>
+                <a
+                  href="https://brennocm.github.io/articles/pt-br/tips/hacking.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.trackActionBtn}
+                >
+                  <Terminal size={14} />
+                  <span>Caminho para Hacking</span>
+                  <ExternalLink size={12} />
+                </a>
+                <a
+                  href="https://brennocm.github.io/articles/pt-br/tips/suggested-courses.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.trackActionBtn}
+                >
+                  <BookOpen size={14} />
+                  <span>Cursos e Conteudos</span>
+                  <ExternalLink size={12} />
+                </a>
                 <a
                   href="https://www.linkedin.com/in/brenno-m-a53b75191"
                   target="_blank"
@@ -2501,16 +2518,16 @@ export default function CarreiraPage() {
             </div>
             
             <div className={styles.skillItem}>
-              <h3 className={styles.skillTitle}>Fundamentos de Seguranca</h3>
+              <h3 className={styles.skillTitle}>Fundamentos de Segurança</h3>
               <p className={styles.skillDesc}>
-                Nao existe atalho para ciberseguranca sem solidos alicerces tecnicos. Antes de executar qualquer ferramenta pronta, o estudante deve compreender a fundo redes corporativas, Active Directory, arquitetura de sistemas e protocolos web.
+                Nao existe atalho para ciberseguranca sem solidos alicerces técnicos. Antes de executar qualquer ferramenta pronta, o estudante deve compreender a fundo redes corporativas, Active Directory, arquitetura de sistemas e protocolos web.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Pesquisa Salarial 2026 e Panorama de Remuneração */}
+      {/* Pesquisa Salarial 2026 */}
       <section
         id="salarios-2026-mercado"
         style={getSectionStyle('salarios-2026-mercado')}
@@ -2521,96 +2538,30 @@ export default function CarreiraPage() {
           <div className={styles.cardHeader}>
             <DollarSign size={24} className={styles.headerIcon} />
             <div>
-              <h2 className={styles.cardTitle}>{salarySurvey2026Data.title}</h2>
+              <h2 className={styles.cardTitle}>{careerSurveyData.title}</h2>
               <p className={styles.cardSubtitle}>
-                {salarySurvey2026Data.description}
+                Consulte o mapeamento consolidado do mercado nacional realizado pelo {careerSurveyData.source}.
               </p>
             </div>
           </div>
 
           <div style={{ marginBottom: '1.5rem' }}>
             <a
-              href={salarySurvey2026Data.sourceUrl}
+              href={careerSurveyData.url}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.channelActionBtn}
               style={{ display: 'inline-flex', width: 'fit-content' }}
             >
               <ExternalLink size={16} />
-              <span>Acessar Relatorio da Pesquisa Salarial 2026</span>
+              <span>Acessar Relatório da Pesquisa Salarial 2026</span>
             </a>
           </div>
-
-          <div className={styles.comparisonTableWrapper}>
-            <table className={styles.comparisonTable}>
-              <thead>
-                <tr>
-                  <th>Nivel</th>
-                  <th>Salario Medio</th>
-                  <th>Faixa de Mercado</th>
-                  <th>Regime Mais Comum</th>
-                  <th>Foco Principal</th>
-                </tr>
-              </thead>
-              <tbody>
-                {salarySurvey2026Data.niveis.map((row, idx) => (
-                  <tr key={idx}>
-                    <td><strong>{row.nivel}</strong></td>
-                    <td>{row.salarioMedio}</td>
-                    <td>{row.faixaMercado}</td>
-                    <td>{row.regimeComum}</td>
-                    <td>{row.focoPrincipal}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <div id="regimes-contratacao" style={{ marginTop: '2.5rem' }}>
-            <h3 className={styles.cardTitle} style={{ fontSize: '1.15rem', marginBottom: '0.75rem' }}>
-              Regimes de Contratacao: CLT versus PJ versus Cooperativas
-            </h3>
-            <div className={styles.gridTwo}>
-              {salarySurvey2026Data.regimes.map((reg, idx) => (
-                <div key={idx} className={styles.card}>
-                  <h4 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
-                    {reg.regime}
-                  </h4>
-                  <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', marginBottom: '0.5rem', lineHeight: 1.5 }}>
-                    {reg.caracteristicas}
-                  </p>
-                  <p style={{ fontSize: '0.8125rem', color: 'var(--ft-green)', fontWeight: 600 }}>
-                    Vantagens: {reg.vantagens}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div id="roi-graduacao-unicamp" style={{ marginTop: '2.5rem' }}>
-            <h3 className={styles.cardTitle} style={{ fontSize: '1.15rem', marginBottom: '0.75rem' }}>
-              Retorno sobre o Investimento da Graduacao na FT Unicamp
-            </h3>
-            <div className={styles.comparisonTableWrapper}>
-              <table className={styles.comparisonTable}>
-                <thead>
-                  <tr>
-                    <th>Dimensao</th>
-                    <th>Graduacao na FT Unicamp</th>
-                    <th>Cursos Rapidos e Bootcamps</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {salarySurvey2026Data.roiGraduacao.map((roi, idx) => (
-                    <tr key={idx}>
-                      <td><strong>{roi.aspecto}</strong></td>
-                      <td>{roi.graduacaoUnicamp}</td>
-                      <td>{roi.cursosRapidosBootcamps}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+          
+          <div className={styles.warningBox}>
+            <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+              <strong>Nota:</strong> Em conformidade com as diretrizes do projeto (ADR 0004), dados brutos e voláteis de salários não são transcritos diretamente no Guia. Consulte o relatório oficial no link acima para obter informações atualizadas sobre faixas salariais, regimes de contratação e retorno sobre o investimento de tecnologias.
+            </p>
           </div>
         </div>
       </section>
@@ -2702,7 +2653,7 @@ export default function CarreiraPage() {
         </div>
       </section>
 
-      {/* BSI versus TADS com a Coordenação */}
+      {/* BSI ou TADS com a Coordenação */}
       <section
         id="bsi-vs-tads-coordenacao"
         style={getSectionStyle('bsi-vs-tads-coordenacao')}
@@ -2781,7 +2732,7 @@ export default function CarreiraPage() {
 
           <div id="ia-verdade-programacao" style={{ marginTop: '2.5rem' }}>
             <h3 className={styles.cardTitle} style={{ fontSize: '1.15rem', marginBottom: '1rem' }}>
-              Mitos versus Realidade da Inteligencia Artificial na Engenharia
+              Mitos ou Realidade da Inteligência Artificial na Engenharia
             </h3>
             <div className={styles.gridTwo}>
               {postPandemicAndAiMarketData.mitosIA.map((item, idx) => (
@@ -2823,7 +2774,7 @@ export default function CarreiraPage() {
         </div>
       </section>
 
-      {/* Carreira em Y: Especialista versus Gestor */}
+      {/* Carreira em Y: Especialista ou Gestor */}
       <section
         id="carreira-em-y-lideranca"
         style={getSectionStyle('carreira-em-y-lideranca')}
@@ -2899,8 +2850,27 @@ export default function CarreiraPage() {
 
           <div id="videos-referencia-carreira" style={{ marginTop: '2.5rem' }}>
             <h3 className={styles.cardTitle} style={{ fontSize: '1.15rem', marginBottom: '1rem' }}>
-              Videos Recomendados sobre Salarios, IA e Carreira
+              Vídeos Recomendados sobre Carreira, IA e Mercado
             </h3>
+            
+            <div className={styles.card} style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1.25rem', borderLeft: '4px solid var(--ft-blue)' }}>
+              <div>
+                <span className={styles.channelBadge} style={{ marginBottom: '0.5rem', display: 'inline-block' }}>Pesquisa</span>
+                <h4 className={styles.channelTitle} style={{ fontSize: '1.05rem', margin: '0 0 0.25rem 0' }}>{careerSurveyData.title}</h4>
+                <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', margin: 0 }}>Fonte: {careerSurveyData.source}</p>
+              </div>
+              <a
+                href={careerSurveyData.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.channelActionBtn}
+                style={{ alignSelf: 'center', margin: 0 }}
+              >
+                <ExternalLink size={16} />
+                <span>Abrir pesquisa</span>
+              </a>
+            </div>
+
             <div className={styles.channelsGrid}>
               {careerVideosData.map((vid) => (
                 <div key={vid.id} className={styles.channelCard}>
@@ -2958,7 +2928,7 @@ export default function CarreiraPage() {
                 <Youtube size={20} color="#dc2626" />
               </div>
               <p className={styles.channelDesc}>
-                História da computação, arquitetura de sistemas operacionais, compiladores e lições diretas sobre maturidade e evolução técnica.
+                Série &apos;Começando aos 40&apos; com lições sobre fundamentos de programação para iniciantes, persistência e maturidade profissional.
               </p>
               <a
                 href="https://www.youtube.com/watch?v=sx4hAHhO9CY&list=PLdsnXVqbHDUc7htGFobbZoNen3r_wm3ki"

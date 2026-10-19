@@ -8,7 +8,7 @@ Ao mesmo tempo, compreender como os estudantes navegam entre os topicos de gradu
 
 ## Decisao
 
-Adotar a Vercel como ambiente oficial de hospedagem em nuvem do projeto, utilizando seus recursos integrados de entrega continua e analise de metricas:
+Adotar a Vercel como ambiente oficial de hospedagem em nuvem do projeto, utilizando seus recursos integrados de entrega continua e analise de métricas:
 
 1. Facilidade de implantacao continua: Toda alteracao validada no repositorio dispara compilacao automatica, geracao de rotas estaticas otimizadas e publicacao imediata em rede de distribuicao global sem necessidade de intervencao manual em servidores.
 2. Acompanhamento do estado da solucao com Analytics nativo: A solucao utiliza o Vercel Analytics em producao para capturar visitantes unicos, volume de visualizacoes por pagina, distribuicao entre computadores e celulares e sistemas operacionais predominantes.

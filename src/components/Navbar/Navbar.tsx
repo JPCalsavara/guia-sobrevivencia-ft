@@ -252,7 +252,7 @@ export function Navbar() {
             type="button"
             onClick={() => setSearchModalOpen(true)}
             className={styles.searchTrigger}
-            aria-label="Abrir busca no guia e assistente de inteligencia artificial"
+            aria-label="Abrir busca no guia e assistente de inteligência artificial"
             title="Buscar no guia ou consultar com IA, atalho Ctrl K"
           >
             <Search size={18} aria-hidden="true" />
@@ -293,41 +293,7 @@ export function Navbar() {
           className={styles.mobileNav}
           aria-label="Navegacao movel"
         >
-          {/* Botão de Perfil no Mobile */}
-          <button
-            type="button"
-            onClick={() => {
-              setMobileMenuOpen(false);
-              setProfileModalOpen(true);
-            }}
-            className={`${styles.mobileProfileBtn} ${profile.course ? styles.hasProfile : ''}`}
-            aria-label="Abrir selecao de curso e periodo academico"
-          >
-            <div className={styles.mobileProfileContent}>
-              <GraduationCap size={18} aria-hidden="true" />
-              <span>
-                {profile.course && profile.year
-                  ? `${COURSE_SHORT_NAMES[profile.course]} · ${profile.year}º Ano`
-                  : profile.course && profile.semester
-                    ? `${COURSE_SHORT_NAMES[profile.course]} · ${Math.ceil(profile.semester / 2)}º Ano`
-                    : 'Selecionar Curso e Ano'}
-              </span>
-            </div>
-            <Sparkles size={16} aria-hidden="true" />
-          </button>
 
-          {/* Busca Mobile */}
-          <button
-            type="button"
-            onClick={() => {
-              setMobileMenuOpen(false);
-              setSearchModalOpen(true);
-            }}
-            className={styles.mobileSearchTrigger}
-          >
-            <Search size={18} aria-hidden="true" />
-            <span>Buscar ou Consultar com IA</span>
-          </button>
 
           {/* Link Início */}
           <Link

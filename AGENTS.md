@@ -2,15 +2,15 @@
 
 ### Issue tracker
 
-Issues and specs live as local markdown files under `.scratch/<feature>/`. See `docs/agents/issue-tracker.md`.
+Acompanhamento de tarefas e features atraves do GitHub Issues. O rastreamento local foi descontinuado pela ADR 0004. Consulte `docs/agents/issue-tracker.md`.
 
 ### Triage labels
 
-Default canonical roles (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`). See `docs/agents/triage-labels.md`.
+Default canonical roles. See `docs/agents/triage-labels.md`.
 
 ### Domain docs
 
-Single-context layout (`CONTEXT.md` + `docs/adr/`). See `docs/agents/domain.md`.
+Single-context layout. See `docs/agents/domain.md`.
 
 ### Model matrix
 
@@ -18,4 +18,4 @@ Distribution of AI models across engineering tasks. See `docs/agents/model-matri
 
 ### Content to Card
 
-Fast-path content tickets directly to `docs/next/`. See `.agents/skills/content-to-card/SKILL.md`.
+Fast-path content tickets via geracao automatica de issue. Consulte `.agents/skills/content-to-card/SKILL.md`.

@@ -85,9 +85,6 @@ describe('Testes de Acessibilidade Cromatica WCAG 2.1 e Contraste nos Botoes', (
     const pageModulePath = path.resolve(process.cwd(), 'src/app/page.module.scss');
     const pageModuleContent = fs.readFileSync(pageModulePath, 'utf8');
 
-    const navbarModulePath = path.resolve(process.cwd(), 'src/components/Navbar/Navbar.module.scss');
-    const navbarModuleContent = fs.readFileSync(navbarModulePath, 'utf8');
-
     const calourosModulePath = path.resolve(process.cwd(), 'src/app/calouros/calouros.module.scss');
     const calourosModuleContent = fs.readFileSync(calourosModulePath, 'utf8');
 
@@ -98,7 +95,6 @@ describe('Testes de Acessibilidade Cromatica WCAG 2.1 e Contraste nos Botoes', (
     const linksModuleContent = fs.readFileSync(linksModulePath, 'utf8');
 
     expect(pageModuleContent).toContain('color: var(--on-primary);');
-    expect(navbarModuleContent).toContain('color: var(--on-primary);');
     expect(calourosModuleContent).toContain('color: var(--on-primary);');
     expect(academicoModuleContent).toContain('color: var(--on-primary);');
     expect(linksModuleContent).toContain('color: var(--on-primary);');

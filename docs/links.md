@@ -24,12 +24,12 @@ Compilação completa e categorizada de todos os links institucionais da Unicamp
 | **Portal Oficial da FT** | Notícias, eventos, secretarias e corpo docente da FT | [ft.unicamp.br](https://www.ft.unicamp.br) |
 | **Intranet FT** | Portal interno com serviços acadêmicos, notas e dados | [sistemas.ft.unicamp.br/intranet](https://sistemas.ft.unicamp.br/intranet) |
 | **Alocação e Reserva de Salas** | Consulta em tempo real de ocupação de salas de aula e anfiteatros | [sistemas.ft.unicamp.br/salas](https://sistemas.ft.unicamp.br/salas) |
-| **TIC Tecnologia da Informação** | Coordenadoria de TI, labs de informática e contas | [ft.unicamp.br/tic](https://www.ft.unicamp.br/tic) |
+| **TIC Tecnologia da Informação** | Coordenadoria de TI, labs de informática e contas | [ft.unicamp.br/tic](https://www.ft.unicamp.br) |
 | **WifiPrint FT** | Envio de impressões em preto e branco conectado na rede da FT | [ft.unicamp.br/wifiprint](https://www.ft.unicamp.br/wifiprint) |
 | **Cota de Impressão DTIC** | Normas e renovação mensal de 15 páginas nos laboratórios | [wordpress.ft.unicamp.br/informatica/cota-de-impressao](https://wordpress.ft.unicamp.br/informatica/cota-de-impressao/) |
 | **Portal DTIC Informática** | Estrutura de laboratórios LP01 a LP10, salas e fretado | [wordpress.ft.unicamp.br/informatica](https://wordpress.ft.unicamp.br/informatica/) |
-| **Catálogo de Cursos BSI** | Grade, ementas e critérios de integralização de Sistemas de Informação | [Catálogo BSI DAC](https://www.dac.unicamp.br/portal/graduacao/cursos/sistemas-de-informacao) |
-| **Catálogo de Cursos TADS** | Grade, ementas e critérios de Análise e Desenvolvimento de Sistemas | [Catálogo TADS DAC](https://www.dac.unicamp.br/portal/graduacao/cursos/analise-e-desenvolvimento-de-sistemas) |
+| **Catálogo de Cursos BSI** | Grade, ementas e critérios de integralização de Sistemas de Informação | [Catálogo BSI DAC](https://www.dac.unicamp.br) |
+| **Catálogo de Cursos TADS** | Grade, ementas e critérios de Análise e Desenvolvimento de Sistemas | [Catálogo TADS DAC](https://www.dac.unicamp.br) |
 
 ---
 
@@ -43,12 +43,12 @@ Compilação completa e categorizada de todos os links institucionais da Unicamp
 | **Moodle Unicamp** | Ambiente virtual de aprendizagem, materiais e entrega de atividades | [moodle.unicamp.br](https://moodle.unicamp.br) |
 | **Rede Wi-Fi Eduroam (CCUEC)** | Instruções e instalador da rede sem fio acadêmica mundial | [ccuec.unicamp.br/servicos/eduroam](https://www.ccuec.unicamp.br/ccuec/servicos/eduroam) |
 | **SBU (Sistema de Bibliotecas)** | Catálogo Acervus, renovação de livros e acesso à Biblioteca da FT | [sbu.unicamp.br](https://www.sbu.unicamp.br) |
-| **SAE (Apoio ao Estudante)** | Bolsas de auxílio social (BAS, BAEF), alimentação e transporte | [sae.unicamp.br](https://www.sae.unicamp.br) |
+| **SAE (Apoio ao Estudante)** | Bolsas de auxílio social (BAS, BAEF), alimentação e transporte | [sae.unicamp.br](https://deape.unicamp.br) |
 | **DERI (Relações Internacionais)** | Editais de intercâmbio acadêmico, mobilidade e bolsas no exterior | [internationaloffice.unicamp.br](https://www.internationaloffice.unicamp.br) |
-| **PRP / PIBIC Unicamp** | Iniciação Científica institucional, editais e submissões | [prp.unicamp.br/pibic](https://prp.unicamp.br/pibic) |
+| **PRP / PIBIC Unicamp** | Iniciação Científica institucional, editais e submissões | [www.prp.unicamp.br/pibic](https://www.prp.unicamp.br/pibic) |
 | **FAPESP (Sistema SAGe)** | Submissão de bolsas de Iniciação Científica de fluxo contínuo | [sage.fapesp.br](https://sage.fapesp.br) |
 | **CEL (Centro de Ensino de Línguas)** | Cursos de idiomas gratuitos com créditos de eletivas livres | [cel.unicamp.br](https://www.cel.unicamp.br) |
-| **Coursera for Campus Unicamp** | Cursos e certificados gratuitos com e-mail `@dac.unicamp.br` | [coursera.org/programs/unicamp-on-coursera](https://www.coursera.org/programs/unicamp-on-coursera) |
+| **Coursera for Campus Unicamp** | Cursos e certificados gratuitos com e-mail `@dac.unicamp.br` | [coursera.org/partners/unicamp](https://www.coursera.org/partners/unicamp) |
 
 ---
 
@@ -66,8 +66,7 @@ Compilação completa e categorizada de todos os links institucionais da Unicamp
 | **CVU Limeira** | Centro de Voluntariado Universitário (Ações sociais e voluntariado) | [@cvu.limeira](https://www.instagram.com/cvu.limeira/) | [cvu.org.br](https://cvu.org.br) |
 | **Projeto ASAS** | Extensão universitária de impacto esportivo e comunitário | [@asaslimeira](https://www.instagram.com/asaslimeira/) | [fca.unicamp.br/extensao](https://www2.fca.unicamp.br/extensao/) |
 | **LMF Unicamp** | Liga do Mercado Financeiro (Polo Limeira) | [@lmfunicamp](https://www.instagram.com/lmfunicamp/) | [lmfunicamp.com](https://lmfunicamp.com) |
-| **A.R.U.Li. (Repúblicas)** | Associação das Repúblicas da Unicamp de Limeira (Moradias) | [@aruli.unicamp](https://www.instagram.com/aruli.unicamp/) | [linktr.ee/arulimeiraoficial](https://linktr.ee/arulimeiraoficial) |
-| **DevLimeira** | Comunidade Tech Regional (Meetups, DevDay, Networking) | [@fabricadeinovacao](https://www.instagram.com/fabricadeinovacao/) | [sympla.com.br/devlimeira](https://www.sympla.com.br/produtor/devlimeira) |
+| **A.R.U.Li. (Repúblicas)** | Associação das Repúblicas da Unicamp de Limeira (Moradias) | [@aruli.unicamp](https://www.instagram.com/aruli.unicamp/) | [linktr.ee/arulimeiraoficial](https://www.instagram.com/arulimeiraoficial/) |
 | **Fábrica de Inovação** | Hub e Polo de Inovação e Empreendedorismo de Limeira | [@fabricadeinovacao](https://www.instagram.com/fabricadeinovacao/) | [fabricadeinovacao.org.br](https://fabricadeinovacao.org.br) |
 | **LiUP Liga de Startups** | Liga de Startups da Unicamp, atuando em inovacao e empreendedorismo | [@liup.unicamp](https://www.instagram.com/liup.unicamp/) | [ligadestartups-unicamp.web.app](https://ligadestartups-unicamp.web.app/) |
 | **LICS Cibersegurança** | Liga de Cibersegurança da Unicamp, estudos e competições CTF | [@lics.unicamp](https://www.instagram.com/lics.unicamp/) | [lics.tec.br](https://www.lics.tec.br) |

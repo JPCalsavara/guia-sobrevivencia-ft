@@ -709,7 +709,7 @@ export default function AcademicoPage() {
               </span>
             </div>
             <a
-              href="https://www.dac.unicamp.br/portal/estudantes/graduacao/colacao-de-grau"
+              href="https://www.dac.unicamp.br"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.gradeButton}
@@ -1906,7 +1906,7 @@ export default function AcademicoPage() {
 
           <div className={styles.refLinksGrid}>
             <a
-              href="https://www.prp.unicamp.br/pibic"
+              href="https://www.www.prp.unicamp.br/pibic"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.refCard}
@@ -1920,7 +1920,7 @@ export default function AcademicoPage() {
               <p className={styles.refCardDesc}>
                 Editais oficiais anuais do PIBIC e PIBITI na Unicamp, cronogramas de inscrição, critérios de avaliação de mérito e modelos de relatórios parciais e finais.
               </p>
-              <span className={styles.refCardMeta}>prp.unicamp.br/pibic</span>
+              <span className={styles.refCardMeta}>www.prp.unicamp.br/pibic</span>
             </a>
 
             <a

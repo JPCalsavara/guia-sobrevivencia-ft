@@ -25,7 +25,7 @@ Use este skill para evoluir design visual sem quebrar fluxo funcional.
 1. Nao alterar contratos de dados (`src/lib/portfolio.ts`, tipos e slugs) sem necessidade.
 2. Nao remover interacoes principais da UI.
 3. Preservar responsividade (mobile e desktop).
-4. Executar validacao com lint/build apos alteracoes visuais.
+4. Executar validação com lint/build apos alteracoes visuais.
 5. Se houver mudanca estrutural grande, aplicar em etapas pequenas e verificaveis.
 
 ## Direcao de design
@@ -40,4 +40,4 @@ Use este skill para evoluir design visual sem quebrar fluxo funcional.
 - Lista dos arquivos visuais alterados.
 - O que mudou no sistema de estilo (cores, fontes, componentes).
 - Garantia explicita de que a logica foi preservada.
-- Resultado de validacao (lint/build).
+- Resultado de validação (lint/build).

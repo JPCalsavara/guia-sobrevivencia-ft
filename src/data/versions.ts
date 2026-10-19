@@ -13,7 +13,7 @@ export const versionsData: VersionRelease[] = [
     version: '1.11.0',
     tag: 'v1.11.0',
     date: 'Outubro de 2026',
-    title: 'Trilha de Ciberseguranca, IdeStatusBar Telemetrico e Filtros Temporais',
+    title: 'Trilha de Cibersegurança, IdeStatusBar Telemetrico e Filtros Temporais',
     highlights: [
       'Inclusao da trilha completa de ciberseguranca e hacking etico com reconhecimento ao pesquisador Brenno M.',
       'Metricas em tempo real no IdeStatusBar com contadores de usuarios ativos e rotulo SilvMar',
@@ -34,7 +34,7 @@ export const versionsData: VersionRelease[] = [
       'Refinamento da paleta com contraste acessivel e compatibilidade WCAG AAA'
     ],
     type: 'minor',
-    githubUrl: 'https://github.com/jpcalsavara/guia-sobrevivencia-ft/releases/tag/v1.10.0',
+    githubUrl: 'https://github.com/JPCalsavara/guia-sobrevivencia-ft/releases',
   },
   {
     version: '1.9.2',
@@ -59,20 +59,20 @@ export const versionsData: VersionRelease[] = [
       'Canal de envio direto de questionamentos para a equipe curadora'
     ],
     type: 'minor',
-    githubUrl: 'https://github.com/jpcalsavara/guia-sobrevivencia-ft/releases/tag/v1.9.0',
+    githubUrl: 'https://github.com/JPCalsavara/guia-sobrevivencia-ft/releases',
   },
   {
     version: '1.8.0',
     tag: 'v1.8.0',
     date: 'Julho de 2026',
-    title: 'Guia de Inteligencia Artificial e Segundo Cerebro Academico',
+    title: 'Guia de Inteligência Artificial e Segundo Cerebro Academico',
     highlights: [
-      'Integracao de roteiros praticos para uso do Google NotebookLM na FT',
+      'Integracao de roteiros práticos para uso do Google NotebookLM na FT',
       'Engenharia de prompts voltada para estruturas de dados e calculo diferencial',
       'Adocao dos principios do metodo Feynman na rotina universitaria'
     ],
     type: 'minor',
-    githubUrl: 'https://github.com/jpcalsavara/guia-sobrevivencia-ft/releases/tag/v1.8.0',
+    githubUrl: 'https://github.com/JPCalsavara/guia-sobrevivencia-ft/releases',
   },
   {
     version: '1.7.0',
@@ -85,7 +85,7 @@ export const versionsData: VersionRelease[] = [
       'Mapa vetorial com localizacao das salas e laboratorios de informatica'
     ],
     type: 'minor',
-    githubUrl: 'https://github.com/jpcalsavara/guia-sobrevivencia-ft/releases/tag/v1.7.0',
+    githubUrl: 'https://github.com/JPCalsavara/guia-sobrevivencia-ft/releases',
   },
   {
     version: '1.5.0',
@@ -93,12 +93,12 @@ export const versionsData: VersionRelease[] = [
     date: 'Maio de 2026',
     title: 'Comparativo Curricular Bacharelado versus Tecnologia',
     highlights: [
-      'Matriz analitica completa entre Sistemas de Informacao e TADS',
+      'Matriz analitica completa entre Sistemas de Informação e TADS',
       'Orientacoes oficiais de estagio supervisionado e catalogo DAC',
       'Alertas sobre cadeias de pre requisitos e retencao'
     ],
     type: 'minor',
-    githubUrl: 'https://github.com/jpcalsavara/guia-sobrevivencia-ft/releases/tag/v1.5.0',
+    githubUrl: 'https://github.com/JPCalsavara/guia-sobrevivencia-ft/releases',
   },
   {
     version: '1.0.0',
@@ -111,6 +111,6 @@ export const versionsData: VersionRelease[] = [
       'Arquitetura limpa com Next.js App Router e estilizacao SCSS modular'
     ],
     type: 'major',
-    githubUrl: 'https://github.com/jpcalsavara/guia-sobrevivencia-ft/releases/tag/v1.0.0',
+    githubUrl: 'https://github.com/JPCalsavara/guia-sobrevivencia-ft/releases',
   },
 ];

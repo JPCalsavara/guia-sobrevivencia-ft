@@ -454,7 +454,7 @@ export default function CalourosPage() {
                       </p>
                     </div>
                     <a
-                      href="https://www.imobiliariaroque.com.br/"
+                      href="https://roqueimoveis.com.br/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className={styles.realtorActionBtn}
@@ -467,79 +467,42 @@ export default function CalourosPage() {
 
                   <div className={styles.realtorCard}>
                     <div>
-                      <h4 className={styles.realtorName}>Bom Jesus Imóveis</h4>
+                      <h4 className={styles.realtorName}>Portinari Imóveis</h4>
                       <p className={styles.realtorDesc}>
-                        Grande oferta de kitnets e imóveis residenciais compactos voltados para quem vem estudar na cidade.
+                        Apoio em locação imobiliária com portfólio diversificado em toda a região de Limeira.
                       </p>
                     </div>
                     <a
-                      href="https://www.bomjesusimoveis.com.br/"
+                      href="https://www.portinarimoveis.com.br/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className={styles.realtorActionBtn}
-                      aria-label="Acessar portal da Bom Jesus Imóveis em nova janela"
+                      aria-label="Acessar portal da Portinari Imóveis em nova janela"
                     >
-                      <span>Portal Bom Jesus Imóveis</span>
+                      <span>Portal Portinari Imóveis</span>
                       <ExternalLink size={12} aria-hidden="true" />
                     </a>
                   </div>
 
                   <div className={styles.realtorCard}>
                     <div>
-                      <h4 className={styles.realtorName}>Imobiliária Della Nina</h4>
+                      <h4 className={styles.realtorName}>Sassi Imóveis</h4>
                       <p className={styles.realtorDesc}>
-                        Opções variadas de aluguel residencial bem situadas em corredores de fácil acesso aos campi.
+                        Locação imobiliária tradicional com atendimento para estudantes universitários em Limeira.
                       </p>
                     </div>
                     <a
-                      href="https://www.dellaninaimoveis.com.br/"
+                      href="https://www.sassiimoveis.com.br/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className={styles.realtorActionBtn}
-                      aria-label="Acessar portal da Imobiliária Della Nina em nova janela"
+                      aria-label="Acessar portal da Sassi Imóveis em nova janela"
                     >
-                      <span>Portal Della Nina Imóveis</span>
+                      <span>Portal Sassi Imóveis</span>
                       <ExternalLink size={12} aria-hidden="true" />
                     </a>
                   </div>
 
-                  <div className={styles.realtorCard}>
-                    <div>
-                      <h4 className={styles.realtorName}>Imobiliária Boa Vista</h4>
-                      <p className={styles.realtorDesc}>
-                        Locação de apartamentos, studios e casas em bairros residenciais tranquilos no entorno universitário.
-                      </p>
-                    </div>
-                    <a
-                      href="https://www.boavistaimoveis.com.br/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.realtorActionBtn}
-                      aria-label="Acessar portal da Imobiliária Boa Vista em nova janela"
-                    >
-                      <span>Portal Imobiliária Boa Vista</span>
-                      <ExternalLink size={12} aria-hidden="true" />
-                    </a>
-                  </div>
-
-                  <div className={styles.realtorCard}>
-                    <div>
-                      <h4 className={styles.realtorName}>Prates Imóveis</h4>
-                      <p className={styles.realtorDesc}>
-                        Amplo catálogo imobiliário para locação residencial e repúblicas estudantis em diversos pontos de Limeira.
-                      </p>
-                    </div>
-                    <a
-                      href="https://www.pratesimoveis.com.br/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.realtorActionBtn}
-                      aria-label="Acessar portal da Prates Imóveis em nova janela"
-                    >
-                      <span>Portal Prates Imóveis</span>
-                      <ExternalLink size={12} aria-hidden="true" />
-                    </a>
-                  </div>
                 </div>
 
                 <div className={`${styles.alertBox} ${styles.alertTip}`} style={{ marginTop: '1.25rem' }}>

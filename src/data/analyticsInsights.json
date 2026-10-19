@@ -22,7 +22,7 @@
     },
     {
       "alvo": "/calouros",
-      "prioridade": "critica",
+      "prioridade": "crítica",
       "acao": "Adicionar banner de boas-vindas com chamada direta para moradia e calendario na pagina inicial",
       "justificativa": "Apenas 6.7% das visualizacoes de conteudo chegam ao guia do calouro, revelando deficit de descoberta"
     },
@@ -36,7 +36,7 @@
       "alvo": "ferramentas_desenvolvimento",
       "prioridade": "media",
       "acao": "Manter scripts, atalhos de terminal e orientacoes de configuracao em ambiente GNU Linux",
-      "justificativa": "Usuarios GNU Linux somam 12.0% da base, confirmando perfil de graduandos de computacao da FT"
+      "justificativa": "Usuarios GNU Linux somam 12.0% da base, confirmando perfil de graduandos de computação da FT"
     }
   ]
 }

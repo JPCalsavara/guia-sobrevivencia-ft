@@ -341,7 +341,7 @@ export default function CampusPage() {
                 Login nos computadores físicos com usuário do RA e senha cadastrada na coordenadoria de TIC, distinta da senha central da DAC.
               </p>
               <a
-                href="https://www.ft.unicamp.br/tic"
+                href="https://www.ft.unicamp.br"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.roomLink}
@@ -414,7 +414,7 @@ export default function CampusPage() {
               </ol>
               <div className={styles.buttonRow}>
                 <a
-                  href="https://www.ft.unicamp.br/wifiprint"
+                  href="https://ibquota.ft.unicamp.br/wifiprint/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.actionBtn}
@@ -424,6 +424,39 @@ export default function CampusPage() {
                   <ExternalLink size={12} />
                 </a>
               </div>
+
+              <div className={styles.realtorCard}>
+                <div className={styles.realtorInfo}>
+                  <h3 className={styles.realtorName}>Portinari Imóveis</h3>
+                  <p className={styles.realtorDesc}>Apoio em locação imobiliária com portfólio em Limeira</p>
+                </div>
+                <a
+                  href="https://www.portinarimoveis.com.br/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.realtorLink}
+                >
+                  <ExternalLink size={16} />
+                  <span>Acessar portal</span>
+                </a>
+              </div>
+
+              <div className={styles.realtorCard}>
+                <div className={styles.realtorInfo}>
+                  <h3 className={styles.realtorName}>Sassi Imóveis</h3>
+                  <p className={styles.realtorDesc}>Locação tradicional com atendimento estudantil</p>
+                </div>
+                <a
+                  href="https://www.sassiimoveis.com.br/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.realtorLink}
+                >
+                  <ExternalLink size={16} />
+                  <span>Acessar portal</span>
+                </a>
+              </div>
+
             </div>
 
             <div className={styles.roomCard}>
@@ -1143,7 +1176,7 @@ export default function CampusPage() {
                 </p>
               </div>
               <a
-                href="https://www.imobiliariaroque.com.br/"
+                href="https://roqueimoveis.com.br/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.realtorActionBtn}
@@ -1325,7 +1358,7 @@ export default function CampusPage() {
                 </p>
               </div>
               <a
-                href="https://www.ft.unicamp.br/ensino/graduacao"
+                href="https://www.ft.unicamp.br"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.libraryActionBtn}
@@ -1344,7 +1377,7 @@ export default function CampusPage() {
                 </p>
               </div>
               <a
-                href="https://www.ft.unicamp.br/tic"
+                href="https://www.ft.unicamp.br"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.libraryActionBtn}

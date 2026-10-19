@@ -45,7 +45,7 @@ export async function POST(req: Request) {
 
     currentEvents.push(eventRecord);
 
-    // Limite maximo de seguranca para evitar crescimento indefinido
+    // Limite maximo de segurança para evitar crescimento indefinido
     if (currentEvents.length > 5000) {
       currentEvents = currentEvents.slice(-5000);
     }

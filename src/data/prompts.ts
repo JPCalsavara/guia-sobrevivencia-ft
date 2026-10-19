@@ -89,7 +89,7 @@ export const latexResumeTemplate = String.raw`% Modelo baseado no devcelio/resum
 \\end{center}
 
 \\section{Educacao}
-\\cventry{Universidade Estadual de Campinas, UNICAMP}{Limeira, SP}{Bacharelado em Sistemas de Informacao ou Tecnologia em ADS}{Conclusao Prevista: Dezembro de 2028}
+\\cventry{Universidade Estadual de Campinas, UNICAMP}{Limeira, SP}{Bacharelado em Sistemas de Informação ou Tecnologia em ADS}{Conclusao Prevista: Dezembro de 2028}
 \\begin{itemize}
     \\item Disciplinas Relevantes: Algoritmos e Estruturas de Dados, Engenharia de Software, Bancos de Dados, Redes de Computadores.
     \\item Projetos Praticos: Desenvolvimento de solucoes de software colaborativas com controle de versao via Git.
@@ -111,14 +111,14 @@ export const latexResumeTemplate = String.raw`% Modelo baseado no devcelio/resum
 
 \\cventry{API de Gestao e Servicos}{Limeira, SP}{Servico RESTful em Java e Spring Boot com PostgreSQL}{2026}
 \\begin{itemize}
-    \\item Construcao de endpoints com autenticacao e validacao estrita de tipos de dados.
+    \\item Construcao de endpoints com autenticacao e validação estrita de tipos de dados.
     \\item Criacao de ambiente conteinerizado via Docker para replicacao local de banco de dados e testes.
 \\end{itemize}
 
 \\section{Atividades Extracurriculares e Lideranca}
 \\cventry{Atria Jr. ou Centro Academico CDI}{Limeira, SP}{Membro ou Desenvolvedor Trainee}{Marco de 2026 ate o Momento}
 \\begin{itemize}
-    \\item Participacao em rotinas de desenvolvimento em equipe, revisao de codigo e alinhamento de requisitos.
+    \\item Participacao em rotinas de desenvolvimento em equipe, revisão de codigo e alinhamento de requisitos.
     \\item Apoio a iniciativas de integracao tecnica e organizacao de eventos na Faculdade de Tecnologia.
 \\end{itemize}
 

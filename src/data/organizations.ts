@@ -21,7 +21,7 @@ export const organizationsData: Organization[] = [
     instagramHandle: '@atriajr',
     instagramUrl: 'https://www.instagram.com/atriajr/',
     websiteUrl: 'https://atriajr.com.br',
-    linkedinUrl: 'https://www.linkedin.com/company/atriajr/',
+    linkedinUrl: 'https://www.linkedin.com/company/atria-jr/',
   },
 
   // 2. Ligas Acadêmicas
@@ -209,16 +209,7 @@ export const organizationsData: Organization[] = [
     instagramUrl: 'https://www.instagram.com/mosaico.limeira/',
     websiteUrl: 'https://www2.fca.unicamp.br/institucional/organizacoes-estudantis/organizacoes-estudantis-sociais-de-cunho-coletivo/mosaico-grupo-cristao/',
   },
-  {
-    id: 'devlimeira',
-    name: 'DevLimeira Comunidade Tech',
-    category: 'extensao',
-    categoryLabel: 'Comunidade Regional',
-    description: 'Comunidade de desenvolvedores e entusiastas de software de Limeira e região com encontros técnicos frequentes.',
-    instagramHandle: '@fabricadeinovacao',
-    instagramUrl: 'https://www.instagram.com/fabricadeinovacao/',
-    websiteUrl: 'https://www.sympla.com.br/produtor/devlimeira',
-  },
+  
   {
     id: 'fabrica-inovacao',
     name: 'Fábrica de Inovação de Limeira',
@@ -319,7 +310,7 @@ export const organizationsData: Organization[] = [
     description: 'Organização que auxilia na integração das moradias universitárias, busca de vagas em repúblicas e orientação a calouros.',
     instagramHandle: '@aruli.unicamp',
     instagramUrl: 'https://www.instagram.com/aruli.unicamp/',
-    websiteUrl: 'https://linktr.ee/arulimeiraoficial',
+    websiteUrl: 'https://www.instagram.com/arulimeiraoficial/',
   },
   {
     id: 'central-republicas',
