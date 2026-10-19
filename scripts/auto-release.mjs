@@ -7,7 +7,14 @@ function run(command) {
 }
 
 function getCurrentBranch() {
-  return run('git rev-parse --abbrev-ref HEAD');
+  if (process.env.GITHUB_REF_NAME) {
+    return process.env.GITHUB_REF_NAME;
+  }
+  try {
+    return run('git rev-parse --abbrev-ref HEAD');
+  } catch {
+    return 'main';
+  }
 }
 
 function getLatestTag() {
@@ -71,23 +78,22 @@ export function autoRelease() {
     return;
   }
 
-  const latestTag = getLatestTag();
+  let latestTag = getLatestTag();
+  const packageJsonPath = resolve(process.cwd(), 'package.json');
+  const packageJsonContent = JSON.parse(readFileSync(packageJsonPath, 'utf-8'));
+  const currentPkgVersion = (packageJsonContent.version || '1.0.0').replace(/^v/, '');
 
   if (!latestTag) {
-    console.log('Nenhuma tag anterior encontrada. Tag inicial v1.0.0 recomendada.');
-    return;
+    latestTag = `v${currentPkgVersion}`;
   }
+
+  const latestTagClean = latestTag.replace(/^v/, '');
 
   let commitsSinceTag = '';
   try {
     commitsSinceTag = run(`git log ${latestTag}..HEAD --pretty=format:"%s %b"`);
   } catch {
     commitsSinceTag = '';
-  }
-
-  if (!commitsSinceTag) {
-    console.log(`Nenhuma nova comissao encontrada desde ${latestTag}. Nenhum release necessario.`);
-    return;
   }
 
   let latestMergeSubject = '';
@@ -98,15 +104,30 @@ export function autoRelease() {
   }
 
   const bumpType = determineBumpType(commitsSinceTag, latestMergeSubject);
-  const newVersion = bumpVersion(latestTag, bumpType);
+
+  let newVersion = currentPkgVersion;
+  if (currentPkgVersion === latestTagClean || !commitsSinceTag) {
+    newVersion = bumpVersion(latestTagClean, bumpType);
+  }
+
+  while (true) {
+    try {
+      const tagExists = run(`git tag -l v${newVersion}`);
+      if (tagExists) {
+        newVersion = bumpVersion(newVersion, 'patch');
+      } else {
+        break;
+      }
+    } catch {
+      break;
+    }
+  }
+
   const newTag = `v${newVersion}`;
-
-  console.log(`Ultima tag: ${latestTag}`);
+  console.log(`Ultima tag registrada: ${latestTag}`);
   console.log(`Tipo de incremento detectado: ${bumpType}`);
-  console.log(`Nova versao calculada: ${newTag}`);
+  console.log(`Nova versao oficial: ${newTag}`);
 
-  const packageJsonPath = resolve(process.cwd(), 'package.json');
-  const packageJsonContent = JSON.parse(readFileSync(packageJsonPath, 'utf-8'));
   packageJsonContent.version = newVersion;
   writeFileSync(packageJsonPath, JSON.stringify(packageJsonContent, null, 2) + '\n');
 
@@ -114,13 +135,16 @@ export function autoRelease() {
     run('git add package.json');
     run(`ALLOW_MAIN_COMMIT=1 git commit -m "chore: atualizar versao no package.json para ${newTag}"`);
   } catch {
-    console.log('Arquivo package.json ja se encontrava atualizado.');
+    console.log('Arquivo package.json ja se encontrava atualizado no commit.');
   }
 
-  const tagMessage = `release: versao ${newVersion} gerada automaticamente via git-flow`;
-  run(`git tag -a ${newTag} -m "${tagMessage}"`);
-
-  console.log(`Release ${newTag} criado e tagueado com sucesso!`);
+  try {
+    const tagMessage = `release: versao ${newVersion} gerada automaticamente via git-flow`;
+    run(`git tag -a ${newTag} -m "${tagMessage}"`);
+    console.log(`Release ${newTag} criado e tagueado com sucesso no git.`);
+  } catch (err) {
+    console.log(`Tag ${newTag} ja existe localmente: ${err.message}`);
+  }
 }
 
 if (process.argv[1] && process.argv[1].endsWith('auto-release.mjs')) {
