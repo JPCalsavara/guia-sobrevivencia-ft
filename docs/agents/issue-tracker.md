@@ -10,10 +10,13 @@ Conforme estipulado pela ADR 0004, o rastreamento de tarefas, issues e especific
 
 ## Fluxo de Integracao de Codigo e Branches
 
-Conforme estipulado pela ADR 0003, o modelo de mesclagem e ramificacao impoe:
+Conforme estipulado pela ADR 0003 e pela ADR 0010, o modelo de mesclagem e ramificacao impoe:
+- Origem da Branch: Criada obrigatoriamente a partir da branch dev.
 - Nome da Branch: `<tipo>/<ID-da-issue>-<titulo>`.
-- Estrategia de Fusao: Somente _Squash and Merge_ deve ser empregada para integrar alteracoes de codigo de um request a ramificacao de producao. 
+- Alvo do Pull Request: Todo Pull Request de desenvolvimento deve ter como destino a branch dev. E proibido submeter requisicoes de funcionalidade diretamente para a branch main.
+- Estrategia de Fusao: Somente _Squash and Merge_ deve ser empregada para integrar alteracoes de codigo de um request a ramificacao dev. 
 - Mensagem de Commit: Ao concluir, o commit sintetizado seguira o formato imperativo e linear: `<tipo> <ID-da-issue>: <descricao>`. O uso de parenteses nesse padrao esta suspenso por forca da ADR 0001.
+- Promocao para Main: Apos homologacao em dev, a atualizacao da producao e geracao de release oficial ocorrem exclusivamente via Pull Request formal de dev para main.
 
 ## Excecoes
 
