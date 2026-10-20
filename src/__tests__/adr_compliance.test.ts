@@ -214,6 +214,14 @@ describe('Conformidade com ADR 0001: Ausência de Travessão, Parênteses e Emoj
     expect(content).toContain('head_ref }}" != "dev"');
   });
 
+  it('o workflow ai-gatekeeper deve executar tanto os testes quanto o build de producao', () => {
+    const workflowPath = path.resolve(process.cwd(), '.github/workflows/ai-gatekeeper.yml');
+    const content = fs.readFileSync(workflowPath, 'utf8');
+    expect(content).toContain('Run Production Build');
+    expect(content).toContain('npm run build');
+    expect(content).toContain('BUILD_FAILED');
+  });
+
   it('textos de versionsData nao devem violar o ADR 0001', () => {
     versionsData.forEach((rel) => {
       expect(rel.title).not.toMatch(forbiddenPunctuation);
