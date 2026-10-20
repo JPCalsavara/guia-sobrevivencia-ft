@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { TableBsiTads } from '@/components/TableBsiTads/TableBsiTads';
 import { CurriculumGrids } from '@/components/CurriculumGrids/CurriculumGrids';
 import { ChecklistFormatura } from '@/components/ChecklistFormatura/ChecklistFormatura';
+import { AcademicCalendar } from '@/components/AcademicCalendar/AcademicCalendar';
 import { JourneyFilter, JourneyStage } from '@/components/JourneyFilter/JourneyFilter';
 import {
   BookOpen,
@@ -106,6 +107,13 @@ const academicTopics: TopicItem[] = [
     ],
   },
   {
+    id: 'calendario-academico',
+    title: 'Calendario Academico e DAC',
+    subtopics: [
+      { id: 'calendario-academico', title: 'Marcos Semestrais e Fontes Canonicas' },
+    ],
+  },
+  {
     id: 'calculo-geometria',
     title: 'Cálculo e o Efeito Cascata de Prog 1',
     subtopics: [
@@ -203,6 +211,7 @@ const academicTopics: TopicItem[] = [
 const sectionStageMap: Record<string, { stage: JourneyStage; label: string }> = {
   'bsi-vs-tads': { stage: 'calouro', label: 'Foco: Calouro, 1º e 2º Semestres' },
   'coeficientes-dac': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
+  'calendario-academico': { stage: 'calouro', label: 'Foco: Transversal, Todos os Semestres' },
   'calculo-geometria': { stage: 'calouro', label: 'Foco: Calouro, 1º e 2º Semestres' },
   'checklist-formatura': { stage: 'formando', label: 'Foco: Formando, 7º e 8º Semestres' },
   'tcc-pos-graduacao-pif': { stage: 'formando', label: 'Foco: Formando, 7º e 8º Semestres' },
@@ -218,6 +227,7 @@ const sectionStageMap: Record<string, { stage: JourneyStage; label: string }> = 
 const allAcademicSectionIds = [
   'bsi-vs-tads',
   'coeficientes-dac',
+  'calendario-academico',
   'calculo-geometria',
   'checklist-formatura',
   'tcc-pos-graduacao-pif',
@@ -530,6 +540,32 @@ export default function AcademicoPage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Calendario Academico e Marcos Oficiais da DAC */}
+      <section
+        id="calendario-academico"
+        style={getSectionStyle('calendario-academico')}
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['calendario-academico']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('calendario-academico')}
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <Calendar size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>Calendario Academico e Marcos Criticos do Semestre</h2>
+              <p className={styles.cardSubtitle}>
+                Ciclo semestral de matricula, desistencia, trancamento e exames finais conectado diretamente as fontes canonicas da DAC
+              </p>
+            </div>
+          </div>
+
+          <p className={styles.ruleText}>
+            A integralizacao curricular na Unicamp exige o acompanhamento constante dos prazos regimentais estabelecidos pela Diretoria Academica. A perda de datas de matricula, alteracao de turmas ou solicitacao de colacao acarreta prejuizos graves a trajetoria do estudante. Consulte o painel abaixo para compreender o ciclo das rotinas academicas e acessar as resolucoes oficiais vigentes.
+          </p>
+
+          <AcademicCalendar />
         </div>
       </section>
 

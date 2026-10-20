@@ -9,6 +9,7 @@ import { searchIndex } from '../data/searchIndex';
 import { faqData } from '../data/faq';
 import { headerNavSections } from '../data/headerTopics';
 import { versionsData } from '../data/versions';
+import { academicMilestonesData, canonicalAcademicResources } from '../data/academicCalendar';
 import { PROJECT_SUPPORT_EMAIL, PROJECT_CONTRIBUTING_URL } from '../data/contacts';
 
 describe('Conformidade com ADR 0001: Ausência de Travessão, Parênteses e Emojis', () => {
@@ -65,6 +66,40 @@ describe('Conformidade com ADR 0001: Ausência de Travessão, Parênteses e Emoj
       expect(org.description).not.toMatch(parenthesesPattern);
       expect(org.categoryLabel).not.toMatch(forbiddenPunctuation);
       expect(org.categoryLabel).not.toMatch(parenthesesPattern);
+    });
+  });
+
+  it('textos de academicCalendar não devem violar o ADR 0001', () => {
+    academicMilestonesData.forEach((milestone) => {
+      expect(milestone.title).not.toMatch(forbiddenPunctuation);
+      expect(milestone.title).not.toMatch(parenthesesPattern);
+      expect(milestone.title).not.toMatch(emojiPattern);
+
+      expect(milestone.description).not.toMatch(forbiddenPunctuation);
+      expect(milestone.description).not.toMatch(parenthesesPattern);
+      expect(milestone.description).not.toMatch(emojiPattern);
+
+      expect(milestone.typicalPeriod).not.toMatch(forbiddenPunctuation);
+      expect(milestone.typicalPeriod).not.toMatch(parenthesesPattern);
+      expect(milestone.typicalPeriod).not.toMatch(emojiPattern);
+
+      expect(milestone.actionGuidance).not.toMatch(forbiddenPunctuation);
+      expect(milestone.actionGuidance).not.toMatch(parenthesesPattern);
+      expect(milestone.actionGuidance).not.toMatch(emojiPattern);
+
+      expect(milestone.criticalRisk).not.toMatch(forbiddenPunctuation);
+      expect(milestone.criticalRisk).not.toMatch(parenthesesPattern);
+      expect(milestone.criticalRisk).not.toMatch(emojiPattern);
+    });
+
+    canonicalAcademicResources.forEach((res) => {
+      expect(res.title).not.toMatch(forbiddenPunctuation);
+      expect(res.title).not.toMatch(parenthesesPattern);
+      expect(res.title).not.toMatch(emojiPattern);
+
+      expect(res.description).not.toMatch(forbiddenPunctuation);
+      expect(res.description).not.toMatch(parenthesesPattern);
+      expect(res.description).not.toMatch(emojiPattern);
     });
   });
 
@@ -222,6 +257,27 @@ describe('Conformidade com ADR 0004: Desacoplamento de Informações Voláteis',
     expect(criticalLinks.length).toBe(6);
     criticalLinks.forEach((link) => {
       const url = new URL(link.url);
+      const isOfficial = canonicalDomains.some((d) => url.hostname.endsWith(d));
+      expect(isOfficial).toBe(true);
+    });
+  });
+
+  it('todos os links de academicCalendar devem apontar para dominios canonicos oficiais', () => {
+    const canonicalDomains = [
+      'unicamp.br',
+      'prefeituralimeira.unicamp.br',
+      'ft.unicamp.br',
+      'dac.unicamp.br'
+    ];
+
+    canonicalAcademicResources.forEach((res) => {
+      const url = new URL(res.url);
+      const isOfficial = canonicalDomains.some((d) => url.hostname.endsWith(d));
+      expect(isOfficial).toBe(true);
+    });
+
+    academicMilestonesData.forEach((milestone) => {
+      const url = new URL(milestone.officialUrl);
       const isOfficial = canonicalDomains.some((d) => url.hostname.endsWith(d));
       expect(isOfficial).toBe(true);
     });
