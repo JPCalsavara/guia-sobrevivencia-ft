@@ -19,6 +19,14 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Validate PR Target Branch Policy
+        if: github.event_name == 'pull_request' && github.base_ref == 'main'
+        run: |
+          if [ "${{ github.head_ref }}" != "dev" ]; then
+            echo "::error::Violacao da politica de branches ADR 0010: Pull Requests direcionados a branch main devem originar-se exclusivamente da branch dev. Branches de feature e correcao devem ser direcionadas a branch dev."
+            exit 1
+          fi
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
