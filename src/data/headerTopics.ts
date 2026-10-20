@@ -100,6 +100,13 @@ export const headerNavSections: HeaderNavSection[] = [
         recommendedStages: ['meio', 'formando'],
       },
       {
+        id: 'calendario-academico',
+        title: 'Calendario Academico e Marcos Oficiais DAC',
+        href: '/academico#calendario-academico',
+        tag: 'Calendario',
+        recommendedStages: ['calouro', 'meio', 'formando'],
+      },
+      {
         id: 'alerta-prog1-tranca-tudo',
         title: 'Alerta Critico de Programacao Um',
         href: '/academico#alerta-prog1-tranca-tudo',
