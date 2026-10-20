@@ -182,11 +182,18 @@ describe('Conformidade com ADR 0001: Ausência de Travessão, Parênteses e Emoj
       'docs/adr/0001-estilo-textual-sem-marcas-artificiais.md',
       'docs/adr/0002-responsividade-mobile-first.md',
       'docs/adr/0003-acessibilidade-digital-wcag.md',
+      'docs/adr/0003-adocao-squash-merge-branchs.md',
+      'docs/adr/0004-adocao-github-issues-kanban.md',
       'docs/adr/0004-desacoplamento-de-informacoes-volateis.md',
       'docs/adr/0005-concisao-e-clareza-orientada-a-essencia.md',
       'docs/adr/0006-otimizacao-continua-guiada-por-telemetria.md',
       'docs/adr/0007-hospedagem-na-vercel-com-analytics-integrado.md',
       'docs/adr/0008-versionamento-semantico-releases-automaticos-e-protecao-de-branch.md',
+      'docs/adr/0009-adocao-eslint-padronizacao-codigo.md',
+      'docs/adr/0010-fluxo-de-branches-git-flow-com-integracao-em-dev-e-promocao-para-main.md',
+      'docs/adr/0011-arquitetura-modular-desacoplada-e-orientada-a-dominios.md',
+      'docs/agents/dev-flow.md',
+      'docs/agents/issue-tracker.md',
       'CONTEXT.md'
     ];
     docs.forEach((docPath) => {
@@ -197,6 +204,14 @@ describe('Conformidade com ADR 0001: Ausência de Travessão, Parênteses e Emoj
         expect(content).not.toMatch(parenthesesPattern);
       }
     });
+  });
+
+  it('o workflow ai-gatekeeper deve conter a protecao de branch que restringe PRs para main apenas a dev', () => {
+    const workflowPath = path.resolve(process.cwd(), '.github/workflows/ai-gatekeeper.yml');
+    const content = fs.readFileSync(workflowPath, 'utf8');
+    expect(content).toContain('Validate PR Target Branch Policy');
+    expect(content).toContain("base_ref == 'main'");
+    expect(content).toContain('head_ref }}" != "dev"');
   });
 
   it('textos de versionsData nao devem violar o ADR 0001', () => {
