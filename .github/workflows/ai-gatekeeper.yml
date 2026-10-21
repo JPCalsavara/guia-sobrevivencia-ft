@@ -44,6 +44,11 @@ jobs:
         run: |
           npm test > tests.log 2>&1 || echo "TEST_FAILED=true" >> "$GITHUB_ENV"
 
+      - name: Run Production Build
+        id: build
+        run: |
+          npm run build > build.log 2>&1 || echo "BUILD_FAILED=true" >> "$GITHUB_ENV"
+
       - name: Extract Diff
         run: |
           if [ "${{ github.event_name }}" = "pull_request" ]; then
@@ -94,8 +99,13 @@ jobs:
             cat tests.log
             exit 1
           fi
+          if [ "$BUILD_FAILED" = "true" ]; then
+            echo "Erro: A compilacao de producao com npm run build falhou."
+            cat build.log
+            exit 1
+          fi
           if [ "$GATEKEEPER_FAILED" = "true" ]; then
             echo "Erro: O AI Gatekeeper reprovou as alteracoes deste Pull Request."
             exit 1
           fi
-          echo "Todos os testes e validacoes do Gatekeeper foram concluidos com exito!"
+          echo "Todos os testes, compilacao e validacoes do Gatekeeper foram concluidos com exito!"
