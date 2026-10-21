@@ -66,6 +66,11 @@ describe('Conformidade com ADR 0001: Ausência de Travessão, Parênteses e Emoj
       expect(org.description).not.toMatch(parenthesesPattern);
       expect(org.categoryLabel).not.toMatch(forbiddenPunctuation);
       expect(org.categoryLabel).not.toMatch(parenthesesPattern);
+      if (org.recruitmentPeriod) {
+        expect(org.recruitmentPeriod).not.toMatch(forbiddenPunctuation);
+        expect(org.recruitmentPeriod).not.toMatch(parenthesesPattern);
+        expect(org.recruitmentPeriod).not.toMatch(emojiPattern);
+      }
     });
   });
 
