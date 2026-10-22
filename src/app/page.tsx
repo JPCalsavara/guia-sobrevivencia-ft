@@ -21,6 +21,7 @@ import {
   Link2,
 } from 'lucide-react';
 import { useStudentProfile } from '@/contexts/StudentProfileContext';
+import { AudienceAxisBar } from '@/components/AudienceAxisBar/AudienceAxisBar';
 import styles from './page.module.scss';
 
 export default function HomePage() {
@@ -206,6 +207,11 @@ export default function HomePage() {
           <span>Explorar o Guia</span>
           <ChevronDown size={18} className={styles.scrollArrow} />
         </a>
+      </section>
+
+      {/* Barra de Eixo de Perfil de Publico em destaque no topo */}
+      <section className={styles.audienceAxisSection}>
+        <AudienceAxisBar />
       </section>
 
       <div id="conteudo-portal">
