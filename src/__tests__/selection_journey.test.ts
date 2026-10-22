@@ -1,9 +1,12 @@
+import React from 'react';
 import { describe, it, expect } from 'vitest';
+import { render, screen } from '@testing-library/react';
 import {
   selectionJourneyData,
   veteransNetworkData,
   companiesShowcaseData
 } from '@/data/careerExpanded';
+import { SelectionJourneyTrail } from '@/components/SelectionJourneyTrail/SelectionJourneyTrail';
 
 describe('Trilha de fases do processo seletivo e rede de veteranos', () => {
   const forbiddenPunctuation = /[\u2014\u2013]/;
@@ -55,6 +58,53 @@ describe('Trilha de fases do processo seletivo e rede de veteranos', () => {
     companiesShowcaseData.forEach((company) => {
       const hasVeteran = veteransNetworkData.some((veteran) => veteran.companyId === company.id);
       expect(hasVeteran).toBe(true);
+    });
+  });
+});
+
+describe('Render do componente SelectionJourneyTrail', () => {
+  it('renderiza as seis fases na ordem com lista semantica e aria-label nos passos', () => {
+    render(
+      React.createElement(SelectionJourneyTrail, {
+        stages: selectionJourneyData,
+        veterans: veteransNetworkData
+      })
+    );
+
+    const orderedStages = [...selectionJourneyData].sort((a, b) => a.order - b.order);
+
+    const stageList = screen.getByLabelText('Fases do processo seletivo em ordem cronologica');
+    expect(stageList.tagName).toBe('OL');
+
+    const stageItems = stageList.querySelectorAll('li');
+    expect(stageItems.length).toBe(6);
+
+    orderedStages.forEach((stage, index) => {
+      const step = screen.getByLabelText(
+        `Fase ${stage.order} de ${orderedStages.length}: ${stage.title}`
+      );
+      expect(step).toBeDefined();
+      expect(stageItems[index].textContent).toContain(stage.title);
+    });
+  });
+
+  it('cada link de veterano aponta para hostname linkedin.com com rel noopener noreferrer', () => {
+    const { container } = render(
+      React.createElement(SelectionJourneyTrail, {
+        stages: selectionJourneyData,
+        veterans: veteransNetworkData
+      })
+    );
+
+    const links = Array.from(container.querySelectorAll('a'));
+    expect(links.length).toBe(veteransNetworkData.length);
+
+    links.forEach((link) => {
+      const href = link.getAttribute('href') ?? '';
+      const url = new URL(href);
+      expect(url.hostname.endsWith('linkedin.com')).toBe(true);
+      expect(link.getAttribute('rel')).toBe('noopener noreferrer');
+      expect(link.getAttribute('target')).toBe('_blank');
     });
   });
 });
