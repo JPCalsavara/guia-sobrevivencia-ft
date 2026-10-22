@@ -11,6 +11,14 @@ import { headerNavSections } from '../data/headerTopics';
 import { versionsData } from '../data/versions';
 import { academicMilestonesData, canonicalAcademicResources } from '../data/academicCalendar';
 import { PROJECT_SUPPORT_EMAIL, PROJECT_CONTRIBUTING_URL } from '../data/contacts';
+import { welcomeQuizSteps } from '../data/welcomeQuiz';
+import { buildRecommendation } from '../lib/quizRecommendation';
+import {
+  CourseId,
+  JourneyStage,
+  StudentPriority,
+  StudentAvailability,
+} from '../types/studentProfile';
 
 describe('Conformidade com ADR 0001: Ausência de Travessão, Parênteses e Emojis', () => {
   const forbiddenPunctuation = /[—–]/;
@@ -244,6 +252,65 @@ describe('Conformidade com ADR 0001: Ausência de Travessão, Parênteses e Emoj
     expect(PROJECT_CONTRIBUTING_URL).not.toMatch(forbiddenPunctuation);
     expect(PROJECT_CONTRIBUTING_URL).not.toMatch(parenthesesPattern);
     expect(PROJECT_CONTRIBUTING_URL).not.toMatch(emojiPattern);
+  });
+
+  it('textos do quiz de boas vindas nao devem violar o ADR 0001', () => {
+    welcomeQuizSteps.forEach((step) => {
+      expect(step.title).not.toMatch(forbiddenPunctuation);
+      expect(step.title).not.toMatch(parenthesesPattern);
+      expect(step.title).not.toMatch(emojiPattern);
+
+      expect(step.question).not.toMatch(forbiddenPunctuation);
+      expect(step.question).not.toMatch(parenthesesPattern);
+      expect(step.question).not.toMatch(emojiPattern);
+
+      step.options.forEach((option) => {
+        expect(option.label).not.toMatch(forbiddenPunctuation);
+        expect(option.label).not.toMatch(parenthesesPattern);
+        expect(option.label).not.toMatch(emojiPattern);
+
+        expect(option.description).not.toMatch(forbiddenPunctuation);
+        expect(option.description).not.toMatch(parenthesesPattern);
+        expect(option.description).not.toMatch(emojiPattern);
+      });
+    });
+  });
+
+  it('mensagens de recomendacao do quiz nao devem violar o ADR 0001', () => {
+    const courses: CourseId[] = ['bsi', 'tads'];
+    const stages: JourneyStage[] = ['calouro', 'meio', 'formando'];
+    const priorities: StudentPriority[] = ['mercado', 'pesquisa', 'empreendedorismo', 'cicloBasico'];
+    const availabilities: StudentAvailability[] = ['baixa', 'media', 'alta'];
+
+    courses.forEach((course) => {
+      stages.forEach((stage) => {
+        priorities.forEach((priority) => {
+          availabilities.forEach((availability) => {
+            const rec = buildRecommendation({ course, stage, priority, availability });
+
+            rec.sections.forEach((section) => {
+              expect(section.label).not.toMatch(forbiddenPunctuation);
+              expect(section.label).not.toMatch(parenthesesPattern);
+              expect(section.label).not.toMatch(emojiPattern);
+
+              expect(section.reason).not.toMatch(forbiddenPunctuation);
+              expect(section.reason).not.toMatch(parenthesesPattern);
+              expect(section.reason).not.toMatch(emojiPattern);
+            });
+
+            rec.pitfalls.forEach((pitfall) => {
+              expect(pitfall).not.toMatch(forbiddenPunctuation);
+              expect(pitfall).not.toMatch(parenthesesPattern);
+              expect(pitfall).not.toMatch(emojiPattern);
+            });
+
+            expect(rec.balanceMessage).not.toMatch(forbiddenPunctuation);
+            expect(rec.balanceMessage).not.toMatch(parenthesesPattern);
+            expect(rec.balanceMessage).not.toMatch(emojiPattern);
+          });
+        });
+      });
+    });
   });
 });
 

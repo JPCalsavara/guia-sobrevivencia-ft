@@ -273,6 +273,28 @@
   line-height: 1.4;
 }
 
+.retakeQuizBtn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  border: 1.5px dashed var(--ft-green-border);
+  background-color: var(--ft-green-soft);
+  color: var(--ft-green);
+  padding: 0.7rem 1rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  border-radius: $radius-lg;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: var(--ft-green);
+    color: var(--on-accent, #ffffff);
+  }
+}
+
 .surveyBanner {
   margin-top: 1rem;
   padding: 0.875rem 1rem;
