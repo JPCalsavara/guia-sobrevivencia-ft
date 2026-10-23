@@ -15429,6 +15429,35 @@ export const searchIndex: SearchDocument[] = [
     }
   },
   {
+    "id": "duvidas-mural-interativo",
+    "title": "Mural Interativo de Dúvidas, Vote, Comente e Acompanhe Respostas Oficiais",
+    "subtopic": "Vote, Comente e Acompanhe Respostas Oficiais",
+    "page": "Dúvidas",
+    "url": "/duvidas#mural-interativo",
+    "category": "duvidas",
+    "summary": "Mural Interativo de Dúvidas, foco em Vote, Comente e Acompanhe Respostas Oficiais na Faculdade de Tecnologia da Unicamp.",
+    "keywords": [
+      "duvidas",
+      "vote",
+      "comente",
+      "acompanhe",
+      "respostas",
+      "oficiais",
+      "mural",
+      "interativo"
+    ],
+    "termVector": {
+      "vote": 0.35,
+      "comente": 0.35,
+      "acompanhe": 0.35,
+      "respostas": 0.35,
+      "oficiais": 0.35,
+      "mural": 0.24,
+      "interativo": 0.24,
+      "duvidas": 0.52
+    }
+  },
+  {
     "id": "duvidas-mandar-duvida",
     "title": "Envio de Dúvidas, Mande sua Dúvida para a Equipe",
     "subtopic": "Mande sua Dúvida para a Equipe",

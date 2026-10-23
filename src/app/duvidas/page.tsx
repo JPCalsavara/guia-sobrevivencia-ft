@@ -15,7 +15,9 @@ import {
   Sparkles
 } from 'lucide-react';
 import { faqData, faqCategories, FaqItem } from '@/data/faq';
+import { muralSeedData } from '@/data/mural';
 import { DuvidasForm } from './DuvidasForm';
+import { MuralBoard } from '@/components/Mural/MuralBoard';
 import { TopicItem } from '@/components/DocSidebar/DocSidebar';
 import styles from './duvidas.module.scss';
 
@@ -42,6 +44,13 @@ const duvidasTopics: TopicItem[] = [
     subtopics: [
       { id: 'duvidas-estagio-contratos', title: 'Estágios e Termo de Compromisso' },
       { id: 'duvidas-formatura-colacao', title: 'Colação de Grau Oficial e Diploma' }
+    ]
+  },
+  {
+    id: 'mural-interativo',
+    title: 'Mural Interativo de Dúvidas',
+    subtopics: [
+      { id: 'mural-interativo', title: 'Vote, Comente e Acompanhe Respostas Oficiais' }
     ]
   },
   {
@@ -203,6 +212,19 @@ export default function DuvidasPage() {
           </p>
         </div>
       )}
+
+      {/* Mural Interativo de Dúvidas da Comunidade */}
+      <section id="mural-interativo" aria-labelledby="mural-interativo-title">
+        <header className={styles.pageHeader}>
+          <h2 id="mural-interativo-title" className={styles.pageTitle}>
+            Mural Interativo de Dúvidas
+          </h2>
+          <p className={styles.pageDescription}>
+            Vote nas dúvidas que você também tem, acompanhe as respostas oficiais da gestão e comente para ajudar a comunidade da Faculdade de Tecnologia. As perguntas mais apoiadas ganham prioridade de resposta.
+          </p>
+        </header>
+        <MuralBoard seedData={muralSeedData} />
+      </section>
 
       {/* Seção de Envio de Novas Dúvidas */}
       <DuvidasForm />
