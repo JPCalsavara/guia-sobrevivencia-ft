@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ChevronDown, ChevronRight, ListFilter, X, FileText } from 'lucide-react';
 import styles from './DocSidebar.module.scss';
 
@@ -25,6 +25,32 @@ export function DocSidebar({ topics, title = 'Estrutura da Página' }: DocSideba
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [showFloatingPill, setShowFloatingPill] = useState(false);
   const [collapsedGroups, setCollapsedGroups] = useState<Record<string, boolean>>({});
+  const lastActiveGroupRef = useRef<string | null>(null);
+
+  // Identifica o grupo de topico ao qual o item ativo detectado pelo scroll pertence
+  const activeGroupId = topics.find((t) => {
+    if (t.id === activeId) return true;
+    return t.subtopics?.some((st) => st.id === activeId);
+  })?.id ?? null;
+
+  // Mantem expandido apenas o grupo que contem o topico ativo e recolhe os demais.
+  // Reinicia a base de recolhimento sempre que o topico ativo muda de grupo,
+  // preservando o controle manual de expandir e recolher entre as mudancas.
+  useEffect(() => {
+    if (!activeGroupId) return;
+    if (lastActiveGroupRef.current === activeGroupId) return;
+    lastActiveGroupRef.current = activeGroupId;
+
+    setCollapsedGroups(() => {
+      const next: Record<string, boolean> = {};
+      topics.forEach((t) => {
+        if (t.subtopics && t.subtopics.length > 0) {
+          next[t.id] = t.id !== activeGroupId;
+        }
+      });
+      return next;
+    });
+  }, [activeGroupId, topics]);
 
   useEffect(() => {
     const allIds: string[] = [];
