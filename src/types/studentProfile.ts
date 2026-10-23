@@ -2,11 +2,18 @@ export type CourseId = 'bsi' | 'tads';
 
 export type JourneyStage = 'calouro' | 'meio' | 'formando';
 
+export type StudentPriority = 'mercado' | 'pesquisa' | 'empreendedorismo' | 'cicloBasico';
+
+export type StudentAvailability = 'baixa' | 'media' | 'alta';
+
 export interface StudentProfile {
   course: CourseId | null;
   year: number | null;
   semester: number | null;
   stage: JourneyStage | null;
+  priority: StudentPriority | null;
+  availability: StudentAvailability | null;
+  quizCompleted: boolean;
 }
 
 export const COURSE_MAX_YEARS: Record<CourseId, number> = {

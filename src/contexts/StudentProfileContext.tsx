@@ -4,14 +4,24 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import {
   StudentProfile,
   CourseId,
+  StudentPriority,
+  StudentAvailability,
   computeJourneyStage,
   computeJourneyStageFromYear,
   COURSE_MAX_YEARS,
 } from '@/types/studentProfile';
 
+interface QuizResult {
+  course: CourseId;
+  year: number;
+  priority: StudentPriority;
+  availability: StudentAvailability;
+}
+
 interface StudentProfileContextValue {
   profile: StudentProfile;
   setProfile: (course: CourseId, year: number, semester?: number | null) => void;
+  completeQuiz: (result: QuizResult) => void;
   clearProfile: () => void;
   isLoaded: boolean;
 }
@@ -23,11 +33,15 @@ const defaultProfile: StudentProfile = {
   year: null,
   semester: null,
   stage: null,
+  priority: null,
+  availability: null,
+  quizCompleted: false,
 };
 
 const StudentProfileContext = createContext<StudentProfileContextValue>({
   profile: defaultProfile,
   setProfile: () => {},
+  completeQuiz: () => {},
   clearProfile: () => {},
   isLoaded: false,
 });
@@ -55,11 +69,24 @@ export function StudentProfileProvider({ children }: { children: React.ReactNode
             ? computeJourneyStageFromYear(year, course)
             : computeJourneyStage(semester);
 
+          const validPriorities: StudentPriority[] = ['mercado', 'pesquisa', 'empreendedorismo', 'cicloBasico'];
+          const validAvailabilities: StudentAvailability[] = ['baixa', 'media', 'alta'];
+          const priority = validPriorities.includes(parsed.priority)
+            ? (parsed.priority as StudentPriority)
+            : null;
+          const availability = validAvailabilities.includes(parsed.availability)
+            ? (parsed.availability as StudentAvailability)
+            : null;
+          const quizCompleted = parsed.quizCompleted === true;
+
           setProfileState({
             course,
             year,
             semester,
             stage,
+            priority,
+            availability,
+            quizCompleted,
           });
         }
       }
@@ -70,12 +97,7 @@ export function StudentProfileProvider({ children }: { children: React.ReactNode
     }
   }, []);
 
-  const setProfile = (course: CourseId, year: number, customSemester?: number | null) => {
-    const maxYear = COURSE_MAX_YEARS[course];
-    const validYear = Math.min(Math.max(1, year), maxYear);
-    const semester = typeof customSemester === 'number' ? customSemester : validYear * 2;
-    const stage = computeJourneyStageFromYear(validYear, course);
-    const updated: StudentProfile = { course, year: validYear, semester, stage };
+  const persist = (updated: StudentProfile) => {
     setProfileState(updated);
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
@@ -83,6 +105,38 @@ export function StudentProfileProvider({ children }: { children: React.ReactNode
     } catch {
       // Ignora falha de escrita no armazenamento
     }
+  };
+
+  const setProfile = (course: CourseId, year: number, customSemester?: number | null) => {
+    const maxYear = COURSE_MAX_YEARS[course];
+    const validYear = Math.min(Math.max(1, year), maxYear);
+    const semester = typeof customSemester === 'number' ? customSemester : validYear * 2;
+    const stage = computeJourneyStageFromYear(validYear, course);
+    persist({
+      course,
+      year: validYear,
+      semester,
+      stage,
+      priority: profile.priority,
+      availability: profile.availability,
+      quizCompleted: profile.quizCompleted,
+    });
+  };
+
+  const completeQuiz = (result: QuizResult) => {
+    const maxYear = COURSE_MAX_YEARS[result.course];
+    const validYear = Math.min(Math.max(1, result.year), maxYear);
+    const semester = validYear * 2;
+    const stage = computeJourneyStageFromYear(validYear, result.course);
+    persist({
+      course: result.course,
+      year: validYear,
+      semester,
+      stage,
+      priority: result.priority,
+      availability: result.availability,
+      quizCompleted: true,
+    });
   };
 
   const clearProfile = () => {
@@ -96,7 +150,7 @@ export function StudentProfileProvider({ children }: { children: React.ReactNode
   };
 
   return (
-    <StudentProfileContext.Provider value={{ profile, setProfile, clearProfile, isLoaded }}>
+    <StudentProfileContext.Provider value={{ profile, setProfile, completeQuiz, clearProfile, isLoaded }}>
       {children}
     </StudentProfileContext.Provider>
   );

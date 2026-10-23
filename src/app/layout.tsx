@@ -4,6 +4,7 @@ import { Navbar } from '@/components/Navbar/Navbar';
 import { Footer } from '@/components/Footer/Footer';
 import { AccessibilityWidget } from '@/components/AccessibilityWidget/AccessibilityWidget';
 import { IdeStatusBar } from '@/components/organisms/IdeStatusBar/IdeStatusBar';
+import { WelcomeQuizModal } from '@/components/WelcomeQuizModal/WelcomeQuizModal';
 import { StudentProfileProvider } from '@/contexts/StudentProfileContext';
 import '@/styles/globals.scss';
 
@@ -31,6 +32,7 @@ export default function RootLayout({
           <Footer />
           <AccessibilityWidget />
           <IdeStatusBar />
+          <WelcomeQuizModal />
           <Analytics />
         </StudentProfileProvider>
       </body>
