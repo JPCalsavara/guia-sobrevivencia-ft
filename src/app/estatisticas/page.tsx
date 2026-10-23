@@ -14,7 +14,7 @@ import {
   Compass
 } from 'lucide-react';
 import { PesquisaAggregates } from '@/lib/pesquisa';
-import { TopicItem } from '@/components/DocSidebar/DocSidebar';
+
 import styles from './estatisticas.module.scss';
 
 interface TimeSeriesPoint {
@@ -66,23 +66,7 @@ interface StatsResponse {
   pesquisa: PesquisaAggregates;
 }
 
-const estatisticasTopics: TopicItem[] = [
-  {
-    id: 'metricas-audiencia',
-    title: 'Métricas de Audiência',
-    subtopics: [
-      { id: 'metricas-audiencia', title: 'Visitantes e Tempo de Permanência' },
-      { id: 'acesso-dispositivos', title: 'Acesso por Dispositivo Mobile e Desktop' },
-    ],
-  },
-  {
-    id: 'termometro-discente',
-    title: 'Termômetro Discente',
-    subtopics: [
-      { id: 'termometro-discente', title: 'Pesquisa e Anseios dos Alunos da FT' },
-    ],
-  },
-];
+
 
 const TIME_PERIODS: Array<{ key: '24h' | '7d' | '30d' | '6m' | '1y'; label: string }> = [
   { key: '24h', label: '24 Horas' },
