@@ -4,6 +4,7 @@ import path from 'path';
 import { linksData } from '../data/links';
 import { courseComparisonData, graduationChecklistData, padComparisonData } from '../data/academic';
 import { organizationsData } from '../data/organizations';
+import { localPartnersData } from '../data/localPartners';
 import { geminiSyllabusPrompt } from '../data/prompts';
 import { searchIndex } from '../data/searchIndex';
 import { faqData } from '../data/faq';
@@ -66,6 +67,30 @@ describe('Conformidade com ADR 0001: Ausência de Travessão, Parênteses e Emoj
       expect(org.description).not.toMatch(parenthesesPattern);
       expect(org.categoryLabel).not.toMatch(forbiddenPunctuation);
       expect(org.categoryLabel).not.toMatch(parenthesesPattern);
+    });
+  });
+
+  it('textos de parceiros locais não devem violar o ADR 0001', () => {
+    localPartnersData.forEach((partner) => {
+      expect(partner.name).not.toMatch(forbiddenPunctuation);
+      expect(partner.name).not.toMatch(parenthesesPattern);
+      expect(partner.name).not.toMatch(emojiPattern);
+
+      expect(partner.categoryLabel).not.toMatch(forbiddenPunctuation);
+      expect(partner.categoryLabel).not.toMatch(parenthesesPattern);
+      expect(partner.categoryLabel).not.toMatch(emojiPattern);
+
+      expect(partner.description).not.toMatch(forbiddenPunctuation);
+      expect(partner.description).not.toMatch(parenthesesPattern);
+      expect(partner.description).not.toMatch(emojiPattern);
+
+      expect(partner.studentBenefit).not.toMatch(forbiddenPunctuation);
+      expect(partner.studentBenefit).not.toMatch(parenthesesPattern);
+      expect(partner.studentBenefit).not.toMatch(emojiPattern);
+
+      expect(partner.referenceAddress).not.toMatch(forbiddenPunctuation);
+      expect(partner.referenceAddress).not.toMatch(parenthesesPattern);
+      expect(partner.referenceAddress).not.toMatch(emojiPattern);
     });
   });
 
@@ -282,6 +307,21 @@ describe('Conformidade com ADR 0004: Desacoplamento de Informações Voláteis',
       const url = new URL(link.url);
       const isOfficial = canonicalDomains.some((d) => url.hostname.endsWith(d));
       expect(isOfficial).toBe(true);
+    });
+  });
+
+  it('cada parceiro local deve expor um link canonico valido sem dados volateis', () => {
+    const volatilePattern = /R\$|reais|cardapio|cardápio|%/i;
+    localPartnersData.forEach((partner) => {
+      const url = new URL(partner.officialUrl);
+      expect(url.protocol).toBe('https:');
+      const isCanonical =
+        url.hostname === 'wa.me' ||
+        url.hostname === 'api.whatsapp.com' ||
+        /\.[a-z]{2,}$/i.test(url.hostname);
+      expect(isCanonical).toBe(true);
+      expect(partner.description).not.toMatch(volatilePattern);
+      expect(partner.studentBenefit).not.toMatch(volatilePattern);
     });
   });
 

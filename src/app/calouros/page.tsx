@@ -31,8 +31,10 @@ import {
   Copy,
   Check,
   Lightbulb,
+  Store,
 } from 'lucide-react';
 import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
+import { PartnerShowcase } from '@/components/PartnerShowcase/PartnerShowcase';
 import { useClipboardCopy } from '@/hooks/useClipboardCopy';
 import { geminiSyllabusPrompt } from '@/data/prompts';
 import { ShareWhatsAppButton } from '@/components/ShareWhatsAppButton/ShareWhatsAppButton';
@@ -141,6 +143,15 @@ const calourosTopics: TopicItem[] = [
     subtopics: [
       { id: 'beneficios-tecnologia', title: 'AWS Builder Center para Alunos' },
       { id: 'github-pack-google', title: 'GitHub Pack e Google Workspace' },
+    ],
+  },
+  {
+    id: 'parceiros-locais-calouros',
+    title: 'Parceiros Locais de Limeira',
+    subtopics: [
+      { id: 'parceiros-restaurante', title: 'Restaurantes Parceiros' },
+      { id: 'parceiros-imobiliaria', title: 'Imobiliarias Parceiras' },
+      { id: 'parceiros-pensionato', title: 'Pensionatos Parceiros' },
     ],
   },
 ];
@@ -1324,6 +1335,22 @@ export default function CalourosPage() {
                   </a>
                 </div>
               </div>
+            </div>
+          </section>
+
+          {/* Vitrine de Parceiros Locais de Limeira */}
+          <section id="parceiros-locais-calouros" className={styles.sectionBlock}>
+            <div className={styles.blockCard}>
+              <div className={styles.cardHeader}>
+                <Store size={24} className={styles.headerIcon} />
+                <div>
+                  <h2 className={styles.cardTitle}>Parceiros Locais de Limeira para Calouros</h2>
+                  <p className={styles.cardSubtitle}>
+                    Restaurantes, imobiliarias e pensionatos do entorno da FT com condicoes para estudantes. Consulte sempre precos e detalhes na fonte oficial de cada parceiro
+                  </p>
+                </div>
+              </div>
+              <PartnerShowcase />
             </div>
           </section>
         </main>
