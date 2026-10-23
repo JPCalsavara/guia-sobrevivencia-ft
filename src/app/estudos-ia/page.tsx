@@ -14,53 +14,11 @@ import {
   Youtube,
   ExternalLink
 } from 'lucide-react';
-import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
+import { DocSidebar } from '@/components/DocSidebar/DocSidebar';
+import { getPageTopics } from '@/data/contentCatalog';
 import styles from './estudos-ia.module.scss';
 
-const aiTopics: TopicItem[] = [
-  {
-    id: 'notebooklm-cerebro',
-    title: 'Google NotebookLM',
-    subtopics: [
-      { id: 'notebooklm-cerebro', title: 'Segundo Cérebro Acadêmico' },
-    ],
-  },
-  {
-    id: 'prompts-estruturados',
-    title: 'Prompts Estruturados',
-    subtopics: [
-      { id: 'prompts-estruturados', title: 'Extrator de Planos de Aula' },
-    ],
-  },
-  {
-    id: 'metodologias-estudo',
-    title: 'Metodologias de Estudo',
-    subtopics: [
-      { id: 'metodologias-estudo', title: 'Construção Manual e Feynman' },
-    ],
-  },
-  {
-    id: 'boas-praticas-ia',
-    title: 'Boas Práticas de IA',
-    subtopics: [
-      { id: 'boas-praticas-ia', title: 'Tabela de Práticas Acadêmicas' },
-    ],
-  },
-  {
-    id: 'transicao-agentes',
-    title: 'Agentes de Código',
-    subtopics: [
-      { id: 'transicao-agentes', title: 'Chatbots versus Agentes e MCP' },
-    ],
-  },
-  {
-    id: 'fundamentos-ia-canais',
-    title: 'Fundamentos e Redes Neurais',
-    subtopics: [
-      { id: 'fundamentos-ia-canais', title: 'Canais Internacionais de IA' },
-    ],
-  },
-];
+const aiTopics = getPageTopics('estudos-ia');
 
 export default function EstudosIaPage() {
   const practiceComparisons = [

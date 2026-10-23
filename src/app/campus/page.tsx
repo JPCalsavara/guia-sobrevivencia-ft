@@ -32,83 +32,11 @@ import {
   FileText,
   Instagram,
 } from 'lucide-react';
-import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
+import { DocSidebar } from '@/components/DocSidebar/DocSidebar';
+import { getPageTopics } from '@/data/contentCatalog';
 import styles from './campus.module.scss';
 
-const campusTopics: TopicItem[] = [
-  {
-    id: 'campus-galeria',
-    title: 'Galeria do Campus',
-    subtopics: [
-      { id: 'campus-galeria', title: 'Biblioteca e Auditório' },
-    ],
-  },
-  {
-    id: 'biblioteca-sbu-ft',
-    title: 'Biblioteca FT e SBU',
-    subtopics: [
-      { id: 'biblioteca-sbu-ft', title: 'Apresentação e Acervo' },
-      { id: 'biblioteca-emprestimo-malote', title: 'Empréstimo e Malote Intercampi' },
-      { id: 'biblioteca-estudo-espacos', title: 'Salas de Estudo e Cabines' },
-      { id: 'biblioteca-bases-tcc', title: 'Bases Digitais e Ficha TCC' },
-      { id: 'biblioteca-redes-contato', title: 'Instagram Oficial e Canais' },
-    ],
-  },
-  {
-    id: 'ferramentas-ti',
-    title: 'Ferramentas de TI e Acessos',
-    subtopics: [
-      { id: 'ferramentas-ti', title: 'Laboratórios da TIC' },
-      { id: 'cota-impressao', title: 'Cota de Impressão e WifiPrint' },
-    ],
-  },
-  {
-    id: 'infraestrutura-salas',
-    title: 'Infraestrutura e Salas',
-    subtopics: [
-      { id: 'infraestrutura-salas', title: 'Consulta de Ocupação' },
-      { id: 'justificativas-salas', title: 'Justificativas de Espaço' },
-    ],
-  },
-  {
-    id: 'transporte-alimentacao',
-    title: 'Alimentação e Transporte',
-    subtopics: [
-      { id: 'transporte-alimentacao', title: 'Restaurante Universitário' },
-      { id: 'circular-fretado', title: 'Circular FT e FCA e Intercampi' },
-    ],
-  },
-  {
-    id: 'entidades-estudantis',
-    title: 'Organizações Estudantis',
-    subtopics: [
-      { id: 'org-empresa-junior', title: 'Empresa Júnior' },
-      { id: 'org-ligas', title: 'Ligas Acadêmicas' },
-      { id: 'org-extensao', title: 'Extensão e Ação Social' },
-      { id: 'org-centro-academico', title: 'Centro Acadêmico' },
-      { id: 'org-atletica', title: 'Atlética e Esportes' },
-      { id: 'org-republica', title: 'Repúblicas e Moradia' },
-    ],
-  },
-  {
-    id: 'vida-festas',
-    title: 'Vida Noturna e Festas',
-    subtopics: [
-      { id: 'vida-festas', title: 'Rolê Limeira e Locais' },
-    ],
-  },
-  {
-    id: 'moradia-convivencia',
-    title: 'Moradia e Habitação',
-    subtopics: [
-      { id: 'moradia-mapa', title: 'Mapa da Região Universitária' },
-      { id: 'moradia-modalidades', title: 'Modalidades e Preços' },
-      { id: 'moradia-predios', title: 'Prédios e Condomínios' },
-      { id: 'moradia-bairros', title: 'Bairros e Avenidas' },
-      { id: 'moradia-imobiliarias', title: 'Imobiliárias e Contratos' },
-    ],
-  },
-];
+const campusTopics = getPageTopics('campus');
 
 export default function CampusPage() {
   return (

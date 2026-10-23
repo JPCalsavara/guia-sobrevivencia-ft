@@ -16,42 +16,10 @@ import {
 } from 'lucide-react';
 import { faqData, faqCategories, FaqItem } from '@/data/faq';
 import { DuvidasForm } from './DuvidasForm';
-import { TopicItem } from '@/components/DocSidebar/DocSidebar';
+
 import styles from './duvidas.module.scss';
 
-const duvidasTopics: TopicItem[] = [
-  {
-    id: 'duvidas-academicas-dac',
-    title: 'Dúvidas Acadêmicas e Matrícula',
-    subtopics: [
-      { id: 'duvidas-matricula-dac', title: 'Regras da DAC, Trancamento e Coeficientes' },
-      { id: 'duvidas-reprovacao-prerequisitos', title: 'Pré-requisitos e Reprovações' }
-    ]
-  },
-  {
-    id: 'duvidas-campus-vivencia',
-    title: 'Dúvidas de Campus e Cotidiano',
-    subtopics: [
-      { id: 'duvidas-bandejao-transporte', title: 'Bandejão com Pix e Linha 84 Intercampi' },
-      { id: 'duvidas-moradia-auxilios', title: 'Moradia Estudantil e Bolsas SAE' }
-    ]
-  },
-  {
-    id: 'duvidas-carreira-formacao',
-    title: 'Dúvidas de Carreira e Formatura',
-    subtopics: [
-      { id: 'duvidas-estagio-contratos', title: 'Estágios e Termo de Compromisso' },
-      { id: 'duvidas-formatura-colacao', title: 'Colação de Grau Oficial e Diploma' }
-    ]
-  },
-  {
-    id: 'mandar-duvida',
-    title: 'Envio de Dúvidas',
-    subtopics: [
-      { id: 'mandar-duvida', title: 'Mande sua Dúvida para a Equipe' }
-    ]
-  }
-];
+
 
 export default function DuvidasPage() {
   const [searchQuery, setSearchQuery] = useState('');

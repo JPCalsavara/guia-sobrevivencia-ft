@@ -5,74 +5,11 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { linksData, ResourceLink, LinkCategory } from '@/data/links';
 import { Link2, Search, ExternalLink, MessageSquare, HelpCircle } from 'lucide-react';
-import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
+import { DocSidebar } from '@/components/DocSidebar/DocSidebar';
+import { getPageTopics } from '@/data/contentCatalog';
 import styles from './links.module.scss';
 
-const linksTopics: TopicItem[] = [
-  {
-    id: 'categoria-alimentacao',
-    title: 'Alimentação e RU',
-    subtopics: [
-      { id: 'categoria-alimentacao', title: 'Restaurante Universitário e Saldo' },
-    ],
-  },
-  {
-    id: 'categoria-transporte',
-    title: 'Transporte e Mobilidade',
-    subtopics: [
-      { id: 'categoria-transporte', title: 'Circular e Intercampi Linha 84' },
-    ],
-  },
-  {
-    id: 'categoria-matricula',
-    title: 'Matrícula e Vida Acadêmica',
-    subtopics: [
-      { id: 'categoria-matricula', title: 'DAC, SIGA e Atendimento' },
-    ],
-  },
-  {
-    id: 'categoria-aulas',
-    title: 'Aulas e Ambientes Virtuais',
-    subtopics: [
-      { id: 'categoria-aulas', title: 'Moodle, Classroom e Salas da FT' },
-    ],
-  },
-  {
-    id: 'categoria-intercambio',
-    title: 'Intercâmbio e DERI',
-    subtopics: [
-      { id: 'categoria-intercambio', title: 'Editais e Guias de Preparação' },
-    ],
-  },
-  {
-    id: 'categoria-iniciacao-cientifica',
-    title: 'Iniciação Científica',
-    subtopics: [
-      { id: 'categoria-iniciacao-cientifica', title: 'PIBIC e FAPESP SAGe' },
-    ],
-  },
-  {
-    id: 'categoria-permanencia',
-    title: 'Permanência e DEAPE',
-    subtopics: [
-      { id: 'categoria-permanencia', title: 'BAS, Mentoria PMU e Moradia' },
-    ],
-  },
-  {
-    id: 'categoria-organizacoes',
-    title: 'Organizações Estudantis',
-    subtopics: [
-      { id: 'categoria-organizacoes', title: 'Centros, Atlética e Ligas' },
-    ],
-  },
-  {
-    id: 'categoria-carreira-tecnologia',
-    title: 'Carreira e Tecnologia',
-    subtopics: [
-      { id: 'categoria-carreira-tecnologia', title: 'AWS, GitHub e Ferramentas' },
-    ],
-  },
-];
+const linksTopics = getPageTopics('links');
 
 const categoryMeta: Record<LinkCategory, { label: string; subtitle: string }> = {
   alimentacao: {
