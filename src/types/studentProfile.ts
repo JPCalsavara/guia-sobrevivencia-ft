@@ -2,6 +2,10 @@ export type CourseId = 'bsi' | 'tads';
 
 export type JourneyStage = 'calouro' | 'meio' | 'formando';
 
+export type StudentPriority = 'mercado' | 'pesquisa' | 'empreendedorismo' | 'cicloBasico';
+
+export type StudentAvailability = 'baixa' | 'media' | 'alta';
+
 export interface StudentProfile {
   course: CourseId | null;
   year: number | null;

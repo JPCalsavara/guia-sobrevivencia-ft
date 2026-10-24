@@ -1,5 +1,4 @@
 'use client';
-
 // Reexportacao fina para preservar os imports existentes.
 // A logica de perfil agora vive no modulo de preferencias, que e a unica
 // costura com o armazenamento local. O StudentProfileProvider e um alias do

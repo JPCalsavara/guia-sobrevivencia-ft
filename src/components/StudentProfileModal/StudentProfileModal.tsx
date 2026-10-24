@@ -21,6 +21,7 @@ import {
   COURSE_MAX_YEARS,
   computeJourneyStageFromYear,
 } from '@/types/studentProfile';
+import { OPEN_WELCOME_QUIZ_EVENT } from '@/components/WelcomeQuizModal/WelcomeQuizModal';
 import styles from './StudentProfileModal.module.scss';
 
 interface StudentProfileModalProps {
@@ -104,6 +105,11 @@ export function StudentProfileModal({ isOpen, onClose }: StudentProfileModalProp
     setSelectedCourse('bsi');
     setSelectedYear(1);
     onClose();
+  };
+
+  const handleRetakeQuiz = () => {
+    onClose();
+    window.dispatchEvent(new CustomEvent(OPEN_WELCOME_QUIZ_EVENT));
   };
 
   return (
@@ -207,6 +213,16 @@ export function StudentProfileModal({ isOpen, onClose }: StudentProfileModalProp
             <span className={styles.stageDesc}>{stageMeta.desc}</span>
           </div>
         </div>
+
+        {/* Refazer o Diagnostico de Perfil */}
+        <button
+          type="button"
+          onClick={handleRetakeQuiz}
+          className={styles.retakeQuizBtn}
+        >
+          <RotateCcw size={15} aria-hidden="true" />
+          <span>Refazer diagnostico de perfil</span>
+        </button>
 
         {/* Banner do Formulário de Pesquisa Discente */}
         <div className={styles.surveyBanner}>
