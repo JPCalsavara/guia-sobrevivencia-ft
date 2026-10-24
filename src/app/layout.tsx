@@ -4,7 +4,7 @@ import { Navbar } from '@/components/Navbar/Navbar';
 import { Footer } from '@/components/Footer/Footer';
 import { AccessibilityWidget } from '@/components/AccessibilityWidget/AccessibilityWidget';
 import { IdeStatusBar } from '@/components/organisms/IdeStatusBar/IdeStatusBar';
-import { StudentProfileProvider } from '@/contexts/StudentProfileContext';
+import { PreferencesProvider } from '@/modules/preferences';
 import '@/styles/globals.scss';
 
 export const metadata: Metadata = {
@@ -23,7 +23,7 @@ export default function RootLayout({
         <a href="#main-content" className="skipLink">
           Pular para o conteúdo principal
         </a>
-        <StudentProfileProvider>
+        <PreferencesProvider>
           <Navbar />
           <main id="main-content" tabIndex={-1}>
             {children}
@@ -32,7 +32,7 @@ export default function RootLayout({
           <AccessibilityWidget />
           <IdeStatusBar />
           <Analytics />
-        </StudentProfileProvider>
+        </PreferencesProvider>
       </body>
     </html>
   );

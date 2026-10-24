@@ -24,7 +24,7 @@ import {
   Mail,
 } from 'lucide-react';
 import { headerNavSections } from '@/data/headerTopics';
-import { useStudentProfile } from '@/contexts/StudentProfileContext';
+import { usePreferences } from '@/modules/preferences';
 import { COURSE_SHORT_NAMES } from '@/types/studentProfile';
 import { StudentProfileModal } from '../StudentProfileModal/StudentProfileModal';
 import { SearchModal } from '../SearchModal/SearchModal';
@@ -42,8 +42,7 @@ const sectionIcons: Record<string, React.ComponentType<{ size?: number; classNam
 
 export function Navbar() {
   const pathname = usePathname();
-  const { profile } = useStudentProfile();
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const { profile, theme, toggleTheme } = usePreferences();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchModalOpen, setSearchModalOpen] = useState(false);
   const [profileModalOpen, setProfileModalOpen] = useState(false);
@@ -64,23 +63,6 @@ export function Navbar() {
     window.addEventListener('keydown', handleGlobalKeyDown);
     return () => window.removeEventListener('keydown', handleGlobalKeyDown);
   }, []);
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('ft_theme') as 'dark' | 'light' | null;
-    if (savedTheme) {
-      setTheme(savedTheme);
-      document.documentElement.setAttribute('data-theme', savedTheme);
-    } else {
-      document.documentElement.setAttribute('data-theme', 'light');
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    const nextTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(nextTheme);
-    localStorage.setItem('ft_theme', nextTheme);
-    document.documentElement.setAttribute('data-theme', nextTheme);
-  };
 
   useEffect(() => {
     if (mobileMenuOpen) {

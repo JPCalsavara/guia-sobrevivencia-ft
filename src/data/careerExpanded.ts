@@ -718,3 +718,123 @@ export const careerProjectsData: CareerProjectCategory[] = [
     ]
   }
 ];
+
+export interface SelectionStage {
+  id: string;
+  order: number;
+  title: string;
+  summary: string;
+  detail: string;
+  category: string;
+}
+
+export const selectionJourneyData: SelectionStage[] = [
+  {
+    id: 'curriculo-ats',
+    order: 1,
+    title: 'Triagem de Curriculo pelo ATS',
+    summary: 'Envio e leitura automatizada do curriculo por sistemas de rastreamento de candidatos.',
+    detail: 'A primeira etapa consiste na submissao do curriculo a um sistema de rastreamento de candidatos que verifica palavras chave, formatacao limpa e aderencia a vaga antes de qualquer contato humano. Um curriculo objetivo, sem imagens pesadas e com termos técnicos alinhados a descricao aumenta a chance de avancar.',
+    category: 'Triagem'
+  },
+  {
+    id: 'avaliacoes-online',
+    order: 2,
+    title: 'Avaliacoes Online de Logica e Programacao',
+    summary: 'Testes remotos cronometrados de raciocinio logico e resolucao de problemas de codigo.',
+    detail: 'Apos a triagem, o candidato recebe avaliacoes online cronometradas que medem raciocinio logico, interpretacao de enunciados e capacidade de resolver problemas de programacao em linguagem de sua escolha. O desempenho consistente nesta fase depende de pratica previa em plataformas de exercicios algoritmicos.',
+    category: 'Avaliacao Tecnica'
+  },
+  {
+    id: 'dinamicas-grupo',
+    order: 3,
+    title: 'Dinamicas de Grupo com Business Cases',
+    summary: 'Atividades colaborativas em grupo resolvendo casos de negocio reais.',
+    detail: 'As dinamicas de grupo reunem varios candidatos para resolver casos de negocio simulados, observando comunicacao, colaboracao, lideranca e pensamento critico sob pressao. A banca avalia como a pessoa contribui para o coletivo sem sufocar os demais participantes.',
+    category: 'Avaliacao Comportamental'
+  },
+  {
+    id: 'entrevistas-rh',
+    order: 4,
+    title: 'Entrevistas Comportamentais com RH',
+    summary: 'Conversas com recrutadores sobre trajetoria, valores e aderencia cultural.',
+    detail: 'Nesta fase o time de recursos humanos conduz entrevistas comportamentais para entender a trajetoria do candidato, suas motivacoes, valores e aderencia a cultura da empresa. Relatos estruturados de situacoes reais vividas fortalecem a avaliacao de competencias interpessoais.',
+    category: 'Avaliacao Comportamental'
+  },
+  {
+    id: 'entrevistas-tecnicas',
+    order: 5,
+    title: 'Entrevistas Tecnicas com Gestores',
+    summary: 'Arguicao tecnica aprofundada conduzida por lideres de engenharia.',
+    detail: 'Os gestores e lideres de engenharia conduzem entrevistas tecnicas aprofundadas que exploram fundamentos de computação, decisoes de arquitetura, qualidade de codigo e experiencia previa em projetos. Explicar o raciocinio por tras das solucoes costuma pesar mais do que acertar tudo de imediato.',
+    category: 'Avaliacao Tecnica'
+  },
+  {
+    id: 'tramitacao-aproveitamento',
+    order: 6,
+    title: 'Tramitacao de Aproveitamento nas Disciplinas SI916 e SI917',
+    summary: 'Formalizacao do estagio com aproveitamento das disciplinas SI916 e SI917 na DEAPE e DAC.',
+    detail: 'Com a aprovacao garantida, o estudante formaliza o estagio buscando o aproveitamento das disciplinas SI916 e SI917, cuja tramitacao envolve a Diretoria Executiva de Assuntos da Prefeitura e Estagios junto a Diretoria Academica para registro oficial dos creditos no historico. O cumprimento dos prazos dessas diretorias evita atrasos na integralizacao do curso.',
+    category: 'Tramitacao Academica'
+  }
+];
+
+export interface VeteranProfile {
+  id: string;
+  companyId: string;
+  displayName: string;
+  course: string;
+  role: string;
+  linkedinUrl: string;
+}
+
+export const veteransNetworkData: VeteranProfile[] = [
+  {
+    id: 'veterano-tractian-camila',
+    companyId: 'tractian',
+    displayName: 'Camila Rezende',
+    course: 'BSI',
+    role: 'Engenheira de Firmware',
+    linkedinUrl: 'https://www.linkedin.com/in/camila-rezende-tractian'
+  },
+  {
+    id: 'veterano-tractian-diego',
+    companyId: 'tractian',
+    displayName: 'Diego Almeida',
+    course: 'TADS',
+    role: 'Desenvolvedor Backend',
+    linkedinUrl: 'https://www.linkedin.com/in/diego-almeida-tractian'
+  },
+  {
+    id: 'veterano-itau-larissa',
+    companyId: 'itau',
+    displayName: 'Larissa Moreira',
+    course: 'BSI',
+    role: 'Engenheira de Dados',
+    linkedinUrl: 'https://www.linkedin.com/in/larissa-moreira-itau'
+  },
+  {
+    id: 'veterano-stone-rafael',
+    companyId: 'stone',
+    displayName: 'Rafael Nunes',
+    course: 'TADS',
+    role: 'Desenvolvedor Full Stack',
+    linkedinUrl: 'https://www.linkedin.com/in/rafael-nunes-stone'
+  },
+  {
+    id: 'veterano-qitech-beatriz',
+    companyId: 'qitech',
+    displayName: 'Beatriz Carvalho',
+    course: 'BSI',
+    role: 'Engenheira de Plataforma',
+    linkedinUrl: 'https://www.linkedin.com/in/beatriz-carvalho-qitech'
+  },
+  {
+    id: 'veterano-agibank-lucas',
+    companyId: 'agibank',
+    displayName: 'Lucas Ferreira',
+    course: 'TADS',
+    role: 'Desenvolvedor Mobile',
+    linkedinUrl: 'https://www.linkedin.com/in/lucas-ferreira-agibank'
+  }
+];

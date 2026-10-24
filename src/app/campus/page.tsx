@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { OrganizationDirectory } from '@/components/OrganizationDirectory/OrganizationDirectory';
+import { PartnerShowcase } from '@/components/PartnerShowcase/PartnerShowcase';
 import { MapMoradia } from '@/components/MapMoradia/MapMoradia';
 import {
   MapPin,
@@ -31,84 +32,13 @@ import {
   Repeat,
   FileText,
   Instagram,
+  Store,
 } from 'lucide-react';
-import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
+import { DocSidebar } from '@/components/DocSidebar/DocSidebar';
+import { getPageTopics } from '@/data/contentCatalog';
 import styles from './campus.module.scss';
 
-const campusTopics: TopicItem[] = [
-  {
-    id: 'campus-galeria',
-    title: 'Galeria do Campus',
-    subtopics: [
-      { id: 'campus-galeria', title: 'Biblioteca e Auditório' },
-    ],
-  },
-  {
-    id: 'biblioteca-sbu-ft',
-    title: 'Biblioteca FT e SBU',
-    subtopics: [
-      { id: 'biblioteca-sbu-ft', title: 'Apresentação e Acervo' },
-      { id: 'biblioteca-emprestimo-malote', title: 'Empréstimo e Malote Intercampi' },
-      { id: 'biblioteca-estudo-espacos', title: 'Salas de Estudo e Cabines' },
-      { id: 'biblioteca-bases-tcc', title: 'Bases Digitais e Ficha TCC' },
-      { id: 'biblioteca-redes-contato', title: 'Instagram Oficial e Canais' },
-    ],
-  },
-  {
-    id: 'ferramentas-ti',
-    title: 'Ferramentas de TI e Acessos',
-    subtopics: [
-      { id: 'ferramentas-ti', title: 'Laboratórios da TIC' },
-      { id: 'cota-impressao', title: 'Cota de Impressão e WifiPrint' },
-    ],
-  },
-  {
-    id: 'infraestrutura-salas',
-    title: 'Infraestrutura e Salas',
-    subtopics: [
-      { id: 'infraestrutura-salas', title: 'Consulta de Ocupação' },
-      { id: 'justificativas-salas', title: 'Justificativas de Espaço' },
-    ],
-  },
-  {
-    id: 'transporte-alimentacao',
-    title: 'Alimentação e Transporte',
-    subtopics: [
-      { id: 'transporte-alimentacao', title: 'Restaurante Universitário' },
-      { id: 'circular-fretado', title: 'Circular FT e FCA e Intercampi' },
-    ],
-  },
-  {
-    id: 'entidades-estudantis',
-    title: 'Organizações Estudantis',
-    subtopics: [
-      { id: 'org-empresa-junior', title: 'Empresa Júnior' },
-      { id: 'org-ligas', title: 'Ligas Acadêmicas' },
-      { id: 'org-extensao', title: 'Extensão e Ação Social' },
-      { id: 'org-centro-academico', title: 'Centro Acadêmico' },
-      { id: 'org-atletica', title: 'Atlética e Esportes' },
-      { id: 'org-republica', title: 'Repúblicas e Moradia' },
-    ],
-  },
-  {
-    id: 'vida-festas',
-    title: 'Vida Noturna e Festas',
-    subtopics: [
-      { id: 'vida-festas', title: 'Rolê Limeira e Locais' },
-    ],
-  },
-  {
-    id: 'moradia-convivencia',
-    title: 'Moradia e Habitação',
-    subtopics: [
-      { id: 'moradia-mapa', title: 'Mapa da Região Universitária' },
-      { id: 'moradia-modalidades', title: 'Modalidades e Preços' },
-      { id: 'moradia-predios', title: 'Prédios e Condomínios' },
-      { id: 'moradia-bairros', title: 'Bairros e Avenidas' },
-      { id: 'moradia-imobiliarias', title: 'Imobiliárias e Contratos' },
-    ],
-  },
-];
+const campusTopics = getPageTopics('campus');
 
 export default function CampusPage() {
   return (
@@ -731,6 +661,22 @@ export default function CampusPage() {
           </div>
         </div>
         <OrganizationDirectory />
+      </section>
+
+      {/* Vitrine de Parceiros Locais de Limeira */}
+      <section id="parceiros-locais" className={styles.sectionBlock}>
+        <div className={styles.sectionIntro}>
+          <div className={styles.introHeader}>
+            <Store size={24} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>Vitrine de Parceiros Locais de Limeira</h2>
+              <p className={styles.cardSubtitle}>
+                Restaurantes, imobiliarias e pensionatos do entorno do campus com condicoes para estudantes da FT. Consulte precos e detalhes sempre na fonte oficial de cada parceiro
+              </p>
+            </div>
+          </div>
+        </div>
+        <PartnerShowcase />
       </section>
 
       {/* Vida Noturna, Integração e Festas Universitárias */}

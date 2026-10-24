@@ -40,8 +40,9 @@ import { useJourneyStage } from '@/hooks/useJourneyStage';
 import { useSectionCoordinator } from '@/sectionCoordinator/useSectionCoordinator';
 import { JourneyStageHeader } from '@/components/JourneyStageHeader/JourneyStageHeader';
 import { SecondarySectionsToggle } from '@/components/SecondarySectionsToggle/SecondarySectionsToggle';
-import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
+import { DocSidebar } from '@/components/DocSidebar/DocSidebar';
 import { MobileTopicPills } from '@/components/MobileTopicPills/MobileTopicPills';
+import { getPageTopics } from '@/data/contentCatalog';
 import {
   padComparisonData,
   ftInternshipProceduresData,
@@ -88,125 +89,7 @@ Atenciosamente,
 RA: [Seu RA]
 E-mail: [seu.email]@dac.unicamp.br`;
 
-const academicTopics: TopicItem[] = [
-  {
-    id: 'bsi-vs-tads',
-    title: 'BSI versus TADS',
-    subtopics: [
-      { id: 'bsi-vs-tads', title: 'Matriz Comparativa' },
-      { id: 'grade-curricular', title: 'Grades Curriculares BSI e TADS' },
-    ],
-  },
-  {
-    id: 'coeficientes-dac',
-    title: 'Coeficientes e Métricas DAC',
-    subtopics: [
-      { id: 'coeficientes-metricas', title: 'CR, CP e Vetores Horários' },
-      { id: 'coeficientes-eletivas', title: 'Eletivas do Catálogo e Livres' },
-      { id: 'cel-linguas-estrangeiras', title: 'Línguas Estrangeiras no CEL' },
-    ],
-  },
-  {
-    id: 'calendario-academico',
-    title: 'Calendario Academico e DAC',
-    subtopics: [
-      { id: 'calendario-academico', title: 'Marcos Semestrais e Fontes Canonicas' },
-    ],
-  },
-  {
-    id: 'calculo-geometria',
-    title: 'Cálculo e o Efeito Cascata de Prog 1',
-    subtopics: [
-      { id: 'alerta-prog1-tranca-tudo', title: 'Programação 1: O Cálculo da TI' },
-      { id: 'calculo-plantoes', title: 'Plantões PAD e Provas Antigas' },
-      { id: 'calculo-metodologia', title: 'Padrões de Resolução e Regra 48h' },
-      { id: 'calculo-canais', title: 'Canais do Professor Ferretto' },
-    ],
-  },
-  {
-    id: 'checklist-formatura',
-    title: 'Checklist e Formatura',
-    subtopics: [
-      { id: 'checklist-formatura', title: 'Etapas de Integralização' },
-      { id: 'cerimonia-formatura-colacao', title: 'Cerimônia e Colação de Grau' },
-    ],
-  },
-  {
-    id: 'tcc-pos-graduacao-pif',
-    title: 'TCC e Pós-Graduação PIF',
-    subtopics: [
-      { id: 'tcc-procedimentos', title: 'Regulamento e Etapas de TCC' },
-      { id: 'tcc-substituicao-artigo', title: 'Substituição por Artigo Científico' },
-      { id: 'pif-pos-graduacao', title: 'Aceleração de Mestrado via PIF' },
-      { id: 'pos-graduacao-ft-ic', title: 'Mestrado e Doutorado FT e IC' },
-      { id: 'bolsas-posgraduacao', title: 'Bolsas de Pesquisa CAPES, CNPq e FAPESP' },
-      { id: 'tcc-links-oficiais', title: 'Links Oficiais e Manuais SIGA' },
-    ],
-  },
-  {
-    id: 'monitoria-pad',
-    title: 'Monitoria PAD na FT',
-    subtopics: [
-      { id: 'pad-requisitos', title: 'Requisitos e Atribuições' },
-      { id: 'pad-comparativo', title: 'Remunerada versus Voluntária' },
-      { id: 'pad-cronograma', title: 'Ciclo Semestral e Cronograma' },
-      { id: 'pad-email', title: 'Modelo de E-mail de Contato' },
-      { id: 'mentoria-pmu', title: 'PMU Mentoria e Apoio Ingressante' },
-    ],
-  },
-  {
-    id: 'bolsas-permanencia-deape',
-    title: 'Bolsas Sociais e Permanência',
-    subtopics: [
-      { id: 'bolsas-permanencia-deape', title: 'BAS, Moradia e Isenção do RU' },
-    ],
-  },
-  {
-    id: 'horas-extensao',
-    title: 'Horas e Extensão',
-    subtopics: [
-      { id: 'horas-conceitos', title: 'Complementares versus Extensão' },
-      { id: 'horas-tabela', title: 'Tabela Comparativa de Extensão' },
-      { id: 'horas-regulamentos', title: 'Regulamentos Oficiais em PDF' },
-    ],
-  },
-  {
-    id: 'estrategia-carreira',
-    title: 'Estratégia e Estágio',
-    subtopics: [
-      { id: 'estrategia-carreira', title: 'Lei do Estágio e Formatura' },
-      { id: 'procedimentos-estagio-ft', title: 'Procedimentos de Estágio na FT' },
-    ],
-  },
-  {
-    id: 'noturno-bsi',
-    title: 'Realidade do Noturno no BSI',
-    subtopics: [
-      { id: 'noturno-bsi', title: 'Lotação TADS e 4º Ano' },
-    ],
-  },
-  {
-    id: 'iniciacao-cientifica',
-    title: 'Iniciação Científica',
-    subtopics: [
-      { id: 'ic-cronograma', title: 'Linha do Tempo Anual' },
-      { id: 'ic-modalidades', title: 'PIBIC, FAPESP e Voluntária' },
-      { id: 'ic-selecao', title: 'Critérios de Avaliação e Linha de Corte' },
-      { id: 'ic-contato', title: 'Mapeamento e Modelo de Contato' },
-    ],
-  },
-  {
-    id: 'intercambio-deri',
-    title: 'Intercâmbio e Editais DERI',
-    subtopics: [
-      { id: 'intercambio-analise-editais', title: 'Análise de Editais e Proficiência' },
-      { id: 'intercambio-fluxo', title: 'Fluxo em Seis Fases' },
-      { id: 'intercambio-diferenciais', title: 'Diferenciais para Aprovação' },
-      { id: 'intercambio-potsdam', title: 'Estudo de Caso Edital Potsdam' },
-      { id: 'intercambio-bolsas', title: 'Modalidades de Bolsas' },
-    ],
-  },
-];
+const academicTopics = getPageTopics('academico');
 
 const sectionStageMap: Record<string, { stage: JourneyStage; label: string }> = {
   'bsi-vs-tads': { stage: 'calouro', label: 'Foco: Calouro, 1º e 2º Semestres' },
