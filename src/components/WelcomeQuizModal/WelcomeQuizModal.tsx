@@ -41,17 +41,17 @@ const emptyAnswers: QuizAnswers = {
 };
 
 export function WelcomeQuizModal() {
-  const { profile, completeQuiz, isLoaded } = useStudentProfile();
+  const { profile, setProfile, isLoaded } = useStudentProfile();
   const [isOpen, setIsOpen] = useState(false);
   const [stepIndex, setStepIndex] = useState(0);
   const [answers, setAnswers] = useState<QuizAnswers>(emptyAnswers);
   const [showResult, setShowResult] = useState(false);
 
   useEffect(() => {
-    if (isLoaded && !profile.quizCompleted && !profile.course) {
+    if (isLoaded && !profile.course) {
       setIsOpen(true);
     }
-  }, [isLoaded, profile.quizCompleted, profile.course]);
+  }, [isLoaded, profile.course]);
 
   useEffect(() => {
     const handleOpen = () => {
@@ -170,12 +170,7 @@ export function WelcomeQuizModal() {
     if (answers.course && answers.momento && answers.interesse && answers.carga) {
       const year =
         answers.momento === 'calouro' ? 1 : answers.momento === 'meio' ? 2 : answers.course === 'tads' ? 3 : 4;
-      completeQuiz({
-        course: answers.course,
-        year,
-        priority: answers.interesse,
-        availability: answers.carga,
-      });
+      setProfile(answers.course, year);
       setIsOpen(false);
     }
   };

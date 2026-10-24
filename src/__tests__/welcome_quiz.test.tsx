@@ -124,9 +124,8 @@ describe('Componente WelcomeQuizModal', () => {
 
     const stored = JSON.parse(localStorage.getItem('ft_student_profile') || '{}');
     expect(stored.course).toBe('bsi');
-    expect(stored.priority).toBe('mercado');
-    expect(stored.availability).toBe('alta');
-    expect(stored.quizCompleted).toBe(true);
+    expect(stored.year).toBe(2);
+    expect(stored.semester).toBe(4);
     expect(stored.stage).toBe('meio');
   });
 
@@ -150,9 +149,6 @@ describe('Componente WelcomeQuizModal', () => {
         year: 2,
         semester: 4,
         stage: 'meio',
-        priority: 'mercado',
-        availability: 'media',
-        quizCompleted: true,
       })
     );
 

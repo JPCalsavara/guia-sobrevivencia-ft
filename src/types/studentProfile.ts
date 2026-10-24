@@ -11,9 +11,6 @@ export interface StudentProfile {
   year: number | null;
   semester: number | null;
   stage: JourneyStage | null;
-  priority: StudentPriority | null;
-  availability: StudentAvailability | null;
-  quizCompleted: boolean;
 }
 
 export const COURSE_MAX_YEARS: Record<CourseId, number> = {

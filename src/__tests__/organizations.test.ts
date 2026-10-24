@@ -71,4 +71,36 @@ describe('Diretorio de Organizacoes Estudantis', () => {
       }
     });
   });
+
+  it('o identificador de video quando presente deve ser um id curto sem caracteres de URL', () => {
+    organizationsData.forEach((org) => {
+      if (org.youtubeId) {
+        expect(org.youtubeId.length).toBeGreaterThan(0);
+        expect(org.youtubeId).not.toMatch(/[\/:?&=.\s]/);
+      }
+    });
+  });
+
+  it('a url de recrutamento quando presente deve apontar para canal canonico http ou https', () => {
+    organizationsData.forEach((org) => {
+      if (org.recruitmentUrl) {
+        expect(org.recruitmentUrl).toMatch(/^https?:\/\//);
+      }
+    });
+  });
+
+  it('o indicador de periodicidade quando presente deve ser texto nao vazio', () => {
+    organizationsData.forEach((org) => {
+      if (org.recruitmentPeriod) {
+        expect(org.recruitmentPeriod.trim().length).toBeGreaterThan(0);
+      }
+    });
+  });
+
+  it('ao menos uma entidade deve expor canal de recrutamento e periodicidade', () => {
+    const withRecruitment = organizationsData.filter(
+      (o) => o.recruitmentUrl && o.recruitmentPeriod
+    );
+    expect(withRecruitment.length).toBeGreaterThanOrEqual(1);
+  });
 });

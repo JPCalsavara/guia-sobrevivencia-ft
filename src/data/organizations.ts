@@ -8,6 +8,9 @@ export interface Organization {
   instagramUrl?: string;
   websiteUrl?: string;
   linkedinUrl?: string;
+  youtubeId?: string;
+  recruitmentUrl?: string;
+  recruitmentPeriod?: string;
 }
 
 export const organizationsData: Organization[] = [
@@ -22,6 +25,8 @@ export const organizationsData: Organization[] = [
     instagramUrl: 'https://www.instagram.com/atriajr/',
     websiteUrl: 'https://atriajr.com.br',
     linkedinUrl: 'https://www.linkedin.com/company/atria-jr/',
+    recruitmentUrl: 'https://atriajr.com.br',
+    recruitmentPeriod: 'Inicio de cada semestre letivo',
   },
 
   // 2. Ligas Acadêmicas
@@ -267,6 +272,8 @@ export const organizationsData: Organization[] = [
     instagramHandle: '@cdi.unicamp',
     instagramUrl: 'https://www.instagram.com/cdi.unicamp/',
     websiteUrl: 'https://site-cdi-five.vercel.app/',
+    recruitmentUrl: 'https://site-cdi-five.vercel.app/',
+    recruitmentPeriod: 'Durante a recepcao de calouros a cada ingresso',
   },
   {
     id: 'camaleao-ft',
