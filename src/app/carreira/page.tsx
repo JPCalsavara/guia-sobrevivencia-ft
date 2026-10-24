@@ -45,7 +45,7 @@ import {
   BookOpen
 } from 'lucide-react';
 import { useJourneyStage } from '@/hooks/useJourneyStage';
-import { useSectionOrdering } from '@/hooks/useSectionOrdering';
+import { useSectionCoordinator } from '@/sectionCoordinator/useSectionCoordinator';
 import { JourneyStageHeader } from '@/components/JourneyStageHeader/JourneyStageHeader';
 import { SecondarySectionsToggle } from '@/components/SecondarySectionsToggle/SecondarySectionsToggle';
 import { DocSidebar } from '@/components/DocSidebar/DocSidebar';
@@ -129,11 +129,17 @@ const allCareerSectionIds = [
 export default function CarreiraPage() {
   const { stage: journeyStage, selectStage: setJourneyStage } = useJourneyStage('all');
   const {
-    isSecondaryOpen,
-    setIsSecondaryOpen,
-    secondarySections,
-    getSectionStyle,
-  } = useSectionOrdering(journeyStage, sectionStageMap, allCareerSectionIds);
+    hasSecondarySections,
+    getSectionProps,
+    priorityHeaderProps,
+    secondaryToggleProps,
+  } = useSectionCoordinator({
+    journeyStage,
+    sections: allCareerSectionIds.map((id) => ({
+      id,
+      stage: sectionStageMap[id].stage,
+    })),
+  });
 
   const displayedTopics = journeyStage === 'all'
     ? careerTopics
@@ -195,7 +201,7 @@ export default function CarreiraPage() {
           />
 
           {journeyStage !== 'all' && (
-            <div id="trilha-prioritaria" style={{ order: 1 }}>
+            <div id="trilha-prioritaria" style={priorityHeaderProps.style}>
               <JourneyStageHeader
                 stage={journeyStage}
                 pageContext="carreira"
@@ -207,7 +213,7 @@ export default function CarreiraPage() {
           {/* Sazonalidade e Feiras de Estágio */}
           <section
             id="sazonalidade-estagio"
-            style={getSectionStyle('sazonalidade-estagio')}
+            style={getSectionProps('sazonalidade-estagio').style}
             className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['sazonalidade-estagio']?.stage === journeyStage ? styles.highlightStage : ''}`}
           >
             {renderStageBadge('sazonalidade-estagio')}
@@ -472,7 +478,7 @@ export default function CarreiraPage() {
       {/* Estágio ou Trainee ou Efetivo Júnior */}
       <section
         id="trainee-vs-estagio"
-        style={getSectionStyle('trainee-vs-estagio')}
+        style={getSectionProps('trainee-vs-estagio').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['trainee-vs-estagio']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('trainee-vs-estagio')}
@@ -565,7 +571,7 @@ export default function CarreiraPage() {
       {/* Testes Técnicos */}
       <section
         id="testes-tecnicos"
-        style={getSectionStyle('testes-tecnicos')}
+        style={getSectionProps('testes-tecnicos').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['testes-tecnicos']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('testes-tecnicos')}
@@ -697,7 +703,7 @@ export default function CarreiraPage() {
       {/* Hackathons, Bootcamps e Apple Developer Academy */}
       <section
         id="hackathons-bootcamps"
-        style={getSectionStyle('hackathons-bootcamps')}
+        style={getSectionProps('hackathons-bootcamps').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['hackathons-bootcamps']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('hackathons-bootcamps')}
@@ -841,7 +847,7 @@ export default function CarreiraPage() {
       {/* Currículo em LaTeX */}
       <section
         id="curriculo-latex"
-        style={getSectionStyle('curriculo-latex')}
+        style={getSectionProps('curriculo-latex').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['curriculo-latex']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('curriculo-latex')}
@@ -860,7 +866,7 @@ export default function CarreiraPage() {
       {/* Vídeo de Pitch e Entrevistas de Estágio */}
       <section
         id="entrevistas-pitch"
-        style={getSectionStyle('entrevistas-pitch')}
+        style={getSectionProps('entrevistas-pitch').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['entrevistas-pitch']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('entrevistas-pitch')}
@@ -943,7 +949,7 @@ export default function CarreiraPage() {
       {/* GitHub e LinkedIn */}
       <section
         id="portfolio-github"
-        style={getSectionStyle('portfolio-github')}
+        style={getSectionProps('portfolio-github').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['portfolio-github']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('portfolio-github')}
@@ -1064,7 +1070,7 @@ export default function CarreiraPage() {
       {/* O Ecossistema de Empresas e Modelos de Trabalho */}
       <section
         id="empresas-mercado"
-        style={getSectionStyle('empresas-mercado')}
+        style={getSectionProps('empresas-mercado').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['empresas-mercado']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('empresas-mercado')}
@@ -1250,7 +1256,7 @@ export default function CarreiraPage() {
       {/* Vitrine de Empresas Tech e Mercado ou Pesquisa */}
       <section
         id="empresas-tech-programas"
-        style={getSectionStyle('empresas-tech-programas')}
+        style={getSectionProps('empresas-tech-programas').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['empresas-tech-programas']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('empresas-tech-programas')}
@@ -1352,7 +1358,7 @@ export default function CarreiraPage() {
       {/* Empreendedorismo, Inova Unicamp e Desafio Unicamp */}
       <section
         id="empreendedorismo-inova-desafio"
-        style={getSectionStyle('empreendedorismo-inova-desafio')}
+        style={getSectionProps('empreendedorismo-inova-desafio').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['empreendedorismo-inova-desafio']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('empreendedorismo-inova-desafio')}
@@ -1474,7 +1480,7 @@ export default function CarreiraPage() {
       {/* Estudo de Idiomas Estrangeiros em Limeira e Barão Geraldo */}
       <section
         id="idiomas-confucio-cel"
-        style={getSectionStyle('idiomas-confucio-cel')}
+        style={getSectionProps('idiomas-confucio-cel').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['idiomas-confucio-cel']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('idiomas-confucio-cel')}
@@ -1625,7 +1631,7 @@ export default function CarreiraPage() {
       {/* Trilhas e Computação em Nuvem */}
       <section
         id="computacao-nuvem"
-        style={getSectionStyle('computacao-nuvem')}
+        style={getSectionProps('computacao-nuvem').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['computacao-nuvem']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('computacao-nuvem')}
@@ -1717,7 +1723,7 @@ export default function CarreiraPage() {
       {/* Roteiros Visuais e Ideias de Projetos no Roadmap.sh */}
       <section
         id="roadmap-sh"
-        style={getSectionStyle('roadmap-sh')}
+        style={getSectionProps('roadmap-sh').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['roadmap-sh']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('roadmap-sh')}
@@ -1878,7 +1884,7 @@ export default function CarreiraPage() {
       {/* Secao de Projetos Praticos e Portfolio */}
       <section
         id="projetos-portfolio"
-        style={getSectionStyle('projetos-portfolio')}
+        style={getSectionProps('projetos-portfolio').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['projetos-portfolio']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('projetos-portfolio')}
@@ -1972,7 +1978,7 @@ export default function CarreiraPage() {
       {/* Trilhas Tecnológicas com Links Práticos */}
       <section
         id="trilhas-aprendizado"
-        style={getSectionStyle('trilhas-aprendizado')}
+        style={getSectionProps('trilhas-aprendizado').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['trilhas-aprendizado']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('trilhas-aprendizado')}
@@ -2179,7 +2185,7 @@ export default function CarreiraPage() {
       {/* DevOps e Infraestrutura */}
       <section
         id="devops-infraestrutura"
-        style={getSectionStyle('devops-infraestrutura')}
+        style={getSectionProps('devops-infraestrutura').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['devops-infraestrutura']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('devops-infraestrutura')}
@@ -2246,7 +2252,7 @@ export default function CarreiraPage() {
       {/* Trilha de Segurança da Informação */}
       <section
         id="seguranca-informacao"
-        style={getSectionStyle('seguranca-informacao')}
+        style={getSectionProps('seguranca-informacao').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['seguranca-informacao']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('seguranca-informacao')}
@@ -2344,7 +2350,7 @@ export default function CarreiraPage() {
       {/* Pesquisa Salarial 2026 */}
       <section
         id="salarios-2026-mercado"
-        style={getSectionStyle('salarios-2026-mercado')}
+        style={getSectionProps('salarios-2026-mercado').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['salarios-2026-mercado']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('salarios-2026-mercado')}
@@ -2383,7 +2389,7 @@ export default function CarreiraPage() {
       {/* Guia Completo para Trabalhar na Gringa do Brasil */}
       <section
         id="trabalhar-na-gringa"
-        style={getSectionStyle('trabalhar-na-gringa')}
+        style={getSectionProps('trabalhar-na-gringa').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['trabalhar-na-gringa']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('trabalhar-na-gringa')}
@@ -2470,7 +2476,7 @@ export default function CarreiraPage() {
       {/* BSI ou TADS com a Coordenação */}
       <section
         id="bsi-vs-tads-coordenacao"
-        style={getSectionStyle('bsi-vs-tads-coordenacao')}
+        style={getSectionProps('bsi-vs-tads-coordenacao').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['bsi-vs-tads-coordenacao']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('bsi-vs-tads-coordenacao')}
@@ -2513,7 +2519,7 @@ export default function CarreiraPage() {
       {/* O Mercado Pós-Pandemia e a Verdade sobre a IA na Programação */}
       <section
         id="mercado-ia-devs-produto"
-        style={getSectionStyle('mercado-ia-devs-produto')}
+        style={getSectionProps('mercado-ia-devs-produto').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['mercado-ia-devs-produto']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('mercado-ia-devs-produto')}
@@ -2591,7 +2597,7 @@ export default function CarreiraPage() {
       {/* Carreira em Y: Especialista ou Gestor */}
       <section
         id="carreira-em-y-lideranca"
-        style={getSectionStyle('carreira-em-y-lideranca')}
+        style={getSectionProps('carreira-em-y-lideranca').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['carreira-em-y-lideranca']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('carreira-em-y-lideranca')}
@@ -2716,7 +2722,7 @@ export default function CarreiraPage() {
       {/* Canais Recomendados */}
       <section
         id="canais-recomendados"
-        style={getSectionStyle('canais-recomendados')}
+        style={getSectionProps('canais-recomendados').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['canais-recomendados']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('canais-recomendados')}
@@ -2995,7 +3001,7 @@ export default function CarreiraPage() {
       {/* Trilha de Fases de Selecao e Rede de Veteranos */}
       <section
         id="trilha-selecao-veteranos"
-        style={getSectionStyle('trilha-selecao-veteranos')}
+        style={getSectionProps('trilha-selecao-veteranos').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['trilha-selecao-veteranos']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('trilha-selecao-veteranos')}
@@ -3014,11 +3020,11 @@ export default function CarreiraPage() {
         </div>
       </section>
 
-      {journeyStage !== 'all' && secondarySections.length > 0 && (
+      {journeyStage !== 'all' && hasSecondarySections && (
         <SecondarySectionsToggle
-          isOpen={isSecondaryOpen}
-          onToggle={() => setIsSecondaryOpen(!isSecondaryOpen)}
-          count={secondarySections.length}
+          isOpen={secondaryToggleProps.isOpen}
+          onToggle={secondaryToggleProps.onToggle}
+          count={secondaryToggleProps.count}
           title="Demais Tópicos de Carreira"
           subtitle="Conteúdos profissionais voltados para outros momentos da formação"
         />
