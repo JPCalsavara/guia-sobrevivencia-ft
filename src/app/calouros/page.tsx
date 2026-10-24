@@ -31,9 +31,11 @@ import {
   Copy,
   Check,
   Lightbulb,
+  Store,
 } from 'lucide-react';
 import { DocSidebar } from '@/components/DocSidebar/DocSidebar';
 import { getPageTopics } from '@/data/contentCatalog';
+import { PartnerShowcase } from '@/components/PartnerShowcase/PartnerShowcase';
 import { useClipboardCopy } from '@/hooks/useClipboardCopy';
 import { geminiSyllabusPrompt } from '@/data/prompts';
 import { ShareWhatsAppButton } from '@/components/ShareWhatsAppButton/ShareWhatsAppButton';
@@ -1220,6 +1222,22 @@ export default function CalourosPage() {
                   </a>
                 </div>
               </div>
+            </div>
+          </section>
+
+          {/* Vitrine de Parceiros Locais de Limeira */}
+          <section id="parceiros-locais-calouros" className={styles.sectionBlock}>
+            <div className={styles.blockCard}>
+              <div className={styles.cardHeader}>
+                <Store size={24} className={styles.headerIcon} />
+                <div>
+                  <h2 className={styles.cardTitle}>Parceiros Locais de Limeira para Calouros</h2>
+                  <p className={styles.cardSubtitle}>
+                    Restaurantes, imobiliarias e pensionatos do entorno da FT com condicoes para estudantes. Consulte sempre precos e detalhes na fonte oficial de cada parceiro
+                  </p>
+                </div>
+              </div>
+              <PartnerShowcase />
             </div>
           </section>
         </main>

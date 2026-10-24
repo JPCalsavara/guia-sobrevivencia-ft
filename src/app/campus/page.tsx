@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { OrganizationDirectory } from '@/components/OrganizationDirectory/OrganizationDirectory';
+import { PartnerShowcase } from '@/components/PartnerShowcase/PartnerShowcase';
 import { MapMoradia } from '@/components/MapMoradia/MapMoradia';
 import {
   MapPin,
@@ -31,6 +32,7 @@ import {
   Repeat,
   FileText,
   Instagram,
+  Store,
 } from 'lucide-react';
 import { DocSidebar } from '@/components/DocSidebar/DocSidebar';
 import { getPageTopics } from '@/data/contentCatalog';
@@ -659,6 +661,22 @@ export default function CampusPage() {
           </div>
         </div>
         <OrganizationDirectory />
+      </section>
+
+      {/* Vitrine de Parceiros Locais de Limeira */}
+      <section id="parceiros-locais" className={styles.sectionBlock}>
+        <div className={styles.sectionIntro}>
+          <div className={styles.introHeader}>
+            <Store size={24} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>Vitrine de Parceiros Locais de Limeira</h2>
+              <p className={styles.cardSubtitle}>
+                Restaurantes, imobiliarias e pensionatos do entorno do campus com condicoes para estudantes da FT. Consulte precos e detalhes sempre na fonte oficial de cada parceiro
+              </p>
+            </div>
+          </div>
+        </div>
+        <PartnerShowcase />
       </section>
 
       {/* Vida Noturna, Integração e Festas Universitárias */}

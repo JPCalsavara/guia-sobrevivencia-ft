@@ -592,6 +592,28 @@ export const contentCatalog: CatalogSection[] = [
           },
         ],
       },
+      {
+        id: "parceiros-locais-calouros",
+        title: "Parceiros Locais de Limeira",
+        keywords: ["parceiros","descontos","restaurantes","imobiliarias","pensionatos","limeira","beneficios estudantis"],
+        subtopics: [
+          {
+            id: "parceiros-restaurante",
+            title: "Restaurantes Parceiros",
+            summary: "Parceiros Locais de Limeira Restaurantes, marmitarias e cozinhas caseiras no entorno da FT com condicoes especiais para estudantes mediante apresentacao da carteirinha.",
+          },
+          {
+            id: "parceiros-imobiliaria",
+            title: "Imobiliarias Parceiras",
+            summary: "Imobiliarias parceiras com catalogo de kitnets, studios e apartamentos nos bairros do lado da FT, atendimento prioritario e orientacao de contrato para calouros.",
+          },
+          {
+            id: "parceiros-pensionato",
+            title: "Pensionatos Parceiros",
+            summary: "Pensionatos e moradias universitarias parceiras proximas ao campus da FT em Limeira, com quartos individuais e compartilhados voltados para a rotina estudantil.",
+          },
+        ],
+      },
     ],
   },
   {
@@ -733,6 +755,28 @@ export const contentCatalog: CatalogSection[] = [
         ],
       },
       {
+        id: "parceiros-locais",
+        title: "Parceiros Locais de Limeira",
+        keywords: ["parceiros","descontos","restaurantes","imobiliarias","pensionatos","limeira","beneficios estudantis"],
+        subtopics: [
+          {
+            id: "parceiros-restaurante",
+            title: "Restaurantes Parceiros",
+            summary: "Parceiros Locais de Limeira Restaurantes, marmitarias e cozinhas caseiras no entorno da FT com condicoes especiais para estudantes mediante apresentacao da carteirinha.",
+          },
+          {
+            id: "parceiros-imobiliaria",
+            title: "Imobiliarias Parceiras",
+            summary: "Imobiliarias parceiras com catalogo de kitnets, studios e apartamentos nos bairros do lado da FT, atendimento prioritario e orientacao de contrato para estudantes.",
+          },
+          {
+            id: "parceiros-pensionato",
+            title: "Pensionatos Parceiros",
+            summary: "Pensionatos e moradias universitarias parceiras proximas ao campus da FT em Limeira, com quartos individuais e compartilhados voltados para a rotina estudantil.",
+          },
+        ],
+      },
+      {
         id: "vida-festas",
         title: "Vida Noturna e Festas",
         subtopics: [
@@ -826,6 +870,23 @@ export const contentCatalog: CatalogSection[] = [
             title: "Processos Seletivos e Liderança",
             summary: "Estrutura dos Processos Seletivos de Trainee e Foco em Liderança Etapas eliminatórias, dinâmicas de grupo, resolução de casos de negócio e painéis executivos Fase 1: Triagem e Testes Fit Cultural e Raciocínio Lógico Avaliações online de alinhamento de valores com a companhia, lógica matemática, interpretação estruturada de dados e proficiência em inglês.",
             keywords: ["processo seletivo trainee","dinamica de grupo","business case","painel executivo","fit cultural"],
+          },
+        ],
+      },
+      {
+        id: "trilha-selecao-veteranos",
+        title: "Fases de Seleção e Rede de Veteranos",
+        keywords: ["processo seletivo","fases de selecao","trilha","rede de veteranos","egressos","mentoria carreira"],
+        subtopics: [
+          {
+            id: "trilha-fases-heading",
+            title: "Trilha das Fases do Processo Seletivo",
+            summary: "Fases do Processo Seletivo e Rede de Veteranos Trilha cronologica das etapas de selecao de estagio e trainee, da inscricao ao resultado final, com orientacao sobre o que esperar em cada fase.",
+          },
+          {
+            id: "rede-veteranos-heading",
+            title: "Rede de Veteranos por Empresa",
+            summary: "Rede de Veteranos por Empresa Conexao com egressos da FT que ja atuam nas empresas para troca de experiencias, mentoria e indicacao sobre processos seletivos de tecnologia.",
           },
         ],
       },
@@ -1457,6 +1518,18 @@ export const contentCatalog: CatalogSection[] = [
             title: "Colação de Grau Oficial e Diploma",
             summary: "Dúvidas de Carreira e Formatura, foco em Colação de Grau Oficial e Diploma na Faculdade de Tecnologia da Unicamp.",
             keywords: ["formatura","colacao de grau","diploma","baile","beca","mec","dac"],
+          },
+        ],
+      },
+      {
+        id: "mural-interativo",
+        title: "Mural Interativo de Dúvidas",
+        keywords: ["mural","duvidas","votar","comentar","resposta oficial","comunidade","perguntas"],
+        subtopics: [
+          {
+            id: "mural-interativo",
+            title: "Vote, Comente e Acompanhe Respostas Oficiais",
+            summary: "Mural Interativo de Dúvidas Espaco colaborativo para a comunidade da FT enviar perguntas, votar nas duvidas mais relevantes, comentar e acompanhar respostas oficiais da equipe.",
           },
         ],
       },

@@ -16,13 +16,12 @@ import {
   HelpCircle
 } from 'lucide-react';
 import {
-  performLocalSearch,
-  askGeminiSearch,
+  createSearchEngine,
   getStoredApiKey,
   setStoredApiKey,
   clearStoredApiKey,
   AiSearchResult
-} from '@/services/geminiSearch';
+} from '@/services/searchEngine';
 import { SearchDocument } from '@/data/searchIndex';
 import styles from './SearchModal.module.scss';
 
@@ -30,6 +29,8 @@ interface SearchModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
+
+const searchEngine = createSearchEngine();
 
 const QUICK_SUGGESTIONS = [
   'Restaurante Universitário',
@@ -60,7 +61,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
   const [aiError, setAiError] = useState<string | null>(null);
 
   const inputRef = useRef<HTMLInputElement>(null);
-  const localResults = performLocalSearch(query);
+  const localResults = searchEngine.searchLocal(query);
 
   useEffect(() => {
     if (isOpen) {
@@ -119,7 +120,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
     setAiResult(null);
 
     try {
-      const result = await askGeminiSearch(query, apiKey);
+      const result = await searchEngine.ask(query);
       setAiResult(result);
     } catch (err: unknown) {
       const errorMsg = err instanceof Error ? err.message : 'Falha na comunicacao com o Gemini.';

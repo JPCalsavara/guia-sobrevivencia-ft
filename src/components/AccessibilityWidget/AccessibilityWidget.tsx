@@ -3,95 +3,29 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Eye, Type, X, RotateCcw, Accessibility, Ear } from 'lucide-react';
 import { VLibras } from '../VLibras/VLibras';
+import { usePreferences } from '@/modules/preferences';
 import styles from './AccessibilityWidget.module.scss';
 
-export type FontSizeOption = 'normal' | 'large' | 'extralarge';
-export type ColorFilterOption =
-  | 'none'
-  | 'protanopia'
-  | 'deuteranopia'
-  | 'tritanopia'
-  | 'achromatopsia'
-  | 'high-contrast-yellow';
-
-const STORAGE_FONT_KEY = 'ft_accessibility_font';
-const STORAGE_FILTER_KEY = 'ft_accessibility_filter';
-const STORAGE_VLIBRAS_KEY = 'ft_accessibility_vlibras';
+// Tipos reexportados a partir do modulo de preferencias, unica fonte de verdade.
+export type { FontSizeOption, ColorFilterOption } from '@/modules/preferences';
 
 export function AccessibilityWidget() {
   const [isOpen, setIsOpen] = useState(false);
-  const [fontSize, setFontSize] = useState<FontSizeOption>('normal');
-  const [colorFilter, setColorFilter] = useState<ColorFilterOption>('none');
-  const [vlibrasActive, setVlibrasActive] = useState(false);
+  const {
+    fontSize,
+    setFontSize,
+    colorFilter,
+    setColorFilter,
+    vlibrasActive,
+    toggleVlibras,
+    resetAccessibility,
+  } = usePreferences();
   const dialogRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    try {
-      const savedFont = localStorage.getItem(STORAGE_FONT_KEY) as FontSizeOption | null;
-      if (savedFont) {
-        setFontSize(savedFont);
-        document.documentElement.setAttribute('data-font-size', savedFont);
-      }
-
-      const savedFilter = localStorage.getItem(STORAGE_FILTER_KEY) as ColorFilterOption | null;
-      if (savedFilter) {
-        setColorFilter(savedFilter);
-        document.documentElement.setAttribute('data-color-filter', savedFilter);
-      }
-
-      const savedVlibras = localStorage.getItem(STORAGE_VLIBRAS_KEY);
-      if (savedVlibras === 'true') {
-        setVlibrasActive(true);
-      }
-    } catch {
-      // Ignora erro de acesso ao localStorage
-    }
-  }, []);
-
-  const handleFontSizeChange = (size: FontSizeOption) => {
-    setFontSize(size);
-    try {
-      localStorage.setItem(STORAGE_FONT_KEY, size);
-    } catch {
-      // Ignora erro
-    }
-    document.documentElement.setAttribute('data-font-size', size);
-  };
-
-  const handleColorFilterChange = (filter: ColorFilterOption) => {
-    setColorFilter(filter);
-    try {
-      localStorage.setItem(STORAGE_FILTER_KEY, filter);
-    } catch {
-      // Ignora erro
-    }
-    if (filter === 'none') {
-      document.documentElement.removeAttribute('data-color-filter');
-    } else {
-      document.documentElement.setAttribute('data-color-filter', filter);
-    }
-  };
-
-  const handleToggleVlibras = () => {
-    const nextState = !vlibrasActive;
-    setVlibrasActive(nextState);
-    try {
-      localStorage.setItem(STORAGE_VLIBRAS_KEY, String(nextState));
-    } catch {
-      // Ignora erro
-    }
-  };
-
-  const handleReset = () => {
-    handleFontSizeChange('normal');
-    handleColorFilterChange('none');
-    setVlibrasActive(false);
-    try {
-      localStorage.removeItem(STORAGE_VLIBRAS_KEY);
-    } catch {
-      // Ignora erro
-    }
-  };
+  const handleFontSizeChange = setFontSize;
+  const handleColorFilterChange = setColorFilter;
+  const handleToggleVlibras = toggleVlibras;
+  const handleReset = resetAccessibility;
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {

@@ -51,9 +51,12 @@ import { SecondarySectionsToggle } from '@/components/SecondarySectionsToggle/Se
 import { DocSidebar } from '@/components/DocSidebar/DocSidebar';
 import { MobileTopicPills } from '@/components/MobileTopicPills/MobileTopicPills';
 import { getPageTopics } from '@/data/contentCatalog';
+import { SelectionJourneyTrail } from '@/components/SelectionJourneyTrail/SelectionJourneyTrail';
 import {
   internshipVsTraineeData,
   companiesShowcaseData,
+  selectionJourneyData,
+  veteransNetworkData,
   appleDeveloperAcademyData,
   marketVsResearchData,
   hackathonGuideData,
@@ -72,6 +75,7 @@ const careerTopics = getPageTopics('carreira');
 const sectionStageMap: Record<string, { stage: JourneyStage; label: string }> = {
   'sazonalidade-estagio': { stage: 'formando', label: 'Foco: Formando, 7º e 8º Semestres' },
   'trainee-vs-estagio': { stage: 'formando', label: 'Foco: Formando, 7º e 8º Semestres' },
+  'trilha-selecao-veteranos': { stage: 'formando', label: 'Foco: Formando, 7º e 8º Semestres' },
   'testes-tecnicos': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
   'hackathons-bootcamps': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
   'curriculo-latex': { stage: 'formando', label: 'Foco: Formando, 7º e 8º Semestres' },
@@ -98,6 +102,7 @@ const sectionStageMap: Record<string, { stage: JourneyStage; label: string }> = 
 const allCareerSectionIds = [
   'sazonalidade-estagio',
   'trainee-vs-estagio',
+  'trilha-selecao-veteranos',
   'testes-tecnicos',
   'hackathons-bootcamps',
   'curriculo-latex',
@@ -2984,6 +2989,28 @@ export default function CarreiraPage() {
               </a>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Trilha de Fases de Selecao e Rede de Veteranos */}
+      <section
+        id="trilha-selecao-veteranos"
+        style={getSectionStyle('trilha-selecao-veteranos')}
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['trilha-selecao-veteranos']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('trilha-selecao-veteranos')}
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <Users size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>Fases do Processo Seletivo e Rede de Veteranos</h2>
+              <p className={styles.cardSubtitle}>
+                Entenda a trilha cronologica de etapas de selecao e conecte-se com egressos da FT que ja atuam nas empresas
+              </p>
+            </div>
+          </div>
+
+          <SelectionJourneyTrail stages={selectionJourneyData} veterans={veteransNetworkData} />
         </div>
       </section>
 
