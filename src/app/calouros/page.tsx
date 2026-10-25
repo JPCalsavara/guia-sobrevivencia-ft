@@ -31,121 +31,19 @@ import {
   Copy,
   Check,
   Lightbulb,
+  Store,
 } from 'lucide-react';
-import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
+import { DocSidebar } from '@/components/DocSidebar/DocSidebar';
 import { CardGrid } from '@/components/CardGrid/CardGrid';
 import { InfoCard } from '@/components/InfoCard/InfoCard';
+import { getPageTopics } from '@/data/contentCatalog';
+import { PartnerShowcase } from '@/components/PartnerShowcase/PartnerShowcase';
 import { useClipboardCopy } from '@/hooks/useClipboardCopy';
 import { geminiSyllabusPrompt } from '@/data/prompts';
 import { ShareWhatsAppButton } from '@/components/ShareWhatsAppButton/ShareWhatsAppButton';
 import styles from './calouros.module.scss';
 
-const calourosTopics: TopicItem[] = [
-  {
-    id: 'acabei-de-passar',
-    title: 'Acabei de Passar: Primeiros Passos',
-    subtopics: [
-      { id: 'acabei-de-passar', title: 'Matrícula Virtual e Confirmação' },
-      { id: 'obter-ra-carteirinha', title: 'Registro Acadêmico e Carteirinha' },
-      { id: 'senhas-email-dac', title: 'Senhas e E-mail Institucional' },
-    ],
-  },
-  {
-    id: 'unicamp-limeira-ft',
-    title: 'Unicamp Limeira: FT versus FCA',
-    subtopics: [
-      { id: 'unicamp-limeira-ft', title: 'Localização do Campus 1 FT' },
-      { id: 'diferenca-ft-fca', title: 'Diferenças Cruciais entre FT e FCA' },
-    ],
-  },
-  {
-    id: 'moradia-calouros',
-    title: 'Onde Morar: Bairros e Imobiliárias',
-    subtopics: [
-      { id: 'moradia-calouros', title: 'Bairros Próximos e Lado FT' },
-      { id: 'principais-ruas-limeira', title: 'Avenidas Cônego e Fabrício' },
-      { id: 'imobiliarias-e-contratos', title: 'Imobiliárias e Aluguel' },
-    ],
-  },
-  {
-    id: 'calourada-recepcao',
-    title: 'Calourada e Trote Solidário',
-    subtopics: [
-      { id: 'calourada-recepcao', title: 'Recepção e Integração Estudantil' },
-      { id: 'trote-solidario-regras', title: 'Trote Solidário e Proibições' },
-    ],
-  },
-  {
-    id: 'salas-aulas-ft',
-    title: 'Aulas e Espaços Físicos na FT',
-    subtopics: [
-      { id: 'salas-aulas-ft', title: 'PAs, SAs e LPs da Faculdade' },
-      { id: 'laboratorios-tic', title: 'Laboratórios de Programação' },
-      { id: 'consulta-salas-online', title: 'Consulta de Salas em Tempo Real' },
-    ],
-  },
-  {
-    id: 'ambientes-estudo',
-    title: 'Moodle, Classroom e Agenda',
-    subtopics: [
-      { id: 'ambientes-estudo', title: 'Moodle para Conteúdo das Aulas' },
-      { id: 'classroom-google-dac', title: 'Google Classroom e e-DAC' },
-      { id: 'automacao-google-calendar', title: 'Automação para o Google Calendar' },
-    ],
-  },
-  {
-    id: 'bandejao-recarga',
-    title: 'Restaurante Universitário e Saldo',
-    subtopics: [
-      { id: 'bandejao-recarga', title: 'Funcionamento do RU na FT' },
-      { id: 'compra-recarga-creditos', title: 'Como Recarregar via Pix' },
-      { id: 'catracas-app-servicos', title: 'Acesso às Catracas com App' },
-    ],
-  },
-  {
-    id: 'transporte-circular',
-    title: 'Transporte e Linhas Circulares',
-    subtopics: [
-      { id: 'transporte-circular', title: 'Circular Gratuito FT e FCA' },
-      { id: 'fretado-linha-84', title: 'Fretado Linha 84 para Campinas' },
-      { id: 'onibus-municipal-limeira', title: 'Ônibus Urbano e Passe Escolar' },
-    ],
-  },
-  {
-    id: 'apoio-monitorias-pmu',
-    title: 'Monitorias PAD e Mentoria PMU',
-    subtopics: [
-      { id: 'apoio-monitorias-pmu', title: 'Plantões de Dúvidas PAD e PED' },
-      { id: 'mentoria-pmu-ingressantes', title: 'Mentoria PMU da DEAPE' },
-      { id: 'como-ser-monitor', title: 'Como Ser Monitor no Futuro' },
-    ],
-  },
-  {
-    id: 'bolsas-sociais-deape',
-    title: 'Bolsas Sociais e Permanência',
-    subtopics: [
-      { id: 'bolsas-sociais-deape', title: 'Bolsa Auxílio-Social BAS' },
-      { id: 'moradia-alimentacao-gratis', title: 'Moradia e Refeições Gratuitas' },
-      { id: 'inscricao-sig-deape', title: 'Inscrição no Sistema SIG-DEAPE' },
-    ],
-  },
-  {
-    id: 'organizacoes-e-ic',
-    title: 'Organizações Estudantis e IC',
-    subtopics: [
-      { id: 'organizacoes-e-ic', title: 'Feira de Entidades e Inscrições' },
-      { id: 'iniciacao-cientifica-calouro', title: 'Iniciação Científica PIBIC' },
-    ],
-  },
-  {
-    id: 'beneficios-tecnologia',
-    title: 'Benefícios Digitais e Ferramentas',
-    subtopics: [
-      { id: 'beneficios-tecnologia', title: 'AWS Builder Center para Alunos' },
-      { id: 'github-pack-google', title: 'GitHub Pack e Google Workspace' },
-    ],
-  },
-];
+const calourosTopics = getPageTopics('calouros');
 
 export default function CalourosPage() {
   const { copied, copy } = useClipboardCopy();
@@ -1329,6 +1227,22 @@ export default function CalourosPage() {
                   </a>
                 </div>
               </div>
+            </div>
+          </section>
+
+          {/* Vitrine de Parceiros Locais de Limeira */}
+          <section id="parceiros-locais-calouros" className={styles.sectionBlock}>
+            <div className={styles.blockCard}>
+              <div className={styles.cardHeader}>
+                <Store size={24} className={styles.headerIcon} />
+                <div>
+                  <h2 className={styles.cardTitle}>Parceiros Locais de Limeira para Calouros</h2>
+                  <p className={styles.cardSubtitle}>
+                    Restaurantes, imobiliarias e pensionatos do entorno da FT com condicoes para estudantes. Consulte sempre precos e detalhes na fonte oficial de cada parceiro
+                  </p>
+                </div>
+              </div>
+              <PartnerShowcase />
             </div>
           </section>
         </main>

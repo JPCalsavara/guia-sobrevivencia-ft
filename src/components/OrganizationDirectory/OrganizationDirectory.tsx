@@ -2,8 +2,9 @@
 
 import React, { useState } from 'react';
 import { organizationsData, Organization } from '@/data/organizations';
-import { ExternalLink, Instagram, Globe, Users, Linkedin } from 'lucide-react';
+import { ExternalLink, Instagram, Globe, Users, Linkedin, PlayCircle, CalendarClock, ClipboardList } from 'lucide-react';
 import styles from './OrganizationDirectory.module.scss';
+import { VideoModal } from './VideoModal';
 
 interface CategoryConfig {
   key: Organization['category'];
@@ -53,6 +54,7 @@ const CATEGORY_CONFIGS: CategoryConfig[] = [
 
 export function OrganizationDirectory() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [activeVideoOrg, setActiveVideoOrg] = useState<Organization | null>(null);
 
   const visibleConfigs = selectedCategory === 'all'
     ? CATEGORY_CONFIGS
@@ -113,7 +115,39 @@ export function OrganizationDirectory() {
                   <h4 className={styles.orgName}>{org.name}</h4>
                   <p className={styles.orgDesc}>{org.description}</p>
 
+                  {org.recruitmentPeriod && (
+                    <span className={styles.recruitmentPeriod}>
+                      <CalendarClock size={13} aria-hidden="true" />
+                      <span>{org.recruitmentPeriod}</span>
+                    </span>
+                  )}
+
                   <div className={styles.cardFooter}>
+                    {org.youtubeId && (
+                      <button
+                        type="button"
+                        onClick={() => setActiveVideoOrg(org)}
+                        className={styles.pitchButton}
+                        aria-label={`Assistir pitch institucional de ${org.name}`}
+                      >
+                        <PlayCircle size={14} aria-hidden="true" />
+                        <span>Assistir pitch</span>
+                      </button>
+                    )}
+                    {org.recruitmentUrl && (
+                      <a
+                        href={org.recruitmentUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.recruitmentButton}
+                        title={`Processo seletivo de ${org.name}`}
+                        aria-label={`Acessar processo seletivo de ${org.name} em nova janela`}
+                      >
+                        <ClipboardList size={14} aria-hidden="true" />
+                        <span>Processo seletivo</span>
+                        <ExternalLink size={12} aria-hidden="true" />
+                      </a>
+                    )}
                     {org.instagramUrl && (
                       <a
                         href={org.instagramUrl}
@@ -163,6 +197,15 @@ export function OrganizationDirectory() {
           </section>
         );
       })}
+
+      {activeVideoOrg?.youtubeId && (
+        <VideoModal
+          isOpen={activeVideoOrg !== null}
+          onClose={() => setActiveVideoOrg(null)}
+          youtubeId={activeVideoOrg.youtubeId}
+          title={`Pitch institucional de ${activeVideoOrg.name}`}
+        />
+      )}
     </div>
   );
 }

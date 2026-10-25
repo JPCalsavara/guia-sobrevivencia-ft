@@ -45,14 +45,18 @@ import {
   BookOpen
 } from 'lucide-react';
 import { useJourneyStage } from '@/hooks/useJourneyStage';
-import { useSectionOrdering } from '@/hooks/useSectionOrdering';
+import { useSectionCoordinator } from '@/sectionCoordinator/useSectionCoordinator';
 import { JourneyStageHeader } from '@/components/JourneyStageHeader/JourneyStageHeader';
 import { SecondarySectionsToggle } from '@/components/SecondarySectionsToggle/SecondarySectionsToggle';
-import { DocSidebar, TopicItem } from '@/components/DocSidebar/DocSidebar';
+import { DocSidebar } from '@/components/DocSidebar/DocSidebar';
 import { MobileTopicPills } from '@/components/MobileTopicPills/MobileTopicPills';
+import { getPageTopics } from '@/data/contentCatalog';
+import { SelectionJourneyTrail } from '@/components/SelectionJourneyTrail/SelectionJourneyTrail';
 import {
   internshipVsTraineeData,
   companiesShowcaseData,
+  selectionJourneyData,
+  veteransNetworkData,
   appleDeveloperAcademyData,
   marketVsResearchData,
   hackathonGuideData,
@@ -66,203 +70,12 @@ import {
 } from '@/data/careerExpanded';
 import styles from './carreira.module.scss';
 
-const careerTopics: TopicItem[] = [
-  {
-    id: 'sazonalidade-estagio',
-    title: 'Sazonalidade e Feiras',
-    subtopics: [
-      { id: 'sazonalidade-estagio', title: 'Janela de Contratação' },
-      { id: 'feiras-recrutamento-agosto', title: 'Feiras de Carreiras em Agosto' },
-      { id: 'programas-estagio-frequencia', title: 'Programas de Estágio Estruturados' },
-      { id: 'requisito-legal', title: 'Elegibilidade Institucional' },
-    ],
-  },
-  {
-    id: 'trainee-vs-estagio',
-    title: 'Estágio ou Trainee e Júnior',
-    subtopics: [
-      { id: 'comparativo-estagio-trainee-junior', title: 'Matriz Comparativa das Modalidades' },
-      { id: 'processos-seletivos-trainee', title: 'Processos Seletivos e Liderança' },
-    ],
-  },
-  {
-    id: 'testes-tecnicos',
-    title: 'Testes Técnicos e Maratona',
-    subtopics: [
-      { id: 'testes-tecnicos', title: 'Estruturas de Dados e Lógica' },
-      { id: 'maratona-programacao', title: 'Maratona de Programação e ICPC' },
-    ],
-  },
-  {
-    id: 'hackathons-bootcamps',
-    title: 'Hackathons e Apple Developer Academy',
-    subtopics: [
-      { id: 'guia-hackathons-squads', title: 'Guia de Hackathons e Squads' },
-      { id: 'hackathon-itau-agentes', title: 'Hackathon Itaú Batalha de Agentes' },
-      { id: 'apple-developer-academy', title: 'Apple Developer Academy Campinas' },
-    ],
-  },
-  {
-    id: 'curriculo-latex',
-    title: 'Currículo em LaTeX',
-    subtopics: [
-      { id: 'curriculo-latex', title: 'Template ATS de Página Única' },
-    ],
-  },
-  {
-    id: 'entrevistas-pitch',
-    title: 'Entrevistas e Pitch',
-    subtopics: [
-      { id: 'entrevistas-pitch', title: 'Vídeo e Estrutura de Pitch' },
-      { id: 'perguntas-entrevistas', title: 'As Sete Perguntas Centrais' },
-    ],
-  },
-  {
-    id: 'portfolio-github',
-    title: 'Presença Profissional',
-    subtopics: [
-      { id: 'portfolio-github', title: 'LinkedIn e Portfólio GitHub' },
-      { id: 'videos-cv-linkedin', title: 'Vídeos de LinkedIn e CV' },
-    ],
-  },
-  {
-    id: 'empresas-mercado',
-    title: 'Empresas e Modelos de Trabalho',
-    subtopics: [
-      { id: 'empresas-remotas-tech', title: 'Empresas Tech e Trabalho Remoto' },
-      { id: 'empresas-financeiras', title: 'Bancos e Fintechs' },
-      { id: 'empresas-industrias', title: 'Polo Industrial e Consultorias' },
-    ],
-  },
-  {
-    id: 'empresas-tech-programas',
-    title: 'Vitrine Tech e Mercado ou Pesquisa',
-    subtopics: [
-      { id: 'vitrine-empresas-tech', title: 'Vitrine de Empresas Líderes' },
-      { id: 'mercado-vs-pesquisa', title: 'Mercado ou Pesquisa Acadêmica' },
-    ],
-  },
-  {
-    id: 'empreendedorismo-inova-desafio',
-    title: 'Inovação e Empreendedorismo',
-    subtopics: [
-      { id: 'inova-unicamp-hub', title: 'Agência de Inovação Inova' },
-      { id: 'desafio-unicamp-edicao', title: 'Competição Desafio Unicamp' },
-      { id: 'empresas-filhas-unicamp', title: 'Ecossistema de Empresas Filhas' },
-      { id: 'si800-disciplina', title: 'Conexão Curricular SI800' },
-    ],
-  },
-  {
-    id: 'idiomas-confucio-cel',
-    title: 'Idiomas Estrangeiros',
-    subtopics: [
-      { id: 'instituto-confucio-mandarim', title: 'Instituto Confúcio e Mandarim' },
-      { id: 'cel-idiomas-gratuitos', title: 'Centro de Ensino de Línguas CEL' },
-      { id: 'hsk-bolsas-china', title: 'Exames HSK e Bolsas Internacionais' },
-    ],
-  },
-  {
-    id: 'computacao-nuvem',
-    title: 'Computação em Nuvem',
-    subtopics: [
-      { id: 'computacao-nuvem', title: 'Vouchers e Créditos Estudantis' },
-    ],
-  },
-  {
-    id: 'projetos-portfolio',
-    title: 'Projetos Praticos',
-    subtopics: [
-      { id: 'projetos-portfolio', title: 'Desafios por Nivel' },
-      { id: 'projetos-web-cloud', title: 'Web e Computacao em Nuvem' },
-      { id: 'projetos-dados-seguranca', title: 'Dados e Segurança' }
-    ],
-  },
-  {
-    id: 'roadmap-sh',
-    title: 'Roadmaps e Projetos',
-    subtopics: [
-      { id: 'roadmap-sh', title: 'Trilhas do Roadmap.sh' },
-      { id: 'projetos-reais', title: 'Projetos com Requisitos Reais' },
-    ],
-  },
-  {
-    id: 'trilhas-aprendizado',
-    title: 'Trilhas Tecnológicas',
-    subtopics: [
-      { id: 'trilhas-aprendizado', title: 'Dev, Cloud AWS, Dados e Portfólio' },
-    ],
-  },
-  {
-    id: 'devops-infraestrutura',
-    title: 'DevOps e Infraestrutura',
-    subtopics: [
-      { id: 'devops-infraestrutura', title: 'Docker e Liga LICS Unicamp' },
-    ],
-  },
-  {
-    id: 'seguranca-informacao',
-    title: 'Segurança da Informação',
-    subtopics: [
-      { id: 'seguranca-informacao', title: 'Fundamentos, Especializações e Brenno M.' },
-    ],
-  },
-  {
-    id: 'salarios-2026-mercado',
-    title: 'Pesquisa Salarial 2026',
-    subtopics: [
-      { id: 'salarios-2026-mercado', title: 'Faixas Salariais 2026' },
-      { id: 'regimes-contratacao', title: 'Regimes CLT, PJ e Cooperativas' },
-      { id: 'roi-graduacao-unicamp', title: 'Retorno sobre Investimento da Graduação' },
-    ],
-  },
-  {
-    id: 'trabalhar-na-gringa',
-    title: 'Trabalho na Gringa',
-    subtopics: [
-      { id: 'trabalhar-na-gringa', title: 'Contratação Remota Internacional' },
-      { id: 'requisitos-vagas-gringa', title: 'Inglês e Portfólio' },
-      { id: 'tributacao-pj-exterior', title: 'Tributação e Câmbio' },
-    ],
-  },
-  {
-    id: 'bsi-vs-tads-coordenacao',
-    title: 'BSI ou TADS Coordenador',
-    subtopics: [
-      { id: 'bsi-vs-tads-coordenacao', title: 'Visão da Coordenação' },
-      { id: 'comparativo-matrizes-tempo', title: 'Tempo e Matriz Curricular' },
-    ],
-  },
-  {
-    id: 'mercado-ia-devs-produto',
-    title: 'Mercado de IA e Devs de Produto',
-    subtopics: [
-      { id: 'mercado-ia-devs-produto', title: 'Mercado Pós-Pandemia' },
-      { id: 'ia-verdade-programacao', title: 'O Falso Fim da Programação' },
-      { id: 'era-devs-produto', title: 'A Era dos Devs de Produto' },
-    ],
-  },
-  {
-    id: 'carreira-em-y-lideranca',
-    title: 'Carreira em Y',
-    subtopics: [
-      { id: 'carreira-em-y-lideranca', title: 'Especialista ou Gestão' },
-      { id: 'autoavaliacao-trilha-y', title: 'Autoavaliação de Afinidade' },
-      { id: 'videos-referencia-carreira', title: 'Vídeos de Referência' },
-    ],
-  },
-  {
-    id: 'canais-recomendados',
-    title: 'Canais Recomendados',
-    subtopics: [
-      { id: 'canais-nacionais', title: 'Criadores em Português' },
-      { id: 'canais-internacionais', title: 'Canais Internacionais em Inglês' },
-    ],
-  },
-];
+const careerTopics = getPageTopics('carreira');
 
 const sectionStageMap: Record<string, { stage: JourneyStage; label: string }> = {
   'sazonalidade-estagio': { stage: 'formando', label: 'Foco: Formando, 7º e 8º Semestres' },
   'trainee-vs-estagio': { stage: 'formando', label: 'Foco: Formando, 7º e 8º Semestres' },
+  'trilha-selecao-veteranos': { stage: 'formando', label: 'Foco: Formando, 7º e 8º Semestres' },
   'testes-tecnicos': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
   'hackathons-bootcamps': { stage: 'meio', label: 'Foco: Meio de Curso, 3º ao 6º Semestre' },
   'curriculo-latex': { stage: 'formando', label: 'Foco: Formando, 7º e 8º Semestres' },
@@ -289,6 +102,7 @@ const sectionStageMap: Record<string, { stage: JourneyStage; label: string }> = 
 const allCareerSectionIds = [
   'sazonalidade-estagio',
   'trainee-vs-estagio',
+  'trilha-selecao-veteranos',
   'testes-tecnicos',
   'hackathons-bootcamps',
   'curriculo-latex',
@@ -315,11 +129,17 @@ const allCareerSectionIds = [
 export default function CarreiraPage() {
   const { stage: journeyStage, selectStage: setJourneyStage } = useJourneyStage('all');
   const {
-    isSecondaryOpen,
-    setIsSecondaryOpen,
-    secondarySections,
-    getSectionStyle,
-  } = useSectionOrdering(journeyStage, sectionStageMap, allCareerSectionIds);
+    hasSecondarySections,
+    getSectionProps,
+    priorityHeaderProps,
+    secondaryToggleProps,
+  } = useSectionCoordinator({
+    journeyStage,
+    sections: allCareerSectionIds.map((id) => ({
+      id,
+      stage: sectionStageMap[id].stage,
+    })),
+  });
 
   const displayedTopics = journeyStage === 'all'
     ? careerTopics
@@ -381,7 +201,7 @@ export default function CarreiraPage() {
           />
 
           {journeyStage !== 'all' && (
-            <div id="trilha-prioritaria" style={{ order: 1 }}>
+            <div id="trilha-prioritaria" style={priorityHeaderProps.style}>
               <JourneyStageHeader
                 stage={journeyStage}
                 pageContext="carreira"
@@ -393,7 +213,7 @@ export default function CarreiraPage() {
           {/* Sazonalidade e Feiras de Estágio */}
           <section
             id="sazonalidade-estagio"
-            style={getSectionStyle('sazonalidade-estagio')}
+            style={getSectionProps('sazonalidade-estagio').style}
             className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['sazonalidade-estagio']?.stage === journeyStage ? styles.highlightStage : ''}`}
           >
             {renderStageBadge('sazonalidade-estagio')}
@@ -658,7 +478,7 @@ export default function CarreiraPage() {
       {/* Estágio ou Trainee ou Efetivo Júnior */}
       <section
         id="trainee-vs-estagio"
-        style={getSectionStyle('trainee-vs-estagio')}
+        style={getSectionProps('trainee-vs-estagio').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['trainee-vs-estagio']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('trainee-vs-estagio')}
@@ -751,7 +571,7 @@ export default function CarreiraPage() {
       {/* Testes Técnicos */}
       <section
         id="testes-tecnicos"
-        style={getSectionStyle('testes-tecnicos')}
+        style={getSectionProps('testes-tecnicos').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['testes-tecnicos']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('testes-tecnicos')}
@@ -883,7 +703,7 @@ export default function CarreiraPage() {
       {/* Hackathons, Bootcamps e Apple Developer Academy */}
       <section
         id="hackathons-bootcamps"
-        style={getSectionStyle('hackathons-bootcamps')}
+        style={getSectionProps('hackathons-bootcamps').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['hackathons-bootcamps']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('hackathons-bootcamps')}
@@ -1027,7 +847,7 @@ export default function CarreiraPage() {
       {/* Currículo em LaTeX */}
       <section
         id="curriculo-latex"
-        style={getSectionStyle('curriculo-latex')}
+        style={getSectionProps('curriculo-latex').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['curriculo-latex']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('curriculo-latex')}
@@ -1046,7 +866,7 @@ export default function CarreiraPage() {
       {/* Vídeo de Pitch e Entrevistas de Estágio */}
       <section
         id="entrevistas-pitch"
-        style={getSectionStyle('entrevistas-pitch')}
+        style={getSectionProps('entrevistas-pitch').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['entrevistas-pitch']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('entrevistas-pitch')}
@@ -1129,7 +949,7 @@ export default function CarreiraPage() {
       {/* GitHub e LinkedIn */}
       <section
         id="portfolio-github"
-        style={getSectionStyle('portfolio-github')}
+        style={getSectionProps('portfolio-github').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['portfolio-github']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('portfolio-github')}
@@ -1250,7 +1070,7 @@ export default function CarreiraPage() {
       {/* O Ecossistema de Empresas e Modelos de Trabalho */}
       <section
         id="empresas-mercado"
-        style={getSectionStyle('empresas-mercado')}
+        style={getSectionProps('empresas-mercado').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['empresas-mercado']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('empresas-mercado')}
@@ -1436,7 +1256,7 @@ export default function CarreiraPage() {
       {/* Vitrine de Empresas Tech e Mercado ou Pesquisa */}
       <section
         id="empresas-tech-programas"
-        style={getSectionStyle('empresas-tech-programas')}
+        style={getSectionProps('empresas-tech-programas').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['empresas-tech-programas']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('empresas-tech-programas')}
@@ -1538,7 +1358,7 @@ export default function CarreiraPage() {
       {/* Empreendedorismo, Inova Unicamp e Desafio Unicamp */}
       <section
         id="empreendedorismo-inova-desafio"
-        style={getSectionStyle('empreendedorismo-inova-desafio')}
+        style={getSectionProps('empreendedorismo-inova-desafio').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['empreendedorismo-inova-desafio']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('empreendedorismo-inova-desafio')}
@@ -1660,7 +1480,7 @@ export default function CarreiraPage() {
       {/* Estudo de Idiomas Estrangeiros em Limeira e Barão Geraldo */}
       <section
         id="idiomas-confucio-cel"
-        style={getSectionStyle('idiomas-confucio-cel')}
+        style={getSectionProps('idiomas-confucio-cel').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['idiomas-confucio-cel']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('idiomas-confucio-cel')}
@@ -1811,7 +1631,7 @@ export default function CarreiraPage() {
       {/* Trilhas e Computação em Nuvem */}
       <section
         id="computacao-nuvem"
-        style={getSectionStyle('computacao-nuvem')}
+        style={getSectionProps('computacao-nuvem').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['computacao-nuvem']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('computacao-nuvem')}
@@ -1903,7 +1723,7 @@ export default function CarreiraPage() {
       {/* Roteiros Visuais e Ideias de Projetos no Roadmap.sh */}
       <section
         id="roadmap-sh"
-        style={getSectionStyle('roadmap-sh')}
+        style={getSectionProps('roadmap-sh').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['roadmap-sh']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('roadmap-sh')}
@@ -2064,7 +1884,7 @@ export default function CarreiraPage() {
       {/* Secao de Projetos Praticos e Portfolio */}
       <section
         id="projetos-portfolio"
-        style={getSectionStyle('projetos-portfolio')}
+        style={getSectionProps('projetos-portfolio').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['projetos-portfolio']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('projetos-portfolio')}
@@ -2158,7 +1978,7 @@ export default function CarreiraPage() {
       {/* Trilhas Tecnológicas com Links Práticos */}
       <section
         id="trilhas-aprendizado"
-        style={getSectionStyle('trilhas-aprendizado')}
+        style={getSectionProps('trilhas-aprendizado').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['trilhas-aprendizado']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('trilhas-aprendizado')}
@@ -2365,7 +2185,7 @@ export default function CarreiraPage() {
       {/* DevOps e Infraestrutura */}
       <section
         id="devops-infraestrutura"
-        style={getSectionStyle('devops-infraestrutura')}
+        style={getSectionProps('devops-infraestrutura').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['devops-infraestrutura']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('devops-infraestrutura')}
@@ -2432,7 +2252,7 @@ export default function CarreiraPage() {
       {/* Trilha de Segurança da Informação */}
       <section
         id="seguranca-informacao"
-        style={getSectionStyle('seguranca-informacao')}
+        style={getSectionProps('seguranca-informacao').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['seguranca-informacao']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('seguranca-informacao')}
@@ -2530,7 +2350,7 @@ export default function CarreiraPage() {
       {/* Pesquisa Salarial 2026 */}
       <section
         id="salarios-2026-mercado"
-        style={getSectionStyle('salarios-2026-mercado')}
+        style={getSectionProps('salarios-2026-mercado').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['salarios-2026-mercado']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('salarios-2026-mercado')}
@@ -2569,7 +2389,7 @@ export default function CarreiraPage() {
       {/* Guia Completo para Trabalhar na Gringa do Brasil */}
       <section
         id="trabalhar-na-gringa"
-        style={getSectionStyle('trabalhar-na-gringa')}
+        style={getSectionProps('trabalhar-na-gringa').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['trabalhar-na-gringa']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('trabalhar-na-gringa')}
@@ -2656,7 +2476,7 @@ export default function CarreiraPage() {
       {/* BSI ou TADS com a Coordenação */}
       <section
         id="bsi-vs-tads-coordenacao"
-        style={getSectionStyle('bsi-vs-tads-coordenacao')}
+        style={getSectionProps('bsi-vs-tads-coordenacao').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['bsi-vs-tads-coordenacao']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('bsi-vs-tads-coordenacao')}
@@ -2699,7 +2519,7 @@ export default function CarreiraPage() {
       {/* O Mercado Pós-Pandemia e a Verdade sobre a IA na Programação */}
       <section
         id="mercado-ia-devs-produto"
-        style={getSectionStyle('mercado-ia-devs-produto')}
+        style={getSectionProps('mercado-ia-devs-produto').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['mercado-ia-devs-produto']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('mercado-ia-devs-produto')}
@@ -2777,7 +2597,7 @@ export default function CarreiraPage() {
       {/* Carreira em Y: Especialista ou Gestor */}
       <section
         id="carreira-em-y-lideranca"
-        style={getSectionStyle('carreira-em-y-lideranca')}
+        style={getSectionProps('carreira-em-y-lideranca').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['carreira-em-y-lideranca']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('carreira-em-y-lideranca')}
@@ -2902,7 +2722,7 @@ export default function CarreiraPage() {
       {/* Canais Recomendados */}
       <section
         id="canais-recomendados"
-        style={getSectionStyle('canais-recomendados')}
+        style={getSectionProps('canais-recomendados').style}
         className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['canais-recomendados']?.stage === journeyStage ? styles.highlightStage : ''}`}
       >
         {renderStageBadge('canais-recomendados')}
@@ -3178,11 +2998,33 @@ export default function CarreiraPage() {
         </div>
       </section>
 
-      {journeyStage !== 'all' && secondarySections.length > 0 && (
+      {/* Trilha de Fases de Selecao e Rede de Veteranos */}
+      <section
+        id="trilha-selecao-veteranos"
+        style={getSectionProps('trilha-selecao-veteranos').style}
+        className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['trilha-selecao-veteranos']?.stage === journeyStage ? styles.highlightStage : ''}`}
+      >
+        {renderStageBadge('trilha-selecao-veteranos')}
+        <div className={styles.blockCard}>
+          <div className={styles.cardHeader}>
+            <Users size={22} className={styles.headerIcon} />
+            <div>
+              <h2 className={styles.cardTitle}>Fases do Processo Seletivo e Rede de Veteranos</h2>
+              <p className={styles.cardSubtitle}>
+                Entenda a trilha cronologica de etapas de selecao e conecte-se com egressos da FT que ja atuam nas empresas
+              </p>
+            </div>
+          </div>
+
+          <SelectionJourneyTrail stages={selectionJourneyData} veterans={veteransNetworkData} />
+        </div>
+      </section>
+
+      {journeyStage !== 'all' && hasSecondarySections && (
         <SecondarySectionsToggle
-          isOpen={isSecondaryOpen}
-          onToggle={() => setIsSecondaryOpen(!isSecondaryOpen)}
-          count={secondarySections.length}
+          isOpen={secondaryToggleProps.isOpen}
+          onToggle={secondaryToggleProps.onToggle}
+          count={secondaryToggleProps.count}
           title="Demais Tópicos de Carreira"
           subtitle="Conteúdos profissionais voltados para outros momentos da formação"
         />

@@ -4,6 +4,7 @@ import path from 'path';
 import { linksData } from '../data/links';
 import { courseComparisonData, graduationChecklistData, padComparisonData } from '../data/academic';
 import { organizationsData } from '../data/organizations';
+import { localPartnersData } from '../data/localPartners';
 import { geminiSyllabusPrompt } from '../data/prompts';
 import { searchIndex } from '../data/searchIndex';
 import { faqData } from '../data/faq';
@@ -12,6 +13,14 @@ import { versionsData } from '../data/versions';
 import { academicMilestonesData, canonicalAcademicResources } from '../data/academicCalendar';
 import { PROJECT_SUPPORT_EMAIL, PROJECT_CONTRIBUTING_URL } from '../data/contacts';
 import { audienceProfiles } from '../data/audienceProfiles';
+import { welcomeQuizSteps } from '../data/welcomeQuiz';
+import { buildRecommendation } from '../lib/quizRecommendation';
+import {
+  CourseId,
+  JourneyStage,
+  StudentPriority,
+  StudentAvailability,
+} from '../types/studentProfile';
 
 describe('Conformidade com ADR 0001: Ausência de Travessão, Parênteses e Emojis', () => {
   const forbiddenPunctuation = /[—–]/;
@@ -67,6 +76,35 @@ describe('Conformidade com ADR 0001: Ausência de Travessão, Parênteses e Emoj
       expect(org.description).not.toMatch(parenthesesPattern);
       expect(org.categoryLabel).not.toMatch(forbiddenPunctuation);
       expect(org.categoryLabel).not.toMatch(parenthesesPattern);
+      if (org.recruitmentPeriod) {
+        expect(org.recruitmentPeriod).not.toMatch(forbiddenPunctuation);
+        expect(org.recruitmentPeriod).not.toMatch(parenthesesPattern);
+        expect(org.recruitmentPeriod).not.toMatch(emojiPattern);
+      }
+    });
+  });
+
+  it('textos de parceiros locais não devem violar o ADR 0001', () => {
+    localPartnersData.forEach((partner) => {
+      expect(partner.name).not.toMatch(forbiddenPunctuation);
+      expect(partner.name).not.toMatch(parenthesesPattern);
+      expect(partner.name).not.toMatch(emojiPattern);
+
+      expect(partner.categoryLabel).not.toMatch(forbiddenPunctuation);
+      expect(partner.categoryLabel).not.toMatch(parenthesesPattern);
+      expect(partner.categoryLabel).not.toMatch(emojiPattern);
+
+      expect(partner.description).not.toMatch(forbiddenPunctuation);
+      expect(partner.description).not.toMatch(parenthesesPattern);
+      expect(partner.description).not.toMatch(emojiPattern);
+
+      expect(partner.studentBenefit).not.toMatch(forbiddenPunctuation);
+      expect(partner.studentBenefit).not.toMatch(parenthesesPattern);
+      expect(partner.studentBenefit).not.toMatch(emojiPattern);
+
+      expect(partner.referenceAddress).not.toMatch(forbiddenPunctuation);
+      expect(partner.referenceAddress).not.toMatch(parenthesesPattern);
+      expect(partner.referenceAddress).not.toMatch(emojiPattern);
     });
   });
 
@@ -264,6 +302,65 @@ describe('Conformidade com ADR 0001: Ausência de Travessão, Parênteses e Emoj
     expect(PROJECT_CONTRIBUTING_URL).not.toMatch(parenthesesPattern);
     expect(PROJECT_CONTRIBUTING_URL).not.toMatch(emojiPattern);
   });
+
+  it('textos do quiz de boas vindas nao devem violar o ADR 0001', () => {
+    welcomeQuizSteps.forEach((step) => {
+      expect(step.title).not.toMatch(forbiddenPunctuation);
+      expect(step.title).not.toMatch(parenthesesPattern);
+      expect(step.title).not.toMatch(emojiPattern);
+
+      expect(step.question).not.toMatch(forbiddenPunctuation);
+      expect(step.question).not.toMatch(parenthesesPattern);
+      expect(step.question).not.toMatch(emojiPattern);
+
+      step.options.forEach((option) => {
+        expect(option.label).not.toMatch(forbiddenPunctuation);
+        expect(option.label).not.toMatch(parenthesesPattern);
+        expect(option.label).not.toMatch(emojiPattern);
+
+        expect(option.description).not.toMatch(forbiddenPunctuation);
+        expect(option.description).not.toMatch(parenthesesPattern);
+        expect(option.description).not.toMatch(emojiPattern);
+      });
+    });
+  });
+
+  it('mensagens de recomendacao do quiz nao devem violar o ADR 0001', () => {
+    const courses: CourseId[] = ['bsi', 'tads'];
+    const stages: JourneyStage[] = ['calouro', 'meio', 'formando'];
+    const priorities: StudentPriority[] = ['mercado', 'pesquisa', 'empreendedorismo', 'cicloBasico'];
+    const availabilities: StudentAvailability[] = ['baixa', 'media', 'alta'];
+
+    courses.forEach((course) => {
+      stages.forEach((stage) => {
+        priorities.forEach((priority) => {
+          availabilities.forEach((availability) => {
+            const rec = buildRecommendation({ course, stage, priority, availability });
+
+            rec.sections.forEach((section) => {
+              expect(section.label).not.toMatch(forbiddenPunctuation);
+              expect(section.label).not.toMatch(parenthesesPattern);
+              expect(section.label).not.toMatch(emojiPattern);
+
+              expect(section.reason).not.toMatch(forbiddenPunctuation);
+              expect(section.reason).not.toMatch(parenthesesPattern);
+              expect(section.reason).not.toMatch(emojiPattern);
+            });
+
+            rec.pitfalls.forEach((pitfall) => {
+              expect(pitfall).not.toMatch(forbiddenPunctuation);
+              expect(pitfall).not.toMatch(parenthesesPattern);
+              expect(pitfall).not.toMatch(emojiPattern);
+            });
+
+            expect(rec.balanceMessage).not.toMatch(forbiddenPunctuation);
+            expect(rec.balanceMessage).not.toMatch(parenthesesPattern);
+            expect(rec.balanceMessage).not.toMatch(emojiPattern);
+          });
+        });
+      });
+    });
+  });
 });
 
 describe('Conformidade com ADR 0004: Desacoplamento de Informações Voláteis', () => {
@@ -301,6 +398,21 @@ describe('Conformidade com ADR 0004: Desacoplamento de Informações Voláteis',
       const url = new URL(link.url);
       const isOfficial = canonicalDomains.some((d) => url.hostname.endsWith(d));
       expect(isOfficial).toBe(true);
+    });
+  });
+
+  it('cada parceiro local deve expor um link canonico valido sem dados volateis', () => {
+    const volatilePattern = /R\$|reais|cardapio|cardápio|%/i;
+    localPartnersData.forEach((partner) => {
+      const url = new URL(partner.officialUrl);
+      expect(url.protocol).toBe('https:');
+      const isCanonical =
+        url.hostname === 'wa.me' ||
+        url.hostname === 'api.whatsapp.com' ||
+        /\.[a-z]{2,}$/i.test(url.hostname);
+      expect(isCanonical).toBe(true);
+      expect(partner.description).not.toMatch(volatilePattern);
+      expect(partner.studentBenefit).not.toMatch(volatilePattern);
     });
   });
 
