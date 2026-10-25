@@ -34,6 +34,8 @@ import {
   Store,
 } from 'lucide-react';
 import { DocSidebar } from '@/components/DocSidebar/DocSidebar';
+import { CardGrid } from '@/components/CardGrid/CardGrid';
+import { InfoCard } from '@/components/InfoCard/InfoCard';
 import { getPageTopics } from '@/data/contentCatalog';
 import { PartnerShowcase } from '@/components/PartnerShowcase/PartnerShowcase';
 import { useClipboardCopy } from '@/hooks/useClipboardCopy';
@@ -622,34 +624,37 @@ export default function CalourosPage() {
                 </div>
               </div>
 
-              <div id="classroom-google-dac" className={styles.rulesGrid}>
-                <div className={styles.ruleCard}>
-                  <h3 className={styles.ruleTitle}>Moodle Unicamp</h3>
-                  <p className={styles.ruleText}>
-                    Ambiente virtual padrão da universidade. Cada matéria cursada no semestre ganha uma página onde os professores disponibilizam cronogramas, PDFs de aulas e fóruns de dúvidas.
-                  </p>
-                </div>
-
-                <div className={styles.ruleCard}>
-                  <h3 className={styles.ruleTitle}>Google Sala de Aula</h3>
-                  <p className={styles.ruleText}>
-                    Alguns professores adotam turmas no Google Classroom integrado ao e-mail institucional para envio de listas de exercícios, controle de entregas e avisos rápidos.
-                  </p>
-                </div>
-
-                <div className={styles.ruleCard}>
-                  <h3 className={styles.ruleTitle}>Acesso com Conta DAC</h3>
-                  <p className={styles.ruleText}>
-                    O login é sempre feito com seu usuário e senha institucional. Suas turmas são sincronizadas automaticamente após a confirmação da matrícula pela secretaria da faculdade.
-                  </p>
-                </div>
-
-                <div className={styles.ruleCard}>
-                  <h3 className={styles.ruleTitle}>Estudo Estruturado com IA</h3>
-                  <p className={styles.ruleText}>
-                    Você pode conectar as apostilas e ementas baixadas do Moodle ao Google NotebookLM para sintetizar leituras longas, gerar cartões de memorização e criar simulados pré-prova.
-                  </p>
-                </div>
+              <div id="classroom-google-dac">
+                <CardGrid>
+                  <InfoCard
+                    title="Moodle Unicamp"
+                    headingLevel="h3"
+                    body="Ambiente virtual padrão da universidade para o conteúdo das aulas."
+                    detail="Cada matéria cursada no semestre ganha uma página onde os professores disponibilizam cronogramas, PDFs de aulas e fóruns de dúvidas."
+                    detailLabel="Ver como o Moodle organiza as matérias"
+                  />
+                  <InfoCard
+                    title="Google Sala de Aula"
+                    headingLevel="h3"
+                    body="Plataforma adotada por alguns professores integrada ao e-mail institucional."
+                    detail="Serve para envio de listas de exercícios, controle de entregas e avisos rápidos aos estudantes da turma."
+                    detailLabel="Ver uso do Google Sala de Aula"
+                  />
+                  <InfoCard
+                    title="Acesso com Conta DAC"
+                    headingLevel="h3"
+                    body="O login é sempre feito com seu usuário e senha institucional."
+                    detail="Suas turmas são sincronizadas automaticamente após a confirmação da matrícula pela secretaria da faculdade."
+                    detailLabel="Ver como funciona a sincronizacao de turmas"
+                  />
+                  <InfoCard
+                    title="Estudo Estruturado com IA"
+                    headingLevel="h3"
+                    body="Conecte as apostilas e ementas baixadas do Moodle ao Google NotebookLM."
+                    detail="Assim você sintetiza leituras longas, gera cartões de memorização e cria simulados pré-prova a partir do próprio material da disciplina."
+                    detailLabel="Ver estudo estruturado com IA"
+                  />
+                </CardGrid>
               </div>
 
               {/* Automação: Planos de Desenvolvimento no Google Calendar */}

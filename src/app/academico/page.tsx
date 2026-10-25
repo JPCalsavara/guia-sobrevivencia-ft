@@ -2,7 +2,9 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { TableBsiTads } from '@/components/TableBsiTads/TableBsiTads';
+import { BsiTadsModule } from '@/components/BsiTadsModule/BsiTadsModule';
+import { CardGrid } from '@/components/CardGrid/CardGrid';
+import { InfoCard } from '@/components/InfoCard/InfoCard';
 import { CurriculumGrids } from '@/components/CurriculumGrids/CurriculumGrids';
 import { ChecklistFormatura } from '@/components/ChecklistFormatura/ChecklistFormatura';
 import { AcademicCalendar } from '@/components/AcademicCalendar/AcademicCalendar';
@@ -243,7 +245,7 @@ export default function AcademicoPage() {
             className={`${styles.sectionBlock} ${journeyStage !== 'all' && sectionStageMap['bsi-vs-tads']?.stage === journeyStage ? styles.highlightStage : ''}`}
           >
             {renderStageBadge('bsi-vs-tads')}
-            <TableBsiTads />
+            <BsiTadsModule variant="academico" />
             <div id="grade-curricular" style={{ marginTop: '2.5rem' }}>
               <CurriculumGrids />
             </div>
@@ -309,17 +311,29 @@ export default function AcademicoPage() {
             <p className={styles.eletivasDesc}>
               Para integralizar sua graduação, o cumprimento de créditos eletivos divide-se em blocos com finalidades pedagógicas distintas:
             </p>
-            <ul className={styles.eletivasList}>
-              <li>
-                <strong>Eletivas de Bloco Específico:</strong> Disciplinas vinculadas a eixos formativos obrigatórios definidos pelo curso, abrangendo o bloco de Trabalho de Conclusão de Curso como SI912 e SI913, e o bloco de Estágio Supervisionado como SI916 em BSI ou SI917 em TADS.
-              </li>
-              <li>
-                <strong>Eletivas Livres em Qualquer Unidade da Unicamp:</strong> Matérias regulares cursadas em faculdades e institutos da Unicamp, como na FCA em Limeira, nos institutos de Barão Geraldo ou no Centro de Ensino de Línguas CEL. Devem obrigatoriamente possuir aulas teóricas ou práticas, controle de frequência e provas formais, não sendo permitido validar estágio corporativo nem atividades complementares nessa cota.
-              </li>
-              <li>
-                <strong>Disciplinas Extracurriculares Marcadas com X:</strong> Disciplinas cursadas após o preenchimento total das cotas de eletivas exigidas pelo catálogo. Elas são identificadas com a letra X na tela de integralização do e-DAC e não alteram a carga da grade regular, podendo ser aproveitadas para cumprimento de Atividades Complementares ou Atividades Complementares de Extensão caso tenham carga horária extensionista associada.
-              </li>
-            </ul>
+            <CardGrid>
+              <InfoCard
+                title="Eletivas de Bloco Específico"
+                headingLevel="h4"
+                body="Disciplinas vinculadas a eixos formativos obrigatórios definidos pelo curso."
+                detail="Abrangem o bloco de Trabalho de Conclusão de Curso como SI912 e SI913, e o bloco de Estágio Supervisionado como SI916 em BSI ou SI917 em TADS."
+                detailLabel="Ver detalhes do bloco específico"
+              />
+              <InfoCard
+                title="Eletivas Livres em Qualquer Unidade da Unicamp"
+                headingLevel="h4"
+                body="Matérias regulares cursadas em faculdades e institutos da Unicamp, como na FCA em Limeira, nos institutos de Barão Geraldo ou no Centro de Ensino de Línguas CEL."
+                detail="Devem obrigatoriamente possuir aulas teóricas ou práticas, controle de frequência e provas formais, não sendo permitido validar estágio corporativo nem atividades complementares nessa cota."
+                detailLabel="Ver regras das eletivas livres"
+              />
+              <InfoCard
+                title="Disciplinas Extracurriculares Marcadas com X"
+                headingLevel="h4"
+                body="Disciplinas cursadas após o preenchimento total das cotas de eletivas exigidas pelo catálogo."
+                detail="Elas são identificadas com a letra X na tela de integralização do e-DAC e não alteram a carga da grade regular, podendo ser aproveitadas para cumprimento de Atividades Complementares ou Atividades Complementares de Extensão caso tenham carga horária extensionista associada."
+                detailLabel="Ver uso das disciplinas marcadas com X"
+              />
+            </CardGrid>
 
             <div className={styles.gradeLinkBox}>
               <div>

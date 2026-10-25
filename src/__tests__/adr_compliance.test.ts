@@ -12,6 +12,7 @@ import { headerNavSections } from '../data/headerTopics';
 import { versionsData } from '../data/versions';
 import { academicMilestonesData, canonicalAcademicResources } from '../data/academicCalendar';
 import { PROJECT_SUPPORT_EMAIL, PROJECT_CONTRIBUTING_URL } from '../data/contacts';
+import { audienceProfiles } from '../data/audienceProfiles';
 import { welcomeQuizSteps } from '../data/welcomeQuiz';
 import { buildRecommendation } from '../lib/quizRecommendation';
 import {
@@ -270,6 +271,24 @@ describe('Conformidade com ADR 0001: Ausência de Travessão, Parênteses e Emoj
         expect(h).not.toMatch(forbiddenPunctuation);
         expect(h).not.toMatch(parenthesesPattern);
         expect(h).not.toMatch(emojiPattern);
+      });
+    });
+  });
+
+  it('textos de audienceProfiles nao devem violar o ADR 0001', () => {
+    audienceProfiles.forEach((profile) => {
+      expect(profile.label).not.toMatch(forbiddenPunctuation);
+      expect(profile.label).not.toMatch(parenthesesPattern);
+      expect(profile.label).not.toMatch(emojiPattern);
+
+      expect(profile.summary).not.toMatch(forbiddenPunctuation);
+      expect(profile.summary).not.toMatch(parenthesesPattern);
+      expect(profile.summary).not.toMatch(emojiPattern);
+
+      profile.anchors.forEach((anchor) => {
+        expect(anchor.title).not.toMatch(forbiddenPunctuation);
+        expect(anchor.title).not.toMatch(parenthesesPattern);
+        expect(anchor.title).not.toMatch(emojiPattern);
       });
     });
   });
